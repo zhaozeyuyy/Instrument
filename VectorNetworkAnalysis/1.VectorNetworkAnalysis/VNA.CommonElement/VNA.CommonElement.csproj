@@ -43,8 +43,11 @@
   <ItemGroup>
     <Compile Include="InterfaceModel\IChannelManagerMode.cs" />
     <Compile Include="InterfaceModel\IChannelModel.cs" />
+    <Compile Include="InterfaceModel\IDiagramManagerMode.cs" />
     <Compile Include="InterfaceModel\IDiagramMode.cs" />
     <Compile Include="InterfaceModel\IMarkerMode.cs" />
+    <Compile Include="InterfaceModel\IProperty.cs" />
+    <Compile Include="InterfaceModel\IPropertyManager.cs" />
     <Compile Include="InterfaceModel\ITraceManagerMode.cs" />
     <Compile Include="InterfaceModel\ITraceMode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

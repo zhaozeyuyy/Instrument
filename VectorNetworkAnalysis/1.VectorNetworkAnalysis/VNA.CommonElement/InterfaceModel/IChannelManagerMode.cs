@@ -17,6 +17,17 @@ namespace VNA.CommonElement
 {
     public interface IChannelManagerMode
     {
+        #region 参数
+
+        /// <summary>
+        /// 默认通道的索引 可以没有，为-1
+        /// </summary>
+        int CurrActiveChanIndex { get; set; }
+
+        #endregion
+
+        #region 方法
+
         /// <summary>
         /// 通过通道索引获取指定通道
         /// </summary>
@@ -55,5 +66,6 @@ namespace VNA.CommonElement
         /// <param name="chanIndex">通道索引</param>
         /// <returns></returns>
         bool DeleteChannelByIndex(int chanIndex);
+        #endregion
     }
 }

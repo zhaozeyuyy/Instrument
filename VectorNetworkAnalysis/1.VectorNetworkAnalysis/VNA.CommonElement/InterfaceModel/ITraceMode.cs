@@ -16,6 +16,7 @@ namespace VNA.CommonElement
 {
     public interface ITraceMode
     {
+        #region 参数
         /// <summary>
         /// 曲线索引
         /// </summary>
@@ -30,5 +31,9 @@ namespace VNA.CommonElement
         /// 所属图表的索引
         /// </summary>
         int DiagIndex { get; set; }
+        #endregion
+
+        #region 方法
+        #endregion
     }
 }

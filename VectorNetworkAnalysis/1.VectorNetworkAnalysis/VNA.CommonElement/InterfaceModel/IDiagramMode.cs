@@ -17,9 +17,16 @@ namespace VNA.CommonElement
 {
     public interface IDiagramMode
     {
+        #region 参数
+
         /// <summary>
         /// 曲线索引
         /// </summary>
         int DiagIndex { get; set; }
+        #endregion
+
+        #region 方法
+
+        #endregion
     }
 }

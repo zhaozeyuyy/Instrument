@@ -17,6 +17,7 @@ namespace VNA.CommonElement
 {
     public interface IMarkerModel
     {
+        #region 参数
         /// <summary>
         /// marker的索引
         /// </summary>
@@ -26,5 +27,9 @@ namespace VNA.CommonElement
         /// marker所属曲线索引
         /// </summary>
         int TrcIndex { get; set; }
+        #endregion
+
+        #region 方法
+        #endregion
     }
 }

@@ -17,6 +17,16 @@ namespace VNA.CommonElement
 {
     public interface ITraceManagerMode
     {
+        #region 参数
+        /// <summary>
+        /// 默认迹线的索引 可以没有，为-1
+        /// </summary>
+        int CurrActiveTrcIndex { get; set; }
+
+        #endregion
+
+        #region 方法
+
         /// <summary>
         /// 通过曲线索引得到曲线
         /// </summary>
@@ -55,5 +65,7 @@ namespace VNA.CommonElement
         /// <param name="trcIndex"></param>
         /// <returns></returns>
         bool DeleteTraceByIndex(int trcIndex);
+
+        #endregion
     }
 }

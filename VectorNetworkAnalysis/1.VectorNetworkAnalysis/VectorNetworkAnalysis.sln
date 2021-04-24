@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNA.Measure", "VNA.Measure\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNA.Driver", "VNA.Driver\VNA.Driver.csproj", "{71E25AB8-5458-4B7D-92A2-A04B1BCEADBB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNA.CommonElement", "VNA.CommonElement\VNA.CommonElement.csproj", "{1D9D1541-3C07-4D91-998C-6F0BB4D92D62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,14 @@ Global
 		{71E25AB8-5458-4B7D-92A2-A04B1BCEADBB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{71E25AB8-5458-4B7D-92A2-A04B1BCEADBB}.Release|x64.ActiveCfg = Release|Any CPU
 		{71E25AB8-5458-4B7D-92A2-A04B1BCEADBB}.Release|x64.Build.0 = Release|Any CPU
+		{1D9D1541-3C07-4D91-998C-6F0BB4D92D62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D9D1541-3C07-4D91-998C-6F0BB4D92D62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D9D1541-3C07-4D91-998C-6F0BB4D92D62}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1D9D1541-3C07-4D91-998C-6F0BB4D92D62}.Debug|x64.Build.0 = Debug|Any CPU
+		{1D9D1541-3C07-4D91-998C-6F0BB4D92D62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D9D1541-3C07-4D91-998C-6F0BB4D92D62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D9D1541-3C07-4D91-998C-6F0BB4D92D62}.Release|x64.ActiveCfg = Release|Any CPU
+		{1D9D1541-3C07-4D91-998C-6F0BB4D92D62}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

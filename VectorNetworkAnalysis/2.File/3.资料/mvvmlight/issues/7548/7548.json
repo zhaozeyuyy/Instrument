@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T07:12:30.267-07:00",
+    "CommentCount": 5,
+    "Custom": null,
+    "Description": "Since the change to RelayCommand classes no longer using CommandManager, it would be convenient if there was a CommandBase class where both RelayCommand and RelayCommand<T> both inherit.  This allows one to create a \"PropertyObserver\" on properties which effect a command's CanExecute.\r\n\r\nWith this, one can create a single List<CommandBase> and call RaiseCanExecuteChanged on all items (rather than creating a List<RelayCommand>, List<RelayCommand<T>>, List<RelayCommand<U>>, etc).\r\n\r\nNote: this change is backwards compatible (unless someone is doing some really funky stuff with RelayCommands and reflection).\r\n\r\nCreate CommandBase class which implements ICommand.\r\nAbstract Execute and CanExecute (to RelayCommand classes).\r\nChange RelayCommand classes to inherit CommandBase\r\nMerge RaiseCanExecuteChanged() from RelayCommand classes into CommandBase.\r\nChange RelayCommand classes' Execute and CanExecute signatures to add \"override\" keyword.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-10-09T19:49:37.31-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Won't fix"
+    },
+    "Summary": "Create CommandBase Class",
+    "Type": {
+      "Name": "Task",
+      "Id": 2
+    },
+    "VoteCount": 3,
+    "Id": 7548
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "If all you are looking for is access to RaiseCanExecuteChanged, it would be even easier to make an interface IRelayComand.  \nMake IRelayCommand implement ICommand\nAdd method RaiseCanExecuteChanged to IRelayCommand\nChange RelayCommand and RelayCommand<T> to implement IRelayCommand instead of ICommand",
+      "PostedDate": "2011-10-11T14:07:01.013-07:00",
+      "Id": 46704
+    },
+    {
+      "Message": "Good idea cadrell0.  However, I would counter that they are due for a base class anyways.  They have near the same functionality and signatures.  Also, this would be a convenience for those that don't want to include the source in their projects and only the actual DLL(s).",
+      "PostedDate": "2011-10-19T17:52:44.063-07:00",
+      "Id": 47361
+    },
+    {
+      "Message": "Hi,\n\nIt's a good point, however I might need to rethink the usage of the CommandManager in WPF. Some people were complaining about having to manually raise the CanExecuteChanged event. I am going to put that one on hold for the moment.\n\nCheers,\nLaurent",
+      "PostedDate": "2011-10-23T08:25:29.777-07:00",
+      "Id": 47574
+    },
+    {
+      "Message": "One thing I had done was add new classes called AutoCommand and AutoCommand<T>, which use the CommandManager.  That was a quick-fix.  My longer-term fix used a combination of CommandBase, hooking into PropertyChanged, and property dependencies.",
+      "PostedDate": "2011-11-08T09:52:10.37-08:00",
+      "Id": 48586
+    },
+    {
+      "Message": "Hi,\n\nAfter a discussion on the WPF Disciples' mailing list, I am thinking of implementing something like a strategy pattern, where using the CommandManager would be the default strategy (but that leaves the possibility to use the Silverlight way, without the CommandManager). Hope to be able to do that in the next release.\n\nCheers,\nLaurent",
+      "PostedDate": "2011-11-20T12:13:54.657-08:00",
+      "Id": 49275
+    }
+  ]
+}

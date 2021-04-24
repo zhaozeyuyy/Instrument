@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1059894",
+    "ThreadId": "447886",
+    "Html": "When I tried to use nuget to install Portable mvvm in vs.net 2012, i got this error\r<br />\nDid anyone know how to resolve it?<br />\n",
+    "PostedDate": "2013-06-22T08:02:23.827-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1059896",
+    "ThreadId": "447886",
+    "Html": "after I upgrade Nuget, I got a different issue\r<br />\n<br />\nCould not install package 'Portable.MvvmLightLibs 4.1.27.5'. You are trying to install this package into a project that targets 'portable-win+net45+sl40+wp', but the package does not contain any assembly references or content files that are compatible with that framework. For more information, contact the package author.<br />\n",
+    "PostedDate": "2013-06-22T08:07:49.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1059897",
+    "ThreadId": "447886",
+    "Html": "never mind, I got this working, after changing windows phone 7 and higher to Windows phone 8 in targetted platform for portable project<br />\n",
+    "PostedDate": "2013-06-22T08:12:31.003-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

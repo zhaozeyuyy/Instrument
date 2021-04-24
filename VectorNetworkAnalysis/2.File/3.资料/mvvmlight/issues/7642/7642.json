@@ -1,0 +1,56 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-06-04T23:44:34.017-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "VS 2010\r\nProject Type: WPF\r\nTarget framework: .NET Framework4\r\nMicrosoft.Practices.ServiceLocation: Version=1.2.0.0, Runtime Version=v4.0.30319\r\n\r\nI install mvvmlight from NuGet Package Manager Console with cmd \"Install-Package MvvmLight\".\r\n```\r\n<Application \r\n    x:Class=\"MyApp1.App\" \r\n    xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\" \r\n    xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\" \r\n    xmlns:vm=\"clr-namespace:MyApp1.ViewModel\"\r\n    StartupUri=\"MainWindow.xaml\" \r\n    xmlns:d=\"http://schemas.microsoft.com/expression/blend/2008\" \r\n    d1p1:Ignorable=\"d\" \r\n    xmlns:d1p1=\"http://schemas.openxmlformats.org/markup-compatibility/2006\">\r\n    <Application.Resources>\r\n        <vm:ViewModelLocator x:Key=\"Locator\" d:IsDataSource=\"True\"  />\r\n    </Application.Resources>\r\n</Application>\r\n```\r\n\r\n<vm:ViewModelLocator x:Key=\"Locator\" d:IsDataSource=\"True\"  /> hints that \"cannot create an instance of 'ViewModelLocator'\". See img \"QQ截图20140605094646.png\".\r\n\r\nIn \"MainWindow.xaml\" hints that:\r\nCould not load file or assembly 'Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. 系统找不到指定的文件。\r\n   at MyApp1.ViewModel.ViewModelLocator..ctor()\r\nSee img \"QQ截图20140605095313.png\".\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-06-04T18:49:31.48-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Cannot repro"
+    },
+    "Summary": "cannot create an instance of viewmodellocator",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7642
+  },
+  "FileAttachments": [
+    {
+      "FileId": 856518,
+      "FileName": "QQ截图20140605094646.png",
+      "DownloadUrl": ".\\856518"
+    },
+    {
+      "FileId": 856519,
+      "FileName": "QQ截图20140605095313.png",
+      "DownloadUrl": ".\\856519"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nI tried to repro this but I was unable. Creating a new WPF4 app in VS10 with the MVVM Light package V4.2.30 works fine.\n\nI noticed a version conflict in the report above. MVVM Light V4.2.30 uses Microsoft.Practices.ServiceLocation V1.2 but the error you are showing mention V1.0. You might have an old reference lingering somewhere that needs to be cleaned up.\n\nThe ViewModelLocator error is just the top error that is surfaced by VS. It is the symptom that something else is happening below. Do you maybe have another module that references Microsoft.Practices.ServiceLocation V1.0? If you do, you will need to upgrade that module to Microsoft.Practices.ServiceLocation V1.2 which is the latest.\n\nThanks\nLaurent",
+      "PostedDate": "2014-06-04T23:44:03.583-07:00",
+      "Id": 148890
+    }
+  ]
+}

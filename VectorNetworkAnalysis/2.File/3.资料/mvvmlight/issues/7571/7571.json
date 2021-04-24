@@ -1,0 +1,61 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Never got a reply if that reproes in Win8 RP or RTM. Probably fixed.",
+    "ClosedDate": "2012-10-21T14:39:02.43-07:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "I develop a win 8 app. This is I noticed that the design data be not displayed. I've attached a demo project to demonstrate the behavior. I could reproduce the behavior several times.\r\n\r\nIssue 1:\r\n\r\n1. Open DesignDataIssue Project with VS 11\r\n2. If not, then open SettingPage.xaml design view -> PageTitle: \"Setting Title\" is visible\r\n3. Build Solution -> PageTitle is no longer visible and Error \"Object does not match target type.\" is displayed (DataContext=\"{Binding Setting, Source={StaticResource Locator}}\")\r\n4. Close and reopen SettingPage.xaml -> PageTitle: \"Setting Title\" is again visible\r\n5. Rebuild Solution -> PageTitle: \"Setting Title\" remains visible\r\n\r\nIssue 2:\r\n\r\n1. Open SettingViewModel.cs and comment out the constructor \"public SettingViewModel(INavigationService navigationService, ISettingService settingService)\". Uncomment the constructor with resourceservice argument \"public SettingViewModel(INavigationService navigationService, ISettingService settingService, IResourceService resourceService)\"\r\n2. Build Solution -> PageTitle is not visible and Error \"Das Gerät ist nicht bereit. (Exception from HRESULT: 0x80070015)\" is displayed (DataContext=\"{Binding Setting, Source={StaticResource Locator}}\")\r\n3. No Solution found! ",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4.1",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-05-25T02:20:07.75-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Design Data Issue in MVVM Light V4b1 for Windows 8 Consumer Preview",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7571
+  },
+  "FileAttachments": [
+    {
+      "FileId": 382813,
+      "FileName": "DesignDataIssue.zip",
+      "DownloadUrl": ".\\382813"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nDo you have the issue in Windows 8 RP still? If yes, please update the sample and I will look at it. Right now I am getting quite a lot of errors when trying to port the sample to Win8 RP.\n\nThanks,\nLaurent",
+      "PostedDate": "2012-07-18T06:20:32.587-07:00",
+      "Id": 70376
+    },
+    {
+      "Message": "Was there ever a fix for this?  I have multiple projects that are being affected by it.  I'm running VS2013, Windows 8.1.",
+      "PostedDate": "2014-02-15T10:03:33.037-08:00",
+      "Id": 133660
+    },
+    {
+      "Message": "This is not a fix but I'm putting it here in case it helps anyone.  Moving the DataContext assignment out of a resources child XML element to an attribute of the Page element seems to have helped.  In other words, I changed from this:\n\n<Page.DataContext>\n    <Binding Mode=\"OneWay\" Path=\"Main\" Source=\"{StaticResource Locator}\"/>\n</Page.DataContext>\n\nTo this:\n\n<Page\n    x:Name=\"pageRoot\"\n    x:Class=\"RecNote.Pages.Help\"\n    xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\"\n    xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\"\n    xmlns:d=\"http://schemas.microsoft.com/expression/blend/2008\"\n    xmlns:mc=\"http://schemas.openxmlformats.org/markup-compatibility/2006\"\n    mc:Ignorable=\"d\"\n    DataContext=\"{Binding Mode=OneWay, Path=Main, Source={StaticResource Locator}}\" \n>\n\nAnd I could see my design data, no longer got the consistency check Exception in the design editor, and no longer got the compiler warning \"object type does not match target type\".  I have no idea why this helps.",
+      "PostedDate": "2014-02-15T10:55:27.097-08:00",
+      "Id": 133661
+    }
+  ]
+}

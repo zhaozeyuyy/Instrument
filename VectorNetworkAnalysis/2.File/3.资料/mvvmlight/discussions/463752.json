@@ -1,0 +1,186 @@
+[
+  {
+    "Id": "1112577",
+    "ThreadId": "463752",
+    "Html": "Hi gang,<br />\n<br />\nWhen I updated my Windows Store project (Halfwit) to the latest Portable.MvvmLightLibs, I was suddenly unable to build. Trying to compile the project would yield an error in the &quot;Errors&quot; windows which simply said &quot;Object reference not set to an instance of an object&quot; with no other details.<br />\n<br />\nI turned on diagnostic logging for MSBuild, and found this in the output:<br />\n<br />\n1&gt;  Dependency &quot;mscorlib, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e, Retargetable=Yes&quot;. (TaskId:9)<br />\n1&gt;      Could not resolve this reference. Could not locate the assembly &quot;mscorlib, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e, Retargetable=Yes&quot;. Check to make sure the assembly exists on disk. If this reference is required by your code, you may get compilation errors. (TaskId:9)<br />\n<br />\n.... and at the bottom of the error section:<br />\n<br />\n1&gt;      Required by &quot;GalaSoft.MvvmLight&quot;. (TaskId:9)<br />\n<br />\nI did some Googling and eventually found this:<br />\n<br />\n<a href=\"https://connect.microsoft.com/VisualStudio/feedback/details/779370/vs2012-incorrectly-resolves-mscorlib-version-when-referencing-pcl-assembly\" rel=\"nofollow\">https://connect.microsoft.com/VisualStudio/feedback/details/779370/vs2012-incorrectly-resolves-mscorlib-version-when-referencing-pcl-assembly</a><br />\n<br />\nIt seems like a known bug with some PCL packages.<br />\n<br />\nI ended up removing the reference to the latest version and using the Package Manager Console to install version 4.1.27.6 manually. Now everything builds just fine.<br />\n<br />\nLet me know if I can be of any extra help in tracking down this issue!<br />\n<br />\nCheers,<br />\nMatt<br />\n",
+    "PostedDate": "2013-10-26T16:41:20.447-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1112628",
+    "ThreadId": "463752",
+    "Html": "Hi Matt,<br />\n<br />\nDo you have the Microsoft.Bcl and Microsoft.Bcl.Build packages referenced by all of your projects, including the main app? What version of VS and Store (8 or 8.1)? <br />\n<br />\nWhat platforms does your ViewModel PCL target?<br />\n<br />\nI tried a simple repro with both VS 2012 and VS 2013, starting with a Store 8 and 8.1 app, along with a PCL VM, starting 4.1.27.6 and upgrading to 4.2.30.1. Worked for me in both cases, so we'll need to dig deeper to see what's going on here.<br />\n",
+    "PostedDate": "2013-10-27T04:57:21.73-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1112749",
+    "ThreadId": "463752",
+    "Html": "\r\n<div dir=\"ltr\" style=\"font-family:'Calibri','Segoe UI','Meiryo','Microsoft YaHei UI','Microsoft JhengHei UI','Malgun Gothic','sans-serif'; font-size:12pt\">\r\n<div>Visual Studio 2012 Update 3 on Windows 8.1. Halfwit is still a Windows 8 app for now.</div>\r\n<div><br>\r\n</div>\r\n<div>Matt</div>\r\n<div><br>\r\n</div>\r\n<div></div>\r\n<div style=\"padding-top:5px; border-top-color:rgb(229,229,229); border-top-width:1px; border-top-style:solid\">\r\n<div><font face=\" 'Calibri', 'Segoe UI', 'Meiryo', 'Microsoft YaHei UI', 'Microsoft JhengHei UI', 'Malgun Gothic', 'sans-serif'\" style=\"line-height:15pt; letter-spacing:0.02em; font-family:\"><b></b></font></div>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2013-10-27T12:37:14.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1112750",
+    "ThreadId": "463752",
+    "Html": "\r\n<div dir=\"ltr\" style=\"font-family:'Calibri','Segoe UI','Meiryo','Microsoft YaHei UI','Microsoft JhengHei UI','Malgun Gothic','sans-serif'; font-size:12pt\">\r\n<div>Damn - I really should read all the questions before reply. </div>\r\n<div><br>\r\n</div>\r\n<div>My ViewModel PCL project targets:</div>\r\n<div><br>\r\n</div>\r\n<div>“.NET for Windows Store apps, .NET Framework 4.5”</div>\r\n<div><br>\r\n</div>\r\n<div>Matt</div>\r\n<div><br>\r\n</div>\r\n<div></div>\r\n<div style=\"padding-top:5px; border-top-color:rgb(229,229,229); border-top-width:1px; border-top-style:solid\">\r\n<div><font face=\" 'Calibri', 'Segoe UI', 'Meiryo', 'Microsoft YaHei UI', 'Microsoft JhengHei UI', 'Malgun Gothic', 'sans-serif'\" style=\"line-height:15pt; letter-spacing:0.02em; font-family:\"><b></b></font></div>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2013-10-27T12:37:56.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1112752",
+    "ThreadId": "463752",
+    "Html": "Hi Matt,\r<br />\n<br />\nDo you have a small project that reproduces this on your machine that you'd be able to share? Maybe start with a blank app and vm, add the older pcl mvvmlight and then update?\r<br />\n<br />\nDo you have another machine you can try to repro it on with your project? \r<br />\n<br />\nIf you start a new project with the newest pcl version, does that have issues as well for you or just on an update?\r<br />\n<br />\nI tried various scenarios on my VS 2012 Update 3 on Win8.1 but did not run into any issues. \r<br />\n<br />\nOren<br />\n",
+    "PostedDate": "2013-10-27T12:43:50.897-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1112753",
+    "ThreadId": "463752",
+    "Html": "One last comment relating to this tweet from Daniel Plaisted:\r<br />\n<br />\n<a href=\"https://twitter.com/dsplaisted/status/394491110447280128\" rel=\"nofollow\">https://twitter.com/dsplaisted/status/394491110447280128</a>\r<br />\n<br />\nThe MS Connect issue I linked to above does not seem to be the problem. The same &quot;mscorlib&quot; reference error appears in the MSBuild log even when the solution builds without any compiler errors (ie with the earlier version of MVVM Light).\r<br />\n<br />\nMatt<br />\n",
+    "PostedDate": "2013-10-27T12:46:35.897-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1112754",
+    "ThreadId": "463752",
+    "Html": "Ah! This could be it! From the MSBuild log:\r<br />\n<br />\n2&gt;C:\\Program Files (x86)\\MSBuild\\Microsoft\\WindowsXaml\\v11.0\\Microsoft.Windows.UI.Xaml.Common.targets(263,9): Xaml Internal Error error WMC9999: Object reference not set to an instance of an object.\r<br />\n2&gt;Done executing task &quot;CompileXaml&quot; -- FAILED. (TaskId:62)\r<br />\n2&gt;Done building target &quot;MarkupCompilePass2&quot; in project &quot;Halfwit.csproj&quot; -- FAILED.: (TargetId:104)\r<br />\n<br />\nMatt<br />\n",
+    "PostedDate": "2013-10-27T12:51:35.357-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1112756",
+    "ThreadId": "463752",
+    "Html": "One other thought - the DLL name - for the Platforms changed, though that shouldn't be an issue for WinRT-based XAML as the namespaces did not change. It used to be Galasoft.MvvmLight.Platform.NetCore45.dll, but now they're all Galasoft.MvvmLight.Platform.dll (just in different folders in the nuget pkg). That'd be more of an issue for SL/WPF where the assm name is in the XML namespace declaration.\r<br />\n<br />\nHave you tried a rebuild? How about manually deleting the bin/obj directories when VS is closed? I wonder if there's an old reference somewhere.<br />\n",
+    "PostedDate": "2013-10-27T12:56:07.67-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1112782",
+    "ThreadId": "463752",
+    "Html": "<strong>onovotny wrote:</strong><br />\n<blockquote>\nOne other thought - the DLL name - for the Platforms changed, though that shouldn't be an issue for WinRT-based XAML as the namespaces did not change. It used to be Galasoft.MvvmLight.Platform.NetCore45.dll, but now they're all Galasoft.MvvmLight.Platform.dll (just in different folders in the nuget pkg). That'd be more of an issue for SL/WPF where the assm name is in the XML namespace declaration.<br />\n<br />\nHave you tried a rebuild? How about manually deleting the bin/obj directories when VS is closed? I wonder if there's an old reference somewhere.<br />\n</blockquote>\nI've definitely tried a clean &amp; rebuild (and of course restarting VS). Haven't tried deleting the obj directories. Will give that a go when I'm home again.\r<br />\n<br />\nThis is the only machine I have that's running Windows 8.1 (unless you count my Surface RT :)) so I can't really test this anywhere else. I'll see if I can reproduce it in a new project, too.\r<br />\n<br />\nThe fact that it seems to come back to the XAML compilation step I pasted in above is really confusing. Why would rolling back to an early MVVM Light version fix it? Bizarre.\r<br />\n<br />\nMatt<br />\n",
+    "PostedDate": "2013-10-27T14:40:04.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1112878",
+    "ThreadId": "463752",
+    "Html": "Ok, an update.\r<br />\n<br />\nI deleted the obj\\ folder under my WinRT app, then updated to the latest Portable.MvvmLightLibs in all projects in my solution.\r<br />\n<br />\nRebuilt and still got an &quot;Object reference not set to an instance of an object&quot; error, BUT this time there was a file and line number alongside the error! Here it is:\r<br />\n<br />\nError\t30\tObject reference not set to an instance of an object.\tC:\\Program Files (x86)\\MSBuild\\Microsoft\\WindowsXaml\\v11.0\\Microsoft.Windows.UI.Xaml.Common.targets\t263\t9\tHalfwit\r<br />\n<br />\nThe line in question:<br />\n<pre><code>&lt;CompileXaml\n      LanguageSourceExtension=&quot;$(DefaultLanguageSourceExtension)&quot;\n      Language=&quot;$(Language)&quot;\n      RootNamespace=&quot;$(RootNamespace)&quot;\n      XamlPages=&quot;@(Page)&quot;\n      XamlApplications=&quot;@(ApplicationDefinition)&quot;\n      PriIndexName=&quot;$(PriIndexName)&quot;\n      ProjectName=&quot;$(MsBuildProjectName)&quot;\n      IsPass1=&quot;False&quot;\n      CodeGenerationControlFlags=&quot;$(XamlCodeGenerationControlFlags)&quot;\n      ClIncludeFiles=&quot;@(ClInclude)&quot;\n      LocalAssembly=&quot;$(LocalAssembly)&quot;\n      ProjectPath=&quot;$(MSBuildProjectFullPath)&quot;\n      OutputPath=&quot;$(XamlGeneratedOutputPath)&quot;\n      OutputType=&quot;$(OutputType)&quot;\n      TargetPlatformWinMDLocation=&quot;$(TargetPlatformWinMDLocation)&quot;\n      ReferenceAssemblyPaths=&quot;@(ReferenceAssemblyPaths)&quot;\n      ReferenceAssemblies =&quot;@(XamlReferencesToCompile)&quot;\n      ShareAppDomains=&quot;$(XamlShareAppDomains)&quot;\n      ForceSharedAppDomainShutdown=&quot;False&quot;\n      CompileMode=&quot;RealBuildPass2&quot;\n      XAMLFingerprint=&quot;$(XAMLFingerprint)&quot;\n      FingerprintIgnorePaths=&quot;$(XAMLFingerprintIgnorePaths)&quot;\n      VCInstallDir=&quot;$(VCInstallDir_110)&quot;\n      &gt;\n  &lt;Output Condition=&quot; '$(ManagedAssembly)'!='false' &quot; ItemName=&quot;Compile&quot;   TaskParameter=&quot;GeneratedCodeFiles&quot; /&gt;\n  &lt;Output Condition=&quot; '$(ManagedAssembly)'=='false' &quot; ItemName=&quot;XamlGFiles&quot; TaskParameter=&quot;GeneratedCodeFiles&quot; /&gt;\n\n  &lt;Output ItemName=&quot;FileWrites&quot; TaskParameter=&quot;GeneratedCodeFiles&quot; /&gt;\n  &lt;Output ItemName=&quot;FileWrites&quot; TaskParameter=&quot;GeneratedXamlFiles&quot; /&gt;\n  &lt;Output ItemName=&quot;_GeneratedCodeFiles&quot; TaskParameter=&quot;GeneratedCodeFiles&quot; /&gt;\n  &lt;Output ItemName=&quot;_GeneratedXamlFiles&quot; TaskParameter=&quot;GeneratedXamlFiles&quot; /&gt;\n&lt;/CompileXaml&gt;\n\n</code></pre>\n\nSo I then dropped into the Package Manager Console, and typed:\r<br />\n<br />\nuninstall-package portable.mvvmlightlibs\r<br />\ninstall-package Portable.MvvmLightLibs -version 4.1.27.6 \r<br />\n<br />\n... and now everything builds again.\r<br />\n<br />\nIt's starting to look like some sort of incompatibility between the latest MVVM Light package and the WIndows.UI.Interactivity package it depends on. Maybe it's something to do with running VS2012 on Windows 8.1.\r<br />\n<br />\nAny ideas?<br />\n",
+    "PostedDate": "2013-10-27T23:39:47.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1113041",
+    "ThreadId": "463752",
+    "Html": "That's really weird... <br />\n<br />\nThe Windows.UI.Interactivity version has not changed since the last release, so that should be the same as well.<br />\n<br />\nAs a note, because Behaviors are part of VS 2013/Win 8.1, EventToCommand (and that interactivity reference) aren't in the Win8.1 version. The recommended approach would be to use the built-in one.<br />\n",
+    "PostedDate": "2013-10-28T06:09:47.897-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1113258",
+    "ThreadId": "463752",
+    "Html": "I'd really like to see a repro project for this, if you can create one.\r<br />\n<br />\nAlso, if you can get the stack trace for the NullReferenceException that would be helpful.\r<br />\n<br />\nThanks,\r<br />\nDaniel<br />\n",
+    "PostedDate": "2013-10-28T11:14:06.72-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1113333",
+    "ThreadId": "463752",
+    "Html": "There's no stack trace - just this line in the MSBuild log:\r<br />\n<br />\n2&gt;C:\\Program Files (x86)\\MSBuild\\Microsoft\\WindowsXaml\\v11.0\\Microsoft.Windows.UI.Xaml.Common.targets(263,9): Xaml Internal Error error WMC9999: Object reference not set to an instance of an object.\r<br />\n<br />\nI'd be happy to give you guys read access to the Bitbucket repository so you can try it on your machines. If you don't see an error then I'll know it's something local to this PC. Let me know your Bitbucket usernames.\r<br />\n<br />\nMatt\r<br />\n<br />\nps. Oren - I'm not actually using anything in Windows.UI.Interactivity like EventToComment etc. The only parts of MVVM Light that I'm using are ViewModelBase, Messenger and RelayCommand. Just the core stuff.<br />\n",
+    "PostedDate": "2013-10-28T12:32:30.73-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1113708",
+    "ThreadId": "463752",
+    "Html": "Hi Matt,\r<br />\n<br />\nMy Bitbucket username is onovotny. I can take a look to see if it repros for me, but even if it does, this may be the kind of thing that Daniel's team needs to address.<br />\n",
+    "PostedDate": "2013-10-29T08:25:28.75-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1113800",
+    "ThreadId": "463752",
+    "Html": "\r\n<div dir=\"ltr\" style=\"font-family:'Calibri','Segoe UI','Meiryo','Microsoft YaHei UI','Microsoft JhengHei UI','Malgun Gothic','sans-serif'; font-size:12pt\">\r\n<div>Added! Let me know if there’s anything else I need to commit - I’m still a bit of a novice at this whole “ignore packages but not the config files” thing with Mercurial and NuGet. </div>\r\n<div><br>\r\n</div>\r\n<div>Repository is at <a href=\"https://bitbucket.org/mabster/halfwitrt/\" target=\"_parent\">\r\nhttps://bitbucket.org/mabster/halfwitrt/</a></div>\r\n<div><br>\r\n</div>\r\n<div>Matt</div>\r\n<div><br>\r\n</div>\r\n<div></div>\r\n<div style=\"padding-top:5px; border-top-color:rgb(229,229,229); border-top-width:1px; border-top-style:solid\">\r\n<div><font face=\" 'Calibri', 'Segoe UI', 'Meiryo', 'Microsoft YaHei UI', 'Microsoft JhengHei UI', 'Malgun Gothic', 'sans-serif'\" style=\"line-height:15pt; letter-spacing:0.02em; font-family:\"><b></b></font></div>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2013-10-29T12:43:34.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1113801",
+    "ThreadId": "463752",
+    "Html": "My bitbucket username is dplaisted.\r<br />\n<br />\nThanks,\r<br />\nDaniel<br />\n",
+    "PostedDate": "2013-10-29T12:45:13.57-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1113803",
+    "ThreadId": "463752",
+    "Html": "\r\n<div dir=\"ltr\" style=\"font-family:'Calibri','Segoe UI','Meiryo','Microsoft YaHei UI','Microsoft JhengHei UI','Malgun Gothic','sans-serif'; font-size:12pt\">\r\n<div>Ok, added you too Daniel.</div>\r\n<div><br>\r\n</div>\r\n<div></div>\r\n<div style=\"padding-top:5px; border-top-color:rgb(229,229,229); border-top-width:1px; border-top-style:solid\">\r\n<div><font face=\" 'Calibri', 'Segoe UI', 'Meiryo', 'Microsoft YaHei UI', 'Microsoft JhengHei UI', 'Malgun Gothic', 'sans-serif'\" style=\"line-height:15pt; letter-spacing:0.02em; font-family:\"><b></b></font></div>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2013-10-29T12:46:44.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1113807",
+    "ThreadId": "463752",
+    "Html": "Hi Matt,\r<br />\n<br />\nLooking at what's checked in currently, I see the solution using two different Portable.MvvmLightLibs versions. The .Desktop lib is using 4.2.30.1 and the Halfwit and .ViewModels are on 4.1.27.6.\r<br />\n<br />\nIn that config it does build for me, though I'm sure it won't work right due to conflicting dll versions. What config works for you and what's failing?<br />\n",
+    "PostedDate": "2013-10-29T12:53:44.19-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1113856",
+    "ThreadId": "463752",
+    "Html": "<strong>onovotny wrote:</strong><br />\n<blockquote>\nHi Matt,<br />\n<br />\nLooking at what's checked in currently, I see the solution using two different Portable.MvvmLightLibs versions. The .Desktop lib is using 4.2.30.1 and the Halfwit and .ViewModels are on 4.1.27.6.<br />\n<br />\nIn that config it does build for me, though I'm sure it won't work right due to conflicting dll versions. What config works for you and what's failing?<br />\n</blockquote>\nOops - tried replying from my phone but it looks like it didn't get through.\r<br />\n<br />\nYou can ignore the Desktop project, Oren. I was messing about going up and down in MVVM Light versions to diagnose the problem and must've forgotten to roll that particular project back before I pushed to Bitbucket. The Desktop project is a false start that I've left in the solution in case I ever want to revisit it.\r<br />\n<br />\nIgnoring the desktop app for the moment: At this stage the only combination that works is 4.1.27.6 in the ViewModels project and the same (4.1.27.6) in the WinRT app. Mixed versions obviously lead to a runtime error, and if I update both projects to the latest MVVM Light then I get a compile time NullReferenceException.\r<br />\n<br />\nCheers,\r<br />\nMatt<br />\n",
+    "PostedDate": "2013-10-29T15:04:36.427-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1113873",
+    "ThreadId": "463752",
+    "Html": "Okay, I can confirm that I can repro the issue, but I'm not sure why it's happening. Daniel?<br />\n",
+    "PostedDate": "2013-10-29T16:55:38.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1113884",
+    "ThreadId": "463752",
+    "Html": "\r\n<div dir=\"ltr\">\r\n<div style=\"font-size:12pt; font-family:'Calibri'; color:#000000\">\r\n<div>That’s a relief! I was thinking it’d be something local to me and I’d have to pave my PC!\r\n<img alt=\"Smile\" src=\"cid:[email removed]\" style=\"border-top-style:none; border-left-style:none; border-bottom-style:none; border-right-style:none\"></div>\r\n<div><br>\r\nMatt</div>\r\n<div style=\"font-size:small; font-family:'Calibri'; font-weight:normal; color:#000000; font-style:normal; text-decoration:none; display:inline\">\r\n<div style=\"font:10pt tahoma\">\r\n<div></div>\r\n<div style=\"background:#f5f5f5\">\r\n<div style=\"\"><b></b></div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2013-10-29T17:25:35.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1209272",
+    "ThreadId": "463752",
+    "Html": "Any news for this? I'm seeing this on both Windows 8.0, VS 2012 and in Windows 8.1, VS 2013 when trying to build a Windows 8.0 application and using MVVM light 4.2.30.1.<br />\n",
+    "PostedDate": "2014-02-17T00:33:11.237-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1209412",
+    "ThreadId": "463752",
+    "Html": "Do you have any sample data (in xaml file) that you are compiling ? Just figure out that was the problem for me. <br />\n",
+    "PostedDate": "2014-02-17T05:54:45.253-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

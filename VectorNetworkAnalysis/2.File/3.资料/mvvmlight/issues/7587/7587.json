@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The SimpleIoc's Method GetAllInstances(Type serviceType) should return a List<serviceType>, too, even if it is just an abstract base class. If you register some ViewModels which inherit from ViewModelBase, a call like\r\nSimpleIoc.Default.GetAllInstances(typeof(ViewModelBase)) or SimpleIoc.Default.GetAllInstances<ViewModelBase>() should return all registered ViewModels.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-08-22T05:43:58.997-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "SimpleIoc-Method GetAllInstances(Type serviceType) extension to base classes",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 2,
+    "Id": 7587
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

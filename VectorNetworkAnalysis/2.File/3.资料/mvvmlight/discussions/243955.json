@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "557933",
+    "ThreadId": "243955",
+    "Html": "\r\n<p>I was thinking of adding a stack trace implementation of RaisePropertyChanged same as here:&nbsp;<a href=\"http://www.wintellect.com/CS/blogs/jlikness/archive/2010/12/17/jounce-part-8-raising-property-changed.aspx\">http://www.wintellect.com/CS/blogs/jlikness/archive/2010/12/17/jounce-part-8-raising-property-changed.aspx</a>&nbsp;by\r\n adding an extension method to MvvmLight.&nbsp;</p>\r\n<p>The code (not tested on WPF yet):&nbsp;</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>        <span style=\"color:blue\">public</span> <span style=\"color:blue\">static</span> <span style=\"color:blue\">void</span> RaisePropertyChanged(<span style=\"color:blue\">this</span> ViewModelBase viewModelBase)\r\n        {\r\n            <span style=\"color:blue\">var</span> frames = <span style=\"color:blue\">new</span> System.Diagnostics.StackTrace();\r\n            <span style=\"color:blue\">for</span> (<span style=\"color:blue\">var</span> i = 0; i &lt; frames.FrameCount; i&#43;&#43;)\r\n            {\r\n                <span style=\"color:blue\">var</span> frame = frames.GetFrame(i).GetMethod() <span style=\"color:blue\">as</span> MethodInfo;\r\n                <span style=\"color:blue\">if</span> (frame != <span style=\"color:blue\">null</span>)\r\n                    <span style=\"color:blue\">if</span> (frame.IsSpecialName &amp;&amp; frame.Name.StartsWith(<span style=\"color:#a31515\">&quot;set_&quot;</span>))\r\n                    {\r\n                        viewModelBase.RaisePropertyChanged(frame.Name.Substring(4));\r\n                        <span style=\"color:blue\">return</span>;\r\n                    }\r\n            }\r\n            <span style=\"color:blue\">throw</span> <span style=\"color:blue\">new</span> InvalidOperationException(<span style=\"color:#a31515\">&quot;NotifyPropertyChanged() can only by invoked within a property setter.&quot;</span>);\r\n        }\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>However I found ViewModelBase RaisePropertyChanged to be marked as protected. No biggy since I can copy the code from codeplex but I'd rather hook into the API and pre built dlls. &nbsp;</p>\r\n<p>Also have you considered adding it to mvvmlight. Its great for refactoring :)&nbsp;</p>\r\n",
+    "PostedDate": "2011-01-31T01:36:13.807-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "557939",
+    "ThreadId": "243955",
+    "Html": "\r\n<p>I went with inheritance. But I don't like it :&nbsp;</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">public</span> <span style=\"color:blue\">class</span> ViewModelBaseEx : ViewModelBase\r\n    {        \r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">void</span> RaisePropertyChanged()\r\n        {\r\n            <span style=\"color:blue\">var</span> frames = <span style=\"color:blue\">new</span> System.Diagnostics.StackTrace();\r\n            <span style=\"color:blue\">for</span> (<span style=\"color:blue\">var</span> i = 0; i &lt; frames.FrameCount; i&#43;&#43;)\r\n            {\r\n                <span style=\"color:blue\">var</span> frame = frames.GetFrame(i).GetMethod() <span style=\"color:blue\">as</span> MethodInfo;\r\n                <span style=\"color:blue\">if</span> (frame != <span style=\"color:blue\">null</span>)\r\n                    <span style=\"color:blue\">if</span> (frame.IsSpecialName &amp;&amp; frame.Name.StartsWith(<span style=\"color:#a31515\">&quot;set_&quot;</span>))\r\n                    {\r\n                        RaisePropertyChanged(frame.Name.Substring(4));\r\n                        <span style=\"color:blue\">return</span>;\r\n                    }\r\n            }\r\n            <span style=\"color:blue\">throw</span> <span style=\"color:blue\">new</span> InvalidOperationException(<span style=\"color:#a31515\">&quot;NotifyPropertyChanged() can only by invoked within a property setter.&quot;</span>);\r\n        }        \r\n    }\r\n</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2011-01-31T01:48:44.51-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "558141",
+    "ThreadId": "243955",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>In V4, there will be a way to avoid using string, but rather with the syntax RaisePropertyChanged(vm =&gt; vm.MyProperty).</p>\r\n<p>However, already in V3 the risk when refactoring is small:</p>\r\n<ul>\r\n<li>If a property is raised, but does not actually exists on the VM, an exception is thrown. This check is only made in DEBUG configuration but should allow to catch all errors.\r\n</li><li>In addition, the strings are declared as constants (using the code snippets provided), so changing one is quite easy.\r\n</li></ul>\r\n<p>The reason why I am not using reflection for the moment is that the impact on perf can be an issue, especially on small systems (like the phones). But still, by popular demand, there will be the way I described above in V4 (as an optional possibility to\r\n raise the PropertyChanged event).</p>\r\n<p>Cheers.</p>\r\n<p>Laurent</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-01-31T08:02:18.803-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "558627",
+    "ThreadId": "243955",
+    "Html": "\r\n<p>It looks like StackTrace solution is working only for Debug mode, and it's very slow.</p>\r\n<p>Maybe this one could be used. Haven't tried it on mobile devices.</p>\r\n<p><span style=\"white-space:pre\">&nbsp;</span>Code in ViewModel base:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\"><span style=\"white-space:pre\">\t\t</span>protected</span> <span style=\"color:blue\">void</span> Set&lt;TModel&gt;(Expression&lt;Func&lt;TModel&gt;&gt; expr, <span style=\"color:blue\">ref</span> TModel field, TModel value) <span style=\"color:blue\">where</span> TModel : <span style=\"color:blue\">class</span>\r\n\t\t{\r\n\t\t\tSet(expr, <span style=\"color:blue\">ref</span> field, value, () =&gt; { });\r\n\t\t}\r\n\r\n\t\t<span style=\"color:blue\">protected</span> <span style=\"color:blue\">void</span> Set&lt;TModel&gt;(Expression&lt;Func&lt;TModel&gt;&gt; expr, <span style=\"color:blue\">ref</span> TModel field, TModel value, Action callback) <span style=\"color:blue\">where</span> TModel : <span style=\"color:blue\">class</span>\r\n\t\t{\r\n\t\t\t<span style=\"color:blue\">if</span> (field != value)\r\n\t\t\t{\r\n\t\t\t\tfield = value;\r\n\t\t\t\tRaisePropertyChanged(expr);\r\n\t\t\t\tcallback();\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\t<span style=\"color:blue\">public</span> <span style=\"color:blue\">void</span> RaisePropertyChanged&lt;TProperty&gt;(Expression&lt;Func&lt;TProperty&gt;&gt; property)\r\n\t\t{\r\n\t\t\t<span style=\"color:blue\">var</span> member = (MemberExpression) property.Body;\r\n\t\t\tRaisePropertyChanged(member.Member.Name);\r\n\t\t}\r\n</pre>\r\n<pre><span style=\"white-space:pre\">\t</span></pre>\r\n<pre><span style=\"white-space:pre\">C</span>ode in actual ViewModel:</pre>\r\n<pre><span style=\"color:blue\"><span style=\"white-space:pre\">\t\t</span>private</span> QuestionModel question;\r\n\t\t<span style=\"color:blue\">public</span> QuestionModel Question\r\n\t\t{\r\n\t\t\t<span style=\"color:blue\">get</span> { <span style=\"color:blue\">return</span> question; }\r\n\t\t\t<span style=\"color:blue\">set</span> { Set(() =&gt; Question, <span style=\"color:blue\">ref</span> question, value); }\r\n\t\t}\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-02-01T05:10:53.107-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "561931",
+    "ThreadId": "243955",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Something similar is coming up in MVVM Light V4. I am going to push that code to Codeplex very soon, check my blog for announcements (<a href=\"http://blog.galasoft.ch\">http://blog.galasoft.ch</a>).</p>\r\n<p>With the new syntax, you will be able to call</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>RaisePropertyChanged(); <span style=\"color:green\">// Only within a Setter</span>\r\nRaisePropertyChanged(() =&gt; PropertyName);\r\nRaisePropertyChanged(() =&gt; PropertyName, oldValue, value, <span style=\"color:blue\">true</span>); <span style=\"color:green\">// With broadcast</span>\r\nRaisePropertyChanged(<span style=\"color:#a31515\">&quot;PropertyName&quot;</span>);\r\nRaisePropertyChanged(<span style=\"color:#a31515\">&quot;PropertyName&quot;</span>, oldValue, value, <span style=\"color:blue\">true</span>); <span style=\"color:green\">// With broadcast</span></pre>\r\n</div>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2011-02-07T06:50:45.88-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "561937",
+    "ThreadId": "243955",
+    "Html": "\r\n<p>Awesomeness /&nbsp;Thanks. Already subscribed :)</p>\r\n",
+    "PostedDate": "2011-02-07T06:58:03.09-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "645309",
+    "ThreadId": "243955",
+    "Html": "<p>I like Aurimas86's solution; it cuts down a lot of the very repetitive code needed to check that a property's value has changed before calling RaisePropertyChanged. Additionally, as Aurimas86 observes, the StackTrace solution is <a href=\"http://mvvmlight.codeplex.com/workitem/7520\">broken in Release mode</a>, &nbsp;which you could regard as a bit of a show-stopper!</p>",
+    "PostedDate": "2011-07-20T20:09:26.043-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "650991",
+    "ThreadId": "243955",
+    "Html": "<p>For info, I just ditched RaisePropertyChanged() (without parameters).</p>\r\n<p>After thinking about it, I did however add a slightly modified version of Aurima86's idea for a Set method. There are now 4 of those:</p>\r\n<ul>\r\n<li>On ObservableObject:</li>\r\n</ul>\r\n<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>protected</span>&nbsp;<span>void</span>&nbsp;Set&lt;T&gt;(\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Expression</span>&lt;<span>Func</span>&lt;T&gt;&gt;&nbsp;propertyExpression,\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>ref</span>&nbsp;T&nbsp;field,\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T&nbsp;newValue)</pre>\r\n<pre><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>protected</span>&nbsp;<span>void</span>&nbsp;Set&lt;T&gt;(\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>string</span>&nbsp;propertyName,\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>ref</span>&nbsp;T&nbsp;field,\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T&nbsp;newValue)\r\n</pre>\r\n<ul>\r\n<li>On ViewModelBase:</li>\r\n</ul>\r\n<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>protected</span>&nbsp;<span>void</span>&nbsp;Set&lt;T&gt;(\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Expression</span>&lt;<span>Func</span>&lt;T&gt;&gt;&nbsp;propertyExpression,\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>ref</span>&nbsp;T&nbsp;field,\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T&nbsp;newValue,\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>bool</span>&nbsp;broadcast)\r\n</pre>\r\n<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>protected</span>&nbsp;<span>void</span>&nbsp;Set&lt;T&gt;(\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>string</span>&nbsp;propertyName,\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>ref</span>&nbsp;T&nbsp;field,\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T&nbsp;newValue,\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>bool</span>&nbsp;broadcast)\r\n</pre>\r\n<p>Corresponding snippets are also available. This will be released this week in V4 beta 1. I plan to have a blog post about that in the same timeframe.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>\r\n</pre>",
+    "PostedDate": "2011-08-02T00:53:44.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "651142",
+    "ThreadId": "243955",
+    "Html": "<p>I look forward to it! I'm off TDY on a non-MVVM project for a week or two, but I'll look forward to getting my hands on the new builds soon.</p>",
+    "PostedDate": "2011-08-02T05:58:56.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

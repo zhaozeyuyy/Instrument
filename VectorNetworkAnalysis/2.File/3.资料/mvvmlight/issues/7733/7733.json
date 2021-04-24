@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 4,
+    "Custom": null,
+    "Description": "Details can be found here:\r\nhttp://stackoverflow.com/questions/38243940/mvvm-light-xamarin-ios-twoway-binding-memory-leak",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-07-08T02:33:43.17-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Xamarin.iOS TwoWay binding memory leak",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7733
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Any suggestions?",
+      "PostedDate": "2016-07-12T08:09:33.74-07:00",
+      "Id": 200562
+    },
+    {
+      "Message": "Hi,\n\n\nWhile we take care of being as weak referenced as possible, it is possible that some edge cases create issues. I will take a look as soon as I can. In the mean time, please detach the binding before your objects get disposed, for example when you navigate away from the page containing the binding.\n\nThanks\n\nLaurent",
+      "PostedDate": "2016-07-12T11:02:15.42-07:00",
+      "Id": 200568
+    },
+    {
+      "Message": "Hi,\n\nAny updates on this?\nI do follow your advice and detach binding when I don't need them any more, but sometimes there is no place you can detach. For example when using bindings inside UITableViewCell which has no explicit lifetime.\n",
+      "PostedDate": "2017-01-27T03:57:44.673-08:00",
+      "Id": 206269
+    },
+    {
+      "Message": "Also I wouldn't say that this is edge case. TwoWay binding is most common case I can image.",
+      "PostedDate": "2017-01-27T04:02:14.633-08:00",
+      "Id": 206270
+    }
+  ]
+}

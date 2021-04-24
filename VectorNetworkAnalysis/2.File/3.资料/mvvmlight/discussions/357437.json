@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "841844",
+    "ThreadId": "357437",
+    "Html": "\r\n<p>Hi ,</p>\r\n<p>I want to access the view's control's method from the viewmodel which&nbsp;<span>Inherit the ViewModelBase. eg, I have a TextBox to display the log, when add log string to the TextBo, I want to call TextBosx's ScrollToEnd. How can i do this with MVVM.</span></p>\r\n<p>thanks.</p>\r\n",
+    "PostedDate": "2012-05-28T18:08:28.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

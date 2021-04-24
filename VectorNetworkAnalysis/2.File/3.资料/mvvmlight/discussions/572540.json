@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1323953",
+    "ThreadId": "572540",
+    "Html": "Hi,\r<br />\n<br />\nis there any way that for the next version you may add the attribute &quot;CallerMemberName&quot; to the signature of the RaisePropertyChanged methode in the ViewModelBase?!?\r<br />\n<br />\nsig would look like this\r<br />\n<br />\nprotected void RaisePropertyChanged([CallerMemberName]string propertyName = null)\r<br />\n...\r<br />\n<br />\nThat would be a relay gerat deal.\r<br />\n<br />\nThx<br />\n",
+    "PostedDate": "2014-11-19T12:52:22.217-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1323955",
+    "ThreadId": "572540",
+    "Html": "Hi,\r<br />\n<br />\nCallerMemberName is already supported everywhere this attribute exists, as far as I can tell. This has been the case since V4.\r<br />\n<br />\nCan you be more specific? Where exactly is it missing?\r<br />\n<br />\nThanks\r<br />\nLaurent<br />\n",
+    "PostedDate": "2014-11-19T12:55:41.333-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1323970",
+    "ThreadId": "572540",
+    "Html": "I quick checked back with a simple test implementation. Your right it seams to already have been added, odd when i check back in the source and the metainformation of the libs it isn't poping up. \r<br />\nSo THX for the real quick answer, i will close the discussion.\r<br />\n<br />\nBtw. never starting an WPF application without your framework ;-)<br />\n",
+    "PostedDate": "2014-11-19T13:31:35.357-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

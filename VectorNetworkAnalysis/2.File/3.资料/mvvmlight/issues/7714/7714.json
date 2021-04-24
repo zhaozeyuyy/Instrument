@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Installing the MvvmLight 5.2.0 NuGet package into a Portable Class Library project does not install the MvvmLightLibs 5.2.0 NuGet package into the PCL project. The MvvmLight NuGet package succesfully installs but since it does not install MvvmLightLibs there are no assembly references added to the project. As a workaround you can install the MvvmLightLibs NuGet package into the PCL project.\r\n\r\nLooking at the MvvmLight .nuspec it seems to be missing a group targetFramework for the PCL profile.  Something similar to:\r\n\r\n      <group targetFramework=\".NETPortable0.0-net45+wp8+wpa81+netcore45+monoandroid1+xamarin.ios10\">\r\n        <dependency id=\"MvvmLightLibs\" version=\"5.2.0\" />\r\n      </group>\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-12-29T06:31:24.907-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "MvvmLight 5.2.0 does not install MvvmLightLibs into PCL project",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7714
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

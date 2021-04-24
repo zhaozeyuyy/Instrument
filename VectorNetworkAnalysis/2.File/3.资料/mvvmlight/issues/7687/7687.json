@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2016-01-16T13:55:41.12-08:00",
+    "CommentCount": 6,
+    "Custom": null,
+    "Description": "Hi,\r\n\r\nI am using a third party component in Xamarin for authentication and this component is launching an activity. When back from the authentication I am trying to navigate to new activity and I am getting the following error:\r\nNo CurrentActivity found.\r\n\r\nI think that I understand why I am getting this error. It is because the activity from the third party component is not extending activitybase. When debugging I am able to see that the ActivityBase.CurrentActivity is not null before calling the component, however it is null after.\r\n\r\nAny idea how I could make this work?\r\n\r\nThank you,\r\n\r\nAlexis Theriault\r\n \r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-03-11T07:00:17.257-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Xamarin Native Android Navigation issue",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7687
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nThis is a great question. As you know, there is no built in navigation journal in Android. This is why most existing solutions implement a custom journal. \n\nAt this moment I don't have a solution for the issue you mention. I will check it out and see if I can update the navigation service with a solution. Thanks for raising the issue!\n\nCheers\nLaurent",
+      "PostedDate": "2015-03-11T10:46:46.003-07:00",
+      "Id": 177850
+    },
+    {
+      "Message": "Hi,\n\nThank you in advance for taking the time to look at this issue.\n\nCurrently our work around is to use a custom implementation of your navigation service. The more significant difference is that we do not remove (set to null) the current activity on activity pause.\n\nThanks,\n\nAlexis",
+      "PostedDate": "2015-03-11T11:18:31.79-07:00",
+      "Id": 177854
+    },
+    {
+      "Message": "Working on fixing this.\n\nJust want to check my reasoning with you. Not removing the CurrentActivity on Pause is OK, but I should remove it on Destroy, right?\n\nOtherwise it might create a memory leak. Am I right?\n\nThanks\nLaurent",
+      "PostedDate": "2015-03-25T06:27:48.73-07:00",
+      "Id": 180000
+    },
+    {
+      "Message": "Hi,\n\nYes it makes sense\n\nThanks\nAlexis",
+      "PostedDate": "2015-03-25T08:40:42.327-07:00",
+      "Id": 180013
+    },
+    {
+      "Message": "I did the same modification in my implementation and finally it does not help me completely.. \n\nI have the following problem in the following scenario using the developer options 'Dont keep activities'.\n-Start my home activity\n-launching a third party activity which does not extend ActivityBase\n    -This cause my home activity to be destroyed\n-call the navigationservice\n    -Does not work since there is no more CurrentActivity.\n\nIf I do not set the CurrentActivity to null on destroy it is working fine.\n\nI am thinking that keeping the currentactivity even when the activity is destroyed should not cause a memory leak since at some point a new activity will be created and the reference to the destroyed activity will be lost.\n\nAny other idea?\n\nThanks,\nAlexis",
+      "PostedDate": "2015-03-25T11:43:00.847-07:00",
+      "Id": 180024
+    },
+    {
+      "Message": "Fix is in Codeplex. Will release to Nuget in V5.2 on which I am currently working.",
+      "PostedDate": "2015-04-01T00:10:16.137-07:00",
+      "Id": 180602
+    }
+  ]
+}

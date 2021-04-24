@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "676251",
+    "ThreadId": "273724",
+    "Html": "\r\n<p>I'm using MVVM Light in my Windows Phone 7 application. The application is to be used in English and Spanish. Users can select a different language during runtime. I'm localizing the application using resource files. I've already been able to make the localization\r\n works, but only when I change the language from Settings. In the main page, I have a list for users to select the language during runtime, I'm setting the selected language to\r\n<strong>Thread.CurrentThread.CurrentCulture</strong>, but the text strings in the interface don't get updated. I have a set of properties in the ViewModel that I'm binding to the View to set the labels of the control, but something is missing. I've been reading\r\n that I need to implement the <strong>INotifyPropertyChanged</strong> in the ViewModel to make this works, but I don't know how to exactly do that nor if there is a different better way to implement this case using MVVM Light. Could anybody help me here please?</p>\r\n",
+    "PostedDate": "2011-09-24T17:32:59.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

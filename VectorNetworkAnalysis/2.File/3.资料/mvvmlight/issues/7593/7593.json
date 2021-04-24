@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:59:06.243-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "Hi Laurent,\r\nI have started to discover this great toolkit some days before. Now I wanted to switch to VS Express 2012 for Windows Desktop. Is there a chance to get an appropriate installer? Or simply a hint what to copy where?\r\nThanks in advance.\r\nSebastian",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4.1 for Visual Studio 2012",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-10-19T02:23:42.363-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Support for VS Express 2012 for Windows Desktop",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7593
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nWorking on a new installer that will cover VS12 for Windows too.\n\nThanks\nLaurent",
+      "PostedDate": "2012-10-20T08:50:51.06-07:00",
+      "Id": 80546
+    },
+    {
+      "Message": "V4.1 released last week supports Visual Studio Express for Desktop.",
+      "PostedDate": "2012-11-11T14:56:41.3-08:00",
+      "Id": 82202
+    }
+  ]
+}

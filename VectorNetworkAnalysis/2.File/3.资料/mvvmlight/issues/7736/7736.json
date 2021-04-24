@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "\r\nIn my scenario ViewModel.PropertyA.PropertyObservableCollection.Count is bound to the UILable.Text property. It generates an \r\n\r\n\"Object of type 'System.Int32' cannot be converted to type 'System.String'.\" \r\n\r\nexception when PropertyA was set to null. It looked like SetSpecialValue(xxx) needed to use _converter with the Fallback case but when I make that change, one of the test suite (Binding_MultipleLevelsOfNullWithConverter_ShouldCallConverterWithNullThenTargetNullValueButNotFallbackValue) fails. \r\n\r\nI am continuing to try a few things but I was hoping might see the issue/solution quickly.\r\n\r\nDan\r\n\r\n",
+    "LastUpdatedDate": "2017-07-14T01:11:00.837-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-08-04T14:35:56.637-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Converter Not Used With Fallback Value",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 3,
+    "Id": 7736
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Would be great if this was fixed in an update!",
+      "PostedDate": "2017-07-13T23:51:42.58-07:00",
+      "Id": 208689
+    }
+  ]
+}

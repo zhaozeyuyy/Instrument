@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1473113",
+    "ThreadId": "654545",
+    "Html": "Description of this interface says: <em>A very simple IOC container with basic functionality needed to register and</em> <strong>resolve instances</strong>. But there is no method definition for resolving instances! Such basic functionality should be included in this interface. I was mentioning this problem in previous version too.<br />\n",
+    "PostedDate": "2016-05-11T00:33:52.043-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1473123",
+    "ThreadId": "654545",
+    "Html": "The idea was that you would use ISimpleIoc to register classes and IServiceLocator to resolve them. But I agree with you that people seem to be moving away from IServiceLocator. I will update the interface to add the GetXXX methods. \r<br />\n<br />\nLaurent<br />\n",
+    "PostedDate": "2016-05-11T02:34:54.06-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2016-05-11T02:54:00.903-07:00"
+  }
+]

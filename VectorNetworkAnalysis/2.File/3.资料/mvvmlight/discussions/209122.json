@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "430262",
+    "ThreadId": "209122",
+    "Html": "<p>So, lets say I have a viewmodel collection in my main window model, what is the &quot;proper way&quot; to ensure blendability, and still have it cleanly seperated layers? So far I came up with this:</p>\r\n<p>Have an Observable Collection of viewmodels,&nbsp;</p>\r\n<p>Have MainWindow.xaml reference &quot;ViewMapping.xaml&quot; which contains typed data templates like:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">DataTemplate</span> <span style=\"color:Red\">DateType</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">{x:Type ChildViewModel}</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">&gt;</span>\r\n\r\n     <span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">view</span><span style=\"color:Blue\">:</span><span style=\"color:#A31515\">ChildView</span><span style=\"color:Blue\">/&gt;</span>\r\n\r\n<span style=\"color:Blue\">&lt;/</span><span style=\"color:#A31515\">DataTemplate</span><span style=\"color:Blue\">&gt;</span>\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>Have it's host (MainWindow) have a design time data model for it to use.&nbsp; Is this the best way? or is using the locator better?&nbsp; If so, how should the locator be used in this scenario?&nbsp; MVVM Light newbie here!</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-12T18:20:15.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "432477",
+    "ThreadId": "209122",
+    "Html": "<p>Hi,</p>\r\n<p>This way of doing is used quite often in WPF. It does not however work in Silverlight. This is the main reason why I do not use this code, in order to keep the XAML compatible.</p>\r\n<p>Hope this helps,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-18T14:24:49.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "432482",
+    "ThreadId": "209122",
+    "Html": "<p>So then what is the preferable way of doing this? Also, why is this approach incompatible with SL?</p>\r\n<p>refer to: http://stackoverflow.com/questions/2661198/what-is-the-standard-convention-for-defining-nested-viewviewmodel-mapping-in-mvv/2663478#2663478&nbsp;</p>\r\n<p>Thank you for the response.</p>",
+    "PostedDate": "2010-04-18T14:33:40.107-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "432491",
+    "ThreadId": "209122",
+    "Html": "<p>The approach is incompatible with SL because the implicit typing functionality that you use in the DataTemplate here is not implemented in Silverlight. It's one of these features that exist in WPF but not in SL (yet...).</p>\r\n<p>My preferred approach, as I answered on the StackOverflow thread, is to use the ViewModelLocator for child viewmodels too.</p>\r\n<p>Hope this helps,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-18T14:59:52.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "432497",
+    "ThreadId": "209122",
+    "Html": "<p>It does indeed,&nbsp; to close the discussion thread, I will post an implementation as you describe it in the near future for the benefit of others.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-18T15:22:27.637-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "432620",
+    "ThreadId": "209122",
+    "Html": "<p>Hi,</p>\r\n<p>Great, let me know when you have it, and I will add it to the Get Started page as documentation.</p>\r\n<p>Thanks!</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-19T02:09:46.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1130128",
+    "ThreadId": "209122",
+    "Html": "Just out of curiosity, since Silverlight-5 has data-template, is the preference to use them?  Seems it would be much simpler than using the VM Locator, and for whatever reason in my mind I can't envision how this would work with the VM Locator, unless it involves also using the messenger service.  Anyone care to elaborate about how you can use the VM Locator for an observable collection of vm's?\r<br />\n<br />\nThanks,\r<br />\nDon<br />\n",
+    "PostedDate": "2013-11-28T18:39:37.317-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

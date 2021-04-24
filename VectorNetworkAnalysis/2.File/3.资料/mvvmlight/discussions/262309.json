@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "631031",
+    "ThreadId": "262309",
+    "Html": "\r\n<p>Hello Laurent,</p>\r\n<p>I'm working in Germany and i'm looking for install your MVVM Light toolkit.</p>\r\n<p>The Problem is that &quot;Program Files&quot; in the german version of Windows 7 is named &quot;Programme&quot;.</p>\r\n<p>I can't create a directory &quot;Program Files&quot; under c:\\ (not allowed from the OS) and if I copy your binary files in &quot;C:\\Programme&quot;, visual studio can't find your toolkit.</p>\r\n<p>&nbsp;</p>\r\n<p>Have you any id to solve this problem?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-06-22T03:55:55.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "631055",
+    "ThreadId": "262309",
+    "Html": "<p>Hello Laurent,</p>\r\n<p>I forgot to install the Silverlight 4 Toolkit (Silly Michel)</p>\r\n<p>Since I've installed that your Toolkit works well</p>",
+    "PostedDate": "2011-06-22T05:10:14.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

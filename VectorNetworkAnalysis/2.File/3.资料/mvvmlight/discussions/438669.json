@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1023783",
+    "ThreadId": "438669",
+    "Html": "Hi Guys,\r<br />\nMaybe I am confusing myself,\r<br />\nI can pin an Item to start screen, and in its URI I have some query string Values.\r<br />\nfor example:<br />\n<pre><code>/View/ViewDetailPage.xaml?name=&quot;example&quot;&amp;id=&quot;123&quot;</code></pre>\n\nNow what I want is that upon tapping the Tile the app will navigate to<br />\n<pre><code>ViewDetailPage.xaml</code></pre>\n\nAnd it does but <strong>how can I make my ViewModel get those Query String Values.</strong>\r<br />\n<br />\nPlease help !! =)\r<br />\nThanks\r<br />\nRonak<br />\n",
+    "PostedDate": "2013-04-01T07:20:56.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1025289",
+    "ThreadId": "438669",
+    "Html": "Hi Guys so I know how to get these values as well.\r<br />\n<br />\nThe problem now is that,\r<br />\n<br />\nwhen navigating from the Secondary Tile, the View is created first and does not know about the ViewModel.\r<br />\nI want to create my ViewModel before the View, which is fine I can do that in the App.xaml.cs file, but is this safe and correct to do ?\r<br />\nif so which function can I create my ViewModel in ?\r<br />\n<br />\nPlease Advise =)\r<br />\n<br />\nThanks\r<br />\nRonak<br />\n",
+    "PostedDate": "2013-04-04T02:34:14.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1026996",
+    "ThreadId": "438669",
+    "Html": "Currently I have solved this by using some code in the code behind file of the view to initalize its viewmodel with certain parameters.\r<br />\nIt works and things seem to be fine.\r<br />\n<br />\nThanks\r<br />\nRonak<br />\n",
+    "PostedDate": "2013-04-07T23:36:40.597-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

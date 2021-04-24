@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "1018671",
+    "ThreadId": "437441",
+    "Html": "Hi,\r<br />\n<br />\nI have created a new Portable Class Library Project in VS 2012. \r<br />\nHowever when i add the MVVM Light PCL version into my project through nuGet I get &quot;Operation Failed&quot; with message &quot;Portable.MVVMLightLibs already has a dependency defined for &quot;PortableCommonServiceLocator&quot;.\r<br />\n<br />\nNeed the solution asap.\r<br />\n<br />\nCheers<br />\n",
+    "PostedDate": "2013-03-20T22:18:26.273-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1019462",
+    "ThreadId": "437441",
+    "Html": "Hi,\r<br />\n<br />\nDo you have the latest NuGet installed (version 2.2)? \r<br />\n<br />\nCan you share a bit more about your project? What platforms is it targeting? Is this a new project or are there existing references? What NuGet packages are already in the project?\r<br />\n<br />\nRegards,\r<br />\nOren<br />\n",
+    "PostedDate": "2013-03-22T04:45:47.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1020572",
+    "ThreadId": "437441",
+    "Html": "Hi Oren,\r<br />\n<br />\nI have updated my NuGet to the latest version(2.2) installed.\r<br />\nHowever I get the below message when I try to install &quot;MVVM Light Libraries only (PCL)&quot;.\r<br />\n<strong><em>&quot;Could not install package 'Portable.MvvmLightLibs 4.1.27.3'. You are trying to install this package into a project that targets 'portable-win+net45+sl40+wp', but the package does not contain any assembly references or content files that are compatible with that framework. For more information, contact the package author.&quot;</em></strong>\r<br />\n<br />\nThis is a new project (Portable Class Library Project) targeting &quot;.net4.5, sl4+, WP7+, WinRT&quot; using C#. The project does not contain any NuGet Packages.\r<br />\n<br />\nRegards,\r<br />\nManvik<br />\n",
+    "PostedDate": "2013-03-25T04:28:51.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1020574",
+    "ThreadId": "437441",
+    "Html": "Hi Manvik,\r<br />\n<br />\nThe PCL requires at least WP 7.5. If you update your PCL project settings it should then install for you.\r<br />\n<br />\nRegards,\r<br />\nOren<br />\n",
+    "PostedDate": "2013-03-25T04:31:48.42-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1021068",
+    "ThreadId": "437441",
+    "Html": "Hi Oren,\r<br />\n<br />\nThanks for the solution. I am able to add MVVM Light (PCL) to my project.\r<br />\n<br />\nI have one more question<br />\n<ol>\n<li>\nI want to use this PCL in my Windows 8 app project. How do I go about it. And both my projects require MVVM Light<br />\n</li>\n</ol>\nRegards,\r<br />\nManvik<br />\n",
+    "PostedDate": "2013-03-26T00:19:20.963-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1132889",
+    "ThreadId": "437441",
+    "Html": "Changing PCL to support WindowsPhone OS 7.1 did not do the trick. <br />\n<br />\nCould not install package 'Portable.MvvmLightLibs 4.2.30.1'. You are trying to install this package into a project that targets 'portable-win+net45+sl40+wp71', but the package does not contain any assembly references or content files that are compatible with that framework. <br />\n",
+    "PostedDate": "2013-12-08T02:52:13.387-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1132901",
+    "ThreadId": "437441",
+    "Html": "Hi Brilbroeder,<br />\n<br />\nThe latest MVVMLight PCL supports only WP8 and up. SL4 and WP 7.x were dropped. If you need WP7.x support, the last release to support those are the 4.1.27 series. They can be installed via NuGet by using the package manager console:<br />\n<br />\n<a href=\"https://www.nuget.org/packages/Portable.MvvmLightLibs/4.1.27.6\" rel=\"nofollow\">https://www.nuget.org/packages/Portable.MvvmLightLibs/4.1.27.6</a><br />\n<br />\nInstall-Package Portable.MvvmLightLibs -Version 4.1.27.6 <br />\n",
+    "PostedDate": "2013-12-08T06:12:43.033-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1132916",
+    "ThreadId": "437441",
+    "Html": "Thx onovotny. Your Tip solved my problem.<br />\n",
+    "PostedDate": "2013-12-08T08:23:33.11-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2016-04-22T05:21:46.933-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "Hi,\r\n\r\nI had been using 4.4.32.1 of mvvmlight, and recently updated to the latest version 5.0.2 using the package manager. it seem to install ok, but when I went to build the project I was receiving a conflicting dll error.\r\n\r\nThe system, mscorlib and  system.runtime were the dlls it was complaining about, after much checking I discovered that the issue appears to be with Microsoft.Practices.ServiceLocation.dll and the fact that is seems to be referenced against .net 2.0.0.5. I couldn't find a new version of this dll, so to test that I was in the right area I rolled mvvmlight back to 4.4.32.1 and sure enough it all compiled correctly.\r\n\r\nJust wondering is there an issue with 5.0.2 and the Microsoft.Practices.ServiceLocation.dll? is there something else I need to be doing when using 5.0.2?\r\n\r\nI will try updating it again now I know what to do to get it back, to see if it was just a one off issue.\r\n\r\nCheers\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.3.0",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-01-08T16:07:49.557-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Cannot repro"
+    },
+    "Summary": "conflict between dll's",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7677
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\r\n\r\nWhich framework is this on? (WPF? If yes, which version?) \r\n\r\nThanks\r\nLaurent",
+      "PostedDate": "2015-03-28T16:23:38.523-07:00",
+      "Id": 180547
+    },
+    {
+      "Message": "Hi\n\nThis is still causing an issue, the below packages seem to work together, as soon as I update MVVMLight to 5.0.2 the build fails. and have to roll it back to at least the version shown below for it to work again. \n\n```\n<packages>\n  <package id=\"CommonServiceLocator\" version=\"1.3\" targetFramework=\"net452\" />\n  <package id=\"MahApps.Metro\" version=\"1.1.2.0\" targetFramework=\"net452\" />\n  <package id=\"MahApps.Metro.Resources\" version=\"0.4.0.0\" targetFramework=\"net452\" />\n  <package id=\"mongocsharpdriver\" version=\"2.0.0\" targetFramework=\"net452\" />\n  <package id=\"MongoDB.Bson\" version=\"2.0.0\" targetFramework=\"net452\" />\n  <package id=\"MongoDB.Driver\" version=\"2.0.0\" targetFramework=\"net452\" />\n  <package id=\"MongoDB.Driver.Core\" version=\"2.0.0\" targetFramework=\"net452\" />\n  <package id=\"MvvmLightLibs\" version=\"4.4.32.7\" targetFramework=\"net452\" />\n  <package id=\"Newtonsoft.Json\" version=\"6.0.8\" targetFramework=\"net452\" />\n</packages>\n```",
+      "PostedDate": "2015-05-19T13:50:38.403-07:00",
+      "Id": 184564
+    }
+  ]
+}

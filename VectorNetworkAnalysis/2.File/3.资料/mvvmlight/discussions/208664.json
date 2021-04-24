@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "428663",
+    "ThreadId": "208664",
+    "Html": "<p>Hi&nbsp;</p>\r\n<p>how would you bind notify-able properties between viewmodels?&nbsp;</p>\r\n<p>say i have 2 viewmodels that exposes properties.</p>\r\n<p>i would like to do a binding operation between both viewmodels and would like put the binding code elsewhere like some ViewModelsBinding.cs file where i specify all bindings across viewmodels</p>\r\n<p>is it good practice to do that?</p>",
+    "PostedDate": "2010-04-08T00:31:34.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "428747",
+    "ThreadId": "208664",
+    "Html": "<p>I would use messaging to communicate between view models.&nbsp; See http://www.galasoft.ch/blogs-all/resources/MIX10/Mix10.Messaging.zip for an example.</p>\r\n<p>If that doesn't answer your question, please give a more detailed description of what you're trying to accomplish.</p>",
+    "PostedDate": "2010-04-08T04:33:05.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "428822",
+    "ThreadId": "208664",
+    "Html": "<p>HI,</p>\r\n<p>yeah, i know there is the messenger. But i would like the twoway binding/capability. so whenever one of the viewmodels modifies the property, the other would be updated as well.</p>\r\n<p>and i also would like know if it is possible to have a .cs file that specifies all the bindings between viewmodels instead of putting the binding code in the viewmodel.. just want to know if it is good practice?</p>\r\n<p>thanks</p>",
+    "PostedDate": "2010-04-08T07:53:06.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "428838",
+    "ThreadId": "208664",
+    "Html": "<p>After reading these details, my initial thought is wondering why these are separate views.</p>\r\n<p>I don't know that I've seen any guidance on MVVM where you have disparate views data bound to each other's values.</p>\r\n<p>You could also try creating a global view model and using the ViewModelLocator to set the data context of individual elements that need to bind to values from that view model.</p>",
+    "PostedDate": "2010-04-08T08:08:20.997-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "443936",
+    "ThreadId": "208664",
+    "Html": "<p>I can think of exactly the reason. Right now I have a three-pane UI design where the first pane is bound to the &quot;shell&quot; viewmodel, the second pane selects that subset of data to edit, and the third pane lets you actually edit the data. The way I have it wired currently, the 2nd pane has TreeView containing TreeItems with Tags that point to the XAML page to load, and the 3rd panel is a Frame that dynamically loads and presents the Ui to the user.</p>\r\n<p>I have the different ViewModels working separately, but now I need to be able to pass the selected item in the TreeView in the first pane to the ObjectSource property in the ViewModel for the 3rd pane (or setting selected sets a property in the &quot;shell window&quot; ViewModel, which the 3rd pane ViewModel could bind to.</p>\r\n<p>Ideas?</p>",
+    "PostedDate": "2010-05-17T12:20:24.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "444026",
+    "ThreadId": "208664",
+    "Html": "<p>Hi,</p>\r\n<p>I developed the Messenger exactly for this kind of scenarios. I would really recommend you take a good look at it, it is made to enable loosely coupled communication between viewmodels (and other objects as well).</p>\r\n<p>Greetings,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-05-17T15:48:20.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

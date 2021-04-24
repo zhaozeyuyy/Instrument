@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:55:37.123-07:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "Hi,\r\nthe new automated installer fails to install the snippets correctly in german VS as well as templates in german Blend - this, at least is what I'm missing so far.\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V3 SP1 Installer",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "High",
+      "Severity": 150,
+      "Id": 3
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-08-07T11:41:41.72-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Installer does not work correctly for non-english IDE",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7538
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nThanks for the note. I will check this out. Is it OK if I contact you either to check a couple of things out, or to let you test a fix?\n\nthanks,\nLaurent",
+      "PostedDate": "2011-08-07T13:00:30.53-07:00",
+      "Id": 42152
+    },
+    {
+      "Message": "Yes, sure (although I already installed it manually like it was before). Do you need my e-mail address?\n",
+      "PostedDate": "2011-08-07T15:30:08.323-07:00",
+      "Id": 42155
+    },
+    {
+      "Message": "Hi,\n\nSure, just drop me an email at laurent at galasoft dot ch. \n\nFor info, I solved the issue for the Blend templates. Thankfully there is another non language dependant location which can be used. It is a tad more complex, which is why I didn't use it in the first place, but considering the localization issue, it makes sense to use it now.\n\nFor the snippets, things are more complicated. Unfortunately, for some weird reason, snippets in Visual Studio are considered to be language dependant. It would be OK if they would also accept snippets from a language-neutral location. Unfortunately the installer cannot use the location defined in Visual Studio (in the Options), because of the way that it is garbled in the registry. I really want to avoid having to maintain multiple setups for different languages, so I am still considering the options. I will let you know.\n\nThanks again for reporting.\nCheers,\nLaurent",
+      "PostedDate": "2011-08-08T15:43:24.66-07:00",
+      "Id": 42238
+    }
+  ]
+}

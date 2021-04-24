@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "Build default MVVM Light windows 10 universal app.\r\n\r\nRuns on Windows 10, no issues.\r\n\r\nDownload to Raspberry Pi ( running windows 10).  With the exception of the 'Show a Dialog\" it all works.\r\n\r\nWhen you click on 'Show a Dialog\" the application crashes :(\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-01-09T05:29:53.003-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "MVVM Light Dialog and IOT",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7716
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nI didn't do work with MVVM Light and IOT yet. If you are interested, take a look at the issue and send me  pull request. If not, I will see if I can find a way to look at this issue.\n\nThanks for reporting\nLaurent",
+      "PostedDate": "2016-01-16T13:09:58.627-08:00",
+      "Id": 195498
+    },
+    {
+      "Message": "   System.NotImplementedException occurred\n  HResult=-2147467263\n  Message=The method or operation is not implemented.\n  Source=Windows\n  StackTrace:\n       at Windows.UI.Popups.MessageDialog..ctor(String content, String title)\n       at GalaSoft.MvvmLight.Views.DialogService.CreateDialog(String message, String title, String buttonConfirmText, String buttonCancelText, Action afterHideCallback, Action`1 afterHideCallbackWithResponse, Action`1 afterHideInternal)\n       at GalaSoft.MvvmLight.Views.DialogService.<ShowMessage>d__8.MoveNext()\n    --- End of stack trace from previous location where exception was thrown ---\n       at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)\n       at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\n       at System.Runtime.CompilerServices.TaskAwaiter.GetResult()\n       at MvvmLightLED.ViewModel.MainViewModel.<>c.<<get_ShowDialogCommand>b__23_0>d.MoveNext()\n  InnerException: \n",
+      "PostedDate": "2016-02-05T13:33:53.53-08:00",
+      "Id": 196257
+    }
+  ]
+}

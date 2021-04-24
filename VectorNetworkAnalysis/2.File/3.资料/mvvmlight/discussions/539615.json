@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1224858",
+    "ThreadId": "539615",
+    "Html": "Hi,\r<br />\n<br />\nI have a method I am using to show child windows in my application. For each child window, it sets up a recipient to respond to Close messages from that window. Here is the code:<br />\n<pre><code>protected void ShowWpfWindow(Window wpfWindow)\n{\n    var dc = wpfWindow.DataContext as ChildWindowViewModel;\n    if (dc == null)\n        throw new ArgumentOutOfRangeException();\n\n    Action&lt;CloseWindowMessage&gt; action = (x) =&gt; \n    {\n        wpfWindow.Close();\n    };\n    Messenger.Default.Register(wpfWindow, dc, action);\n\n    wpfWindow.Owner = MainWindow.Single;\n    wpfWindow.ShowInTaskbar = false;\n    wpfWindow.Show();\n}</code></pre>\n\nThe problem is that the <code>action</code> is being garbage collected - I assume this is because it's a local variable to the calling method and the messenger doesn't hold a strong reference to it. This means that once the method is finished, the action is liable for garbage collecting.\r<br />\n<br />\nWhat sort of pattern should I use to avoid this issue? This is actually a bit annoying as I quite like defining my application behavior with little anonymous functions, so perhaps I should change the implementation of <code>Messenger</code>? Or do you think it's a bad idea to define actions like this?\r<br />\n<br />\nI've gone into some more detail about the problem in my stackoverflow question: <a href=\"http://stackoverflow.com/questions/22536399/mvvm-light-message-recipient-action-being-garbage-collected\" rel=\"nofollow\">mvvm light message recipient action being garbage collected</a>.\r<br />\n<br />\nI would appreciate any comments you might have.<br />\n",
+    "PostedDate": "2014-03-20T08:33:38.62-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1226050",
+    "ThreadId": "539615",
+    "Html": "I wrote another stackoverflow post that includes a concise sample application that reproduces the problem. It turns out the issue is with the line <code>wpfWindow.Close()</code> - somehow, referencing variables from the containing method scope seem to tie the lifetime of the action to that scope, so that the action can be garbage collected whenever. Weird!<br />\n<br />\nHere is the question: <a href=\"http://stackoverflow.com/questions/22613828/strange-behavior-with-actions-local-variables-and-garbage-collection-in-mvvm-li\" rel=\"nofollow\">Strange behavior with actions, local variables and garbage collection in mvvm light messenger</a><br />\n<br />\nI guess something strange is happening with all the WeakReferences and WeakActions in the <code>Messenger</code> implementation, but I don't know what exactly.<br />\n<br />\nThis is the first time I've hit a problem with C# that's really left my stumped in a while. I guess I don't know my way around garbage collection and memory management as well as I should!<br />\n",
+    "PostedDate": "2014-03-24T08:41:42.76-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1227436",
+    "ThreadId": "539615",
+    "Html": "Jon Skeet gave a rather nice answer outlining the cause of this issue. It seems to relate to technicalities of how the compiler compiles anonymous functions. \r<br />\n<br />\n<a href=\"http://stackoverflow.com/a/22682194/284741\" rel=\"nofollow\">Answer.</a>\r<br />\n<br />\nI'm going to try working with MVVM Light's implementation of WeakActions and similar to see if I can resolve this. Perhaps the developer(s) of MVVM Light might also want to consider this case? I'm sure that the use of anonymous functions with variable capture is quite common for message handlers when using MVVM Light, so this issue may be causing lots of subtle bugs to appear.<br />\n",
+    "PostedDate": "2014-03-27T09:18:02.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

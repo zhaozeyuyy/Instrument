@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 4,
+    "Custom": null,
+    "Description": "Since Messenger uses weak reference to a target, message dispatch does not work if I use lambda with closure. This works:\r\n\r\n```\r\nvoid Register(SomeClass obj)\r\n{\r\n    Messenger.Default.Register<SomeMessage>(this, msg=>\r\n    {\r\n          MessageBox.Show(...);; // obj is not used, no closure\r\n    });\r\n}\r\n```\r\nThis does not work:\r\n\r\nvoid Register(SomeClass obj)\r\n{\r\n    Messenger.Default.Register<SomeMessage>(this, msg=>\r\n    {\r\n          MessageBox.Show(...);;\r\n          obj.DoSomething();\r\n    });\r\n}\r\n\r\nWhen I send SomeMessage the handler is not called. The reason for that is that in the first case compiler generates just a method, but in the second case it generates a class that holds captured parameters (\"obj\" in our case). Register() is then called with a delegate pointing to an instance of that hidden class. Since messenger uses weak references, this instance quickly gets garbage collected, the reference dies, and the handler can no longer be called.\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.4.0 (planning)",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-05-29T11:54:55.89-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Messenger message dispatch does not work for lambdas with closures",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 5,
+    "Id": 7640
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Thank you for this... I believe it is the source of many problems I've been having.  ",
+      "PostedDate": "2014-07-30T18:49:18.73-07:00",
+      "Id": 154019
+    },
+    {
+      "Message": "Hi,\n\nI understand the frustration. Unfortunately as described in the Stackoverflow reference below, this problem just cannot be solved in an elegant manner.\n\nhttp://stackoverflow.com/questions/25730530/bug-in-weakaction-in-case-of-closure-action\n\nIn the next version of MVVM Light, I will give the user the possibility to opt-in into a behavior where the reference to the anonymous class created by the closure will be kept no matter what. This will prevent the garbage collector to collect this instance (which is the reason why the WeakAction fails when you use closures).\n\nTo be clear, this will cause a (small) potential memory leak to appear. By opting into the behavior (concretely, by passing \"true\" to an optional parameter in the RelayCommand constructor and in the Register method of the Messenger), you will acknowledge that this is indeed the behavior that you prefer. If you don't want this, you can always use the default behavior, and avoid using a closure.\n\nHopefully this will solve the problem in a satisfactory, non-breaking manner. \nI am planning to push this version as a preview this weekend. Please stay tuned.\n\nLaurent",
+      "PostedDate": "2016-11-23T02:26:09.7-08:00",
+      "Id": 205258
+    },
+    {
+      "Message": "Quick update after the weekend: I have a proposed implementation which would solve this issue but I am still looking for the best way to change the API (or not). I am contacting the C# team to run a few questions by them. If all goes well, I should be able to propose a poll on the change within a few days. \n\nLaurent",
+      "PostedDate": "2016-11-28T03:01:15.037-08:00",
+      "Id": 205328
+    },
+    {
+      "Message": "Hi,\n\n I just published an alpha version of V5.4.0 to Nuget. This version proposes a fix to this issue. This requires setting a new parameter called keepTargetAlive to true when you call Register. Note that while this allows using a closure, this also risks causing a (small) memory leak. \n\n I have preliminary documentation here: [http://www.mvvmlight.net/doc/weakaction.cshtml]. A more detailed article will be published as soon as I have time to finish it..\n\n Hopefully this helps. This is an alpha, which means I am interested on your feedback.\n\n Thanks!\n Laurent",
+      "PostedDate": "2016-12-04T09:41:48.217-08:00",
+      "Id": 205464
+    }
+  ]
+}

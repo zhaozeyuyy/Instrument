@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1114877",
+    "ThreadId": "464807",
+    "Html": "Hi\r<br />\n<br />\n<br />\n<br />\nI have a list of items that goes to another page, That page is hooked up to a view model. In the constructor of this view model I have code that grabs data from the server for that particular item.\r<br />\n<br />\nWhat I found is that when I hit the back button and choose another item fromt hat list and it goes to the other page the constructor does not get hit.\r<br />\n<br />\nI think it is because the VM is now created and thinks it does not need a new one. I am wondering how do I force a cleanup so that a fresh one is always grabbed when I select from my list?\r<br />\n<br />\nI seem some people doing this<br />\n<pre><code>       SimpleIoc.Default.Unregister&lt;ViewModelName&gt;();\n</code></pre>\n\nBut I don't seem to have that and I am not sure how that ties into the cleanup method in the viewmodellocator?\r<br />\n<br />\nMvvm Light Version: 4.0.23.35541<br />\n",
+    "PostedDate": "2013-10-30T19:28:41.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1116910",
+    "ThreadId": "464807",
+    "Html": "A workaround is to Get each time a new instance of ViewModel using <strong>Guid</strong>, so each time a new constructor of VM is called. See 2nd point of this good little tutorial: <a href=\"http://stackoverflow.com/questions/13795596/best-tutorial-to-learn-mvvmlight-simpleioc-use\" rel=\"nofollow\">http://stackoverflow.com/questions/13795596/best-tutorial-to-learn-mvvmlight-simpleioc-use</a><br />\n<pre><code>SimpleIoc.Default.GetInstance&lt;ViewModelName&gt;(Guid.NewGuid().ToString());</code></pre>\n\nI also haven't yet understand how to use the ViewModelLocator.Cleanup() ... :-(<br />\n",
+    "PostedDate": "2013-11-03T02:34:24.417-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1117552",
+    "ThreadId": "464807",
+    "Html": "We're currently using Unity as we have to use bits of Prism as we load modules into a shell but I did some test harness apps for our data services and used SimpleIoC.\r<br />\n<br />\nViewModelLocator.Cleanup seems to work fine but the Cleanup in the viewmodellocator is for app termination rather than cleanup of specific VM instances (I think), seems to work that way anyway.<br />\n<pre><code> public class ViewModelLocator\n    {\n        static ViewModelLocator()\n        {\n            ServiceLocator.SetLocatorProvider(() =&gt; SimpleIoc.Default);\n\n            SimpleIoc.Default.Register&lt;ISecurityDataService, SecurityDataService&gt;();\n            SimpleIoc.Default.Register&lt;IDesktopDataService, DesktopDataService&gt;();\n            \n\n            SimpleIoc.Default.Register&lt;MainViewModel&gt;();\n            SimpleIoc.Default.Register&lt;UserViewModel&gt;();\n            SimpleIoc.Default.Register&lt;SecurityViewModel&gt;();\n        }\n\n        /// &lt;summary&gt;\n        /// Gets the Main property.\n        /// &lt;/summary&gt;\n        [System.Diagnostics.CodeAnalysis.SuppressMessage(&quot;Microsoft.Performance&quot;,\n            &quot;CA1822:MarkMembersAsStatic&quot;,\n            Justification = &quot;This non-static member is needed for data binding purposes.&quot;)]\n        public MainViewModel Main\n        {\n            get\n            {\n                return ServiceLocator.Current.GetInstance&lt;MainViewModel&gt;();\n            }\n        }\n\n        public UserViewModel User\n        {\n            get\n            {\n                return ServiceLocator.Current.GetInstance&lt;UserViewModel&gt;();\n            }\n        }\n\n        public SecurityViewModel Security\n        {\n            get\n            {\n                return ServiceLocator.Current.GetInstance&lt;SecurityViewModel&gt;();\n            }\n        }\n\n       public static void Cleanup()\n        {\n\n            // Implements IDisposable\n            SimpleIoc.Default.Unregister&lt;IDesktopDataService&gt;();\n            SimpleIoc.Default.Unregister&lt;ISecurityDataService&gt;();\n\n\n            SimpleIoc.Default.Unregister&lt;SecurityViewModel&gt;();\n            SimpleIoc.Default.Unregister&lt;UserViewModel&gt;();\n            SimpleIoc.Default.Unregister&lt;MainViewModel&gt;();\n\n        }    }</code></pre>\n\n",
+    "PostedDate": "2013-11-05T02:19:37.753-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1117812",
+    "ThreadId": "464807",
+    "Html": "Ya, I am able to do that maybe I was looking at the wrong area or something but I have the Unregister now. Thought what I noticed if I want to go back to the same view I need to add a check to re register the VM (which makes sense)\r<br />\n<br />\n  public MainViewModel Main<br />\n<pre><code>    {\n        get\n        {\n           // do a check to see if a VM exists if not then re-register\n            return ServiceLocator.Current.GetInstance&lt;MainViewModel&gt;();\n        }\n    }\n</code></pre>\n\nI notice you don't do that. Did you not run into this problem?<br />\n",
+    "PostedDate": "2013-11-05T09:26:08.183-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1118803",
+    "ThreadId": "464807",
+    "Html": "<strong>chobo2 wrote:</strong><br />\n<blockquote>\nYa, I am able to do that maybe I was looking at the wrong area or something but I have the Unregister now. Thought what I noticed if I want to go back to the same view I need to add a check to re register the VM (which makes sense)<br />\n<br />\n  public MainViewModel Main<br />\n<pre><code>    {\n        get\n        {\n           // do a check to see if a VM exists if not then re-register\n            return ServiceLocator.Current.GetInstance&lt;MainViewModel&gt;();\n        }\n    }\n</code></pre>\n\nI notice you don't do that. Did you not run into this problem?<br />\n</blockquote>\nThat sample app just has one instance of the VMs so it didn't matter. We don't use page navigation so our requirements are different.<br />\n",
+    "PostedDate": "2013-11-06T03:22:46.463-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

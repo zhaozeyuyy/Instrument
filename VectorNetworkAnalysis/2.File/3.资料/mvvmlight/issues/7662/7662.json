@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-01-13T10:06:06.047-08:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "Seems like RaisePropertyChanging was removed from the ViewModelBase? I've upgarded from 4.2, and besides the buttons isssue, i'm also having the following:\r\n\r\n    public class MyBase_ViewModel : ViewModelBase\r\n    {   \r\n       // THIS ONE IS OK\r\n        [NotifyPropertyChangedInvocator]\r\n        protected override void RaisePropertyChanged([CallerMemberName]string property = \"\")\r\n        {\r\n            base.RaisePropertyChanged(property);\r\n        }\r\n\r\n       // THIS ONE IS COMPLAINING ABOUT NO METHOD TO OVERRIDE\r\n        [NotifyPropertyChangedInvocator]\r\n        protected override void RaisePropertyChanging([CallerMemberName]string property = \"\")\r\n        {\r\n            base.RaisePropertyChanging(property);\r\n        }\r\n    }\r\n\r\nshall i just remove it, or are there any other implications involved ?\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-10-21T14:49:42.383-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Won't fix"
+    },
+    "Summary": "RaisePropertyChanging gone in V.5 ?!",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7662
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nI had to remove PropertyChanging support because the PCL framework doesn't support this event. I am trying to see if I have a good alternative for future versions.\n\nIn the code above, you can remove the override without side effects.\n\nIf you need an alternative to handling the PropertyChanging event, let me know and I'll send you sample code.\n\nCheers\nLaurent",
+      "PostedDate": "2014-10-24T05:54:43.647-07:00",
+      "Id": 163174
+    },
+    {
+      "Message": "Hi Laurent,\n\nFrom my understanding that \"changing\" is in case you want to do something with it before it changes, and i'm not currently using it, so I don't really mind it (I was puzzled though when I updated the library around midnight and nothing seemed to work afterwards though :)\n\nIf you have some code examples, you can still post it on your blog (and/or here), so future searches will be able to benefit from it.\n\nCheers again, and keep up the good work :)\n\n",
+      "PostedDate": "2014-10-24T17:25:47.033-07:00",
+      "Id": 163230
+    }
+  ]
+}

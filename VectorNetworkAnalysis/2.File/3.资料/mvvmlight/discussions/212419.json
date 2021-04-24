@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "442041",
+    "ThreadId": "212419",
+    "Html": "I'm useing MVVM light toolkit for WPF. It looks like CanExecuteChanged isn't raised at all. Even when I call: RaiseCanExecuteChanged(). \r\n",
+    "PostedDate": "2010-05-12T06:41:10.853-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "445759",
+    "ThreadId": "212419",
+    "Html": "<p>Hi,</p>\r\n<p>In WPF, the CanExecute method is called by the CommandManager class. The RaiseCanExecuteChanged method is present in WPF for compatibility with Silverlight, where there is no CommandManager and the CanExecuteChanged event must be raised manually.</p>\r\n<p>In a previous version, I had offered the possibility to force the CanExecuteChanged event to be raised, but it created some issues where the CanExecute method was executed twice.&nbsp;</p>\r\n<p>Do you have a scenario where the CanExecute method is not called by the CommandManager?</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-05-21T02:25:25.103-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487312",
+    "ThreadId": "212419",
+    "Html": "<p>Actually Laurent I think I'm getting this situation too, a contrived example would be as follows:</p>\r\n<p>&nbsp;</p>\r\n<p>Snippet</p>\r\n<pre style=\"font-family:consolas\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CloseCommand&nbsp;=&nbsp;<span style=\"color:blue\">new</span>&nbsp;<span style=\"color:#2b91af\">RelayCommand</span>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;()&nbsp;=&gt;&nbsp;<span style=\"color:#2b91af\">MessageBox</span>.Show(<span style=\"color:#a31515\">&quot;I don't wanna close! Give up!&quot;</span>),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;()&nbsp;=&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:blue\">if</span>&nbsp;(<span style=\"color:#2b91af\">DateTime</span>.Now.Second&nbsp;%&nbsp;3&nbsp;==&nbsp;0)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:blue\">return</span>&nbsp;<span style=\"color:blue\">true</span>;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:blue\">return</span>&nbsp;<span style=\"color:blue\">false</span>;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t&nbsp;=&nbsp;<span style=\"color:blue\">new</span>&nbsp;System.Timers.<span style=\"color:#2b91af\">Timer</span>(10);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t.Elapsed&nbsp;+=&nbsp;(s,&nbsp;e)&nbsp;=&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CloseCommand.RaiseCanExecuteChanged();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t.Start();<br><br>You would imagine that every 10ms it would re-evaluate and update the visual for CloseCommand's bound controls, but this is not the case in WPF.</pre>",
+    "PostedDate": "2010-08-31T18:59:09.373-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

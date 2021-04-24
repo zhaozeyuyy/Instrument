@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "926150",
+    "ThreadId": "399228",
+    "Html": "\r\n<p>Hi I just installed Mvvmlight &nbsp;4.0.23.4.</p>\r\n<p>I created new Mvvmlight project in visual studio 2012 express. Just right after I created new project I tried to run it but right in the splash screen the application stop and this is the error:</p>\r\n<p>Cannot find a Resource with the Name/Key ApplicationHeaderForegroundThemeBrush</p>\r\n<p>&nbsp;</p>\r\n<p>I used visual studio 2012 express in Windows 8 RP</p>\r\n",
+    "PostedDate": "2012-10-13T08:22:32.357-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "926166",
+    "ThreadId": "399228",
+    "Html": "<p>Hi,</p>\r\n<p>MVVM Light V4.0.23.4 applies to Windows 8 RTM only. The issue you indicate was a change from Win8 RP to RTM.</p>\r\n<p>Cheers</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2012-10-13T09:42:17.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "926167",
+    "ThreadId": "399228",
+    "Html": "<p>so where can I get the installer for Windows 8 RP?</p>",
+    "PostedDate": "2012-10-13T09:56:43.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "926168",
+    "ThreadId": "399228",
+    "Html": "<p>I don't support Win8 RP anymore. I can pass you an installer but it's at your own risk. Please send me an email to Laurent at galasoft dot ch.</p>\r\n<p>Cheers<br />Laurent</p>",
+    "PostedDate": "2012-10-13T10:04:22.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "926315",
+    "ThreadId": "399228",
+    "Html": "<p>Ok, I already sent you email regarding this.</p>\r\n<p>&nbsp;</p>\r\n<p>Thank you</p>",
+    "PostedDate": "2012-10-14T04:10:15.933-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

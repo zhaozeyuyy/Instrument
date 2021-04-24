@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Not an issue",
+    "ClosedDate": "2014-08-30T06:45:25.56-07:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "I have 2 classes and want to send object using Messenger while navigating from page to another and it works but only when navigate to the page and come back then try again not from first try. ManivViewModel code:\r\n```\r\npublic void GoToDetial(object parameter)\r\n        {\r\n            try\r\n            {\r\n                var arg = parameter as ItemClickEventArgs;\r\n                var item = arg.ClickedItem as Item;\r\n                Messenger.Default.Send<Item>(item, \"Mess\");\r\n                _navigationService.Navigate(typeof(DescriptionPage));\r\n            }\r\n            catch { }\r\n        }\r\n```\r\nDescriptionViewModel code:\r\n```\r\npublic DescriptionViewModel(IRSSDataService rssService, INavigationService navigationService, IDialogService dialogService)\r\n            {\r\n                _dataService = rssService;\r\n                _navigationService = navigationService;\r\n                _dialogService = dialogService;\r\n\r\n                load();\r\n\r\n                LoadCommand = new RelayCommand(load);\r\n                GoToUrlCommand = new RelayCommand<object>(GoToUrl);\r\n                ShareSocialCommand = new RelayCommand(ShareSocial);\r\n            }\r\n\r\n            private void load()\r\n            {            \r\n                Messenger.Default.Register<Item>(\r\n                     this,\r\n                     \"Mess\",\r\n                     selectedItem =>\r\n                     {\r\n                         Item = selectedItem;\r\n                         // Prepare content to share\r\n                         RegisterForShare();\r\n                         GetFromHTML(Item.Link);\r\n                     });\r\n            }\r\n```",
+    "LastUpdatedDate": "2014-08-30T06:58:42.713-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-08-30T04:45:18.513-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Not an issue"
+    },
+    "Summary": "MVVM light Messenger Action execute after first time Windows Uinversal 8.1",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7656
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I  found it. I just need to pass in \"true\" to the Register call in the SimpleIoc to create the instance of the DescriptionViewModel immediately like this\n\n```\nSimpleIoc.Default.Register<DescriptionViewModel>(true);\n```",
+      "PostedDate": "2014-08-30T05:25:34.073-07:00",
+      "Id": 158313
+    },
+    {
+      "Message": "Hi,\n\nIn the future, please only open issues when you are sure that there is actually an issue with the package instead of your code. A good rule of thumb is to ask on StackOverflow (use the mvvm-light tag) and see what people say :)\n\nNo biggie but I thought i would point you there for next time.\n\nCheers\nLaurent",
+      "PostedDate": "2014-08-30T06:45:09.29-07:00",
+      "Id": 158316
+    },
+    {
+      "Message": "Sorry for that and thanks",
+      "PostedDate": "2014-08-30T06:58:42.713-07:00",
+      "Id": 158317
+    }
+  ]
+}

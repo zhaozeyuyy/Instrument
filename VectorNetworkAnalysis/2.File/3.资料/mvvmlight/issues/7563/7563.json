@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:57:11.253-07:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "vs11 beta\r\nmvvm light toolkit 4 beta use\r\n\r\nError\t1\tThe type 'Windows.UI.Xaml.Data.INotifyPropertyChanged' is defined in an assembly that is not referenced. You must add a reference to assembly 'Windows.UI.Xaml.Data, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentType=WindowsRuntime'.\tD:\\Daum 클라우드\\BusInfoAppMVVM\\BusInfoAppMVVM\\ViewModel\\MainViewModel.cs\t24\t18\tBusInfoAppMVVM\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-03-01T05:27:34.383-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "The type 'Windows.UI.Xaml.Data.INotifyPropertyChanged' is defined in an assembly that is not referenced",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 5,
+    "Id": 7563
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nWindows 8 Consumer Preview is not supported at the moment, but an update is in the works and will be released very soon. Stay tuned to my blog (http://blog.galasoft.ch) for updates.\n\nCheers,\nLaurent",
+      "PostedDate": "2012-03-01T09:50:48.12-08:00",
+      "Id": 56924
+    },
+    {
+      "Message": "I ran into the same issue. Do you know ETA when this issue is going to be fixed ? \n\nThanks",
+      "PostedDate": "2012-03-09T18:03:17.817-08:00",
+      "Id": 57460
+    },
+    {
+      "Message": "Hi,\n\nIt is fixed in the code. Get the latest and build, and you will not get thi=\ns error anymore.\n\nI am working on providing an installer for the new version, ETA beginning o=\nf next week.\n\nCheers\nLaurent",
+      "PostedDate": "2012-03-09T22:58:47.107-08:00",
+      "Id": 57464
+    }
+  ]
+}

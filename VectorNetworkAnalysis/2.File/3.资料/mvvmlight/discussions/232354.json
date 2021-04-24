@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "512664",
+    "ThreadId": "232354",
+    "Html": "\r\n<p>The last version was on April, 2010.</p>\r\n<p>Is there going to be a new version or release soon, and is the MVVM Light framework or pattern will be supported and live .</p>\r\n<p>It is neccessary that we don't use obsolete techniques</p>\r\n<p>Thanks alot.</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-10-26T05:36:39.61-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "512672",
+    "ThreadId": "232354",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>MVVM Light is far from obsolete, in fact the components as they are available now are used in multiple apps both for Silverlight and WP7. The reason why no changes were made since April is that the components work great as they are. i plan to resume working\r\n on MVVM Light because I completed my book Silverlight 4 Unleashed, and i have more time to work on ideas that i have around MVVM light, but I am not planning to change the existing components all too much, because there is&nbsp;not a need.</p>\r\n<p>HTH</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2010-10-26T05:48:10.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "512674",
+    "ThreadId": "232354",
+    "Html": "\r\n<p>Thank you for your quick reply,</p>\r\n<p>I read somewhere that there will be a change to the viewmodel locator in MVVM Light, that would be easier and takes less code. (May be using MEF)</p>\r\n<p>is this right?</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-10-26T05:53:38.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513237",
+    "ThreadId": "232354",
+    "Html": "\r\n<p>&quot;The components work great as they are&quot;</p>\r\n<p>It's true,&nbsp;except the little bug explained at the end of this thread ;-) :<br>\r\n<a href=\"http://mvvmlight.codeplex.com/Thread/View.aspx?ThreadId=199498\">http://mvvmlight.codeplex.com/Thread/View.aspx?ThreadId=199498</a>&nbsp;</p>\r\n",
+    "PostedDate": "2010-10-27T01:44:08.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "513295",
+    "ThreadId": "232354",
+    "Html": "\r\n<p>nitpicking:start</p>\r\n<p>we could argue if this is a bug or not. Standard commands are also not evaluated when the attached element is disabled.</p>\r\n<p>nitpicking:end ;-)</p>\r\n<p>That said, I agree that your proposal to add such a property is interesting and I will definitely consider it for V4</p>\r\n<p>And yes, I will resume work on MVVM Light shortly :-)</p>\r\n<p>Cheers</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2010-10-27T03:53:52.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "514467",
+    "ThreadId": "232354",
+    "Html": "\r\n<p>In my point of view, when we use an EventToCommand, we expect that the corresponding command will be evaluated each time the event is raised.<br>\r\nBut, I understand that in some cases (exceptionally, I think), it could be nice to not evaluate this command when the element is disabled.<br>\r\n<br>\r\nCordially,<br>\r\nSt&eacute;phane.&nbsp;</p>\r\n",
+    "PostedDate": "2010-10-29T03:15:21.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "514772",
+    "ThreadId": "232354",
+    "Html": "\r\n<p>Would you accept it if it was the other way round? I.e. the default is that disabled elements do not execute the command, and there is a property that changes this behavior?</p>\r\n<p>The advantage is that it wouldn't be a breaking change. Plus, it would be compatible with the way that the Command property behaves in SL4. This way, you can easily handle a command in WP7 projects, where the Command property is missing, with exactly the\r\n same behavior.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2010-10-29T15:09:32.177-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "515817",
+    "ThreadId": "232354",
+    "Html": "\r\n<p>Yes, I think it's acceptable, you are right.</p>\r\n",
+    "PostedDate": "2010-11-02T02:39:24.643-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

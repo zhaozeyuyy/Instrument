@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-01-13T01:44:43.277-08:00",
+    "CommentCount": 5,
+    "Custom": null,
+    "Description": "I have downloaded latest sources and tried to run sample project (Flower) on iOS. App launches fine, but it crashes on following code:\r\n\r\nAddCommentViewController, line 28\r\n\r\n_commentBinding = this.SetBinding( () => CommentText.Text).UpdateSourceTrigger(\"Changed\");\r\n\r\nwith \"Event not found: changed\" message.\r\n\r\nInteresting is, that it works in Simulator but not on device.\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.0.0.0",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-11-20T03:04:20.357-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "iOS - bindings do not work on device",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7670
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Having the exact same issue. Also occurs when I use\n\n```\naddButton.SetCommand (\"TouchUpInside\", ViewModel.AddCommand);\n```\n\nwhere __addButton__ is of type __UIButton__. Works on simulator but crashes on device with error \"Event not found: TouchUpInside\"",
+      "PostedDate": "2015-01-06T02:30:35.783-08:00",
+      "Id": 169522
+    },
+    {
+      "Message": "OK so the problem is with the Linker; implementing [this solution](http://stackoverflow.com/questions/19102503/mvvmcross-failed-to-create-target-binding-for-editingdidbegin-on-iphone) for a similar issue when using MvvmCross solved the problem :)",
+      "PostedDate": "2015-01-06T02:56:14.73-08:00",
+      "Id": 169525
+    },
+    {
+      "Message": "Hi,\n\nThanks for the reply. If I understand correctly, there is nothing much that MVVM Light can do about this issue, correct?\n\nThanks\nLaurent",
+      "PostedDate": "2015-01-06T03:42:31.623-08:00",
+      "Id": 169527
+    },
+    {
+      "Message": "Hi Laurent\n\nCorrect, the issue appears to be caused by the Xamarin linker. Adding a dummy file as mentioned in the above link prevents the linker from stripping out the events.",
+      "PostedDate": "2015-01-06T05:20:40.437-08:00",
+      "Id": 169533
+    },
+    {
+      "Message": "OK thanks for replying.\n\nI had heard about linker issues before indeed. I will close the issue now but I will blog about it ASAP.\n\nThanks!\nLaurent",
+      "PostedDate": "2015-01-06T05:35:37.827-08:00",
+      "Id": 169534
+    }
+  ]
+}

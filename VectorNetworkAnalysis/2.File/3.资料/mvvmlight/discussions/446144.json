@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1053338",
+    "ThreadId": "446144",
+    "Html": "Hi,\r<br />\nI'm bit new to WPF and MVVM.\r<br />\nI'm trying to develop some kind of re-usable view-models\r<br />\nto be used by others.\r<br />\n<br />\nIts like;\r<br />\nI'm creating a public interface for a particular view-model and provide its abstract implementation.\r<br />\npeople who are using this library would be able to inherit from my abstract view-model and extend the view-model as they neeed and bind to their Views.\r<br />\n<br />\nWhat my requirement is to provide a uniform way to binding\r<br />\nall the Button, Datagrid, ComboBox events to the viewmodel.\r<br />\n<br />\nWhen googling I saw others have used MVVMLight &quot;EventToCommand&quot; implementation within the &quot;Interaction.Triggers&quot;, like the below code snip.\r<br />\n&lt;i:Interaction.Triggers&gt;<br />\n<pre><code>    &lt;i:EventTrigger EventName=&quot;SelectionChanged&quot;&gt;\n        &lt;MvvmLight:EventToCommand </code></pre>\n\n....\r<br />\n<br />\nFurther, I want to clarify that if a button to be used/click using mouse or keyboard.\r<br />\nhow the Interaction.Triggers needs to be implemented or placed in the View/Xaml.\r<br />\n<br />\nThanks in advance providing me your prompt answers for the above issues.\r<br />\n<br />\nBR,\r<br />\nSenal.<br />\n",
+    "PostedDate": "2013-06-05T16:35:39.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

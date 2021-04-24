@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1081591",
+    "ThreadId": "453674",
+    "Html": "Hi all,\r<br />\n<br />\nI'm writing app based on google calendar service API. \r<br />\n<br />\nI would like to know what is the best way to persist changes in model to service.\r<br />\nWhen adding or removing calendar entries it is simple enough, since there is a reference to service in viewmodel.\r<br />\nWhen upsdating single entry, my idea was to hook up to PropertyChanged event and update from there, but I'm not sure what is the best way to get service reference from model instance.\r<br />\n<br />\nThanks...<br />\n",
+    "PostedDate": "2013-08-17T01:16:22.42-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

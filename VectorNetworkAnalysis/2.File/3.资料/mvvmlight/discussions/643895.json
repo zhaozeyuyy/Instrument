@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1441014",
+    "ThreadId": "643895",
+    "Html": "Hello,\r<br />\nI want to ask you how can I solve a simple problem that seems to not work as I expect.\r<br />\nI want to create a base viewmodel (inherited from viewmodelbase) where put somethings that all models I want they have (i.e. a common RelayCommand, like a goBackCommand).\r<br />\n<br />\nI created this base viewmodel, and I inherited the viewmodel attached to the view from it.\r<br />\n<br />\nI expected that binding a command in my view from this base viewmodel all could works as the commands defined in the viewmodel attached to the view but it's not: why?<br />\n",
+    "PostedDate": "2015-08-19T00:30:31.9-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

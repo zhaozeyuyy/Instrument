@@ -1,0 +1,106 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:55:04.49-07:00",
+    "CommentCount": 11,
+    "Custom": null,
+    "Description": "Hi Laurent,\r\n\r\nCanExecuteChanged event keeps strong reference to Button which Command is bound to an instance of RelayCommand and it may leads to memory leak if we use long living view models with short living views. Maybe it would be better to use some kind of weak event listener. I made a fast try to use Silverlight Toolkit's WeakEventListener:\r\n\r\nprivate EventHandler _canExecuteChanged;\r\npublic event EventHandler CanExecuteChanged {\r\n    add {\r\n        WeakEventListener<EventHandler, object, EventArgs> weakEventListener = new WeakEventListener<EventHandler, object, EventArgs>(value);\r\n        weakEventListener.OnEventAction = (h, s, e) => {\r\n            h(s, e);\r\n        };\r\n        weakEventListener.OnDetachAction = (w) => {\r\n            CanExecuteChanged -= w.OnEvent;\r\n        };\r\n    }\r\n    remove {\r\n        this._canExecuteChanged -= value;\r\n    }\r\n}\r\n\r\nand despite the fact that it might be not the perfect implementation, the problem with memory leak seems go away.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-06-17T13:53:45.07-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "RelayCommand and Memory Leak caused by CanExecuteChanged event",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 5,
+    "Id": 7532
+  },
+  "FileAttachments": [
+    {
+      "FileId": 270640,
+      "FileName": "RelayCommand.zip",
+      "DownloadUrl": ".\\270640"
+    },
+    {
+      "FileId": 271730,
+      "FileName": "RelayCommandBindingMemoryLeak.Test.zip",
+      "DownloadUrl": ".\\271730"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nYes this is a known issue. I am looking to fix that in V4.\n\nthanks,\nLaurent",
+      "PostedDate": "2011-06-18T00:45:24.333-07:00",
+      "Id": 37873
+    },
+    {
+      "Message": "Thank you Laurent!\n\np.s.\nSorry for my post, I was asleep when I wrote it (especially the code fragment :-().",
+      "PostedDate": "2011-06-19T01:34:15.99-07:00",
+      "Id": 37917
+    },
+    {
+      "Message": "... finally I managed to fix the problem for me, so I can safely wait for the next version of your awesome toolkit.\n\np.s.\nIn the RelayCommand I registered an attached dependency property and in CanExecuteChanged 'add' accessor I set it for 'value.Target' to 'value'. In this way the 'Target' (button) holds through this dependency property a strong reference to the delegate which it uses in subscription to CanExecuteChanged event and in the RelayCommand I can safely use only a weak reference to this delegate.",
+      "PostedDate": "2011-06-19T14:08:17.703-07:00",
+      "Id": 37935
+    },
+    {
+      "Message": "Is there a workaround for this problem or an update as I too am incountering a leak that results in an application crash?",
+      "PostedDate": "2011-08-04T14:45:18.31-07:00",
+      "Id": 41967
+    },
+    {
+      "Message": "Hi owoolgar,\r\n\r\nIf you want to try to workaround the problem before the version of MVVM Light Toolkit in which it will be fixed, fill free to try a little bit modified implementation of RelayCommand, attached to the post. It's entirely based on the Laurent's RelayCommand implementation to which I only added small changes: \r\n    - use a WeakReference to the target's CanExecuteChanged handler;\r\n    - inject strong reference to the target's CanExcecuteChanged handler into the target itself through an attached property.",
+      "PostedDate": "2011-08-16T06:09:10.623-07:00",
+      "Id": 42783
+    },
+    {
+      "Message": "Hi mitkodi,\n\nI tried your solution, but after calling the garbage collector to collect inside CompleteInitializePhoneApplication I didn't see the constructor (in which I write a debug message) being called.\nWhy do you think your solution works?\nWeak references should be garbage collected after calling GC.Collect();\n\nthanks,\nAndre",
+      "PostedDate": "2011-08-19T09:50:12-07:00",
+      "Id": 43020
+    },
+    {
+      "Message": "With the constructor not being called, I meant the constructor of several views I opened and navigated back upon.",
+      "PostedDate": "2011-08-19T09:51:31.41-07:00",
+      "Id": 43021
+    },
+    {
+      "Message": "Hi Andre,\r\n\r\nI wrote a small application for testing the solution of the problem (RelayCommandBindingMemoryLeak.Test.zip).",
+      "PostedDate": "2011-08-19T14:53:20.773-07:00",
+      "Id": 43031
+    },
+    {
+      "Message": "Hi there!\n\nAny fully working fix for this memory leak?\n\nI'm currently using a converter for using WeakEvent in RelayCommand.\nUnfortunatly, I still have memory leaks : WeakReference, <GCHandle>, EventHandler, WeakEventListener<CanExecuteChangedWeakEventSource, ICommand, EventArgs> and more\nWhen will it be included in official MvvmLight?\n\n@Laurent : thanks for you great work!\n\nGreetings from Belgium",
+      "PostedDate": "2012-02-17T00:47:18.29-08:00",
+      "Id": 56143
+    },
+    {
+      "Message": "Hi,\n\nI was having an issue where in a unit test calling RaiseCanExecuteChanged had no effect. I expected the CanExecute method to fire as well a local event handler I had attached in my unit test. The RelayCommand in RelayCommand.zip fixed this. Why is this issue flagged a fixed?",
+      "PostedDate": "2012-08-20T00:18:57.873-07:00",
+      "Id": 74549
+    },
+    {
+      "Message": "I am seeing a memory leak in version 4.0.23.35541.",
+      "PostedDate": "2014-06-18T02:47:29.887-07:00",
+      "Id": 150005
+    }
+  ]
+}

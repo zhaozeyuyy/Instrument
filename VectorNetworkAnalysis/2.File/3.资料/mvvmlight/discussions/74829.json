@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "256098",
+    "ThreadId": "74829",
+    "Html": "<p>Hi,</p>\r\n<p>I want to use message token to send messages throught my app, I have several instances of the window and I want to send it to a specific window, so I use an int ID.</p>\r\n<p>But the SendToList method use item.Token == token instead of item.Token.Equals(token).</p>\r\n<p>I dont have the references to the same objects.</p>\r\n<p>Can you change this behavior in the next build?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks</p>\r\n<p>Rafael Carlos</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-11-11T12:34:14.277-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "256152",
+    "ThreadId": "74829",
+    "Html": "<p>Ah doh... yes of course I will change it, sorry for that.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2009-11-11T15:32:21.647-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "256814",
+    "ThreadId": "74829",
+    "Html": "<p>The bug is fixed in the latest changeset.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2009-11-13T08:30:46.65-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

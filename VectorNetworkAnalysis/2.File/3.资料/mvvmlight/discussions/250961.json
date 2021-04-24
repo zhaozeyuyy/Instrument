@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "585487",
+    "ThreadId": "250961",
+    "Html": "\r\n<p>I noticed when I uninstall MVVM Light Toolkit using the NuGet Package Manager, the uninstaller also removes the reference for\r\n<strong>System.Windows.Interactivity </strong>even if other classes in my project reference it. This can break the application if other classes or XAML require a reference to\r\n<strong>System.Windows.Interactivity</strong>.</p>\r\n<p>Is this the expected behaviour? I'm new to NuGet, but shouldn't it support checking for shared references in the project before blindly removing references for assemblies contained in the NuGet Package?</p>\r\n<p>Thanks, <br>\r\nRichard</p>\r\n",
+    "PostedDate": "2011-03-23T22:35:00.093-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

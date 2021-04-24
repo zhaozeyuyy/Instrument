@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1366751",
+    "ThreadId": "587948",
+    "Html": "Following up with a question I posted on <a href=\"http://stackoverflow.com/q/29132985/322518\" rel=\"nofollow\">stackoverflow</a> is there anything in the works for an async RelayCommand?<br />\n\r<br />\nI am finding it nearly impossible to unit test async void methods that are invoked by RelayCommand's Execute().  There looks to be several implementations of an async RelayCommand that I could use, but I don't really want to deviate from mvvm-light.\r<br />\n<br />\nThanks.<br />\n",
+    "PostedDate": "2015-03-18T15:21:11.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

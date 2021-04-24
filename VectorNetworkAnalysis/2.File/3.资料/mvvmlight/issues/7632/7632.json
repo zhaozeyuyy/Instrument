@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-14T13:34:02.46-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I recently installed the MvvM Light Toolkit and created the default Windows 8.1 XAML Application Project Template.\r\n\r\nWhen I compile it I get the following errors:\r\n\r\n\"Warning\t6\tCertificate file 'MvvmLight.Win8_TemporaryKey.pfx' not found.\tMvvmLight1\"\r\n\"Warning\t7\tThe certificate specified is not valid for signing. For more information about valid certificates, see http://go.microsoft.com/fwlink/?LinkID=241478.\tMvvmLight1\"\r\n\r\nI am unable to build an application package with this error present and I am unable to side-load the project to test it on other boxes.\r\n\r\nIf I create a default Windows 8.1 XAML not using the MvvM Light template, it works and compiles fine.  I can build an application package with no issues and side-load the app correctly.\r\n\r\nWhat am I missing?\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V4.4.32.1",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-03-31T11:10:04.99-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "MvvM Light Toolkit Certificate Error",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7632
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "600015",
+    "ThreadId": "254555",
+    "Html": "\r\n<p>How do you implement the ViewModelLocator pattern when you're using IOC child containers? A typical locator implementation is something like:</p>\r\n<pre><code><span>public</span><span> </span><span>IViewModel</span><span> </span><span>ViewModel</span><span><br></span><span>{</span><span><br>&nbsp; &nbsp;</span><span>get</span><span> </span><span>{</span><span> </span><span>return</span><span> </span><span>Services</span><span>.</span><span>ServiceLocator</span><span>.</span><span>GetInstance</span><span>&lt;</span><span>IViewModel</span><span>&gt;();</span><span> </span><span>}</span><span><br></span><span>}</span><span><br></span></code></pre>\r\n<p>where Services.ServiceLocator is a read only static property. But this breaks down if you're using child containers. Here's my definition for Services.ServiceLocator using child containers:</p>\r\n<pre><code><span>public</span><span> </span><span>static</span><span> </span><span>IServiceLocator</span><span> </span><span>ServiceLocator</span><span><br></span><span>{</span><span><br>&nbsp; &nbsp; </span><span>get</span><span> </span><span>{</span><span> </span><span>return</span><span> </span><span>RootContext</span><span>.</span><span>ServiceLocator</span><span>;</span><span> </span><span>}</span><span><br></span><span>}</span><span><br></span></code></pre>\r\n<p>Clearly this is not correct: my injected dependencies will come from the root container instead of the child container.</p>\r\n<p>So how do you get the right container in a multiple container scenario? The standard answer is to constructor inject it, but that doesn't seem possible with the ViewModelLocator: it requires a default constructor so it can be constructed from XAML.</p>\r\n<p>I'm also after a solution that works in both Silverlight 4 and WPF 4.0 since I'm working on a PRISM composite application (thus no markup extensions). I happen to be using Unity as the IOC container. Oh and the solution should work in Blend.</p>\r\n",
+    "PostedDate": "2011-04-19T14:22:19.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

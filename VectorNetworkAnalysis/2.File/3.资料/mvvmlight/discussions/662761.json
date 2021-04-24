@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1495943",
+    "ThreadId": "662761",
+    "Html": "If I create a new UWP project in VS 2015 or 2017, and then add MVVM Light via nuget I get this compiler warning:<br />\n<pre><code>Found conflicts between different versions of the same dependent assembly that could not be resolved.  These reference conflicts are listed in the build log when log verbosity is set to detailed.</code></pre>\n\nDeep down in the compiler log I find this:<br />\n<pre><code>There was a conflict between &quot;mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot; and &quot;mscorlib, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e, Retargetable=Yes&quot;.</code></pre>\n\nEverything seems work fine so it's just a little bit annoying. <br />\n",
+    "PostedDate": "2017-04-30T00:52:00.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

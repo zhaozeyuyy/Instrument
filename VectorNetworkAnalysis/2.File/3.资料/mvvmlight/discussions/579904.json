@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "1350598",
+    "ThreadId": "579904",
+    "Html": "I am stucked with MVVM again. I am trying to send message from method in DLL library which is referenced and used in WPF application. This is for showing UI dialog from non-UI data service. It looks like message can not be delivered from library to application, even if application is correctly registered as recipient. I hope it is not something like both codes are running in different application domains or something similarly dreadful, which is preventing to use cool MVVM Light messenging. How to solve this problem?<br />\n",
+    "PostedDate": "2015-02-10T05:32:51.687-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1350601",
+    "ThreadId": "579904",
+    "Html": "Hi,\r<br />\n<br />\nOK first the good news: You can absolutely message from a DLL to a WPF app, that works.\r<br />\n<br />\nIf in your case it fails, it could be a few things.<br />\n<ul>\n<li>The DLL is not loaded in the same AppDomain as the main app. That would be surprising, as it is not very standard.</li>\n<li>\nSome exception preventing the message to be sent. Maybe some threading issue?<br />\n</li>\n</ul>\nIf you provide a repro, I am happy to take a look.\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2015-02-10T05:37:54.437-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1350614",
+    "ThreadId": "579904",
+    "Html": "Thats good news. My application is quite complex now, so I will try to describe what is happening.<br />\n<ol>\n<li>Application starts</li>\n<li>Main window loads, in its XAML is defined DataContext as MainViewModel located using ViewModelLocator.</li>\n<li>MainViewModel loads some data using repository and this repository gets user credentials for logging into database by connection service.</li>\n<li>\nWhen connection service's GetConnectionString is called, it should send request message to main window to show login dialog and return UserID and Password back using callback.<br />\n</li>\n</ol>\nPart 4 is not working, when I set breakpoint on main window's ProcessMessage method, execution never arrive there. Here is key part of my connection service:<br />\n<pre><code>Public Function GetConnectionString(ByRef connectionString As String) As Boolean\n  Dim message As New NotificationMessageAction(Of Object)(Me,\n    MessageIdentifiers.UserCredentialsRequest,\n    AddressOf ParseCredentials)\n  Messenger.Default.Send(Of NotificationMessageAction(Of Object))(message)\n  REM I expect that execution stops here until message is processed in WPF application's ProcessMessage method.\n  sqlCSBuilder.UserID = _userId\n  sqlCSBuilder.Password = _password\n  entityCSBuilder.ProviderConnectionString = sqlCSBuilder.ToString()\n  _connectionString = entityCSBuilder.ToString()\nEnd Function\nPrivate Sub ParseCredentials(credentials As Object)\n  If (Not TypeOf credentials Is String) OrElse (credentials Is Nothing) Then Throw New ArgumentNullException(&quot;credentials&quot;)\n  Dim values = DirectCast(credentials, String).Split(New String() {&quot;,&quot;}, StringSplitOptions.RemoveEmptyEntries)\n  If values.Length &lt;&gt; 2 Then Throw New ArgumentNullException(&quot;credentials&quot;)\n  _userId = values(0)\n  _password = values(1)\nEnd Sub</code></pre>\n\n",
+    "PostedDate": "2015-02-10T06:17:58.943-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1350653",
+    "ThreadId": "579904",
+    "Html": "Hi,\r<br />\n<br />\nIf you put a breakpoint in both the location where the Messenger.Default is registered for the type of NotificationMessageAction, and inside ParseCredentials, are these breakpoints hit or not?\r<br />\n<br />\nAlso, is there any asynchronous operation going on between the moment where you send the message and the moment where the callback is called?\r<br />\n<br />\nThanks\r<br />\nLaurent<br />\n",
+    "PostedDate": "2015-02-10T08:01:12.033-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1350849",
+    "ThreadId": "579904",
+    "Html": "Hi,<br />\nbreakpoint is hit at Messenger.Default.Register, Messenger.Default.Send, but not in ParseCredentials callback method, which is key method to get credentials from UI.<br />\nNo asynchronous operations anywhere in application.<br />\n<br />\nThanks for help!<br />\n",
+    "PostedDate": "2015-02-11T00:01:17.583-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1350858",
+    "ThreadId": "579904",
+    "Html": "Is there any way to share a repro?\r<br />\n<br />\nThanks,\r<br />\nLaurent<br />\n",
+    "PostedDate": "2015-02-11T00:48:42.423-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1350950",
+    "ThreadId": "579904",
+    "Html": "What do you mean by repro? I am sure that it will not be reproductors.<br />\n",
+    "PostedDate": "2015-02-11T01:23:14.66-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1351117",
+    "ThreadId": "579904",
+    "Html": "I mean a simple way to reproduce the issue, so that I can investigate what is going on. If you send me the full app, it is probably too complex (even assuming that you could share this code). If you have a simple way to show the issue, I am happy to debug it.\r<br />\n<br />\nCheers \r<br />\nLaurent<br />\n",
+    "PostedDate": "2015-02-11T02:39:33.983-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1353061",
+    "ThreadId": "579904",
+    "Html": "Messenger.Default.Send is not working asynchronously, right? So I expect that sqlCSBuilder.UserID = _userId will be executed after message is processed in MainWindow. But because it is not processed in MainWindow at all, exception is thrown on this line, because _userId is not set by ParseCredentials callback method...<br />\n",
+    "PostedDate": "2015-02-16T05:48:44.647-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1354276",
+    "ThreadId": "579904",
+    "Html": "It was caused by inconsistent versions of MVVM Light. Solved by NuGet package. Thanks going to L. Bugnion.<br />\n",
+    "PostedDate": "2015-02-20T04:11:50.543-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1354279",
+    "ThreadId": "579904",
+    "Html": "Happy it solved your issue, thanks for following up!\r<br />\n<br />\nCheers \r<br />\nLaurent<br />\n",
+    "PostedDate": "2015-02-20T04:16:25.78-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,75 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 7,
+    "Custom": null,
+    "Description": "I often have properties on my viewmodel which are derived from other properties. If one of the dependent properties changes I need to RaisePropertyChanged for both properties eg:\r\n\r\n        public bool IsDog\r\n        {\r\n            get { return isDog; }\r\n            set\r\n            {\r\n                if (isDog != value)\r\n                {\r\n                    isDog = value;\r\n                    RaisePropertyChanged(\"IsDog\");\r\n                    RaisePropertyChanged(\"IsPet\");\r\n                }\r\n            }\r\n        }\r\n\r\n        public bool IsPet\r\n        {\r\n            get { return IsDog || IsCat; }\r\n        }\r\n\r\nIt would be handy if I could initialise ViewModelBase with a matrix of property string dependencies and then if I call RaisePropertyChanged for a property it would use this to raise notifications for all dependent properties.\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-11-03T09:37:51.59-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Add a Property Dependency system to RaisePropertyChanged",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 4,
+    "Id": 7554
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "This feature seems too complex for a \"light\" framework.",
+      "PostedDate": "2011-11-15T13:02:35.313-08:00",
+      "Id": 49014
+    },
+    {
+      "Message": "I wouldn't call supplying a list of strings which is then referenced in RaisePropertyChanged very complex.",
+      "PostedDate": "2011-11-15T16:13:41.297-08:00",
+      "Id": 49020
+    },
+    {
+      "Message": "Ah, perhaps you'd enjoy something like this...\nI've had to customize MVVM Light using this approach, and I've never looked back.  It's almost... TOO useful.\n\nhttp://mvvmlight.codeplex.com/workitem/7514",
+      "PostedDate": "2012-03-16T13:10:03.83-07:00",
+      "Id": 57862
+    },
+    {
+      "Message": "i disagree with jberger's interpretation.  I agree the solution proposed here is probably too complex, but the one offered by btowntkd seems to make a lot of sense.\n\nWay too often i have a bunch of calls in my Setter that do NOT need to be there, and how many times do we all forget to put the RaisProeprtyChanged calls that DO need to be there?  Defining this with annotations or by convention makes a lot of sense to me.\n\nIt also doe snot vioiate the blendability of MVVM light",
+      "PostedDate": "2012-03-16T13:20:10.07-07:00",
+      "Id": 57864
+    },
+    {
+      "Message": "I threw together something quickly and submitted a pull request:\nhttp://mvvmlight.codeplex.com/SourceControl/network/forks/btowntkd/DependsOnAttribute/contribution/1985",
+      "PostedDate": "2012-03-20T21:15:06.64-07:00",
+      "Id": 58594
+    },
+    {
+      "Message": "Hi Laurent,\nAs you seem to be looking at this today: I'm happy to throw my weight behind btowntkd's superior solution (or anything similar, as long as we get the functionality!)\nHuw",
+      "PostedDate": "2012-05-21T02:47:51.09-07:00",
+      "Id": 66301
+    },
+    {
+      "Message": "Hi,\n\nI am planning something for VNext. \n\nThanks,\nLaurent",
+      "PostedDate": "2012-05-21T23:30:04.597-07:00",
+      "Id": 66379
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "No reply from proposal, URL is not active anymore, closing until more details are proposed.",
+    "ClosedDate": "2012-07-15T03:26:06.813-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "There seems to be a few bugs in the BindingListener class.\r\n\r\nSee this blog post: http://www.sztronka.com/2010/01/behaviors-triggers-and-memory-leaks-in.html",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2010-02-03T02:11:55.357-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Bug(s) in BindingListener",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 5218
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "This come critical if you use Virtualized DataGrid and scrolling. By use of this BindingListener you increase the memory footprint till SL starts behaving slowly and unpredicitable.  :-( ",
+      "PostedDate": "2010-03-28T12:33:33.253-07:00",
+      "Id": 18024
+    },
+    {
+      "Message": "Hi,\n\nSorry for the long delay in replying.\n\nI am trying to access the URL above, but it seems to be down. Yes I know, I should have copied the content before ;) Do you have a cached copy?\n\nThanks,\nLaurent",
+      "PostedDate": "2011-05-16T01:39:18.217-07:00",
+      "Id": 35813
+    }
+  ]
+}

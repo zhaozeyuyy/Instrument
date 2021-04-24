@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:54:51.993-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "examples of places (in Messenger.cs) contains potential race conditions using Messenger's _recipientsOfSubclassesAction and _recipientsStrictAction dictionaries:\r\n1. in method Register() dictionaries are growing not locked with same lock objects as in method Unregister() where they are shrinked. this may result in exceptions or invalid data if executes concurrently\r\n2. in methods UnregisterFromLists() and SendToTargetOrType() dictionary's method ContainsKey() are called without any locking. result of this call are useless whithout synchronization (dictionary may be modified right after this call and before using result of this call)\r\n3. in many methods dictionaries are being enumerated using Take() or ToList() methods without any locking. enumerating through a collection is intrinsically not a thread-safe procedure\r\n\r\nany use of Messenger's _recipientsOfSubclassesAction and _recipientsStrictAction dictionaries should be synchronized (guarded by lock on same object). not only modification, but any use",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-04-18T09:06:30.147-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "multiple race conditions in Messenger using recipients collections",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 4,
+    "Id": 7525
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

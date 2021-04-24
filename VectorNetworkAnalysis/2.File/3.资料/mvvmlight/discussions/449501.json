@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1066329",
+    "ThreadId": "449501",
+    "Html": "Hi\r<br />\n<br />\nI am making an app and I have a Product class that contains many Stores(ObservableCollection)\r<br />\n<br />\nin my stores class I have IsSale property that is a bool. \r<br />\n<br />\nNow I use blend to drag in my observableCollection in my wp7 view and it made me a selectlist with all my properties.\r<br />\n<br />\nMy IsSale of course is now a check-box. I went to my list and went &quot;Edit Additional Templates -&gt; Edit Generated Items -&gt; Edit Current&quot;. \r<br />\n<br />\nI then deleted the checkbox and added a &quot;Sale icon&quot; into it. Now of course every item is not a sale item so I need to toggle(visibility) based on IsSale item.\r<br />\n<br />\nI am not sure if I should use state behavior like done in the 1st video or if I should do something like what was done in the second video with changing the rectangle to green.\r<br />\n<br />\nIf I do the latter though I am not sure how to do it as in the video the &quot;DateofBirth&quot; was at the root level and not encapsulated in another collection.\r<br />\n<br />\nSo I not sure how to access it and do what was done in the 2nd video. \r<br />\n<br />\nI tried doing state and it seems to work. I have 2 items one a sale item and one that is not and the icons show as expected however in blend they both sale icons are visiable so, I think that way kills blendablity?<br />\n",
+    "PostedDate": "2013-07-09T15:27:35.447-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "618681",
+    "ThreadId": "259098",
+    "Html": "\r\n<p>I have some messages that have code in them&nbsp;which will prevent the GC from sweeping them away unless some clean up is done. If I implement IDisposable on my message, where is the best place in Messenger to call Dispose? My best guess is in Messenger.CleanUpList\r\n but I am not really sure where. Any help is appreciated.</p>\r\n<p>Thanks</p>\r\n<p>Eisen</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-05-26T06:48:59.79-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "627359",
+    "ThreadId": "259098",
+    "Html": "<p>From my experience it is best to cleanup message handlers as soon as they are no longer needed.</p>\r\n<p>For a view you could register the handler in the loaded event (or the constructor) and call Messenger.Unregister(view) in the Unloaded event of the view.</p>\r\n<p>In case of a ViewModel you can call Cleanup once the message handling in the ViewModel is no longer needed, or you could implement IDisposable and call Cleanup from within. Side Note: Up to version 3 there was a implementation of IDispose on the ViewModelBase that did just that; but as of version 4 you will have to implement the IDisposabele interface yourself.</p>\r\n<p>Regards,</p>\r\n<p>Axel</p>",
+    "PostedDate": "2011-06-14T01:26:15.747-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

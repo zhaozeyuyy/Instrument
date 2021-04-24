@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2016-01-16T14:14:48.943-08:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "For class OrientationStateBehavior, there is a private method as follows:\r\n\r\n```\r\nprivate void CheckOrientationForPage()\r\n{\r\n    if (!ViewModelBase.IsInDesignModeStatic)\r\n    {\r\n        if (_associatedPage.ActualWidth < SnapViewMaximumWidth)\r\n        {\r\n            if (DisplayInformation.GetForCurrentView().CurrentOrientation != DisplayOrientations.Portrait\r\n                && DisplayInformation.GetForCurrentView().CurrentOrientation\r\n                != DisplayOrientations.PortraitFlipped)\r\n            {\r\n                HandleOrientation(PageOrientations.Snap);\r\n            }\r\n        }\r\n        else\r\n        {\r\n            HandleOrientation(DisplayInformation.GetForCurrentView().CurrentOrientation.GetPageOrientation());\r\n        }\r\n    }\r\n}\r\n```\r\n\r\nShould we amend the above function as follows:\r\n\r\n```\r\nprivate void CheckOrientationForPage()\r\n{\r\n    if (!ViewModelBase.IsInDesignModeStatic)\r\n    {\r\n        if (_associatedPage.ActualWidth < SnapViewMaximumWidth)\r\n        {\r\n            if (DisplayInformation.GetForCurrentView().CurrentOrientation != DisplayOrientations.Portrait\r\n                && DisplayInformation.GetForCurrentView().CurrentOrientation\r\n                != DisplayOrientations.PortraitFlipped)\r\n            {\r\n                HandleOrientation(PageOrientations.Snap);\r\n            }\r\n            else\r\n            {\r\n                HandleOrientation(DisplayInformation.GetForCurrentView().CurrentOrientation.GetPageOrientation());\r\n            }\r\n        }\r\n        else\r\n        {\r\n            HandleOrientation(DisplayInformation.GetForCurrentView().CurrentOrientation.GetPageOrientation());\r\n        }\r\n    }\r\n}\r\n```\r\n\r\nThanks!",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-03-06T12:21:40.727-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Won't fix"
+    },
+    "Summary": "class OrientationStateBehavior Issue",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7627
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "This was a class provided for convenience in the template and not a part of MVVM Light per se. Moreover Windows 8 development is going to go slowly and be replaced by Windows 10 development. Closing with Won't Fix.",
+      "PostedDate": "2016-01-16T14:14:20.973-08:00",
+      "Id": 195508
+    }
+  ]
+}

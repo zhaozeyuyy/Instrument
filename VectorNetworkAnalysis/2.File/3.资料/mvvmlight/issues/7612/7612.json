@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Closing this as \"not an issue\"",
+    "ClosedDate": "2013-06-25T09:19:44.577-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "I am running into the below error the first time my ViewModel is being instantiated by the SimpleIoC.  I believe I have setup the container as it should be, but for some reason, I am still getting the below error.  Any ideas or assistance would be very much appreciated.\r\n\r\n```\r\nMicrosoft.Practices.ServiceLocation.ActivationException was unhandled by user code\r\n  HResult=-2146233088\r\n  Message=Type not found in cache: Windows.UI.Xaml.Controls.Frame.\r\n  Source=GalaSoft.MvvmLight.Extras\r\n  StackTrace:\r\n       at GalaSoft.MvvmLight.Ioc.SimpleIoc.DoGetService(Type serviceType, String key) in c:\\Users\\Public\\Downloads\\CodePlex\\MVVMLight\\GalaSoft.MvvmLight\\GalaSoft.MvvmLight.Extras (NET35)\\Ioc\\SimpleIoc.cs:line 532\r\n       at GalaSoft.MvvmLight.Ioc.SimpleIoc.GetService(Type serviceType) in c:\\Users\\Public\\Downloads\\CodePlex\\MVVMLight\\GalaSoft.MvvmLight\\GalaSoft.MvvmLight.Extras (NET35)\\Ioc\\SimpleIoc.cs:line 768\r\n       at GalaSoft.MvvmLight.Ioc.SimpleIoc.MakeInstance[TClass]() in c:\\Users\\Public\\Downloads\\CodePlex\\MVVMLight\\GalaSoft.MvvmLight\\GalaSoft.MvvmLight.Extras (NET35)\\Ioc\\SimpleIoc.cs:line 708\r\n  InnerException: \r\n\r\n```\r\n\r\nHere are pieces of my code related to this:\r\n\r\nViewModelLocator.cs (Located in my Win8 project)\r\n\r\n```\r\npublic class ViewModelLocator\r\n    {\r\n        /// <summary>\r\n        /// Initializes a new instance of the ViewModelLocator class.\r\n        /// </summary>\r\n        public ViewModelLocator()\r\n        {\r\n            ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);\r\n\r\n            if (ViewModelBase.IsInDesignModeStatic)\r\n            {\r\n                // Create design time view services and models\r\n                //SimpleIoc.Default.Register<IDataService, DesignDataService>();\r\n            }\r\n            else\r\n            {\r\n                // Create run time view services and models\r\n                //SimpleIoc.Default.Register<IDataService, DataService>();\r\n                SimpleIoc.Default.Register<INavigationService, NavigationService>();\r\n                SimpleIoc.Default.Register<IParseService, ParseService>();\r\n                SimpleIoc.Default.Register<IServiceHandler, ServiceHandler>();\r\n            }\r\n\r\n            SimpleIoc.Default.Register<MainViewModel>();\r\n            SimpleIoc.Default.Register<ActionViewModel>();\r\n        }\r\n\r\n        public MainViewModel MainVM\r\n        {\r\n            get\r\n            {\r\n                return ServiceLocator.Current.GetInstance<MainViewModel>();\r\n            }\r\n        }\r\n\r\n        public ActionViewModel ActionVM\r\n        {\r\n            get\r\n            {\r\n                return ServiceLocator.Current.GetInstance<ActionViewModel>();\r\n            }\r\n        }\r\n        \r\n        public static void Cleanup()\r\n        {\r\n            // TODO Clear the ViewModels\r\n        }\r\n    }\r\n```\r\n\r\nMainViewModel.cs Constructor\r\n\r\n```\r\npublic class MainViewModel : ViewModelBase\r\n    {\r\n        #region Variables\r\n\r\n        private readonly INavigationService _navigationService;\r\n        private readonly IParseService _parseService;\r\n\r\n        #endregion\r\n\r\n        /// <summary>\r\n        /// Initializes a new instance of the MainViewModel class.\r\n        /// </summary>\r\n        public MainViewModel(INavigationService navigationService, IParseService parseService)\r\n        {\r\n            if (IsInDesignMode)\r\n            {\r\n                // Code runs in Blend --> create design time data.\r\n            }\r\n            else\r\n            {\r\n                _navigationService = navigationService;\r\n                _parseService = parseService;\r\n                BuildCommonData();\r\n            }\r\n        }\r\n...\r\n```",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2013-06-18T10:08:59.857-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Type not found in cache error",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7612
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nFrom you provided error prompt, seems your code tries to do following task:\n\n```\nServiceLocator.Current.GetInstance<Windows.UI.Xaml.Controls.Frame>();\n```\n\nbut actually you never registed a Frame based class to the ioc container.\n\nHope it helps.",
+      "PostedDate": "2013-06-25T05:26:54.2-07:00",
+      "Id": 104033
+    },
+    {
+      "Message": "Hey there.  Thanks for the response.  \n\nIt turns out it was something else.  I had the Frame object designed in my Navigation Service interface, which was in my Portable Class Library.\n\nI just changed up my navigation svc methods a bit, and it helped resolve my issue.\n",
+      "PostedDate": "2013-06-25T07:15:15-07:00",
+      "Id": 104038
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Resolved in 4.2.30",
+    "ClosedDate": "2013-12-20T11:20:39.763-08:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Hi\r\n\r\nI upgraded to Win 8.1, VS 2012 and installed MVVM Light Toolkit V4.1 for Visual Studio 2012. I then went and installed the templates but I don't see any Windows phone MVVM Templates.\r\n\r\nI been working on Windows Phone 7 Project before my upgrade(when I was on Windows 7, using VS 2010 and MVVM Light Toolkit V4 RTM)  so right now I can't even add a new MVVM view.\r\n\r\nHow can I correct this?",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V4.2.30.0",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2013-11-17T15:03:22.557-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Windows Phone 7 Template Missing?",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7621
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nPlease use the VSIX available at http://galasoft.ch/s/mvvmsetup\n\ncheers\nLaurent ",
+      "PostedDate": "2013-12-02T12:51:37.337-08:00",
+      "Id": 125854
+    }
+  ]
+}

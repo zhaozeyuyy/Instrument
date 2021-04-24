@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "525362",
+    "ThreadId": "235601",
+    "Html": "\r\n<p>Hi All,</p>\r\n<p>I am facing with series of issues while using MVVMLight. One of them is passing non-string messages across the application. This is the message type I am passing -</p>\r\n<pre><code><span><pre><div style=\"color:black; background-color:white\"><pre> <span style=\"color:blue\">public</span> <span style=\"color:blue\">class</span> NameValue \r\n    { \r\n        <span style=\"color:blue\">public</span> NameValue() \r\n        { \r\n        } \r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">string</span> Name { <span style=\"color:blue\">get</span>; <span style=\"color:blue\">set</span>; } \r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">string</span> Value { <span style=\"color:blue\">get</span>; <span style=\"color:blue\">set</span>; } \r\n    } \r\n</pre>\r\n</div>\r\n</pre>\r\n</span></code>in the View1</pre>\r\n<pre><code><span><div style=\"color:black; background-color:white\"><pre> Messenger.Default.Send&lt;NameValue&gt;(nv, <span style=\"color:#a31515\">&quot;Message1&quot;</span>); \r\n</pre>\r\n</div>\r\n</span></code></pre>\r\n<p>in the ViewModel2</p>\r\n<pre><code><span><div style=\"color:black; background-color:white\"><pre>Messenger.Default.Register&lt;NameValue&gt;(<span style=\"color:blue\">this</span>, <span style=\"color:#a31515\">&quot;Message1&quot;</span>, OnMessageSent); \r\n \r\n <span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> OnMessageSent(NameValue nv) \r\n        { \r\n         }\r\n</pre>\r\n</div>\r\n</span><span>&nbsp; </span></code></pre>\r\n<p>When I pass a message using Messender.Default from a View to another ViewModel it works when the message type is string but not when message type is 'NameValue' (a complex type).</p>\r\n<p>Please let me know if&nbsp;there is some thing wrong in the implementation.</p>\r\n<p>Thanks in advance&nbsp;!</p>\r\n",
+    "PostedDate": "2010-11-22T08:49:05.743-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "525370",
+    "ThreadId": "235601",
+    "Html": "\r\n<p>I was able to resolve this issue by debugging the source code uploaded on Friday.</p>\r\n<p>The issue was in teh code where the message was being registered for listening different 'type' of messages with same name.</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-11-22T09:05:47.58-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

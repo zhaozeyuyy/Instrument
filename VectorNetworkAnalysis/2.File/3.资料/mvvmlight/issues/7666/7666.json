@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-11-18T02:25:41.543-08:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "I added:\r\n        protected override void RaisePropertyChanged([CallerMemberName] string propertyName = \"\")\r\n        {\r\n            base.RaisePropertyChanged(propertyName);\r\n        }\r\nto my first MVVM Light project.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V4.2",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-10-30T08:17:00.567-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Cannot repro"
+    },
+    "Summary": "no use of System.Runtime.CompilerServices?",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 1,
+    "Id": 7666
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nCan you elaborate? CallerMemberName is supported everywhere (as far as I can tell) in the latest versions of MVVM Light.\n\nThanks\nLaurent",
+      "PostedDate": "2014-10-30T10:23:05.377-07:00",
+      "Id": 163639
+    }
+  ]
+}

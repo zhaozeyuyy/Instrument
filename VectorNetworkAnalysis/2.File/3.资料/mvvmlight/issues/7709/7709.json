@@ -1,0 +1,66 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 4,
+    "Custom": null,
+    "Description": "There are errors, when use behaviors and EventToCommand in XAML:\r\nThe type 'SampleBehavior' from assembly 'MvvmLightBug' is built with an older version of the Blend SDK, and is not supported in a Windows Presentation Framework 4 project.\r\nThe type 'EventToCommand' from assembly 'GalaSoft.MvvmLight.Platform' is built with an older version of the Blend SDK, and is not supported in a Windows Presentation Framework 4\r\nViews with such error can't be shown in design mode in Visual Studio. At the same time, the program is compiled and run successfully.\r\n\r\nSoftware versions: Visual Studio 2015, MVVM Light 5.2.0.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-11-07T00:50:11.487-08:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "'GalaSoft.MvvmLight.Platform' is built with an older version of the Blend SDK",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 6,
+    "Id": 7709
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1510380,
+      "FileName": "MvvmLightBug.zip",
+      "DownloadUrl": ".\\1510380"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "I tried to fork MVVM light but I could not get it working. There does not seam to be any simple solution. Hope our experts in the team find one soon.",
+      "PostedDate": "2015-12-11T05:31:01.103-08:00",
+      "Id": 194505
+    },
+    {
+      "Message": "__Workaround!!__\n\nI have booth vs 2013 and 2015 installed and run at the same time with the same solution. That works well and no problem with having the same solution open at the same time jet. \n\nIn VS2013 install the rosslyn compiler to be able to run C#6 code from vs 2013. (you still get a lot of code error but compile works)\n\nUse vs2013 to edit XAML and VS2015 to edit your models. \n\nRun from either of the two environment.,\n",
+      "PostedDate": "2015-12-14T00:00:11.163-08:00",
+      "Id": 194540
+    },
+    {
+      "Message": "You need to convert the commands to Behavior<T>. ",
+      "PostedDate": "2016-03-21T04:33:49.36-07:00",
+      "Id": 198078
+    },
+    {
+      "Message": "I have a clean System image, installed VS2015 Pro, Downloaded MVVM Light 5.3.0\nIf I Set my .NET to 4.5 I get the Blend Error Message, if I set the .NET to 4.5.1 I get the Error:\nCannot add instance of type 'EventToCommand' to a collection of type 'TriggerActionCollection'. Only items of type 'T' are allowed.\t\nThis is very frustrating, can you please address?\n",
+      "PostedDate": "2016-06-24T14:29:15.16-07:00",
+      "Id": 200261
+    }
+  ]
+}

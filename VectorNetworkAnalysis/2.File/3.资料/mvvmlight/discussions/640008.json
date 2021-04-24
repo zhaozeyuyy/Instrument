@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1430592",
+    "ThreadId": "640008",
+    "Html": "Hi,\r<br />\ni just encountered the issue that I want to serialize my entire domain-model, where the elements derive from ObservableObject in order to make them usable in the UI as well.\r<br />\n<br />\nUnfortunately the ObservableObject is missing the respective attributes (just 2 lines are missing). How about adding them in the next release?\r<br />\n<br />\nThe required changes are: <br />\n<pre><code>[Serializable] // This is new and required\npublic class ObservableObject : INotifyPropertyChanged\n{</code></pre>\n\nand<br />\n<pre><code>[field: NonSerialized]  // This is new and required\npublic event PropertyChangedEventHandler PropertyChanged;</code></pre>\n\n",
+    "PostedDate": "2015-06-16T09:18:31.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1430651",
+    "ThreadId": "640008",
+    "Html": "Hi,\r<br />\n<br />\nThere are many ways to serialize an object, and supporting them all is not possible. For instance, ObservableObject can be serialized by JSON.NET without an issue.\r<br />\n<br />\nWhat serializer exactly are you looking at?\r<br />\n<br />\nThanks\r<br />\nLaurent<br />\n",
+    "PostedDate": "2015-06-17T00:02:36.99-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1430661",
+    "ThreadId": "640008",
+    "Html": "The basic BinaryFormatter from the System.Runtime.Serialization.Formatters.Binary.<br />\n<pre><code>using System.Runtime.Serialization.Formatters.Binary;\n\nBinaryFormatter formatter = new BinaryFormatter();\nformatter.Serialize(targetStream, observableObjectToSerialize); </code></pre>\n\n",
+    "PostedDate": "2015-06-17T01:19:19.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

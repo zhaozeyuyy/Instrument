@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "595347",
+    "ThreadId": "253413",
+    "Html": "\r\n<p>Hi Guys,</p>\r\n<p>I believe 'GalaSoft.MvvmLight.ViewModelBase' lucks of DataContractAttribute. <br>\r\nSometimes you need this. For example if you link your model classes onto WebProject in order to reuse model implementation, then it is impossible to serialiaze that object.</p>\r\n<p>See example solution:<br>\r\n<br>\r\nSL project: class Person: ViewModelBase {}&nbsp; //automatically generated when added serviceReference and referenced in ModelsProject<br>\r\nWebProject:&nbsp;&nbsp; class Person&nbsp; //Linked to ModelsProject. I create Person class here, from DB/other sources and it should be serializable.<br>\r\nModelsProject:&nbsp; classPerson: ViewModelBase {}</p>\r\n<p>Idea of this solution to move stupid/expensive job of creating Person object onto Server, and in client only assign Person = WebReference.Person</p>\r\n<p>So in this scenario it is impossible inherit from 'GalaSoft.MvvmLight.ViewModelBase' in ModelsProject, as</p>\r\n<h2>Type 'Models.Person' cannot inherit from a type that is not marked with DataContractAttribute or SerializableAttribute.&nbsp; Consider marking the base type 'GalaSoft.MvvmLight.ViewModelBase' with DataContractAttribute or SerializableAttribute, or removing\r\n them from the derived type.</h2>\r\n<p>&nbsp;Another argument will be Prism MVVMBaseClass has this attribute.</p>\r\n",
+    "PostedDate": "2011-04-11T07:45:42.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "610309",
+    "ThreadId": "253413",
+    "Html": "<p>Hi,</p>\r\n<p>Sorry for the delayed reply.</p>\r\n<p>This is a good point. I will check it out.</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-05-10T09:23:24.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "992221",
+    "ThreadId": "253413",
+    "Html": "\r\n<p>Has there been any progress on this?</p>\r\n",
+    "PostedDate": "2013-01-25T12:25:33.177-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "891439",
+    "ThreadId": "389068",
+    "Html": "\r\n<p>2012-7-26 11:17:33 - Beginning to install extension to Microsoft Visual Studio 2010 Ultimate...<br>\r\n2012-7-26 11:17:33 - Install Error : System.IO.PathTooLongException: C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\VisualStudio\\10.0\\Extensions\\Laurent Bugnion (GalaSoft)\\MVVM Light Toolkit Templates\\4.0.23.0\\ItemTemplates\\Silverlight for Windows Phone\\Mvvm\\MvvmViewModelLocator.WP7.zip:\r\n MvvmViewModelLocator.WP7.vstemplate<br>\r\n&nbsp;&nbsp; at Microsoft.VisualStudio.ExtensionManager.ExtensionManagerService.BeginInstall(IInstallableExtension installableExtension, Boolean perMachine, AsyncOperation asyncOp)<br>\r\n&nbsp;&nbsp; at Microsoft.VisualStudio.ExtensionManager.ExtensionManagerService.InstallWorker(IInstallableExtension extension, Boolean perMachine, AsyncOperation asyncOp)</p>\r\n",
+    "PostedDate": "2012-07-25T20:20:45.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "891823",
+    "ThreadId": "389068",
+    "Html": "<p>Hi,</p>\r\n<p>Is that on Windows XP? I have another report showing the same issue. I will change the installer to copy the templates into a less deep path.</p>\r\n<p>Thanks,<br />Laurent</p>",
+    "PostedDate": "2012-07-26T09:34:20.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892439",
+    "ThreadId": "389068",
+    "Html": "<p>I am seeing the same issue on Windows 7 x64, Visual Studio 2010 Ultimate.</p>\r\n<p>-Ahmed</p>",
+    "PostedDate": "2012-07-27T15:46:17.723-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892746",
+    "ThreadId": "389068",
+    "Html": "<p>Hi,</p>\r\n<p>I just published a new installer that should fix the issues you are seeing. Please let me know if that is indeed fixing the \"path too long\" problem.</p>\r\n<p><a href=\"http://mvvmlight.codeplex.com/releases/view/90815\">http://mvvmlight.codeplex.com/releases/view/90815</a></p>\r\n<p>Thanks!<br />Laurent</p>",
+    "PostedDate": "2012-07-29T08:24:35.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892845",
+    "ThreadId": "389068",
+    "Html": "<p>Thanks for the quick response Laurent. The issue is resolved for me.</p>\r\n<p>Regards,</p>\r\n<p>Ahmed.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-07-29T19:38:16.317-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892864",
+    "ThreadId": "389068",
+    "Html": "<p>the problem is exist,use msi&nbsp; affter install no templete selected, use <em>VSIX install ,the error </em></p>\r\n<p><em>C:\\Users\\Administrator\\AppData\\Local\\Microsoft\\VisualStudio\\10.0\\Extensions\\Laurent Bugnion (GalaSoft)\\MVVM Light Toolkit Templates\\4.0.23.0\\ItemTemplates\\Silverlight for Windows Phone\\Mvvm\\MvvmViewModelLocator.WP7.zip: MvvmViewModelLocator.WP7.vstemplate<br />at Microsoft.VisualStudio.ExtensionManager.ExtensionManagerService.BeginInstall(IInstallableExtension installableExtension, Boolean perMachine, AsyncOperation asyncOp)<br />at Microsoft.VisualStudio.ExtensionManager.ExtensionManagerService.InstallWorker(IInstallableExtension extension, Boolean perMachine, AsyncOperation asyncOp)</em></p>",
+    "PostedDate": "2012-07-29T20:35:29.567-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892865",
+    "ThreadId": "389068",
+    "Html": "\r\n<p><em>&nbsp;</em></p>\r\n",
+    "PostedDate": "2012-07-29T20:35:44.037-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892891",
+    "ThreadId": "389068",
+    "Html": "<p>Hi ningj123,</p>\r\n<p>The text you copied hints that you are still using the old VSIX. Please try uininstalling the old version of MVVM Light V4 and then performing a clean fresh install with the new MSI 4.0.23.3.</p>\r\n<p>If you still have issues, please let me know.</p>\r\n<p>Thanks<br />Laurent</p>",
+    "PostedDate": "2012-07-30T00:11:23.21-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

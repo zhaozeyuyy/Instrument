@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1425989",
+    "ThreadId": "638121",
+    "Html": "Hello, Laurent\r<br />\n<br />\nThis is a duplicate post from <a href=\"http://stackoverflow.com/questions/30299862/\" rel=\"nofollow\">StackOverflow</a>.\r<br />\n<br />\nI've a trouble with setting up a design data with SimpleIOC.\r<br />\n<br />\nI'm using a <code>System.Net.Http.HttpClient</code> class.\r<br />\n<br />\nBy registering it: <code>SimpleIoc.Default.Register&lt;HttpClient&gt;();</code> I'm receiving a error message form MVVMlight about multiple constructors. So I've searched for a workaround:\r<br />\n<br />\n <code>SimpleIoc.Default.Register&lt;HttpClient&gt;(()=&gt;new HttpClient());</code>\r<br />\n<br />\nIt's working in runtime but not in design mode. I'm receiving a error about already registered factory methods. And finally a message:<br />\n<pre><code>A first chance exception of type 'Microsoft.Expression.Platform.InstanceBuilders.InstanceBuilderException' occurred in Microsoft.Expression.Platform.DLL\n\nAdditional information: Cannot create an instance of &quot;ViewModelLocator&quot;.\n</code></pre>\n\nIs there any workaround?\r<br />\n<br />\nMade things working by making the <strong>ViewModelLocator</strong> constructor <code>static</code>. I don't know if it is a right thing to do.\r<br />\n<br />\nThank you for your time.<br />\n",
+    "PostedDate": "2015-05-18T05:26:08.453-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

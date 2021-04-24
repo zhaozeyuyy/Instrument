@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-04-12T14:15:32.033-07:00",
+    "CommentCount": 5,
+    "Custom": null,
+    "Description": "I installed version 5.1.1.0 from 4.2.32.7 and all of my command bindings broke.  I was trying to figure what was going on for a while and then observed that if I manually call RaiseCanExecuteChanged on a command then it refreshes CanExecute and determines whether a command can be executed.  I was not about to go through all of my code and make sure that I'm calling that manually everywhere, so I reverted back to 4.2.32.7 and everything is back to normal.  Please look into it.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.0.2",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-04-12T10:06:14.497-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "CanExecuteChanged is not being raised with 5.1.1.0",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7690
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I should add that I'm working with WPF, .NET 4.5.1.\n\nExample command:\n\n       private RelayCommand _openRelatedFilesCommand;\n        public RelayCommand OpenRelatedFilesCommand\n        {\n            get\n            {\n                if (_openRelatedFilesCommand == null)\n                {\n                    _openRelatedFilesCommand = new RelayCommand(OpenRelatedFiles,\n                        () => Selection != null);\n                }\n\n                return _openRelatedFilesCommand;\n            }\n        }\n\n\n        private Marker _selectedMarker;\n        public Marker SelectedMarker\n        {\n            get { return _selectedMarker; }\n            set { Set(() => SelectedMarker, ref _selectedMarker, value); }\n        }\n\nWith newer version, I would have to call OpenRelatedFilesCommand.RaiseCanExecuteChanged in the setter.",
+      "PostedDate": "2015-04-12T10:33:29.953-07:00",
+      "Id": 181965
+    },
+    {
+      "Message": "They should really add an edit feature in these posts.... anyways, change SelectedMarker to Selection.  I pasted a wrong property.  But everything else is the same.",
+      "PostedDate": "2015-04-12T10:35:18.013-07:00",
+      "Id": 181966
+    },
+    {
+      "Message": "Hi,\n\nCan you check this and let me know if that was your issue:\n\nhttp://blog.galasoft.ch/posts/2015/01/re-enabling-the-commandmanager-feature-with-relaycommand-in-mvvm-light-v5/\n\nThanks\nLaurent",
+      "PostedDate": "2015-04-12T10:58:31.727-07:00",
+      "Id": 181967
+    },
+    {
+      "Message": "That is exactly it, sir.  Thank you so much for pointing me in the right direction.  The issue has been resolved.\n\nThanks,\n\nBogdan",
+      "PostedDate": "2015-04-12T13:30:28.187-07:00",
+      "Id": 181973
+    },
+    {
+      "Message": "Happy to hear!",
+      "PostedDate": "2015-04-12T14:14:08.977-07:00",
+      "Id": 181977
+    }
+  ]
+}

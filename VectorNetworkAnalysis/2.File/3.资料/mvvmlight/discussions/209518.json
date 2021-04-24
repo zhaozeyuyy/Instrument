@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "431752",
+    "ThreadId": "209518",
+    "Html": "<p>So is there an elegant solution as to how i can trigger Animations, also if i want to change the SpeedRatio property how would i go about doing that?</p>",
+    "PostedDate": "2010-04-15T19:16:49.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "431844",
+    "ThreadId": "209518",
+    "Html": "<p>Hi,</p>\r\n<p>For animations, check Jeremy Likness' article at <a href=\"http://csharperimage.jeremylikness.com/2010/04/model-view-viewmodel-mvvm-explained.html\">http://csharperimage.jeremylikness.com/2010/04/model-view-viewmodel-mvvm-explained.html</a></p>\r\n<p>My favorite solution is to use the ControlStoryboardAction behavior (available in Expression Blend). This is a neat, code-less way to start, stop etc a Storyboard.</p>\r\n<p>A simple way is also to define your animations by creating states for your page, and transitions between the states. Then you can use the VSM to trigger the states, for example with a Blend behavior again.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-16T02:09:27.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

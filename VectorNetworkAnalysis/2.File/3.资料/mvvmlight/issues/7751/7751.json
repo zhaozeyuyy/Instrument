@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The non-Platform DLL's in the latest (v5.3.0) NuGet Package has a version for .NET 4.5, but the latest (v5.3.0) from this website does not have a Project for that .NET 4.5.  It only goes up to .NET 4.0.  Btw, is a v4.6 version coming?",
+    "LastUpdatedDate": "2017-08-09T10:18:21.89-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2017-08-09T10:18:21.89-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "NuGet Package Has .NET 4.5 DLL but Source Stops at 4.0",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7751
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

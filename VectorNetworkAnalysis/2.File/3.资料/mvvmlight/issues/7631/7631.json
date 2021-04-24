@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-05-11T09:32:58.847-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": " \r\nHi all\r\n\r\nI am Using RelayCommandExtensions class with Command DependencyProperty  \r\n\r\nso i am using in xaml code And Good Work for me:\r\n\r\n```\r\n   <input:AutoCompleteBox Grid.Row=\"0\" Grid.Column=\"1\" x:Name=\"TitleAutoCompleteBox\"\r\n                     \r\n      viewHelper:RelayCommandExtensions.Command=\"{Binding doRelayCommand}\">   \r\n                \r\n                                      \r\n```\r\ni want Set The Parameter To Command Property but Not Fond In My Class\r\n\r\nHow To i Implementing CommandParameter DependencyProperty  in this class\r\n\r\nmy class :\r\n\r\n```\r\n\r\ninternal  class RelayCommandExtensions : DependencyObject\r\n    {\r\n       \r\n        \r\n        public static RelayCommand GetCommand(DependencyObject obj)\r\n        {\r\n            return (RelayCommand)obj.GetValue(CommandProperty);\r\n\r\n\r\n        }\r\n\r\n        public static void SetCommand(DependencyObject obj, RelayCommand value)\r\n        {\r\n          \r\n            obj.SetValue(CommandProperty, value);\r\n           \r\n\r\n        }\r\n\r\n        // Using a DependencyProperty as the backing store for Command.  This enables animation, styling, binding, etc...\r\n        public static readonly DependencyProperty CommandProperty =\r\n            DependencyProperty.RegisterAttached(\"Command\", typeof(RelayCommand), typeof(RelayCommandExtensions), new UIPropertyMetadata(null));\r\n}\r\n\r\n```\r\nthank you\r\nplease help me\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-03-28T15:34:42.017-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Not an issue"
+    },
+    "Summary": "How to implement CommandParameter In Extensions Class",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7631
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Not an issue. Please ask for support on http://stackoverflow.com\n\nThanks\nLaurent",
+      "PostedDate": "2014-05-11T09:32:04.543-07:00",
+      "Id": 146231
+    }
+  ]
+}

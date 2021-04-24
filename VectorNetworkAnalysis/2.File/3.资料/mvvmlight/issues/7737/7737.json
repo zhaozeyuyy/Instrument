@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "It appears to me that the usage of FallbackValue in BindingGeneric is inconsistent. In two of the three places where it is used to set the target property value, the Converter is not used. In third place (GetSourceValue) the Converter is used. This appears to be causing the issue that I am having with a null value in the middle of a source property chain which is bound to a target of a different Type. The test case for this scenario contains a source and target of the same type (string) and so the inconsistency does not cause a failure.\r\n\r\nI have solved the problem by changing the Type of the FallbackValue to TTarget and removing the use of the Converter in GetSourceValue. This broke one test, BindingConverter_ConvertInvalidDateConversion_NoError, which looks like it was incorrect to begin with because if the Converter fails (trying to exactly parse the invalid date) the Target should be set to the default DateTime (and the assert compares to reference date).\r\n\r\nI understand that this change is a breaking change but for me it opened up a lot of scenarios that previously were throwing exceptions. I tried going down the opposite path of using the Converter in all three places first but it led to (what appeared to be) an unresolvable issue in the case of the Converter throwing an exception...then the FallbackValue should be used but you need to use the Converter...\r\n\r\nThe Microsoft binding appears (if my research is correct) to expect both the FallbackValue and the TargetNullValue to be of type TTarget and they do not get run through the converter.\r\n\r\nHas anyone else run into this? Are there other solutions? Laurent are there any changes coming in the next version related to this? I am glad to share the changes if they are of any interest.\r\n\r\nThanks for the great framework. I absolutely love using it!\r\n\r\nDan\r\n\r\n",
+    "LastUpdatedDate": "2017-07-14T01:10:35.977-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-09-17T13:33:44.153-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Inconsistent FallbackValue & Converter Usage",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 3,
+    "Id": 7737
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Yes would be really handy if this was changed. At the moment fallbackValue is only usable if TSource and TTarget are the same type. It also fails if you try to use it with the WhenSourceChanges callback as well.\n\nBeing able to bind to complex property chains with potential nulls would be very helpful.",
+      "PostedDate": "2017-07-13T23:32:09.1-07:00",
+      "Id": 208688
+    }
+  ]
+}

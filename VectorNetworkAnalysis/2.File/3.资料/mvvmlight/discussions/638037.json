@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1425610",
+    "ThreadId": "638037",
+    "Html": "Hi Guys<br />\n<br />\nI'm having a problem using the Messenger while Navigating. <br />\n<br />\nAs described <a href=\"http://stackoverflow.com/questions/30096170/using-eventhandler-with-navigationservice\" rel=\"nofollow\">here</a> I am not able to use the OnNavigatedTo event. <br />\n<br />\nInstead i now tried to use the messenger but it doesnt seem two work for me either.<br />\n<br />\nI implemented a class:<br />\n<pre><code>public class CreateLogBookMessage : GenericMessage&lt;Machine&gt;\n    {\n        public CreateLogBookMessage(object sender, Machine selectedMachine)\n            : base(sender,selectedMachine)\n        {\n\n        }\n    }</code></pre>\n\nand then registerted for it in my ViewModel:<br />\n<pre><code>Messenger.Default.Register&lt;CreateLogBookMessage&gt;(\n                this, LogBookMessage =&gt;\n                {\n                    this.SelectedMachine = LogBookMessage.Content;\n                });</code></pre>\n\nFinally i navigated in my RelayCommand:<br />\n<pre><code>_navigationService.NavigateTo(ViewModelLocator.LogBookEntryURL);\n\n\n                            var createLogBookMessage = new CreateLogBookMessage(this,  this.SelectedMachine);\n                            Messenger.Default.Send(createLogBookMessage);</code></pre>\n\nI set a breakpoint on the Property in the receiving VM but it doesnt seem to get a message at all.<br />\n<br />\nAny ideas? If you could solve the question on stackoverflow, it would help me, too :)<br />\n<br />\nEdit:<br />\nI found out that the receiving VM constructor is called AFTER the Message is sent. How can i register the message so that the rec. VM will listen to it once constructed?<br />\n<br />\nThanks Julian<br />\n",
+    "PostedDate": "2015-05-15T09:14:19.347-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

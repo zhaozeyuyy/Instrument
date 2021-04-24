@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "991318",
+    "ThreadId": "430671",
+    "Html": "\r\n<p>I just tried to install <a id=\"fileDownload0\" tabindex=\"9\" href=\"http://mvvmlight.codeplex.com/downloads/get/524082\">\r\nGalaSoft.MvvmLight.4.1.24.0.msi</a>. Download is fine, and it seems to run and install stuff. However, nothing actually gets copied into the target folders. Just to check, I renamed the .msi to .cab and used 7-Zip to explode it and everything seems to be in\r\n order. Anyone else have this issue?</p>\r\n",
+    "PostedDate": "2013-01-23T19:45:53.08-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "991320",
+    "ThreadId": "430671",
+    "Html": "\r\n<p>Okay, false alarm, perhaps. I tried it one more time, changing the target folder to something different than the default, and now it worked. So, nothing to follow up on.</p>\r\n",
+    "PostedDate": "2013-01-23T19:48:59.003-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

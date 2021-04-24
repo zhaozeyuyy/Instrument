@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1052827",
+    "ThreadId": "446003",
+    "Html": "Hi\r<br />\n<br />\nI am trying to figure out how the best way to use AutoCompleteBox with MVVM Light.<br />\n<pre><code>     public ICommand AutoComplete\n        {\n            get\n            {\n                return new RelayCommand&lt;KeyEventArgs&gt;(e =&gt;\n                {\n                    var txtBox = e.OriginalSource as TextBox;\n\n                    if (e.Key == Key.Unknown)\n                    {\n                        return;\n                    }\n\n                    string autoComplete = txtBox.Text + e.Key;\n\n                    if (autoComplete.Length &gt;= 3)\n                    {\n                        RestClient c = new RestClient(&quot;http://localhost:3333/api/store&quot;);\n                        RestRequest r = new RestRequest(&quot;/GetStoreNames&quot;,Method.GET);\n                        r.AddParameter(&quot;Name&quot;, autoComplete);\n                        r.AddParameter(&quot;Latitude&quot;, &quot;49&quot;);\n                        r.AddParameter(&quot;Longitude&quot;, &quot;49&quot;);\n                        var d =  c.BuildUri(r);\n                        c.ExecuteAsync(r, response2 =&gt;\n                          {\n                              var content = response2.Content;\n                          });\n                    }\n\n\n                });\n            }\n        }\n\n\n    &lt;i:Interaction.Triggers&gt;\n                &lt;i:EventTrigger EventName=&quot;KeyUp&quot;&gt;\n                    &lt;GalaSoft_MvvmLight_Command:EventToCommand Command=&quot;{Binding AutoComplete, Mode=OneWay}&quot; PassEventArgsToCommand=&quot;True&quot;/&gt;\n                &lt;/i:EventTrigger&gt;\n            &lt;/i:Interaction.Triggers&gt;\n\n\n&lt;toolkit:AutoCompleteBox x:Name=&quot;acbStore&quot; Margin=&quot;154,196,29,0&quot; VerticalAlignment=&quot;Top&quot; RenderTransformOrigin=&quot;0.6,0.083&quot; Height=&quot;162&quot; MinimumPopulateDelay=&quot;500&quot;/&gt;</code></pre>\n\nI did the above but there is a couple problems.<br />\n<ol>\n<li>\nOnce I get the results back how do I show them in the auto complete area?<br />\n</li>\n<li>\nHow can I delay it from doing to many requests at once. As you can see I don't want to hit the server before 3 characters are entered but after that it is fair game. I am kinda worried that like 20 requests will be done to the server before the 1st request makes it back leading to wasted bandwidth.<br />\n</li>\n<li>\nFor some reason it seems like all my textboxes get the ICommand Event Trigger and I don't understand why. I click in another box and start typing and starts hitting my ICommand.<br />\n</li>\n</ol>\n",
+    "PostedDate": "2013-06-04T14:40:36.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1052840",
+    "ThreadId": "446003",
+    "Html": "Hi,\r<br />\n<br />\nI would recommend to ask on StackOverflow, with the mvvm-light tag. There is a lot more traffic there and you will increase your chances to find someone having actually done this before :)\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2013-06-04T15:35:24.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1052864",
+    "ThreadId": "446003",
+    "Html": "<strong>lbugnion wrote:</strong><br />\n<blockquote>\nHi,<br />\n<br />\nI would recommend to ask on StackOverflow, with the mvvm-light tag. There is a lot more traffic there and you will increase your chances to find someone having actually done this before :)<br />\n<br />\nCheers<br />\nLaurent<br />\n</blockquote>\nI usually do post on stack but I find actually I get more answers here.<br />\n",
+    "PostedDate": "2013-06-04T18:36:04.013-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1052939",
+    "ThreadId": "446003",
+    "Html": "Interesting! Thanks for the note :)\r<br />\n<br />\nLaurent<br />\n",
+    "PostedDate": "2013-06-04T23:50:09.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

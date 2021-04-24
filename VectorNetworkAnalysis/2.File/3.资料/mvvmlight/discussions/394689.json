@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "909346",
+    "ThreadId": "394689",
+    "Html": "\r\n<p><span style=\"font-size:x-small; font-family:Consolas; color:#ffffff\"><span style=\"font-size:x-small; font-family:Consolas; color:#ffffff\"><span style=\"font-size:x-small; font-family:Consolas; color:#ffffff\"></p>\r\n<p><span style=\"color:#888888\">In the soloution explorer references properties window, I changed the GalaSoft.MvvmLight.Extras.Win8 Alias property from &quot;global&quot; to &quot;GalaExtra&quot; because of a namespace conflict.&nbsp; However, when I try to build, the auto generated\r\n file &quot;XamlTypeInfo.g.cs&quot; still refers to the assembly by the &quot;global&quot; alias ( global::GalaSoft.MvvmLight.ObservableObject instead of GalaExtra::GalaSoft.MvvmLight.ObservableObject)</span></p>\r\n</span></span></span>\r\n<p></p>\r\n",
+    "PostedDate": "2012-09-06T13:50:57.497-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

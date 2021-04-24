@@ -1,0 +1,56 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:55:49.963-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "I just installed using version 3.0.0.0 (Aug 5 2011, Stable) of the installer. I also went through cleanup process before too.\r\n\r\nThe above template (a copy is attached to this post) created looks old and malformed (I haven't checked any others):\r\n* It opens with <phoneNavigation:PhoneApplicationPage x:Class=\"$rootnamespace$.$safeitemname$\" .. etc. and ends with </UserControl>\r\n* It references xmlns:phoneNavigation=\"clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Navigation\" - but the Navigation assembly has long since merged into phone assembly (see http://blogs.msdn.com/b/jaimer/archive/2010/06/28/migrating-apps-from-windows-phone-ctps-to-the-beta-build.aspx - this was ages ago).\r\n\r\nI have now verified this is an issue inside the MSI by doing an admin install:\r\nmsiexec /a GalaSoft.MvvmLight.V3.msi TARGETDIR=d:\\temp\r\n\r\nAnd checked \r\nD:\\Temp\\Common7\\IDE\\ItemTemplates\\CSharp\\Silverlight for Windows Phone\\Mvvm\\MvvmView.WP7.zip\r\n\r\nI guess the workaround is to not use the installer which is a shame.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V3 SP1 Installer",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-09-01T02:33:43.883-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "INSTALLER: MvvmView (WP7) template looks incorrect and old",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7541
+  },
+  "FileAttachments": [
+    {
+      "FileId": 276157,
+      "FileName": "ViewTemplate.xaml",
+      "DownloadUrl": ".\\276157"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Fixed in the corrected MSI that I released today (1st Sept 2011)",
+      "PostedDate": "2011-09-01T14:26:56.503-07:00",
+      "Id": 43752
+    },
+    {
+      "Message": "Wow - thanks for the fast turnaround! :-)",
+      "PostedDate": "2011-09-01T14:45:47.75-07:00",
+      "Id": 43753
+    }
+  ]
+}

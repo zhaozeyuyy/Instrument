@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "440502",
+    "ThreadId": "211974",
+    "Html": "<p>It would be magical if I could use EventToCommand on a storyboard completed event.</p>\r\n<p>I tried and this and received exception.</p>\r\n<p>--Cannot attach type &quot;EventToCommand&quot; to type &quot;Storyboard&quot;. Instances of type &quot;EventToCommand&quot; can only be attached to objects of type &quot;FrameworkElement&quot;.</p>\r\n<p>Is there any way to achieve this with some other type of xaml configuration?</p>\r\n<p>Here's what I'm trying:</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">Storyboard</span> <span style=\"color:blue\">&gt;</span>\r\n    <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">i</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">Interaction.Triggers</span><span style=\"color:blue\">&gt;</span>\r\n    \t<span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">i</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">EventTrigger</span> <span style=\"color:red\">EventName</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">Completed</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">&gt;</span>\r\n    \t\t&lt;GalaSoft_MvvmLight_Command:EventToCommand Command=&quot;{Binding MyCommand}&quot; PassEventArgsToCommand=&quot;True&quot;/&gt;\r\n    \t<span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">i</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">EventTrigger</span><span style=\"color:blue\">&gt;</span>\r\n    <span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">i</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">Interaction.Triggers</span><span style=\"color:blue\">&gt;</span>\r\n    <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">ObjectAnimationUsingKeyFrames</span> <span style=\"color:red\">Storyboard.TargetProperty</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">(UIElement.Visibility)</span><span style=\"color:black\">&quot;</span> <span style=\"color:red\">Storyboard.TargetName</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">grid</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">&gt;</span>\r\n    \t<span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">DiscreteObjectKeyFrame</span> <span style=\"color:red\">KeyTime</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">0</span><span style=\"color:black\">&quot;</span> <span style=\"color:red\">Value</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">{x:Static Visibility.Visible}</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">/&gt;</span>\r\n    <span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">ObjectAnimationUsingKeyFrames</span><span style=\"color:blue\">&gt;</span>\r\n<span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">Storyboard</span><span style=\"color:blue\">&gt;</span>\r\n<br>I just want to send a command on a Completed event from a Storyboard...<br></pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2010-05-07T15:23:08.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "445750",
+    "ThreadId": "211974",
+    "Html": "<p>Hi,</p>\r\n<p>Sorry for the delay. This is an interesting idea. Off the top of my mind, it should work, but I need to look into it. I opened an item in my backlog.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-05-21T02:05:05.4-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "484301",
+    "ThreadId": "211974",
+    "Html": "<p>I looked in the issues list and didn't see it (perhaps your backlog isn't public?), so I added this item:&nbsp;<a href=\"http://mvvmlight.codeplex.com/workitem/6979\">http://mvvmlight.codeplex.com/workitem/6979</a></p>",
+    "PostedDate": "2010-08-24T12:14:59.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

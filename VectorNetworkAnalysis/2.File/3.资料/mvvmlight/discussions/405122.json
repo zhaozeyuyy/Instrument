@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "949408",
+    "ThreadId": "405122",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Since I don't think it's possible to extend the Messenger to log when it sends&nbsp;a message and notifies it's subscribers I went ahead and modified the source.</p>\r\n<p>Now I can follow what the Messenger does it the&nbsp;output window. Verry handy</p>\r\n<p>I could contribute back but its rather ad hoq. Are you considering adding support for hoooking up logging (debug output window, nlog, log4net,...) ?</p>\r\n<p>Thanks for the excellent library, Tom</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-11-30T01:37:52.453-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

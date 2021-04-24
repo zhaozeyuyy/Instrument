@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "277647",
+    "ThreadId": "80966",
+    "Html": "<p>Haven't tried it yet, but I don't see any explicit support for binding RelayCommands to KeyBinding's or CommandBindings mentioned in MVVM Light. &nbsp;Am I missing anything?</p>",
+    "PostedDate": "2010-01-15T09:43:23.447-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "279387",
+    "ThreadId": "80966",
+    "Html": "<p>Hi,</p>\r\n<p>No you are not missing anything, this is correct.</p>\r\n<p>There are some ways around the lack of KeyBinding: Use an EventToCommand to map the Window's KeyDown event to a command, and pass the EventArgs to the command using the&nbsp;EventToCommand.PassEventArgsToCommand property and setting it to true. I show how to do this for a SL4 drag&amp;drop event here:</p>\r\n<p><a href=\"http://blog.galasoft.ch/archive/2009/12/17/silverlight-4-dragampdrop-with-eventtocommand.aspx\">http://blog.galasoft.ch/archive/2009/12/17/silverlight-4-dragampdrop-with-eventtocommand.aspx</a></p>\r\n<p>This works for KeyDown events too.</p>\r\n<p>For CommandBinding: This is a feature I want to add in a next version. I will think if there is a work around more practical than to define your own event in the Window and calling the Command on the VM directly. Maybe I find a behavior somewhere to do that (in a temporary manner).</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-20T02:50:40.927-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "412966",
+    "ThreadId": "80966",
+    "Html": "<p>Hi,</p>\r\n<p>How could I bind short key to my commands? For example:</p>\r\n<p>&lt;KeyBinding Command=&quot;{Binding MyCommand}&quot; Key=&quot;F4&quot; Modifiers=&quot;ALT&quot; /&gt;</p>",
+    "PostedDate": "2010-03-01T18:51:31.303-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "423481",
+    "ThreadId": "80966",
+    "Html": "<p>Hi,</p>\r\n<p>Sorry for the delay in the reply.</p>\r\n<p>This is possible in WPF4, but not in WPF3.5SP1. I would recommend to upgrade if you can. WPF4 makes many things much easier, performs better and the runtime is smaller.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-03-25T03:56:16.907-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "423483",
+    "ThreadId": "80966",
+    "Html": "<p>One more thing: If you really cannot upgrade to WPF4, check Mark Smith's library:</p>\r\n<p><a href=\"http://www.julmar.com/blog/mark/PermaLink,guid,8b3e4279-70a5-431e-8fa3-4c1e047df311.aspx\">http://www.julmar.com/blog/mark/PermaLink,guid,8b3e4279-70a5-431e-8fa3-4c1e047df311.aspx</a></p>\r\n<p>He has some helpers that allow you to do what you need.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-03-25T03:57:25.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

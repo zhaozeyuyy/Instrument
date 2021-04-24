@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-02-06T07:05:36.017-08:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "We use the Messenger send/receive approach to communicate between wpf-windows and view-models in a WPF-application.\r\n\r\nThe WPF application ist implemented as user-control (class library) and is hosted in a WinForm-Project via ElementHost.\r\n\r\nIf we start the WinForm application in Visual Studio everything works fine but if we start the release-build executable the Messenger send/receive does not work any more. What's interesting is that it only occurs when running a release build directly from the executable (i.e., not from within Visual Studio). With Debug builds, you can run the executable or from within Visual Studio, it works fine. \r\n\r\nMVVM light version:  4.4.32.1\r\n\r\nDoes anyone has an idea what could be the Problem here?",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-09-17T02:26:36.84-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Won't fix"
+    },
+    "Summary": "Messenger Send/Receive does not work for hosted WPF-UserControl",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7658
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nHonestly I never tested this scenario. I suspect that it has to do with the way that the AppDomains are handled when you host the WPF element in a WinForms application.\n\nI fear that I have to mark this as \"won't fix\". If that is a huge issue for you, contact me.\n\nLaurent",
+      "PostedDate": "2015-02-06T07:05:16.547-08:00",
+      "Id": 173627
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "967572",
+    "ThreadId": "415259",
+    "Html": "\r\n<p>I'm using VS2012 Premium and I've tried installing both :</p>\r\n<p>MVVM Light Toolkit v4.1 for VS2012 (v4.1.24.0)</p>\r\n<p>and</p>\r\n<p>MVVM Light Toollkit V4 RTM (v4.0.23.4)</p>\r\n<p>and then followed the steps to install the Project templates but I'm unable to create a new project targeting WP7.1 or 7.5, the only project target I can see is for WP8.</p>\r\n<p>I need to target WP7.1 (customer requirement) and was hoping to use a project template to help me get started with understanding this framework.</p>\r\n<p>Have I missed a step or maybe used the wrong installer?</p>\r\n<p>Any help appreciated,</p>\r\n<p>thanks,</p>\r\n<p>Gareth</p>\r\n",
+    "PostedDate": "2012-12-23T05:58:06.293-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "967585",
+    "ThreadId": "415259",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Working on a new installer, not quite ready yet. Here is a link to a new VSIX with the templates you need.</p>\r\n<p>Please uninstall the old VSIX first. For this, go to Visual Studio / Tools / Extensions and Updates / then select MVVM Light and click Uninstall.</p>\r\n<p>Then double click this VSIX:&nbsp;<a href=\"http://sdrv.ms/UmJp81\">http://sdrv.ms/UZngfo</a></p>\r\n<p>You'll need to restart VS 12 to see the changes.</p>\r\n<p>Cheers</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2012-12-23T06:34:08.267-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "967592",
+    "ThreadId": "415259",
+    "Html": "\r\n<p>Laurent, thanks for the very quick response and the link to the updated VSIX which works a treat</p>\r\n<p>Seasons greetings and I hope you get to enjoy the Xmas break!</p>\r\n<p>Cheers</p>\r\n<p>Gareth</p>\r\n",
+    "PostedDate": "2012-12-23T07:15:08.14-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "967594",
+    "ThreadId": "415259",
+    "Html": "\r\n<p>Thanks, happy it works!</p>\r\n<p>Seasons greetings to you too.</p>\r\n<p>Cheers<br>\r\nLaurent&nbsp;</p>\r\n",
+    "PostedDate": "2012-12-23T07:17:26.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "983256",
+    "ThreadId": "415259",
+    "Html": "\r\n<p>Thanks Laurent for all your hard work on MVVM.</p>\r\n<p>I was wondering if a similar fixed VSIX exists for VS 2012 Express for WinPhone?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks,</p>\r\n<p>Harel</p>\r\n",
+    "PostedDate": "2013-01-04T19:58:58.35-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "990438",
+    "ThreadId": "415259",
+    "Html": "\r\n<p>Hi Laurent, could you upload again the VSIX Template for WP7.1, it's seems you delete it.</p>\r\n<p>Me need it, and maybe other people need it too.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks,</p>\r\n<p>Yudhy</p>\r\n",
+    "PostedDate": "2013-01-22T09:59:17.627-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "990442",
+    "ThreadId": "415259",
+    "Html": "\r\n<p>Sorry, not sure what happened. I updated the link here above. The new link is&nbsp;<a href=\"http://sdrv.ms/UZngfo\">http://sdrv.ms/UZngfo</a></p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2013-01-22T10:03:01.543-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "990454",
+    "ThreadId": "415259",
+    "Html": "\r\n<p>Thanks Laurent for the quick response,</p>\r\n<p>I cannot Install the template, didn't read that Gareth using VS2012 Premium. And the VS that I am using right now is&nbsp;<strong>VS2012 Express for Windows Phone.</strong>&nbsp;Do MVVM Light v4.1.24.0 support targetting the<strong> WP7.1</strong> also? I install\r\n the&nbsp;<strong>MvvmLight.WP8Express2012</strong>, and the only template that I see is for WP8.</p>\r\n<p>&nbsp;</p>\r\n<p>Yudhy</p>\r\n",
+    "PostedDate": "2013-01-22T10:27:05.607-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1059872",
+    "ThreadId": "415259",
+    "Html": "<strong>lbugnion wrote:</strong><br />\n<blockquote>\nSorry, not sure what happened. I updated the link here above. The new link is&nbsp;<a href=\"http://sdrv.ms/UZngfo\" rel=\"nofollow\">http://sdrv.ms/UZngfo</a> Laurent<br />\n</blockquote>\nHi Laurent,\r<br />\n<br />\nCan you share template for Windows Phone 7.1 for Visual Studio 2012 Express for Windows Phone? By this link we only see templates for Visual Studie 2012 (not Express).<br />\n",
+    "PostedDate": "2013-06-22T04:47:12.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1203663",
+    "ThreadId": "415259",
+    "Html": "Hi Laurent<br />\n<br />\nThe new link is broken - can you post a new one?<br />\n<br />\nThanks<br />\n<br />\nEDIT: Nevermind - found the right link on the official download page<br />\n",
+    "PostedDate": "2014-02-06T10:35:39.613-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

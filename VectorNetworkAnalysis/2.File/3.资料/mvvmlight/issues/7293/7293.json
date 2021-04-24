@@ -1,0 +1,75 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 7,
+    "Custom": null,
+    "Description": "Doing the following causes a memory leak and means the page that it appears on is not garbage collected:\r\n\r\n    <i:Interaction.Triggers>\r\n        <i:EventTrigger EventName=\"Loaded\">\r\n            <ex:EventToCommand Command=\"{Binding LoadedCommand}\" />\r\n        </i:EventTrigger>\r\n    </i:Interaction.Triggers>\r\n\r\nI found this whilst doing some WP7 development, using the normal Loaded event does not cause an issue. It is detectable by calling GC.Collect() on the destination page and checking to see if the finlize of the previous page is called. I found the finalizer was called N times only when I quit the app (where N is the number of times I had navigated to the page). \r\n\r\nSince the phone apps are torn down if they exceed 90MB it's a bit more noticeable.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2010-09-30T10:19:45.047-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Memory leak using Interaction Triggers on Loaded Event",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 16,
+    "Id": 7293
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "It looks like that the Actions of the trigger does´t get Detached when navigating away from the page. Calling the Detache Method explicit is a possible workaround for now.\r\nOn Wp7 this could look like this:\r\n\r\nprotected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)\r\n        {\r\n            var triggers = System.Windows.Interactivity.Interaction.GetTriggers(this);\r\n            foreach (var trigger in triggers)\r\n            {\r\n                foreach (var action in trigger.Actions)\r\n                {\r\n                    action.Detach();\r\n                }\r\n\r\n                trigger.Detach();\r\n            }\r\n\r\n            base.OnBackKeyPress(e);\r\n        }",
+      "PostedDate": "2010-10-19T04:34:20.863-07:00",
+      "Id": 18028
+    },
+    {
+      "Message": "Hi,\r\n\r\nWhen a page is left (by navigating to a different page), it is not removed from memory. You can see that by placing a breakpoint in the page's constructor, and then navigating to the page (constructor is called), then forward to another page, and then back (constructor is NOT called). This would explain why Detach is not called - it is because the page is still alive in memory.\r\n\r\nIf that becomes an issue, you will probably need to find other ways to navigate. That said, I worked on a few WP7 apps, and we never found this to become an issue - so far.\r\n\r\nCheers,\r\nLaurent",
+      "PostedDate": "2010-10-21T15:14:23.797-07:00",
+      "Id": 18029
+    },
+    {
+      "Message": "Hi Laurent,\r\n\r\nwhat you are saying is correct, but there is one usecase when a page should get disposed. When navigating back from a page, the page navigated from should get disposed when triggering Gc, because it´s not longer in the navigation history. We found two reasons why the page is not disposed. First reason is that the Datacontext of the page is bound to a Viewmodel. This can be solved by setting Datacontext to null in the OnBackKeyPressed. Second reasen is that the EventToCommand is not Detached when Ui is unloaded. And that´s an issue, that needs to be fixed. The behaviour gets reattached when The UI is loaded again(even from Navigation history). Just set a Breakpont to OnAttached inside EventToCommand an navigate back to a page allready in navigation stack. At least on WP7 you see that the OnAttached is beeing called every time. It would be nice of you if you could take a look int the patch provided yesterday, to confirm or deny it. At least here it´s working, and my pages are now disposing.",
+      "PostedDate": "2010-10-22T00:57:22.9-07:00",
+      "Id": 18030
+    },
+    {
+      "Message": "Hello, same problem here :/\n\nAnyway, thanks for the great job !",
+      "PostedDate": "2010-11-25T08:02:35.263-08:00",
+      "Id": 19106
+    },
+    {
+      "Message": "Hello, I have tried something like that :\n\n        private void RemoveTriggers(Control c)\n        {\n            var triggers = Interaction.GetTriggers(c);\n            foreach (var trigger in triggers)\n            {\n                foreach (EventToCommand action in trigger.Actions)\n                {\n                    \n                    action.ClearValue(EventToCommand.CommandProperty);\n                    action.ClearValue(EventToCommand.CommandParameterProperty);\n                    action.Detach();\n                }\n                trigger.Detach();\n            }\n            triggers.Clear();           \n        } \n\nbut memory leak is already here...",
+      "PostedDate": "2010-11-25T08:47:01.53-08:00",
+      "Id": 19108
+    },
+    {
+      "Message": "Hello, I have the same problem ! :(",
+      "PostedDate": "2011-10-26T02:42:00.843-07:00",
+      "Id": 47953
+    },
+    {
+      "Message": "Blogged on how to solve this : http://atomaras.wordpress.com/2012/04/23/solving-mvvmlights-eventtocommand-memory-leak-wp7/",
+      "PostedDate": "2012-04-23T17:53:22.37-07:00",
+      "Id": 63090
+    }
+  ]
+}

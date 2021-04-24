@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:53:39.127-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When trying to use MVVM Light inside XAML files that are intended for both Silverlight and WPF, it would be nice if MVVM Light had an http reference such as:\r\n\r\nhttp://schemas.galasoft.ch/mvvm\r\n\r\nThen the XAML file can utilize this reference and eliminate references to specific assemblies.\r\n\r\nThis can be accomplished via additions to the AssemblyInfo.cs file like so:\r\n\r\n[assembly: XmlnsDefinition(\"http://schemas.galasoft.ch/mvvm\", \"GalaSoft.MvvmLight\")]\r\n[assembly: XmlnsDefinition(\"http://schemas.galasoft.ch/mvvm\", \"GalaSoft.MvvmLight.Command\")]\r\n[assembly: XmlnsDefinition(\"http://schemas.galasoft.ch/mvvm\", \"GalaSoft.MvvmLight.Helpers\")]\r\n[assembly: XmlnsDefinition(\"http://schemas.galasoft.ch/mvvm\", \"GalaSoft.MvvmLight.Messaging\")]\r\n\r\netc.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-03-01T12:41:22.397-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Enhancement Request: Add http reference for MvvmLight",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7515
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

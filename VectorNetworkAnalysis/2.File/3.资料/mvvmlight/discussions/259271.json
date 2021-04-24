@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "619347",
+    "ThreadId": "259271",
+    "Html": "\r\n<p>Hi Guys,</p>\r\n<p>No doubts that MVVMLight is the best light toolkit (toolkit not framework, so u can use only part of it).\r\n<br>\r\nThe problem finding ViewModel for view is solved via helper class VMLocator - you have to maintain it, and&nbsp;this class is sort of confusing...<br>\r\n<br>\r\nI always wanted to ask, why to straggle with&nbsp;VMLocator if we have IoC (MVVM is part of&nbsp;.Net4), why not use something like this:<br>\r\n<br>\r\npublic class MyView&nbsp;{<br>\r\n<br>\r\n[Import]<br>\r\npublic MyViewVM VM {get;set;}</p>\r\n<p>public MyView(){<br>\r\nSatisfyImports(this);<br>\r\n}<br>\r\n}</p>\r\n<p>and create MyViewModel with [Export] attribute.. <br>\r\n<br>\r\nYou might ask how to deal with design time data.. Easy (at least for me):<br>\r\nIn MyView.xaml use <br>\r\nd:DataContext=&quot;{d:DesignInstance vm:MyViewMV, IsDesignTimeCreatable=True}&quot;<br>\r\n<br>\r\nand in MyViewVM.cs in constructor:<br>\r\nViewModelConstructor(){<br>\r\nif (DesignTime=true) {GetDesignTimeData; return}<br>\r\n}</p>\r\n<div id=\"_mcePaste\" style=\"width:1px; height:1px; overflow:hidden; top:0px; left:-10000px\">\r\n&#65279;</div>\r\n<p>Using this approach you avoid creating ViewModelLocator class - so less chances to introduce error...<br>\r\n<br>\r\nLaurent, you will probably read this - what would u say? I saw your interview with John Papa and u mentioned something abt introdusing light IoC in MVVMLight v.4. Is it going to work similar to my idea (Well, it is not my idea - it is prism approach -))?</p>\r\n",
+    "PostedDate": "2011-05-27T07:16:20.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "619363",
+    "ThreadId": "259271",
+    "Html": "<p>Hi,</p>\r\n<p>The main issue with using an IOC (or in the case you describe, MEF which is something a little different) without a ViewModelLocator (VML) is Blend. Yes, you can use d:DataContext, but it is less flexible and clean than if you use the VML. Also, MEF does not work on the Windows Phone, so you end up having two different wiring systems to teach. Again, not a huge deal, but something that led me to privilege the VML.</p>\r\n<p>In fact, since I started using it, I (and John Papa, amongst others) came to really like the VML as beign a place convenient to do your setup. I like creating my services there, wiring things together, it is a neat object with a single responsibility. Yes, it introduces a little overhead, one more class to manage. But for me, it makes sense.</p>\r\n<p>That said, it is very much a question of preferences. some people love IOC containers, some prefer other ways, etc. It is quite the same here. Personally I like a reasonable use of IOC containers, I love MEF, etc. I use each of these techniques with pragmatism and moderation, and I totally understand if you prefer to go without the VML. Doesn't mean the code will work less good :)</p>\r\n<p>To answer your question about SimpleIoc in MVVM Light V4, I use it in fact in collaboration with the VML. I use it to keep the VML code cleaner and leaner.</p>\r\n<p>In the future, i have hopes that we will be able to have a more automated VML, able to resolve VMs automatically, for example based on the type of the view. In the moment however, and even though I have been trying to achieve this for a very long time, it still doesn't work well in Blend.&nbsp;</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-05-27T07:44:51.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "619368",
+    "ThreadId": "259271",
+    "Html": "<p>Cool, famous Laurent answered -))) Silverlight TV star talks to me -))) cool.<br /><br />Yeh, make sense. As you mentioned in the interview MVVM is toolkit - use what u want..<br /><br />This issue bugs me because I am not sure if my (prism) approach is more efficient (efficiency for me is time for development and change&nbsp;/ complexity) or there is more elegant way to do this - for example&nbsp;VML.<br /><br />Anyway, thanks again.</p>\r\n<p>Your fun.</p>",
+    "PostedDate": "2011-05-27T07:54:36.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

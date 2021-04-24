@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Cannot reproduce. What I see is that the call to GetInstance throws the exception as expected. ",
+    "ClosedDate": "2017-11-26T02:23:42.3-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hello,\r\n\r\nI've come across a problem with SimpleIoc. It doesn't seem to re-throw exceptions that occur within ViewModel constructors when resolving a ViewModel within the ViewModelLocator.\r\n\r\nThe code example below is taken directly [from this Stack Overflow question](http://stackoverflow.com/questions/21017172/exception-logging-in-wpf-application-mvvmlight-simpleioc-hides-exception-instea?rq=1):\r\n\r\n```\r\npublic partial class App : Application\r\n{\r\n        public App()\r\n        {\r\n           this.Dispatcher.UnhandledException += OnDispatcherUnhandledException;\r\n        }\r\n\r\n        void OnDispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)\r\n        {\r\n           string errorMessage = string.Format(\"An unhandled exception occurred: {0}\", e.Exception.Message);\r\n           MessageBox.Show(errorMessage, \"Error\", MessageBoxButton.OK, MessageBoxImage.Error);\r\n           e.Handled = true;\r\n        }\r\n}\r\n```\r\n\r\n```\r\npublic class TestViewModel : ViewModelBase\r\n{\r\n    public TestViewModel()\r\n    {\r\n        throw new Exception(\"this exception will be catched by SimpleIoC, therefore i'm not able to handle it elsewhere\");\r\n    }\r\n}\r\n// I'm using the MVVMLight ViewModelLocator which looks like this:\r\n\r\npublic class ViewModelLocator\r\n{\r\n    public ViewModelLocator()\r\n    {\r\n        ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);\r\n\r\n        SimpleIoc.Default.Register<TestViewModel>();\r\n    }\r\n\r\n    public TestViewModelTestViewModel\r\n    {\r\n        get\r\n        {\r\n            return ServiceLocator.Current.GetInstance<TestViewModel>();\r\n        }\r\n    }\r\n\r\n    public static void Cleanup()\r\n    {\r\n        SimpleIoc.Default.Unregister<TestViewModel>();\r\n    }\r\n}\r\n```\r\n\r\nI've attached a simple example project which I just created using the 5.0.2.0 of MVVM Light (via Nuget) using Visual Studio 2010. You can debug the project to see the problem or just run the EXE in the bin folder. The unhandled exception handler in App.xaml.cs should catch the exception but doesn't.\r\n\r\nPlease let me know if you need any more info.\r\n\r\nKind regards,\r\n\r\nPhil\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-01-29T02:45:14.2-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Cannot repro"
+    },
+    "Summary": "SimpleIoc not re-throwing exceptions thrown within constructors",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7681
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1424220,
+      "FileName": "SimpleIocTest.zip",
+      "DownloadUrl": ".\\1424220"
+    }
+  ],
+  "Comments": []
+}

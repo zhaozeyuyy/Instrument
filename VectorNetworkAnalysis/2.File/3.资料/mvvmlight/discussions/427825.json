@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "980924",
+    "ThreadId": "427825",
+    "Html": "\r\n<p>We have added a method to a new base class that inherits from ViewModelBase. The only method in this class.</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">protected</span> <span style=\"color:blue\">void</span> SetProperty&lt;T&gt;(Expression&lt;Func&lt;T&gt;&gt; propertyExpression, T newValue)\r\n\t\t{\r\n\t\t\t<span style=\"color:blue\">string</span> name = <span style=\"color:blue\">this</span>.GetPropertyName&lt;T&gt;(propertyExpression);\r\n\t\t\tType myType = <span style=\"color:blue\">this</span>.GetType();\r\n\t\t\tPropertyInfo prop = myType.GetProperty(name);\r\n\t\t\t<span style=\"color:blue\">this</span>.RaisePropertyChanging(name);\r\n\t\t\tprop.SetValue(<span style=\"color:blue\">this</span>, newValue);\r\n\t\t\t<span style=\"color:blue\">this</span>.RaisePropertyChanged(name);\r\n\t\t}\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>Is this something that can be added to ViewModelBase? It greatly simplifies the process for us so we don't have to provide setters and getters for all the properties.</p>\r\n",
+    "PostedDate": "2012-12-27T11:10:27.167-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "980941",
+    "ThreadId": "427825",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I am not sure I see the value over ViewModelBase.Set which is already available. Can you explain?</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2012-12-27T11:35:56.383-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "980960",
+    "ThreadId": "427825",
+    "Html": "\r\n<p>I hadn't seen the Set&lt;T&gt; method honestly. We are just getting going with MvvmLight. However, when I switch to using the Set&lt;T&gt; method instead of the method I posted earlier I don't get my UI updating.</p>\r\n<p>A couple of points which may or may not be reasons to add an additional overload to Set or modify the current implementation of the Set method.</p>\r\n<ul>\r\n<li>The method I posted calls GetPropertyName on ObservableObject only once whereas the existing implementation of Set&lt;T&gt; will call it twice since it is using the strongly typed version of RaisePropertyChanging and RaisePropertyChanged.\r\n</li><li>Using the method I posted doesn't require the use of the field parameter as used in Set&lt;T&gt; so if the user wants to use automatic properties they can.\r\n</li></ul>\r\n<p>Maybe I'm not using Set&lt;T&gt; correctly and that is the problem. Do you have an example usage?</p>\r\n<p>*EDIT: When I use Set&lt;T&gt; as suggested I see that the backing field gets updated as expected but my UI never gets updated. Not sure what other information you would need. No special messenger stuff going on in our application.</p>\r\n",
+    "PostedDate": "2012-12-27T12:03:52.59-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

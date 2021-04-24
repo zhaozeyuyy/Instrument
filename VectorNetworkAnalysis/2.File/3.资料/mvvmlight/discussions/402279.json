@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "938011",
+    "ThreadId": "402279",
+    "Html": "\r\n<p>I'm just trying to figure out something right now related to the wp7/8 navigation. &nbsp;Say you have an article reader app that has a listing of articles page and a page that shows the article when you click one. &nbsp;When an article is clicked, a new\r\n page is instantiated using a viewModel from the locator as its data context. When you click back, the view gets &quot;destroyed&quot;, but the vm stays intact? &nbsp;When a user clicks another article, the process repeats. &nbsp;</p>\r\n<p>My question is concerning those old views. &nbsp;Do the viewModels make a strong link to the views when properties are bound, and if so, how do you get around that. &nbsp;I'm trying to eliminate any potential memory leaks before they occur. &nbsp;When the\r\n view is destroyed, does that take care of the property changed events that were subscribed to?</p>\r\n",
+    "PostedDate": "2012-11-07T08:42:45.023-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

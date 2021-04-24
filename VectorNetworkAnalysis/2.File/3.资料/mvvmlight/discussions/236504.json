@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "528758",
+    "ThreadId": "236504",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>This post is based on blendability example showed in Mix10.</p>\r\n<p>For list viewModel everything is allright because in constructor it calls IDataService.</p>\r\n<p>Option1: create EditViewModel by Entity. Create EditView(), set it's DataContext to Entity, show View. At run time it works, but no blendability as DataContext (Entity) is set explicitily.</p>\r\n<p>Option2: create EditViewModel by Id. It would use IDataService, so blendability would work, but no way to pass Id to ViewModel as I create instance of View. Also loaded Entity would be different instance from that in list, so no auto-refresh.</p>\r\n<p>I couldnt find any examples, because all of them illustrates MVVM only for list ViewModel, no details, edit.</p>\r\n<p>So, how should EditViewModel be implemented by MVVM with blendability support? (sharing entity instance from list would be nice =&gt; grid auto-refresh)</p>\r\n",
+    "PostedDate": "2010-11-30T05:00:05.67-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

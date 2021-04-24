@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "476460",
+    "ThreadId": "222454",
+    "Html": "<p>Why does MVVM Light include it's own version of&nbsp;System.Windows.Interactivity? &nbsp;Will it work with the existing one from Microsoft? &nbsp;(I'm using VS2010, Blend 4, and creating SL4 apps.) &nbsp;This just seems ... weird.</p>",
+    "PostedDate": "2010-08-04T07:47:52.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "476665",
+    "ThreadId": "222454",
+    "Html": "<p>Hi,</p>\r\n<p>This is a very good question, and I was wondering when someone would ask it :)</p>\r\n<p>There are two reasons:</p>\r\n<p>1) The Sys.Win.Interactivity DLL does not come with the .NET framework or Silverlight SDK, but with the Blend SDK. This is an additional install for just one DLL. If you do have Blend installed, you won't notice it, but the users who don't have Blend but still want to use EventToCommand are spared the need to download and install the Blend SDK this way.</p>\r\n<p>2) There are multiple versions of this DLL, and all of them are super incompatible with each other. For example, using the Sys.Win.Interactivity DLL from SL3 into an SL4 project does not work. Using WP7 in a WPF project obviously doesn't work, etc. Unfortunately, all these versions are all named the same, which is confusing. By distributing this DLL with the MVVM Light framework, I avoid confusion.</p>\r\n<p>That said, this is the same DLL that comes with the Blend SDK (or the Blend app), so feel free to use yours if you prefer... just make sure to use the correct version ;)</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-08-04T18:09:12.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

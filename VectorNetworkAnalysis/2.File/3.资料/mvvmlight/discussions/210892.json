@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "436642",
+    "ThreadId": "210892",
+    "Html": "<p>Hi,</p>\r\n<p>What is the best way to open a new window from the viewmodel?</p>\r\n<p>current I have something such as:</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>    <span style=\"color:blue\">private</span> <span style=\"color:blue\">static</span> <span style=\"color:blue\">void</span> ShowAboutView()\r\n    {\r\n      <span style=\"color:blue\">var</span> aboutView = <span style=\"color:blue\">new</span> AboutView();\r\n      aboutView.Show();\r\n    }\r\n</pre>\r\n</div>\r\n<p>ShowAboutView is an action from a RelayCommand in the MainViewModel.</p>\r\n<p>This works but does not sit well. &nbsp;What alternatives are there to opening a new window / view? &nbsp;I would also be interested in assigned the new view an owner / parent window.</p>",
+    "PostedDate": "2010-04-28T10:31:38.517-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "436658",
+    "ThreadId": "210892",
+    "Html": "<p>What I've done for this is create an interface for any child windows that includes a Show method and events for any buttons that can be clicked. Then I have an IoC container set up in my ViewModelLocator (Ninject in my case, but Unity should work) and I have the interface for the window in the constructor of the ViewModel that will be using it.</p>\r\n<p>This set up allows me to ...</p>\r\n<ol>\r\n<li>Mock the window for unit tests.</li>\r\n<li>Keep the UI of the window separate from the ViewModel calling it.</li>\r\n<li>Control when the window is displayed and what I do when its closed from the ViewModel.</li>\r\n</ol>\r\n<p>I've also considered setting up Commands as dependency properties on the Window that I could bind to from another view. This would completely remove the child window's functionality from the concern of the ViewModel. I haven't done this yet because this solution works for me, but it could the a possibility if you're dogmatic about MVVM.</p>",
+    "PostedDate": "2010-04-28T10:55:59.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "436762",
+    "ThreadId": "210892",
+    "Html": "<p>Thank you for the quick reply.</p>\r\n<p>This is what I did and it seems to be working, please confirm if this matches-up with what you previously described.</p>\r\n<p>1- Created this Interface</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>  <span style=\"color:blue\">public</span> <span style=\"color:blue\">interface</span> IChildView\r\n  {\r\n    <span style=\"color:blue\">void</span> Show();\r\n  }\r\n</pre>\r\n</div>\r\n<p>2 - Put this in my AboutViewModel</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>  <span style=\"color:blue\">public</span> <span style=\"color:blue\">class</span> AboutViewModel : ViewModelBase, IChildView\r\n  {\r\n    <span style=\"color:blue\">public</span> <span style=\"color:blue\">void</span> Show()\r\n    {\r\n      <span style=\"color:blue\">var</span> aboutView = <span style=\"color:blue\">new</span> AboutView();\r\n      aboutView.Show();\r\n    }\r\n  }\r\n</pre>\r\n</div>\r\n<p>3- Put this in my ViewModelLocator constructor</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>Container.RegisterType&lt;IChildView, AboutViewModel&gt;();\r\n</pre>\r\n</div>\r\n<p>4- Modified my MainViewModel constructor to be</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">public</span> MainViewModel(IChildView aboutView)\r\n    {}\r\n</pre>\r\n</div>\r\n<p>5- I can now call aboutView.Show() in my MainViewModel and voila my second window shows.</p>\r\n<p>Is this what you had in mind?</p>\r\n<p>Once again, Thank you for the time and expertise.</p>",
+    "PostedDate": "2010-04-28T14:43:12.803-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "436792",
+    "ThreadId": "210892",
+    "Html": "<p>That's very close to what I'm doing.</p>\r\n<p>The difference is that you implemented an interface on a ViewModel, but I put it directly on a ChildWindow. Since my child window isn't doing much other than presenting a message and allowing the user to select one of a few buttons, I didn't think it needed a view model. I don't have any example code at the moment, but I hope to work on an example application using this and several other features of MVVM Light soon.</p>\r\n<p>One thing about your solution that you might want to do is choose a more specific name for your interface. What if you want to use another child window? You can't register IChildView to multiple concrete types. I would have created it as IAboutChildView.</p>\r\n<p>Keep in mind that there's nothing wrong with your solution. Everyone has different ideas about what's right. If you're happy with where your code got you and you can test your logic sufficiently, then you're in good shape.</p>",
+    "PostedDate": "2010-04-28T16:31:37.66-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "436860",
+    "ThreadId": "210892",
+    "Html": "<p>Excellent.&nbsp;I now understand the differences.</p>\r\n<p>One other question. &nbsp;I noticed in my MainViewModel I now have two parameters:</p>\r\n<pre>public MainViewModel(IAboutView aboutView, IHelpView helpView)</pre>\r\n<p>Lets say I had 6 views, what can help cut down the number of parameters? or is the reasoning if you have 6 views on a page maybe I should look into making a user control to consolidate some of the views and then pass in the user control?</p>\r\n<p>\r\n<pre><br></pre>\r\n</p>",
+    "PostedDate": "2010-04-28T21:08:00.85-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "437002",
+    "ThreadId": "210892",
+    "Html": "<p>With dependency injection you will find your constructors getting huge parameter lists. Some people don't like this, but my opinion is that this is just an indication that you're saving code elsewhere. I think this is a good thing overall.</p>\r\n<p>I have heard some people on twitter talking about large parameter lists being a warning sign that you class might have too many responsibilities. Its perfectly okay to have multiple view model classes whose responsibility is providing data to different portions of the view. For instance, in my application we have a LookupsViewModel that handles all of the data that any drop down lists bind to.</p>\r\n<p>Consolidating all of your windows into a single user control is certainly a good strategy. My rule of thumb for controls is that I only take the time to encapsulate if I find myself doing something the same way 3 times. However, these child windows are pretty simple so I think its okay to have a version for each button combination. We have one that just has an Okay button, an Okay/Cancel and a Yes/No/Cancel.</p>\r\n<p>Its too bad the MessageBox in Silverlight only allows Okay and OkayCancel because that means we never use it in our app in order to have consistency between our pop up windows.</p>\r\n<p>Glad to help!</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-29T03:57:05.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

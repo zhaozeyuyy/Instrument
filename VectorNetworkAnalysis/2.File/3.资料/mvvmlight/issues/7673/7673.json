@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-12-02T06:40:40.33-08:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Could I use the current implementation of the binding in the MVVM light toolkit for the android platform to make binding on a on a dynamically generated views ?",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-12-02T06:07:54.347-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Not an issue"
+    },
+    "Summary": "Android: Binding on a dynamically generated view ",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7673
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nClosing this as it is not an issue. Can I ask you to open a Discussion (using the Discussions tab above) to start a thread about this?\n\nThanks\nLaurent",
+      "PostedDate": "2014-12-02T06:40:18.333-08:00",
+      "Id": 167072
+    }
+  ]
+}

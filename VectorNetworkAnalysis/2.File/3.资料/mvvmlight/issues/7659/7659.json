@@ -1,0 +1,170 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-23T06:53:49.97-07:00",
+    "CommentCount": 26,
+    "Custom": null,
+    "Description": "After updating to version 5 the CanExecute() stopped working correctly. It validates the first time, like when the window is open, but it won't make any more validations after that.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.0.2",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "High",
+      "Severity": 150,
+      "Id": 3
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-10-10T12:09:48.173-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Relay Command CanExecute() not working in WPF",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 12,
+    "Id": 7659
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Yes it is broken with version 5. And my application does not work properly now. \nI need a quick urgent solution because I have to deliver my application.\n\nI'm in trouble.",
+      "PostedDate": "2014-10-11T02:22:17.657-07:00",
+      "Id": 162028
+    },
+    {
+      "Message": "Hi,\n\nThanks for reporting. I will check it out. In the meantime, please revert to V4 until the problem is fixed.\n\nDo you have a repro of the problem?\n\nThanks\nLaurent",
+      "PostedDate": "2014-10-11T05:17:31.54-07:00",
+      "Id": 162035
+    },
+    {
+      "Message": "An example:\n\nIn the ViewModel a RelayCommand object is istantiated like this:\n\nsaveCommand = new RelayCommand<object>(saveCommandExecute, param => this.isValid);\n\nisValid is a property of the  ViewModel which changes according to data validation result. So if the user inserts invalid data in the view fields, the button control bound to the command will be disabled.\n\nThe lambda for CanExecute is apparently executed only the first time (during RelayCommand instantiation?) but whether isValid property changes, the lambda is not executed anymore.\n",
+      "PostedDate": "2014-10-11T05:29:20.533-07:00",
+      "Id": 162036
+    },
+    {
+      "Message": "Hi,\n\nIn your code, do you call the RelayCommand's RaiseCanExecuteChanged method when the isValid property changes?\n\nWhat version of WPF are you using?\n\nThanks\nLaurent",
+      "PostedDate": "2014-10-11T06:17:10.34-07:00",
+      "Id": 162039
+    },
+    {
+      "Message": "No I never invoke RaiseCanExecuteChanged().\n\nBut in the previous MVVMLight version it was not necessary to call that method.\n\nBesides, in my example, isValid is a private property used for IDataErrorInfo data validation.\nIf I invoke saveCommand.RaiseCanExecuteChanged() inside isValid or in any place of the IDataErrorInfo functions, a Stack Overflow exception raises. So, in this context, I do not know the exact place where I could call it...",
+      "PostedDate": "2014-10-11T06:33:29.41-07:00",
+      "Id": 162040
+    },
+    {
+      "Message": "Okay, I could invoke saveCommand.RaiseCanExecuteChanged() in each setter of each property which have to be validated and it works.\n\nBut now I have to search in every viewmodel  all the RelayCommands which have an associated CanExecute and if the each command is related to data validation properties I have to modify each setter of the validating properties to add the ReaiseCanExecuteChanged() call \n\n:(",
+      "PostedDate": "2014-10-11T06:38:35.373-07:00",
+      "Id": 162043
+    },
+    {
+      "Message": "Is it a WPF 4.5 application?\n\nI think you put the finger on a breaking change in V5. Until I find a solution to that issue, please revert to V4 where this behavior is not present. V4.4.32.7 should not have the same issue. \n\nI am sorry about the problem. I'll try to find a way to fix it.\n\nCheers\nLaurent",
+      "PostedDate": "2014-10-11T07:00:01.86-07:00",
+      "Id": 162046
+    },
+    {
+      "Message": "Yes, it is a WPF 4.5 application.",
+      "PostedDate": "2014-10-11T07:01:12.917-07:00",
+      "Id": 162047
+    },
+    {
+      "Message": "OK so here is the explanation to the issue:\n\nWPF is the only XAML framework that uses the CommandManager to automagically raise the CanExecuteChanged event on ICommands. I never liked that approach, because of the \"magic\" part, but this is a \"feature\" of WPF and of course I have to support it. No question here.\n\nIn V5, I moved to portable class library for all the newest versions of the XAML frameworks, including WPF4.5. Unfortunately, there is no CommandManager in PCL, and I have to admit that I didn't realize that at first sight. So of course now the automagical part doesn't work anymore. Again, so sorry about that.\n\nI am not expecting you to raise CanExecuteChanged everywhere now, not after using the CommandManager in your application, which is what the WPF team intended. So I will try to find a way to restore the CommandManager usage in the WPF4.5 version of the toolkit.\n\nDefinitely not looking for excuses ;) but hope that explaining why the issue arose helps to make sense of this. It's going to be my priority #1 until I find a way to solve this in the PCL version. In the meantime, like I mentioned before, I think that going back to V4.4.32.7 should fix that. Please let me know if it does not.\n\nCheers\nLaurent",
+      "PostedDate": "2014-10-11T07:36:18.643-07:00",
+      "Id": 162049
+    },
+    {
+      "Message": "No excuses needed.\n\nLet him who writes bug free code cast the first stone :)",
+      "PostedDate": "2014-10-11T07:49:47.747-07:00",
+      "Id": 162050
+    },
+    {
+      "Message": "I was about to send you the following mail:\n\nfirst, i want to thank you for your great work and the magnificent work regarding MVVM Light.\n\nHowever, I stumbled across something which has changed from version 4.4.7.32 to 5.0.0.0. It might be a feature (which I don't understand) but it also could be a bug.\n\nI created a demo solution file containing two project, just change the Startup Project to see the difference.\n\nThe code is 100% identical, the only difference between both projects is the mvvmlight version.\n\n[Demoproject](http://1drv.ms/1vmbrnh)\n",
+      "PostedDate": "2014-10-13T02:44:04.463-07:00",
+      "Id": 162156
+    },
+    {
+      "Message": "Hi Laurent, \n\nAbove mentioned issue is yet not fixed in version 5.0.1 as mentioned in the release notes for this version.\n\nThe issue still exist in my application where CanExecute() not working. It won't fire every time the dependent property changes (Only fires once on load).\n\nThanks for explaining the issue in technical terms.",
+      "PostedDate": "2014-10-19T16:40:36.007-07:00",
+      "Id": 162677
+    },
+    {
+      "Message": "Having the same issue.  Just updated to the latest version today and it broke every button in my application (5.0.1.0).",
+      "PostedDate": "2014-10-19T22:34:07.94-07:00",
+      "Id": 162682
+    },
+    {
+      "Message": "Hi,\n\nI worked on a fix during the weekend and will make it available to you guys in a Nuget update today. A blog post will follow. Stay tuned here for details for when the fix is available.\n\n@jachauhan: The release notes do not mention this particular issue (7659), the issue mentioned with RelayCommand was another one.\n\nCheers\nLaurent",
+      "PostedDate": "2014-10-19T23:19:29.937-07:00",
+      "Id": 162683
+    },
+    {
+      "Message": "Guys,\n\nI just published V5.0.2 to NuGet. It fixes the issue listed here.\n\nThere is a small catch: You need to change the namespace of the RelayCommand class from GalaSoft.MvvmLight.Command to GalaSoft.MvvmLight.CommandWpf. \n\nThe explanation of why this is needed will go into a blog post coming up soon. In short: The WPF4.5 and 4.5.1 versions of MVVM Light are now a Portable Class Library. It makes sense for many reasons. However the CommandManager does not exist in the PCL space, which is why your code, which relies on the CommandManager didn't work anymore. \n\nInstead of just giving up and putting the RelayCommand out of the PCL (which would have sucked for everyone who wants to use RelayCommand in a PCL), I decided to have the RelayCommand both in the PCL and in the WPF4.5 platform DLLs. However, in the PCL it is in GalaSoft.MvvmLight.Command namespace and it does NOT use the CommandManager; and in the Platform DLL, it is into GalaSoft.MvvmLight.CommandWpf namespace and it DOES use the CommandManager.\n\nHopefully this small fix is not going to cost you guys too much time. Apologies for the bad planning. I will try to find a way to unit test the Command Manager so this kind of things does not happen again.\n\nCheers\nLaurent",
+      "PostedDate": "2014-10-20T12:58:55.56-07:00",
+      "Id": 162748
+    },
+    {
+      "Message": "I too ran into the same problem. The fix is working and modification is \"minimal\" (I search and replace all related usings in solution).\n\nI don't particular like platform-specific RelayCommand but I guess we will have to stick to this arrangement for now until a new style for writing wpf commands (without relying on CommandManager's magic) appear.\n\nThank you anyway. My apps are working again :)",
+      "PostedDate": "2014-10-20T20:49:58.377-07:00",
+      "Id": 162782
+    },
+    {
+      "Message": "Hi,\n\nTo be exact, it's not quite a platform specific implementation of RelayCommand. The problem comes from the CommandManager which is *automatically* used by an ICommand. I don't have a way to opt out of the CommandManager in WPF, it is there by default.\n\nHowever, since it is not there in Portable Class Library, what my fix relies on is using a WPF-specific assembly (the one hosting the CommandWpf namespace) while all the others use the PCL version (in Command). The RelayCommand class is the same in both namespaces.\n\nI know it's annoying and somewhere confusing. Honestly, I blame the WPF team from 2005 here: They wanted to make our life easier, but automagical conventions have a way to come back and bite you...\n\nCheers\nLaurent",
+      "PostedDate": "2014-10-21T00:45:21.59-07:00",
+      "Id": 162786
+    },
+    {
+      "Message": "Still present in 5.0.2 in WP8.0 SL projects.\n\nI have a command RelayCommand<T> with defined Execute and CanExecute. CanExecute function is never calling. If I removing CanExecure definition, then the command is executing.",
+      "PostedDate": "2014-10-23T04:57:59.493-07:00",
+      "Id": 163032
+    },
+    {
+      "Message": "Hi,\n\nIt cannot be the same issue, as that issue was only available in WPF projects. There is no CommandManager in SL.\n\nCan you send me a repro? In SL you need to raise the CanExecuteChanged event manually.\n\nCheers\nLaurent",
+      "PostedDate": "2014-10-23T05:31:30.59-07:00",
+      "Id": 163036
+    },
+    {
+      "Message": "Hi\nI've discovered that this is not the same issue (sorry for blaming).\nHere is workaround: \n - create a generic command that receives some class\n - bind this command to XAML without value for CommandParameter\nIn previous version CommandParameter without value leads to null value in code. Now command just not executing",
+      "PostedDate": "2014-10-23T05:34:59.603-07:00",
+      "Id": 163037
+    },
+    {
+      "Message": "Hi,\n\nYes this is correct. \"null\" is not acceptable for the CanExecute method, and so it will simply return false. That makes sense if you think of it.\n\nCheers\nLaurent",
+      "PostedDate": "2014-10-23T05:43:53.317-07:00",
+      "Id": 163038
+    },
+    {
+      "Message": "But this very inconvenience. This is breaking a lot of code that had written before.\nI can understand such behavior for value types but not for reference types. Why not defined CommandParameter is not NULL?",
+      "PostedDate": "2014-10-23T05:49:19.323-07:00",
+      "Id": 163039
+    },
+    {
+      "Message": "Laurent,\n\nI think there is a problem when CanExecute is passed as lambda in constructor. It executes a couple of times and then stops. Perhaps it has something to do with WeakReference, I am not sure.\nIf I instead implement an instance method it works just fine.",
+      "PostedDate": "2015-01-12T02:53:36.483-08:00",
+      "Id": 169897
+    },
+    {
+      "Message": "Hi,\n\nPlease post a repro,\n\nThanks\nLaurent",
+      "PostedDate": "2015-01-12T03:15:49.763-08:00",
+      "Id": 169902
+    },
+    {
+      "Message": "I don't quite understand this issue. I have a WPF project (.NET 4.6). This is how it seems to work for me:\n\n__Command:__ Only calling RelayCommand.RaiseCanExecuteChanged works to update the UI. Calling CommandManager.InvalidateRequerySuggested() doesn't work.\n\n__CommandWpf:__ Calling RelayCommand.RaiseCanExecuteChanged and CommandManager.InvalidateRequerySuggested() both work to update the UI.\n\nIs this correct? So my question is, are there any pros and cons between using RaiseCanExecuteChanged() and using InvalidateRequerySuggested()? Both methods require a method call anyway (since the CommandManager seems to be very slow/delayed to update or doesn't update automatically at all), so I don't really see any issue with using RaiseCanExecuteChanged in my code, and think it's clearer too. I just want to know if there are any advantages to using either method. I believe that InvalidateRequerySuggested() rechecks _all_ commands — would RaiseCanExecuteChanged() perform better?\n\nThanks.",
+      "PostedDate": "2016-01-11T11:14:45.43-08:00",
+      "Id": 195281
+    },
+    {
+      "Message": "Hi,\n\nThis issue is related to the automatic action of CommandManager in WPF. It's not about explicitly calling the method. The CommandManager will do that automatically in WPF when some UI events happen.\n\nHTH\nLaurent",
+      "PostedDate": "2016-01-12T06:37:15.273-08:00",
+      "Id": 195299
+    }
+  ]
+}

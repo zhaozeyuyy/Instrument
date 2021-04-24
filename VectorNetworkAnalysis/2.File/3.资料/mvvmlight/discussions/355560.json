@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "835494",
+    "ThreadId": "355560",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>I've been using MVVM Light all throughout the development of the app that I've been slowly working on.&nbsp; I&quot;m finally starting to look into performance issues that happen after the app is in use for a bit.&nbsp; I have a main viewmodel that loads a collection\r\n of articles (basically header info only)&nbsp; The user can click and article and they are taken to the article page where the rest of the articles info is fetched.&nbsp; The article page has it's own view model that gets instantiated only once since I'm using\r\n viewmodel locator. I&quot;m using the messenger class to alert when info is ready to be updated on the article.&nbsp; So at that point there shouldn't be any memory leak issue with even references.</p>\r\n<p>It's my understanding that when the user clicks back, the view is destroyed.&nbsp; Since the viewModel is not destoryed though, is it holding onto PropertyChanged events for each bound element for old views??</p>\r\n<p>I've been combing through my code to look for anything that I didn't realize could be keeping a reference and this is all I can think of.</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2012-05-12T06:37:58.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

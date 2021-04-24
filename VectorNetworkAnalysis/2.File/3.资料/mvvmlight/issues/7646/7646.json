@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "add a new Publish method, Publish(Object sender, T message);\r\nIf the provided sender object is a the same as the recipient object used when registering a subscription then the message is not deliver.  This prevents object that both send and receive the same message from having to handle this in the registered Action<>.  \r\n\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-06-27T13:47:09.853-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Add ability to filter out message loops",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 1,
+    "Id": 7646
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I think this is better resolved ad-hoc by the recipient. Adding this feature would mean adding options to disable this behavior if needed. It feels like a complex solution to an infrequent issue.\n\r\n\r** Closed by lbugnion 10/13/2014 6:43AM",
+      "PostedDate": "2014-10-13T06:43:37.71-07:00",
+      "Id": 162166
+    },
+    {
+      "Message": "Implementing this is actually relatively straightforward.  If you want I can show how I did the change on a branch and you can review.  \n\nIt basically involves adding an addition parameter to SendToList<TMessage>(..., object sender) on the Messenger class.\n\ninside the if statement in the foreach loop, add the line \"&& item.Action.Target != sender\"\n\nif a sender is not provided, i.e. null, then the statement will always be true and behavior is unaffected.\n\nThere is no need for an option to disable the feature.  This is simply a new method.",
+      "PostedDate": "2014-10-15T13:47:48.623-07:00",
+      "Id": 162352
+    },
+    {
+      "Message": "\n\r\n\r** Closed by lbugnion 10/14/2014 1:22PM",
+      "PostedDate": "2014-10-14T13:22:25.733-07:00",
+      "Id": 162353
+    }
+  ]
+}

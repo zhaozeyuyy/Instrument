@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1448352",
+    "ThreadId": "646173",
+    "Html": "Hi,\r<br />\n<br />\nI would like to bind models that contains a bool to a Checkbox in an ExpandableListView items.\r<br />\nI try this without success (it crashes the app):<br />\n<pre><code>public override View GetChildView(int groupPosition, int childPosition, bool isLastChild, View convertView, ViewGroup parent)\n        {\n            View row = convertView;\n            if (row == null)\n            {\n                row = Context.LayoutInflater.Inflate(Resource.Layout.ContractTemplate, null);\n            }\n            \n            var checkBox = row.FindViewById&lt;CheckBox&gt;(Resource.Id.ContractCheckBox);\n            checkBox.SetBinding(\n                 () =&gt; _models[groupPosition].Contracts[childPosition].Downloaded,\n                 () =&gt; checkBox.Checked);\n\n            return row;\n        }\n</code></pre>\n\nThanks a lot for your help!\r<br />\nMarc<br />\n",
+    "PostedDate": "2015-10-13T11:36:33.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1448908",
+    "ThreadId": "646173",
+    "Html": "That cannot work.\r<br />\n<br />\nUse the GetAdapter extension method instead.\r<br />\n<br />\nLaurent<br />\n",
+    "PostedDate": "2015-10-17T06:44:13.523-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1448959",
+    "ThreadId": "646173",
+    "Html": "Thanks Laurent,\r<br />\n<br />\nHow do you use the GetAdapter instead to resolve such thing ?\r<br />\n<br />\nThanks !\r<br />\nMarc<br />\n",
+    "PostedDate": "2015-10-18T07:30:48.04-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

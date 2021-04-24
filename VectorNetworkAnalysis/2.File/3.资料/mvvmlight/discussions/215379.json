@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "453176",
+    "ThreadId": "215379",
+    "Html": "<p>Hi,</p>\r\n<p>I've just checked the code of the messenger and I do think that the messenger is not thread safe.<br>When I have multiple threads where messages are send and objects register for receiving messages most of the collection iterations will fail because the collections are getting modified while iterating over them.<br>I have not used you framework yet, but the code seems to be prone to it.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-06-08T13:05:02.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "453197",
+    "ThreadId": "215379",
+    "Html": "<p><span style=\"font-size:11pt;color:#7030a0\">Hi,</span></p>\r\n<p><span style=\"font-size:15px;color:#7030a0\">Actually the collections are cloned before the iteration occurs. They are not, however, locked.</span></p>\r\n<p><span style=\"font-size:15px;color:#7030a0\">That said, I recommend against send messages across threads. The recommended way is to leave the Messenger on the main thread, and to dispatch the call using the Dispatcher class. The problem is that the Messenger is often used to update properties of UI elements, and this cannot work across threads.</span></p>\r\n<p><span style=\"font-size:15px;color:#7030a0\">If you have a specific issue with multithreading and the messenger, I&rsquo;d be happy to look into it.</span></p>\r\n<p><span style=\"font-size:15px;color:#7030a0\">Thanks,</span></p>\r\n<p><span style=\"font-size:11pt;color:#7030a0\">Laurent&nbsp;</span></p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-06-08T13:51:18.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "453372",
+    "ThreadId": "215379",
+    "Html": "<p><span style=\"font-size:15px;color:#7030a0\">&gt; The problem is that the Messenger is often used to update properties of UI elements, and this cannot work across threads.</span></p>\r\n<p><br>This lib is intended to be used with MVVM. So it's all about binding against properties of the model. WPF has no problem when binding against properties that were modified on a different thread. The only exception is the observable collection but it can be easily replaced by a derived class, for example this one:</p>\r\n<p><a href=\"http://tomlev2.wordpress.com/2009/04/17/wpf-binding-to-an-asynchronous-collection/\">http://tomlev2.wordpress.com/2009/04/17/wpf-binding-to-an-asynchronous-collection/</a></p>\r\n<p>We're using a messenger in our project which is thread safe and we have lots of async calls without problems.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-06-09T00:41:15.44-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "453387",
+    "ThreadId": "215379",
+    "Html": "<p>Hi,</p>\r\n<p>What you are talking about is cross-thread access, not thread synchronization as I first thought. Ignore my previous answer.</p>\r\n<p>The reason why the MVVM Light Messenger does not dispatch between threads is by design. I dislike hiding the dispatching within the Messenger object for two reasons:</p>\r\n<p>1) Multithreading is very complex, and I feel that it is easier to find errors when the dispatching is done explicitly.</p>\r\n<p>2) Dispatching within the Messenger would complicate the Messenger's API. It becomes necessary to pass parameters for the priority with which messages need to be dispatched, for instance. I decided not to add this complexity within the Messenger.</p>\r\n<p>Instead, dispatching the message is the responsibility of the caller. I provide the DispatcherHelper class (which is a work in progress, granted, but covers most simple scenarios) to help the user with that.</p>\r\n<p>It is not excluded that this changes in the future, and that the Messenger becomes more thread aware. I am careful however not to include too much complexity inside the Messenger for the reasons stated above.</p>\r\n<p>I hope that it makes sense,</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>\r\n<p>PS: Regarding asynchronous collections: I see some scenarios where they can be useful, but in general I recommend against them. Unit testing an asynchronous collection is very difficult. As a rule, I think that Observable collections (and arrays and dictionaries...) should belong to the UI thread and be modified on that thread only.</p>",
+    "PostedDate": "2010-06-09T01:06:18.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

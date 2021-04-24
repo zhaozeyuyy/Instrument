@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2016-01-16T13:57:44.81-08:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "The issue occours after ca. 2 minutes passed (about 1800 times updated). TextViews simply stop to update with no reason, even if accelerometer updates are still working. Our team is working on multithreaded aplication where we have to update some UI control values on UI thread (thats problably the reason why the issue occours). We have spent amount of time trying to figure out what might be the problem and finally we have decited to report it as an issue. I have prepared some sample code based on accelerometer functionality, but in fact the same problem occours when we are trying to use other hadrware devices or sensors (e.g. bluetooth). Here is the link to the sample app repository:\r\n\r\nhttps://mvvmlightbug.visualstudio.com/DefaultCollection/_git/MVVM%20Light%20bug#path=%2F&version=GBmaster&_a=contents \r\n\r\n\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-02-16T01:14:21.047-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Not an issue"
+    },
+    "Summary": "UI controls do not update after some time passed‏",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7683
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "During debug process I've found out that Garbage Collector is somehow removing my bindings. It was because of WeakReference usage in MVVMLight for Android library. I've lust replaced all WeakReferences with object types and since then there is no more problem. \n\nFor MVVMLight creatrors: please ensure that WeakReferences are the best solution - you should rather replace them, because Android's GC is removing bindings with no reason.",
+      "PostedDate": "2015-06-25T04:06:20.733-07:00",
+      "Id": 185897
+    },
+    {
+      "Message": "Data bindings rely on weak references in every framework. You can solve the issue by simply saving a reference to your bindings (for example in a List<Binding> in your view. ",
+      "PostedDate": "2016-01-16T13:57:18.51-08:00",
+      "Id": 195507
+    }
+  ]
+}

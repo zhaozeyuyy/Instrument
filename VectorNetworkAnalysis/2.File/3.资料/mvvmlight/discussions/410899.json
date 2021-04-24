@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "962589",
+    "ThreadId": "410899",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>I have spent hours Googling, and I apologise if this is a regular, simple question...but how exactly do you go about adding a new window to an mvvmlight WPF project?</p>\r\n<p>I have created a simple application which allows you to have multiple views displaying via content controls, on the same view. However I have added a menu bar and would like to display another window when a particular item is selected.</p>\r\n<p>I have experience with using the messenger, however I believe i'm failing to setup the ViewModelLocator properly, as the second window's code-behind never receives the message.</p>\r\n<p>A simple example application would be amazing...</p>\r\n<p>Thanks,</p>\r\n<p>&nbsp;</p>\r\n<p>Chris</p>\r\n",
+    "PostedDate": "2012-12-20T09:40:28.123-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

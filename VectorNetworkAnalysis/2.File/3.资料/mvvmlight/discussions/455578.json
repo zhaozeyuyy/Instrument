@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "1088651",
+    "ThreadId": "455578",
+    "Html": "Hello,\r<br />\nwe've create a WPF-Application with Visual Studio 2010. It works fine since February 2012. After Updating the computer of the users from Windows XP to Windows7 the users have sometime to wait about 10 to 20 seconds while loading new data. We have logged each operation with a timestamp. So we can see, which operations cause the waiting. One of it is a own method name RaiseAllProperties, which call about 50 times the MVVM-Light-Function RaisePropertyChanged for the most properties of the ViewModel. To exclude MVVM-Light as cause of the delay, we want to install a newer version of MVVM-Light. We use the version 3.0.0 with the GalaSoft.MvvmLight.WPF4.dll with the assembly-version 3.0.0.30125. \r<br />\nI download the file GalaSoft.MvvmLight.V3.0.3.19.msi from <a href=\"http://www.galasoft.ch/mvvm/installing/\" rel=\"nofollow\">http://www.galasoft.ch/mvvm/installing/</a>.  There is included the assembly GalaSoft.MvvmLight.WPF4.dll with the assembly-version 3.0.0.19994, which is lower then 3.0.0.30125. Is this right? What is the recommended version for production of MVVM-Light?\r<br />\nVisual Studio and a part of our users still use Windows XP.\r<br />\n<br />\nThe main delay occurs when clear a Observable Collection of a complex ViewModel. Have anybody an idea about the cause?\r<br />\nThanks <br />\n",
+    "PostedDate": "2013-09-05T01:45:23.477-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1089184",
+    "ThreadId": "455578",
+    "Html": "I've found know a non-Beta version 4.1.26, which I have installed with Nuget. The delay-problem doesn't disappear. I try to change the call of 50 RaisePropertyChanged to one call of RaisePropertyChanged(&quot;&quot;). This works (Thank You!) but the delay is still the same. So I think it is not a problem of MVVM-Light.\r<br />\nNevertheless, I would be glad, if anybody can help me with an idea about this issue.<br />\n",
+    "PostedDate": "2013-09-06T05:26:53.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1090205",
+    "ThreadId": "455578",
+    "Html": "Not sure how anyone would be able to help you out - why don't you give more information like what exactly are the types of data you are binding to (like observable collections, strings, etc?), what type of UpdateMode you have set, are you using DispatcherHelper to sync back to UI thread..etc. etc. <br />\n",
+    "PostedDate": "2013-09-09T07:30:24.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1090474",
+    "ThreadId": "455578",
+    "Html": "OK, I try to explain some more details. We use a WPF-Window with a ViewModel as DataContext. The ViewModel implements the browsing from one record to another. In the Window there is a control which contains a ListView of ListViews. These control has as DataContext an other ViewModel, which include a Observable Collection of a third ViewModel, which include a Observable Collection of one more ViewModel. The Properties of this ViewModels are Strings, Integers, Dates and Decimals. The ListViews are bound to these ViewModels. The ListViews show detail-data of the current record.<br />\nWhen changing to the next record, the ViewModel get new data from the database. When Clearing the outer Observable Collection the main delay appears. <br />\nI have now deleted the DataContext of the control, which include the Observable Collection.  The result is, that we can't see data in the control, but in the ViewModel all things happens as before (clearing the Collections, reading data from the database, filling the collection new). Now the main delay disappears. This show, that not the clearing of the Observable Collection itself cause the delay but the Update of the UI. <br />\nThe UpdateMode of the binding of the Observable Collection is not explicitly set, but works in the TwoWay-Mode:<br />\n<pre><code>        &lt;ListView  ItemContainerStyle=&quot;{StaticResource MyListViewItemStyle}&quot;     \n            ItemsSource=&quot;{Binding Rechnungen}&quot;\n            SelectedItem=&quot;{Binding SelectedRechnung}&quot; IsTabStop=&quot;False&quot;&gt;</code></pre>\n\nWen don't use a DispatcherHelper or background thread or things like this.<br />\nWhen updating data, that are not part of an Observable Collection, RaisePropertyChanged is used to update the UI.<br />\n",
+    "PostedDate": "2013-09-10T00:16:13.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1090652",
+    "ThreadId": "455578",
+    "Html": "Do you break the bindings first by setting your ObservableCollections to null before you re-populate them?<br />\n",
+    "PostedDate": "2013-09-10T07:11:23.777-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1090693",
+    "ThreadId": "455578",
+    "Html": "No, we do this:\r<br />\nm_detailArt4ViewModel.Rechnungen.Clear()\r<br />\nThere is a property with the last Rechnung, which was read from the database. For this we do this:\r<br />\n m_AktuelleRechnung.Dispose()\r<br />\n m_AktuelleRechnung = Nothing<br />\n",
+    "PostedDate": "2013-09-10T08:49:02.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1090706",
+    "ThreadId": "455578",
+    "Html": "Have a look at this site about <a href=\"http://pelebyte.net/blog/2011/07/11/twelve-ways-to-improve-wpf-performance/\" rel=\"nofollow\">optimizing wpf performance</a>, especially this section on <a href=\"http://pelebyte.net/blog/2011/07/11/twelve-ways-to-improve-wpf-performance/#BetterObservableCollection\" rel=\"nofollow\">collections</a><br />\n",
+    "PostedDate": "2013-09-10T09:16:55.037-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1092097",
+    "ThreadId": "455578",
+    "Html": "Thank you for the link. I've try out Fix 1 of the section on <a href=\"http://pelebyte.net/blog/2011/07/11/twelve-ways-to-improve-wpf-performance/#BetterObservableCollection\" rel=\"nofollow\">collections</a>, but it doesn't help. Fix 2 or 3 I will try later. First I will try now to isolate the problem by reducing the application. <br />\n",
+    "PostedDate": "2013-09-12T23:21:56.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1100768",
+    "ThreadId": "455578",
+    "Html": "A short intermediate state of the issue: I've removed MVVM-Light from the project. The problem still appears, so we now can exclude MVVM-Light as cause of the delay.<br />\n",
+    "PostedDate": "2013-09-29T23:39:32.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1100919",
+    "ThreadId": "455578",
+    "Html": "then now try this:\r<br />\n<br />\n<a href=\"http://msdn.microsoft.com/en-us/library/aa969767.aspx\" rel=\"nofollow\">WPF Performance Suite</a><br />\n",
+    "PostedDate": "2013-09-30T07:38:06.26-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

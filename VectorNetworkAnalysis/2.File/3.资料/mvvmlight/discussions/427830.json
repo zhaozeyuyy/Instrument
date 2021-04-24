@@ -1,0 +1,194 @@
+[
+  {
+    "Id": "980934",
+    "ThreadId": "427830",
+    "Html": "\r\n<p>Why the hell this fucking little thing doesn't work in VS 2012 ???</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>\r\n        xmlns:cmd=&quot;clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.WPF4&quot;\r\n\r\n\r\n        xmlns:cmd=&quot;clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF4&quot;\r\n\r\n\r\n        xmlns:cmd=?????????????????????????????????????????????????????????????????????????&quot;\r\n</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2012-12-27T11:28:00.93-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "980946",
+    "ThreadId": "427830",
+    "Html": "\r\n<p>Assuming that you work with WPF4 indeed, it should be</p>\r\n<p>xmlns:cmd=&quot;clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.WPF4&quot;</p>\r\n<p>What happens when you try that?</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2012-12-27T11:42:52.037-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "980967",
+    "ThreadId": "427830",
+    "Html": "\r\n<p>Sorry for my first post, I was upset...</p>\r\n<p>&nbsp;</p>\r\n<p>I'm using .NET 4.5, with the MVVM Light 4.5 WPF project template, so I assume the good assemblies are referenced.</p>\r\n<p>When I try to use EventToCommand in this XAML:&nbsp;</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">Rectangle</span> <span style=\"color:red\">Fill</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">BlueViolet</span><span style=\"color:black\">&quot;</span>\r\n                 <span style=\"color:red\">Width</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">{Binding Width}</span><span style=\"color:black\">&quot;</span>\r\n                 <span style=\"color:red\">Height</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">{Binding Height}</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">&gt;</span>\r\n<span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">i</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">Interaction.Triggers</span><span style=\"color:blue\">&gt;</span>\r\n    <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">i</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">EventTrigger</span> <span style=\"color:red\">EventName</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">MouseDown</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">&gt;</span>\r\n    <span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">i</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">EventTrigger</span><span style=\"color:blue\">&gt;</span>\r\n<span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">i</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">Interaction.Triggers</span><span style=\"color:blue\">&gt;</span>\r\n<span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">Rectangle</span><span style=\"color:blue\">&gt;</span>\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>I lost the intelisence and when I try to put cmd:EventToCommand tag VS tell me that:&nbsp;</p>\r\n<p>`Error<span> </span>1<span> </span>The name &quot;EventToCommand&quot; does not exist in the namespace &quot;clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.WPF4&quot;.`</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks for your answer.</p>\r\n",
+    "PostedDate": "2012-12-27T12:11:57.85-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "980969",
+    "ThreadId": "427830",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>No worries.</p>\r\n<p>For WPF 4.5, you need to use the correct assembly name&nbsp;<span>GalaSoft.MvvmLight.WPF45 and not&nbsp;<span>GalaSoft.MvvmLight.WPF4.</span></span></p>\r\n<p><span><span>Side note: There is a reason why I am using the WPF45 in the assembly name, but I am reconsidering it and it is very possible that I will remove that from a future version of MVVM Light.</span></span></p>\r\n<p><span><span>Let me know if it still doesn't work with the correction.</span></span></p>\r\n<p><span><span>Thanks<br>\r\nLaurent&nbsp;</span></span></p>\r\n",
+    "PostedDate": "2012-12-27T12:13:35.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "980971",
+    "ThreadId": "427830",
+    "Html": "\r\n<p>BTW in VS12, you can type simply xmlns:cmd= and then VS12 should open an Intellisense window proposing the correct namespaces to you.</p>\r\n<p>Cheers</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2012-12-27T12:14:29.643-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "980984",
+    "ThreadId": "427830",
+    "Html": "\r\n<p>I already tried with 45, but it didn''t worked at all (VS send an error).</p>\r\n<p>In the intellisense pop up there's only the 4 version (&quot;clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.WPF4&quot;).</p>\r\n",
+    "PostedDate": "2012-12-27T12:54:20.593-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "980986",
+    "ThreadId": "427830",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>It sounds like you are using the WPF 4 DLLs with a WPF 4.5 project. Can you send me the project and I'll take a look.</p>\r\n<p>Cheers<br>\r\nLaurent</p>\r\n",
+    "PostedDate": "2012-12-27T12:58:00.347-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "980991",
+    "ThreadId": "427830",
+    "Html": "\r\n<p>Even when I create a new MVVM Light WPF 45 project, it adds dlls for .NET 4:&nbsp;</p>\r\n<p>http://img4.hostingpics.net/pics/324142Capture.png</p>\r\n<p><img alt=\"\"></p>\r\n",
+    "PostedDate": "2012-12-27T13:10:43.467-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "980993",
+    "ThreadId": "427830",
+    "Html": "\r\n<p>Seems that you are absolutely right. The project template is faulty. You are the first to report this issue, sorry for that.</p>\r\n<p>I will fix it ASAP. In the meantime, please download the following Zip file:</p>\r\n<p><a href=\"http://sdrv.ms/UUyOfU\">http://sdrv.ms/UUyOfU</a></p>\r\n<p>Then right click on the zip file and select Properties. Click on the Unblock button. Then extract the file.</p>\r\n<p>In your project, remove the WPF 4 references and replace with the WPF 4.5 references. In the XAML, use WPF45 instead of WPF4.</p>\r\n<p>Sorry for the inconvenience, but thanks for reporting the issue.&nbsp;</p>\r\n<p>Cheers<br>\r\nLaurent&nbsp;</p>\r\n",
+    "PostedDate": "2012-12-27T13:18:51.927-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "981001",
+    "ThreadId": "427830",
+    "Html": "\r\n<p>Thanks for your answers.</p>\r\n",
+    "PostedDate": "2012-12-27T13:48:42.11-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "983618",
+    "ThreadId": "427830",
+    "Html": "\r\n<p>I have been struggling with EventToCommand and MouseMove.&nbsp; I have tried binding to my ViewModel and to my View, but nothing fires.&nbsp; Please help..</p>\r\n<p>I am working with Silverlight 4, NOT WPF.&nbsp; I think I saw somewhere that EventToCommand does not work with Silverlight except for the Load event.&nbsp; Bbut for the life of me I can not find that post again.</p>\r\n<p>I have pasted my code and XAML below for your review.&nbsp; Thanks!</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>    <span style=\"color:blue\">Public</span> <span style=\"color:blue\">Shared</span> <span style=\"color:blue\">ReadOnly</span> MouseMoveCommandProperty <span style=\"color:blue\">As</span> DependencyProperty = DependencyProperty.Register(<span style=\"color:#a31515\">&quot;MouseMoveCommand&quot;</span>, <span style=\"color:blue\">GetType</span>(RelayCommand(Of MouseEventArgs)), <span style=\"color:blue\">GetType</span>(MyViewModel), <span style=\"color:blue\">Nothing</span>)\n    <span style=\"color:blue\">Public</span> <span style=\"color:blue\">Property</span> MouseMoveCommand <span style=\"color:blue\">As</span> RelayCommand(Of MouseEventArgs)\n        <span style=\"color:blue\">Get</span>\n            <span style=\"color:blue\">If</span> GetValue(MouseMoveCommandProperty) <span style=\"color:blue\">Is</span> <span style=\"color:blue\">Nothing</span> <span style=\"color:blue\">Then</span>\n                <span style=\"color:blue\">Return</span> <span style=\"color:blue\">New</span> RelayCommand(Of MouseEventArgs)(<span style=\"color:blue\">Sub</span>(e) MyMouseMove(e))\n            <span style=\"color:blue\">Else</span>\n                <span style=\"color:blue\">Return</span> <span style=\"color:blue\">DirectCast</span>(GetValue(MouseMoveCommandProperty), RelayCommand(Of MouseEventArgs))\n            <span style=\"color:blue\">End</span> <span style=\"color:blue\">If</span>\n        <span style=\"color:blue\">End</span> <span style=\"color:blue\">Get</span>\n        <span style=\"color:blue\">Set</span>(<span style=\"color:blue\">ByVal</span> value <span style=\"color:blue\">As</span> RelayCommand(Of MouseEventArgs))\n            <span style=\"color:blue\">Me</span>.SetValue(MouseMoveCommandProperty, value)\n            <span style=\"color:blue\">RaiseEvent</span> PropertyChanged(<span style=\"color:blue\">Me</span>, <span style=\"color:blue\">New</span> PropertyChangedEventArgs(MethodBase.GetCurrentMethod().Name.Substring(4)))\n        <span style=\"color:blue\">End</span> <span style=\"color:blue\">Set</span>\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Property</span>\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<pre><span style=\"color:blue\">    Public</span> <span style=\"color:blue\">Sub</span> MyMouseMove(e <span style=\"color:blue\">As</span> MouseEventArgs)\n        <span style=\"color:blue\">Dim</span> p <span style=\"color:blue\">As</span> Point = e.GetPosition(e.OriginalSource)\n    <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span></pre>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>&lt;Canvas x:Name=&quot;MyCanvas&quot; Cursor=&quot;{Binding ActionType, Source={StaticResource MyVM}, Mode=OneWay, Converter={StaticResource ActionToCursor}}&quot; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MouseLeftButtonDown=&quot;Canvas_MouseLeftButtonDown&quot; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MouseLeftButtonUp=&quot;Canvas_MouseLeftButtonUp&quot;&gt;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;i:Interaction.Triggers&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;i:EventTrigger&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;cmd:EventToCommand Command=&quot;{Binding MouseMoveCommand, Source={StaticResource MyVM}}&quot; PassEventArgsToCommand=&quot;True&quot;/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/i:EventTrigger&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/i:Interaction.Triggers&gt;<br>&lt;/Canvas&gt;</pre>\r\n</div>\r\n",
+    "PostedDate": "2013-01-06T21:45:38.85-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "983621",
+    "ThreadId": "427830",
+    "Html": "\r\n<p>For what it is worth...&nbsp; This works fine:</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">        Public</span> _initializeSystemCommand <span style=\"color:blue\">As</span> ICommand = <span style=\"color:blue\">New</span> SystemEx.Commands.DelegateCommand(<span style=\"color:blue\">AddressOf</span> InitializeSystem, <span style=\"color:blue\">AddressOf</span> CanExecute)\n        <span style=\"color:blue\">Public</span> <span style=\"color:blue\">Property</span> InitializeSystemCommand() <span style=\"color:blue\">As</span> ICommand\n            <span style=\"color:blue\">Get</span>\n                <span style=\"color:blue\">Return</span> _initializeSystemCommand\n            <span style=\"color:blue\">End</span> <span style=\"color:blue\">Get</span>\n            <span style=\"color:blue\">Set</span>(<span style=\"color:blue\">ByVal</span> value <span style=\"color:blue\">As</span> ICommand)\n                _initializeSystemCommand = value\n            <span style=\"color:blue\">End</span> <span style=\"color:blue\">Set</span>\n        <span style=\"color:blue\">End</span> <span style=\"color:blue\">Property</span>\n\n        <span style=\"color:blue\">Private</span> <span style=\"color:blue\">Sub</span> InitializeSystem(parameter <span style=\"color:blue\">As</span> <span style=\"color:blue\">Object</span>)\n            <span style=\"color:green\">'Do something interesting</span>\n        <span style=\"color:blue\">End</span> <span style=\"color:blue\">Sub</span>\n</pre>\r\n</div>\r\n<p>&lt;Canvas Height=&quot;768&quot; Width=&quot;1024&quot; Background=&quot;LightGray&quot; Cursor=&quot;Arrow&quot; DataContext=&quot;DrawingVM&quot; &gt;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;i:Interaction.Triggers&gt;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;i:EventTrigger EventName=&quot;Loaded&quot;&gt;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;i:InvokeCommandAction Command=&quot;{Binding InitializeSystemCommand, Source={StaticResource DrawingVM}, Mode=TwoWay}&quot; CommandParameter=&quot;L&quot; /&gt;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/i:EventTrigger&gt;</p>\r\n<p>&lt;/Canvas</p>\r\n",
+    "PostedDate": "2013-01-06T22:13:20.65-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "983623",
+    "ThreadId": "427830",
+    "Html": "\r\n<p>Here is a cut and paste out of your on <a title=\"Drag&drop with EventToComand\" href=\"http://geekswithblogs.net/lbugnion/archive/2009/12/17/silverlight-4-dragampdrop-with-eventtocommand.aspx\" target=\"_blank\">\r\nDrag&Drop with EventToComand</a>....&nbsp; However, I can confirm that the code does NOT execute or I would receive notification of the mouse move through Messaging which notifies other elements of the event.</p>\r\n<p>&nbsp;</p>\r\n<h2>An issue with Visual Studio 2010</h2>\r\n<p>In the course of preparing this article, I noticed an issue in Visual Studio 2010 when I attempt to debug the HandleDropCommand implementation. Even with a breakpoint placed within the code, the debugger does not break. I am not sure right now what is the\r\n reason, and the code does get executed, but this complicates debugging of course. I am investigating and talking to Microsoft about that, but right now I am not sure where it comes from.</p>\r\n",
+    "PostedDate": "2013-01-06T22:23:23.29-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1052171",
+    "ThreadId": "427830",
+    "Html": "Hello Mr. Bugnion,\r<br />\n<br />\nI am using MVVM Light toolkit with WPF4.5. I am facing the same issue reported by Yield. \r<br />\n<br />\nI removed assemblies from my project and added those from zip you suggested, still VS2012 not able to find EventToCommand. And following error message are displayed.\r<br />\n<br />\n<strong>Error Messages:</strong>\r<br />\nThe type 'cmd:EventToCommand' was not found. Verify that you are not missing an assembly reference and that all referenced assemblies have been built.\r<br />\nThe name &quot;EventToCommand&quot; does not exist in the namespace &quot;clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.WPF45&quot;.\r<br />\n<br />\nI have also added following xmlns (using IntelliSence) as you suggested however VS2012 still not working.\r<br />\nxmlns:cmd=&quot;clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.WPF45&quot;\r<br />\n<br />\nCan you please help with this?\r<br />\n<br />\nThanks.<br />\n",
+    "PostedDate": "2013-06-03T08:01:03.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1052507",
+    "ThreadId": "427830",
+    "Html": "Hi Laurent,\r<br />\n<br />\nIn-case you want the code, please let me know How can I send it to you?\r<br />\n<br />\nThanks<br />\n",
+    "PostedDate": "2013-06-04T01:08:06.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1061328",
+    "ThreadId": "427830",
+    "Html": "Hi, I recently updated to the latest SL5 version using nuget and exactly hit the same error<br />\n<br />\nUsing VS 2012<br />\nGalaSoft.MvvmLight.Extras.SL5 (4.1.27.22814)<br />\nGalaSoft.MvvmLight.SL5 (4.1.27.22814)<br />\n<br />\nTried namespaces<br />\nxmlns:m=&quot;<a href=\"http://www.galasoft.ch/mvvmlight\" rel=\"nofollow\">http://www.galasoft.ch/mvvmlight</a>&quot;<br />\nxmlns:cmd=&quot;clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.SL5&quot;<br />\n<br />\nError:<br />\nThe name &quot;EventToCommand&quot; does not exist in namespace....<br />\n<br />\n<br />\nHelp would be really appreciated<br />\nthanks<br />\n",
+    "PostedDate": "2013-06-26T02:48:40.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1061919",
+    "ThreadId": "427830",
+    "Html": "I am still not able to solve this issue. I tried out everything I can. I think a new thread should be started for this issue.<br />\n",
+    "PostedDate": "2013-06-27T04:15:31.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1073507",
+    "ThreadId": "427830",
+    "Html": "I believe you need the &quot;Extras&quot; library.  EventToCommand is not part of MVVM Light Essentials.  Try xmlns:cmd=&quot;clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45&quot;<br />\n",
+    "PostedDate": "2013-07-26T07:28:00.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1073517",
+    "ThreadId": "427830",
+    "Html": "I believe you need the &quot;Extras&quot; library. EventToCommand is not part of MVVM Light Essentials. Try xmlns:cmd=&quot;clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.<strong>Extras</strong>.WPF45&quot;<br />\n",
+    "PostedDate": "2013-07-26T07:45:54.713-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1074195",
+    "ThreadId": "427830",
+    "Html": "Same issue here.\r<br />\nI tryed with <br />\n<pre><code>xmlns:mt=&quot;clr-namespace:GalaSoft.MvvmLight.Ioc;assembly=GalaSoft.MvvmLight.Extras.SL5&quot;</code></pre>\n\nwithout success.\r<br />\nSo I defined a <br />\n<pre><code>using GalaSoft.MvvmLight.Command;\nnamespace MyNamespace.Common.Views\n{\n    public class MyEventToCommand : EventToCommand\n    {\n    }</code></pre>\n\nin code behind and then it works great:<br />\n<pre><code>xmlns:views=&quot;clr-namespace:MyNamespace.Common.Views&quot;\n...\n &lt;views:MyEventToCommand Command=&quot;{Binding MyCommand}&quot;\n                        PassEventArgsToCommand=&quot;True&quot; /&gt;</code></pre>\n\n",
+    "PostedDate": "2013-07-28T23:31:29.967-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1074196",
+    "ThreadId": "427830",
+    "Html": "Oh, that Ioc. Sorry, my falut.\r<br />\n<br />\n@snwiem<br />\n<pre><code>xmlns:mt=&quot;clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.SL5&quot;</code></pre>\n\n",
+    "PostedDate": "2013-07-28T23:38:09.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1231852",
+    "ThreadId": "427830",
+    "Html": "this discussion is fucking codeplex gold. i laughed so hard just seeing this at google results page.<br />\n",
+    "PostedDate": "2014-04-08T06:28:27.49-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1421411",
+    "ThreadId": "427830",
+    "Html": "OK. Same problem, but it is April 2015. The .WPF45 assemblies are not available from NuGet and Laurent talked about getting rid of these so I am assuming that is the case. \r<br />\n<br />\nWhen adding the cmd namespace below, intellisence finds it in the assembly with no problem. When I look at the assembly with object explorer, EventToCommand is there.<br />\n<pre><code>xmlns:i=&quot;clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity&quot;\nxmlns:cmd=&quot;clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight&quot;</code></pre>\n\nBut my XAML cannot 'see' the EventToCommand:<br />\n<pre><code>&lt;i:Interaction.Triggers&gt;\n    &lt;i:EventTrigger EventName=&quot;ItemClicked&quot;&gt;\n        &lt;cmd:EventToCommand Command=&quot;{Binding Mode=OneWay, Path=LoadDataCommand}&quot;/&gt;\n    &lt;/i:EventTrigger&gt;\n&lt;/i:Interaction.Triggers&gt;</code></pre>\n\n<pre><code>The name &quot;EventToCommand&quot; does not exist in the namespace &quot;clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight&quot;</code></pre>\n\nAgain, when I look at the assembly with object explorer, EventToCommand is there.\r<br />\n<br />\nSo, any ideas?<br />\n",
+    "PostedDate": "2015-04-29T08:00:27.433-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1421885",
+    "ThreadId": "427830",
+    "Html": "Ok, figured out the problem. The EventToCommand is no longer in the GalaSoft.MvvmLight assembly. It is now located in the GalaSoft.MvvmLight.Platform assembly.<br />\n<br />\nThe clr-namespace in the XAML should look like this:<br />\n<pre><code>xmlns:cmd=&quot;clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform&quot;</code></pre>\n\n",
+    "PostedDate": "2015-04-30T12:53:06.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

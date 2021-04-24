@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "CommandManager.InvalidateRequerySuggested method should be called on UI thread to take effect. I think it will be useful to call the method with UIDispatcher.Invoke by default. [Here](http://stackoverflow.com/a/15828850/3670437) is a stackoverflow answer which has 10 upvotes as of now about this issue.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-06-26T01:24:23.027-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "CommandWpf.RelayCommand RaiseCanExecuteChanged does nothing if fired from non UI thread",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7697
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

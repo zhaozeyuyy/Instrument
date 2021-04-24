@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Duplicate of 7579",
+    "ClosedDate": "2013-04-18T00:16:47.98-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "When using a \r\n    Messenger<Something>.Send(something) \r\nmethod, occasionally a popup comes, titled:\r\n    Find Source: WeakActionGeneric.cs\r\nThis file selection window starts at the following location:\r\n    d:\\GalaSoft\\mydotnet\\MvvmLight\\Source\\GalaSoft.MvvmLight\\GalaSoft.MvvmLight (NET35)\\Helpers\\WeakActionGeneric.cs\r\n\r\nI can't find the source to that file on my computer, and so I cancel the popup. This leads to the exception, which seems to contain only the following:\r\n \r\n    System.Reflection.TargetException occurred\r\n      HResult=-2146232829\r\n      Message=Non-static method requires a target.\r\n      Source=mscorlib\r\n      StackTrace:\r\n           at System.Reflection.RuntimeMethodInfo.CheckConsistency(Object target)\r\n      InnerException: \r\n\r\n\r\nThis exception and popup become can be seen with all exception checkboxes checked in the VS2012 DEBUG -> Exceptions window. Without any checkboxes checked, a silent failure occurs.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2013-04-17T06:07:14.373-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Exception, presumably because of missing class or file: WeakActionGeneric.cs",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7608
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nThe message you see asking to see the source code file is just a feature of the Visual Studio debugger. When an exception occurs in a referenced DLL, VS asks you where the file is (in case you have it) in order to allow you to debug. So it is not the cause of the exception, but rather a debug feature triggered by the exception.\n\nThe exception itself is a duplicate of Issue 7579.\n\nThanks\nLaurent",
+      "PostedDate": "2013-04-18T00:15:54.003-07:00",
+      "Id": 97351
+    }
+  ]
+}

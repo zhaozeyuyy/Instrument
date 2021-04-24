@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "698903",
+    "ThreadId": "279636",
+    "Html": "\r\n<p>I'd like to use MVVM Light as an add-in to Revit which requires a complied class lib dll.</p>\r\n<p>Is this possible?</p>\r\n<p>I tried changing the project type from class to windows application to test launching form a static class Program &gt; Main() as the entry point with no luck.&nbsp;</p>\r\n<p>It looks as though the&nbsp;XamlGeneratedNamespace Main entry point may have been messed up somehow... Run is not found...?</p>\r\n<p>Any ideas Id really like to use the framework. Code link below.</p>\r\n<p>http://dl.dropbox.com/u/8875196/LightTest.zip</p>\r\n<p>Thanks.</p>\r\n",
+    "PostedDate": "2011-11-16T04:44:49.287-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "700862",
+    "ThreadId": "279636",
+    "Html": "<p>Hi,</p>\r\n<p>Sorry, I don't understand what you are trying to do.</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-11-20T10:36:42.133-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

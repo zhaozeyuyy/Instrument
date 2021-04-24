@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "I have hooked up a RadGridView's Loaded Event using the EventToCommand feature of MVVM light. Works great.\r\n\r\nThen I added a BusyIndicator (same problem with RadBusyIndicator) around all the contents of the UserControl containing the RadGridView and now, when the BusyIndicator IsBusy, the event doesn't fire. Any ideas?\r\n\r\n(Thread copied from http://forums.silverlight.net/t/255374.aspx/1?EventToCommand+not+firing+when+within+busy+BusyIndicator)",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-05-11T02:20:07.083-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "EventToCommand not firing when within busy BusyIndicator",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 4,
+    "Id": 7569
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Has anyone found a workaround for this apart from moving away from using the EventToCommand in conjunction with the busy indicator?",
+      "PostedDate": "2012-06-23T01:51:36.843-07:00",
+      "Id": 68782
+    },
+    {
+      "Message": "use  InvokeCommandAction from system.interactivity\n```\n    <i:Interaction.Triggers>\n        <i:EventTrigger EventName=\"Loaded\">\n            <i:InvokeCommandAction Command=\"{Binding Loaded}\" />\n        </i:EventTrigger>\n    </i:Interaction.Triggers>\n```\n",
+      "PostedDate": "2015-05-31T05:46:28.25-07:00",
+      "Id": 184946
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I am developing a Windows Phone 8.1 App. When navigating from one page to another page on ListView item clicked event the app was crashing. OnNavigatedTo() is being called but after then it crashes and throws error like: \r\n\"The program '[656] MyProgram.exe' has exited with code -1073741822 (0xc0000002)\" OR \r\n\"The program '[656] MyProgram.exe' has exited with code (0xc0000005) access violation\". \r\n\r\nWhen using Native Debugger i am getting \"The requested operation is not implemented\".\r\n\r\nIt never happened with me when i was testing on Windows Phone 8.1 Emulator (without update 1) but its only happening when testing on real device with either Windows Phone 8.1 Update 1 & 8.1 Preview for Developers.\r\n\r\nI am using MVVMLight 5.1 and using MVVMLight's NavigationService class.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-04-14T08:23:31.037-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Application crashing when using NavigationService.NavigateTo()",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7691
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

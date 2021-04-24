@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "633750",
+    "ThreadId": "262988",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>I've got a very strange problem. I've made an usb hid device (pic18f2550 and DS1820).</p>\r\n<p>I'm using Visual Studio 2010, C# , .NET 4.0 Framework, the latest version of MVVM light toolkit and an usb HID driver from Florent Leitner (facility to import functions from hid.dll [<span style=\"color:#2b91af\">DllImport</span>(<span style=\"color:#a31515\">&quot;hid.dll&quot;</span>)],\r\n thread for reading etc... )</p>\r\n<p>First, I've made very light interface using code-behind for testing the communication between my device and my computer. All fine, my device is detected and informations are read and can be displayed without problem. I've also decided, for learning using\r\n this toolkit, to implement the MVVM pattern.</p>\r\n<p>I've made an model class for communitcation with my usb device, using same code as my first program. This class implement a default constructor who create the new UsbInterface (no souci) and enable the connection.</p>\r\n<p>This constructor is tested with Visual Studio unit test, all fine, device is connected.</p>\r\n<p>The interface have an button, RelayCommand and a Action who call the default constructor of my model when button is pressed. (View &lt;-&gt; ViewModel -&gt; Model)</p>\r\n<p>Using debug, the default constructor is called, the new UsbInterface is created, but the Connection always return false.</p>\r\n<p>I really don't know what's append.</p>\r\n<p>My usb device seems running well, USB HID class from Florent Leitner is ok using normal WPF application and my ModelClass.</p>\r\n<p>But this very basic ModelClass(and Usb class) doesn't running on this pattern.</p>\r\n<p>Does someone have any ideas ?</p>\r\n<p>&nbsp;</p>\r\n<p>Regards</p>\r\n<p>Eric</p>\r\n",
+    "PostedDate": "2011-06-27T13:46:21.86-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "634030",
+    "ThreadId": "262988",
+    "Html": "<p>Hi,</p>\r\n<p>Since the connection to the USB device is handled at low level, there is no real reason why the MVVM pattern would influence this in any way. There must be a disconnect somewhere.</p>\r\n<p>Can I recommend that you try posting the question with more details to StackOverflow? In my experience this is the best way to get a good reply fast.</p>\r\n<p>Cheers!</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-06-28T02:24:32.063-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "634073",
+    "ThreadId": "262988",
+    "Html": "<p>Thanks for answer. I've made a new post on StackOverflow.</p>\r\n<p>Regards</p>",
+    "PostedDate": "2011-06-28T04:07:55.837-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

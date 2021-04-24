@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "542293",
+    "ThreadId": "240041",
+    "Html": "\r\n<p>Is it possible for you to provide VB versions of your templates and snippets? I know that we VB'ers are in the minority but there are some of us out here. Thanks</p>\r\n",
+    "PostedDate": "2010-12-30T11:54:38.31-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "548808",
+    "ThreadId": "240041",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>VB Snippets are available from <a href=\"http://mvvmlight.codeplex.com/SourceControl/network\">\r\nhttp://mvvmlight.codeplex.com/SourceControl/network</a>. I am not the author, however.</p>\r\n<p>In VNext, I would like to integrate VB templates too.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2011-01-13T09:20:27.403-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1079278",
+    "ThreadId": "240041",
+    "Html": "Were the VB templates ever integrated in version 4 of the toolkit? I would also be interested.<br />\n",
+    "PostedDate": "2013-08-11T10:32:36.357-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

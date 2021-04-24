@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 5,
+    "Custom": null,
+    "Description": "A strange error after I was adding and deleting ViewControllers in my Storyboard.\r\nThe changes I made was to remove the UINavigationController from the storyboard and create it in code in the AppDelegate FinishedLaunching method, then pass it to the Initialize method.\r\n\r\nThe error is InvalidOperationException with the description Unable to navigate: No storyboard found.\r\n\r\nAfter I initialize the UINavigationController I pass it on the MvvmLight and later in the initial Storyboard controller RootViewController I instatiate and push the controller in the navigationcontroller. \r\nI changed this with initialize the NavigationService after pushing the controller to the navigation but getting the same error.\r\n\r\n```\r\n                public override bool FinishedLaunching(UIApplication app, NSDictionary options)\r\n\t\t{\r\n\t\t\tServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);\r\n\r\n\t\t\tvar nav = new NavigationService();\r\n\t\t\tNavController = new UINavigationController ();\r\n\t\t\tnav.Initialize(NavController);\r\n\t\t\tnav.Configure(ViewModelLocator.ChartsPageKey, \"BizchartsViewController\");\r\n\r\n\t\t\tSimpleIoc.Default.Register<INavigationService>(() => nav);\r\n\r\n\t\t\treturn true;\r\n\t\t}\r\n```\r\n\r\nLater in the RootViewController I have I push another controller because I set up a slide menu behind.\r\n\r\n```\r\n        partial class RootViewController : UIViewController\r\n\t{\r\n\t\tpublic RootViewController (IntPtr handle) : base (handle)\r\n\t\t{\r\n\t\t}\r\n\r\n\t\tpublic override void ViewDidLoad ()\r\n\t\t{\r\n\t\t\tbase.ViewDidLoad ();\r\n\r\n\t\t\tAppDelegate appD = UIApplication.SharedApplication.Delegate as AppDelegate;\r\n\r\n\t\t\tSchedulerViewController schedulerController = (SchedulerViewController)Storyboard.InstantiateViewController(\"SchedulerViewController\");\r\n\t\t\tSideMenuViewController leftSideMenuController = (SideMenuViewController)Storyboard.InstantiateViewController(\"SideMenuViewController\");\r\n\t\t\tappD.NavController.PushViewController(schedulerController,false);\r\n\t\t\tappD.SideBarController = new SidebarController(this, appD.NavController, leftSideMenuController);\r\n\t\t\tappD.SideBarController.MenuWidth = 250;\r\n\t\t\tappD.SideBarController.ReopenOnRotate = false;\r\n\t\t\tappD.SideBarController.MenuLocation = SidebarController.MenuLocations.Left;\r\n\t\t}\r\n\t}\r\n```\r\nRootViewController is the initial controller in my storyboard but that doesn't matter I believe.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "null",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-02-21T10:51:57.283-08:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "iOS MvvmLight Storyboard not found",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7685
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nIf you use a NavigationController created in code, instead of a Storyboard, you need to use the Configure(string, Type) method on the NavigationService.\n\nFor more info see the documentation at\nhttp://localhost:3549/mvvm/doc/nav2.cshtml\nand\nhttp://localhost:3549/mvvm/doc/nav3.cshtml\n\nCheers\nLaurent",
+      "PostedDate": "2015-02-21T11:30:33.037-08:00",
+      "Id": 175052
+    },
+    {
+      "Message": "I tied and now I get an error, Unable to create a controller for key ChartsPage.\n\nI use Storyboard for all the controllers, but I just create the UINavigationController in code and push controllers inside it from my initial Storyboard controller.\n\nDo you think that this architecture will not work for the NavigationService?",
+      "PostedDate": "2015-02-21T11:42:35.523-08:00",
+      "Id": 175053
+    },
+    {
+      "Message": "And what about if my initial controller is a TabBarController? I can't pass this to the Initialize method. Only way is to implement the INavigationService in this case?",
+      "PostedDate": "2015-02-21T11:52:08.187-08:00",
+      "Id": 175054
+    },
+    {
+      "Message": "Hi,\n\nI had not planned the case where you have a Storyboard AND a code-instantiated NavigationController. I'll check how it works then.\n\nGreat point about the TabController. I will see how I can modify it. In the meantime, you can get the code and modify it yourself, hope it's OK and sorry for the trouble :)\n\nCheers\nLaurent",
+      "PostedDate": "2015-02-21T12:14:03.603-08:00",
+      "Id": 175056
+    },
+    {
+      "Message": "I will leave this to you, it's OK to wait for you to resolve than we both doing the same thing.\nLet me know when you have any news about it.\n\nThanks.",
+      "PostedDate": "2015-02-21T12:16:14.517-08:00",
+      "Id": 175057
+    }
+  ]
+}

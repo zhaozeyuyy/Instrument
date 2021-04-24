@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "936389",
+    "ThreadId": "401859",
+    "Html": "\r\n<p>Hi Laurent,<br>\r\n<br>\r\n&nbsp;<br>\r\n<br>\r\nI admire your work greatly and I was wondering if you could consider this changes in the ViewModelLocator template.<br>\r\n<br>\r\nThis is the Static Constructor of ViewModelLocator class:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>        <span style=\"color:blue\">static</span> ViewModelLocator()\n        {\n            ServiceLocator.SetLocatorProvider(() =&gt; SimpleIoc.Default);\n\n            <span style=\"color:blue\">if</span> (ViewModelBase.IsInDesignModeStatic)\n            {\n                <span style=\"color:blue\">if</span> (SimpleIoc.Default.IsRegistered&lt;IDataService&gt;())\n                {\n                    SimpleIoc.Default.Unregister&lt;IDataService&gt;();\n                }\n                SimpleIoc.Default.Register&lt;IDataService, Design.DesignDataService&gt;();\n            }\n            <span style=\"color:blue\">else</span>\n            {\n                SimpleIoc.Default.Register&lt;IDataService, DataService&gt;();\n            }\n\n            SimpleIoc.Default.Register&lt;MainViewModel&gt;();\n        }\n</pre>\r\n</div>\r\n<p></p>\r\n<p>The reason is if you put the Interface to a different assembly it tries to register the sane static instance every time when the xaml designer is open and you hit F6.<br>\r\nHopefully my explanation is clear enough but if it isn't let me know and I'll send you a detailed one.<br>\r\n<br>\r\nThank you<br>\r\n<br>\r\nBest Regards,<br>\r\nOszkar<br>\r\n<br>\r\n</p>\r\n",
+    "PostedDate": "2012-11-04T11:45:37.107-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "936890",
+    "ThreadId": "401859",
+    "Html": "<p>I've made StepsRecord to easily reproduce the error and the solution. You can download it <a title=\"here\" href=\"https://docs.google.com/open?id=0B0H1ZROz-b5NTG40WjUwbDZxOUk\" target=\"_self\">from here</a>.</p>",
+    "PostedDate": "2012-11-05T11:41:40.163-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

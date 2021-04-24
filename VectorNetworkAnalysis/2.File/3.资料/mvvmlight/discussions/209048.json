@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "430016",
+    "ThreadId": "209048",
+    "Html": "<p>Salut Laurent,</p>\r\n<p>I use your toolkit with a pleasure (I already made one Prog), now I want to rewrite another (more complex) application, now I have the problem how to Close a (modal) Window (not shuttdown the App)...</p>\r\n<p>I handled a lot of things like Multitheading with no Problem, but I'm not sure how to resolve this little problem. Please give me a little help.</p>\r\n<p>&nbsp;</p>\r\n<p>Merci</p>\r\n<p>Sascha</p>",
+    "PostedDate": "2010-04-12T07:20:06.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430356",
+    "ThreadId": "209048",
+    "Html": "<p>Hi,</p>\r\n<p>Handling dialogs is usually considered a matter of the View. The designer (or the integrator ;)) is the one who decides how the message should be shown, if it is modal or not, etc. There are two ways to handle that which I consider good:</p>\r\n<ul>\r\n<li>Use the Messenger to send a message from the VM to the View. Use a message with a callback (for example NotificationMessageAction&lt;T&gt;). When the view is done showing the message box and the user closed it, execute the callback to notify the VM. Note that there is currently a DialogMessage type in the Messaging namespace that can help you to do that, but you can also build your own message types inspired from this one if you prefer.</li>\r\n<li>Use a dialog service. This service is in charge of displaying the messages and calling back the VM. This is slightly more complicated to wire up (because the View needs to know the service), but some people seem to prefer this approach. This has the advantage of using a fully dedicated service for dialog boxes, so the separation of concerns is a bit cleaner. This is the approach that the nRoute framework is taking, as illustrated in this article: <a href=\"http://www.orktane.com/Blog/post/2009/10/23/Web-Xcel-Demo-View-Services-in-nRoute.aspx\">http://www.orktane.com/Blog/post/2009/10/23/Web-Xcel-Demo-View-Services-in-nRoute.aspx</a></li>\r\n</ul>\r\n<p>Personally I think that view services are elegant, but bring some complexity in the picture that might be too much to handle. Working with messages for this is a bit more straightforward, but both approaches have qualities for sure.</p>\r\n<p>Hopefully this helps,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-13T01:55:31.083-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430375",
+    "ThreadId": "209048",
+    "Html": "<p>Hi Laurent,</p>\r\n<p>thanks for your Answer, I already notice this technics for MessageBox, this will be useful for me, but this is not what I want to know in this case. I want to close a normal Window, when the User Click close.</p>\r\n<p>How to handle from a RelayCommand in VM a&nbsp; this.Close() where this is a Window.</p>\r\n<p>&nbsp;</p>\r\n<p>a+<br>Sascha</p>",
+    "PostedDate": "2010-04-13T03:17:38.663-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430645",
+    "ThreadId": "209048",
+    "Html": "<p>Hi,</p>\r\n<p>Here too, I consider that closing a window is in fact the responsibility of the window. Similarly, I built a sample called CleanShutdown where I consider that the responsibility to shut the application down is the responsibility of the Application object. Maybe you can inspire yourself from this sample, it is available at&nbsp;</p>\r\n<p>http://blog.galasoft.ch/archive/2009/10/18/clean-shutdown-in-silverlight-and-wpf-applications.aspx</p>\r\n<p>Here too, the Messenger is used to dispatch the notification to shut the application down. I would do the same for the window.</p>\r\n<p>HTH,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-13T14:25:22.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430783",
+    "ThreadId": "209048",
+    "Html": "<p>Bonjour Laurent,</p>\r\n<p>j'ai compris maintenant...</p>\r\n<p>&nbsp;</p>\r\n<p>Merci Beaucoup</p>\r\n<p>Sascha</p>",
+    "PostedDate": "2010-04-13T23:37:27.26-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

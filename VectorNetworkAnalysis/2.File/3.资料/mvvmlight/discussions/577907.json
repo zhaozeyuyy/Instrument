@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1342688",
+    "ThreadId": "577907",
+    "Html": "Hi,\r<br />\n<br />\nI'm just starting out with MVVM Light, and after watching Laurent's Evolve and Pluralsight videos, I am attempting to create a Xamarin Forms application with an Azure Mobile Services backend.  In general I am grasping the concepts but struggling a bit with the correct approach to the architecture.  I may well have some more questions regarding that! :)\r<br />\n<br />\nAnyway, being a newbie, I have hit a problem that has confused me a little.  I have used the implementation of the IDialogService contained in the Flowers.Forms example.  When I compile my solution, I get an error stating that a method of the interface has not been implemented correctly.\r<br />\n<br />\nError\t3\t'Courses.Forms.Helpers.DialogService' does not implement interface member 'GalaSoft.MvvmLight.Views.IDialogService.ShowMessage(string, string, string, string, System.Action&lt;bool&gt;)'. 'Courses.Forms.Helpers.DialogService.ShowMessage(string, string, string, string, System.Action&lt;bool&gt;)' cannot implement 'GalaSoft.MvvmLight.Views.IDialogService.ShowMessage(string, string, string, string, System.Action&lt;bool&gt;)' because it does not have the matching return type of 'System.Threading.Tasks.Task&lt;bool&gt;'.\tC:\\Users\\Steven\\documents\\visual studio 2013\\Projects\\PinSheet\\PinSheet\\PinSheet\\Helper\\DialogService.cs\t8\t18\tPinSheet\r<br />\n<br />\nIf I peek at the IDialogService, I can see, as the error suggests, that method should return a Task&lt;bool&gt;.\r<br />\n<br />\nSo, is the interface correct and should the implementation return Task&lt;bool&gt; or is it incorrect?\r<br />\n<br />\n5.0.2.32240 is the version of the GalaSoft.MvvmLight PCL assembly from NuGet.\r<br />\n<br />\nAny help would be appreciated and apologies if this is a silly question.\r<br />\n<br />\nThanks\r<br />\n<br />\nSteven  <br />\n",
+    "PostedDate": "2015-01-16T09:13:49.413-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1343603",
+    "ThreadId": "577907",
+    "Html": "Hi,\r<br />\n<br />\nYes the interface in the Nuget package changed since Evolve. Normally you should have used the DLLs from the References folder instead of Nuget, these contained the &quot;old&quot; interface that is implemented in the code.\r<br />\n<br />\nIn order to avoid confusion, I re-uploaded a corrected version of the Flowers.Forms sample, which is compatible with the updated IDialogService. Please re-download it from\r<br />\n<a href=\"http://1drv.ms/1yNA7qU\" rel=\"nofollow\">http://1drv.ms/1yNA7qU</a>\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2015-01-20T12:39:27.06-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2015-01-20T12:56:38.9-08:00"
+  },
+  {
+    "Id": "1343610",
+    "ThreadId": "577907",
+    "Html": "Hi Laurent,\r<br />\n<br />\nthank you so much for responded to my question and updating the example.\r<br />\n<br />\nI was actually just coming on here to add a comment saying that I had found confirmation on the change log that you had deliberately added the Task&lt;bool&gt;.\r<br />\n<br />\nCheers\r<br />\n<br />\nSteven<br />\n",
+    "PostedDate": "2015-01-20T12:56:32.417-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

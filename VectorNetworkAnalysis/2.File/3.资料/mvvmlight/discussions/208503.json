@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "428067",
+    "ThreadId": "208503",
+    "Html": "<p>I just cam across your presentation from Mix10 and I really enjoyed it. I am new to MVVM and WPF.</p>\r\n<p>Do you have any recomendations for using the Locator acrossed multiple projects. For example I thought of placing the Locator in a Foundation project but putting it there were it doesn't know of any of the other projects doesn't make sense. And if I put it in the wpf app doesn't really make sense if I choose to also allow for xbap capability.</p>\r\n<p>Any suggestions would be greatly appreciated.</p>",
+    "PostedDate": "2010-04-06T15:49:54.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430206",
+    "ThreadId": "208503",
+    "Html": "<p>Nothing yet huh. I have seen a response to everyone else. I definately don't feel the luv.</p>",
+    "PostedDate": "2010-04-12T13:53:39.35-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430347",
+    "ThreadId": "208503",
+    "Html": "<p>Hey dude :)</p>\r\n<p>Sorry about that. You should see my inbox, I am definitely not ignoring only you ;)</p>\r\n<p>I have to say, your question made me wonder why you would want to do that. Are you trying to reuse the same code in multiple projects (for example have one version for WPF and one version for Silverlight)? If so, it is easier to link the code files. For more information on this, try to check my MIX09 session at <a href=\"http://videos.visitmix.com/MIX09/T13F\">http://videos.visitmix.com/MIX09/T13F</a>&nbsp;where I was sharing some code in a similar fashion.</p>\r\n<p>If I misunderstand what you are trying to achieve, please comment here, and I will do my best to reply faster ;)</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-13T01:39:42.86-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430462",
+    "ThreadId": "208503",
+    "Html": "<p>Basically, my application is setup with modules. I have the main shell, which can be interchangeable (WPF, XPAP), Foundation module with most structure, then multiple projects containing individual modules. Each module cantains multiple controls that can be added to the main display. Each module will conincide with a navigation button. When someone clicks the navigation button I want the corrisponding module to load into view.</p>",
+    "PostedDate": "2010-04-13T07:01:42.273-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430470",
+    "ThreadId": "208503",
+    "Html": "<p>By the way I figured you were busy. It was either that or my question was so rudimentry that it should have never been asked. But tx for the response.</p>",
+    "PostedDate": "2010-04-13T07:26:30.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430483",
+    "ThreadId": "208503",
+    "Html": "<p>Hi,</p>\r\n<p>OK I see what you try to do. In such a case, i would rather have one ViewModelLocator per module, and consider each module to be an encapsulated world. To communicate from one module to the other, use the Messenger class. This is becoming a very popular combination, for example in MEF + MVVM Light.</p>\r\n<p>If you check Glenn Block's blog, he made some work with MEF and the MVVM Light messenger. I think that this would be a better idea than trying to have one global locator for the whole application.</p>\r\n<p>Hopefully this helps,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-13T07:45:25.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430511",
+    "ThreadId": "208503",
+    "Html": "<p>To verify are you speaking of this post?</p>\r\n<p><a href=\"http://codebetter.com/blogs/glenn.block/archive/2010/03/30/view-model-locator-mef-style.aspx\">http://codebetter.com/blogs/glenn.block/archive/2010/03/30/view-model-locator-mef-style.aspx</a>&nbsp;which links to <a href=\"http://johnpapa.net/silverlight/simple-viewmodel-locator-for-mvvm-the-patients-have-left-the-asylum/\">http://johnpapa.net/silverlight/simple-viewmodel-locator-for-mvvm-the-patients-have-left-the-asylum/</a></p>",
+    "PostedDate": "2010-04-13T08:42:19.317-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430546",
+    "ThreadId": "208503",
+    "Html": "<p>No, that article you mention shows a way to define a generic ViewModelLocator using MEF to wire the ViewModels and the Views. Interesting stuff for sure, but it is not what i meant.</p>\r\n<p>I rather referred to the Building Hello MEF series that starts here: <a href=\"http://codebetter.com/blogs/glenn.block/archive/2009/11/30/building-the-hello-mef-dashboard-in-silverlight-4-part-i.aspx\">http://codebetter.com/blogs/glenn.block/archive/2009/11/30/building-the-hello-mef-dashboard-in-silverlight-4-part-i.aspx</a>&nbsp;Make sure you check all the articles in this series.</p>\r\n<p>Glenn is very fond of the Messenger to communicate between modules, it makes the decoupling very easy.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-13T09:51:37.72-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1087655",
+    "ThreadId": "208503",
+    "Html": "The MEF part you show does not show the specifics of how to deal with multiple ViewModelLocators. The problem is composing a ViewModelLocator from plugins so that it has the various properties needed for Views to lookup their ViewModel.\r<br />\n<br />\nWe already use MEF to collect ResourceDictionaries from plugins that contain DataTemplates for View / ViewModel relations. I guess we could add ViewModelLocators with slightly different names for each module and import those at Application level, eg. Plugin1Locator, Plugin2Locator and Locator for the main application.\r<br />\n<br />\nIs this what you had in mind?<br />\n",
+    "PostedDate": "2013-09-03T05:15:45.733-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

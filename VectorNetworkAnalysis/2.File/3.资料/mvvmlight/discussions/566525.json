@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1301908",
+    "ThreadId": "566525",
+    "Html": "Hello there,\r<br />\ni'm using the MVVM Light Toolkit for an home made project.\r<br />\n<br />\nAt this stage of the application development i'm trying to add some functionality to some button (mostly change page, show a flyout panel or similar)\r<br />\n<br />\nthe strange is that i define 2 different RelayCommand inside my Constructor, but only one of them works...\r<br />\nso.. the commands:<br />\n<pre><code>            OpenSettingsPageCommand = new RelayCommand(() =&gt; CurrentPage = settingsPageViewModel);\n            OpenMenuCommand = new RelayCommand(() =&gt; _menuViewModel.IsMenuOpen = true);</code></pre>\n\nTo ensure that my view knows about the command value assigned i also do:<br />\n<pre><code>            RaisePropertyChanged(() =&gt; OpenSettingsPageCommand);\n            RaisePropertyChanged(() =&gt; OpenMenuCommand);\n\n            CommandManager.InvalidateRequerySuggested();</code></pre>\n\nCurrentPage is the ContentControl inside my window that represents my pages:<br />\n<pre><code>        private AbstractViewModelBase _currentPage;\n        public AbstractViewModelBase CurrentPage\n        {\n            get { return _currentPage; }\n            set\n            {\n                if (_currentPage == value)\n                    return;\n\n                _currentPage = value;\n                RaisePropertyChanged(() =&gt; CurrentPage);\n            }\n        }</code></pre>\n\nAnd is Binded in Datatemplate like this:<br />\n<pre><code>&lt;ContentControl Name=&quot;CurrentPageContentControl&quot; /&gt;</code></pre>\n\nThe strange fact is that if i try to Bind OpenSettingsPageCommand where i bind OpenMenuCommand it still doesn't work (so its not a Binding problem imho)\r<br />\nOtherwise, Binding OpenMenuCommand where OpenSettingsCommand is Binded works without problem.\r<br />\n<br />\nPlease feel free to ask me any question if i was not clear,\r<br />\nthank you in advance for any answer,<br />\n",
+    "PostedDate": "2014-09-07T00:44:51.25-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

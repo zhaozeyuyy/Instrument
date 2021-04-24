@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1234117",
+    "ThreadId": "542249",
+    "Html": "I updated our version of MVVM Light using NuGet yesterday to remove the dependency on the 1.0 version of the CommonServiceLocator. MVVM Light is now at version 4.3.31.1. Two questions regarding this:\r<br />\n<br />\nFirst, I see that DialogMessage is now obsolete. Is there a built-in alternative, or should we roll our own UI? The URL that the message points to for more information (<a href=\"http://www.galasoft.ch/s/dialogmessage\" rel=\"nofollow\">http://www.galasoft.ch/s/dialogmessage</a>) is broken.\r<br />\n<br />\nSecond, this version of MVVM Light doesn't seem to be in CodePlex. The latest source code from the repository still hasn't marked the class as obsolete and seems to be for version 4.2.30.x. Is the code hosted elsewhere now? There's nothing on the main site to indicate this.<br />\n",
+    "PostedDate": "2014-04-14T17:01:23.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1234244",
+    "ThreadId": "542249",
+    "Html": "Hi!\r<br />\n<br />\nAll good questions :)\r<br />\n<br />\nFirst the recommended way to show dialogs is described succinctly at <a href=\"http://blog.galasoft.ch/posts/2014/04/deprecating-the-dialogmessage/\" rel=\"nofollow\">http://blog.galasoft.ch/posts/2014/04/deprecating-the-dialogmessage/</a> (which is where the link above points now). I have a MSDN article linked into this blog post, with a sample, and will create more guidance around cross platform dialog service. This is a work in progress. You are safe to use DialogMessage for a bit more, but eventually I will remove it. At this point, you can either grab the source code and include it in your app yourself, or move to the new guidance. As I describe in the blog article, DialogMessage brings a few issues with it, and I think it is time to move away from it at least in the official MVVM Light toolkit. \r<br />\n<br />\nAbout the code for V4.3.31.1, this is correct. I was travelling for the past two weeks and only just came back. I will push the code today.\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2014-04-15T03:19:43.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

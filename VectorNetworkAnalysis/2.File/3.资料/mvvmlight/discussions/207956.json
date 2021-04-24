@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "426127",
+    "ThreadId": "207956",
+    "Html": "I was building a demo app for wiring up a calendar to a command in a existing silverlight bussiness application (SL+wcfRia+EF), wich used a self developed set of clases that I don't dare to call framework.\r\nI added reference to the required libraries, correct versions (SL4) and created the command on the viewmodel, wired all up in the xaml, but it didn't worked.\r\nSo after a while of errors and frustrations, decided to try this on a brand new proyect using the provided proyect template, and it did work.\r\nSo my question is, \r\n\r\n¿Does the viewmodel has to inherit the mvvmlight viewmodelbase in order to work with this set of classes?",
+    "PostedDate": "2010-03-31T11:42:49.38-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "427568",
+    "ThreadId": "207956",
+    "Html": "<p>Hi,</p>\r\n<p>Sorry for the delay.</p>\r\n<p>No, RelayCommand can be used on any class, as long as you make sure that you are using the right version. You didn't mention if you were using EventToCommand to do the link. The Blend behavior syntax can be tricky if you don't create the element in Blend. That said, it should work. There must be a small issue somewhere that was overlooked.</p>\r\n<p>Greetings,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-05T12:14:17.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "427940",
+    "ThreadId": "207956",
+    "Html": "<p>Doesn't the use of EventToCommand and then passing the EventArgs to the VM violate the&nbsp;separate&nbsp;of knowledge rule? &nbsp;Once the VM has a reference to a type such as SelectionChangedEventArgs, then the VM has explicit knowledge of the View and it's constituent controls. &nbsp;As far as I know, shouldn't each actor in the MVVM triad be agnostic to it's fellow actor?</p>",
+    "PostedDate": "2010-04-06T09:56:41.65-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "428370",
+    "ThreadId": "207956",
+    "Html": "<p>Hi,</p>\r\n<p>Yes it absolutely does violate it, but at least it does so consciously :) This is one of these cases where we are limited by the framework (i.e. the fact that there is so much information contained in the EventArgs instance, and that it is in fact a UI object).</p>\r\n<p>Personally I think it is OK to do so, as long as we are aware of the issue (for example that mocking an EventArgs can be difficult, depending on the instance), because the alternative is to add some code-behind to subscribe to the event, and then pass the EventArgs to the VM.</p>\r\n<p>But yeah you're absolutely right, it is a compromise and it does violate the purity of the VM.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-07T09:32:07.557-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "428430",
+    "ThreadId": "207956",
+    "Html": "<p>I have no issue wiring up some code-behind in the xaml.cs file. &nbsp;I just pulled the VM from the DataContext and set the property as needed.</p>",
+    "PostedDate": "2010-04-07T11:31:58.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "428434",
+    "ThreadId": "207956",
+    "Html": "<p>Exactly. That is cleaner, so feel free to do so.&nbsp;</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-07T11:34:52.063-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

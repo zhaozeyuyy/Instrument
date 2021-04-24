@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:52:49.517-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "First I'm in the camp were it is unaccaptable to allow UI references in my ViewModel. The ViewModel should not be aware of the View and that includes references to UI elements or anything under System.Windows.Controls namespace. To allow this scenario for RelayCommands that require event arguments this new feature would be needed.\r\n\r\nI'd like to be able to handle my event arguements in a converter before it goes to the ViewModel. As of right now the toolkit just sends whatever event arguements are defined by the UI to the ViewModel. Any class implementing IEventArgsConverter would be able intercept the event arguments from an EventToComand and output a System.Object to the wired up RelayCommand. This would work just like we already use System.Windows.Data.IValueConverter in XAML data-binding.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.0.0.1",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2010-08-18T00:55:46.64-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Feature request: IEventArgsConverter for EventToCommand",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 1,
+    "Id": 6908
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

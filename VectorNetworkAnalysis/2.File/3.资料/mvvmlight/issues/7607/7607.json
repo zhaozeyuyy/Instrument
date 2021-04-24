@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "In WinRT using RaisePropertyChanged(string) fails in VerifyPropertyName in Debug mode, if the property is in parent class for the target object, see this reproduction scenario:\r\n\r\nhttp://pastebin.com/ZVKA8Fyt\r\n\r\nWorkaround - use Release mode, use RaisePropertyChanged(() => propertyName) for property change notification or download the source code and remove the VerifyPropertyName usage in RaisePropertyChanged(string)",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2013-04-04T01:48:16.573-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Invalid property name validation in WinRT/ObservableObject",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7607
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "it coulld  be probably fixed by using\nmyType.GetRuntimeProperty(propertyName)\ninstead of\nmyType.GetTypeInfo().GetDeclaredProperty(propertyName)",
+      "PostedDate": "2013-04-04T02:04:41.253-07:00",
+      "Id": 95827
+    }
+  ]
+}

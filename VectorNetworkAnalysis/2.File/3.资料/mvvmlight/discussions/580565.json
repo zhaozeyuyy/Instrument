@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1351740",
+    "ThreadId": "580565",
+    "Html": "I've been building a simple universal app that uses mvvmlight. Since it is so simple I managed to use only 1 VM and placed it in the shared folder. Everything works great in the phone where I have several views and on windows where I only have 1 view.\r<br />\n<br />\nI have found the need only 2 or 3 times for the compiler directives #if WINDOWS_PHONE_APP. But I don't like using these directives in code. So I tried to create a VM for the phone and another for the windows project and inherit from the MainViewModel and place there the platform specific code.\r<br />\n<br />\nIs this the way to go? How should my VMLocator look like having these two platform specific VMs? I almost made it work but my bindings stopped working :(<br />\n",
+    "PostedDate": "2015-02-12T04:51:16.463-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

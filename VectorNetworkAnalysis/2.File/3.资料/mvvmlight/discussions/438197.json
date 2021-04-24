@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1021882",
+    "ThreadId": "438197",
+    "Html": "This may not be a feature request or bug request, but it is an issue I just ran into.  In my ViewModel and Model PCLs.  I make async calls and whern I try to bind the ViewModel to the UI.  Nothing happens.  I managed to create what I feel is a hack by adding a property in the ViewModelLocator to pass a delegate of the Dispatcher.CheckOnInvokeUI method,.  I then use the factory to pass that into my Portable libraries... it works but it would be nice if this could be addressed in the framework some how.<br />\n",
+    "PostedDate": "2013-03-27T09:42:38.06-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

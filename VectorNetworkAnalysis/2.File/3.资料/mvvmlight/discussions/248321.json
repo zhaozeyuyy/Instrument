@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "575108",
+    "ThreadId": "248321",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I have 2 nested views. CustomerView has OrderView as a child view. <strong>&nbsp;</strong>\r\n<strong>Both views needs to show data at the same time</strong>.</p>\r\n<p>I am using ViewModelLocator to assign CustomerViewModel and OrderViewModel to resp Views.</p>\r\n<p>CustomerViewModel fetches data in the constructor. Properties of CustomerViewModel are bound to CustomerView.</p>\r\n<p>Nested OrderView should get data from CustomerViewModel.OrderViewModel.</p>\r\n<p><strong>The data is not shown on OrderView</strong></p>\r\n<p>How can I assign CustomerViewModel.OrderViewModel as a DataContext of nested OrderView, so that the data is displayed in both views at the same time.?</p>\r\n<p>I guess ViewModelLocator is not a proper way in case of OrderView.</p>\r\n<p>Please help.</p>\r\n<p>-If you need some code then I can send it via email.</p>\r\n<p><strong><br>\r\n</strong></p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-03-03T08:30:58.593-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

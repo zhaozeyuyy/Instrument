@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1031227",
+    "ThreadId": "440478",
+    "Html": "Hi,<br />\n<br />\nI'm using the latest build of MVVM Light, we use a mixture of Prism and MVVM Light as we much prefer the RelayCommand in MVVM Light, the superb Messenger and the EventToCommand behavior for binding to our VM's. Prism is mainly used for modularity and region management. The project is VS2012 (Updated2), win7 64bit, .NET4.5 &amp; Telerik Rad Controls.<br />\n<br />\nI'm using the following libs:<br />\n<br />\nGalaSoft.MvvmLight.Extras.WPF45 (v4.0.30319) (via nuget today)<br />\nGalaSoft.MvvmLight.WPF45 (v4.0.30319)<br />\nSystem.Windows.Interactivity (v4.0.30319)<br />\n<br />\nPrism 4.1.0.0<br />\n<br />\nIn this particular view, Prism is not used so that can be disregarded as the Shell has a ViewModelLocator.<br />\n<br />\nThe markup is as follows:<br />\n<pre><code>&lt;UserControl x:Class=&quot;Company.Framework.Shell.View.StatusBar&quot;\n             xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;\n             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;\n             xmlns:mc=&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot; \n             xmlns:d=&quot;http://schemas.microsoft.com/expression/blend/2008&quot;\n             xmlns:telerik=&quot;http://schemas.telerik.com/2008/xaml/presentation&quot;\n             xmlns:i=&quot;clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity&quot;\n             xmlns:commands=&quot;clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF45&quot;\n             DataContext=&quot;{Binding Source={StaticResource Locator}, Path=StatusBar}&quot;\n             mc:Ignorable=&quot;d&quot; \n             d:DesignHeight=&quot;300&quot; d:DesignWidth=&quot;300&quot;&gt;\n\n    &lt;UserControl.Resources&gt;\n        &lt;ResourceDictionary&gt;\n            &lt;ResourceDictionary.MergedDictionaries&gt;\n                &lt;ResourceDictionary Source=&quot;pack://application:,,,/Company.Framework.Resource;Component/SharedResources.xaml&quot;&gt;&lt;/ResourceDictionary&gt;\n            &lt;/ResourceDictionary.MergedDictionaries&gt;\n        &lt;/ResourceDictionary&gt;\n    &lt;/UserControl.Resources&gt;\n    \n    &lt;Grid&gt;\n        &lt;StatusBar DockPanel.Dock=&quot;Bottom&quot;&gt;\n\n            &lt;StatusBarItem DockPanel.Dock=&quot;Left&quot;&gt;\n                {server}\n            &lt;/StatusBarItem&gt;\n\n            &lt;Separator DockPanel.Dock=&quot;Left&quot; /&gt;\n\n            &lt;StatusBarItem DockPanel.Dock=&quot;Left&quot;&gt;\n                {database}\n            &lt;/StatusBarItem&gt;\n\n            &lt;Separator DockPanel.Dock=&quot;Left&quot; /&gt;\n\n            &lt;StatusBarItem DockPanel.Dock=&quot;Left&quot;&gt;\n                {user}\n            &lt;/StatusBarItem&gt;\n\n            &lt;Separator DockPanel.Dock=&quot;Left&quot; /&gt;\n\n            &lt;StatusBarItem DockPanel.Dock=&quot;Left&quot;&gt;\n                {office}\n            &lt;/StatusBarItem&gt;\n\n            &lt;!-- Last item is docked in center, as usual. --&gt;\n            &lt;StatusBarItem HorizontalAlignment=&quot;Center&quot;&gt;\n            &lt;/StatusBarItem&gt;\n\n            &lt;!-- Define quick module preview button --&gt;\n            &lt;Separator DockPanel.Dock=&quot;Left&quot; /&gt;\n            &lt;StatusBarItem HorizontalAlignment=&quot;Right&quot;&gt;\n                &lt;telerik:RadRibbonToggleButton  Name=&quot;radradiobutton_titlebartoggle&quot; \n                                                    Padding=&quot;1&quot;\n                                                    Width=&quot;18&quot; \n                                                    Height=&quot;18&quot; \n                                                    Margin=&quot;0,0,10,0&quot;\n                                                    SmallImage=&quot;{StaticResource statusbar_toogle_quickview_16x16}&quot;\n                                                    IsChecked=&quot;True&quot;\n                                                    ToolTip=&quot;Show or hide the module quick access area&quot;&gt;\n                        &lt;i:Interaction.Triggers&gt;\n                            &lt;i:EventTrigger EventName=&quot;Checked&quot;&gt;\n                            &lt;commands:EventToCommand Command=&quot;{Binding ToogleCommand}&quot; CommandParameter=&quot;{Binding ElementName=radradiobutton_titlebartoggle, Path=IsChecked}&quot; /&gt;\n                                &lt;/i:EventTrigger&gt;\n                            &lt;i:EventTrigger EventName=&quot;Unchecked&quot;&gt;\n                                &lt;commands:EventToCommand Command=&quot;{Binding ToogleCommand}&quot; CommandParameter=&quot;{Binding ElementName=radradiobutton_titlebartoggle, Path=IsChecked}&quot; /&gt;\n                            &lt;/i:EventTrigger&gt;\n                        &lt;/i:Interaction.Triggers&gt;\n                    \n                &lt;/telerik:RadRibbonToggleButton&gt;\n            &lt;/StatusBarItem&gt;\n        &lt;/StatusBar&gt;\n    &lt;/Grid&gt;\n&lt;/UserControl&gt;\n</code></pre>\n\nThe EventToCommand behavior works as expected but I'm getting an unstable environment in the XAML designer. I have the view open and the following error is reported but it compiles ok:<br />\n<pre><code>Error   1   Cannot create an instance of &quot;TriggerActionCollection&quot;. D:\\TFS\\Company.Framework\\Source\\Company.Framework.Shell\\View\\StatusBar.xaml 63  29  VShips.Framework.Shell\n</code></pre>\n\nAny ideas what's causing this behaviour?<br />\n<br />\nThanks,<br />\n<br />\nTaz.<br />\n<br />\n(ps: thanks for a great framework)<br />\n",
+    "PostedDate": "2013-04-16T08:43:13.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1040298",
+    "ThreadId": "440478",
+    "Html": "Any ideas on this one?<br />\n",
+    "PostedDate": "2013-05-07T02:35:26.307-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1068395",
+    "ThreadId": "440478",
+    "Html": "Bump. Experiencing the same issue.<br />\n",
+    "PostedDate": "2013-07-15T06:42:27.533-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1068396",
+    "ThreadId": "440478",
+    "Html": "<strong>cswimmer wrote:</strong><br />\n<blockquote>\nBump. Experiencing the same issue.<br />\n</blockquote>\nAt least it's not just me. The app compiles ok but it's a problem as the more junior team members see the compile error and assume there's an issue. <br />\n",
+    "PostedDate": "2013-07-15T06:46:17.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1070953",
+    "ThreadId": "440478",
+    "Html": "Hi,\r<br />\n<br />\nTypically these issues are caused by an old version of the System.Windows.Interactivity.dll. Unfortunately, because this DLL gets installed by the Blend SDK, it is possible that Visual Studio replaces the reference to this DLL in your application with the one that was installed with Blend. It is very important to make sure that you always use the latest version of this DLL otherwise the application will work but the design time experience will get impacted negatively.\r<br />\n<br />\nThanks\r<br />\nLaurent<br />\n",
+    "PostedDate": "2013-07-21T05:07:45.177-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1071140",
+    "ThreadId": "440478",
+    "Html": "Hi Laurent,<br />\n<br />\nThanks for your reply.<br />\n<br />\nI appear to have three versions of this library on my machine (Win7 x64).<br />\n<br />\n3.5.0.0<br />\n4.0.0.0<br />\n4.5.0.0<br />\n<br />\nMy project appears to be pointing at the 4.0.0.0 library.<br />\n<br />\nI take it 4.5.0.0 is the correct one to use with the MVVM Light WPF45 libraries?<br />\n<br />\nThanks,<br />\nNorman.<br />\n<br />\nEDIT:<br />\n<br />\n4.5.0.0 seems to resolve the issue (C:\\Program Files (x86)\\Laurent Bugnion (GalaSoft)\\Mvvm Light Toolkit\\Binaries\\WPF45\\System.Windows.Interactivity.dll) v4.0.30319<br />\n",
+    "PostedDate": "2013-07-22T01:49:15.013-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1071452",
+    "ThreadId": "440478",
+    "Html": "Hi,\r<br />\n<br />\nHappy that it solved the issue. Normally I distribute the latest version of this DLL, but if you have an earlier version of the Blend SDK installed, it is possible that Studio redirects the reference to the installed version, even if it is not as recent. It is a real PITA and I have talked to the Blend team about this, I hope that they stop increasing version numbers and/or giving strong names to that assembly.\r<br />\n<br />\nNote that the version number is not directly related to ,NET 4.0 vs 4.5 but rather VS10 vs VS12 (eg Blend 4 vs Blend 5).\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2013-07-22T11:59:00.827-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

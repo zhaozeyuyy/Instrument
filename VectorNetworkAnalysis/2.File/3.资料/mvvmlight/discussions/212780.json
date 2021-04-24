@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "443376",
+    "ThreadId": "212780",
+    "Html": "<p>Got any suggestions to be able to get navigation service instance to the view model?&nbsp; I was thinking of using Messenger but not sure how to wire it up... I am unfortunately still learning as I go but best way is hands on right?</p>\r\n<p>I thought about overriding the OnNavigateTo() for the page in question ( I know its not pure seperation but when in need).&nbsp; I don't know how to register the Messenger for the Send (aka incoming messages) to utilize the Uri once I send it.</p>",
+    "PostedDate": "2010-05-15T21:59:38.493-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "443444",
+    "ThreadId": "212780",
+    "Html": "<p>I got it figured out.. The link to your samples for MIX was messed up but did a little digging and got a copy, messenger is pretty cool little pattern once you know what do to with it :)</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-05-16T08:01:32.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "443446",
+    "ThreadId": "212780",
+    "Html": "<p>Hi,</p>\r\n<p>What links did you have issues with?</p>\r\n<p>&nbsp;</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-05-16T08:13:39.87-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "444439",
+    "ThreadId": "212780",
+    "Html": "it was someone else that posted a link on your blog that was completely wrong for the zip file had dashes not periods...  So all is good.\r\n\r\n",
+    "PostedDate": "2010-05-18T10:21:37.04-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "445214",
+    "ThreadId": "212780",
+    "Html": "<p>Thought I would share what I found out today for all to gain access to the Navigation Service in WP7..</p>\r\n<p>So in your viewmodel you can get this usability via creating a variable as such:</p>\r\n<p>PhoneApplicationFrame root = Application.Current.RootVisual as PhoneApplicationFrame;</p>\r\n<p>this actually has to happen in each click event you want to respond to in your viewmodel this is actually quite nice since it gives you access to the Navigate() method of the NavigationService.</p>\r\n<p>root.Navigate(new Uri(&quot;/View/YourView.xaml&quot;));</p>\r\n<p>&nbsp;</p>\r\n<p>This doesn't require any override of the OnNavigateTo() method of the navservice...</p>\r\n<p>&nbsp;</p>\r\n<p>Morgan</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-05-19T19:56:01.177-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "508319",
+    "ThreadId": "212780",
+    "Html": "<p>Hi All,</p>\r\n<p>I am considering which approach to use in my WP7 app (no reference to the navigationservice) and there seems to be a lot of different ways of doing it:</p>\r\n<ol>\r\n<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Use&nbsp;messenging&nbsp;-&nbsp;raise&nbsp;message&nbsp;in&nbsp;VM&nbsp;-&nbsp;http://www.markerstudio.com/technical/2010/07/windows-phone-7-navigation-between-pages-using-mvvm-light-messaging/#comment-683</span></li>\r\n<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Raise&nbsp;an&nbsp;event&nbsp;in&nbsp;the&nbsp;VM&nbsp;and&nbsp;subscribe&nbsp;to&nbsp;it</span></li>\r\n<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Use&nbsp;the&nbsp;method&nbsp;like&nbsp;this&nbsp;-&nbsp;&nbsp;((PhoneApplicationFrame)App.Current.RootVisual).Navigate(new&nbsp;Uri(&quot;/AboutPage.xaml&quot;,&nbsp;UriKind.Relative));&nbsp;-&nbsp;//http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/1eed99c6-d8ff-4739-81b1-b7e46f61e543</span></li>\r\n<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Make&nbsp;a&nbsp;ref&nbsp;in&nbsp;the&nbsp;VM&nbsp;to&nbsp;your&nbsp;V&nbsp;-&nbsp;not&nbsp;cool!</span></li>\r\n<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Other&nbsp;solutions:&nbsp;Interface&nbsp;-&nbsp;http://garfoot.com/blog/2010/09/silverlight-navigation-with-the-mvvm-pattern/</span></li>\r\n<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Other&nbsp;controller&nbsp;-&nbsp;http://blog.clauskonrad.net/2010/09/wp7-navigationservice-support-when.html&nbsp;&nbsp;&nbsp;or http://www.codebureau.com/blog/2010/07/05/SimpleWPFPageNavigationFromAnMVVMViewModel.aspx</span></li>\r\n</ol>\r\n<p>Is Morgan's solution considered &quot;bad practise&quot; for MMVM? It is the simplest and quickest.</p>\r\n<p>Messenging with MVVM Light seems to be considered the best one but I want to KISS.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-10-16T14:22:46.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

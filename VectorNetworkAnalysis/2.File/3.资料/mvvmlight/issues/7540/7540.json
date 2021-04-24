@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Redundant with http://mvvmlight.codeplex.com/workitem/7518\nFixed in upcoming V4 beta 1",
+    "ClosedDate": "2011-09-01T14:24:05.78-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When taking a look at the ObservableObject, I noticed something strange. When calling RaisePropertyChanged, internally the VerifyPropertyName gets called. However, according to the documentation (see http://msdn.microsoft.com/en-us/library/system.componentmodel.inotifypropertychanged.propertychanged.aspx), I should be able to call it with null or string.Empty to order the binding system to invalidate all properties of the sender.\r\n\r\nI think you should check whether the property name is null or empty and allow that.",
+    "LastUpdatedDate": "2011-09-01T14:24:05.78-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-08-30T05:58:11.417-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "ObservableObject and VerifyProperty",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7540
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

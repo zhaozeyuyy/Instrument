@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1002848",
+    "ThreadId": "433544",
+    "Html": "Hello.\r<br />\nI have found quite a few places in the project where there should be only one subscriber to a particular type of a message. Is there a way to tell the messenger that if and instance of type T1 subscribes to the receiving messages of type T2 then if there is another T1 subscribing to T2, it should throw and exception?\r<br />\n<br />\nThe most important usage for that is when the same ViewModel is unit tested in multiple tests. It is the same session and the same messenger instance that is used. A possible problem here is that not all tests that use ViewModel unsubscribe itself from the messenger (on Dispose(), for instance) at the end of the test. So, when running tests separately, they pass, but when running multiple tests, they fail, since multiple view model instances sit in the memory and listen for the same event.\r<br />\n<br />\nSo, in this case I would rather get an exception saying &quot;There is already a subscriber ...&quot; than trying to find which ViewModel instance in which test does not unsubscribe.\r<br />\n<br />\nIt could be something like Messenger.RegisterSingle&lt;&gt;()<br />\n",
+    "PostedDate": "2013-02-18T07:47:29.103-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

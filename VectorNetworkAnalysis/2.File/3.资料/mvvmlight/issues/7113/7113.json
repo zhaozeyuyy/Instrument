@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "According to the thread at http://www.telerik.com/community/forums/silverlight/gridview/gridview-selecteditem-update-issue.aspx the issue was not caused by EventToCommand and is solved now.",
+    "ClosedDate": "2011-07-20T03:56:36.173-07:00",
+    "CommentCount": 0,
+    "Custom": "",
+    "Description": "You library is very helpful! Thanks!\nBut I found a bug. It described on the forum http://www.telerik.com/community/forums/silverlight/gridview/gridview-selecteditem-update-issue.aspx (screenshot and screencast available)",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2010-09-06T13:18:55.767-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "EventToCommand bug founded!",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7113
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

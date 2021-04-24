@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-14T13:34:45.937-07:00",
+    "CommentCount": 4,
+    "Custom": null,
+    "Description": "Hi it would be great to have a propertychanged call with the callermembername attribute for .net 4.5 applications\r\n\r\nhttp://msdn.microsoft.com/en-us/library/system.runtime.compilerservices.callermembernameattribute.aspx\r\n\r\n```\r\n        protected virtual void RaiseThisChanged([CallerMemberName] string propertyName = \"\")\r\n        {\r\n            VerifyPropertyName(propertyName);\r\n\r\n            var handler = PropertyChanged;\r\n            if (handler != null)\r\n            {\r\n                handler(this, new PropertyChangedEventArgs(propertyName));\r\n            }\r\n        }\r\n```\r\n\r\nBut it would be better to name it to RaiseThisChanged or something because you wouldn't be able to use the normal RaisePropertyChanged(\"Property\") call.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V4.4.32.1",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2013-03-01T04:11:15.257-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Implement [CallerMemberName] for RaisePropertyChanged",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 6,
+    "Id": 7603
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I agree. ViewModelBase could also be extended with\n\n        public bool Set<T>(ref T field, T value, [CallerMemberName] string propertyName = \"\")\n        {\n            return this.Set(propertyName, ref field, value);\n        }",
+      "PostedDate": "2013-03-02T12:22:51.61-08:00",
+      "Id": 92088
+    },
+    {
+      "Message": "+1. This is a great feature added to c# 5.0 that i would like to see implemented on this toolkit!",
+      "PostedDate": "2013-03-20T02:03:01.603-07:00",
+      "Id": 93761
+    },
+    {
+      "Message": "+1 here. Apparently this is an efficient way to do things, please support. :)",
+      "PostedDate": "2013-06-11T23:02:16.177-07:00",
+      "Id": 102827
+    },
+    {
+      "Message": "Hey there,\n\nThis is already implemented, i will publish with V4.2. Expect a preview on Codeplex very soon with other improvements.\n\ncheers\nLaurent\n",
+      "PostedDate": "2013-06-11T23:57:17.653-07:00",
+      "Id": 102830
+    }
+  ]
+}

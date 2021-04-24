@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Tasks should be handled in code behind.",
+    "ClosedDate": "2012-06-12T00:56:11.167-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "I have a couple commands in view models that have tasks in them (CameraCaptureTask, PhotoChooserTask, and SaveContactTask specifically), and when the \"Tombstone upon deactivation when debugging\" option is turned on in Visual Studio, the app restarts, and the completed event handlers don't fire until the task is hit again.  This obviously makes it impossible to debug the application with that option.  I have verified that this happens on multiple machines, and if the tasks are moved to the code behind, it works as intended.",
+    "LastUpdatedDate": "2012-06-12T00:56:11.167-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-06-11T21:33:21.377-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "WP7 - Tasks in RelayCommand cause app restart when Tombstoning option set in debugger",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7575
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nBecause of the security model in WP7, having tasks in ViewModels is definitely not recommended. Any delay in the execution of the Task can be interpreted by the application as a security violation. It is something that is completely out of my reach, so I would recommend not doing that and handling tasks in the code behind instead, like the WP7 team intended it. Not ideal, but it is not my decision.\n\nCheers,\nLaurent",
+      "PostedDate": "2012-06-12T00:55:52.087-07:00",
+      "Id": 67778
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "280328",
+    "ThreadId": "81647",
+    "Html": "<p>Is there source code available for any non-trivial projects built with MVVM light? The examples I've seen so far don't really demonstrate all of the features of the framework, nor do they demonstrate how to do common tasks such as load data&nbsp;asynchronously&nbsp;in the model and provide a load progress indicator for the request.</p>",
+    "PostedDate": "2010-01-21T18:00:02.213-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

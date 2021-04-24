@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1124172",
+    "ThreadId": "468987",
+    "Html": "I have a RelayCommand which accepts a command parameter of type int.  If I leave off the CanExecute everything works fine.  If I add a trivial CanExecute, I get the error: Specified cast is not valid.<br />\n<br />\nAm I using this incorrectly?<br />\n<pre><code>IncrementDateCommand = new RelayCommand&lt;int&gt;(amount =&gt; Date = Date.AddDays(amount), amount =&gt; return true);</code></pre>\n\n<pre><code>&lt;Button Content=&quot;&amp;gt;&quot; Command=&quot;{Binding IncrementDateCommand}&quot; CommandParameter=&quot;1&quot; /&gt;</code></pre>\n\n<pre><code>   at GalaSoft.MvvmLight.Command.RelayCommand`1.CanExecute(Object parameter) in g:\\GalaSoft\\mydotnet\\MvvmLight\\Source\\GalaSoft.MvvmLight\\GalaSoft.MvvmLight (NET35)\\Command\\RelayCommandGeneric.cs:line 186\n   at System.Windows.Controls.Primitives.ButtonBase.UpdateCanExecute()\n   at System.Windows.Controls.Primitives.ButtonBase.OnCommandChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)\n   ...</code></pre>\n\nUpdate:<br />\n<br />\nThis works.<br />\n<pre><code>&lt;Button Content=&quot;&amp;gt;&quot; Command=&quot;{Binding IncrementDateCommand}&quot;&gt;\n    &lt;Button.CommandParameter&gt;\n        &lt;sys:Int32&gt;1&lt;/sys:Int32&gt;\n    &lt;/Button.CommandParameter&gt;\n&lt;/Button&gt;</code></pre>\n\nI just find it interesting that in the original the cast to an int works for execute, but not canExecute.<br />\n",
+    "PostedDate": "2013-11-15T11:18:33.2-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

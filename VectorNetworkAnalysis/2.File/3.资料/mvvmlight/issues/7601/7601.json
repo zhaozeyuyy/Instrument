@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T07:23:57.093-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "[Modified error, see comment below]\r\nI'm using the latest binaries (4.1.27.22661) from NuGet and my project is mimicking the sample navigation project from your MIX talk, but no matter what I try, the ViewModel is never registered as an instance when I try using a key.  \r\n\r\n```\r\nif (!SimpleIoc.Default.ContainsCreated<SeriesViewModel>(FolderGuid))\r\n     {\r\n          SimpleIoc.Default.Register(\r\n               () => new SeriesViewModel()\r\n               {\r\n                    FolderGuid = FolderGuid\r\n               },\r\n               FolderGuid);\r\n      }\r\nMainViewModel._navigationService.Navigate(typeof(SeriesView), FolderGuid);\r\n```\r\n\r\nThis seems to be exactly what this person was experiencing:\r\n[http://mvvmlight.codeplex.com/workitem/7565](http://mvvmlight.codeplex.com/workitem/7565)\r\n\r\nI wonder if the fix failed to make it to the Win8 binaries.  \r\n\r\nThanks!",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2013-02-18T11:02:32.69-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Won't fix"
+    },
+    "Summary": "ContainsCreated with key, Win8 not working",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7601
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Ok, it's not exactly broken, but it's not working as you've written your original example anymore.  The following code you put in the OnNavigated Method of the view (modified for me):\r\n\r\n```\r\nif (DataContext == null)\r\n            {\r\n                var FolderGuid = (string)navigationParameter;\r\n\r\n                if (!SimpleIoc.Default.ContainsCreated<SeriesViewModel>(FolderGuid))\r\n                {\r\n                    Debug.WriteLine(\"Item not found\");\r\n                    return;\r\n                }\r\n\r\n                var vm = SimpleIoc.Default.GetInstance<SeriesViewModel>(FolderGuid);\r\n                DataContext = vm;\r\n            }\r\n```\r\nDoes NOT work.  The ContainsCreated doesn't pull anything and returns.  If I comment out that section and just do the GetInstance method, it works just fine.",
+      "PostedDate": "2013-02-18T11:11:21.167-08:00",
+      "Id": 90671
+    },
+    {
+      "Message": "I had to change the behavior of ContainsCreated indeed. Sorry about that. Use IsRegistered instead.",
+      "PostedDate": "2014-10-13T07:23:36.843-07:00",
+      "Id": 162167
+    }
+  ]
+}

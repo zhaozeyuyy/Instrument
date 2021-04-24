@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:57:52.533-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "I posted this on Stackoverflow, but haven't gotten an answer yet.\r\nPlease see my question/issue there: http://stackoverflow.com/questions/10558373/mvvmlight-v4-0-21-25721-simpleioc-unregister-and-register-not-working",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-05-16T06:27:41.727-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "MVVMLight v4.0.21.25721 SimpleIoc unregister and register not working as expected",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7570
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "According to Laurent's comment on my SO question, this should be fixed. I haven't tested it myself as the release is a beta.\n\nhttp://blog.galasoft.ch/archive/2012/06/03/mvvmlight-v4-for-windows-8-rp-is-available.aspx",
+      "PostedDate": "2012-06-05T11:51:31.793-07:00",
+      "Id": 67388
+    }
+  ]
+}

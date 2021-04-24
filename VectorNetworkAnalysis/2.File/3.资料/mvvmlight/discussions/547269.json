@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1251932",
+    "ThreadId": "547269",
+    "Html": "Since updating my universal app project to 4.4 I get this error in the Windows 8 project. Windows Phone compiles fine however. I'm guessing I've missed something? <br />\n",
+    "PostedDate": "2014-06-02T05:45:12.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1254537",
+    "ThreadId": "547269",
+    "Html": "I'm having a very similar issue.  I've been developing a Windows 8.1 app and have been getting the same warning in my App.xaml file (using version 4.4).  The app works fine so I didn't think much of it until I tried working in Blend and was blocked because of the error.<br />\n<br />\nI decided to create a completely new app to see if I had done something wrong.  As soon as I open the App.xaml file in the new project, there's a warning stating 'The name &quot;ViewModelLocator&quot; does not exist in the namespace &quot;using:MvvmLight1.ViewModel&quot;.<br />\n",
+    "PostedDate": "2014-06-09T11:28:20.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1255019",
+    "ThreadId": "547269",
+    "Html": "Hi realworld666,\r<br />\n<br />\nI don't know if this will help you at all, but I figured out why I was getting 'The name &quot;ViewModelLocator&quot; does not exist in the namespace &quot;using:MvvmLight1.ViewModel.\r<br />\n<br />\nIt had to do with the Platform target in the project settings.  When targeting anything but 'Any CPU' or 'x86', I receive the error.  Perhaps the Practices .dll behaves the same.  Hope this helps.<br />\n",
+    "PostedDate": "2014-06-10T18:56:18.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1291089",
+    "ThreadId": "547269",
+    "Html": "There is a missing reference to Microsoft.Practices.ServiceLocation. I just installed MvvmLight to a new project and it compiled fine. The reference was there. I then did the NuGet updates to two packages needing updates (CommonServiceLocator and MVVM Light libraries only) and that is when the reference disappeared. \r<br />\n<br />\nI found the reference in the packages\\CommonServiceLocator.1.3\\lib\\portable-net4+sl5+netcore45+wpa81+wp8\\ folder and added that reference to fix the error. \r<br />\n<br />\nI am not sure this is the right solution but hopefully it is and the NuGet installation should be fixed to resolve the missing (changed) reference.<br />\n",
+    "PostedDate": "2014-08-18T09:09:08.733-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

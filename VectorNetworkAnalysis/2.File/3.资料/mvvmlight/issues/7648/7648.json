@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T06:31:39.92-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "In my application targeting both Windows Store 8 App and Windows Phone 8, I am using Mvvm light toolkit to share business logic in common Portable Class Library (PCL) and consume it from W8 and WP8 projects.\r\n\r\nI have created the PCL project targeting .NET 4.5, Windows Store 8 Apps, Windows Phone 8 only. I used libraries only PCL version of MVVM light from Nuget (the latest version * 4.4.32.1).\r\n\r\nI have also added Mvvm light reference to Windows Store 8 project however it seems that the libraries are not compatible with .NET 4.5 instead they are built for 4.5.1. Please see the example solution demonstrating the issue attached.\r\n\r\nEnvironment:\r\n\r\nWindows 8 Operating System\r\nVisual Studio 2012 Update 4\r\nMvvm Light libraries only (PCL) 4.4.32.1 version\r\n\r\nBuilding Windows Store 8 app produces following warnings.\r\n\r\nWarning\t1\tThe primary reference \"GalaSoft.MvvmLight.Platform\" could not be resolved because it was built against the \".NETCore,Version=v4.5.1\" framework. This is a higher version than the currently targeted framework \".NETCore,Version=v4.5\".\tW8\r\nWarning\t2\tThe primary reference \"GalaSoft.MvvmLight.Platform\" could not be resolved because it has an indirect dependency on the .NET Framework assembly \"System.Runtime, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\" which has a higher version \"4.0.10.0\" than the version \"4.0.0.0\" in the current target framework.\tW8\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.0.0.1",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-07-09T16:08:11.97-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Mvvm light incompatible binary in PCL build for Windows Store Apps",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7648
+  },
+  "FileAttachments": [
+    {
+      "FileId": 878100,
+      "FileName": "CustomDialogService.zip",
+      "DownloadUrl": ".\\878100"
+    }
+  ],
+  "Comments": []
+}

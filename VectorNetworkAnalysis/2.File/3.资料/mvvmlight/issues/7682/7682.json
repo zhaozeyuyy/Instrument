@@ -1,0 +1,61 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-02-15T10:14:37.227-08:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "I have an iOS project on Xamarin and use bindings to storyboard labels and other controls.\r\n\r\nFor example like this:\r\n\r\n            // binding #1\r\n            _bindings.Add(this.SetBinding(() => this.ViewModel.MyProperty, BindingMode.OneWay).WhenSourceChanges(this.MyCallback));\r\n            // binding #2\r\n            _bindings.Add(this.SetBinding(() => this.ViewModel.MyProperty, () => this.label1.Text));\r\n            // binding #3\r\n            _bindings.Add(this.SetBinding(() => this.ViewModel.MyProperty2, () => this.label2.Text));\r\n            // binding #4\r\n            _bindings.Add(this.SetBinding(() => this.ViewModel.MyProperty3, () => this.label3.Text));_\r\n\r\nViewModel implements INotifyPropertyChanged interface. Changing of _MyProperty_ raises PropertyChanged event.\r\n\r\nThe problem is that _this.MyCallback_ method called 4 times. Exactly the same number of times as many I have bindings. If I leave the only one binding with WhenSourceChanges the method _MyCallback_ will be called one time. If I add another one, it will be called 5 times. One time for each added binding.\r\n\r\nI've created the quite simple sample iOS project that reproduces this issue and attached it to this post. You can set breakpoint into callback method and make sure that it called multiply times.\r\n\r\nCould you please investigate what the problem and fix it in next release?\r\n\r\nPlease, let me know if you have any questions. Thank you! ",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "null",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-02-06T01:07:32.367-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "WhenSourceChanges calls callback multiple times on iOS",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 8,
+    "Id": 7682
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1427050,
+      "FileName": "TestBinding.zip",
+      "DownloadUrl": ".\\1427050"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Woah. Checking it out, I'll let you know.",
+      "PostedDate": "2015-02-06T01:44:03.033-08:00",
+      "Id": 173600
+    },
+    {
+      "Message": "OK I got it. There was an issue in the PropertyChangedEventManager where the same event handler could be attached to the same sender multiple times. This is both inefficient (since the event will be handled N times) and plain wrong (since one single PropertyChanged event will cause all the listeners to react to the event anyway).\n\nThanks for pointing this to me. Not sure why no one noticed that before. Actually the issue was not related to iOS nor to the WhenSourceChanges method, but it would occur for all bindings. You made it more obvious., Thanks for sending the simple repro, that makes my life so much easier.\n\nI uploaded the new DLLs here:\nhttp://1drv.ms/1ylP1TS\n\nCan you give it a try? I will update the Nuget package too (that will be V5.1).\n\nThanks!\nLaurent",
+      "PostedDate": "2015-02-06T06:07:36.337-08:00",
+      "Id": 173618
+    },
+    {
+      "Message": "Thank you very much for fast response and fix! I'll try to check it today.",
+      "PostedDate": "2015-02-10T00:33:15.84-08:00",
+      "Id": 174295
+    }
+  ]
+}

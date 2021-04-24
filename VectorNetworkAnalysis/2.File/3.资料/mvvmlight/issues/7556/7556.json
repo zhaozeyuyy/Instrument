@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:56:29.977-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "In recent version, locks have been added to the Messenger class, which solved some issues I had in an older version, but I think you've missed one place where multi-threaded use of the Messenger runs into an error:\r\n\r\n(starting around line 588): The lock should surround the ContainsKey check in the code below.\r\n\r\n-----\r\n            if (_recipientsStrictAction != null)\r\n            {\r\n                if (_recipientsStrictAction.ContainsKey(messageType))\r\n                {\r\n                    List<WeakActionAndToken> list = null;\r\n\r\n                    lock (_recipientsStrictAction)\r\n                    {\r\n                        list = _recipientsStrictAction[messageType].Take(_recipientsStrictAction[messageType].Count()).ToList();\r\n                    }\r\n\r\n                    SendToList(message, list, messageTargetType, token);\r\n                }\r\n            }",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-11-10T04:11:40.243-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "KeyNotFoundException in Messenger.SendToTargetOrType",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7556
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

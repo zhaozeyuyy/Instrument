@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "847096",
+    "ThreadId": "359051",
+    "Html": "\r\n<p>For sure, this is a stupid question.</p>\r\n<p>Hi there, I was using PRISM 4.0 before Win8 CP was released.</p>\r\n<p>This are my first days using this new framework &quot;Galasoft&quot;. I understand the concept of MVVM, but I have met new concepts like MVVM Locator, and how the IoC will set the ViewModel to the View?</p>\r\n<p>Some can point me where's the examples for this framework? I wanna start the documentation since the beginning, thanks a lot.</p>\r\n",
+    "PostedDate": "2012-06-10T07:25:16.63-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1488704",
+    "ThreadId": "659670",
+    "Html": "Hello, I use mvvm light with entity framework.\r<br />\nWhat is the best way to hide some columns in grid?\r<br />\n<br />\nCreate new class with needed columns and fill it in Viewmodel?<br />\n",
+    "PostedDate": "2016-11-23T23:25:14.69-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

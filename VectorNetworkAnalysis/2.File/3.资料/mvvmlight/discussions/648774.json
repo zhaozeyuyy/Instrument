@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "1455965",
+    "ThreadId": "648774",
+    "Html": "The ObservableTableViewController helps me binding lists in iOS. But what is when I need a custom UITableViewSource (editing mode, etc.)? Is there a way to bind my data in this case with the framework? Or do I have to do it by myself? It would be nice I could do it with mvvm light...<br />\n",
+    "PostedDate": "2015-12-15T01:41:56.197-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1459544",
+    "ThreadId": "648774",
+    "Html": "Hi,\r<br />\n<br />\nIf you check the ObservableTableViewController, it has a property named TableSource which gives you access to the created UITableViewSource . This property is of type ObservableTableSource&lt;T&gt; which is a protected class within the ObservableTableViewController. You can use GetController to create the Controller and then keep only the TableSource if you want. I will think of a better way to offer this property without having to create the ObservableTableViewController.\r<br />\n<br />\nLet me know if that helps\r<br />\nLaurent<br />\n",
+    "PostedDate": "2016-01-17T06:17:56.48-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2016-02-21T07:46:02.977-08:00"
+  },
+  {
+    "Id": "1466791",
+    "ThreadId": "648774",
+    "Html": "Hi,\r<br />\n<br />\nI have written a <a href=\"http://www.thexamarinjournal.com/digging-deeper-into-xamarin-ios-table-views-with-mvvm-light/\" rel=\"nofollow\">blog post</a> describing some minor alterations to the ObservableTableViewController and ObservableTableSource to enable editing in this example it was to enable swipe to delete functionality.\r<br />\n<br />\nHope this helps, Cheers Richard<br />\n",
+    "PostedDate": "2016-03-14T12:55:46.447-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1466850",
+    "ThreadId": "648774",
+    "Html": "Hello,\r<br />\n<br />\nThank you for suggestions...\r<br />\nI hoped there is a possibillity without modifieng the source of the mvvm light... Because of updates etc. But that is a good possibillity...\r<br />\nThanks\r<br />\nBye\r<br />\nMarkus<br />\n",
+    "PostedDate": "2016-03-15T02:09:34.713-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1466852",
+    "ThreadId": "648774",
+    "Html": "I am working on additions to MVVM Light which should make this possible. Hoping to have a preview in the next few weeks and an official release around the Evolve timeframe (end of April).\r<br />\n<br />\nLaurent<br />\n",
+    "PostedDate": "2016-03-15T02:25:02.74-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1466853",
+    "ThreadId": "648774",
+    "Html": "great!<br />\n",
+    "PostedDate": "2016-03-15T02:33:42.73-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1471135",
+    "ThreadId": "648774",
+    "Html": "Just confirming that in V5.3 released next week, you will get an ObservableTableViewSource and ObservableCollectionViewSource which give you much greater flexibility in iOS. Also there is an ObservableRecyclerAdapter in Android, which supports RecyclerView.<br />\n",
+    "PostedDate": "2016-04-23T15:06:34.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1471138",
+    "ThreadId": "648774",
+    "Html": "Awesome great job Laurent looking forward to the release!<br />\n",
+    "PostedDate": "2016-04-23T15:25:51.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

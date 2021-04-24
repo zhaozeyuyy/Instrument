@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1207100",
+    "ThreadId": "531437",
+    "Html": "Hi,\r<br />\n<br />\nI'm trying to install MVVMLight Portable into one of my PCL using Visual Studio 2013. However, whenever I try install it via the package manager console (IE. install-package portable.mvvmlightlibs) I get the following error : <br />\n<pre><code>install-package : Could not install package 'Portable.MvvmLightLibs 4.2.30.1'. You are trying to install this package into a project that targets 'portable-net45+sl40+wp80+win', but the package does not contain any assembly references or content files that \nare compatible with that framework. For more information, contact the package author.\nAt line:1 char:1\n+ install-package portable.mvvmlightlibs\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n    + CategoryInfo          : NotSpecified: (:) [Install-Package], InvalidOperationException\n    + FullyQualifiedErrorId : NuGetCmdletUnhandledException,NuGet.PowerShell.Commands.InstallPackageCommand</code></pre>\n\n<img src=\"http://i62.tinypic.com/jah0fd.png\" alt=\"Image\" />\r<br />\n<br />\nDo you possibly know what I'm doing wrong/missing?\r<br />\n<br />\nThanks\r<br />\nMauro Da Silva<br />\n",
+    "PostedDate": "2014-02-11T20:30:01.197-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

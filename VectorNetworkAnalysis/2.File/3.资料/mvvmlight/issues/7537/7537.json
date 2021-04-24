@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2016-01-16T14:28:08.923-08:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "With the EventToCommand class, the command is not invoked when the associated element is disabled. Most of the time, it is a correct behaviour but sometimes, we would like to still invoke the command.\r\n\r\nI suggest to add a property on the EventToCommand class like this :\r\n\r\n/// <summary>\r\n/// Specifies whether the Command must be always invoked or only when the\r\n/// associated element is enabled\r\n/// </summary>\r\npublic bool AlwaysInvokeCommand\r\n{\r\n    get { return (bool)GetValue(AlwaysInvokeCommandProperty); }\r\n    set { SetValue(AlwaysInvokeCommandProperty, value); }\r\n}\r\n\r\n/// <summary>\r\n/// Executes the trigger.\r\n/// </summary>\r\nprotected override void Invoke(object parameter)\r\n{\r\n    if (AssociatedObject == null || !AlwaysInvokeCommand && AssociatedElementIsDisabled())\r\n    {\r\n        return;\r\n    }\r\n\r\n    ...\r\n}\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-08-05T06:33:02.287-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "The command is not invoked when the associated element is disabled",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 7537
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Thank, I know that this is an issue that is dear to you. I don't think I can get it into V4 but I promise I will try to do something like that in V5.\n\nCheers,\nLaurent",
+      "PostedDate": "2011-08-08T15:48:02.897-07:00",
+      "Id": 42239
+    },
+    {
+      "Message": "Fix is in Codeplex. Will release to Nuget in V5.2 on which I am currently working.",
+      "PostedDate": "2015-04-01T00:08:11.463-07:00",
+      "Id": 180601
+    }
+  ]
+}

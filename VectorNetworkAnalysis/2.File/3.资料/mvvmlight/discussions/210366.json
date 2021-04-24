@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "434801",
+    "ThreadId": "210366",
+    "Html": "<p>Dear Laurent,</p>\r\n<p>I continue learning how to properly manage the MVVM pattern. I am trying to develop a MainWindow (say a Grid as main Container) which should dynamically inyect a UserControl in the Grid (both inserting and removing diferent instances of the UserControl in the Grid as the app runs).</p>\r\n<p>Most of the examples about MVVM inyect a set of data by Binding using a ListView, ListBox,... with the ItemSource property. But, what about if I want to inyect a new Children directly to the Grid. How I should do the Binding?</p>\r\n<p>Thank you very much in advance.</p>",
+    "PostedDate": "2010-04-23T14:17:11.373-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

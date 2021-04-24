@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1465086",
+    "ThreadId": "651919",
+    "Html": "Hi,\r<br />\nI need to know what are differences between MvvmLight and MvvmLightLibs NuGet packages.\r<br />\nWhat is in MvvmLight that is not in MvvmLightLibs?\r<br />\nIt should be in package description.<br />\n",
+    "PostedDate": "2016-03-01T00:29:04.647-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1465261",
+    "ThreadId": "651919",
+    "Html": "MVVM Light Libs contains the DLLs. The MVVM Light package depends on the Libs one, and in addition does some scaffolding. Unfortunately in Windows 10 UWP, the new Nuget changed and doesn't let me do as much as I did in other frameworks. But that's beyond the point.\r<br />\n<br />\nI will double check the package descriptions and try to make it clearer in V5.3 (next version which I will release around Xamarin Evolve timeframe (end of April)).\r<br />\n<br />\nThanks for the feedback.<br />\n",
+    "PostedDate": "2016-03-02T05:13:07.193-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2016-03-02T05:42:20.247-08:00"
+  },
+  {
+    "Id": "1465891",
+    "ThreadId": "651919",
+    "Html": "I am putting all my hopes on support for .NET Framework 4.0 in V5.3 (because of Windows XP).<br />\n",
+    "PostedDate": "2016-03-07T04:08:02.333-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1465988",
+    "ThreadId": "651919",
+    "Html": "I am not sure what you mean. Can you elaborate?<br />\n",
+    "PostedDate": "2016-03-07T12:28:25.537-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1466042",
+    "ThreadId": "651919",
+    "Html": "I mean that I hope that MvvmLight libraries will not be build for .NET Framework newer than 4.0, in which case it will not be usable under Windows XP, because .NET Framework 4.0 is last version that supports Windows XP. 4.5, 4.6, 5.0 does not support Windows XP.<br />\n",
+    "PostedDate": "2016-03-07T23:52:07.307-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1466043",
+    "ThreadId": "651919",
+    "Html": "Ah ok! At the moment I continue to support .NET 4 and don't have plans to change that in the near future.\r<br />\n<br />\nThanks for the feedback.<br />\n",
+    "PostedDate": "2016-03-08T00:00:52.867-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1471136",
+    "ThreadId": "651919",
+    "Html": "Added a better description in the Nuget package description. This will be live next week in V5.3.<br />\n",
+    "PostedDate": "2016-04-23T15:07:59.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

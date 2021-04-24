@@ -1,0 +1,2427 @@
+[
+  {
+    "Id": "72629",
+    "Title": "Refactoring friendly INotifyPropertyChanged",
+    "LatestDate": "2010-05-14T03:50:16.413-07:00"
+  },
+  {
+    "Id": "73155",
+    "Title": "Great intro video on MVVM",
+    "LatestDate": "2009-10-27T13:18:57.273-07:00"
+  },
+  {
+    "Id": "74829",
+    "Title": "message with token",
+    "LatestDate": "2009-11-13T08:30:46.65-08:00"
+  },
+  {
+    "Id": "74835",
+    "Title": "EventToCommand",
+    "LatestDate": "2010-04-18T11:54:34.223-07:00"
+  },
+  {
+    "Id": "74854",
+    "Title": "Little bug in Messenger (v3)",
+    "LatestDate": "2010-04-18T11:53:03.65-07:00"
+  },
+  {
+    "Id": "75227",
+    "Title": "Attachable property 'Triggers' was not found in type 'Interaction'",
+    "LatestDate": "2010-07-30T10:45:11.333-07:00"
+  },
+  {
+    "Id": "75968",
+    "Title": "Messenger Implementation",
+    "LatestDate": "2010-04-18T11:55:06.32-07:00"
+  },
+  {
+    "Id": "78202",
+    "Title": "Exception while running the sample\\EventToCommad only for WPF",
+    "LatestDate": "2010-01-06T11:08:05.96-08:00"
+  },
+  {
+    "Id": "78922",
+    "Title": "Feature request for DialogMessage",
+    "LatestDate": "2009-12-23T09:47:14.457-08:00"
+  },
+  {
+    "Id": "78957",
+    "Title": "Check for New Version utilityt",
+    "LatestDate": "2009-12-23T08:58:19.5-08:00"
+  },
+  {
+    "Id": "79596",
+    "Title": "TreeView",
+    "LatestDate": "2010-04-18T11:56:35.743-07:00"
+  },
+  {
+    "Id": "79720",
+    "Title": "Neat Hack?: DataContext for Nested Views",
+    "LatestDate": "2010-04-18T11:57:18.2-07:00"
+  },
+  {
+    "Id": "80342",
+    "Title": "Event2Command for RightMouseButton",
+    "LatestDate": "2010-01-11T01:34:28.217-08:00"
+  },
+  {
+    "Id": "80447",
+    "Title": "EventToCommand in DataTemplate",
+    "LatestDate": "2010-01-13T09:29:52.303-08:00"
+  },
+  {
+    "Id": "80966",
+    "Title": "KeyBinding",
+    "LatestDate": "2010-03-25T03:57:25.623-07:00"
+  },
+  {
+    "Id": "81647",
+    "Title": "Larger examples?",
+    "LatestDate": "2010-01-21T18:00:02.213-08:00"
+  },
+  {
+    "Id": "82284",
+    "Title": "Blend reports an error that it cannot find the key for ViewModelLocator",
+    "LatestDate": "2012-01-10T04:15:52.223-08:00"
+  },
+  {
+    "Id": "83339",
+    "Title": "ViewModel ---> View-Code-Behind",
+    "LatestDate": "2010-02-07T11:25:02.45-08:00"
+  },
+  {
+    "Id": "199498",
+    "Title": "EventToCommand and SizeChanged",
+    "LatestDate": "2011-08-02T03:00:38.943-07:00"
+  },
+  {
+    "Id": "201493",
+    "Title": "Specify the datacontext in EventToCommand",
+    "LatestDate": "2010-04-18T11:58:43.53-07:00"
+  },
+  {
+    "Id": "203254",
+    "Title": "EventToCommand with Textbox GotFocus event results in an exception",
+    "LatestDate": "2010-04-18T11:59:19.61-07:00"
+  },
+  {
+    "Id": "203452",
+    "Title": "SL3 Nav framework ",
+    "LatestDate": "2010-03-01T11:48:58.94-08:00"
+  },
+  {
+    "Id": "205277",
+    "Title": "ViewModel Binding With Multiple Instances of View",
+    "LatestDate": "2012-06-06T04:43:33.14-07:00"
+  },
+  {
+    "Id": "207034",
+    "Title": "Debugging with the MVVM Light Toolkit",
+    "LatestDate": "2010-03-25T02:34:42.04-07:00"
+  },
+  {
+    "Id": "207169",
+    "Title": "EventToCommand vs. NullReferenceException",
+    "LatestDate": "2010-04-18T13:53:36.387-07:00"
+  },
+  {
+    "Id": "207188",
+    "Title": "Best practice for ViewModel listening for others' RaisePropertyChanged?",
+    "LatestDate": "2010-03-24T13:33:11.043-07:00"
+  },
+  {
+    "Id": "207384",
+    "Title": "Time synchronisation problem between View <-> ViewModel",
+    "LatestDate": "2010-03-29T07:00:59.843-07:00"
+  },
+  {
+    "Id": "207503",
+    "Title": "item.cs in project template",
+    "LatestDate": "2010-04-12T07:27:39.813-07:00"
+  },
+  {
+    "Id": "207680",
+    "Title": "MVVM Light Toolkit and XBAP application",
+    "LatestDate": "2010-03-29T11:13:05.353-07:00"
+  },
+  {
+    "Id": "207956",
+    "Title": "Requirements to use EventToCommand",
+    "LatestDate": "2010-04-07T11:34:52.063-07:00"
+  },
+  {
+    "Id": "208027",
+    "Title": "Passing Parameters to ViewModel Constructors",
+    "LatestDate": "2010-12-22T13:57:24.163-08:00"
+  },
+  {
+    "Id": "208063",
+    "Title": "EventToCommand versus InvokeCommandAction",
+    "LatestDate": "2010-04-01T14:06:17.47-07:00"
+  },
+  {
+    "Id": "208132",
+    "Title": "EventToCommand behavior and windows phone 7",
+    "LatestDate": "2010-04-05T11:49:32.967-07:00"
+  },
+  {
+    "Id": "208177",
+    "Title": "ViewModelBase.MessengerInstance Null",
+    "LatestDate": "2011-03-30T05:56:06.103-07:00"
+  },
+  {
+    "Id": "208362",
+    "Title": "EventTrigger does not fire",
+    "LatestDate": "2010-07-15T03:56:45.437-07:00"
+  },
+  {
+    "Id": "208503",
+    "Title": "Locator acrossed multiple projects",
+    "LatestDate": "2013-09-03T05:15:45.733-07:00"
+  },
+  {
+    "Id": "208559",
+    "Title": "SketchFlow and MvvM Light Toolkit",
+    "LatestDate": "2011-07-29T01:04:32.427-07:00"
+  },
+  {
+    "Id": "208664",
+    "Title": "binding properties between viewmodels?",
+    "LatestDate": "2010-05-17T15:48:20.913-07:00"
+  },
+  {
+    "Id": "208685",
+    "Title": "Difference in Command , RelayCommand & EventToCommand ?",
+    "LatestDate": "2010-04-14T22:37:26.29-07:00"
+  },
+  {
+    "Id": "208734",
+    "Title": "Application Bar Button or Menu capable of binding to RelayCommand or EventToCommand?",
+    "LatestDate": "2010-04-11T09:28:25.967-07:00"
+  },
+  {
+    "Id": "208765",
+    "Title": "MVVM-Light Loaded Evented Executing Twice",
+    "LatestDate": "2010-04-09T02:33:44.847-07:00"
+  },
+  {
+    "Id": "209048",
+    "Title": "Newbie Question",
+    "LatestDate": "2010-04-13T23:37:27.26-07:00"
+  },
+  {
+    "Id": "209098",
+    "Title": "Visual Studio RTM MVVM Light Error?",
+    "LatestDate": "2010-04-13T01:43:30.11-07:00"
+  },
+  {
+    "Id": "209122",
+    "Title": "Blendability of nested view models with MVVM Light",
+    "LatestDate": "2013-11-28T18:39:37.317-08:00"
+  },
+  {
+    "Id": "209214",
+    "Title": "Error when using EventToCommand",
+    "LatestDate": "2010-04-18T14:25:52.117-07:00"
+  },
+  {
+    "Id": "209231",
+    "Title": "MVVM Light and RIA WCF Service",
+    "LatestDate": "2010-12-14T08:09:10.357-08:00"
+  },
+  {
+    "Id": "209338",
+    "Title": "DialogMessage and Dialog Boxes",
+    "LatestDate": "2015-01-13T00:11:58.93-08:00"
+  },
+  {
+    "Id": "209518",
+    "Title": "How to Trigger Animations(Storyboard)",
+    "LatestDate": "2010-04-16T02:09:27.197-07:00"
+  },
+  {
+    "Id": "209620",
+    "Title": "Getting started",
+    "LatestDate": "2012-06-03T01:32:04.233-07:00"
+  },
+  {
+    "Id": "209660",
+    "Title": "How should Views and DataTemplates interact?",
+    "LatestDate": "2010-04-17T14:50:36.147-07:00"
+  },
+  {
+    "Id": "209705",
+    "Title": "DispatcherHelper Examples",
+    "LatestDate": "2010-11-09T06:31:54.423-08:00"
+  },
+  {
+    "Id": "209710",
+    "Title": "Master / child views and dependency properties",
+    "LatestDate": "2010-04-18T09:19:11.37-07:00"
+  },
+  {
+    "Id": "210047",
+    "Title": "How to access ViewModel's instance in Codebehind ?",
+    "LatestDate": "2010-04-21T23:11:20.59-07:00"
+  },
+  {
+    "Id": "210366",
+    "Title": "Dynamic inyection of UserControl in a MainWindow",
+    "LatestDate": "2010-04-23T14:17:11.373-07:00"
+  },
+  {
+    "Id": "210402",
+    "Title": "Code generator for MVVMLight (VB and C#)",
+    "LatestDate": "2010-07-11T12:36:26.36-07:00"
+  },
+  {
+    "Id": "210445",
+    "Title": "Messaging and Memory Management",
+    "LatestDate": "2010-04-25T04:03:37.74-07:00"
+  },
+  {
+    "Id": "210716",
+    "Title": "EventToCommand Syntax",
+    "LatestDate": "2010-05-07T02:30:06.967-07:00"
+  },
+  {
+    "Id": "210869",
+    "Title": "Unity",
+    "LatestDate": "2010-04-28T13:50:43.333-07:00"
+  },
+  {
+    "Id": "210892",
+    "Title": "Opening a new window from the MainWindow",
+    "LatestDate": "2010-04-29T03:57:05.14-07:00"
+  },
+  {
+    "Id": "211180",
+    "Title": "VerifyPropertyName",
+    "LatestDate": "2010-04-30T13:46:21.26-07:00"
+  },
+  {
+    "Id": "211441",
+    "Title": "WPF MVVM Get Parent from VIEW MODEL",
+    "LatestDate": "2010-05-03T15:59:40.327-07:00"
+  },
+  {
+    "Id": "211626",
+    "Title": "Update MVVMLight for WP7 April Refresh",
+    "LatestDate": "2011-02-21T07:51:22.913-08:00"
+  },
+  {
+    "Id": "211974",
+    "Title": "EventToCommand on Storyboard?",
+    "LatestDate": "2010-08-24T12:14:59.777-07:00"
+  },
+  {
+    "Id": "212293",
+    "Title": "RaisePropertyChanged(null) not supported.",
+    "LatestDate": "2011-09-06T03:44:30.52-07:00"
+  },
+  {
+    "Id": "212419",
+    "Title": "CanExecuteChanged event not raised.",
+    "LatestDate": "2010-08-31T18:59:09.373-07:00"
+  },
+  {
+    "Id": "212780",
+    "Title": "WP7 and NavigationService.",
+    "LatestDate": "2010-10-16T14:22:46.143-07:00"
+  },
+  {
+    "Id": "213085",
+    "Title": "No sample implementation of MVVM Light available?",
+    "LatestDate": "2010-05-18T14:10:19.307-07:00"
+  },
+  {
+    "Id": "213292",
+    "Title": "MVVM Toolkit",
+    "LatestDate": "2010-05-20T06:42:48.163-07:00"
+  },
+  {
+    "Id": "213758",
+    "Title": "Using InitParams with MVVM Light",
+    "LatestDate": "2010-05-27T11:21:08.153-07:00"
+  },
+  {
+    "Id": "214146",
+    "Title": "MVVM Playing Sounds and Storyboard",
+    "LatestDate": "2010-06-02T15:25:43.917-07:00"
+  },
+  {
+    "Id": "214548",
+    "Title": "RelayCommand and more parameter",
+    "LatestDate": "2011-03-03T20:55:22.003-08:00"
+  },
+  {
+    "Id": "215286",
+    "Title": "How to load new window?",
+    "LatestDate": "2010-06-08T01:50:14.14-07:00"
+  },
+  {
+    "Id": "215379",
+    "Title": "Messenger and multiple threads",
+    "LatestDate": "2010-06-09T01:06:18.213-07:00"
+  },
+  {
+    "Id": "215831",
+    "Title": "Modularity in MVVM light toolkit ?",
+    "LatestDate": "2010-06-12T16:22:23.39-07:00"
+  },
+  {
+    "Id": "216281",
+    "Title": "Binding Order",
+    "LatestDate": "2010-06-17T02:25:05.213-07:00"
+  },
+  {
+    "Id": "216285",
+    "Title": "MVVM Toolkit for WP7 & VS2010RTM",
+    "LatestDate": "2010-06-16T15:07:07.513-07:00"
+  },
+  {
+    "Id": "217602",
+    "Title": "Toolkit and XBAPs",
+    "LatestDate": "2010-06-28T10:46:45.39-07:00"
+  },
+  {
+    "Id": "217606",
+    "Title": "Requires reference to System.Windows in my ViewModel?",
+    "LatestDate": "2010-06-28T15:50:56.62-07:00"
+  },
+  {
+    "Id": "218085",
+    "Title": "Reloading collection of data after change or addition from outside source",
+    "LatestDate": "2010-07-01T17:00:19.977-07:00"
+  },
+  {
+    "Id": "219465",
+    "Title": "WP7 Tools Beta has breaking changes?",
+    "LatestDate": "2010-07-14T12:28:43.58-07:00"
+  },
+  {
+    "Id": "219566",
+    "Title": "TreeViewItem.Expanded and EventToCommand ",
+    "LatestDate": "2010-07-24T00:29:42.9-07:00"
+  },
+  {
+    "Id": "221232",
+    "Title": "Error Handling when ICommand fails",
+    "LatestDate": "2010-07-24T07:08:01.08-07:00"
+  },
+  {
+    "Id": "221504",
+    "Title": "Cannot find ButtonBaseExtensions.Command in SL4.dll",
+    "LatestDate": "2010-07-27T05:51:11.97-07:00"
+  },
+  {
+    "Id": "221851",
+    "Title": "Creating bindings dynamically",
+    "LatestDate": "2010-07-29T07:44:58.947-07:00"
+  },
+  {
+    "Id": "222004",
+    "Title": "Messaging - sending message to specific recipient.",
+    "LatestDate": "2010-07-30T07:50:22.007-07:00"
+  },
+  {
+    "Id": "222293",
+    "Title": "How to trigger Storyboard after Command has finished to execute",
+    "LatestDate": "2010-08-03T03:43:44.07-07:00"
+  },
+  {
+    "Id": "222454",
+    "Title": "Why a private version of System.Windows.Interactivity?",
+    "LatestDate": "2010-08-04T18:09:12.777-07:00"
+  },
+  {
+    "Id": "222828",
+    "Title": "Initializing the DispatcherHelper for WP7 - where?",
+    "LatestDate": "2010-08-11T02:11:13.313-07:00"
+  },
+  {
+    "Id": "223633",
+    "Title": "extMap files",
+    "LatestDate": "2010-08-15T09:41:31.447-07:00"
+  },
+  {
+    "Id": "224180",
+    "Title": "Typo",
+    "LatestDate": "2010-08-19T17:57:16.447-07:00"
+  },
+  {
+    "Id": "225472",
+    "Title": "Messenger Tokens and RaisePropertyChanged",
+    "LatestDate": "2012-06-18T10:22:44.067-07:00"
+  },
+  {
+    "Id": "228783",
+    "Title": "More advance sample with commands and more views/models",
+    "LatestDate": "2012-06-03T01:28:33.627-07:00"
+  },
+  {
+    "Id": "231246",
+    "Title": "Gesture behavior",
+    "LatestDate": "2011-01-04T04:11:58.353-08:00"
+  },
+  {
+    "Id": "231606",
+    "Title": "Dumping ViewModel into state on tombstoning fails as ViewModelBase does not have public paramaterless constructor",
+    "LatestDate": "2010-11-14T12:38:45.45-08:00"
+  },
+  {
+    "Id": "231716",
+    "Title": "MVVM datatemplate binding multiple views",
+    "LatestDate": "2010-12-22T14:07:28.09-08:00"
+  },
+  {
+    "Id": "232354",
+    "Title": "Is there going to be a new version of MVVM Light",
+    "LatestDate": "2010-11-02T02:39:24.643-07:00"
+  },
+  {
+    "Id": "233004",
+    "Title": "I can't get RelayCommand to work",
+    "LatestDate": "2010-11-02T04:11:02.283-07:00"
+  },
+  {
+    "Id": "233173",
+    "Title": "Migration from Winforms",
+    "LatestDate": "2010-11-02T13:49:19.253-07:00"
+  },
+  {
+    "Id": "233288",
+    "Title": "Using EventToCommand in a DataTemplate",
+    "LatestDate": "2010-11-05T01:09:57.617-07:00"
+  },
+  {
+    "Id": "233533",
+    "Title": "Silverlight 4 Source Code",
+    "LatestDate": "2010-11-22T11:33:10.973-08:00"
+  },
+  {
+    "Id": "234257",
+    "Title": "Call relay command from code",
+    "LatestDate": "2010-11-26T03:15:27.37-08:00"
+  },
+  {
+    "Id": "235025",
+    "Title": "Control suite requires a control not vm to run correectly",
+    "LatestDate": "2010-11-17T12:29:08.153-08:00"
+  },
+  {
+    "Id": "235068",
+    "Title": "Messenger and references",
+    "LatestDate": "2013-11-27T16:02:45.38-08:00"
+  },
+  {
+    "Id": "235196",
+    "Title": "Collection Modified issue",
+    "LatestDate": "2011-09-30T05:38:57.613-07:00"
+  },
+  {
+    "Id": "235293",
+    "Title": "How to handle updated items in an observable collection",
+    "LatestDate": "2010-11-19T06:01:50.83-08:00"
+  },
+  {
+    "Id": "235360",
+    "Title": "Error - The attachable property 'Triggers' was not found in type 'Interactivty'",
+    "LatestDate": "2010-11-19T14:43:29.37-08:00"
+  },
+  {
+    "Id": "235601",
+    "Title": "Messaging issue with complex types",
+    "LatestDate": "2010-11-22T09:05:47.58-08:00"
+  },
+  {
+    "Id": "236504",
+    "Title": "Blendability for Edit ViewModel",
+    "LatestDate": "2010-11-30T05:00:05.67-08:00"
+  },
+  {
+    "Id": "237635",
+    "Title": "Where to place async web service methods",
+    "LatestDate": "2010-12-09T10:34:18.49-08:00"
+  },
+  {
+    "Id": "237990",
+    "Title": "Installer for the toolkit?",
+    "LatestDate": "2010-12-11T03:17:31.477-08:00"
+  },
+  {
+    "Id": "238275",
+    "Title": "Best practice for authentication of users",
+    "LatestDate": "2010-12-14T00:46:44.37-08:00"
+  },
+  {
+    "Id": "238473",
+    "Title": "StyleCop Compliance",
+    "LatestDate": "2010-12-15T08:14:07.457-08:00"
+  },
+  {
+    "Id": "238682",
+    "Title": "EventToCommand for the ListBox selectedItems",
+    "LatestDate": "2010-12-16T16:41:27.16-08:00"
+  },
+  {
+    "Id": "239123",
+    "Title": "Posted VB Snippets",
+    "LatestDate": "2010-12-21T07:04:10.943-08:00"
+  },
+  {
+    "Id": "239577",
+    "Title": "Messaging a object comes to late.",
+    "LatestDate": "2011-01-13T09:41:45.277-08:00"
+  },
+  {
+    "Id": "239657",
+    "Title": "Queries on MVVM Light Toolkit",
+    "LatestDate": "2010-12-27T06:39:05.477-08:00"
+  },
+  {
+    "Id": "239672",
+    "Title": "How do I Insert Record through WCF ",
+    "LatestDate": "2010-12-27T09:16:30.2-08:00"
+  },
+  {
+    "Id": "240041",
+    "Title": "VB Versions of Templates and Snippets",
+    "LatestDate": "2013-08-11T10:32:36.357-07:00"
+  },
+  {
+    "Id": "240135",
+    "Title": "Caliburn-style Coroutines in MVVM Light",
+    "LatestDate": "2011-01-01T00:18:10.88-08:00"
+  },
+  {
+    "Id": "240319",
+    "Title": "Intellisensed RaisePropertyChanged..",
+    "LatestDate": "2011-01-13T09:10:10.83-08:00"
+  },
+  {
+    "Id": "240422",
+    "Title": "Best practice for ViewModel interaction",
+    "LatestDate": "2011-01-04T23:42:21.74-08:00"
+  },
+  {
+    "Id": "240680",
+    "Title": "Silverlight GestureService and EventToCommand",
+    "LatestDate": "2011-09-19T01:16:47.37-07:00"
+  },
+  {
+    "Id": "240682",
+    "Title": "ItemsControl Item MouseDown Event and ViewModel Command",
+    "LatestDate": "2011-01-06T04:02:41.313-08:00"
+  },
+  {
+    "Id": "240696",
+    "Title": "WP7 NavigationService and MVVMLight",
+    "LatestDate": "2011-01-07T05:51:47.11-08:00"
+  },
+  {
+    "Id": "240886",
+    "Title": "EventToCommand, PassEventArgsToCommand, Loaded event",
+    "LatestDate": "2011-01-07T11:15:04.273-08:00"
+  },
+  {
+    "Id": "241375",
+    "Title": "Sample of MVVM Light working with NotifyPropertyWeaver",
+    "LatestDate": "2011-01-11T17:08:43.957-08:00"
+  },
+  {
+    "Id": "241420",
+    "Title": "DialogMessage",
+    "LatestDate": "2011-01-12T05:16:15.59-08:00"
+  },
+  {
+    "Id": "241481",
+    "Title": "Best Practice Question",
+    "LatestDate": "2011-01-12T21:09:32.547-08:00"
+  },
+  {
+    "Id": "241815",
+    "Title": "using the toolkit with Microsoft.Practices.EnterpriseLibrary.Logging",
+    "LatestDate": "2011-02-15T06:53:10.817-08:00"
+  },
+  {
+    "Id": "242778",
+    "Title": "DispatcherHelper.Initialize() modification?",
+    "LatestDate": "2011-01-21T09:19:43.003-08:00"
+  },
+  {
+    "Id": "242908",
+    "Title": "Async variant of Messenger",
+    "LatestDate": "2011-01-23T02:05:14.587-08:00"
+  },
+  {
+    "Id": "243013",
+    "Title": "Passing Parameters in Behaviours",
+    "LatestDate": "2012-04-22T04:35:04.957-07:00"
+  },
+  {
+    "Id": "243180",
+    "Title": "‘Silverlight unleashed’: How to use ViewModelLocator with multiple MVVM assemblies?",
+    "LatestDate": "2012-04-20T08:16:32.83-07:00"
+  },
+  {
+    "Id": "243955",
+    "Title": "RaisePropertyChanged using StackTrace takes away all magic strings",
+    "LatestDate": "2011-08-02T05:58:56.503-07:00"
+  },
+  {
+    "Id": "244251",
+    "Title": "Multiple ViewModels getting created",
+    "LatestDate": "2011-02-01T22:55:04.347-08:00"
+  },
+  {
+    "Id": "244930",
+    "Title": "Issue in trigger the Command from Infragistics.Silverlight.Controls ButtonTool ,not able to execute the command using with EventToCommand",
+    "LatestDate": "2011-07-26T01:14:39.703-07:00"
+  },
+  {
+    "Id": "246113",
+    "Title": "ViewModelLocator for several entities in MVVM + Services",
+    "LatestDate": "2011-02-16T07:08:27.98-08:00"
+  },
+  {
+    "Id": "247523",
+    "Title": "vssver2.scc in download",
+    "LatestDate": "2011-02-25T02:13:18.23-08:00"
+  },
+  {
+    "Id": "248321",
+    "Title": "MVVM light- Pass data to nested views",
+    "LatestDate": "2011-03-03T08:30:58.593-08:00"
+  },
+  {
+    "Id": "248864",
+    "Title": "Packages on Nuget",
+    "LatestDate": "2011-04-01T12:48:42.383-07:00"
+  },
+  {
+    "Id": "249162",
+    "Title": "RelayCommand not firing",
+    "LatestDate": "2011-03-16T10:50:19.27-07:00"
+  },
+  {
+    "Id": "250142",
+    "Title": "Error Compiling and using newest GalaSoft.MvvmLight (NET4) release.",
+    "LatestDate": "2011-03-20T12:40:07.303-07:00"
+  },
+  {
+    "Id": "250961",
+    "Title": "Uninstalling MVVM Light through NuGet removes System.Windows.Interactivity reference",
+    "LatestDate": "2011-03-23T22:35:00.093-07:00"
+  },
+  {
+    "Id": "251794",
+    "Title": "What about a generic CollectionViewModel which wraps a model collection",
+    "LatestDate": "2011-05-04T05:00:18.88-07:00"
+  },
+  {
+    "Id": "252035",
+    "Title": "Usercontrol Interaction",
+    "LatestDate": "2011-03-31T13:10:59.743-07:00"
+  },
+  {
+    "Id": "252200",
+    "Title": "RelayCommand and tombstoning",
+    "LatestDate": "2011-04-01T12:27:33.283-07:00"
+  },
+  {
+    "Id": "252281",
+    "Title": "Latest version ViewModelBase in in data still not serializable",
+    "LatestDate": "2011-04-06T13:25:45.22-07:00"
+  },
+  {
+    "Id": "252520",
+    "Title": "SharpDevelop support",
+    "LatestDate": "2011-04-05T01:01:47.28-07:00"
+  },
+  {
+    "Id": "252898",
+    "Title": "KeyEventToCommand ",
+    "LatestDate": "2011-06-22T12:51:49.977-07:00"
+  },
+  {
+    "Id": "253413",
+    "Title": "GalaSoft.MvvmLight.ViewModelBase and DataContractAttribute",
+    "LatestDate": "2013-01-25T12:25:33.177-08:00"
+  },
+  {
+    "Id": "253822",
+    "Title": "XmlnsDefinitionAttribute",
+    "LatestDate": "2011-09-02T12:54:52.18-07:00"
+  },
+  {
+    "Id": "253823",
+    "Title": "INotifyPropertyChanging",
+    "LatestDate": "2011-11-29T15:14:08.717-08:00"
+  },
+  {
+    "Id": "254555",
+    "Title": "ViewModelLocator with IOC child containers?",
+    "LatestDate": "2011-04-19T14:22:19.153-07:00"
+  },
+  {
+    "Id": "255158",
+    "Title": "Targeting Client Framework",
+    "LatestDate": "2011-04-25T02:41:48.07-07:00"
+  },
+  {
+    "Id": "255905",
+    "Title": "IsEnabled property of RelayCommand not showing expected behavior to enable and disable the control on changing that property",
+    "LatestDate": "2011-05-03T20:25:25.66-07:00"
+  },
+  {
+    "Id": "255934",
+    "Title": "Oops - did the src get omitted?",
+    "LatestDate": "2011-05-02T23:08:58.007-07:00"
+  },
+  {
+    "Id": "256073",
+    "Title": "Target release for v4",
+    "LatestDate": "2011-07-18T09:56:09.363-07:00"
+  },
+  {
+    "Id": "256510",
+    "Title": "TypeLoadException looking for Microsoft.Practices.ServiceLocation",
+    "LatestDate": "2011-05-09T13:15:49.82-07:00"
+  },
+  {
+    "Id": "256667",
+    "Title": "Printing from VM",
+    "LatestDate": "2011-05-06T08:14:18.747-07:00"
+  },
+  {
+    "Id": "256798",
+    "Title": "MVVM Light Code Snippets only working in Visual Studio Express Edition for WP7",
+    "LatestDate": "2012-01-10T01:42:59.763-08:00"
+  },
+  {
+    "Id": "257474",
+    "Title": "New UIDispatchMessageBase Class",
+    "LatestDate": "2011-05-12T22:40:52.96-07:00"
+  },
+  {
+    "Id": "258061",
+    "Title": "Dynamicaly attaching UserControls to a Window and VM interaction",
+    "LatestDate": "2011-05-18T04:22:36.953-07:00"
+  },
+  {
+    "Id": "258378",
+    "Title": "WeakAction question",
+    "LatestDate": "2011-06-09T15:18:14.087-07:00"
+  },
+  {
+    "Id": "258440",
+    "Title": "Resource Dictionary + ViewModelLocator",
+    "LatestDate": "2011-05-30T06:05:32.06-07:00"
+  },
+  {
+    "Id": "258900",
+    "Title": "MEF with Messaging issue",
+    "LatestDate": "2011-06-02T09:47:45.28-07:00"
+  },
+  {
+    "Id": "259098",
+    "Title": "Best Place to Dispose Messages",
+    "LatestDate": "2011-06-14T01:26:15.747-07:00"
+  },
+  {
+    "Id": "259271",
+    "Title": "VMLocator or IoC",
+    "LatestDate": "2011-05-27T07:54:36.387-07:00"
+  },
+  {
+    "Id": "259644",
+    "Title": "How can iUsing from OpenFileDialog ?",
+    "LatestDate": "2011-05-31T07:29:11.827-07:00"
+  },
+  {
+    "Id": "259792",
+    "Title": "Using the latest source code?",
+    "LatestDate": "2011-06-02T03:40:29.943-07:00"
+  },
+  {
+    "Id": "260567",
+    "Title": "MVVM Light Creating New Views",
+    "LatestDate": "2012-07-18T03:03:06.293-07:00"
+  },
+  {
+    "Id": "260859",
+    "Title": "Adding Code Contracts ",
+    "LatestDate": "2011-06-09T23:02:04.22-07:00"
+  },
+  {
+    "Id": "261465",
+    "Title": "<Feature Request> Messenger NotificationMessageAction support for Objects as notification",
+    "LatestDate": "2016-09-15T07:32:10.363-07:00"
+  },
+  {
+    "Id": "261836",
+    "Title": "SimpleIoc auto register",
+    "LatestDate": "2011-06-30T02:18:50.087-07:00"
+  },
+  {
+    "Id": "262309",
+    "Title": "Program Files",
+    "LatestDate": "2011-06-22T05:10:14.6-07:00"
+  },
+  {
+    "Id": "262387",
+    "Title": "MVVMLight blocking UI Updates?",
+    "LatestDate": "2011-06-30T02:09:36.39-07:00"
+  },
+  {
+    "Id": "262988",
+    "Title": "Strange problem with MVVM and hid device",
+    "LatestDate": "2011-06-28T04:07:55.837-07:00"
+  },
+  {
+    "Id": "263774",
+    "Title": "Problem?",
+    "LatestDate": "2011-07-04T00:40:21.867-07:00"
+  },
+  {
+    "Id": "263838",
+    "Title": "SingleRecipient attribute",
+    "LatestDate": "2011-07-04T08:56:14.88-07:00"
+  },
+  {
+    "Id": "263994",
+    "Title": "Validation Error not throwing",
+    "LatestDate": "2011-07-05T13:25:49.747-07:00"
+  },
+  {
+    "Id": "264618",
+    "Title": "Selectionchanged event/EventToCommand trigger for a Listbox within contentcontrol/style in a WP7 app using MVVM light ",
+    "LatestDate": "2011-07-10T21:48:54.867-07:00"
+  },
+  {
+    "Id": "264805",
+    "Title": "Any plans to support Portable Library Tools?",
+    "LatestDate": "2011-07-12T04:43:19.213-07:00"
+  },
+  {
+    "Id": "264889",
+    "Title": "v4 Release",
+    "LatestDate": "2011-10-17T12:58:00.213-07:00"
+  },
+  {
+    "Id": "266092",
+    "Title": "ReactiveMessageBase<T>",
+    "LatestDate": "2011-07-23T09:09:01.927-07:00"
+  },
+  {
+    "Id": "266677",
+    "Title": "How can I access a UserControl (MediaElement) in the View from the ViewModel",
+    "LatestDate": "2011-08-16T12:03:33.56-07:00"
+  },
+  {
+    "Id": "267282",
+    "Title": "Messenger and MessageBox.Show acts weird",
+    "LatestDate": "2011-08-01T04:50:04.083-07:00"
+  },
+  {
+    "Id": "267324",
+    "Title": "MDI Application and Child Windows",
+    "LatestDate": "2011-08-01T10:12:26.79-07:00"
+  },
+  {
+    "Id": "268594",
+    "Title": "Silverlight, MEF and Messaging - Sending but not receiving...",
+    "LatestDate": "2011-08-12T09:30:54.43-07:00"
+  },
+  {
+    "Id": "268849",
+    "Title": "Passing a reference through a message",
+    "LatestDate": "2011-08-12T07:39:00.767-07:00"
+  },
+  {
+    "Id": "269227",
+    "Title": "ViewModelBase partial?",
+    "LatestDate": "2011-08-29T14:17:21.28-07:00"
+  },
+  {
+    "Id": "269303",
+    "Title": "Automagical Messenger registration",
+    "LatestDate": "2011-08-16T12:34:29.093-07:00"
+  },
+  {
+    "Id": "270542",
+    "Title": "MVVM for us VB.net Lovers",
+    "LatestDate": "2015-01-15T09:27:00.627-08:00"
+  },
+  {
+    "Id": "272358",
+    "Title": "MVVMLight V4 beta installer",
+    "LatestDate": "2011-10-31T04:08:04.887-07:00"
+  },
+  {
+    "Id": "273724",
+    "Title": "Localizing a WP7 application in runtime using MVVM Light",
+    "LatestDate": "2011-09-24T17:32:59.077-07:00"
+  },
+  {
+    "Id": "274568",
+    "Title": "WP7 tombstoning with serialization ",
+    "LatestDate": "2011-10-08T14:24:56.117-07:00"
+  },
+  {
+    "Id": "274590",
+    "Title": "Sample for Win8/WinRT Metro style app?",
+    "LatestDate": "2011-10-03T10:01:27.68-07:00"
+  },
+  {
+    "Id": "274732",
+    "Title": "Win8 version install fail",
+    "LatestDate": "2011-10-09T15:26:20.207-07:00"
+  },
+  {
+    "Id": "274919",
+    "Title": "encountering error with V3 installer.",
+    "LatestDate": "2013-07-01T02:59:06.073-07:00"
+  },
+  {
+    "Id": "276034",
+    "Title": "Small applications ...",
+    "LatestDate": "2011-10-15T22:03:25.137-07:00"
+  },
+  {
+    "Id": "277610",
+    "Title": "Best Practice to send Messages",
+    "LatestDate": "2011-10-28T23:42:55.71-07:00"
+  },
+  {
+    "Id": "277637",
+    "Title": "Using Messenger leads ViewModel assembly references PresentationFramework",
+    "LatestDate": "2011-10-31T02:17:08.297-07:00"
+  },
+  {
+    "Id": "277848",
+    "Title": "Proposed folder structure for VS Project Template",
+    "LatestDate": "2011-11-01T00:03:48.01-07:00"
+  },
+  {
+    "Id": "279193",
+    "Title": "DialogMessage in Windows 8",
+    "LatestDate": "2011-11-20T11:21:16.807-08:00"
+  },
+  {
+    "Id": "279435",
+    "Title": "Upgraded to v4 now relay commands not working",
+    "LatestDate": "2011-11-20T10:52:37.3-08:00"
+  },
+  {
+    "Id": "279636",
+    "Title": "Using a MVVM Light in a class library project",
+    "LatestDate": "2011-11-20T10:36:42.133-08:00"
+  },
+  {
+    "Id": "281605",
+    "Title": "Getting confuse with views and Locator",
+    "LatestDate": "2011-12-03T07:40:09.287-08:00"
+  },
+  {
+    "Id": "282367",
+    "Title": "Navigation in Windows 8 Metro Style Applications",
+    "LatestDate": "2012-08-06T05:27:15.483-07:00"
+  },
+  {
+    "Id": "285320",
+    "Title": "Task Messenger.SendAsync<T>",
+    "LatestDate": "2012-01-07T10:28:11.197-08:00"
+  },
+  {
+    "Id": "285361",
+    "Title": "Extended ViewModelBase",
+    "LatestDate": "2012-01-08T04:13:13.76-08:00"
+  },
+  {
+    "Id": "285562",
+    "Title": "ViewModelLocator in MVVM Version 4",
+    "LatestDate": "2012-01-09T23:45:23.197-08:00"
+  },
+  {
+    "Id": "286793",
+    "Title": "Using EventToCommand in an ItemsControl ",
+    "LatestDate": "2012-01-20T02:59:08.677-08:00"
+  },
+  {
+    "Id": "290170",
+    "Title": "ObservableRelayCommand?",
+    "LatestDate": "2012-02-02T01:18:53.883-08:00"
+  },
+  {
+    "Id": "291012",
+    "Title": "SL5 assemblies missing XmlnsDefinition",
+    "LatestDate": "2012-02-20T13:29:27.59-08:00"
+  },
+  {
+    "Id": "299490",
+    "Title": "UpdateCommandParameterBeforeExecuting ",
+    "LatestDate": "2012-02-08T21:25:31.483-08:00"
+  },
+  {
+    "Id": "327751",
+    "Title": "bind in code behind",
+    "LatestDate": "2012-02-20T13:04:21.25-08:00"
+  },
+  {
+    "Id": "346445",
+    "Title": "wp7 DispatcherHelper.Initialize(); template inclusion? ",
+    "LatestDate": "2012-02-27T22:03:23.72-08:00"
+  },
+  {
+    "Id": "347005",
+    "Title": "Windows 8 Consumer Preview",
+    "LatestDate": "2012-05-21T04:36:29.547-07:00"
+  },
+  {
+    "Id": "347546",
+    "Title": "Performance issue?",
+    "LatestDate": "2012-03-06T11:57:04.303-08:00"
+  },
+  {
+    "Id": "348118",
+    "Title": "PropertyChangingEventArgs Error",
+    "LatestDate": "2012-03-10T15:17:11.277-08:00"
+  },
+  {
+    "Id": "349115",
+    "Title": "DependencyObject issue",
+    "LatestDate": "2012-05-20T23:54:40.42-07:00"
+  },
+  {
+    "Id": "350504",
+    "Title": "Re-using a UserControl based in MVVM Light",
+    "LatestDate": "2012-03-29T08:18:55.39-07:00"
+  },
+  {
+    "Id": "350518",
+    "Title": "RelayCommand - V4 vs V3",
+    "LatestDate": "2012-05-22T00:18:25.843-07:00"
+  },
+  {
+    "Id": "350928",
+    "Title": "ViewModelLocator and refreshing shared data?",
+    "LatestDate": "2012-04-02T14:13:41.823-07:00"
+  },
+  {
+    "Id": "352320",
+    "Title": "Behaviour of mvvmlocatorproperty snippet",
+    "LatestDate": "2012-04-14T23:37:34.727-07:00"
+  },
+  {
+    "Id": "353774",
+    "Title": "RelayCommand and WeakActions. Why?",
+    "LatestDate": "2013-10-04T01:33:35.77-07:00"
+  },
+  {
+    "Id": "354957",
+    "Title": "Installing MVVM Light via NuGet",
+    "LatestDate": "2012-05-08T17:43:03.287-07:00"
+  },
+  {
+    "Id": "355560",
+    "Title": "Peformance issue when navigating back and forth to same page",
+    "LatestDate": "2012-05-12T06:37:58.443-07:00"
+  },
+  {
+    "Id": "356165",
+    "Title": "Debugging between VS 2011 beta and Blend 5 beta",
+    "LatestDate": "2012-11-23T09:38:24.637-08:00"
+  },
+  {
+    "Id": "357437",
+    "Title": "How the ViewModel access the View's control",
+    "LatestDate": "2012-05-28T18:08:28.22-07:00"
+  },
+  {
+    "Id": "357958",
+    "Title": "Portable Class Library in VS2011",
+    "LatestDate": "2012-11-30T06:42:56.047-08:00"
+  },
+  {
+    "Id": "358031",
+    "Title": "MEF for Metro style apps changes",
+    "LatestDate": "2012-06-01T14:17:13.013-07:00"
+  },
+  {
+    "Id": "358365",
+    "Title": "Pass parameter into ViewModel",
+    "LatestDate": "2012-11-02T18:18:35.17-07:00"
+  },
+  {
+    "Id": "358659",
+    "Title": "ViewModelBase.Set() vs ObservableObject.Set()",
+    "LatestDate": "2012-06-10T12:45:27.993-07:00"
+  },
+  {
+    "Id": "359051",
+    "Title": "Looking for examples or documentation",
+    "LatestDate": "2012-06-10T07:25:16.63-07:00"
+  },
+  {
+    "Id": "359669",
+    "Title": "MvvmLight (WP71) Template - Need a simple two views example",
+    "LatestDate": "2012-06-14T12:42:09.417-07:00"
+  },
+  {
+    "Id": "360000",
+    "Title": "Sample code in ViewModelLocater",
+    "LatestDate": "2012-08-22T04:53:57.84-07:00"
+  },
+  {
+    "Id": "360128",
+    "Title": "SimpleIoc missing in MVVM v4 ?",
+    "LatestDate": "2012-07-09T09:08:37.737-07:00"
+  },
+  {
+    "Id": "361867",
+    "Title": "Are there plans for easing the use of the INotifyDataErrorInfo interface in ViewModelBase",
+    "LatestDate": "2012-07-03T12:32:13.91-07:00"
+  },
+  {
+    "Id": "362547",
+    "Title": "RelayCommand in Silverlight (CanExecute issue)",
+    "LatestDate": "2012-07-09T08:40:22.037-07:00"
+  },
+  {
+    "Id": "362814",
+    "Title": "MSI installer did not install templates or snippets",
+    "LatestDate": "2013-09-25T00:03:13.99-07:00"
+  },
+  {
+    "Id": "366413",
+    "Title": "RaisePropertyChanged variants",
+    "LatestDate": "2012-07-16T13:49:25.433-07:00"
+  },
+  {
+    "Id": "389068",
+    "Title": "install error why??",
+    "LatestDate": "2012-07-30T00:11:23.21-07:00"
+  },
+  {
+    "Id": "389276",
+    "Title": "PropertyObserver class",
+    "LatestDate": "2012-07-27T03:28:29.907-07:00"
+  },
+  {
+    "Id": "389279",
+    "Title": "RelayCommand and CommandManager lack in SL",
+    "LatestDate": "2012-07-27T02:09:37.6-07:00"
+  },
+  {
+    "Id": "389280",
+    "Title": "Share ViewModelLocator",
+    "LatestDate": "2012-07-27T03:07:24.873-07:00"
+  },
+  {
+    "Id": "389385",
+    "Title": "ObservableObject and notifications on UI thread",
+    "LatestDate": "2012-07-31T08:57:14.713-07:00"
+  },
+  {
+    "Id": "389397",
+    "Title": "Incoerent behaviour in ViewModelBase.RaisePropertyChanged<T>(Expression...) overload",
+    "LatestDate": "2012-09-19T14:13:40.877-07:00"
+  },
+  {
+    "Id": "389706",
+    "Title": "(WPF) RelayCommand.CanExecuteChanged event does not keep a strong reference ",
+    "LatestDate": "2012-08-02T04:43:47.837-07:00"
+  },
+  {
+    "Id": "389709",
+    "Title": "VS Snippets mvvmRelay*Generic* missing type parameter in declaration",
+    "LatestDate": "2012-07-31T06:21:24.467-07:00"
+  },
+  {
+    "Id": "389808",
+    "Title": "How to use ViewModelLocator in both app project and class library project ?",
+    "LatestDate": "2012-07-31T19:16:42.44-07:00"
+  },
+  {
+    "Id": "390421",
+    "Title": "state handling in windows 8 using mvvmlight",
+    "LatestDate": "2012-08-31T07:36:50.923-07:00"
+  },
+  {
+    "Id": "390451",
+    "Title": "EventToCommand built with older version of Blend SDK error",
+    "LatestDate": "2013-05-31T05:03:21.733-07:00"
+  },
+  {
+    "Id": "390875",
+    "Title": "Documentation or Sample application for WINRT",
+    "LatestDate": "2012-08-09T07:27:15.687-07:00"
+  },
+  {
+    "Id": "393502",
+    "Title": "Cant find project templates in extension manager",
+    "LatestDate": "2012-08-29T04:51:42.33-07:00"
+  },
+  {
+    "Id": "393976",
+    "Title": "MVVMLight sample application for WINRT",
+    "LatestDate": "2013-04-05T05:21:53.193-07:00"
+  },
+  {
+    "Id": "394689",
+    "Title": "Auto generated files not using assigned Aliases.",
+    "LatestDate": "2012-09-06T13:50:57.497-07:00"
+  },
+  {
+    "Id": "394794",
+    "Title": "Creating view models in WP7 using MVVMLiight v 4.0",
+    "LatestDate": "2012-09-07T10:44:34.023-07:00"
+  },
+  {
+    "Id": "396670",
+    "Title": "MVVM Light Documentation is Needed!",
+    "LatestDate": "2012-10-17T01:56:58.497-07:00"
+  },
+  {
+    "Id": "397175",
+    "Title": "Strange bug in WakactionGeneric",
+    "LatestDate": "2012-09-27T08:06:48.423-07:00"
+  },
+  {
+    "Id": "398932",
+    "Title": "Windows phone 8 support",
+    "LatestDate": "2014-05-11T09:30:51.6-07:00"
+  },
+  {
+    "Id": "399228",
+    "Title": "Cannot find a Resource with the Name/Key ApplicationHeaderForegroundThemeBrush",
+    "LatestDate": "2012-10-14T04:10:15.933-07:00"
+  },
+  {
+    "Id": "399235",
+    "Title": "VS 2012 WPF",
+    "LatestDate": "2012-10-21T13:06:57.647-07:00"
+  },
+  {
+    "Id": "399257",
+    "Title": "Handling dialogs and file pickers in Metro apps using MVVM Light",
+    "LatestDate": "2012-10-13T19:06:23.48-07:00"
+  },
+  {
+    "Id": "399415",
+    "Title": "Win 8 certification test error",
+    "LatestDate": "2012-10-16T09:40:00.95-07:00"
+  },
+  {
+    "Id": "399998",
+    "Title": "Win8, Window RT and WP8 Support",
+    "LatestDate": "2012-11-17T10:50:09.553-08:00"
+  },
+  {
+    "Id": "400325",
+    "Title": "MVVM Light 4 Install Issue on XP SP3.",
+    "LatestDate": "2012-10-23T06:41:11.367-07:00"
+  },
+  {
+    "Id": "401430",
+    "Title": "Could not load type 'INotifyPropertyChanging' error in VS 2012 Premium with MvvmLight 4.1.24.0",
+    "LatestDate": "2013-05-19T11:13:41.21-07:00"
+  },
+  {
+    "Id": "401859",
+    "Title": "Suggestion for ViewModelLocator template modification",
+    "LatestDate": "2012-11-05T11:41:40.163-08:00"
+  },
+  {
+    "Id": "402277",
+    "Title": "Does the ViewModelLocator have a different load order then in-code DataContext assignment?",
+    "LatestDate": "2012-11-13T13:17:32.09-08:00"
+  },
+  {
+    "Id": "402279",
+    "Title": "Ghost view instances",
+    "LatestDate": "2012-11-07T08:42:45.023-08:00"
+  },
+  {
+    "Id": "402479",
+    "Title": "Missing UniversalConverter in MvvmLight 4.1.24.16313",
+    "LatestDate": "2014-03-12T12:02:08.773-07:00"
+  },
+  {
+    "Id": "403509",
+    "Title": "IsEnabled does not Work as expected",
+    "LatestDate": "2012-11-19T04:02:11.713-08:00"
+  },
+  {
+    "Id": "404080",
+    "Title": "ObservableObject is not marked as serializable?",
+    "LatestDate": "2012-11-21T07:04:12.263-08:00"
+  },
+  {
+    "Id": "404181",
+    "Title": "incompatible dll versions",
+    "LatestDate": "2012-11-21T23:12:26.083-08:00"
+  },
+  {
+    "Id": "404968",
+    "Title": "Managing busy state with MVVM Light",
+    "LatestDate": "2012-11-29T18:00:40.273-08:00"
+  },
+  {
+    "Id": "405122",
+    "Title": "Logging/Instrumentation",
+    "LatestDate": "2012-11-30T01:37:52.453-08:00"
+  },
+  {
+    "Id": "405468",
+    "Title": "Portable Class Library + MVVM Light C# Store Application",
+    "LatestDate": "2012-12-14T05:11:28.013-08:00"
+  },
+  {
+    "Id": "405556",
+    "Title": "Code snippets not working after latest VS 2012 update",
+    "LatestDate": "2014-01-02T07:22:12.347-08:00"
+  },
+  {
+    "Id": "406323",
+    "Title": "Autogenerated code",
+    "LatestDate": "2012-12-11T00:27:40.317-08:00"
+  },
+  {
+    "Id": "406379",
+    "Title": "Bindable App bar",
+    "LatestDate": "2012-12-11T04:05:49.54-08:00"
+  },
+  {
+    "Id": "407052",
+    "Title": "VS 2010 version",
+    "LatestDate": "2013-03-07T13:22:58.153-08:00"
+  },
+  {
+    "Id": "407419",
+    "Title": "Expression Blend 4 Template for WPF 4.5 Project",
+    "LatestDate": "2012-12-20T09:14:53.13-08:00"
+  },
+  {
+    "Id": "410899",
+    "Title": "Multiple Windows",
+    "LatestDate": "2012-12-20T09:40:28.123-08:00"
+  },
+  {
+    "Id": "415143",
+    "Title": "MVVM Light Messenger Action Executing Multiple Times",
+    "LatestDate": "2012-12-21T07:16:37.427-08:00"
+  },
+  {
+    "Id": "415203",
+    "Title": "Passing parameters to a view model",
+    "LatestDate": "2012-12-22T03:08:19.53-08:00"
+  },
+  {
+    "Id": "415259",
+    "Title": "Target WP7.1 from VS2012 using v4.x of MVVM Light",
+    "LatestDate": "2014-02-06T10:35:39.613-08:00"
+  },
+  {
+    "Id": "427825",
+    "Title": "RaisePropertyChanging and RaisePropertyChanged automatically",
+    "LatestDate": "2012-12-27T12:03:52.59-08:00"
+  },
+  {
+    "Id": "427830",
+    "Title": "FUCKING EVENTTOCOMMAND DOESN T WOR",
+    "LatestDate": "2015-04-30T12:53:06.193-07:00"
+  },
+  {
+    "Id": "428531",
+    "Title": "No templates and no snippets",
+    "LatestDate": "2013-01-05T09:09:25.467-08:00"
+  },
+  {
+    "Id": "428701",
+    "Title": "MVVM Light Toolkit doesn't work on WP 7.1 project in VS 2012 Express",
+    "LatestDate": "2013-04-29T02:50:56.893-07:00"
+  },
+  {
+    "Id": "428830",
+    "Title": "Is it worth changing ViewModelBase.RaisePropertyChanged to use the CallerMemberName attribute?",
+    "LatestDate": "2013-01-16T20:11:00.273-08:00"
+  },
+  {
+    "Id": "428974",
+    "Title": "MVVM light Data Validation for WIndows Phone 8",
+    "LatestDate": "2013-01-09T01:45:38.12-08:00"
+  },
+  {
+    "Id": "429196",
+    "Title": "Can't download",
+    "LatestDate": "2013-01-10T13:55:38.473-08:00"
+  },
+  {
+    "Id": "429311",
+    "Title": "Make use of CommonServiceLocator nuget package",
+    "LatestDate": "2013-02-15T01:24:29.92-08:00"
+  },
+  {
+    "Id": "429583",
+    "Title": "Visual Studio 2010",
+    "LatestDate": "2013-01-14T10:21:07.75-08:00"
+  },
+  {
+    "Id": "429781",
+    "Title": "Question and Suggestion regarding hadling the Dispatcher",
+    "LatestDate": "2013-01-16T20:06:33.037-08:00"
+  },
+  {
+    "Id": "429890",
+    "Title": "MVVM learning curve",
+    "LatestDate": "2013-01-17T04:03:40.227-08:00"
+  },
+  {
+    "Id": "430671",
+    "Title": "Is it just me? GalaSoft.MvvmLight.4.1.24.0.msi installation error-less failure",
+    "LatestDate": "2013-01-23T19:48:59.003-08:00"
+  },
+  {
+    "Id": "431411",
+    "Title": "CommonServiceLocator dependency",
+    "LatestDate": "2013-01-30T06:41:04.163-08:00"
+  },
+  {
+    "Id": "432375",
+    "Title": "Installer",
+    "LatestDate": "2013-02-08T00:33:20.087-08:00"
+  },
+  {
+    "Id": "432575",
+    "Title": "EventToCommand in the Portable Library",
+    "LatestDate": "2013-02-09T11:22:42.743-08:00"
+  },
+  {
+    "Id": "432583",
+    "Title": "Conflict with Microsoft.Practices.ServiceLocation ?",
+    "LatestDate": "2015-04-21T12:49:17.577-07:00"
+  },
+  {
+    "Id": "432606",
+    "Title": "Can More Effort Be Put into Proper Tutorials?",
+    "LatestDate": "2013-08-19T14:29:05.333-07:00"
+  },
+  {
+    "Id": "432709",
+    "Title": "Two Views: cannot be found in the name scope",
+    "LatestDate": "2013-02-11T05:17:32.313-08:00"
+  },
+  {
+    "Id": "432764",
+    "Title": "RaisePropertyChanged causing execution to halt",
+    "LatestDate": "2013-02-11T14:17:39.68-08:00"
+  },
+  {
+    "Id": "433156",
+    "Title": "Sharing a Portable Class Library for Win8 and WP8 Projects.",
+    "LatestDate": "2013-02-14T08:03:42.79-08:00"
+  },
+  {
+    "Id": "433544",
+    "Title": "Suggestion: Single subscriber to the Messenger",
+    "LatestDate": "2013-02-18T07:47:29.103-08:00"
+  },
+  {
+    "Id": "434878",
+    "Title": "MVVM Light in a Windows Store App + Portable Class Library environment doesn't compile",
+    "LatestDate": "2013-06-10T23:02:40.317-07:00"
+  },
+  {
+    "Id": "435816",
+    "Title": "How to Handle NavigationEventArgs in MVVM Light",
+    "LatestDate": "2013-03-07T13:52:25.17-08:00"
+  },
+  {
+    "Id": "436289",
+    "Title": "MVVM Light Toolkit dose not install",
+    "LatestDate": "2013-03-12T06:10:50.333-07:00"
+  },
+  {
+    "Id": "436463",
+    "Title": "MVVM confusion",
+    "LatestDate": "2015-10-15T21:13:27.953-07:00"
+  },
+  {
+    "Id": "437229",
+    "Title": "System.ComponentModel.INotifyPropertyChanging",
+    "LatestDate": "2013-03-20T09:02:18.237-07:00"
+  },
+  {
+    "Id": "437405",
+    "Title": "How to use MVVM Light With Sql Server Compact",
+    "LatestDate": "2013-04-12T03:40:46.85-07:00"
+  },
+  {
+    "Id": "437441",
+    "Title": "Issue in adding MVVMLight (PCL) in Portable class library project via nuGet.",
+    "LatestDate": "2013-12-08T08:23:33.11-08:00"
+  },
+  {
+    "Id": "438197",
+    "Title": "Guidance with updating the View from a MVVM PCL",
+    "LatestDate": "2013-03-27T09:42:38.06-07:00"
+  },
+  {
+    "Id": "438669",
+    "Title": "Pinning",
+    "LatestDate": "2013-04-07T23:36:40.597-07:00"
+  },
+  {
+    "Id": "438976",
+    "Title": "Building my own nupkg",
+    "LatestDate": "2013-04-03T08:33:03.567-07:00"
+  },
+  {
+    "Id": "439065",
+    "Title": "NullReferenceException when including Mvvm Light PCL in Windows Phone 7 app",
+    "LatestDate": "2013-04-08T01:26:42.217-07:00"
+  },
+  {
+    "Id": "440478",
+    "Title": "Issue with EventToCommand in VS2012 (Update2)",
+    "LatestDate": "2013-07-22T11:59:00.827-07:00"
+  },
+  {
+    "Id": "441046",
+    "Title": "How to Trigger and handle TextChanged event from Text Box within DataGridColumnHeader in style Resource Dictionary",
+    "LatestDate": "2013-04-21T03:27:15.373-07:00"
+  },
+  {
+    "Id": "441194",
+    "Title": "PCL viewModel Win8/phone services async",
+    "LatestDate": "2013-05-16T11:14:01.207-07:00"
+  },
+  {
+    "Id": "441247",
+    "Title": "MVVM Light EventToCommand and PRism+MEF",
+    "LatestDate": "2013-04-23T23:22:41.953-07:00"
+  },
+  {
+    "Id": "441906",
+    "Title": "MVVM Messenger issue under WIndows 8",
+    "LatestDate": "2013-04-29T00:11:20.787-07:00"
+  },
+  {
+    "Id": "442369",
+    "Title": "How to use DispatcherHelper with ProgressBar and BackgroundWorker",
+    "LatestDate": "2013-05-02T09:43:38.263-07:00"
+  },
+  {
+    "Id": "442837",
+    "Title": "CanExecute not updating UI when called from background thread",
+    "LatestDate": "2013-05-09T12:07:29.903-07:00"
+  },
+  {
+    "Id": "443052",
+    "Title": "Product: MVVM Light Toolkit -- Error 1721. There is a problem with this Windows Installer package",
+    "LatestDate": "2013-05-08T21:12:35.633-07:00"
+  },
+  {
+    "Id": "444712",
+    "Title": "Cross Platform WinRT+WP8",
+    "LatestDate": "2013-05-23T09:42:47.14-07:00"
+  },
+  {
+    "Id": "445848",
+    "Title": "Master details page with MVVM Light",
+    "LatestDate": "2013-06-03T09:16:47.64-07:00"
+  },
+  {
+    "Id": "445882",
+    "Title": "How to Bind String Value to TextBox?",
+    "LatestDate": "2013-06-04T09:18:27.877-07:00"
+  },
+  {
+    "Id": "445912",
+    "Title": "INotifyDataErrorInfo with MVVM Light",
+    "LatestDate": "2013-06-04T00:28:06.713-07:00"
+  },
+  {
+    "Id": "446003",
+    "Title": "How to use AutoCompleteBox with MVVM Light?",
+    "LatestDate": "2013-06-04T23:50:09.077-07:00"
+  },
+  {
+    "Id": "446144",
+    "Title": "EventToCommand clarifications",
+    "LatestDate": "2013-06-05T16:35:39.847-07:00"
+  },
+  {
+    "Id": "446198",
+    "Title": "Installer for 4.1.27",
+    "LatestDate": "2013-06-06T04:27:07.937-07:00"
+  },
+  {
+    "Id": "446625",
+    "Title": "EventToCommand xaml error, \"A value of type 'EventToCommand' cannot be added to a collection or dictionary of type 'TriggerActionCollection'.\"",
+    "LatestDate": "2013-06-10T17:27:48.06-07:00"
+  },
+  {
+    "Id": "447436",
+    "Title": "MvvmLight application with page navigation - send parameters",
+    "LatestDate": "2013-06-18T08:04:14.887-07:00"
+  },
+  {
+    "Id": "447674",
+    "Title": "EventToCommand missing",
+    "LatestDate": "2013-06-20T04:46:26.907-07:00"
+  },
+  {
+    "Id": "447860",
+    "Title": "PCL version lacks Silverlight 5 support? (EventToCommand..)",
+    "LatestDate": "2013-07-17T12:00:17.097-07:00"
+  },
+  {
+    "Id": "447886",
+    "Title": "'Portable.MvvmLightLibs' already has a dependency defined for 'Portable.CommonServiceLocator'.",
+    "LatestDate": "2013-06-22T08:12:31.003-07:00"
+  },
+  {
+    "Id": "448796",
+    "Title": "Getting latest build of MVVM Light for VS2012",
+    "LatestDate": "2013-07-02T04:06:21.223-07:00"
+  },
+  {
+    "Id": "448866",
+    "Title": "Constructor of the ModelViews being called twice",
+    "LatestDate": "2013-07-03T04:28:49.03-07:00"
+  },
+  {
+    "Id": "449501",
+    "Title": "Is State Behaviour the Right Tool to use?",
+    "LatestDate": "2013-07-09T15:27:35.447-07:00"
+  },
+  {
+    "Id": "449679",
+    "Title": "Another issue with deadlocks",
+    "LatestDate": "2013-08-05T05:09:43.8-07:00"
+  },
+  {
+    "Id": "449861",
+    "Title": "How to hookup a RelayCommand to SelectedItem in ListBox",
+    "LatestDate": "2013-07-15T08:11:04.897-07:00"
+  },
+  {
+    "Id": "450473",
+    "Title": "Is 3 assembly is \"Light\" ?",
+    "LatestDate": "2013-07-18T08:06:50.88-07:00"
+  },
+  {
+    "Id": "450495",
+    "Title": "how can I binding mutli parameters to Command",
+    "LatestDate": "2013-07-22T08:33:22.01-07:00"
+  },
+  {
+    "Id": "452031",
+    "Title": "How to Pass Data to other Views?",
+    "LatestDate": "2013-07-31T14:58:31.087-07:00"
+  },
+  {
+    "Id": "453468",
+    "Title": "Compatible version of Mvvm Light for .Net Framework 4.0",
+    "LatestDate": "2013-08-14T20:52:21.747-07:00"
+  },
+  {
+    "Id": "453674",
+    "Title": "Updating service from model",
+    "LatestDate": "2013-08-17T01:16:22.42-07:00"
+  },
+  {
+    "Id": "453881",
+    "Title": "DispatcherHelper class Tutorial/Sample code",
+    "LatestDate": "2013-08-19T16:06:56.94-07:00"
+  },
+  {
+    "Id": "454621",
+    "Title": "Signing projects that use MVVM Light 4.1.27",
+    "LatestDate": "2013-08-27T00:13:01.49-07:00"
+  },
+  {
+    "Id": "454839",
+    "Title": "WP8 and Mvvm Light",
+    "LatestDate": "2013-11-26T03:37:05.3-08:00"
+  },
+  {
+    "Id": "454933",
+    "Title": "Mvvm integration, days after project creation",
+    "LatestDate": "2013-09-02T18:43:13.34-07:00"
+  },
+  {
+    "Id": "454938",
+    "Title": "Is it possible to create class library using MVVM Light",
+    "LatestDate": "2013-09-02T04:00:06.933-07:00"
+  },
+  {
+    "Id": "455578",
+    "Title": "WPF-Application with delays after Update to Windows7",
+    "LatestDate": "2013-09-30T07:38:06.26-07:00"
+  },
+  {
+    "Id": "456430",
+    "Title": "Calling another viewmodel's RelayCommand from within MainViewModel",
+    "LatestDate": "2013-09-11T10:16:51.163-07:00"
+  },
+  {
+    "Id": "457258",
+    "Title": "Best practices to cleanup resources, view models and registrations in WPF view model locator. Can any one provide a sample for that. ",
+    "LatestDate": "2013-09-17T23:59:22.297-07:00"
+  },
+  {
+    "Id": "458791",
+    "Title": "Messenger Instance Awareness",
+    "LatestDate": "2013-10-15T13:36:39.833-07:00"
+  },
+  {
+    "Id": "461447",
+    "Title": "SimpleIoc InstancesRegistry",
+    "LatestDate": "2013-10-07T12:02:44.787-07:00"
+  },
+  {
+    "Id": "461471",
+    "Title": "Best way to implement numeric(decimal) text-box in WPF with MVVM Light toolkit.",
+    "LatestDate": "2013-10-07T18:59:59.9-07:00"
+  },
+  {
+    "Id": "462143",
+    "Title": "can't find assembly",
+    "LatestDate": "2013-10-27T12:36:25.643-07:00"
+  },
+  {
+    "Id": "462922",
+    "Title": "Upgrade to VS 2013",
+    "LatestDate": "2014-04-15T13:34:25.917-07:00"
+  },
+  {
+    "Id": "463184",
+    "Title": "Possible New Feature Data Validation with .Net 4.5",
+    "LatestDate": "2013-11-05T02:35:30.373-08:00"
+  },
+  {
+    "Id": "463301",
+    "Title": "EventToCommand Missing",
+    "LatestDate": "2013-10-23T11:35:07.48-07:00"
+  },
+  {
+    "Id": "463752",
+    "Title": "NullReferenceException at build time with latest Portable.MvvmLightLibs package",
+    "LatestDate": "2014-02-17T05:54:45.253-08:00"
+  },
+  {
+    "Id": "464256",
+    "Title": "Access view menu object in view model.",
+    "LatestDate": "2013-10-30T09:00:19.703-07:00"
+  },
+  {
+    "Id": "464807",
+    "Title": "Where is the Unregister in SimpleIoc",
+    "LatestDate": "2013-11-06T03:22:46.463-08:00"
+  },
+  {
+    "Id": "465253",
+    "Title": "Dialog Box in Windows Phone 7? How?",
+    "LatestDate": "2013-11-03T18:18:00.067-08:00"
+  },
+  {
+    "Id": "466775",
+    "Title": "Cleaning view models in MVVM Light.",
+    "LatestDate": "2013-11-07T02:00:16.387-08:00"
+  },
+  {
+    "Id": "467341",
+    "Title": "Bind Data From Property to Textblock - MVVM Light and WPF",
+    "LatestDate": "2013-11-13T02:57:51.653-08:00"
+  },
+  {
+    "Id": "468987",
+    "Title": "CanExecute CommandParameter Specified cast is not valid",
+    "LatestDate": "2013-11-15T11:18:33.2-08:00"
+  },
+  {
+    "Id": "469013",
+    "Title": "RelayCommand - MVVMLight 4.5 vs previous",
+    "LatestDate": "2013-11-19T03:10:50.91-08:00"
+  },
+  {
+    "Id": "471984",
+    "Title": "Can I update my project from MVVM Light V4.1.27.22692 to MVVM Light V4.2.30.0?",
+    "LatestDate": "2013-12-05T02:23:02.04-08:00"
+  },
+  {
+    "Id": "476737",
+    "Title": "IComparer for Message Token",
+    "LatestDate": "2013-12-20T13:46:45.583-08:00"
+  },
+  {
+    "Id": "476853",
+    "Title": "Latest installer / Visual Studio 2013",
+    "LatestDate": "2013-12-22T11:23:22.017-08:00"
+  },
+  {
+    "Id": "478117",
+    "Title": "error registering a factory",
+    "LatestDate": "2013-12-27T08:53:13.773-08:00"
+  },
+  {
+    "Id": "479229",
+    "Title": "Is there a child container concept in SimpleIoc?",
+    "LatestDate": "2014-01-01T05:52:17.753-08:00"
+  },
+  {
+    "Id": "479302",
+    "Title": "Can't find the dlls or they're not being installed",
+    "LatestDate": "2014-01-02T08:11:54.017-08:00"
+  },
+  {
+    "Id": "479578",
+    "Title": "RaisePropertyChanged improvement",
+    "LatestDate": "2014-01-03T11:27:51.73-08:00"
+  },
+  {
+    "Id": "483764",
+    "Title": "SimpleIoC instance delete",
+    "LatestDate": "2015-02-06T09:12:31.76-08:00"
+  },
+  {
+    "Id": "484093",
+    "Title": "RelayCommand.cs not found",
+    "LatestDate": "2014-01-15T09:26:11.477-08:00"
+  },
+  {
+    "Id": "484152",
+    "Title": "Problems using binaries in other PCs",
+    "LatestDate": "2014-01-09T05:50:13.393-08:00"
+  },
+  {
+    "Id": "492941",
+    "Title": "CMNATTR constant",
+    "LatestDate": "2014-05-11T09:27:09.423-07:00"
+  },
+  {
+    "Id": "497552",
+    "Title": "Are Code Snippet supposed to be available in VS 2013 Ultimate?",
+    "LatestDate": "2014-01-15T05:35:46.693-08:00"
+  },
+  {
+    "Id": "498049",
+    "Title": "Warnings when compiling a new MVVM Light Win81 project",
+    "LatestDate": "2014-03-25T15:57:59.407-07:00"
+  },
+  {
+    "Id": "501423",
+    "Title": "Setting Copy Local to True on Libraries",
+    "LatestDate": "2014-01-21T06:35:37.563-08:00"
+  },
+  {
+    "Id": "504649",
+    "Title": "VS2013 - Interactivity Verson 4.5",
+    "LatestDate": "2014-01-20T01:55:05.49-08:00"
+  },
+  {
+    "Id": "505624",
+    "Title": "VS2013 New View",
+    "LatestDate": "2014-01-22T10:54:58.1-08:00"
+  },
+  {
+    "Id": "528487",
+    "Title": "updating properties of one viewmodel from another viewmodel",
+    "LatestDate": "2014-01-30T22:08:53.343-08:00"
+  },
+  {
+    "Id": "531437",
+    "Title": "Nuget wont install MVVMLight Portable Libs",
+    "LatestDate": "2014-02-11T20:30:01.197-08:00"
+  },
+  {
+    "Id": "532071",
+    "Title": "MVVM Light Sample Application",
+    "LatestDate": "2014-02-15T15:39:23.217-08:00"
+  },
+  {
+    "Id": "537126",
+    "Title": "Autoraise PropertyChanged event on calculated properties",
+    "LatestDate": "2014-03-03T04:38:17.67-08:00"
+  },
+  {
+    "Id": "537129",
+    "Title": "Best way to implement communication between two view models.",
+    "LatestDate": "2014-03-06T08:36:16.79-08:00"
+  },
+  {
+    "Id": "537931",
+    "Title": "How to separate commands into separate classes for a large viewmodel?",
+    "LatestDate": "2014-03-04T16:55:26.51-08:00"
+  },
+  {
+    "Id": "539523",
+    "Title": "Context Menu Keep Getting Wrong Object using Mvvm",
+    "LatestDate": "2014-03-20T09:55:56.897-07:00"
+  },
+  {
+    "Id": "539615",
+    "Title": "Recipient actions being garbage collected?",
+    "LatestDate": "2014-03-27T09:18:02.947-07:00"
+  },
+  {
+    "Id": "540309",
+    "Title": "In WeakAction class, what is the different between ActionReference and Reference",
+    "LatestDate": "2014-03-27T04:20:10.807-07:00"
+  },
+  {
+    "Id": "540907",
+    "Title": "Can i use other DI ioc instead of SimpleIoc?",
+    "LatestDate": "2014-04-14T06:01:40.303-07:00"
+  },
+  {
+    "Id": "542153",
+    "Title": "MVVM Light and LINQ to SQL database connection",
+    "LatestDate": "2014-04-30T02:04:52.533-07:00"
+  },
+  {
+    "Id": "542249",
+    "Title": "MVVM Light DialogMessage is Obsolete",
+    "LatestDate": "2014-04-15T03:19:43.193-07:00"
+  },
+  {
+    "Id": "542424",
+    "Title": "Benefit of IoC container in MVVM",
+    "LatestDate": "2014-06-05T06:31:51.07-07:00"
+  },
+  {
+    "Id": "542475",
+    "Title": "Support WP8.1 ",
+    "LatestDate": "2014-05-11T09:27:51.387-07:00"
+  },
+  {
+    "Id": "543770",
+    "Title": "MVVMLight Messenger.Unregister - what does it mean 'completely'?",
+    "LatestDate": "2014-04-29T10:18:34.427-07:00"
+  },
+  {
+    "Id": "544576",
+    "Title": "V4.1 for VS 2010",
+    "LatestDate": "2014-09-28T23:43:24.617-07:00"
+  },
+  {
+    "Id": "544759",
+    "Title": "Mvvm light for .Net 4.0 and single EXE",
+    "LatestDate": "2014-05-12T14:21:14.28-07:00"
+  },
+  {
+    "Id": "546690",
+    "Title": "EventArgsToCommand",
+    "LatestDate": "2014-05-28T11:53:19.857-07:00"
+  },
+  {
+    "Id": "547269",
+    "Title": "The type or namespace name 'Practices' does not exist in the namespace 'Microsoft' ",
+    "LatestDate": "2014-08-18T09:09:08.733-07:00"
+  },
+  {
+    "Id": "548373",
+    "Title": "Cannot install MvvmLight 4.4.32.1 on WP8.1 XAML app",
+    "LatestDate": "2014-06-12T08:31:09.263-07:00"
+  },
+  {
+    "Id": "549725",
+    "Title": "Referenced assembly 'GalaSoft.MvvmLight' does not have a strong name",
+    "LatestDate": "2014-10-14T13:24:47.723-07:00"
+  },
+  {
+    "Id": "550425",
+    "Title": "How to realize Command in MVVMLight?",
+    "LatestDate": "2014-07-02T19:28:13.113-07:00"
+  },
+  {
+    "Id": "551024",
+    "Title": "WPF : How can i call a command from inside a DataTemplate? ",
+    "LatestDate": "2014-07-10T01:58:30.187-07:00"
+  },
+  {
+    "Id": "559952",
+    "Title": "MVVM Light with UserControl library",
+    "LatestDate": "2014-08-06T22:11:21.523-07:00"
+  },
+  {
+    "Id": "561571",
+    "Title": "EventToCommand not working for custom event for the controls inside DataTemplate",
+    "LatestDate": "2014-08-19T06:00:23.753-07:00"
+  },
+  {
+    "Id": "565632",
+    "Title": "EventTrigger for Pivot Control",
+    "LatestDate": "2014-09-05T12:43:00.673-07:00"
+  },
+  {
+    "Id": "566525",
+    "Title": "RelayCommand strange problem",
+    "LatestDate": "2014-09-07T00:44:51.25-07:00"
+  },
+  {
+    "Id": "569717",
+    "Title": "Problem getting started in Version 5.0 with Portable Libraries",
+    "LatestDate": "2014-10-14T13:21:15.953-07:00"
+  },
+  {
+    "Id": "569993",
+    "Title": "Converter in Xamarin.Android and Xamarin.iOS",
+    "LatestDate": "2014-10-19T13:05:06.103-07:00"
+  },
+  {
+    "Id": "570722",
+    "Title": "adding extmap.xml files to SL5 build",
+    "LatestDate": "2014-10-28T05:28:34.59-07:00"
+  },
+  {
+    "Id": "570885",
+    "Title": "CanExecute Method still can not work in WPF with latest MvvmLight version on Nuget",
+    "LatestDate": "2015-01-08T01:43:06.84-08:00"
+  },
+  {
+    "Id": "571308",
+    "Title": "Advice on choosing viewmodel communcation in a Master-Details (All-in-one) view",
+    "LatestDate": "2014-11-04T15:22:09.963-08:00"
+  },
+  {
+    "Id": "572540",
+    "Title": "[Solved] Please add Attribute \"CallerMemberName\" to RaisePropertyChanged method.",
+    "LatestDate": "2014-11-19T13:31:35.357-08:00"
+  },
+  {
+    "Id": "572807",
+    "Title": "getting Locator error at run time when trying to use DataTemplate",
+    "LatestDate": "2014-11-21T10:56:13.91-08:00"
+  },
+  {
+    "Id": "572910",
+    "Title": "Dependency injection inside the background task",
+    "LatestDate": "2014-11-23T06:58:27.95-08:00"
+  },
+  {
+    "Id": "573807",
+    "Title": " Android: Binding on a dynamically generated view",
+    "LatestDate": "2014-12-02T07:07:52.17-08:00"
+  },
+  {
+    "Id": "574692",
+    "Title": "RaisePropertyChanged Through Attributes?",
+    "LatestDate": "2015-01-21T17:58:33.83-08:00"
+  },
+  {
+    "Id": "574766",
+    "Title": "adding a method to detach a command in Mvvm Light (Android)",
+    "LatestDate": "2015-02-21T08:06:49.303-08:00"
+  },
+  {
+    "Id": "577148",
+    "Title": "Should the viewmodel be opening windows?",
+    "LatestDate": "2015-01-08T07:02:45.193-08:00"
+  },
+  {
+    "Id": "577454",
+    "Title": "Binaries for Visual Studio Express developers (without NuGet)",
+    "LatestDate": "2015-01-27T02:30:26.07-08:00"
+  },
+  {
+    "Id": "577555",
+    "Title": "Multiple instances of viewmodel",
+    "LatestDate": "2015-01-14T02:31:29.99-08:00"
+  },
+  {
+    "Id": "577618",
+    "Title": "How to update from Prism to Mvvmlight ?",
+    "LatestDate": "2015-01-13T07:15:23.397-08:00"
+  },
+  {
+    "Id": "577867",
+    "Title": "RelayCommand.CanExecute should be virtual",
+    "LatestDate": "2015-01-16T04:10:49.18-08:00"
+  },
+  {
+    "Id": "577907",
+    "Title": "IDialogService.cs",
+    "LatestDate": "2015-01-20T12:56:32.417-08:00"
+  },
+  {
+    "Id": "578852",
+    "Title": "Plugin in MVVM Light",
+    "LatestDate": "2015-01-28T14:41:14.323-08:00"
+  },
+  {
+    "Id": "579904",
+    "Title": "Messenging from DLL to WPF application",
+    "LatestDate": "2015-02-20T04:16:25.78-08:00"
+  },
+  {
+    "Id": "580565",
+    "Title": "Using the toolkit with Universal Apps.",
+    "LatestDate": "2015-02-12T04:51:16.463-08:00"
+  },
+  {
+    "Id": "581572",
+    "Title": "Typeloadexception ",
+    "LatestDate": "2015-04-23T05:37:21.893-07:00"
+  },
+  {
+    "Id": "581582",
+    "Title": "WeakAction class not creating weak reference with target in Silverlight",
+    "LatestDate": "2015-02-23T03:29:12.55-08:00"
+  },
+  {
+    "Id": "582056",
+    "Title": "Xamarin binding and converters",
+    "LatestDate": "2015-02-27T12:13:16.13-08:00"
+  },
+  {
+    "Id": "582057",
+    "Title": "Xamarin binding and multivalues",
+    "LatestDate": "2015-02-27T12:15:36.233-08:00"
+  },
+  {
+    "Id": "584014",
+    "Title": "MvvmLight Messenger for Android Platform ",
+    "LatestDate": "2015-03-02T06:02:56.877-08:00"
+  },
+  {
+    "Id": "584289",
+    "Title": "Remove back entry in navigationservice in the mvvm last version ",
+    "LatestDate": "2015-04-29T03:07:39.417-07:00"
+  },
+  {
+    "Id": "586094",
+    "Title": "WPF sample of NotificationMessageWithCallback?",
+    "LatestDate": "2015-03-11T14:08:43.453-07:00"
+  },
+  {
+    "Id": "586702",
+    "Title": "IDialogService ShowMessage Action<bool> afterHideCallback return true on click of back button",
+    "LatestDate": "2015-04-01T00:07:13.183-07:00"
+  },
+  {
+    "Id": "587948",
+    "Title": "RelayCommandAsync",
+    "LatestDate": "2015-03-18T15:21:11.213-07:00"
+  },
+  {
+    "Id": "607248",
+    "Title": "VB.Net Sample",
+    "LatestDate": "2015-03-23T06:07:41.327-07:00"
+  },
+  {
+    "Id": "607740",
+    "Title": "Please explain RelayCommand implementation",
+    "LatestDate": "2015-03-23T06:51:21.463-07:00"
+  },
+  {
+    "Id": "627117",
+    "Title": "usercontrol in its own project, how do you use the viewmodellocator so to bind a viewmodel to the usercontrol ",
+    "LatestDate": "2015-04-14T03:58:26.02-07:00"
+  },
+  {
+    "Id": "630712",
+    "Title": "About dialog in MVVM",
+    "LatestDate": "2015-04-16T05:23:13.103-07:00"
+  },
+  {
+    "Id": "631778",
+    "Title": "Xamarin.Android binding throws System.InvalidOperationException: Property not found",
+    "LatestDate": "2015-04-21T05:31:12.19-07:00"
+  },
+  {
+    "Id": "632130",
+    "Title": "iOS-ObservableTableViewController  and  alphabet.Indexer",
+    "LatestDate": "2015-04-22T01:35:43.963-07:00"
+  },
+  {
+    "Id": "637738",
+    "Title": "Xamarin Android Binding to custom control",
+    "LatestDate": "2015-05-14T04:23:08.203-07:00"
+  },
+  {
+    "Id": "638037",
+    "Title": "Messenger Send Problem",
+    "LatestDate": "2015-05-15T09:14:19.347-07:00"
+  },
+  {
+    "Id": "638121",
+    "Title": "MVVM SimpleIOC Expression Blend can't create instance of ViewModelLocator",
+    "LatestDate": "2015-05-18T05:26:08.453-07:00"
+  },
+  {
+    "Id": "638965",
+    "Title": "How to pass a parameter to a command in Xamarin iOS?",
+    "LatestDate": "2015-06-17T00:09:06.563-07:00"
+  },
+  {
+    "Id": "639814",
+    "Title": "SimpleIoC Unregister type detection",
+    "LatestDate": "2015-08-20T07:55:56.29-07:00"
+  },
+  {
+    "Id": "640008",
+    "Title": "Make ObservableObject Serializable",
+    "LatestDate": "2015-06-17T01:19:19.333-07:00"
+  },
+  {
+    "Id": "642106",
+    "Title": "MvvmLight & C#6",
+    "LatestDate": "2015-07-29T02:45:25.76-07:00"
+  },
+  {
+    "Id": "642521",
+    "Title": "Property injection with MVVM Light",
+    "LatestDate": "2015-08-10T02:31:24.77-07:00"
+  },
+  {
+    "Id": "643895",
+    "Title": "Relay Command Inheritance",
+    "LatestDate": "2015-08-19T00:30:31.9-07:00"
+  },
+  {
+    "Id": "644731",
+    "Title": "We could really use an example of navigation for WPF apps, please",
+    "LatestDate": "2016-11-18T04:34:36.143-08:00"
+  },
+  {
+    "Id": "646035",
+    "Title": "DialogService in WPF apps?",
+    "LatestDate": "2016-11-22T23:16:55.173-08:00"
+  },
+  {
+    "Id": "646060",
+    "Title": "CommonServiceLocator creates problems for none-English Universal Windows apps",
+    "LatestDate": "2015-12-05T06:41:34.7-08:00"
+  },
+  {
+    "Id": "646173",
+    "Title": "Xamarin Android binding to ExpandableListView items",
+    "LatestDate": "2015-10-18T07:30:48.04-07:00"
+  },
+  {
+    "Id": "646885",
+    "Title": "Problem with latest version of MVVMLight (5.2.0)",
+    "LatestDate": "2015-11-01T14:29:08.497-08:00"
+  },
+  {
+    "Id": "648349",
+    "Title": "Navigation Service - Configure and NavigateTo as virtual!",
+    "LatestDate": "2015-12-04T02:17:26.947-08:00"
+  },
+  {
+    "Id": "648774",
+    "Title": "ObservableTableViewController for iOS lists.",
+    "LatestDate": "2016-04-23T15:25:51.857-07:00"
+  },
+  {
+    "Id": "651559",
+    "Title": "NavigationService with UITabViewController",
+    "LatestDate": "2016-02-21T07:44:35.4-08:00"
+  },
+  {
+    "Id": "651605",
+    "Title": "Have anybody faced an issue, while using mvvm light that the app is crashing in release mode only?",
+    "LatestDate": "2016-02-22T03:33:59.63-08:00"
+  },
+  {
+    "Id": "651882",
+    "Title": "Compile with .NET Native tool chain",
+    "LatestDate": "2016-06-09T12:35:24.803-07:00"
+  },
+  {
+    "Id": "651919",
+    "Title": "Differences between MvvmLight and MvvmLightLibs",
+    "LatestDate": "2016-04-23T15:07:59.297-07:00"
+  },
+  {
+    "Id": "651981",
+    "Title": "ISimpleIoc should contain GetInstance method",
+    "LatestDate": "2016-03-02T05:09:13.663-08:00"
+  },
+  {
+    "Id": "652590",
+    "Title": "EventToCommand error",
+    "LatestDate": "2016-04-07T04:20:36.877-07:00"
+  },
+  {
+    "Id": "652891",
+    "Title": "Need source for 4.2.30.0 and 4.2.31.1",
+    "LatestDate": "2016-03-24T10:29:25.92-07:00"
+  },
+  {
+    "Id": "652955",
+    "Title": "ObservableAdapter with custom layout",
+    "LatestDate": "2016-03-27T01:48:45.767-07:00"
+  },
+  {
+    "Id": "653734",
+    "Title": "Installing MVVMLightLibs removes all other references??",
+    "LatestDate": "2016-04-20T04:09:12.243-07:00"
+  },
+  {
+    "Id": "654363",
+    "Title": "Async Action in RelayCommand is not running",
+    "LatestDate": "2016-05-05T12:02:10.18-07:00"
+  },
+  {
+    "Id": "654545",
+    "Title": "Insufficient ISimpleIoc interface in version 5.3.0",
+    "LatestDate": "2016-05-11T02:34:54.06-07:00"
+  },
+  {
+    "Id": "654869",
+    "Title": "Resolving types using SimpleIoc",
+    "LatestDate": "2016-05-23T14:03:01.987-07:00"
+  },
+  {
+    "Id": "655903",
+    "Title": "How to binding textview in a listview at runtime with MVVMLight",
+    "LatestDate": "2016-06-29T20:14:08.503-07:00"
+  },
+  {
+    "Id": "656835",
+    "Title": "[UWP Platform]Change NavigationService class _pagesByKey variable to protected",
+    "LatestDate": "2016-08-01T03:50:04.46-07:00"
+  },
+  {
+    "Id": "657983",
+    "Title": "mvvm light -Sending Notification message with callback",
+    "LatestDate": "2016-09-15T07:25:50.8-07:00"
+  },
+  {
+    "Id": "658761",
+    "Title": "DialogService and NavigationService examples in simple WPF application...",
+    "LatestDate": "2016-11-18T04:31:47.927-08:00"
+  },
+  {
+    "Id": "659339",
+    "Title": "Mvvm light Tree view binding with entity framwork",
+    "LatestDate": "2016-11-11T06:00:58.107-08:00"
+  },
+  {
+    "Id": "659670",
+    "Title": "Best way to display grid with entity framework",
+    "LatestDate": "2016-11-23T23:25:14.69-08:00"
+  },
+  {
+    "Id": "662490",
+    "Title": "ObservableObject.RaisePropertyChanged overloads unification",
+    "LatestDate": "2017-04-10T10:32:23.547-07:00"
+  },
+  {
+    "Id": "662761",
+    "Title": "Compiler warning in a new UWP project with MVVM Light",
+    "LatestDate": "2017-04-30T00:52:00.94-07:00"
+  },
+  {
+    "Id": "663828",
+    "Title": "Copyright Question",
+    "LatestDate": "2017-09-28T16:15:20.103-07:00"
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:57:05.14-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I just upgraded to \"MvvmLightLibsPreview.4.1.0\" using Nuget. There appears to be a breaking change with the messenger.\r\n\r\nMy original code was:\r\n\r\nMessengerInstance.Send<object>(null, MessageToken.MarkedScoreChanged);\r\n\r\nThis used to work but now receives a \"null reference exception\".\r\n\r\nFortunately, there's a workaround:\r\n\r\nMessengerInstance.Send<string>(string.Empty, MessageToken.MarkedScoreChanged);\r\n\r\nWhat I really would like is to just be able to send a token without a message. Something like:\r\n\r\nMessengerInstance.Notify(MessageToken.MarkedScoreChanged).",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-02-24T10:10:46.51-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Messenger no longer accepts null message",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 6,
+    "Id": 7562
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

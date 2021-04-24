@@ -1,0 +1,56 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "As soon as my app has created a new view with databinding bound to my viewmodel, if I call the \"RaisePropretyChanger(() => this.MyProperty);\" I got a cast exception:\r\n\r\nMessage:\r\nImpossible d'effectuer un cast d'un objet COM de type 'System.ComponentModel.PropertyChangedEventHandler' en type de classe 'System.ComponentModel.PropertyChangedEventHandler'. Les instances de types qui représentent des composants COM ne peuvent pas être castées en types qui ne représentent pas des composants COM ; toutefois, elles peuvent être castées en interfaces tant que le composant COM sous-jacent prend en charge les appels QueryInterface pour l'IID de l'interface.\r\n\r\n(Sorry, my OS is in French)\r\n\r\nStack trace:\r\n   at System.StubHelpers.StubHelpers.GetCOMIPFromRCW_WinRTDelegate(Object objSrc, IntPtr pCPCMD, IntPtr& ppTarget)\r\n   at System.ComponentModel.PropertyChangedEventHandler.Invoke(Object sender, PropertyChangedEventArgs e)\r\n   at GalaSoft.MvvmLight.ObservableObject.RaisePropertyChanged[T](Expression`1 propertyExpression)\r\n   at BacklogMan.Client.Core.ViewModel.Runtime.MainViewModel.set_CurrentBacklog(Backlog value)\r\n   at BacklogMan.Client.App.Win81.Pages.BacklogPage2.backlogsList_SelectionChanged(Object sender, SelectionChangedEventArgs e)",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2013-12-17T01:08:57.047-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "WinRT (Win8.1) having a second view make RaisePropertyChanged failing",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7623
+  },
+  "FileAttachments": [
+    {
+      "FileId": 769078,
+      "FileName": "TestMultiView.zip",
+      "DownloadUrl": ".\\769078"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nCan you share some code? Is the second view a normal page? \n\nThanks\nLaurent",
+      "PostedDate": "2013-12-17T05:11:56.887-08:00",
+      "Id": 127755
+    },
+    {
+      "Message": "A sample solution is avaible here: http://sdrv.ms/1bNem8Z\r\n\r\nThis is not an issue with MVVM itself... but maybe, if you can provide an easy way to do it, or at least a clean exception message.\r\n\r\nFeel free to contact me for any information",
+      "PostedDate": "2013-12-17T10:55:25.633-08:00",
+      "Id": 127796
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:54:23.04-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "in multi-threaded environment Messenger.Default may create more then one different instance if thread switch happens between check and assign _defaultInstance. possible solution (in Messenger.cs):\r\n\r\nprivate static Messenger _defaultInstance;\r\npublic static Messenger Default { get { return _defaultInstance ?? (_defaultInstance = new Messenger()); } }\r\n\r\n=>\r\n\r\nprivate static Lazy<Messenger> _defaultInstance = new Lazy<Messenger> ();\r\npublic static Messenger Default { get { return _defaultInstance.Value; } }\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 beta 1",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-04-17T20:30:47.167-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "race condition in Messenger.Default",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 4,
+    "Id": 7521
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Fixed in V4 beta 1",
+      "PostedDate": "2011-09-11T15:09:39.45-07:00",
+      "Id": 44516
+    }
+  ]
+}

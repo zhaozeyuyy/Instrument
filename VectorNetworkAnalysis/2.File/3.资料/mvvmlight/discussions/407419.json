@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "958810",
+    "ThreadId": "407419",
+    "Html": "\r\n<p>Is it possible to open projects created with the &quot;MvvmLight (WPF45)&quot;-Template with Expression Blend 4?</p>\r\n<p>Great Toolkit!</p>\r\n",
+    "PostedDate": "2012-12-19T19:17:37.863-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "961323",
+    "ThreadId": "407419",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Unfortunately Blend 4 does not support .NET 4.5 (not just MVVM Light projects, but in general).</p>\r\n<p>You'll have to use Blend 5 instead.</p>\r\n<p>Cheers and thanks!<br>\r\nLaurent&nbsp;</p>\r\n",
+    "PostedDate": "2012-12-20T04:50:41.953-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "962481",
+    "ThreadId": "407419",
+    "Html": "\r\n<p>Thanks for the quick reply!</p>\r\n",
+    "PostedDate": "2012-12-20T09:14:53.13-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

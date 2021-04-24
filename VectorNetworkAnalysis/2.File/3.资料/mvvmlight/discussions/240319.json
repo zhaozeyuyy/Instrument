@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "543362",
+    "ThreadId": "240319",
+    "Html": "\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">public</span> <span style=\"color:blue\">class</span> MyViewModelBase : ViewModelBase\r\n{\r\n        ...\r\n\r\n        <span style=\"color:blue\">protected</span> <span style=\"color:blue\">string</span> NameOf&lt;T&gt;(Expression&lt;Func&lt;T, <span style=\"color:blue\">object</span>&gt;&gt; propertyExpression)\r\n        {\r\n            <span style=\"color:blue\">return</span> <span style=\"color:blue\">this</span>.NameOf&lt;T&gt;(propertyExpression);\r\n        }\r\n}\r\n</pre>\r\n</div>\r\n<p>I'd like to implement this, but am unable to without modifying your code. I'm not fond of&nbsp;maintaining my own specialized source&nbsp;:(<br>\r\n(Error&nbsp;8&nbsp;The event 'GalaSoft.MvvmLight.ViewModelBase.PropertyChanged' can only appear on the left hand side of &#43;= or -= )</p>\r\n<p>Suggestions? Could this be added to the toolkit? Is the performance hit not worth the convenience?</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>        <span style=\"color:blue\">protected</span> <span style=\"color:blue\">void</span> RaisePropertyChanged&lt;T&gt;(Expression&lt;Func&lt;T&gt;&gt; property) \r\n        { \r\n            PropertyChangedEventHandler handler = <span style=\"color:blue\">this</span>.PropertyChanged;\r\n            <span style=\"color:blue\">if</span> (handler != <span style=\"color:blue\">null</span>)\r\n                handler(<span style=\"color:blue\">this</span>, property.CreateChangeEventArgs());\r\n        }\r\n</pre>\r\n</div>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>    <span style=\"color:blue\">public</span> <span style=\"color:blue\">static</span> <span style=\"color:blue\">class</span> PropertyExtensions \r\n    { \r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">static</span> PropertyChangedEventArgs CreateChangeEventArgs&lt;T&gt;(<span style=\"color:blue\">this</span> Expression&lt;Func&lt;T&gt;&gt; property) \r\n        { \r\n            <span style=\"color:blue\">var</span> expression = property.Body <span style=\"color:blue\">as</span> MemberExpression; \r\n            <span style=\"color:blue\">var</span> member = expression.Member; \r\n            <span style=\"color:blue\">return</span> <span style=\"color:blue\">new</span> PropertyChangedEventArgs(member.Name); \r\n        } \r\n    }\r\n</pre>\r\n<pre>using this in the interim: &#65279;&#65279;<a href=\"http://blog.decarufel.net/2010/03/how-to-use-strongly-typed-name-with.html\">http://blog.decarufel.net/2010/03/how-to-use-strongly-typed-name-with.html</a></pre>\r\n</div>\r\n",
+    "PostedDate": "2011-01-03T13:07:53.873-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "548803",
+    "ThreadId": "240319",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Something similar is on the backlog for VNext.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2011-01-13T09:10:10.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

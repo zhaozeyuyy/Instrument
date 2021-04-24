@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1217858",
+    "ThreadId": "537126",
+    "Html": "I really like this solution for raising the PropertyChanged event if another value of a calculated property has changed <br />\n<br />\n<a href=\"https://github.com/mattdot/catwalk#calculated-properties\" rel=\"nofollow\">https://github.com/mattdot/catwalk#calculated-properties</a><br />\n<blockquote>\nCalculated properties are read-only properties that are computed based on other observable properties. The Observable Model base class raises a PropertyChanged event for calculated properties when the referenced properties change.<br />\n</blockquote>\n<div style=\"color:Black;background-color:White;\"><pre>\r\n<span style=\"color:Blue;\">public</span> <span style=\"color:Blue;\">class</span> SampleModel : ObservableModel\n{\n  <span style=\"color:Blue;\">public</span> <span style=\"color:Blue;\">string</span> FirstName\n  {\n    <span style=\"color:Blue;\">get</span> { <span style=\"color:Blue;\">return</span> GetValue&lt;<span style=\"color:Blue;\">string</span>&gt;(); }\n    <span style=\"color:Blue;\">set</span> { SetValue(value); }\n  }\n\n  <span style=\"color:Blue;\">public</span> <span style=\"color:Blue;\">string</span> LastName\n  {\n    <span style=\"color:Blue;\">get</span> { <span style=\"color:Blue;\">return</span> GetValue&lt;<span style=\"color:Blue;\">string</span>&gt;(); }\n    <span style=\"color:Blue;\">set</span> { SetValue(value); }\n  }\n\n  <span style=\"color:Blue;\">public</span> <span style=\"color:Blue;\">string</span> FullName\n  {\n    <span style=\"color:Blue;\">get</span>\n    {\n      <span style=\"color:Blue;\">return</span> Calculated(() =&gt; <span style=\"color:Blue;\">this</span>.FirstName + <span style=\"color:#A31515;\">&quot; &quot;</span> + <span style=\"color:Blue;\">this</span>.LastName);\n    }\n  }\n}\r\n</pre></div>Wouldn't it be neat to implement this also for MVVM light?<br />\n",
+    "PostedDate": "2014-03-03T04:38:17.67-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1047572",
+    "ThreadId": "444712",
+    "Html": "hi, \r<br />\n<br />\nI am dealing with a project which it has two side,both WinRT and WP8.\r<br />\nMy goal is taking ViewModels and Models to in a common area\r<br />\n(for now I'm using portable library for it)\r<br />\nfor using same ViewModels and Models in both solution. \r<br />\n<br />\nBut When i am building the solution, i get some error like\r<br />\n&quot;Cannot resolve Assembly or Windows Metadata file 'GalaSoft.MvvmLight.dll'&quot;\r<br />\n<br />\nWhat am I doing wrong! or you can suggest the way i must follow.\r<br />\n<br />\nThanks for you great framework.<br />\n",
+    "PostedDate": "2013-05-23T01:32:56.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1047836",
+    "ThreadId": "444712",
+    "Html": "Please make sure that you are also referencing the MVVM Light PCL assemblies in the two applications (WinRT and WP8).\r<br />\n<br />\nLet me know if that solves the issue.\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2013-05-23T09:42:47.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

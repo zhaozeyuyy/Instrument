@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "608556",
+    "ThreadId": "256667",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Following code would solve the issue of printing the Visual from ViewModel.<span>&nbsp;</span></p>\r\n<pre><code><span>&nbsp; &nbsp; &nbsp; &nbsp; public RelayCommand</span><span>&lt;Visual&gt;</span><span> PrintCommand<br>&nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; get<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return new RelayCommand</span><span>&lt;Visual&gt;</span><span>( v =&gt;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PrintDialog printDlg = new PrintDialog();<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; printDlg.PrintVisual( v, &quot;Sample Printing.&quot; );<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } );<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br><br></span></code></pre>\r\n<p>Have the following doubts,</p>\r\n<p>1. Can I keep the Visual in VM?</p>\r\n<p>2. I am planning to make the common Print view that has the header,footer and body UI element and all properties are bound with VM.</p>\r\n<p>How can I call common Print view from any VM? Hope we should not have the reference of View in the VM. How could we archieve this?</p>\r\n<p>Need the architectural guidance on this. Please advise.</p>\r\n<p>Thanks,</p>\r\n<p>Mani</p>\r\n",
+    "PostedDate": "2011-05-06T08:14:18.747-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

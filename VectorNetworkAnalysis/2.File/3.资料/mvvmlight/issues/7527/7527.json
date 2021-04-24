@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Not an issue, as noted by the poster. Starting a discussion around register/unregister",
+    "ClosedDate": "2011-06-02T03:57:42.553-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Hi,\r\n\r\nI have a simple business application with 2 pages and 2 childWindows. To implement MVVM, I used MEF and the MVVMLight messaging mechanism. All is working well. My views are bound to their viewmodels and the viewmodels are communicating with each other using Messenger.Default.Register<...>. \r\n\r\nMy problem starts when I navigate out of a page and then come back to it. Then, the registered message actions happen twice. If i navigate into that page 3 times then the registered actions will happen 3 times. It's like that ViewModel instance MEF created is still there and everytime I navigate to the page it's creating a new instance of the ViewModel. How do I \"destroy\" that ViewModel instance? I was thinking, maybe, to go with Messenger.Default.Unregister(this) on a \"NavigatedOut\" event but that seems like a dirty solution. I don't fully understand MEF behind the scenes so I don't know how to go about it... any ideas?\r\n\r\nEDIT: I jsut realized I posted this in the wrong place... should go under discussions. Can you guys close/delete this item?\r\n\r\nThanks,\r\n\r\nEyal",
+    "LastUpdatedDate": "2011-06-02T03:57:42.553-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-05-24T22:45:52.017-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "MEF with Messaging issue",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7527
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Closing it as \"not an issue\", thanks for noticing. We can start a discussion around register/unregister.",
+      "PostedDate": "2011-06-02T03:57:15.91-07:00",
+      "Id": 36835
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "524242",
+    "ThreadId": "235293",
+    "Html": "\r\n<p>What is the best way to let the UI get notified of any changes of the actual items in an observable collection (located in the view model)?</p>\r\n<p>My specific problem:</p>\r\n<p>I have a property in a view model<br>\r\npublic ObservableCollection&lt;IllustrationExtended&gt; Illustrations</p>\r\n<p>A list box in the UI is bound to this collection<br>\r\n&lt;ListBox ItemsSource=&rdquo;{Binding Illustrations}&rdquo; ItemContainerStyle=&rdquo;{StaticResource IllustratorSelectorListBoxItemStyle}&rdquo; &hellip; /&gt;</p>\r\n<p>The IllustrationExtended class has a property called HasData, which tells if the illustration is fully loaded. I would like to disable the list box item until the illustration is fully populated, but still display it in the list.</p>\r\n<p>So in the item style, I have added a rectangle that shall be visible if HasData is false. (This solution is because of it is impossible in Silverlight to do any binding in the property setter.)</p>\r\n<p>&lt;Grid x:Name=&quot;contentPresenter&quot; Margin=&quot;4,0,4,4&quot; Cursor=&quot;Hand&quot;&gt;<br>\r\n<span style=\"white-space:pre\"></span>&lt;Image x:Name=&quot;itemImage&quot; Source=&quot;{Binding ImageSource}&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Center&quot;/&gt;\r\n<br>\r\n<span style=\"white-space:pre\"></span>&lt;TextBlock x:Name=&quot;textBlock&quot; TextWrapping=&quot;Wrap&quot; Text=&quot;{Binding Illustration.ShortName}&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Bottom&quot; Foreground=&quot;{StaticResource BestGray1}&quot;/&gt;<br>\r\n<span style=\"white-space:pre\"></span>&lt;Rectangle x:Name=&quot;itemDisabled&quot; Fill=&quot;{StaticResource BestGray2}&quot; IsHitTestVisible=&quot;False&quot; Opacity=&quot;50&quot;\r\n<span style=\"color:#ffff00\"><span style=\"color:#ff0000\">Visibility=&quot;{Binding HasData, ConverterParameter=invert, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}</span>&quot;</span>/&gt;<br>\r\n&lt;/Grid&gt;</p>\r\n<p>Now my concrete question. <br>\r\nHow should I do so the visibility of the rectangle change when the HasData property change?</p>\r\n<p>Regards,<br>\r\nChristoffer</p>\r\n",
+    "PostedDate": "2010-11-19T01:41:29.48-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "524323",
+    "ThreadId": "235293",
+    "Html": "\r\n<p>The ObservableCollection has a CollectionChanged event. You should be able to handle this event and update your viewmodel accordingly.</p>\r\n",
+    "PostedDate": "2010-11-19T06:01:50.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

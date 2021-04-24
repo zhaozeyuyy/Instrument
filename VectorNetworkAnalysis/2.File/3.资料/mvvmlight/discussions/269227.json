@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "658734",
+    "ThreadId": "269227",
+    "Html": "\r\n<p>Wouldn't it be better to make the ViewModelBase partial so it is possible to share code across all viewmodals?</p>\r\n<p>In this case I would like to create an attached property for all viewmodals.</p>\r\n<p>For now I made a seperate class for this property, but then I don't have the IsInDesignTime property.</p>\r\n",
+    "PostedDate": "2011-08-16T02:09:33.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "661531",
+    "ThreadId": "269227",
+    "Html": "<p>Hi,</p>\r\n<p>This is on the map for V4 beta 1. This version will be released soon but first I have a couple of issues with the V3 installer that I need to solve.</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-08-22T06:36:31.073-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "663485",
+    "ThreadId": "269227",
+    "Html": "<p>How exactly will this be accomplished? Going to add ViewModelBase source to each project consuming it?</p>",
+    "PostedDate": "2011-08-25T13:53:46.23-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "664926",
+    "ThreadId": "269227",
+    "Html": "<p>Mmmm yeah I talked too fast. What happened is that I had this on my backlog some time ago because it sounded like a good idea. However you cannot have partial classes across assemblies. So I cannot declare the ViewModelBase partial and then in your app have another ViewModelBase.cs file with the rest of the declaration.</p>\r\n<p>Instead, I recommend using extension methods, which in essence achieve pretty much the same effect.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-08-29T09:54:51.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "665058",
+    "ThreadId": "269227",
+    "Html": "you are correct, I didn't think about that.<br>\r\n<br>\r\nI can also just create my own CustomViewModelBase inherited from your ViewModelBase and use that in every ViewModel.<br>\r\n",
+    "PostedDate": "2011-08-29T14:17:21.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

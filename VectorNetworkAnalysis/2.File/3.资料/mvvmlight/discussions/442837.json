@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1040469",
+    "ThreadId": "442837",
+    "Html": "Hi Laurent\r<br />\n<br />\nI appologies if this has been asked before.\r<br />\n<br />\nI am having an issue with my WPF application (using MVVM Light), where the CanExecute element of the RelayCommand is not updating my UI; this is appears to be becuse it is being updated from a background thread.\r<br />\n<br />\nIs this something that can be overcome using the DispatcherHelper, if so how?\r<br />\n<br />\n<br />\nMany Thanks\r<br />\n<br />\nPhil<br />\n",
+    "PostedDate": "2013-05-07T09:20:08.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1041518",
+    "ThreadId": "442837",
+    "Html": "OK, so I have figured out a work around. <br />\n<br />\nFortunately, the condition on my background thread that I am using to determine the CanExecute state, has an associated event.<br />\n<br />\nI hooked into the event on my ViewModel using a lamda expression for each instance of the object in question, and used the dispatcher helper to call the RaiseCanExecuteChanged on the UI thread for each associated command. <br />\n<pre><code>DispatcherHelper.CheckBeginInvokeOnUI(() =&gt; { [MyCommand].RaiseCanExecuteChanged(); });</code></pre>\n\nIn future, if an event is not available I will consider using the Messenger. <br />\n<br />\n<br />\nThis works but feels a little convoluted; is there a better way of doing this?<br />\n<br />\n<br />\nMany Thanks<br />\n<br />\nPhil<br />\n",
+    "PostedDate": "2013-05-09T12:07:29.903-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

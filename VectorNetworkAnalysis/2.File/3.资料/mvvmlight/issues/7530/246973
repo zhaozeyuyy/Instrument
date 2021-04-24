@@ -1,0 +1,48 @@
+diff -r 8ea49c2f278d GalaSoft.MvvmLight/GalaSoft.MvvmLight (NET35)/Messaging/Messenger.cs
+--- a/GalaSoft.MvvmLight/GalaSoft.MvvmLight (NET35)/Messaging/Messenger.cs	Sun Apr 10 10:35:04 2011 -0400
++++ b/GalaSoft.MvvmLight/GalaSoft.MvvmLight (NET35)/Messaging/Messenger.cs	Sun Jun 05 02:04:37 2011 +1000
+@@ -36,7 +36,7 @@
+     public class Messenger : IMessenger
+     {
+         private static Messenger _defaultInstance;
+-        private readonly object _registerLock = new object();
++        private static readonly object GenericLock = new object();
+         private Dictionary<Type, List<WeakActionAndToken>> _recipientsOfSubclassesAction;
+         private Dictionary<Type, List<WeakActionAndToken>> _recipientsStrictAction;
+ 
+@@ -160,7 +160,7 @@
+             bool receiveDerivedMessagesToo,
+             Action<TMessage> action)
+         {
+-            lock (_registerLock)
++            lock (GenericLock)
+             {
+                 Type messageType = typeof(TMessage);
+ 
+@@ -371,7 +371,7 @@
+                 return;
+             }
+ 
+-            lock (lists)
++            lock (GenericLock)
+             {
+                 var listsToRemove = new List<Type>();
+                 foreach (var list in lists)
+@@ -464,7 +464,7 @@
+                 return;
+             }
+ 
+-            lock (lists)
++            lock (GenericLock)
+             {
+                 foreach (Type messageType in lists.Keys)
+                 {
+@@ -498,7 +498,7 @@
+                 return;
+             }
+ 
+-            lock (lists)
++            lock (GenericLock)
+             {
+                 foreach (WeakActionAndToken item in lists[messageType])
+                 {

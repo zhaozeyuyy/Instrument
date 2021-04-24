@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "559143",
+    "ThreadId": "244251",
+    "Html": "\r\n<p>Hi,</p>\r\n<p><br>\r\nI am specifically instantiating my ViewModel in Code, so that i can pass parameters to it and Dispose it. However my XAML needs to make use of the EventToCommand Behaviour for a ListView context menu.<br>\r\nCreating the EventToCommand behaviour requires a static resource of the type of my viewmodel resulting in creation of another duplicate ViewModel from XAML.</p>\r\n<p>This is causing erratic behaviour in the app as both the view models are now registering and listening to messages being sent by popups etc.<br>\r\n<br>\r\n<span style=\"color:#0000ff\">&lt;i:Interaction.Triggers&gt;&lt;i:EventTrigger EventName</span><br>\r\n<span style=\"color:#0000ff\">=&quot;Click&quot;&gt;</span><br>\r\n<span style=\"color:#0000ff\">&lt;GalaSoft_MvvmLight_Command:EventToCommand Command=&quot;{Binding ShowProgramDetailsCommand, Mode=OneWay, Source={StaticResource ProgramListViewModelDataSource}}&quot; CommandParameter=&quot;{Binding}&quot;/&gt;</span><br>\r\n<span style=\"color:#0000ff\">&lt;/i:EventTrigger&gt;&lt;/i:Interaction.Triggers&gt;</span><br>\r\n&nbsp;<br>\r\n&#65279;I don't want to use a Singleton ViewModel as i want a new ViewModel to be generated each time i come to the view.</p>\r\n<p>Many time for the EventToCommand behaviour we do not have to specify the Source( like in buttons etc) , but in this case the Event to command behaviour is on the context menu of the ListView defined as a grid view and it doesn't work without specifying the\r\n source....</p>\r\n<p>&nbsp;</p>\r\n<p>I can do workarounds in the code and safeguard my functionality but how do i ensure the VM created via XAML will stop listening for events and will get disposed on its own?</p>\r\n<p>Please guide!</p>\r\n<p>Thanks</p>\r\n<p>Anshulee</p>\r\n<p>www.cennest.wordpress.com</p>\r\n",
+    "PostedDate": "2011-02-01T22:08:38.503-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "559154",
+    "ThreadId": "244251",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>You should use ViewModelLocator - the ViewModel will be set (as DataContext for whole view) only on XAML. If you want pass arguments to ViewModel good start would be using Messaging. On view closing you should call viewModel's Cleanup (via messaging or directly\r\n through dataContext) method, in order to unsubscribe to Messaging.</p>\r\n<p>This functionality isn't out of the box, only pieces for it are ready to use.</p>\r\n<p>&nbsp;</p>\r\n<p>Aurimas Neverauskas</p>\r\n",
+    "PostedDate": "2011-02-01T22:55:04.347-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

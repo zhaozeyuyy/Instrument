@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1067003",
+    "ThreadId": "449679",
+    "Html": "I'm being blocked by this deadlock issue here:\r<br />\n<br />\n<a href=\"https://mvvmlight.codeplex.com/workitem/7581\" rel=\"nofollow\">https://mvvmlight.codeplex.com/workitem/7581</a>\r<br />\n<br />\nIs there an easy way to get around this? Or should I just implement my own messenger with the fix recommended in the work item?<br />\n",
+    "PostedDate": "2013-07-11T05:42:55.39-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1074446",
+    "ThreadId": "449679",
+    "Html": "I too (I think) am being deadlocked by this issue. I see that there was a <a href=\"https://mvvmlight.codeplex.com/SourceControl/network/forks/NmsPhil/DeadlockSolved?branch=default\" rel=\"nofollow\">pull</a> reuqest and it seems is &quot;being evaluated&quot;. \r<br />\n<br />\nI would love to see this get merged into the trunk and an updated nuget package become available with the fix.<br />\n",
+    "PostedDate": "2013-07-29T13:29:48.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1076761",
+    "ThreadId": "449679",
+    "Html": "The handler for one of my messages was doing an Invoke on the dispatcher, which in turn sent more messages. I got around it by doing an InvokeAsync.<br />\n",
+    "PostedDate": "2013-08-05T05:09:43.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

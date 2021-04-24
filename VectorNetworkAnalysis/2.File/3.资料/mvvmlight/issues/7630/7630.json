@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I am having the same issue as another at the post of: [Warnings when compiling a new MVVM Light Win81 project](https://mvvmlight.codeplex.com/discussions/498049) where I am getting several warnings about await not being called on asynchronous tasks and async methods running synchronous calls. Oh there is also a warning about the certificate not being found and not being valid for signing aswell. I understand that this probably should be in another issue report, but all these warnings come from a fresh install and a new project so I thought I would keep them together, here's the warning list just for an on page reference:\r\n\r\n``` 1>------ Rebuild All started: Project: MvvmLight1, Configuration: Debug Any CPU ------\r\n1>C:\\Users\\Robert\\Documents\\Visual Studio 2012\\Projects\\Windows Store\\MvvmLight1\\MvvmLight1\\Common\\UserControlBase.cs(60,17,60,60): warning CS4014: Because this call is not awaited, execution of the current method continues before the call is completed. Consider applying the 'await' operator to the result of the call.\r\n1>C:\\Users\\Robert\\Documents\\Visual Studio 2012\\Projects\\Windows Store\\MvvmLight1\\MvvmLight1\\Common\\OrientationStateBehavior.cs(78,13,78,63): warning CS4014: Because this call is not awaited, execution of the current method continues before the call is completed. Consider applying the 'await' operator to the result of the call.\r\n1>C:\\Users\\Robert\\Documents\\Visual Studio 2012\\Projects\\Windows Store\\MvvmLight1\\MvvmLight1\\Model\\DataService.cs(7,37,7,44): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.\r\n1>C:\\Users\\Robert\\Documents\\Visual Studio 2012\\Projects\\Windows Store\\MvvmLight1\\MvvmLight1\\ViewModel\\MainViewModel.cs(69,13,69,25): warning CS4014: Because this call is not awaited, execution of the current method continues before the call is completed. Consider applying the 'await' operator to the result of the call.\r\n1>C:\\Users\\Robert\\Documents\\Visual Studio 2012\\Projects\\Windows Store\\MvvmLight1\\MvvmLight1\\ViewModel\\MainViewModel.cs(97,30,97,32): warning CS0168: The variable 'ex' is declared but never used\r\n1> MvvmLight1 -> C:\\Users\\Robert\\Documents\\Visual Studio 2012\\Projects\\Windows Store\\MvvmLight1\\MvvmLight1\\bin\\Debug\\MvvmLight1.exe\r\n1>C:\\Program Files (x86)\\MSBuild\\Microsoft\\VisualStudio\\v12.0\\AppxPackage\\Microsoft.AppXPackage.Targets(1093,9): warning APPX0104: Certificate file 'MvvmLight.Win8_TemporaryKey.pfx' not found.\r\n1>C:\\Program Files (x86)\\MSBuild\\Microsoft\\VisualStudio\\v12.0\\AppxPackage\\Microsoft.AppXPackage.Targets(1093,9): warning APPX0107: The certificate specified is not valid for signing. For more information about valid certificates, see http://go.microsoft.com/fwlink/?LinkID=241478.\r\n========== Rebuild All: 1 succeeded, 0 failed, 0 skipped ==========\r\n```\r\nVS2013 Ultimate X86 version",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "null",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-03-25T15:40:04.9-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "await warnings in fresh install/new project 8.1",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7630
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

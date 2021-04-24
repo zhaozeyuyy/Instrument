@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "554886",
+    "ThreadId": "243180",
+    "Html": "\r\n<p>Hi Laurent,</p>\r\n<p>I'm just reading your book &quot;Silverlight unleashed&quot;.<br>\r\nIn Chapter 20 your are explaining how to use MEF to load plugins and how to use your messenger class. But you are not explaining how to load plugins, which where build with the MVVM light toolkit.</p>\r\n<p>It would be interesting to know how to use MVVM in your BingTextSearch and BingImageSearch plugins and how to handle the plugins via MEF and a global (or local) ViewModelLocator.<br>\r\nIf I put View and Viewmodel in separated plugins/assemblies where do I instantiate the ViewModelLocator. Usually I put to it in the App.xaml file of the StartUp project.<br>\r\n<span lang=\"EN-US\" style=\"font-size:10pt; color:#a31515\">&nbsp;&nbsp;&nbsp; </span>\r\n<span lang=\"EN-US\" style=\"font-size:10pt; color:blue\">&lt;</span><span lang=\"EN-US\" style=\"font-size:10pt; color:#a31515\">Application.Resources</span><span lang=\"EN-US\" style=\"font-size:10pt; color:blue\">&gt;</span><span lang=\"EN-US\" style=\"font-size:10pt\"><br>\r\n<span style=\"color:#a31515\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">Mvvm</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">ViewModelLocator</span><span style=\"color:red\">&nbsp;x</span><span style=\"color:blue\">:</span><span style=\"color:red\">Key</span><span style=\"color:blue\">=&quot;Locator&quot;&nbsp;/&gt;</span><br>\r\n<span style=\"color:#a31515\">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">Application.Resources</span><span style=\"color:blue\">&gt;<br>\r\n</span></span>But I also need a reference in the view<span lang=\"EN-US\" style=\"color:red\"><br>\r\nDataContext</span><span lang=\"EN-US\" style=\"color:blue\">=&quot;{</span><span lang=\"EN-US\" style=\"color:#a31515\">Binding</span><span lang=\"EN-US\" style=\"color:red\">&nbsp;Source</span><span lang=\"EN-US\" style=\"color:blue\">={</span><span lang=\"EN-US\" style=\"color:#a31515\">DynamicResource</span><span lang=\"EN-US\" style=\"color:red\">&nbsp;Locator</span><span lang=\"EN-US\" style=\"color:blue\">},</span><span lang=\"EN-US\" style=\"color:red\">&nbsp;Path</span><span lang=\"EN-US\" style=\"color:blue\">=PersonVm}&quot;<br>\r\n</span>So I need also a reference in the plugin to the ViewModelLocator. And the ViewModelLocator need a reference to the different viewmodels.<br>\r\nBut then I have no decupled plugins.</p>\r\n<p>I like your book, but you ignore MVVM in the chapter 20 (Building Extensible and Maintanable Applications) completely and put all code in the codebehind file.<br>\r\nOk, I don&rsquo;t want to discuss if it&rsquo;s ok to use the codebehind file, but I think at this point you were a little bit to lazy. ;-)</p>\r\n<p>But maybe it is not a good idea to use MEF and MVVM light to seperate MVVM parts in different assemblies.<br>\r\nShould I use bigger frameworks like Prism?</p>\r\n<p>Regards<br>\r\nDirk</p>\r\n",
+    "PostedDate": "2011-01-25T01:47:03.777-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "635362",
+    "ThreadId": "243180",
+    "Html": "<p>Hello Dirk</p>\r\n<p>&nbsp;As there was no reply here and I am facing exactly the same question I am beginning to wonder if I should be using a different framework too.&nbsp; ;-)</p>\r\n<p>So, a quick last stab, as I actually would prefer to stay with MVVMLight, is it possible to use the toolkit in multiple assemblies, i.e. the View in one assembly and the ViewModel in the main application.</p>\r\n<p>If so, can someone point me in the right direction?</p>\r\n<p>Thanks</p>",
+    "PostedDate": "2011-06-30T05:25:57.523-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "635367",
+    "ThreadId": "243180",
+    "Html": "<p>Hi,</p>\r\n<p>Sorry about missing this message.&nbsp;</p>\r\n<p>ViewModelLocator (VML) is a good way to expose viewmodels when these are static. For dyanmically loaded objects (such as those loaded through MEF), the VML is more difficult to use. There are a few possibilities:</p>\r\n<ul>\r\n<li>Bind the dynamically loaded VMs to the DataContext of the view in code. The blendability can then be reached with the d:DataContext design time construct, as explained in http://www.galasoft.ch/mvvmvideo2</li>\r\n<li>If the loaded component is in its own XAP file, use a design time VML in this XAP file (placed in App.xaml of this particular XAP file). This will be available at design time in Blend, but not at run time when the XAP is loaded through MEF into the application. In this case, assign the VM dynamically to the DataContext (like before).</li>\r\n<li>Create the secondary VML and save it in the application's resources dynamically when the component is loaded through MEF.</li>\r\n</ul>\r\n<p>Hopefully this helps,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-06-30T05:50:05.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "635546",
+    "ThreadId": "243180",
+    "Html": "<p>Hello Laurent,</p>\r\n<p>Thanks for replying.</p>\r\n<p>I watched the video and learned alot, thanks for this presentation, very informative.</p>\r\n<p>However, from your comment above, you talk about a dynamcially loaded ViewModel.&nbsp; In my case I want to Dynamically load the view, and somehow attach the ViewModel which is in the main application code.</p>\r\n<p>Can you give me an example of how to do this if it is possible.&nbsp; I am trying to 'find' the ViewModel that is in the application space using the Locator but can't see how to do this.</p>\r\n<p>Thank you for your patience with me, I am pretty new to the MVVM pattern&nbsp; :-)</p>\r\n<p>Regards</p>\r\n<p>Mark.</p>",
+    "PostedDate": "2011-06-30T11:22:07.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "826535",
+    "ThreadId": "243180",
+    "Html": "<p>Hi Mark &amp; Laurent,</p>\r\n<p>I am trying to accomplish the same thing, Mark. Basically I am trying to create a SLOOB that rotates a number of charts in a loop. Each chart will be it's own View and have it's own ViewModel to acquire it's data. I'm thinking that I'll use the Telerik transisition control on the MainPage.xaml and use the ViewModelLocator to discover and dyanmically load each view. But I am not at all sure how to do that.</p>\r\n<p>Mark, have you been able to figure this out?</p>\r\n<p>&nbsp;</p>\r\n<p>-Sam</p>",
+    "PostedDate": "2012-04-20T08:16:32.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

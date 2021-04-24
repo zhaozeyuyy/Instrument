@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "737469",
+    "ThreadId": "291012",
+    "Html": "\r\n<p>We recently upgraded to SL5, but missed our MVVM Light dependencies. &nbsp;So I tried to upgrade to the SL5 version of MVVM Light (v3 because we can't ship beta level software) and it looks like SL5 assemblies are both missing the XmlnsDefinition attribute.\r\n &nbsp;Our code doesn't compile (we're cross compiling SL5 to WPF4 so we require an XmlnsDefinition; referencing by assembly name will break the cross compile) so we're stuck with the SL4 assemblies for now.</p>\r\n",
+    "PostedDate": "2012-02-02T15:23:26.843-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "765607",
+    "ThreadId": "291012",
+    "Html": "<p>No reply in almost 2 weeks? &nbsp;Really? &nbsp;So the PRISM team is going to beat MVVM Light to SL5?</p>",
+    "PostedDate": "2012-02-14T16:17:13.017-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "766915",
+    "ThreadId": "291012",
+    "Html": "<p>Hey Mike,</p>\n<p>I am sorry for the lack of response. The past few weeks have shown an increase activity in my firm with a huge project I am involved with. I am also out conferencing this week and had to find a little time to prepare. But I don't mean to complain :)</p>\n<p>Yes you are right about the XmlnsDefinition, it is a regrettable omission. Making the fix will take a very short time, making a new installer and testing will take an evening, and I didn't have one until now (hopefully it will clear a bit soon, hoping to  have a fix this weekend).</p>\n<p>[update 20120219: Actually XmlnsDefinition is included into the SL5 version too, check my reply below]</p>\n<p>I wouldn't wait for the fix though. Open source is a great concept that means that you can download the source and fix it yourself. That's really awesome. In this case, compare the AssemblyInfo to the one in SL4. Let me know if you have any issue and I will  do my best to answer faster :)</p>\n<p>Cheers,<br /> Laurent</p>\n<p>PS: I would leave my day job and work only on MVVM Light if I could. However people keep sending me bills and insist that I pay them on time. That sucks, I know. Unfortunately the Donation page is very idle, won't be able to leave any time soon (<a href=\"http://www.galasoft.ch/mvvm/donate/\">http://www.galasoft.ch/mvvm/donate/</a>)  ;)&nbsp;</p>",
+    "PostedDate": "2012-02-14T22:55:33.037-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "767003",
+    "ThreadId": "291012",
+    "Html": "<p>Update: I was just notified that the donation button is broken. Damn, noone reported THAT bug ;)</p>",
+    "PostedDate": "2012-02-15T00:00:41.88-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "767592",
+    "ThreadId": "291012",
+    "Html": "<p>Laurent, thanks for replying. &nbsp;I appreciate your situation. &nbsp;Unfortunately my situation is that I work under some onerous rules regarding open source and modifying the source and rebuilding is simply not an option for me. &nbsp;(Crazy, I know. &nbsp;But that's what happens when the CMMI yahoos meet up with the security yahoos and they start jointly running the asylum.) &nbsp;So I'm stuck waiting for an official build. :/</p>\r\n<p>&nbsp;</p>\r\n<p>Hope your conferences went off well.</p>",
+    "PostedDate": "2012-02-15T06:38:32.973-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "778907",
+    "ThreadId": "291012",
+    "Html": "<p>Hi Mike,</p>\r\n<p>I tried to repro your issue, and I cannot. Here is what I did:</p>\r\n<p>- Checked the code in the Silverlight 5 version of MVVM Light on Codeplex: The XmlnsDefinition attribute is defined correctly.</p>\r\n<p>- Installed MVVM Light V4.0.2.19 from&nbsp;<a href=\"http://mvvmlight.codeplex.com/releases/view/73208\">http://mvvmlight.codeplex.com/releases/view/73208</a></p>\r\n<p>- Created a new MVVM Light (SL5) application in Visual Studio.</p>\r\n<p>- Opened the solution in Blend 4 preview for Silverlight 5</p>\r\n<p>- Added an EventToCommand to the TextBlock on the main page</p>\r\n<p>- Checked the XAML: The XmlnsDefinition was found and recognized by Blend. The prefix added is:&nbsp;xmlns:Custom=\"http://www.galasoft.ch/mvvmlight\" (which is what I expected).</p>\r\n<p>I am wondering what went wrong in your case. Could it be that, by mistake, you installed V3 instead of V4?</p>\r\n<p>Let me know and let's solve this issue.</p>\r\n<p>Thanks,<br />Laurent&nbsp;</p>",
+    "PostedDate": "2012-02-19T02:41:40.8-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "779776",
+    "ThreadId": "291012",
+    "Html": "<p>I used the SL5 binaries from this installer:&nbsp;http://mvvmlight.codeplex.com/releases/view/71278</p>\r\n<p>It's definitely V3. &nbsp;V4 is not an option for us because it's still in beta.</p>",
+    "PostedDate": "2012-02-19T07:05:36.673-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "780036",
+    "ThreadId": "291012",
+    "Html": "<p>Something does not compute here. V3 never had XmlnsDefinition. It is a feature I added in V4. You must have used V4 at some point.</p>\r\n<p>That said, I can add XmlnsDefinition to V3 in order to solve your issues. I must finish something else first but I should be able to do that either tonight or tomorrow.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2012-02-19T08:17:47.237-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "785633",
+    "ThreadId": "291012",
+    "Html": "<p>Hi Mike,</p>\r\n<p>Please download the new DLLs from&nbsp;<a href=\"https://skydrive.live.com/#cid=40CFFDE85F1AB56A&amp;id=40CFFDE85F1AB56A%211110\">https://skydrive.live.com/redir.aspx?cid=40cffde85f1ab56a&amp;resid=40CFFDE85F1AB56A!1110&amp;parid=40CFFDE85F1AB56A!129&amp;authkey=!AJ738Uba7ZhZZ1c</a></p>\r\n<p>Download the&nbsp;MVVMLight_V3.0.20 package.</p>\r\n<p>Extract this locally and copy the DLLs (either from Debug or Release) into your C:\\Program Files (x86)\\Laurent Bugnion (GalaSoft)\\Mvvm Light Toolkit\\Binaries folder. Then please test it out and let me know if that fixes your issue.</p>\r\n<p>If the test works fine, I will create a new installer.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2012-02-20T13:29:27.59-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

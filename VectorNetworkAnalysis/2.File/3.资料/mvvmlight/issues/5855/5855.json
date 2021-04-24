@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Unblocking the files as explained at http://galasoft.ch/mvvm/installing/manually/#unblock should solve the issue. And yes, an automated installer is under way.",
+    "ClosedDate": "2011-05-16T01:40:48.25-07:00",
+    "CommentCount": 1,
+    "Custom": "",
+    "Description": "Error\t1\tThe \"CompileXaml\" task failed unexpectedly.\nSystem.IO.FileLoadException: Could not load file or assembly 'file:///C:\\Program Files\\Laurent Bugnion (GalaSoft)\\Mvvm Light Toolkit\\Binaries\\Silverlight4\\GalaSoft.MvvmLight.Extras.SL4.dll' or one of its dependencies. Operation is not supported. (Exception from HRESULT: 0x80131515)\nFile name: 'file:///C:\\Program Files\\Laurent Bugnion (GalaSoft)\\Mvvm Light Toolkit\\Binaries\\Silverlight4\\GalaSoft.MvvmLight.Extras.SL4.dll' ---> System.NotSupportedException: An attempt was made to load an assembly from a network location which would have caused the assembly to be sandboxed in previous versions of the .NET Framework. This release of the .NET Framework does not enable CAS policy by default, so this load may be dangerous. If this load is not intended to sandbox the assembly, please enable the loadFromRemoteSources switch. See http://go.microsoft.com/fwlink/?LinkId=155569 for more information.\n\n   at System.Reflection.RuntimeAssembly._nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)\n   at System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)\n   at System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection, Boolean suppressSecurityChecks)\n   at System.Reflection.RuntimeAssembly.InternalLoadFrom(String assemblyFile, Evidence securityEvidence, Byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm, Boolean forIntrospection, Boolean suppressSecurityChecks, StackCrawlMark& stackMark)\n   at System.Reflection.Assembly.LoadFrom(String assemblyFile)\n   at Microsoft.Silverlight.Build.Tasks.CompileXaml.LoadAssembly(String reference)\n   at Microsoft.Silverlight.Build.Tasks.CompileXaml.LoadAssemblies(ITaskItem[] ReferenceAssemblies)\n   at Microsoft.Silverlight.Build.Tasks.CompileXaml.Execute()\n   at Microsoft.Build.Framework.ITask.Execute()\n   at Microsoft.Build.BackEnd.TaskExecutionHost.Microsoft.Build.BackEnd.ITaskExecutionHost.Execute()\n   at Microsoft.Build.BackEnd.TaskBuilder.ExecuteInstantiatedTask(ITaskExecutionHost taskExecutionHost, TaskLoggingContext taskLoggingContext, TaskHost taskHost, ItemBucket bucket, TaskExecutionMode howToExecuteTask, Boolean& taskResult)\n\n\tMvvmLight1",
+    "LastUpdatedDate": "2011-05-16T01:40:48.25-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2010-04-05T09:17:49.637-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "VS2010 in Virtual Machine - compilation error?",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 5855
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I think the problem is that when the .zip files are downloaded, they are marked as being from another computer and are blocked (File Properties / General / Security:).  It seems that the unzipped files inherit the blocked attribute, and can’t be cleared.  On my system, it was necessary to 'Unblock' the .zip file before unzipping the binaries.\r\n\r\nI hope this helps!",
+      "PostedDate": "2010-04-06T18:59:47.573-07:00",
+      "Id": 18025
+    }
+  ]
+}

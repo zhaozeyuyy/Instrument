@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "892579",
+    "ThreadId": "389385",
+    "Html": "\r\n<p>Hi</p>\r\n<p>I've found useful extending your ObservableObject class adding overloads with a boolean parameter indicating if you want to marshal the notifcation on the UI thread.</p>\r\n<p>I prefer to stay on the safe side and marshal the notifications for all the properties I use in my views. What do u think?</p>\r\n<p>Other implementations of ObservableObject or similar does it by default, but I prefer to be explicit in my view models.</p>\r\n<p>Maybe it could be a nice addition in future implementations of your ObservableObject... by the way, your toolkit is the best engineered I've seen so far, and your code is clean, well commented, and easy to follow! Keep up the wonderful work!</p>\r\n<p>Cheers<br>\r\nPaolo</p>\r\n",
+    "PostedDate": "2012-07-28T09:40:41.7-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "893707",
+    "ThreadId": "389385",
+    "Html": "<p>Hi,</p>\r\n<p>First, thanks for your kind words as well as your rich feedback. it is very much appreciated.</p>\r\n<p>Regarding the dispatching in properties: This is something I have not wanted to do so far mostly to avoid adding some \"magic\". To be honest, threading and dispatching is something that I had to learn the hard way, and I tend to think that it is better to let the developer explicitly dispatch between thread, to make it clearer what is actually happening.</p>\r\n<p>I am not completely fixed on that though. I know that other frameworks (PRISM notably) do the dispatching automatically. This is something I might add in a future version.</p>\r\n<p>Thanks!<br />Laurent</p>",
+    "PostedDate": "2012-07-31T08:21:48.98-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "893732",
+    "ThreadId": "389385",
+    "Html": "<p>Hi Laurent,</p>\r\n<p>you're welcome! I'm proud to contribute (or almost trying to) on a project like yours :D</p>\r\n<p>I agree with you on not wanting to hide threading and dispatching details, as other frameworks like yours do (take Simple MVVM for example, that dispatches all by default on the UI thread).</p>\r\n<p>But maybe adding some explicit overloads to Raise, Sending, etc., that dispatch on the UI thread, it could be a way to effectively help users knowing that a dispatcher exists, and thread safety is not automatic... I've seen some posts on the Issue tracker, and on SO, of people complaining about some deadlocks or racing conditions using your Messenger class. It seems they simply ignore the fact that you simply (and correctly) call the subscriber's delegates on the same thread of the Send...</p>\r\n<p>But maybe they can just sit down and try to study a little more on the threading topic.. ;)</p>\r\n<p>Have a nice day!<br />Paolo</p>",
+    "PostedDate": "2012-07-31T08:57:14.713-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

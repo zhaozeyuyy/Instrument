@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:56:58.417-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "Hi,\r\nI`m not sure that this is a bug of framework or it`s problem on my side but when I want to read data from for example *xml files in ViewModel, I have a DirectoryNotFoundException when I open a *xaml View, but the directory and files are there?\r\n\r\nSo how about that? or what is the good way to read data from files and pass them to the view model?",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-02-17T05:42:53.553-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "DirectoryNotFoundException on ViewModelLocator",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7560
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nCan you explain more? When do you get the exception exactly? If you get it in Blend, it is to be expected, you will need to provide design time data to satisfy Blend.\n\nCheers,\nLaurent",
+      "PostedDate": "2012-02-19T10:02:52.917-08:00",
+      "Id": 56233
+    },
+    {
+      "Message": "ok thx for your answer, my fault, design time data wasn`t provided",
+      "PostedDate": "2012-02-20T02:04:50.41-08:00",
+      "Id": 56254
+    }
+  ]
+}

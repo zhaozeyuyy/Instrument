@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2016-05-11T09:43:32.92-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "If I disable \"Enable Project Code\" shouldn't this go away?  \r\n\r\n![Image](http://i1160.photobucket.com/albums/q487/invegat/designView_zpswjkh36oy.jpg)\r\n\r\n[enabling-disabling-design-data-in-visual-studio-2015](http://blog.galasoft.ch/posts/2016/02/enabling-disabling-design-data-in-visual-studio-2015-update-1/)\r\n\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-05-11T07:17:40.713-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Not an issue"
+    },
+    "Summary": "Disabling \"Enable Project Code\" doesn't remove design view ",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7726
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nNo, this is not related to Enable project code. This is the debug bar which enables features such as Live property explorer etc. The Enable Project Code setting will only influence what you see in the Visual Studio Designer or in Blend.\n\nAlso of note, this is definitely not something related to MVVM Light :)\n\nLaurent",
+      "PostedDate": "2016-05-11T09:43:10.597-07:00",
+      "Id": 199475
+    },
+    {
+      "Message": "How do I disable the debug bar?",
+      "PostedDate": "2016-05-12T08:29:59.777-07:00",
+      "Id": 199506
+    }
+  ]
+}

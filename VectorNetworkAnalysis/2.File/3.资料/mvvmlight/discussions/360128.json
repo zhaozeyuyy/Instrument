@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "850820",
+    "ThreadId": "360128",
+    "Html": "\r\n<p>I downloaded the setup and installed the v4 of MVVM. I don't see SimpleIoc which is shown in MIX11 Deep dive demo. Is it removed ?&nbsp;</p>\r\n<p>As an alternative I downloaded the example shown in MIX11 and using Win7 dll file from the example. But it may impact. Does anybody have any update on this ?</p>\r\n",
+    "PostedDate": "2012-06-19T04:52:38.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "859246",
+    "ThreadId": "360128",
+    "Html": "<p>Actually it should be in there. Not sure what DLLs you got. It is in the Extras DLL. Make sure you get the latest, I just published RTM.</p>\r\n<p>Cheers,<br />Laurent</p>",
+    "PostedDate": "2012-07-09T09:08:37.737-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

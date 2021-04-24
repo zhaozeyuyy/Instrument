@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1086114",
+    "ThreadId": "454839",
+    "Html": "Hi!\r<br />\n<br />\nIm a seasoned .NET developer looking into MVVM Light using VS2012 Update 2 for WP8 development. I have had some problems getting started, I just wanted to share it here:<br />\n<ul>\n<li>\nWhen installing Mvvm light from Nuget I didnt get any snippets, or templates<br />\n</li>\n<li>\nWhen installing from the 4.1 msi I got templates (outdated ones, I can find WPF and SL but no WP8) but still no snippets.<br />\n</li>\n<li>\nI still get those annoying errors about INotifyPropertyChanging <a href=\"https://mvvmlight.codeplex.com/discussions/401430\" rel=\"nofollow\">https://mvvmlight.codeplex.com/discussions/401430</a><br />\n</li>\n<li>\nThe reference points to the blabla.WP8 dll but the namespaces in that assembly eppears to be called blabla.WP71, caused lots of confusion in the xaml when I wanted to use the galasoft behaviour for handling events.<br />\n</li>\n<li>\nWhen I use the templates for a ViewModel for example, I get two choices (WPF) or (SL). I am developing for WP8 why no WP8 templates? The viewmodels seem to work, but the view templates are a lost cause since the xaml isn't compatible with a WP8 view. It is under the &quot;Windows Phone 8&quot; section in Add-&gt;New in VS2012. Did I do the wrong installation or haven't the templates been updated in a long time? Totally confusing either way.<br />\n</li>\n<li>\nLinks to tutorials, guides etc contain lots of really old stuff (from 2010, 2011) and many of the links are dead. Please remove deprecated stuff and dead links. I found Laurents MSDN Magazine articles on MVVM Light excellent... as well as some videos. But the majority of teh stuff (aspecially the ones from Jesse Libery) should just be removed. They confuse more than they help by using outdated syntax and old versions of both VS and mvvm light.<br />\n</li>\n<li>\nI would like some kind of aggregated place, either here under Documentation or at the galasoft blog page, where we can find the most recent documentation/forum posts as stickys for basic stuff such as installation, messages, viewmodellocator, simpleioc etc. As it is now the stuff is all over the place and really hard to figure out where to start. I would suggest looking at a MSDN style of documentation or a message board with pinned items at the top for this stuff. There IS lots of stuff (even recent) in regards to MVVM out there, but it is really hard to find!!<br />\n</li>\n<li>\nThe framework looks awesome btw!! Im currently looking into a strategy for handling caching (fetching lots of data including images) and tombstoning, does Mvvm light help me with that?<br />\n</li>\n</ul>\nkind regards\r<br />\nHenrik<br />\n",
+    "PostedDate": "2013-08-29T04:49:30.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1097572",
+    "ThreadId": "454839",
+    "Html": "When installing from the 4.1 msi I got templates (outdated ones, I can find WPF and SL but no WP8) but still no snippets.\r<br />\n<br />\nI got the same problem,after mvvmlight msi installed and creat a mvvmlight(wp8) project,when I add new view, I can't find the wp8 template(only sl and wpf).\r<br />\n<br />\nHave you found the solution?\r<br />\n<br />\nThx.<br />\n",
+    "PostedDate": "2013-09-22T03:52:20.977-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1098322",
+    "ThreadId": "454839",
+    "Html": "I have the same problem. I can't find the WP8 view templates .<br />\n",
+    "PostedDate": "2013-09-23T20:14:26.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1129128",
+    "ThreadId": "454839",
+    "Html": "Hi\r<br />\nAnyone know a solution for problem with WP8 templates. I have the same problem. I can create only SL and WPF View. \r<br />\nThanks\r<br />\nKamil<br />\n",
+    "PostedDate": "2013-11-26T03:37:05.3-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

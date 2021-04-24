@@ -1,0 +1,116 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:58:14.717-07:00",
+    "CommentCount": 13,
+    "Custom": null,
+    "Description": "Hi,\r\nI'm facing the following error: \"Non-static method requires a target\" in function:\r\n\r\n        /// <summary>\r\n        /// Executes the action. This only happens if the action's owner\r\n        /// is still alive.\r\n        /// </summary>\r\n        /// <param name=\"parameter\">A parameter to be passed to the action.</param>\r\n        public void Execute(T parameter)\r\n        {\r\n            if (_staticAction != null)\r\n            {\r\n                _staticAction(parameter);\r\n                return;\r\n            }\r\n\r\n            if (IsAlive)\r\n            {\r\n                if (Method != null\r\n                    && ActionReference != null)\r\n                {\r\n                    Method.Invoke(\r\n                        ActionTarget,\r\n                        new object[]\r\n                        {\r\n                            parameter\r\n                        });\r\n                }\r\n\r\n#if SILVERLIGHT\r\n                if (_action != null)\r\n                {\r\n                    _action(parameter);\r\n                    return;\r\n                }\r\n#endif\r\n            }\r\n        }\r\n\r\nI think that ActionTarget should be checked against null before calling Invoke.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V4.2",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-07-13T08:20:38.453-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Messenger: Non-static method requires a target",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 13,
+    "Id": 7579
+  },
+  "FileAttachments": [
+    {
+      "FileId": 465068,
+      "FileName": "WpfDBtest - Copy.zip",
+      "DownloadUrl": ".\\465068"
+    },
+    {
+      "FileId": 478925,
+      "FileName": "Messages.zip",
+      "DownloadUrl": ".\\478925"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nCan you send me more details on how you register the message handler to the messenger? Ideally, I'd love it if you can send me a repro.\n\nThanks,\nLaurent",
+      "PostedDate": "2012-07-13T10:30:36.727-07:00",
+      "Id": 70106
+    },
+    {
+      "Message": "Unfortunately I can't send you a repro, but I've fixed this issue.\nBasically the action target is null when you work inside lambdas, i've just replaced this:\n\n(in viewmodel constructor)\nMessengerInstance.Register<NavigationMessage>(this, message => { [CODE] });\n\nwith\n\nMessengerInstance.Register<NavigationMessage>(this, OnNavigate);\n\nin which OnNavigate incapsulates the code of the lambda.\nI don't know if this is the expected behavior and I was struggling to find a viable solution (fix?).\n\n",
+      "PostedDate": "2012-07-15T08:55:36.69-07:00",
+      "Id": 70172
+    },
+    {
+      "Message": "Hi Laurent,\nwe faced the same issue.\nThe registration looks as follows:\nMessageService.Register<CommonDialogMessage>(this,(m)=>\n                {\n                    if (m.Sender != _context || !m.DialogResult) return;\n                    if (ApplicationContext.PdoCommands.RemoveWithoutConfirm.CanExecute(_pdoModel))\n                        ApplicationContext.PdoCommands.RemoveWithoutConfirm.Execute(_pdoModel);\n                });\n\nAs HeDo88TH wrote action target seems to be null when lambda is registered as the handler.\n\nAndrey.",
+      "PostedDate": "2012-08-01T01:04:01.597-07:00",
+      "Id": 73172
+    },
+    {
+      "Message": "Hi \n\nI've ran into the same issue when registering for a message like so.\n\n      Messenger.Default.Register(Of PropertyChangedMessage(Of CtMaterial)) _\n            (Me, Sub(P) DispatcherHelper.CheckBeginInvokeOnUI(Sub() Me.MaterialModel = P.NewValue))\n\nchanged it to this.\n\nMessenger.Default.Register(Of PropertyChangedMessage(Of CtMaterial)) _\n                                (Me, Sub(P) OnCtMaterialMessage(P.NewValue))\n\nPrivate Sub OnCtMaterialMessage(Prop As CtMaterial)\n        DispatcherHelper.CheckBeginInvokeOnUI(Sub() Me.MaterialModel = Prop)\nEnd Sub\n\nIt's now working...  ",
+      "PostedDate": "2012-08-01T01:17:30.453-07:00",
+      "Id": 73173
+    },
+    {
+      "Message": "Hey guys,\n\nI am looking into that. Unfortunately, so far, I have been unable to reproduce the issue, even with static lambda. If anyone could send me a repro, I would be very grateful.\n\nThanks,\nLaurent",
+      "PostedDate": "2012-08-01T02:13:49.36-07:00",
+      "Id": 73177
+    },
+    {
+      "Message": "Hi Laurent,\r\n\r\nHere is a file which may help.   If you run the program, all appears well, and all is well typically for the first few interactions with the list.  Click Items in the list to view the detail, and eventually, typically after 5 or 6 clicks you'll get the exception from the messaging system.\r\n\r\nHope that helps,\r\n\r\nDon\r\n",
+      "PostedDate": "2012-08-01T09:41:15.843-07:00",
+      "Id": 73206
+    },
+    {
+      "Message": "Hi!\n\nI had the same issue in my last projects. I'm not sure it will be the same issue as yours, but here's what was my problem.\n\nI have one viewmodel which is binded to a window.\nIn the viewmodel's contructor, I was registering to the messenger like this:\n\n Messenger.Default.Register<PendingOrdersChangedMessage>(\"PendingOrdersListViewModel\", m => this.UpdateModel(m));\n\nThe window could be opened and closed several times. After a few openings I got the same error as yours (Non-static method...).\n\nI found that when the window was closed, the viewmodel was disposed by the GAC, but a references remains to the Messenger, causing the error.\n\nNow, I unregister from the event in the cleanup method:\n\n public override void Cleanup()\n        {\n            Messenger.Default.Unregister<PendingOrdersChangedMessage>(\"PendingOrdersListViewModel\");\n        }\n\nAnd I force this call in the window's load event:\n\nClosing += (s, e) =>\n                {\n                    // we get associated vm\n                    var viewModel = (PendingOrdersListViewModel)this.DataContext;\n                    viewModel.Cleanup();\n                };\n\n\nAnd the problem haven't appeared again.\nHope it can help you!\n\nMaxime\n\n",
+      "PostedDate": "2012-08-27T08:12:25.297-07:00",
+      "Id": 75093
+    },
+    {
+      "Message": "Hi,\n\nI had the same issue in my last project.\n\nI have a window with a viewmodel binded to it. The window can be opened and closed several times.\nAfter opening and closing the window several times I had the same bug: \"Non-static method requires a target\".\n\nIn the viewmodel's constructor, I registered to the messenger:\n\nMessenger.Default.Register<PendingOrdersChangedMessage>(\"PendingOrdersListViewModel\", m => this.UpdateModel(m));\n\nI found that the viewmodel was disposed on window close, but the reference to the messenger was still present and causes the bug.\n\n\nIn order to properly remove the registration in the viewmodel cleanup method:\n\npublic override void Cleanup()\n{\n\tMessenger.Default.Unregister<PendingOrdersChangedMessage>(\"PendingOrdersListViewModel\");\n}\n\nIn the window's load eventhandler, I explicitly call the cleanup method:\n\nClosing += (s, e) =>\n{\n\t// we get associated vm\n       var viewModel = (PendingOrdersListViewModel)this.DataContext;\n       viewModel.Cleanup();\n};\n\nAnd the bug was not coming anymore.\n\nHope it can help you.\nMaxime",
+      "PostedDate": "2012-08-27T08:24:33.55-07:00",
+      "Id": 75094
+    },
+    {
+      "Message": "Bonjour Laurent,\r\n\r\nI encountered the same error and send you a project for you to reproduce the error. Please do the following:\r\n\r\n1. Start the app\r\n2. Enter an account number into the upper right textbox\r\n3. Press the create new account button -> a new window opens\r\n4. Enter an integer number into the lower right textbox\r\n5. Press the transfer money button repeatedly. -> a message is sent\r\n\r\nSometimes it crashes after the first pressing, sometimes I need to press 20 times and more. But finally I always get the \"Non-static method requires a target\" exception.\r\n\r\nPlease note: I was in process of testing your messenger after converting it to VB.net when I noticed the bug. Your unit tests of the messenger run fine with the VB version. When registering the lambda inside the class owning the method it also works fine. Problem only occurs when actiontarget and target differ. Somehow actiontarget is set to nothing/null sometimes.\r\n\r\nAnyway, I like your framework. Keep on & regards,\r\n\r\nTorsten\r\n\r\nP.S.: I will be in holiday for two weeks being unable to answer :)",
+      "PostedDate": "2012-08-30T11:04:31.4-07:00",
+      "Id": 75911
+    },
+    {
+      "Message": "Hi,\nI don't know if this is related, but I get the same error when I register for same message type in two different ModelViews.",
+      "PostedDate": "2013-01-23T05:50:08.47-08:00",
+      "Id": 86945
+    },
+    {
+      "Message": "Surprisingly, I came across this issue today over a year after initial posting! Hedo88th seems to be partially correct. But more specifically, it has to do with accessing local variables inside the lambda argument passed to the Register event. As soon as I removed a call to a local variable my problem disappeared. In my case, just making the local variable a field of the MainWindow class resolved my problem.\n\nIt's no wonder that this rarely causes people problems. I imagine it would be pretty unusual to work with local variables instead of fields or properties for register events. In my case it just happened to be shear lackadaisical lazieness :) With the advent of the async keyword, I think this will be even less problematic as time goes forward.\n\n         public MainWindow()\n         {\n           InitializeComponent();\n\n           LogManager _log = new LogManager(typeof(MainWindow).Name);\n\n            Messenger.Default.Register<NotificationMessage<Exception>>(this,\n            x =>\n            {\n                 // call to this fails on .Send unless you remove the local _log reference\n                 // or change the local variable to being a field of the \n                 //  MainWindow class instead was a simple workaround for me\n                _log.Error(\"An unexpected error occured. \" + x.Notification, x.Content);\n            });\n     }",
+      "PostedDate": "2013-03-20T12:39:24.93-07:00",
+      "Id": 93815
+    },
+    {
+      "Message": "I think this is fixed in V4.2. I will close this issue, but please let me know if you still encounter the issue in V4.2. This version will be released in the next few days.",
+      "PostedDate": "2013-09-22T12:44:48.953-07:00",
+      "Id": 115294
+    },
+    {
+      "Message": "Using V4.2 I still experience this bug.  See comments in code below.\n\n```\n        private IHaveLookups _sender;\n\n        private void requestLookup<T>(IHaveLookups sender, IScreen screen)\n        {\n            //workaround mvvm light bug\n            _sender = sender;\n            var lookupRequest = new LookupRequest()\n            {\n                LookupScreen = (ScreenBase)screen\n            };\n\n            Messenger.Default.Send<LookupRequest>(lookupRequest);\n\n            OnRecordLookupRequested();\n\n            Messenger.Default.Register<T>(this, \"AcceptRecord\", (i) =>\n            {\n                Messenger.Default.Send<object>(null, \"CancelLookup\");\n                //if sender is used instead of _sender, the message is never received\n                _sender.AcceptLookedUpRecord(i);\n                OnRecordLookedUp(typeof(T));\n                Messenger.Default.Unregister<T>(this);\n            });\n        }\n```",
+      "PostedDate": "2013-11-13T09:34:18.853-08:00",
+      "Id": 122945
+    }
+  ]
+}

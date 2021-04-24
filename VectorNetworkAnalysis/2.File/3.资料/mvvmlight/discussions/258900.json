@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "617825",
+    "ThreadId": "258900",
+    "Html": "\r\n<p>Hi,<br>\r\n<br>\r\nI have a simple business application with 2 pages and 2 childWindows. To implement MVVM, I used MEF and the MVVMLight messaging mechanism. All is working well. My views are bound to their viewmodels and the viewmodels are communicating with each other using\r\n Messenger.Default.Register&lt;...&gt;. <br>\r\n<br>\r\nMy problem starts when I navigate out of a page and then come back to it. Then, the registered message actions happen twice. If i navigate into that page 3 times then the registered actions will happen 3 times. It's like that ViewModel instance MEF created\r\n is still there and everytime I navigate to the page it's creating a new instance of the ViewModel. How do I &quot;destroy&quot; that ViewModel instance? I was thinking, maybe, to go with Messenger.Default.Unregister(this) on a &quot;NavigatedOut&quot; event but that seems like\r\n a dirty solution. I don't fully understand MEF behind the scenes so I don't know how to go about it... any ideas?</p>\r\n",
+    "PostedDate": "2011-05-24T22:50:01.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "621909",
+    "ThreadId": "258900",
+    "Html": "<p>Hi,</p>\r\n<p>Registering and unregistering is important. In your particular scenario, the registration occurs multiple times which is the cause of your issue. Either you need to make sure that you register only once, or you need to cleanly unregister.</p>\r\n<p>Even if an instance is garbage collected, it will not be removed immediately from memory. The GC kicks only when it needs to, in order to save performance. Because of this, unregistering properly when an instance is not used anymore is a good policy.</p>\r\n<p>Does it make sense?</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-06-02T04:04:50.95-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "622048",
+    "ThreadId": "258900",
+    "Html": "<p>Hi,</p>\r\n<p>Yes, it makes sense and that was my approace basically. In my case, I just fired an event on \"NavigatingOut\" of a page and I unregistered the ViewModel then.</p>\r\n<p>Thanks for the reply!</p>\r\n<p>Eyal</p>",
+    "PostedDate": "2011-06-02T09:47:45.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

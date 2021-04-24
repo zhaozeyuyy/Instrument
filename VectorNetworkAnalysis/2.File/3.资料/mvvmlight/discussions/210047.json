@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "433636",
+    "ThreadId": "210047",
+    "Html": "<p>Hi,</p>\r\n<p>I am stuck in a issue here, and I think I might need to access a View's chart control in my ModelView.</p>\r\n<p>Can I do this ? Is it possible to do ?</p>\r\n<p>Actually I need to dynamically add AreaSeries in my Chart control , and I couldn't figure out how to this by setting the DataContext of Chart control. So I was thinking to add series at run time in code behind.</p>\r\n<p>And one more question , how can I access my ViewModel's instance in my View's code behind ?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks for your support.</p>\r\n<p>Shah</p>",
+    "PostedDate": "2010-04-21T07:04:38.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "433791",
+    "ThreadId": "210047",
+    "Html": "<p>Hi,</p>\r\n<p>&nbsp;</p>\r\n<p>1) For your series, I am not sure how the chart control you use works, but in the controls I used before, the series were an ObservableCollection, so you can expose the series in the ViewModel and bind to that from your Chart control. If you want to add or remove a Series, just add or remove it in the ObservableCollection, and the bindings will do the rest.</p>\r\n<p>2) In the View, you can access the ViewModel by casting the property DataContext. For example:</p>\r\n<p>var vm = this.DataContext as MainViewModel;</p>\r\n<p>&nbsp;</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-21T11:22:00.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "434004",
+    "ThreadId": "210047",
+    "Html": "<p>I am using Silverlight toolkit 4 chart controls,like this.</p>\r\n<p>&nbsp;&lt;chartingToolkit:Chart Title=&quot;Chronological&quot; x:Name=&quot;AreaSeries&quot; &gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;chartingToolkit:Chart.Series&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;chartingToolkit:AreaSeries Title=&quot;Logistics X&quot; ItemsSource=&quot;{Binding Series_X}&quot; DependentValuePath=&quot;value&quot; IndependentValuePath=&quot;date&quot; /&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;chartingToolkit:AreaSeries Title=&quot;Logistics Y&quot; ItemsSource=&quot;{Binding Series_Y}&quot; DependentValuePath=&quot;value&quot; IndependentValuePath=&quot;date&quot; /&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Percent}&quot;/&gt;--&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/chartingToolkit:Chart.Series&gt;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp; &lt;/chartingToolkit:Chart&gt;</p>\r\n<p>my Series_X and Series_Y is coming from ViewModel. But problem is I also want to bind the number of series as well, so it could generate the required number of series at run time as well !!!</p>\r\n<p>Can I do this ?</p>\r\n<p>Thanks,</p>\r\n<p>Shah</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-21T23:11:20.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

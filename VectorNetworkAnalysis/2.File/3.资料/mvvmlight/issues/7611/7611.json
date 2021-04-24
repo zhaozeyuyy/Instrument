@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-02-06T06:55:49.657-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi\r\n\r\nI made a MVVM light 7.1 project in VS 2010, I then opened it up in Blend 4.  \r\n\r\nI only see 2 shapes. If I make a non MVVM light project I see about 16 shapes.\r\n\r\nWhy am I missing these shapes?",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2013-06-10T14:43:27.66-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Cannot repro"
+    },
+    "Summary": "MVVM Light Toolkit V4 RTM - Missing Shapes in Blend Expression 4",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7611
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

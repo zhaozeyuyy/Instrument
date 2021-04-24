@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "460766",
+    "ThreadId": "217606",
+    "Html": "My goal was to enable the ViewModel to tell the View to present a MessageBox and ask the user a question.  I didn't want the ViewModel to have any reference to Windows-specific code.\r\n\r\nI take the time to download and install MVVM Light Toolkit.\r\n\r\nNow I find that even with the toolkit, it is necessary for my ViewModel to reference System.Windows, in order to resolve things like MessageBoxButton and MessageBoxResult.\r\n\r\nWhy go through all this extra work, when you just wind up with a ViewModel that has a reference to System.Windows?\r\n\r\nI might as well call MessageBox.Show() straight from the ViewModel.\r\n\r\nNothing has been saved by using the MVVM toolkit, so I just don't understand why I would use this.\r\n\r\nCan someone please explain to me, why go through this effort, if I still have to reference System.Windows in my ViewModel?\r\n\r\nThanks,\r\nHugh\r\n",
+    "PostedDate": "2010-06-28T11:11:31.307-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "460782",
+    "ThreadId": "217606",
+    "Html": "<p>Hi,</p>\r\n<p>The reference to System.Windows is needed for the views anyway, which is where the viewmodel belongs. Having a reference to System.Windows does not add any bulk to your DLLs or XAP files if that is what concerns you.</p>\r\n<p>That said, I agree that this is not super clean, and this code will be removed in a future version. In the mean time, you can get the code from here, remove the class named DialogMessage (which you probably do not need anyway) and this removes the need to System.Windows.</p>\r\n<p>Let me know if that helps,</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-06-28T12:02:58.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "460795",
+    "ThreadId": "217606",
+    "Html": "Thanks for replying Laurent,\r\n\r\nPlease forgive me if I'm wrong.  I understand MVVM to be useful to separate the design of the View and the code of the ViewModel.  You could have a set of Views for WPF and a separate set of Views for Web.  The 2 different views could be tied to the same ViewModel in different apps.  In this scenario, each of the 2 views would be in separate assemblies (WPF, Web) and the ViewModels would be in their own separate assembly (ViewModel).  A web app would reference the Web assembly for its views and the ViewModel assembly for the backing for the Web views.  Similarly, in a WPF app, it would reference the WPF views and use the same ViewModel assembly for the code backing.\r\n\r\nI have never understood any example on the net which shows the Views and the ViewModels in the same assembly, and your comment (&quot;System.Windows is needed for the views anyway, which is where the viewmodel belongs&quot;) reinforces that confusion.  To me, that seems to defeat the purpose.  Why not just use the code-behind feature, if you want your views and viewmodels in the same assembly and there is a 1-to-1 correspondence between Views and Viewmodels?  We are just kidding ourselves, that this is a valid architecture.  It is just a code-behind and we've made our own life more difficult needlessly.  After all, .XAML is separate from .CS so you already have separation of GUI and code built-in, if you're going to put it all in one assembly, what's the point?\r\n\r\nIf anything, MVP architecture makes more sense, because you can at least define an Interface by which the Presenter can talk back out to the View.\r\n\r\nI do want DialogMessage, my whole point for using MVVM Light was to enable the ViewModel to ask the View to throw up a MessageBox.\r\n\r\nKind Regards,\r\nHugh\r\n",
+    "PostedDate": "2010-06-28T12:40:34.757-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "460801",
+    "ThreadId": "217606",
+    "Html": "<p>Hi,</p>\r\n<p>Yes I understand what you mean. Many consider MVVM to be rather specific to WPF and Silverlight, which is why historically people didn't really place the ViewModels in a separate assembly, except in cases where the number of classes was just too big and having separate assemblies was a better way to keep the overview.</p>\r\n<p>Multiple thoughts here:</p>\r\n<ul>\r\n<li>Using MVVM in ASP.NET will be quite complex due to the lack of databinding infrastructure. This will force you to listen to every PropertyChanged event explicitly. In my opinion MVVM is not the best pattern for frameworks that do not have built-in databinding infrastructure.&nbsp;</li>\r\n<li>ViewModels have multiple advantages within Silverlight/WPF:\r\n<ul>\r\n<li>They facilitate the work with graphic designers by delimiting precisely the responsibility of each person in the project.</li>\r\n<li>They make the work in Blend much easier (for technical reasons that I don't want to go too deep into here)</li>\r\n<li>They make the code more testable. While possible, it is much more difficult to test code behind/event handlers than viewmodels/commands</li>\r\n<li>They make it easier to refactor the code</li>\r\n<li>They allow the view to be much thinner, so that replacing it by something else (such as in Windows Phone 7 projects) is trivial, and reusing the same VM code.</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<p>These are the main advantages of MVVM and why people are using it mostly. That would answer the question of knowing why one would use MVVM instead of just the code behind.</p>\r\n<p>Regarding sharing code between WPF and Silverlight (and windows phone 7), the sharing is often done at code level (linked code files) instead of assembly level. Sharing at assembly level used to be impossible between WPF and SL because of binary incompatiblity. It is a little better now, but still a problem sometimes (and still a problem between SL and WP7). So instead we rather use a different assembly but link the code files to share (most of) the code.</p>\r\n<p>Regarding your need to display a MessageBox from the ViewModel (a common need), you don't actually need DialogMessage to do this. Instead a common pattern to do that is to use an IDialogService interface that a class from the View implements (for small project I let the MainPage implement IDialogService). Then, this instance needs to be passed to the ViewModel (for example after the view is initialized). The interface has a set of methods such as void ShowMessage(string), bool AskUser(string), Stream OpenFile(string path), etc... All these methods use various dialogs, but the point is that there is no view related classes or enums there, so the separation is better.</p>\r\n<p>Does that make sense?</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-06-28T12:53:51.257-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "460870",
+    "ThreadId": "217606",
+    "Html": "Thanks Laurent,  your insight is very valuable.\r\n\r\nI like the idea of passing an Interface to the ViewModel which allows it to call functions out on the View.  Reminds me of MVP  ;)\r\n\r\nHave a nice evening.\r\nKind Regards,\r\nHugh",
+    "PostedDate": "2010-06-28T15:50:56.62-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

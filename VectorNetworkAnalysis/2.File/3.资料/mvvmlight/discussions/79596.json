@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "272529",
+    "ThreadId": "79596",
+    "Html": "<p>I am building an application, that contains some tabs, each tab has an navigation.</p>\r\n<p>My problem is when change to another tab (Move to Tab2, then back to Tab1), the list is always reset (all collapsed)</p>\r\n<p><a href=\"http://img707.imageshack.us/i/clipboard02t.png/\"><img src=\"http://img707.imageshack.us/img707/9366/clipboard02t.th.png\" border=0 alt=\"Free Image Hosting at www.ImageShack.us\"></a><br><br>I attached the project here: <a title=Download href=\"http://www.mediafire.com/?denyyzdtyyj\">http://www.mediafire.com/?denyyzdtyyj</a></p>\r\n<p>(The list data is from Navigation.xml, using XmlDataProvider)</p>\r\n<p>So, my questions:</p>\r\n<p>1. How could I keep the list when switching tabs?</p>\r\n<p>2. How could I get Tag attribute when click on an item in ViewModel?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-03T00:49:44.44-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "432457",
+    "ThreadId": "79596",
+    "Html": "<p>Hi,</p>\r\n<p>As you are a previous user of the discussion tab on the MVVM Light Codeplex site, I would like to inform you that I decided to encourage the usage of StackOverflow for questions regarding the MVVM Light toolkit. Please tag your questions with the mvvm-light tag.</p>\r\n<p>StackOverflow is an awesome site where tons of developers help others with their technical question.</p>\r\n<p><a href=\"http://stackoverflow.com/questions/tagged/mvvm-light\">http://stackoverflow.com/questions/tagged/mvvm-light</a></p>\r\n<p>I will monitor this tag on the StackOverflow website and do my best to answer questions. The advantage of StackOverflow over the Codeplex discussion is the sheer number of qualified developers able to help you with your questions, the visibility of the question itself, and the whole StackOverflow infrastructure (reputation, up- or down-vote, comments, etc)</p>\r\n<p>Thanks!</p>\r\n<p>Laurent</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-18T11:56:35.743-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

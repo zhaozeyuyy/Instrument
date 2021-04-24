@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-02-06T07:48:41.107-08:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "The NuGet package MvvmLightLibs 4.4.32.1 contains folders for each .NET version.\r\nThe GalaSoft.MvvmLight.dll version for 3.5 and 4.0 is 4.4.32.18939. However the version for .NET 4.5 is 4.4.32.39728. This creates compilation problems for 4.5 projects which reference 4.0 projects, as described [here](http://stackoverflow.com/questions/24360012/using-net-4-0-library-with-other-dependencies-from-a-net-4-5-1-project).",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.0.0.0",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-06-23T21:53:04.37-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Different DLL versions for .NET 4.0 and .NET 4.5",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7644
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Fixed in V5",
+      "PostedDate": "2015-02-06T07:00:24.39-08:00",
+      "Id": 173625
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1063503",
+    "ThreadId": "448796",
+    "Html": "Hi,\r<br />\n<br />\nI'm putting some notes together for some devs on the team for getting a dev environment setup for out new WPF framework which heavily uses MVVM Light.\r<br />\n<br />\nIs there a way to install the binaries using NUGET without the installer creating a default viewmodellocator, editing app.xaml etc? it messed up out solution last time and we ended having to delete template vm's, viewmodellocator etc in each module (it's an MVVM Light app with Prism modularity...works great btw).<br />\n",
+    "PostedDate": "2013-07-02T02:41:17.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1063541",
+    "ThreadId": "448796",
+    "Html": "Hi,\r<br />\n<br />\nYou need to select the MVVM Light Libs only package.\r<br />\n<br />\ncheers\r<br />\nLaurent <br />\n",
+    "PostedDate": "2013-07-02T04:03:07.453-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1063542",
+    "ThreadId": "448796",
+    "Html": "<strong>lbugnion wrote:</strong><br />\n<blockquote>\nHi,<br />\n<br />\nYou need to select the MVVM Light Libs only package.<br />\n<br />\ncheers<br />\nLaurent<br />\n</blockquote>\nThanks Laurent.<br />\n<br />\nMVVM Light messenger is superb btw.<br />\n",
+    "PostedDate": "2013-07-02T04:06:21.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

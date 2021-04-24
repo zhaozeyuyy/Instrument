@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:54:37.767-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "not everyone needs your stock Messenger coupled with ViewModelBase. someone not need Messenger at all. someone (like me) needs custom-implemented IMessenger. ViewModelBase needs to be completely decoupled of specific IMessenger implementation. without this, source code of ViewModelBase can not be used separately from your specific Messenger (i use this project in form of source files).\r\n\r\nconsider one easy correction in ViewModelBase.cs:\r\n\r\npublic virtual void Cleanup() { Messenger.Default.Unregister(this); }\r\n\r\n=>\r\n\r\npublic virtual void Cleanup() { MessengerInstance.Unregister(this); }\r\n\r\n----\r\n\r\nanother needed correction is to demand IMessenger instance in constructor (remove empty one) or allow null-valued one and throw exceptions when referenced. in any case do not use specific Messenger.Default. i understand that this is breaking change and may have side-effects, but this is important architectural decision",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-04-17T21:09:31.29-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "ViewModelBase's unnecessary dependence on specific Messenger",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7523
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

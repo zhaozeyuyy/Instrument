@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1124270",
+    "ThreadId": "469013",
+    "Html": "Before updating to MVVMLight 4.5 we would construct RelayCommands in our viewmodels with lambdas. Both execute and canexcute callbacks are fired when bound to a button. Specifially, this is in an .NET 4.5 WPF application.<br />\n<pre><code>new RelayCommand(() =&gt; Execute(), CanExecute)</code></pre>\n\nHowever after updating to MVVMLight 4.5, in the example above <em>CanExecute</em> is invoked but <em>() =&gt; Execute()</em> does not get invoked.<br />\n",
+    "PostedDate": "2013-11-15T16:22:10.82-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1124275",
+    "ThreadId": "469013",
+    "Html": "Hi,\r<br />\n<br />\nCan you please send me a repro code at laurent (at) galasoft (dot) ch\r<br />\n<br />\nThanks\r<br />\nLaurent<br />\n",
+    "PostedDate": "2013-11-15T16:37:35.87-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1126457",
+    "ThreadId": "469013",
+    "Html": "@tweak\r<br />\n<br />\nUsing .NET4.5 as well.\r<br />\n<br />\nThis works okay for me.<br />\n<pre><code> this.commandAddSetting = new RelayCommand(\n                                        () =&gt; AddNewSetting()\n                                      , () =&gt; _screenMode == screenMode.UserSettingGrid);</code></pre>\n\n",
+    "PostedDate": "2013-11-19T03:10:50.91-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

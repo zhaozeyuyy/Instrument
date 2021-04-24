@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "257405",
+    "ThreadId": "75227",
+    "Html": "<p>Hi Laurent,</p>\r\n<p>as I said before your Toolkit is working perfectly fine for me in #34855.<br>The below error message doesnt actually prevent building, so just as a headsup in case this didnt show up before.</p>\r\n<p>In both your zipped version of v3 aplha2 released on Nov. 3rd as well as in a #34855 build ReSharper and VS2008 itself give a design-time error message of:</p>\r\n<p><strong>The attachable property 'Triggers' was not found in type 'Interaction'. </strong></p>\r\n<p>Offending code:</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">Interactivity</span><span style=\"color:Blue\">:</span><span style=\"color:#A31515\">Interaction.Triggers</span><span style=\"color:Blue\">&gt;</span>\r\n\t<span style=\"color:Green\">&lt;!-- bind command to KeyUp --&gt;</span>\r\n\t<span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">Interactivity</span><span style=\"color:Blue\">:</span><span style=\"color:#A31515\">EventTrigger</span> <span style=\"color:Red\">EventName</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">KeyUp</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">&gt;</span>\r\n\t\t<span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">MvvmExtras</span><span style=\"color:Blue\">:</span><span style=\"color:#A31515\">EventToCommand</span> <span style=\"color:Red\">Command</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">{Binding EventCommandOnSearchBoxKeyUp}</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">PassEventArgsToCommand</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">True</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Blue\">/&gt;</span>\r\n\t<span style=\"color:Blue\">&lt;/</span><span style=\"color:#A31515\">Interactivity</span><span style=\"color:Blue\">:</span><span style=\"color:#A31515\">EventTrigger</span><span style=\"color:Blue\">&gt;</span>\r\n\t<span style=\"color:Green\">&lt;!-- bind command to PreviewKeyDown --&gt;</span>\r\n\t<span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">Interactivity</span><span style=\"color:Blue\">:</span><span style=\"color:#A31515\">EventTrigger</span> <span style=\"color:Red\">EventName</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">PreviewKeyDown</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">&gt;</span>\r\n\t\t<span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">MvvmExtras</span><span style=\"color:Blue\">:</span><span style=\"color:#A31515\">EventToCommand</span> <span style=\"color:Red\">Command</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">{Binding EventCommandOnSearchBoxPreviewKeyDown}</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">PassEventArgsToCommand</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">True</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Blue\">/&gt;</span>\r\n\t<span style=\"color:Blue\">&lt;/</span><span style=\"color:#A31515\">Interactivity</span><span style=\"color:Blue\">:</span><span style=\"color:#A31515\">EventTrigger</span><span style=\"color:Blue\">&gt;</span>\r\n\t<span style=\"color:Green\">&lt;!-- bind command to SelectionChanged --&gt;</span>\r\n\t<span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">Interactivity</span><span style=\"color:Blue\">:</span><span style=\"color:#A31515\">EventTrigger</span> <span style=\"color:Red\">EventName</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">SelectionChanged</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">&gt;</span>\r\n\t\t<span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">MvvmExtras</span><span style=\"color:Blue\">:</span><span style=\"color:#A31515\">EventToCommand</span> <span style=\"color:Red\">Command</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">{Binding EventCommandOnSearchBoxSelectionChanged}</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">PassEventArgsToCommand</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">True</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Blue\">/&gt;</span>\r\n\t<span style=\"color:Blue\">&lt;/</span><span style=\"color:#A31515\">Interactivity</span><span style=\"color:Blue\">:</span><span style=\"color:#A31515\">EventTrigger</span><span style=\"color:Blue\">&gt;</span>\r\n<span style=\"color:Blue\">&lt;/</span><span style=\"color:#A31515\">Interactivity</span><span style=\"color:Blue\">:</span><span style=\"color:#A31515\">Interaction.Triggers</span><span style=\"color:Blue\">&gt;</span>\r\n\r\n</pre>\r\n</div>\r\n</p>\r\n<p>I dont have Blend installed, so maybe missing some SDK stuff?<br>Anyway - it builds and performs perfectly well, so no need for action really :-)</p>",
+    "PostedDate": "2009-11-16T00:58:22.843-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "257415",
+    "ThreadId": "75227",
+    "Html": "<p>Hi,</p>\r\n<p>Yes, you need a reference to the System.Windows.Interactivity DLL which is included in the External folder. I think I forgot to add these DLLs in Alpha2, but they are available in 34855 and later.</p>\r\n<p>Sys.Win.Interactivity contains the base classes for all Blend behaviors and triggers. It is to be added in addition to GalaSoft.MvvmLight.Extras. This is an additional dependency which is not available yet in the .NET framework or in Silverlight. Additional dependencies suck, but on the other hand, it brings so much goodness that it is worth it.</p>\r\n<p>A tutorial on using EventToCommand is available on my blog:</p>\r\n<p><a href=\"http://blog.galasoft.ch/archive/2009/11/05/mvvm-light-toolkit-v3-alpha-2-eventtocommand-behavior.aspx\">http://blog.galasoft.ch/archive/2009/11/05/mvvm-light-toolkit-v3-alpha-2-eventtocommand-behavior.aspx</a></p>\r\n<p>Let me know if that solves the issue for you.</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2009-11-16T01:42:19.387-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "257437",
+    "ThreadId": "75227",
+    "Html": "<p>Hi,</p>\r\n<p>well - its not really an Issue for me in the first place as the error messages do not prevent me from building and executing the application.<br>I had the Sys.Win.Interactivity assembly referenced though. Leaving it out would prevent a sucessful build.</p>\r\n<p>Thanks,<br>Hinnerk</p>",
+    "PostedDate": "2009-11-16T02:43:26.357-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "257479",
+    "ThreadId": "75227",
+    "Html": "<p>Oh sorry, I didn't get that you had the error in spite of the reference. Thats weird, and I don't see that here. Is it a small project you can maybe zip and send me? Would love to see how the DLL is referenced.</p>\r\n<p>Thanks!</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2009-11-16T05:19:32.117-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "265481",
+    "ThreadId": "75227",
+    "Html": "<p>Hi Laurent,</p>\r\n<p>did you have a chance to look at the mini-solution I sent you regarding this issue?<br>Btw - I installed Blend meanwhile and the error still shows up in VS2008, so its not some missing Blend component like I assumed.</p>\r\n<p>&nbsp;</p>\r\n<p>Cheers,<br>Hinnerk</p>",
+    "PostedDate": "2009-12-09T14:47:30.95-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "266738",
+    "ThreadId": "75227",
+    "Html": "<p><span style=\"font-size:11pt;color:#7030a0\">No I am sorry, I didn&rsquo;t have any time. I am caught up in 2 projects plus started to write a new Silverlight 4 book, and had little or no time to give to the MVVM Light toolkit.</span></p>\r\n<p><span style=\"font-size:11pt;color:#7030a0\">That said, I noticed the same error in VS2008 the other day. I suppose there is an issue with Sys.Win.Interactivity.dll and Studio 2008 is not able to detect the attached behavior. It&rsquo;s a bit hard to find out the cause for this kind of errors. However it seems to work fine in VS10, so maybe the best is to just ignore that error, or move development to VS10...</span></p>\r\n<p><span style=\"font-size:11pt;color:#7030a0\">Sorry about that,</span></p>\r\n<p><span style=\"font-size:11pt;color:#7030a0\">Laurent</span></p>",
+    "PostedDate": "2009-12-13T03:16:16.67-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "266783",
+    "ThreadId": "75227",
+    "Html": "<p>Heh - no need to be sorry at all - I dont want to know how my app would look without your framework :-)<br>Will seriously consider making the move to VS2010 than.</p>\r\n<p>Cheers and good luck on your current projects,<br>Hinnerk</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-12-13T09:21:47.697-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "461176",
+    "ThreadId": "75227",
+    "Html": "Hi, I got same exception.\r\nAfter some investigation, I have found that:\r\n- if I will use System.Windows.Interactivity inside &quot;Silverlight Code Library&quot; project it will fail during execution.\r\n- if I will use it in &quot;Silverlight Application&quot; project it will work.\r\n\r\nSo as a result, I can't use Event to Trigger in xaml that is in &quot;Silverlight Code Library&quot; project.\r\n\r\nThanks, Odugen",
+    "PostedDate": "2010-06-29T06:31:11.157-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "461485",
+    "ThreadId": "75227",
+    "Html": "<p>OK yesterday I played with test projects. And here is what I have got.</p>\r\n<p>If Solution has following structure:</p>\r\n<p>- SCL: Silverlight Code Library Project<br>&nbsp; - with control referencing to System.Windows.Interactivity.dll</p>\r\n<p>- SA: Silverlight Application<br>&nbsp; - That reference to SCL project and use control with Interaction</p>\r\n<p>SA will fail. If we will look to Bin folder it is missing System.Windows.Interactivity.dll<br>If we maunally add reference to System.Windows.Interactivity.dll in SA project everything works as expected.</p>\r\n<p>That solves my problem. But I wish I knew how to configure SCL project so that System.Windows.Interactivity.dll will automatically copied to SA project. Just like MVVMLight dll's do.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-06-29T23:22:45.607-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "474841",
+    "ThreadId": "75227",
+    "Html": "<p>I'm having the same issue in VS2008 SP1.&nbsp; Using the toolkit in WPF.</p>\r\n<p>This is a problem of VS2008 and it is necessary a hotfix for VS.</p>\r\n<p>I found the fix in social msdn: <a title=\"Getting Triggers was not found in type Interaction error\" href=\"http://social.msdn.microsoft.com/Forums/en-US/vswpfdesigner/thread/17853969-82bf-4114-b18c-6fd5e83c44cf/\">Getting Triggers was not found in type Interaction error</a></p>\r\n<p>This is the link of the hotfix: <a title=\"http://code.msdn.microsoft.com/KB958017/Release/ProjectReleases.aspx?ReleaseId=1719\" href=\"http://code.msdn.microsoft.com/KB958017/Release/ProjectReleases.aspx?ReleaseId=1719\">http://code.msdn.microsoft.com/KB958017/Release/ProjectReleases.aspx?ReleaseId=1719</a></p>",
+    "PostedDate": "2010-07-30T10:45:11.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

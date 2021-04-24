@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1249980",
+    "ThreadId": "546690",
+    "Html": "Hi Guys,\r<br />\n<br />\nI'm new to MVVMLight, and have recently found the EventArgsToCommand functionality. I have a quick question, if I'm using the PassEventArgsToCommand property and set it to true, is it possible to send extra parameters, ie. ones not included in the eventargs?<br />\n",
+    "PostedDate": "2014-05-27T05:26:33.743-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1250588",
+    "ThreadId": "546690",
+    "Html": "Hi,\r<br />\n<br />\nNo, because of the limitations of the ICommand interface (which is .NET, not MVVM Light), you can only pass one parameter. So it is either the CommandParameter, or the EventArgs but not both.\r<br />\n<br />\nThe work around this limitation is to create a new property in your viewmodel and to bind this property to the element that you want to observe in the UI. This way, when the command is executed, you can get access to the property in question.\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2014-05-28T11:53:19.857-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

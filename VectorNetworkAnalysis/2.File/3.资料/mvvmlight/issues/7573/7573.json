@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:58:01.753-07:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "Hi Laurent\r\n\r\nI know I'm early! But do you know when MVVM Light is available for Windows 8 Release Preview?\r\nI tried MVVM Light V4b1 for Windows 8 Consumer Preview, but the build for the blank MVVM Light (Win8) Template failed.\r\n\r\nBest regards\r\nMichael",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-06-01T15:05:33.17-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "MVVM Light for Windows 8 Release Preview",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7573
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I am using Win8RP as well and getting error using DispatcherHelper.  I know it is early, but any idea of when MVVMLight release will support RP?",
+      "PostedDate": "2012-06-02T22:08:25.213-07:00",
+      "Id": 67238
+    },
+    {
+      "Message": "http://blog.galasoft.ch/archive/2012/06/03/mvvmlight-v4-for-windows-8-rp-is-available.aspx\n\nLet me know if it works out.\n\nCheers,\nLaurent",
+      "PostedDate": "2012-06-03T14:19:15.73-07:00",
+      "Id": 67268
+    },
+    {
+      "Message": "Hi Laurent\n\nI get following error:\nPayload file 'D:\\Download\\MVVM Light\\MVVM Light V4RC (binaries only) including Windows 8 RP\\Release\\Win8\\GalaSoft.MvvmLight.Win8\\License.txt' does not exist.\n(The binaries are located on 'D:\\Download\\MVVM Light\\MVVM Light V4RC (binaries only) including Windows 8 RP\\Release\\Win8') \n\nI found a workaround on stackoverflow: http://stackoverflow.com/questions/10930469/windows-8-error\n\nBest regards\nMichael",
+      "PostedDate": "2012-06-12T05:28:28.443-07:00",
+      "Id": 67795
+    }
+  ]
+}

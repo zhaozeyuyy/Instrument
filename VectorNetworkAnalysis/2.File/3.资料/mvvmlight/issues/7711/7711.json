@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2016-01-16T13:22:38.95-08:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "One of my applications uses Microsoft.Practices.Unity version 2.0.414.0 which references Microsoft.Practices.ServiceLocation version 1.0.0.0\r\nI'm using MVVM Light for my UI and it's using Microsoft.Practices.ServiceLocation version 1.3.0.0\r\nHow can I resolve this issue so the Unity dll will reference the dll that is used by MVVM Light toolkit?",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-12-07T16:43:00.457-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Won't fix"
+    },
+    "Summary": "Microsoft.Practices.Unity referencing ServiceLocation verion 1.0",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7711
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nYou should check with Unity why they are still using 1.0.0. Get them to update to the latest version.\n\nThanks\nLaurent",
+      "PostedDate": "2016-01-16T13:22:12.757-08:00",
+      "Id": 195499
+    }
+  ]
+}

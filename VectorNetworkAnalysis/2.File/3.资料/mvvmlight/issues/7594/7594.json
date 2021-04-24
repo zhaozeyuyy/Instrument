@@ -1,0 +1,90 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:59:13.123-07:00",
+    "CommentCount": 10,
+    "Custom": null,
+    "Description": "When using this with VS 2012 I get this design time error: \"The type 'EventToCommand' from assembly 'GalaSoft.MvvmLight.Extras.SL5' is built with an older version of the Blend SDK, and is not supported in a Silverlight 5 project.\"\t I installed the 4.0.23.4 package, but My assemblies are still versioned 4.0.23.35578....did I miss something? \r\nby thomasfj on Today at 11:46",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4.1 for Visual Studio 2012",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-10-24T02:48:13.553-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "VS 2012 XML Design time error",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 7594
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nThis is correct, Microsoft released a new version of System.Windows.Interactivity and because it is strongly signed, every depending assembly needs to be rebuilt. I am working on it, will publish a fix in a few days.\n\nSorry for the inconvenience\nLaurent",
+      "PostedDate": "2012-10-24T03:20:29.397-07:00",
+      "Id": 80876
+    },
+    {
+      "Message": "This issue is not present in the PCL version as it already uses the newest interactivity package.\n\nhttps://nuget.org/packages/Portable.MvvmLightLibs\n",
+      "PostedDate": "2012-11-11T08:06:17.803-08:00",
+      "Id": 82188
+    },
+    {
+      "Message": "Actually this is solved in V4.1. Download from http://mvvmlight.codeplex.com/releases/view/96993. I will make the DLLs available on Nuget next week.",
+      "PostedDate": "2012-11-11T14:53:38.173-08:00",
+      "Id": 82200
+    },
+    {
+      "Message": "I'm using version MVVM Light 4.1.23.0 (via NuGet) and I'm still seeing this error on Visual Studio 2012 in a WPF project. Should this be resolved?\n\nThe event to command binding works fine at runtime, by the way. Just the designer is complaining.",
+      "PostedDate": "2012-11-13T14:07:33.94-08:00",
+      "Id": 82419
+    },
+    {
+      "Message": "Hi,\nI'm still having this issue too. V.4.1.23.0 (downloaded here yesterday), VS2012, WPF project, runtime fine, designer not.\n\n\"The type 'EventToCommand' from assembly 'GalaSoft.MvvmLight.Extras.WPF45' is built with an older version of the Blend SDK, and is not supported in a Windows Presentation Framework 4 project.\"",
+      "PostedDate": "2012-12-05T00:33:05.393-08:00",
+      "Id": 83575
+    },
+    {
+      "Message": "I have the same issue in 4.1.27.22784",
+      "PostedDate": "2013-03-05T01:39:44.51-08:00",
+      "Id": 92286
+    },
+    {
+      "Message": "It now works after I have installed the \"Visual Studio 2012 Update 2 CTP\". See http://www.microsoft.com/en-us/download/details.aspx?id=36833",
+      "PostedDate": "2013-03-08T13:01:38.767-08:00",
+      "Id": 92750
+    },
+    {
+      "Message": "Hi Laurent,\n\nthis is still happening with VS2012 and the latest MVVM Light NuGet package (4.1.27.22692)",
+      "PostedDate": "2013-03-12T09:04:16.277-07:00",
+      "Id": 93045
+    },
+    {
+      "Message": "Hi,\n\nIt works fine now but you need the Update 2 of Visual Studio 2012. The error is due to a bug in Visual Studio and Update 2 fixes it.\n\nCheers\nLaurent",
+      "PostedDate": "2013-03-12T10:50:15.087-07:00",
+      "Id": 93054
+    },
+    {
+      "Message": "Thank you for the information. I will have to wait until my company rolls out this update then. At home it is working fine now.",
+      "PostedDate": "2013-03-17T05:55:58.983-07:00",
+      "Id": 93461
+    }
+  ]
+}

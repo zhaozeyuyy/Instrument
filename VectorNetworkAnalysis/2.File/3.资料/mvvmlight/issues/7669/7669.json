@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Recently, we  have decided to integrate  Mvvm Light in our Android project to take benefits of binding features (actually, we make manual binding through events in our activities). I tried to make a binding on the SelectedItem property of a ListView but i did not succeed. I want to know if the current implementation of the Binding handle that. Can some one show me an example? thanks in advance\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.4.0 (planning)",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-11-19T12:06:00.833-08:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Binding on the SelectedItem Property ( Android)",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 1,
+    "Id": 7669
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nRight now there is no support for this in the Binding class. I will change this to be a feature request and will see if I can implement this.\n\nThanks\nLaurent",
+      "PostedDate": "2015-02-06T07:35:43.743-08:00",
+      "Id": 173634
+    }
+  ]
+}

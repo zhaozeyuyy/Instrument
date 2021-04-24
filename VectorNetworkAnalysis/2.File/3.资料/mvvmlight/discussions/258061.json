@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "614524",
+    "ThreadId": "258061",
+    "Html": "<p>Hello,</p>\n<p>yesterday I started exploring this cool framework, I can not say I am expert in C# and WPF, mostly experienced in Java.</p>\n<p>I ran into following problem:</p>\n<p>I want to have only one window with buttons on the left, each button click to open a separate UserControl. Some of the nested UserControls would have another one nested in them and they would be again dynamically loaded based on a ListBox selection.</p>\n<p>I was wondering if this is possible using your static VM Locator, and also how to notify the View that it needs to load a different User Control.&nbsp;</p>\n<p>Edit: I have a separate ViewModel for each dynamicaly loaded UserControl and actually the approach i am taking right now is to assign different viewmodel objects to a property, to which then I bound the content of ContentControl element. I am using Entity framework for generating my model entities, not sure if this somehow affects the framework.</p>\n<p>Any help would be greatly appriciated!</p>\n<p>Thanks in advance.</p>",
+    "PostedDate": "2011-05-18T04:22:36.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

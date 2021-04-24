@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "942834",
+    "ThreadId": "403509",
+    "Html": "\r\n<p>Hi @all,</p>\r\n<p>I am just starting with MVVM Light in Windows&nbsp;8 and work my way through Command ect.</p>\r\n<p>I'd like to enable/disable Buttons as required without collapsing. I implemented the following in ViewModel</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>        <span style=\"color:blue\">private</span> <span style=\"color:blue\">bool</span> _isEnabledAusWahlClick;\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">bool</span> IsEnabledAuswahlClick\r\n        {\r\n            <span style=\"color:blue\">get</span> { <span style=\"color:blue\">return</span> _isEnabledAusWahlClick; }\r\n            <span style=\"color:blue\">set</span>\r\n            {\r\n                <span style=\"color:blue\">if</span> (_isEnabledAusWahlClick==value)\r\n                {\r\n                    <span style=\"color:blue\">return</span>;\r\n                }\r\n                _isEnabledAusWahlClick = value;\r\n                RaisePropertyChanged(<span style=\"color:#a31515\">&quot;IsEnabledAuswahlClick&quot;</span>);\r\n            }\r\n        }\r\n</pre>\r\n</div>\r\n<p>When set to true, button appears, when set to false button disappears completely. Expected is, that Button cannot be clicked and is shown in a shaded layout.</p>\r\n<p>Any suggestion what I did wrong?</p>\r\n<p>Cheers</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-11-16T08:22:41.987-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "942854",
+    "ThreadId": "403509",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>You don't provide much information. Anyway what is certain is that it is not an MVVM Light issue. Some buttons collapse when they are disabled (for example back button on a Win8 page) because the template specifies that in the disabled state. If you don't\r\n want this to happen, you have to edit the template in XAML or in Blend.</p>\r\n<p>Thanks<br>\r\nLaurent</p>\r\n",
+    "PostedDate": "2012-11-16T08:58:07.123-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943878",
+    "ThreadId": "403509",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>sorry for this beginners mistake. Actually I came from this post&nbsp;<a href=\"\">[discussion:255905]</a> and was uncertain where to look at. In den meantime I found that it seems to work OK, but white on white is unvisible...</p>\r\n<p>Thanks for our effort.</p>\r\n<p>Josef</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-11-19T04:02:11.713-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

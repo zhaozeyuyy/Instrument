@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "447062",
+    "ThreadId": "213758",
+    "Html": "<p>If I use the MVVM light template (SL4) I find the mainviewmodel (mainviewlocator) is created before App.Aplication_Startup has been executed; therefore any initparams passed to silverlight are not present at createtime.</p>\r\n<p>What are the recommended workflow for this scenario (I need various values from the hosting (asp) application, before the viewmodel is created)</p>\r\n<p>/Flemming</p>",
+    "PostedDate": "2010-05-25T06:03:53.977-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "448313",
+    "ThreadId": "213758",
+    "Html": "<p>Hi,</p>\r\n<p>The ViewModelLocator is created very early, but nothing forces you to create the ViewModels in the ViewModelLocator's constructor. Instead, add a &quot;Create&quot; method, which takes the HTML parameters as argument, and pass these arguments to the MainViewModel's constructor.</p>\r\n<p>This is the main advantage of the ViewModelLocator pattern: You have total control over the viewmodels' lifetime.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-05-27T11:21:08.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

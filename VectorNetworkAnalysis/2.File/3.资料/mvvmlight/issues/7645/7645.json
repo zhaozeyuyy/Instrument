@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-14T13:25:38.597-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "Hi,\r\n\r\nI am working on a project at the moment and we had signed all of our assemblies. We required to mover over to the PCL version of MVVM Light but the assembly is not signed which causes build errors. Would it be possible to have an SNK added to this assembly please?\r\n\r\n\r\nThanks",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V4.4.32.1",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-06-24T05:25:12.713-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "PCL Strong Name Key",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7645
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Just spotted this after posting: https://mvvmlight.codeplex.com/discussions/549725\n\nLet me know if you get this resolved...",
+      "PostedDate": "2014-06-26T03:52:06.117-07:00",
+      "Id": 150766
+    },
+    {
+      "Message": "Fixed in V4.4.32",
+      "PostedDate": "2014-10-14T13:25:06.367-07:00",
+      "Id": 162270
+    }
+  ]
+}

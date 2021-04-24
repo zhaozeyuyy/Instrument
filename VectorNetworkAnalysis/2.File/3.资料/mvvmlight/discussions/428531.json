@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "983157",
+    "ThreadId": "428531",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>I'm using VS2012 Professional on Windows 7.</p>\r\n<p>I've installed <a id=\"fileDownload0\" tabindex=\"9\" href=\"http://mvvmlight.codeplex.com/downloads/get/524082\">\r\nGalaSoft.MvvmLight.4.1.24.0.msi</a> and <a id=\"fileDownload0\" tabindex=\"9\" href=\"http://mvvmlight.codeplex.com/downloads/get/476364\">\r\nGalaSoft.MvvmLight.4.0.23.4.msi</a> but none of them does install the MVVM Light template. When I go to Extensions and Updates, there is no MVVM light.</p>\r\n",
+    "PostedDate": "2013-01-04T12:07:21.493-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "983203",
+    "ThreadId": "428531",
+    "Html": "\r\n<p>Have you restarted Visual Studio?&nbsp; Also, the templates are for C# only.</p>\r\n<p>Chuck</p>\r\n",
+    "PostedDate": "2013-01-04T14:19:46.553-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "983330",
+    "ThreadId": "428531",
+    "Html": "\r\n<p>I have the same issue -- Visual Studio 2010 Ultimate running on Windows 8 Pro x64.&nbsp; I quit VS2012, ran the installer, then started VS2012 and no templates were installed for C#.</p>\r\n",
+    "PostedDate": "2013-01-05T07:42:22.157-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "983349",
+    "ThreadId": "428531",
+    "Html": "\r\n<p>DUH!&nbsp; Brain-drain alert!</p>\r\n<p>Go to the MVVM Light in the Start Menu, open up the Vsix folder and install the appropriate file.</p>\r\n<p>Chuck</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2013-01-05T09:09:25.467-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

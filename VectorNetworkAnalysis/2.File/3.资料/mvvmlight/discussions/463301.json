@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1111197",
+    "ThreadId": "463301",
+    "Html": "Hello,\r<br />\nI'm building Windows Phone 8 app using MVVM Light. So far, so good. \r<br />\nHowever, when I used EventToCommand, I get multiple errors. One similar question is there on StackOverflow <a href=\"http://stackoverflow.com/questions/11510233/eventtocommand-not-working-when-migrate-to-v4-for-sl5\" rel=\"nofollow\">http://stackoverflow.com/questions/11510233/eventtocommand-not-working-when-migrate-to-v4-for-sl5</a>, but sadly it doesn't solve my problem.! It automatically adds following reference:<br />\n<pre><code>xmlns:command1=&quot;http://www.galasoft.ch/mvvmlight&quot;\n</code></pre>\n\nLet me know if I'm missing anything or doing something wrong.\r<br />\n<br />\nThanks in advance.\r<br />\nMayur Tendulkar<br />\n",
+    "PostedDate": "2013-10-23T11:35:07.48-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

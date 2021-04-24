@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "515954",
+    "ThreadId": "233173",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>We have a Winforms application that we slowly want to move over to WPF.</p>\r\n<p>Currently, because it is using Crystal Reports it is built with VS2005 (Crystal's VS2010 support is only in beta).</p>\r\n<p>We would like to be able to integrate this into a WPF application being built in VS2010. Will the toolkit's Messenger</p>\r\n<p>utility work across Winforms/WPF and can we build it into a VS2005 dll?</p>\r\n<p>Many thanks,</p>\r\n<p>Joseph.</p>\r\n",
+    "PostedDate": "2010-11-02T07:47:06.573-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "516127",
+    "ThreadId": "233173",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>The Messenger *should* work fine in VS2005 I think. It relies on generics and WeakReference, so maybe you need to make sure that these are available, i cannot remember if they are. It has been too long since I did .NET 2.0...</p>\r\n<p>You will need to copy the source code file in your project and build separately, the DLLs will probably not work.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2010-11-02T13:49:19.253-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

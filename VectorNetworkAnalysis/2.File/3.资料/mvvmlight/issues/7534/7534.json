@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:55:28.403-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "When looking at the relay command, the Execute method is public, and directly calls _execute. This is a security issue.\r\n\r\nThis:\r\n\r\n/// <summary>\r\n/// Defines the method to be called when the command is invoked. \r\n/// </summary>\r\n/// <param name=\"parameter\">This parameter will always be ignored.</param>\r\npublic void Execute(object parameter)\r\n{\r\n    _execute();\r\n}\r\n\r\nShould be:\r\n\r\n/// <summary>\r\n/// Defines the method to be called when the command is invoked. \r\n/// </summary>\r\n/// <param name=\"parameter\">This parameter will always be ignored.</param>\r\npublic void Execute(object parameter)\r\n{\r\n    if (CanExecute(parameter))\r\n    {\r\n        _execute();\r\n    }\r\n}\r\n\r\nIf I am on the view, I can directly call VM.Command.Execute(\"crash\") while CanExecute is false. A simple check can prevent this.\r\n\r\nI already implemented this fix in Catel, but since MVVM light is a great framework as well, I though I should mention it.\r\n\r\n\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 beta 1",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-06-27T01:06:33.587-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "RelayCommand has security issue",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7534
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Fixed in V4 beta 1",
+      "PostedDate": "2011-09-11T15:13:09.137-07:00",
+      "Id": 44521
+    }
+  ]
+}

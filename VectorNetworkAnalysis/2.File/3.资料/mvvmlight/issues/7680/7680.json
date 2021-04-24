@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2016-01-16T14:00:56.347-08:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "I've come across a problem with the default template used for the App.xaml when adding MVVM Light to an existing/new project via NuGet.\r\n\r\nThe problem occurs in Blend when you try and create a new ResourceDictionary, either via the [Add New Item] method, or using the [New] button in a Create Color Resource dialog.\r\n\r\n__STEPS TO RECREATE:__\r\n\r\n1. Create new WPF project.\r\n1. Install MVVMLight package via NuGet.\r\n1. Open project in Blend 2013.\r\n1. Select menu FILE -> ADD ITEM, and select ResourceDictionary.\r\n\r\nBlend throws and exception at this point, and exits.\r\n\r\nThe error seems to occur when Blend attempts to add the new file to a MergedDictionary entry in App.xaml.\r\n\r\nThe error appears to be caused by the <vm:ViewModelLocator ...> entry, as commenting this out resolves the problem.\r\n\r\n__WORKAROUND:__\r\n\r\nWhen MVVM Light is installed by the PackageManager, it writes this into the app.xaml:\r\n\r\n```\r\n<Application x:Class=\"ProjectName.App\" \r\n             StartupUri=\"MainWindow.xaml\"\r\n             xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\"\r\n             xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\" \r\n             xmlns:d=\"http://schemas.microsoft.com/expression/blend/2008\" \r\n             xmlns:d1p1=\"http://schemas.openxmlformats.org/markup-compatibility/2006\" \r\n             d1p1:Ignorable=\"d\">\r\n    <Application.Resources>\r\n        <vm:ViewModelLocator x:Key=\"Locator\" d:IsDataSource=\"True\" xmlns:vm=\"clr-namespace:ProjectName.ViewModel\" />\r\n    </Application.Resources>\r\n</Application>\r\n```\r\n\r\nIt's this default app.xaml that is causing Blend to crash.\r\n\r\nHowever, by nesting the <vm:ViewModelLocator ...> resource in a ResourceDictionary:\r\n\r\n```\r\n<Application x:Class=\"ProjectName.App\" \r\n             StartupUri=\"MainWindow.xaml\"\r\n             xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\"\r\n             xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\" \r\n             xmlns:d=\"http://schemas.microsoft.com/expression/blend/2008\" \r\n             xmlns:d1p1=\"http://schemas.openxmlformats.org/markup-compatibility/2006\" \r\n             d1p1:Ignorable=\"d\">\r\n    <Application.Resources>\r\n        <ResourceDictionary>\r\n            <vm:ViewModelLocator x:Key=\"Locator\" d:IsDataSource=\"True\" xmlns:vm=\"clr-namespace:ProjectName.ViewModel\" />\r\n        </ResourceDictionary>\r\n    </Application.Resources>\r\n</Application>\r\n```\r\n\r\n... Blend no longer throws an exception, and the new resourcedictionary is added to the App.xaml.\r\n\r\nThis seems to be a problem with Blend, rather than MVVMLight - but is it worth updating the default app.xaml in the NuGet package?\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-01-23T07:20:12.547-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "MVVMLight WPF template for App.xaml causing Blend 2013 to crash.",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7680
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Ouch, that's not what you want.\n\nThe XAML syntax is legit, so let me check with my good friends at the Blend team and get back to you.\n\nCheers\nLaurent",
+      "PostedDate": "2015-01-26T13:58:02.113-08:00",
+      "Id": 170830
+    },
+    {
+      "Message": "Fixed the install.ps1 to create the App.xaml structure that does not crash Blend. As you mention, it is definitely a problem with Blend, but I doubt it will change so I prefer to work around it.\n\nNote that it is not a template problem but indeed a Nuget problem.\n\nFix is in Codeplex now, will be released in V5.2 on which I am working now.",
+      "PostedDate": "2015-04-01T00:29:09.587-07:00",
+      "Id": 180603
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Not an MVVM Light issue",
+    "ClosedDate": "2014-10-13T02:02:35.207-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "The way to binding a command to control before dosen't work since there is no System.Windows.Interactivity in WP8.1.Following code is my attempt to binding a command using RelayCommand class.But it will throw System.InvalidCastException.\r\nXAML Code:\r\n```\r\n <Pivot x:Name=\"MainPivot\">\r\n            <interactivity:Interaction.Behaviors>\r\n                <interactivity:BehaviorCollection>\r\n                    <core:EventTriggerBehavior EventName=\"SelectionChanged\">\r\n                        <core:InvokeCommandAction Command=\"{Binding MainPivotSelectionChangedCommand}\" CommandParameter=\"{Binding ElementName=MainPivot,Path=SelectedIndex}\"></core:InvokeCommandAction>\r\n                    </core:EventTriggerBehavior>\r\n                </interactivity:BehaviorCollection>\r\n            </interactivity:Interaction.Behaviors>\r\n</Pivot>\r\n```\r\n\r\nViewModel:\r\n```\r\n  private const double PIVOTITEMSELECTED = 1;\r\n        private const double PIVOTITEMNOTSELECTED = 0.3;\r\n        private double _PivotTitleOpacity_1;\r\n\r\n        public RelayCommand<int> MainPivotSelectionChangedCommand\r\n        {\r\n            get\r\n            {\r\n                return new RelayCommand<int>(selectedIndex =>\r\n            {\r\n                PivotTitleOpacity_1 = (selectedIndex == 1 ? PIVOTITEMSELECTED : PIVOTITEMNOTSELECTED);\r\n                PivotTitleOpacity_2 = (selectedIndex == 2 ? PIVOTITEMSELECTED : PIVOTITEMNOTSELECTED);\r\n                PivotTitleOpacity_3 = (selectedIndex == 3 ? PIVOTITEMSELECTED : PIVOTITEMNOTSELECTED);\r\n            });\r\n            }\r\n        }\r\n```\r\nLooking forward to your help,Thanks :)",
+    "LastUpdatedDate": "2014-10-13T02:02:35.207-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-10-12T23:03:37.67-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Not an issue"
+    },
+    "Summary": "How to Binding a Command with RelayCommand class in MVVM Light in WindowsPhone8.1?",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7660
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nYou are not using any MVVM Light component here. InvokeCommandAction and EventTrigger are Microsoft components. I will close this issue as \"not an issue\" since there is nothing that MVVM Light can do to help you here. Please ask on Stackoverflow regarding your specific problem.\n\nThanks\nLaurent",
+      "PostedDate": "2014-10-13T02:02:11.713-07:00",
+      "Id": 162151
+    }
+  ]
+}

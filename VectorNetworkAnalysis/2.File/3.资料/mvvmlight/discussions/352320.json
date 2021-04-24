@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "823902",
+    "ThreadId": "352320",
+    "Html": "\r\n<p>I have a question about usage of the mvvmlocatorproperty snippet.</p>\r\n<p>When I use it in the body of the ViewModelLocator it creates a static ViewModelLocator() constructor event if there is already such a constructor in the class.</p>\r\n<p>Is there something I miss in the way I use the snippet?</p>\r\n<p>Philippe</p>\r\n<div id=\"_mcePaste\" style=\"height:1px; width:1px; overflow:hidden; left:-10000px; top:0px\">\r\n&#65279;</div>\r\n",
+    "PostedDate": "2012-04-14T14:45:45.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "823939",
+    "ThreadId": "352320",
+    "Html": "\r\n<div>\r\n<div style=\"font-family:Calibri,sans-serif; font-size:11pt\">Hi,<br>\r\n<br>\r\nThe snippet logic is not very powerful. I am not able to detect if there is already a static constructor, or to add code to an existing one. As a compromise, I am adding a new one, which will obviously fail compilation, but which will indicate to the user that\r\n he should merge the two static constructors.<br>\r\n<br>\r\nIt is not a 100% satisfying solution, I agree.<br>\r\n<br>\r\nCheers<br>\r\nLaurent<br>\r\n<br>\r\nSent from my Lumia 900<br>\r\n</div>\r\n</div>\r\n<hr>\r\n<span style=\"font-family:Tahoma,sans-serif; font-size:10pt; font-weight:bold\">From:\r\n</span><span style=\"font-family:Tahoma,sans-serif; font-size:10pt\">phertzog</span><br>\r\n<span style=\"font-family:Tahoma,sans-serif; font-size:10pt; font-weight:bold\">Sent:\r\n</span><span style=\"font-family:Tahoma,sans-serif; font-size:10pt\">14.04.2012 23:46</span><br>\r\n<span style=\"font-family:Tahoma,sans-serif; font-size:10pt; font-weight:bold\">To:\r\n</span><span style=\"font-family:Tahoma,sans-serif; font-size:10pt\">laurent@galasoft.ch</span><br>\r\n<span style=\"font-family:Tahoma,sans-serif; font-size:10pt; font-weight:bold\">Subject:\r\n</span><span style=\"font-family:Tahoma,sans-serif; font-size:10pt\">Behaviour of mvvmlocatorproperty snippet [mvvmlight:352320]</span><br>\r\n<br>\r\n<p>From: phertzog</p>\r\n<div id=\"ThreadNotificationPostBody\">\r\n<p>I have a question about usage of the mvvmlocatorproperty snippet.</p>\r\n<p>When I use it in the body of the ViewModelLocator it creates a static ViewModelLocator() constructor event if there is already such a constructor in the class.</p>\r\n<p>Is there something I miss in the way I use the snippet?</p>\r\n<p>Philippe</p>\r\n<div id=\"_mcePaste\" style=\"left:-10000px; top:0px; width:1px; height:1px; overflow:hidden\">\r\n&#65279;</div>\r\n</div>\r\n",
+    "PostedDate": "2012-04-14T23:37:34.727-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

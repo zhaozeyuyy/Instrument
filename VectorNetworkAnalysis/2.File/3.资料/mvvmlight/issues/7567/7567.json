@@ -1,0 +1,66 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:57:32.423-07:00",
+    "CommentCount": 4,
+    "Custom": null,
+    "Description": "MVVMLight references Microsoft.Practices.ServiceLocation. But Microsoft.Practices.ServiceLocation.dll is not build for Metro apps. It uses APIs that are not available in Metro / Windows 8 apps.\r\n\r\nWhen running the App Certification Kit on a new clean MVVM Light Windows 8 app it will fail with the following message:\r\nError: This application failed the supported API check.\r\nAPI System.Threading.Thread in System.Threading is not supported. Microsoft.Practices.ServiceLocation.dll calls this API.\r\n\r\nThe solution is to remove the reference to Microsoft.Practices.ServiceLocation from the MVVM Light Extras project. Rebuild, fix the errors (removing the use of the interface). Then your MVVM app will pass certification.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-04-27T02:08:05.42-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Win8 fails certification caused by Microsoft.Practices.ServiceLocation ",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7567
+  },
+  "FileAttachments": [
+    {
+      "FileId": 381353,
+      "FileName": "GalaSoft.MvvmLight.Win8.zip",
+      "DownloadUrl": ".\\381353"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Hi,\r\n\r\nI fixed the issue, please use the attached DLLs. I already published an update in Nuget, so if you used this, you can use the \"update\" feature of Nuget. I will publish a post and the files to my blog today.\r\n\r\nThanks,\r\nLaurent",
+      "PostedDate": "2012-05-20T23:58:09.56-07:00",
+      "Id": 66293
+    },
+    {
+      "Message": "The issue seems not to be fixed. The reference to Microsoft.Practices.ServiceLocation is still there in the latest source code checkin for the Win8 release preview.",
+      "PostedDate": "2012-06-04T14:37:39.677-07:00",
+      "Id": 67334
+    },
+    {
+      "Message": "Yes it is still there however the DLL is now a Release mode DLL, which fixes the issues above. Multiple apps using MVVM Light have passed certification thanks to the fix.\n\nLet me know if you have specific issues which prevent your app to pass certification.\n\nThanks,\nLaurent",
+      "PostedDate": "2012-06-04T15:47:20.503-07:00",
+      "Id": 67339
+    },
+    {
+      "Message": "There is a problem with installing ClickOnce Application. \nMicrosoft.Practices.ServiceLocation.dll require GAC during installation.\n\nSeweryn",
+      "PostedDate": "2012-11-20T10:33:46.993-08:00",
+      "Id": 82779
+    }
+  ]
+}

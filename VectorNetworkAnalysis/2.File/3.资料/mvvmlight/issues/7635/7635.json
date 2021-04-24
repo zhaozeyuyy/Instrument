@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Not an issue",
+    "ClosedDate": "2014-04-13T12:23:38.32-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Currently I'm developing large Enterprise application that I use silverlight5 as client. \r\nI'm using MVVM Light which awesome. but the situation I face now is due to xap file grow up to 20 mb i have to modularize the application using MEF. \r\nI will have one Shell silverlight application and other module applications. \r\nthat challage is how the ViewModelLocator at shell could be used on the modules also? \r\n\r\nany example, sample? I couldnt understand what I'm reading on the web... ",
+    "LastUpdatedDate": "2014-04-13T12:23:38.32-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-04-12T01:31:10.73-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "MVVM Light & MEF",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7635
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Not an issue. Will close this here. Please feel free to open a discussion item.\n\nOn the topic of modularizing, I have a sample and explanation in my upcoming MVVM Light reference course at Pluralsight, which should be published very soon (waiting the exact date from Pluralsight).",
+      "PostedDate": "2014-04-13T12:23:28.443-07:00",
+      "Id": 141650
+    }
+  ]
+}

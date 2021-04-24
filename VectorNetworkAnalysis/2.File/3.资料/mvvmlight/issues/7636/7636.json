@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-02-15T10:13:09.447-08:00",
+    "CommentCount": 4,
+    "Custom": null,
+    "Description": "The descrpition states that the Unregister instance method simply removes the instance and allows SimpleIoc to create a new instance of the class when it is called again. When unregistering, and trying to create a new instance, an exception occurs.\r\n\r\nI've looked into the code and have found that during the Unregister procedure, the factory is also removed which prevents SimpleIoc from creating a new instance. After commenting this bit out, it works. Not sure if there are any further issues that could stem from commenting this out though...",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "null",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-05-08T04:57:11.21-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Issue with SimpleIoc public void Unregister<TClass>(TClass instance)",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 7,
+    "Id": 7636
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Issue seems to be contained in the \"public void Unregister<TClass>(string key)\" method as well.",
+      "PostedDate": "2014-05-08T09:22:10.35-07:00",
+      "Id": 145926
+    },
+    {
+      "Message": "For more info on this issue and the (upcoming) fix, see https://mvvmlight.codeplex.com/discussions/483764",
+      "PostedDate": "2015-02-06T01:46:50.93-08:00",
+      "Id": 173601
+    },
+    {
+      "Message": "Fixed in V5.1 (upcoming)",
+      "PostedDate": "2015-02-06T07:37:05.08-08:00",
+      "Id": 173635
+    },
+    {
+      "Message": "DLLs are available here:\nhttp://1drv.ms/1ylP1TS\n\nNuget will be updated ASAP.",
+      "PostedDate": "2015-02-06T09:12:15.79-08:00",
+      "Id": 173650
+    }
+  ]
+}

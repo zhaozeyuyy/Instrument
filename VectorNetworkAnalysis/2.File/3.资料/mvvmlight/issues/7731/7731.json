@@ -1,0 +1,56 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Not an MVVM Light issue. Event Trigger is a Microsoft implementation.",
+    "ClosedDate": "2016-07-05T05:53:18.193-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "We have implemented a behavior that forward mouse events to a other controls using the method UIElement.RaiseEvent.\r\n\r\nBut it seems that when using EventToCommand the command is not execute if the event is raised this way.\r\n\r\nHere is a minimum repro application.\r\n\r\nThanks for help.",
+    "LastUpdatedDate": "2016-07-05T07:57:59.407-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-07-01T08:05:06-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Not an issue"
+    },
+    "Summary": "EventToCommand not working with RaiseEvent",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 7731
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1587065,
+      "FileName": "EventToCommandIssue.zip",
+      "DownloadUrl": ".\\1587065"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "This is not something that MVVM Light can fix. The EventTrigger that EventToCommand is attached to doesn't react to this event. This is Microsoft's implementation.\n\nLaurent",
+      "PostedDate": "2016-07-05T05:52:50.957-07:00",
+      "Id": 200425
+    },
+    {
+      "Message": "You are right, sorry I realized that a bit late. Don't you think it deserves an issue on Microsoft Connect?",
+      "PostedDate": "2016-07-05T07:57:59.407-07:00",
+      "Id": 200432
+    }
+  ]
+}

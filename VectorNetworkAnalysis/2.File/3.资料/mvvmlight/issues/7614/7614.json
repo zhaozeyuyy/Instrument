@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:59:18.923-07:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "The implementation of `WeakAction` for WinRT doesn't work, since the target‘s hard reference is kept by the member `Action` object itself.  as follow code:\r\n\r\n```\r\n        public WeakAction(object target, Action action)\r\n        {\r\n            if (target != null)\r\n            {\r\n                _reference = new WeakReference(target);\r\n            }\r\n\r\n            _action  = action;  // The hard reference of target still exsits.\r\n        }\r\n```\r\n\r\nThis issue has been spread to `RelayCommand` that uses the `WeakAction` for implementation.\r\nIt's easy to reproduce this issue. In winrt app, you can make a cycle reference though a lambda with 'this' as target and use `WeakAction` to replace with `Action`. you will find it really doesn't work.\r\nI didn't test the `WeakFunc` class, but according the same implementation, it maybe have the same issue.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V4.2",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2013-06-24T20:59:00.417-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "WeakAction issue for WinRT version",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7614
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "That is correct and is historical. The addition of the classes and properties needed to make this a real weak action (and Func) were added to Windows 8 only late, and I didn't have time to update the code yet. This is a high priority item on my list.\n\nNote that even with these new additions, the restrictions will be the same as in Silverlight, meaning that only public methods will be truly \"weak\". There is just no other way to rehydrate a MethodInfo if it is private or internal, for security reasons :(\n\nLaurent",
+      "PostedDate": "2013-06-25T09:17:28.063-07:00",
+      "Id": 104053
+    },
+    {
+      "Message": "Thanks for your kindly reply, and sorry for my poor English.\nRight on, I have seen your silverlight's implementation, hepefully it's would be done for winrt.\n\n**Whatever, very appreciate your great work in this project, actually, we use it a lot, and it really bring much convenience in my job.**\n\nBest Wishes\nHaibo L.",
+      "PostedDate": "2013-06-25T20:00:20.047-07:00",
+      "Id": 104162
+    },
+    {
+      "Message": "Hi Haibo,\n\nYou can also use the PCL version of MVVM Light as I've implemented the fix there already. It's compatible with all of the current .NET versions.\n\nOn NuGet, install Portable.MvvmLightLibs __instead__ of the current one. Remove the current version first to prevent Nuget issues...  \n\nOren",
+      "PostedDate": "2013-07-17T12:05:47.38-07:00",
+      "Id": 106321
+    }
+  ]
+}

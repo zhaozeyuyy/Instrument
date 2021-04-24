@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "549427",
+    "ThreadId": "241815",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>I started to use your framework and moved my previous code into a new project build on the templates provided.</p>\r\n<p>In every viewmodel where I previously used the logging block from the Enterprice Library I get exceptions on the Unity.dll : Activation error occured while trying to get instance of type LogWriter, key \\&quot;\\&quot;&quot;} and the inner exception:</p>\r\n<p>{&quot;Resolution of the dependency failed, type = \\&quot;Microsoft.Practices.EnterpriseLibrary.Logging.LogWriter\\&quot;, name = \\&quot;(none)\\&quot;.\\r\\nException occurred while: while resolving.\\r\\nException is: InvalidOperationException - The type LogWriter cannot be constructed.\r\n You must configure the container to supply this value.\\r\\n-----------------------------------------------\\r\\nAt the time of the exception, the container was:\\r\\n\\r\\n&nbsp; Resolving Microsoft.Practices.EnterpriseLibrary.Logging.LogWriter,(none)\\r\\n&quot;}</p>\r\n<p>Any help would be greatly appreciated.</p>\r\n",
+    "PostedDate": "2011-01-14T08:24:59.57-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "563943",
+    "ThreadId": "241815",
+    "Html": "\r\n<p>Hi Rudi,</p>\r\n<p>Sorry for the delayed answer.</p>\r\n<p>I think that your issue comes from your IOC. It sounds as if your logger was not registered properly.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2011-02-10T06:28:43.01-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "566481",
+    "ThreadId": "241815",
+    "Html": "<p>Hi Laurent,</p>\r\n<p>Thank you for getting back to me. I believe the issue is fixed now. I indeed needed to register the logging block. I never heard of IOC, which was probably part of the issue.</p>\r\n<p>Thanks for you help and keep on the great work.</p>\r\n<p>Rudi.</p>",
+    "PostedDate": "2011-02-15T06:53:10.817-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "477741",
+    "ThreadId": "222828",
+    "Html": "<p>The docs say to initialise the DispatcherHelper during Application_Startup when the MainPage is assigned to the Root Visual. In the latest MVVM light the RootVisual is assigned in <span style=\"font-family:Consolas;font-size:x-small\"><span style=\"font-family:Consolas;font-size:x-small\">&nbsp;</span></span></p>\r\n<p>\r\n<p><span style=\"font-family:Consolas;font-size:x-small\"><span style=\"font-family:Consolas;font-size:x-small\">\r\n<p>CompleteInitializePhoneApplication</p>\r\n</span></span>However the&nbsp;comment says\r\n<p><span style=\"font-family:Consolas;color:#008000;font-size:x-small\">\r\n<p><span style=\"font-family:Consolas;color:#008000;font-size:x-small\">\r\n<p><span style=\"font-family:Consolas;color:#008000;font-size:x-small\">// Do not add any additional code to this method</span></p>\r\n</span></p>\r\n</span></p>\r\n</p>\r\n</p>\r\n<div id=\"_mcePaste\" style=\"width:1px;height:1px;overflow:hidden;top:0px;left:-10000px\">﻿</div>\r\n<p>I have ignored this comment for now and added the following after the RootVisual is assigned: <span style=\"font-family:Consolas;color:#2b91af;font-size:x-small\"><span style=\"font-family:Consolas;color:#2b91af;font-size:x-small\"><span style=\"font-family:Consolas;color:#2b91af;font-size:x-small\">DispatcherHelper</span></span></span><span style=\"font-family:Consolas;font-size:x-small\"><span style=\"font-family:Consolas;font-size:x-small\">.Initialize(); </span></span></p>\r\n<p><strong><span style=\"font-family:Consolas;font-size:x-small\"><span style=\"font-family:Consolas;font-size:x-small\">﻿Any thoughts on where this should really go?</span></span></strong></p>\r\n<p><span style=\"font-family:Consolas\"><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">﻿</span></span>BTW If you don't initialise this you get a NullReferenceException when calling\r\n<p><span style=\"font-family:Consolas;font-size:x-small\">\r\n<p><span style=\"font-family:Consolas;font-size:x-small\">CheckBeginInvokeOnUI (might be nice if MVVM Light checked for this in debug mode and put out some helpful hint about intitialising the DispatcherHelper).</span></p>\r\n</span></p>\r\n</span></p>\r\n<p><span style=\"font-family:Consolas;font-size:x-small\"></span></p>",
+    "PostedDate": "2010-08-08T02:26:58.583-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "478992",
+    "ThreadId": "222828",
+    "Html": "I was clearly being stupid, you can obviously subscribe to Startup in the App constructor:\r\nthis.Startup += new StartupEventHandler(App_Startup);",
+    "PostedDate": "2010-08-11T02:11:13.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

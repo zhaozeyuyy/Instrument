@@ -1,0 +1,56 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:54:58.297-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "The messenger has a subtle bug in the foreach that invokes the listeners.  If any of the invoked listeners try to unregister, then the following error is thrown:\r\n\r\nSystem.InvalidOperationException was unhandled\r\n  Message=\"Collection was modified; enumeration operation may not execute.\"\r\n  Source=\"mscorlib\"\r\n  StackTrace:\r\n       at System.ThrowHelper.ThrowInvalidOperationException(...)\r\n       at System.Collections.Generic.List`1.Enumerator.MoveNext()\r\n\r\nHere is where the problem is:\r\n// Clone to protect from people registering in a \"receive message\" method\r\n                // Bug correction Messaging BL0004.007\r\n                List<WeakActionAndToken> listClone = list.Take(list.Count()).ToList();\r\n\r\n                foreach (WeakActionAndToken item in listClone)\r\n                {\r\n                    var executeAction = item.Action as IExecuteWithObject;\r\n\r\n                    if (executeAction != null\r\n                        && item.Action.IsAlive\r\n                        && item.Action.Target != null\r\n                        && (messageTargetType == null\r\n                            || item.Action.Target.GetType() == messageTargetType\r\n                            || Implements(item.Action.Target.GetType(), messageTargetType))\r\n                        && ((item.Token == null && token == null)\r\n                            || item.Token != null && item.Token.Equals(token)))\r\n                    {\r\n                        executeAction.ExecuteWithObject(message);\r\n                    }\r\n                }\r\n\r\nI recommend changing the foreach to a regular for loop.  This will prevent the bug from occurring.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-06-02T18:42:56.31-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Collection was modified; enumeration operation may not execute.",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 5,
+    "Id": 7530
+  },
+  "FileAttachments": [
+    {
+      "FileId": 246973,
+      "FileName": "mvvmlight-messenger-enumerable-fix.diff-txt",
+      "DownloadUrl": ".\\246973"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "This issue is causing problems for me too. \r\nI fixed it by: \r\n- Promoting _registerLock to a static\r\n- Removing lock on the list, and replacing with _registerLock \r\n\r\nThis is a simple approach which should guarantee thread safety, but with a potential drop in performance of Messenger in high throughput & highly parallel environments. \r\n\r\n\r\nPatch file attached. ",
+      "PostedDate": "2011-06-04T09:14:35.26-07:00",
+      "Id": 36975
+    },
+    {
+      "Message": "But if one of the executed actions, the error would still occur because a lock only works between threads.  This error occurs when I am on the same thread.",
+      "PostedDate": "2011-06-04T09:35:47.087-07:00",
+      "Id": 36978
+    }
+  ]
+}

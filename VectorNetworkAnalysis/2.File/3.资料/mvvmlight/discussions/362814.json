@@ -1,0 +1,114 @@
+[
+  {
+    "Id": "860346",
+    "ThreadId": "362814",
+    "Html": "\r\n<p>I've just run the latest installer (GalaSoft.MvvmLight.4.0.23.1.msi), but no templates or snippets were installed. &nbsp;Are templates/snippets an additional download? &nbsp;I've used this product in the past and the installer would always install the templates.\r\n &nbsp;Thanks in advance for any help!</p>\r\n",
+    "PostedDate": "2012-07-11T08:05:40.573-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "860351",
+    "ThreadId": "362814",
+    "Html": "<p>Hi,</p>\r\n<p>Thanks for the report. I just need some more info.</p>\r\n<ul>\r\n<li>What OS are you on?&nbsp;</li>\r\n<li>What version of Visual Studio do you try to install for?</li>\r\n</ul>\r\n<p>Once I have this info, I will be able to help you more.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2012-07-11T08:15:31.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "860356",
+    "ThreadId": "362814",
+    "Html": "<p>Hi Laurent.</p>\r\n<p>Thanks for such a quick response, in fact I was just logging on to say that I jumped the gun...a little 'ReadMe' goes a long way! &nbsp;I had not realized the templates were now installed via the Extension Manager. &nbsp;Once I did that everything is fine. &nbsp;Sorry for the false alarm! &nbsp;Also let me say that this is an awesome product. &nbsp;When I was on a big project with a major bank in 2010, we decided to try it to help us better understand MVVM, and I've never looked back, best decision we ever made. &nbsp;I'm now directing another project with a fairly large production company and am pushing for its adoption. &nbsp;Thanks again for such a rapid response.</p>",
+    "PostedDate": "2012-07-11T08:23:48.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "860364",
+    "ThreadId": "362814",
+    "Html": "<p>Happy to hear. I decided to switch to Extension Manager for templates indeed, because it just makes the installer so much faster and actually easier to test. I tried to make the readme as obnoxious as possible ;)&nbsp;</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2012-07-11T08:36:30.453-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "860365",
+    "ThreadId": "362814",
+    "Html": "<p>Just to confirm, snippets are working?</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2012-07-11T08:36:48.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "860374",
+    "ThreadId": "362814",
+    "Html": "<p>Just tried to create a SL5 template app and get the following:</p>\r\n<p>C:\\Users\\&lt;myuserid&gt;\\AppData\\Local\\Temp\\kfvgrr2b.red\\Temp\\MvvmLight2.csproj(125,3): &nbsp;The imported project \"C:\\Program Files (x86)\\MSBuild\\Microsoft\\Silverlight\\v5.0\\Microsoft.Silverlight.CSharp.targets\" was not found. &nbsp;Confirm that the path in the &lt;Import&gt; declaration is correct.</p>",
+    "PostedDate": "2012-07-11T08:57:26.09-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "860377",
+    "ThreadId": "362814",
+    "Html": "<p>Hang on, once again I might have jumped the gun...just realized this was on a test dev machine, and I didn't have SL5 installed. &nbsp;Will install, test, and report back...</p>",
+    "PostedDate": "2012-07-11T09:00:32.337-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "860378",
+    "ThreadId": "362814",
+    "Html": "<p>I was just going to say, this error comes when SL5 is not installed on the target machine ;)</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2012-07-11T09:02:30.963-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "860393",
+    "ThreadId": "362814",
+    "Html": "<p>Ok, installed SL5 and it's all good.</p>\r\n<p>One question, I had to manually move the snippets into ...\\Visual Studio 2010\\Code Snippets\\Visual C#\\My Code Snippets. &nbsp;Is this expected or should the installer have done this? &nbsp;But yes, they are working just fine.</p>\r\n<p>Other than that, I'm golden, thanks again for your lightning fast support :)</p>",
+    "PostedDate": "2012-07-11T09:28:33.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "860516",
+    "ThreadId": "362814",
+    "Html": "\r\n<p>I try to install the templates for Visual C# 2010 Express and get the following error:</p>\r\n<p>&nbsp;</p>\r\n<p>11.07.2012 21:32:22 - Er wird nach passenden Produkten gesucht...<br>\r\n11.07.2012 21:32:22 - Installiertes Produkt gefunden - Microsoft Visual Basic Express 2010<br>\r\n11.07.2012 21:32:22 - Installiertes Produkt gefunden - Microsoft Visual C# Express 2010<br>\r\n11.07.2012 21:32:22 - Die Erweiterung mit der ID 5862fabf-d5bd-45fc-ba04-64637cbfad2b wird nicht f&uuml;r Microsoft Visual C# Express 2010 installiert.<br>\r\n11.07.2012 21:32:23 - Folgende Zielprodukte wurden ausgew&auml;hlt...<br>\r\n11.07.2012 21:32:23 - &nbsp;&nbsp;&nbsp; Microsoft Visual C# Express 2010<br>\r\n11.07.2012 21:32:23 - <br>\r\n11.07.2012 21:32:23 - Die Installation der Erweiterung f&uuml;r Microsoft Visual C# Express 2010 wurde gestartet...<br>\r\n11.07.2012 21:32:24 - Installationsfehler: System.IO.PathTooLongException: C:\\Dokumente und Einstellungen\\xxx\\Lokale Einstellungen\\Anwendungsdaten\\Microsoft\\VCSExpress\\10.0\\Extensions\\Laurent Bugnion (GalaSoft)\\MVVM Light Toolkit Templates\\4.0.23.0\\ItemTemplates\\WPF\\Mvvm\\MvvmViewModelLocator.WPF.zip:\r\n MvvmViewModelLocator.WPF.vstemplate<br>\r\n&nbsp;&nbsp; bei Microsoft.VisualStudio.ExtensionManager.ExtensionManagerService.BeginInstall(IInstallableExtension installableExtension, Boolean perMachine, AsyncOperation asyncOp)<br>\r\n&nbsp;&nbsp; bei Microsoft.VisualStudio.ExtensionManager.ExtensionManagerService.InstallWorker(IInstallableExtension extension, Boolean perMachine, AsyncOperation asyncOp)</p>\r\n<p>&nbsp;</p>\r\n<p>OS: Win XP (german)</p>\r\n<p>&nbsp;</p>\r\n<p>thanks in advance for your support!</p>\r\n",
+    "PostedDate": "2012-07-11T12:34:37.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1009072",
+    "ThreadId": "362814",
+    "Html": "I've tried in the last two days to install item templates for MVVM Light into Visual Studio 2012 Premium, with no success.\r<br />\n<br />\nVersion I'm trying to install is 4.1.24.0 using GalaSoft.MvvmLight.4.1.24.0.msi .\r<br />\n<br />\nI previously tried using nuget with same result.\r<br />\n<br />\nWhat am I doing wrong? How can I fix it doing some manual command to put item templates in VS2012 ?<br />\n",
+    "PostedDate": "2013-03-01T15:13:01.567-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1014248",
+    "ThreadId": "362814",
+    "Html": "Same here.<br />\n",
+    "PostedDate": "2013-03-12T16:37:39.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1014368",
+    "ThreadId": "362814",
+    "Html": "Hi,\r<br />\n<br />\nDid you read the readme that automatically opens in your favorite browser after the MSI completes, and run the corresponding VSIX files?\r<br />\n<br />\nThanks\r<br />\nLaurent<br />\n",
+    "PostedDate": "2013-03-13T00:07:55.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1098889",
+    "ThreadId": "362814",
+    "Html": "This is the first time that I use VSIX files. It did not run when I double clicked on it in Win8. However, when I right clicked on the file, I got the option to choose &quot;Microsoft Visual Studio Version Selector&quot; from the popup menu. I selected it, then it worked and I was then able to find those templates in VS.\r<br />\n<br />\nI believe the reason so many people asked the same question is that VSIX is not automatically linked to be opened by the Version Selector.\r<br />\n<br />\nHope this help a bit.<br />\n",
+    "PostedDate": "2013-09-25T00:03:13.99-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

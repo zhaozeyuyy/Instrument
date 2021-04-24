@@ -1,0 +1,75 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-02-15T10:13:49.383-08:00",
+    "CommentCount": 7,
+    "Custom": null,
+    "Description": " - create a generic command that receives some class\r\n - bind this command to XAML without value for CommandParameter\r\nIn previous version CommandParameter without value leads to null value in code. Now command just not executing.\r\nIs think reference types as command parameter should accept NULL.\r\n\r\n\r\n\r\nIn PCL version RelayCommandGeneric.cs, public bool CanExecute(object parameter):\r\n\r\n```\r\n                if (parameter == null\r\n#if NETFX_CORE\r\n                    && typeof(T).GetTypeInfo().IsValueType)\r\n#else\r\n                    && typeof(T).IsValueType)\r\n#endif\r\n\r\n```\r\nThis is covering value type check only, no reference type check.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "null",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-10-23T06:11:57.43-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Relay Command CanExecute() not working in WinRT for refence types",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 7663
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "With current behavior we cannot use simple pattern to work with objects: null value - create new object, not null value - edit existing object. With current RelayCommand<T> we have to create different commands for object creating and object editing.",
+      "PostedDate": "2014-10-23T06:14:39.933-07:00",
+      "Id": 163040
+    },
+    {
+      "Message": "My proposal: replace condition with next code:\n```\n                if (!\n#if NETFX_CORE\n                    typeof(T).GetTypeInfo().IsValueType)\n#else\n                    typeof(T).IsValueType)\n#endif\n|| parameter != null)\n\n```",
+      "PostedDate": "2014-10-23T06:18:58.39-07:00",
+      "Id": 163042
+    },
+    {
+      "Message": "I get what you say. The null check was introduced to solve another issue where the command code was attempting to cast the null parameter and was failing. Let me think over your proposal and make sure that it doesn't break anything else.\n\nThanks for following up and opening a new issue rather than writing on the other one, appreciated.\n\nLaurent",
+      "PostedDate": "2014-10-23T06:53:20.86-07:00",
+      "Id": 163047
+    },
+    {
+      "Message": "I experience the same issue in a normal .NET 4.5 application (no WinRT, but VB.NET).\n\nThis is critical to me because I cannot update to the latest version of MVVM Light V5 to get other bug fixes...\n\n",
+      "PostedDate": "2014-10-23T07:42:32.117-07:00",
+      "Id": 163052
+    },
+    {
+      "Message": "You may copy-paste code from Execute method. It contains null-check and value type check",
+      "PostedDate": "2014-10-23T21:45:42.68-07:00",
+      "Id": 163140
+    },
+    {
+      "Message": "Fixed in V5.1 (upcoming)",
+      "PostedDate": "2015-02-06T07:27:44.37-08:00",
+      "Id": 173630
+    },
+    {
+      "Message": "DLLs are available here:\nhttp://1drv.ms/1ylP1TS\n\nNuget will be updated ASAP.",
+      "PostedDate": "2015-02-06T09:13:05.9-08:00",
+      "Id": 173653
+    }
+  ]
+}

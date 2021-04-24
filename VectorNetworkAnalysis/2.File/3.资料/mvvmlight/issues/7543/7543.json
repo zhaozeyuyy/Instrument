@@ -1,0 +1,56 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "The recommended way to unit test Silverlight code is to use the Silverlight Unit Test framework. This will solve the issue described here.",
+    "ClosedDate": "2012-07-08T15:22:27.837-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "When unit testing code that uses Galasoft.MvvmLight.Messaging.Messenger using the method described in this link (http://visualstudiogallery.msdn.microsoft.com/bd30c036-01f2-42ff-9b32-25010a6226f7) for unit testing silverlight class libraries, the following exception is thrown from within the MvvmLight framework.\r\n\r\nThe attached projects demonstrate this behavior.  Simply execute Test1.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-09-14T16:14:42.083-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "System.MissingMethodException",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7543
+  },
+  "FileAttachments": [
+    {
+      "FileId": 281339,
+      "FileName": "UnitTestingAndMVVMLight.zip",
+      "DownloadUrl": ".\\281339"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "This is for MVVM Light V4 beta1.  The same exception is thrown for V3 SP1 but with reference to the System.Action.",
+      "PostedDate": "2011-09-14T16:17:40.477-07:00",
+      "Id": 44707
+    },
+    {
+      "Message": "I think I've discovered the issue.  This method of unit testing doesn't allow testing anything that uses DependencyObject or Dispatcher.  This is because it is using a mixture of .NET and Silverlight Assemblies in order to leverage MSTest.  While many assemblies and methods are compatible with .NET some Silverlight ones are not (such as those above).  Even so, can we look at making MvvmLight compatible with .NET so that silverlight class libraries can be tested using MSTest?",
+      "PostedDate": "2011-09-14T16:36:18.647-07:00",
+      "Id": 44710
+    }
+  ]
+}

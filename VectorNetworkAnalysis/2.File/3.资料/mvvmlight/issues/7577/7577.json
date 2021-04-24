@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:58:08.85-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "\nSimpleIoc does not check whether the selected constructor is private.\nThis issue lies in GetConstructorInfo, these lines should be modified:\n\n                var preferredConstructorInfo\n                    = (from t in constructorInfos\n#if NETFX_CORE\n                       let attribute = t.GetCustomAttribute(typeof (PreferredConstructorAttribute))\n#else\n                       let attribute = Attribute.GetCustomAttribute(t, typeof(PreferredConstructorAttribute))\n#endif\n                       where attribute != null\n                       select t).FirstOrDefault();\n\nIf the constructor is private a IndexOutOfRangeException is raised, this is really misleading.\n\nthank you laurent for your amazing toolkit, this is the swiss knife of all WPF/SL developers!\n\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4.1",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-06-24T02:09:47.717-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "SimpleIoc misleading error when class has private constructor",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7577
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Good stuff, thanks. I already have V4 RTM assemblies built but I will fix that in the very next.\n\nThanks!\nLaurent",
+      "PostedDate": "2012-06-24T02:49:35.67-07:00",
+      "Id": 68827
+    },
+    {
+      "Message": "great, I'm looking forward to the V4!",
+      "PostedDate": "2012-06-24T12:54:20.99-07:00",
+      "Id": 68839
+    }
+  ]
+}

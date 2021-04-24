@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "938005",
+    "ThreadId": "402277",
+    "Html": "\r\n<p>When using the&nbsp;<code>ViewModelLocator</code>&nbsp;from the MVVM Light framework, is there a difference in the&nbsp;<code>DataContext</code>&nbsp;assignment order then if assigning from the code behind?</p>\r\n<p>That is, would the&nbsp;<code>DataContext</code>&nbsp;be set at a different point in the application execution when assigning in the XAML:</p>\r\n<pre><code><span>&lt;Window</span><span> </span><span>x:Class</span><span>=</span><span>&quot;MyMvvmLightApp.MainWindow&quot;</span><span>\r\n        ...\r\n        </span><span>Title</span><span>=</span><span>&quot;MVVM Light Application&quot;</span><span>\r\n        </span><span>DataContext</span><span>=</span><span>&quot;{Binding Main, Source={StaticResource Locator}}&quot;</span><span>&gt;</span></code></pre>\r\n<p>versus the&nbsp;<code>MainWindow.xaml.cs</code>&nbsp;constructor:</p>\r\n<pre><code><span>public MainWindow()\r\n{\r\n    InitializeComponent();\r\n\r\n    _mainViewModel = new MainViewModel();\r\n    DataContext = _mainViewModel;\r\n\r\n}</span></code></pre>\r\n<p>I ask, because I have a lookless control that I am using which breaks when using the Locator. Everything is fine when using the code behind assignment though. Weird.</p>\r\n<p>I'd like to use the Locator though, so I can more easily assign the necessary ViewModels to the appropriate Views.</p>\r\n",
+    "PostedDate": "2012-11-07T08:32:43.033-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "941203",
+    "ThreadId": "402277",
+    "Html": "\r\n<p>In the first case, the ViewModel is created while InitializeComponent is called (or possibly even earlier, depending how you setup your ViewModelLocator). In the second case, obviously, the viewmodel is created only after InitializeComponent has completed.</p>\r\n<p>Are your controls in a separate DLL?</p>\r\n<p>Cheers<br>\r\nLaurent</p>\r\n",
+    "PostedDate": "2012-11-13T13:17:32.09-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

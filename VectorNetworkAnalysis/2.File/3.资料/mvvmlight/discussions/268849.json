@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "657161",
+    "ThreadId": "268849",
+    "Html": "\r\n<p>Is it possible to pass a reference as part of the message parameter.</p>\r\n<p>example:</p>\r\n<p><span style=\"white-space:pre\"></span>Messenger.Default.Send&lt;ref navdata&gt;(ref nv_array[index]);</p>\r\n<p>I would like to pass a reference to &quot;navdata&quot; object which is part of an array. &nbsp;This will allow me to avoid creating global static objects that are accessed by multiple threads.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-08-12T07:39:00.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

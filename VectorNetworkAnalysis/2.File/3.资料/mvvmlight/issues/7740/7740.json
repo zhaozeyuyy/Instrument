@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When targeting .NET 4.5 or later, adding MVVM Light to my WPF project injects a large number of system assemblies to the application folder upon installation. \r\n\r\nHere's how to produce this:\r\n\r\n1. Create a new WPF Application project, targeting .NET 4.5 or above.\r\n2. Add NuGet reference to MVVM Light (or the Lib-only version; doesn't matter).\r\n3. Add an MSI Setup project to the solution ([extension](https://marketplace.visualstudio.com/items?itemName=VisualStudioProductTeam.MicrosoftVisualStudio2015InstallerProjects) needs to be installed beforehand).\r\n4. Add Primary Project Output of WPF application to the setup project.\r\n\r\nThere you go. A long list of System.X.Y will be added to the list. If you build and install the setup project, you'll see all these DLLs in Program Files folder.\r\n\r\nThe problem does not appear if WPF application targets .NET Framework 4.0 and you add NuGet reference AFTER that. But if you target .NET 4.5, 4.5.1 or 4.6, the long list of dependencies appears again. Think MVVM Light (or NuGet) is having trouble finding the correct package sub-folder.",
+    "LastUpdatedDate": "2016-12-07T23:34:39.93-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-12-07T23:34:39.93-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "MVVM Light adds large number of system assemblies to the installer",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7740
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

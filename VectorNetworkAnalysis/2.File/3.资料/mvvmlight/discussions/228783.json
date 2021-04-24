@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "499199",
+    "ThreadId": "228783",
+    "Html": "<p>Hi,</p>\r\n<p>I am completely new to MVVM. I have read SOOO much theory on it and tried some tutorials online but most of them don't work or don't have the source.</p>\r\n<p>I checked out the sample included in this toolkit but it's very basic and doesn't show how to use commands or any of the functionality in the toolkit.&nbsp;</p>\r\n<p>Is there a SIMPLE tutuorial showing the power of it a bit more or a GetStarted tutorial?&nbsp;</p>\r\n<p>I <a href=\"http://jesseliberty.com/2010/09/04/iphone-to-windows-phone-7-diving-deeper/comment-page-1/#comment-5332\">found this one</a> but I can't get it to complile. Are we&nbsp;supposed&nbsp;to know how to use MVVM BEFORE using this toolkit?</p>\r\n<p>Thanks</p>",
+    "PostedDate": "2010-09-27T15:55:54.057-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "515060",
+    "ThreadId": "228783",
+    "Html": "\r\n<p>I know it's a month since this post, but&nbsp;John Papa just did a presentation at pdc10 that reviewed use of MVVM and MVVM Light he called&nbsp;Kung Fu Silverlight: Top Tips &amp; Architectural Patterns and Practices with MVVM and RIA Services.&nbsp; It's\r\n one of the more complete but straightforward&nbsp;explanations I've seen, along with Laurent's presentation at MIX10 earlier this year.&nbsp; Try\r\n<a href=\"http://bit.ly/9WuRSI\">http://bit.ly/9WuRSI</a>&nbsp;or go to the pdc10 website at\r\n<a href=\"http://player.microsoftpdc.com/\">http://player.microsoftpdc.com/</a>&nbsp;and look for the session listed as &quot;Silverlight: Tips and ARC Patterns and Practices&quot;&nbsp;under the Guide, Sessions, Client &amp; Devices&nbsp;tab.</p>\r\n<p>-- Thomas</p>\r\n",
+    "PostedDate": "2010-10-30T23:24:15.447-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "844005",
+    "ThreadId": "228783",
+    "Html": "\r\n<p>I found this example very useful for understanding MVVM pattern : <a title=\"Model-View-ViewModel Pattern (MVVM)\" href=\"http://www.codearsenal.net/2012/05/mvvm.html\">\r\nModel-View-ViewModel Pattern (MVVM)</a></p>\r\n",
+    "PostedDate": "2012-06-03T01:28:33.627-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

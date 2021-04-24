@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2016-07-20T00:54:58.99-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "5.1.1\\wpa81\\MvvmLight.Platform.dll\r\nMethod: MessageDialog CreateDialog \r\nLine: 202\r\n\r\nMaybe need to set dialog.CancelCommandIndex = 1. \r\n\r\nOtherwise we will get confirm button from dialog service when we click windows button.\r\n\r\nThank you!",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.3.0",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-08-24T23:55:14.227-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Platform.dll need to set dialog.CancelCommandIndex = 1;",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7702
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Fixed in V5.3.0",
+      "PostedDate": "2016-07-20T00:56:40.297-07:00",
+      "Id": 200747
+    }
+  ]
+}

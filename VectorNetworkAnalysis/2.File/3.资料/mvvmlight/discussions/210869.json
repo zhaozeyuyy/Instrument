@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "436560",
+    "ThreadId": "210869",
+    "Html": "<p>Hi - Thank you for the awesome toolkit.</p>\r\n<p>I am thinking of&nbsp;incorporating&nbsp;Microsoft's&nbsp;unity since my app will have many views. &nbsp;</p>\r\n<p>Do you have any example code with multiple views using unity and the ViewModelLocator?</p>",
+    "PostedDate": "2010-04-28T07:53:39.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "436643",
+    "ThreadId": "210869",
+    "Html": "<p>Hi,</p>\r\n<p>I am using Unity with the ViewModelLocator in my MIX10 session.</p>\r\n<p>Check the code and video from here:</p>\r\n<p>http://blog.galasoft.ch/archive/2010/03/16/sample-code-for-my-mix10-talk-online.aspx</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-28T10:33:32.663-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "436736",
+    "ThreadId": "210869",
+    "Html": "<p>wow - that was easy.</p>\r\n<p>&nbsp;</p>\r\n<p>Thank you!</p>",
+    "PostedDate": "2010-04-28T13:50:43.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

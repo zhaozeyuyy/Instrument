@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "589674",
+    "ThreadId": "252035",
+    "Html": "\r\n<p>Hi!</p>\r\n<p>I'll start with the scenario:</p>\r\n<p>I have a WindowView with a ViewModel;<br>\r\nThe WindowView contains a UsercontrolView which also has a ViewModel.</p>\r\n<p>Now I would like to bind f.e. a Textbox.Text on the WindowView with a Textbox.Text on the UsercontrolView..</p>\r\n<p>&nbsp;</p>\r\n<p>What's the best way to accomplish this with MVVM Light?</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-03-31T10:41:00.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "589721",
+    "ThreadId": "252035",
+    "Html": "<p>Hi,</p>\r\n<p>Multiple ways:</p>\r\n<ul>\r\n<li>Have your WindowViewModel be the DataContext of both the WindowView and the UserControlView. Then bind both TextBoxes to the same property on the WindowViewModel.</li>\r\n</ul>\r\n<p>This works well if your UserControlView does not have many UI elements, so if it is not worth making a separate VM for that view.</p>\r\n<ul>\r\n<li>Have two viewmodels. UserControlViewModel is exposed as a property on MainViewModel. Still set the DataContext of both WindowView and UserControlView to MainViewModel. Then, do the TextBox.Text binding to the same property on MainViewModel, but all other properties on UserControlView are bound for example to MyUserControlVM.MyProperty.</li>\r\n</ul>\r\n<p>This was UserControlViewModel is a child of MainWindowViewModel, which allows you to separate the responsibilities, have smaller objects, etc...</p>\r\n<ul>\r\n<li>Have two viewmodels. They do not know each other. When the property on the first changes, use the Messenger class to send a message with the new value. In the second VM, receive the message and set another property with the same value. </li>\r\n</ul>\r\n<p>Which solution you choose depends on a number of factors, such as size of the VMs, configuration of the UI, etc.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-03-31T11:52:40.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "589782",
+    "ThreadId": "252035",
+    "Html": "<p>Thank you very much for your Answer!</p>\r\n<p>I have sent the Window's control through a message to the Usercontrol, and used SetBinding to bind its property to another control =D</p>\r\n<p>Again, thanks!&nbsp;</p>",
+    "PostedDate": "2011-03-31T13:10:59.743-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

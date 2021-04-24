@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "609180",
+    "ThreadId": "256798",
+    "Html": "<p>Hi guys,</p>\n<p>&nbsp;</p>\n<p>I have met a problem that now is bothering me for a while regarding the code snippets providing with the MVVM Light Toolkit for WP7.</p>\n<p>Using the Express Edition the snippets work fine. Trying to use them in Visual Studio Ultimate does not work at all. Clearly they are added in the Code Snippet Manager and also being shown as available but they are simply not working when trying to use them  in code (e.g. <em>mvvmlocatorpropert</em>y). I have not idea why that is the case. Can anybody help me with that?</p>\n<p>Available in Code Snippet Manager</p>\n<p>http://www.imagebanana.com/view/b8b5gw7j/Prob1.png</p>\n<p>&nbsp;</p>\n<p>Just not working in code (Visual Studio 2010 Ultimate)</p>\n<p>http://www.imagebanana.com/code/psk8pi7p/Prob2.png</p>",
+    "PostedDate": "2011-05-08T08:30:56.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "722955",
+    "ThreadId": "256798",
+    "Html": "<p>Please add the path in Code snippet manager&nbsp; like</p>\r\n<p>&nbsp;&nbsp;&nbsp; ﻿﻿﻿﻿﻿c:\\program files\\laurent Bugnion....\\Mvvm light toolkit\\snippets&nbsp;</p>",
+    "PostedDate": "2012-01-10T01:42:59.763-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

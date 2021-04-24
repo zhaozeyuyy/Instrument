@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "MVVM Light Toolkit has a dependency to CommonServiceLocator library.\r\n\r\nBut Service locator pattern is considered by many as an anti-pattern:\r\n* http://blog.ploeh.dk/2010/02/03/ServiceLocatorisanAnti-Pattern/\r\n* https://www.linkedin.com/pulse/service-locator-base-class-anti-pattern-mark-clearwater\r\n* https://jeremybytes.blogspot.com/2013/04/dependency-injection-service-locator.html\r\n* https://youtu.be/RlfLCWKxHJ0?t=8m45s\r\n\r\nThe main issue, among others, is that it makes the class' dependencies hidden.\r\n\r\nI agree that sometimes it is unavoidable, but not in case of MVVM Light Toolkit. I don't think there is any good reason why you should force MVVM Light users to depend on CommonServiceLocator library.\r\n\r\nI would suggest to use [an approach](http://docs.autofac.org/en/latest/integration/csl.html) to which the Autofac developers came to -- create a separate package (called MvvmLightCommonServiceLocatorSupport or MvvmLight.Extras.CommonServiceLocator for example) that will contain an adapter class for SimpleIoc and IServiceLocator. Then users who need CommonServiceLocator library integration will be able to use that package if they need to.\r\n\r\nThanks.",
+    "LastUpdatedDate": "2016-12-27T07:16:05.633-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-12-27T07:15:24.23-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Exclude CommonServiceLocator library from the MVVM Light dependecies",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 7743
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

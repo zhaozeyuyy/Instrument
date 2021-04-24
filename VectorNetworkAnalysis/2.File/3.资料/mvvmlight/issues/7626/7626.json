@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:59:26.88-07:00",
+    "CommentCount": 6,
+    "Custom": null,
+    "Description": "Hello!\r\n\r\nAfter latest update of the CommonServiceLocation package (up to version 1.2 @ Feb 05) Resharper analizer fails to deal with assembly redirect:\r\n\r\n![Editor](http://cdn.joxi.ru/uploads/prod/2014/03/03/93b/a50/5b8fca8e7e0902e38eb81f038aa98240bedde020.jpg)\r\n\r\nOf course, compiles and runs ok (with assembly redirect).\r\n\r\nThis is happening because of missing <SpecificVersion>False</SpecificVersion> in Extras project files. As SimpleIoc supports both 1.0 and 1.2 versions of ServiceLocator may be there's a possibility to set specific version to false in the future and avoid the need to add assembly binding in app.config? :-)",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V4.4.32.1",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-03-03T00:34:39.957-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "ServiceLocator, SpecificVersion and Resharper",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7626
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nCan you give me a few more details? Is it WPF or another framework? How did you install MVVM Light?\n\nThanks\nLaurent",
+      "PostedDate": "2014-03-03T02:39:39.717-08:00",
+      "Id": 135603
+    },
+    {
+      "Message": "Hello Laurent!\n\nIt's a WPF application (.net 4.5.1, vs2013 ultimate, resharper 8.2 eap, but it fails with 8.1 and older too), mvvmlight and CommonServiceLocator are installed via latest nuget of course.\n\nIf you check the dependencies of the GalaSoft.MvvmLight.Extras.WPF45 for example you will see\n![error](http://cdn.joxi.ru/uploads/prod/2014/03/03/ac2/a6f/4d87ca35917806fcd73a7dd3f3784444c48c8de8.jpg)\n\nSo all you have to do is to update the nuget package CommonServiceLocator in the mvvmlight source to the latest 1.2 (with nuspecs too) OR just add <SpecificVersion>False</SpecificVersion> in all Extras projects like with System.Windows.Interactivity:\n![howto](http://cdn.joxi.ru/uploads/prod/2014/03/03/a5f/b28/d8bec6cd378c32db720e7e62bd2818167e0caabb.jpg)\n\nRight now it is a dll-hell of some sort. Because you have to install CommonServiceLocator separatly with version 1.0. :-) \n\nAgain, I'm not saying it's not working! It is compiling fine, with no errors. But it's no good that GalaSoft.MvvmLight.Extras is linked against version 1.0 of CommonServiceLocator with SpecificVersion=True.\nAnd it is ruining Resharper solution-wide analysis.\n\nBest Regards,\nSergey.",
+      "PostedDate": "2014-03-03T03:36:18.983-08:00",
+      "Id": 135606
+    },
+    {
+      "Message": "Hey Sergey,\n\nThanks for the detailed explanation, very helpful!\n\nI added this to my backlog for V4.3. \n\ncheers\nLaurent ",
+      "PostedDate": "2014-03-03T04:14:40.513-08:00",
+      "Id": 135607
+    },
+    {
+      "Message": "Laurent,\n\nGreat! Thank you for this amazing product!\n\nBest Regards,\nSergey.",
+      "PostedDate": "2014-03-03T05:35:40.96-08:00",
+      "Id": 135618
+    },
+    {
+      "Message": "Should be fixed now.\n\nThanks\nLaurent",
+      "PostedDate": "2014-05-11T09:33:41.607-07:00",
+      "Id": 146232
+    },
+    {
+      "Message": "Seems to be fixed. Good job as usual :)\n",
+      "PostedDate": "2014-10-04T18:32:32.053-07:00",
+      "Id": 161464
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "582248",
+    "ThreadId": "250142",
+    "Html": "\r\n<p>While compiling, in both release and debug modes, I'm getting the following error.</p>\r\n<p><span style=\"font-family:Consolas; font-size:xx-small\"><span style=\"font-family:Consolas; font-size:xx-small\">Error loading C:\\Users\\danigre\\Downloads\\mvvmlight-5056f53e22e0\\mvvmlight_5056f53e22e0\\GalaSoft.MvvmLight\\GalaSoft.MvvmLight.Test (NET4)\\bin\\Release\\GalaSoft.MvvmLight.Test.WPF4.dll:\r\n Unable to load the test container 'C:\\Users\\danigre\\Downloads\\mvvmlight-5056f53e22e0\\mvvmlight_5056f53e22e0\\GalaSoft.MvvmLight\\GalaSoft.MvvmLight.Test (NET4)\\bin\\Release\\GalaSoft.MvvmLight.Test.WPF4.dll' or one of its dependencies. Error details: System.TypeLoadException:\r\n Inheritance security rules violated by type: 'GalaSoft.MvvmLight.Command.EventToCommand'. Derived types must either match the security accessibility of the base type or be less accessible.</span></span></p>\r\n<p><span style=\"font-family:Consolas; font-size:xx-small\"><span style=\"font-family:Consolas; font-size:xx-small\"><span style=\"font-family:Segoe UI; font-size:x-small\">This makes no sense to me, as both&nbsp;</span></span></span><span style=\"color:#2b91af\">EventToCommand\r\n<span style=\"color:#000000\">and </span></span><span style=\"color:#2b91af\">TriggerAction</span>&lt;<span style=\"color:#2b91af\">T</span>&gt; are public, and seem to have the same signature for all overrides&nbsp;(<span style=\"color:blue\">protected</span>&nbsp;<span style=\"color:blue\">abstract</span>&nbsp;<span style=\"color:blue\">void</span>&nbsp;Invoke(<span style=\"color:blue\">object</span>&nbsp;parameter)\r\n ,&nbsp;<span style=\"color:blue\">protected</span>&nbsp;<span style=\"color:blue\">virtual</span>&nbsp;<span style=\"color:blue\">void</span>&nbsp;OnAttached())&nbsp; So I ask, what could be causing this error to occur?&nbsp;</p>\r\n<p>Please note, I have not made any changes to the source, but I am running with VS2010 &#43; SL Tools &#43; Visual Studio 2010 Async CTP.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"font-family:Consolas; font-size:xx-small\"><span style=\"font-family:Consolas; font-size:xx-small\"><span style=\"font-family:Segoe UI; font-size:x-small\">&nbsp;</span></span></span></p>\r\n",
+    "PostedDate": "2011-03-17T11:11:20.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "583096",
+    "ThreadId": "250142",
+    "Html": "<p>I was getting the same error. The workaround is to remove from the projects AssembyInfo.Net4.cs the attribute AllowPartiallyTrustedCallers,&nbsp;i guess the problem is the System.Windows.Interactivity dll doesn't allow partial trust</p>",
+    "PostedDate": "2011-03-19T11:39:56.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "583105",
+    "ThreadId": "250142",
+    "Html": "<p>Hi,</p>\r\n<p><span style=\"color: #000000;\">AllowPartiallyTrustedCallers should not be a problem. Actually I can build just fine here. Something else must be an issue here, I will investigate.</span></p>\r\n<p><span style=\"color: #000000;\">Thanks,</span></p>\r\n<p><span style=\"color: #000000;\">Laurent</span></p>",
+    "PostedDate": "2011-03-19T12:17:27.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "583109",
+    "ThreadId": "250142",
+    "Html": "<p>Just to be clear: You need to remove the <span style=\"color: #000000;\">AllowPartiallyTrustedCallers attribute from AssembyInfo.Net4.cs if you want to <strong>run </strong>the unit tests. I will put together a page explaining this. However you should be able to <strong>build</strong> the code without removing this attribute.</span></p>\r\n<p><span style=\"color: #000000;\">Can you confirm that the error is when you build the project, and not when you run the tests?</span></p>\r\n<p><span style=\"color: #000000;\">Thanks,</span></p>\r\n<p><span style=\"color: #000000;\">Laurent</span></p>",
+    "PostedDate": "2011-03-19T12:25:20.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "583112",
+    "ThreadId": "250142",
+    "Html": "<p>Hi,</p>\r\n<p>For me the error is when i try to run the tests but i also get the error if i try to use the EventToCommand in my project, a WPF4 ClientProfile application.</p>\r\n<p>Thanks</p>",
+    "PostedDate": "2011-03-19T12:29:29.89-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "583120",
+    "ThreadId": "250142",
+    "Html": "<p>As with bdscoder, I built, and used in another project, and EventToCommand seems to be the failing point.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-03-19T12:49:20.443-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "583121",
+    "ThreadId": "250142",
+    "Html": "<p>OK guys, thanks for the precision, I will check that out. <span style=\"color: #000000;\">AllowPartiallyTrustedCallers is needed to run the code in XBAPs, but if it causes issues in other parts, it is of course a difficult situation.</span></p>\r\n<p><span style=\"color: #000000;\">Thanks!</span></p>\r\n<p><span style=\"color: #000000;\">Laurent</span></p>",
+    "PostedDate": "2011-03-19T12:53:02.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "583375",
+    "ThreadId": "250142",
+    "Html": "<p>For info I just published a new version (BL0015) where, amongst other fixes and changes, I removed the <span style=\"color: #000000;\">AllowPartiallyTrustedCallers attribute. I will check out what the issue is and hopefully restore that soon, but without the problem that you guys reported.</span></p>\r\n<p><span style=\"color: #000000;\">More info: <a href=\"http://blog.galasoft.ch/archive/2011/03/20/mvvm-light-v4-preview-2-bl0015-mvvmlight.aspx\">http://blog.galasoft.ch/archive/2011/03/20/mvvm-light-v4-preview-2-bl0015-mvvmlight.aspx</a></span></p>\r\n<p><span style=\"color: #000000;\">Cheers,</span></p>\r\n<p><span style=\"color: #000000;\">Laurent</span></p>",
+    "PostedDate": "2011-03-20T12:40:07.303-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

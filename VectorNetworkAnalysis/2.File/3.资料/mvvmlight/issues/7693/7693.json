@@ -1,0 +1,86 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2016-01-16T13:51:40.583-08:00",
+    "CommentCount": 5,
+    "Custom": null,
+    "Description": "If this has been covered, I apologize in advance.  I couldn't find anything about it.\r\n\r\nDoes MVVM Light work with VS2015?  when I search for extensions and updates, I cannot find MVVM Light in 2015 (no problem in 2013).  I can add MVVM Light through the nugget package manager.  but I don't get the auto entry when trying to shortcut entering mvvm in the IDE to create properties, etc.\r\n\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-05-20T08:06:59.043-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Visual Studio 2015",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 2,
+    "Id": 7693
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1458021,
+      "FileName": "mvvmSearch.JPG",
+      "DownloadUrl": ".\\1458021"
+    },
+    {
+      "FileId": 1458022,
+      "FileName": "vstudio 2015.JPG",
+      "DownloadUrl": ".\\1458022"
+    },
+    {
+      "FileId": 1458046,
+      "FileName": "MvvmLight.VS2015.vsix",
+      "DownloadUrl": ".\\1458046"
+    },
+    {
+      "FileId": 1458047,
+      "FileName": "2015-05-20_17-45-54.png",
+      "DownloadUrl": ".\\1458047"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "HI,\r\n\r\nIt is not officially released yet but I copied the VSIX below. It should work fine. Please let me know if you find any problem.\r\n\r\nTake care\r\nLaurent",
+      "PostedDate": "2015-05-20T08:52:39.463-07:00",
+      "Id": 184595
+    },
+    {
+      "Message": "Hi,\r\n\r\nAs i see there is no version for VS2015 RC.\r\n\r\nBut only you need to do is edit the file extension.vsixmanifest in downloaded version MvvmLight.VS2013.vsix\r\nChange Installation Target value from 13.0 to 15.0 and it helps.\r\n\r\nBest regards,\r\nAlexiej",
+      "PostedDate": "2015-05-20T08:53:55.43-07:00",
+      "Id": 184596
+    },
+    {
+      "Message": "the .vsix file worked like a charm!  thanks a lot!  I am using MVVMLight on a project using Windows 10 IoT Core on a raspberry pi.  this works great.",
+      "PostedDate": "2015-05-20T11:48:59.97-07:00",
+      "Id": 184606
+    },
+    {
+      "Message": "Hi, I installed MvvmLight.VS2015.vsix on VS Community 2015, Windows 8.1. MvvmLightCSharpSnippets for WPF puts identical snippets for all 4 variations of INPC \"Set\" Property, INPC Property, RelayCommand and RelayCommand Generic.",
+      "PostedDate": "2015-07-29T13:37:40-07:00",
+      "Id": 187854
+    },
+    {
+      "Message": "Closing now",
+      "PostedDate": "2016-01-16T13:51:04.937-08:00",
+      "Id": 195505
+    }
+  ]
+}

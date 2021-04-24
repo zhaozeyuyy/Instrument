@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "895988",
+    "ThreadId": "390421",
+    "Html": "\r\n<p><span>Implementation of state handling in windows 8 using mvvmlight Is there any method avilable in mvvmligt to manage states in WinRT? How I can duplicate the functionality of default Suspensionmanager by using mmvlight? And the second one is about managing\r\n navigation cycle ie if I navigated from page A - &gt; B. and the go for suspend and shutdown state. When I re start the application in need to open page B. and while presses back key I need to load A. How I can effectively implement this using MVVM light in\r\n my WinRT application?</span></p>\r\n<p><span>i copied the question from &quot;<a href=\"http://stackoverflow.com/questions/11811138/state-handling-in-windows-8-using-mvvmlight\">http://stackoverflow.com/questions/11811138/state-handling-in-windows-8-using-mvvmlight</a>&quot;&nbsp;because . i too had the\r\n similar doubt.&nbsp;</span></p>\r\n",
+    "PostedDate": "2012-08-06T05:23:21.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "906894",
+    "ThreadId": "390421",
+    "Html": "\r\n<p>I wrote this originally for WP7 and have been updating for Win8 RT. It allows you to attach attributes to properties you want to keep in your view models, then the PersistenceManager dehydrates them (serialized to file) when the app is suspended and rehydrates\r\n when it resumes.</p>\r\n<p>There are examples for WP7 and Win8, basic MVVM pattern and MVVM Light</p>\r\n<p><a title=\"Obelisk\" href=\"http://obelisk.codeplex.com/\">http://obelisk.codeplex.com/</a></p>\r\n",
+    "PostedDate": "2012-08-31T07:36:50.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

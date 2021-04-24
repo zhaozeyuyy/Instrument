@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "432418",
+    "ThreadId": "209705",
+    "Html": "Dear Laurent,\r\n\r\nI am going through a MVVM application in WPF 3 where I would require a set of background processes. I was wondering how I should manage the DispatcherHelper include in Light for theses purposes.\r\n\r\nI would be grateful if you could provide some examples about that.\r\n\r\nThank you very much in advance.\r\n\r\nMaS",
+    "PostedDate": "2010-04-18T08:27:28.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487307",
+    "ThreadId": "209705",
+    "Html": "<p>I too would benefit from some examples using the dispatcher helper.</p>\r\n<p>Awesome framework - thank you.</p>",
+    "PostedDate": "2010-08-31T18:49:48.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "516444",
+    "ThreadId": "209705",
+    "Html": "\r\n<p>did either of you find any useful samples?</p>\r\n",
+    "PostedDate": "2010-11-03T06:52:16.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "519174",
+    "ThreadId": "209705",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I just finished working on my new book Silverlight 4 Unleashed, as well as coming out of a period of crazy-busy work (with the release of Windows Phone 7 for which we have built multiple applications). I will now be able to resume work on MVVM Light, including\r\n some samples. I will write about DispatcherHelper ASAP.</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2010-11-08T23:29:00.43-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "519339",
+    "ThreadId": "209705",
+    "Html": "\r\n<p>thanks Laurent!</p>\r\n",
+    "PostedDate": "2010-11-09T06:31:54.423-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

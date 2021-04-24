@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:56:37.573-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Hi, I found that ViewModelBase.IsInDesignMode is not working (always returns true) for my plug-in for Visual Studio. I was curios to know why, after looking at the code it became obvious.\r\nYou check for design mode, just by looking at process name.\r\nMaybe there are other ways of performing such check?\r\nI can see this behavior on MvvmLight.3.0.3 and when run my plug-in in VS2008 SP1 on .Net 3.5 SP1",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-12-12T05:37:55.587-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "ViewModelBase.IsInDesignMode is not working for VS plug-in",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7557
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nThe check for process name is a last chance check, which was added after we noticed a few issues in Visual Studio 2008 designer. I agree that it is unfortunate. I will see if I can revert to a more normal approach.\n\nIn the meantime, I suggest getting the code and removing the process name check for your particular usage.\n\nHope it makes sense,\nThanks,\nLaurent",
+      "PostedDate": "2011-12-16T05:01:50.133-08:00",
+      "Id": 51218
+    }
+  ]
+}

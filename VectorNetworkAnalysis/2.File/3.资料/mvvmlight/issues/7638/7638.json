@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hello\r\n\r\nhttp://i.imgur.com/cH80RSn.png\r\n\r\nSee first tile/tab... it not suppose to be there and EventToCommand not works of course. \r\n\r\nPlease see this archive:\r\nhttps://mega.co.nz/#!dwIVgaRK!lr83Dmxgp8K0xyIUkU395oQjfcr00O7feXGmU8FPY88\r\n\r\nThere have a 2 projects that using TabControl with Mvvm Light and Telerik.\r\n\r\nYou will see in the code that I add items manually. But lets now use ItemSource from ViewModel the exception is thrown by the system.Windows.Markup.WpfXamlLoader.Load() method:\r\n----------\r\n'System.Windows.Markup.XamlParseException' occurred in PresentationFramework.dll\r\n\r\nAdditional information: 'Add value to collection of type 'System.Windows.Controls.ItemCollection' threw an exception.' Line number '12' and line position '98'.\r\n----------\r\n\r\nInitially I report this issue to Telerik as I work with their control RadTileView. But seems after they investigate the same issue is reproduce with native TabControl with MVVM Light's EventToCommand. The issue do not exist with Telerik's EventToCommand for this i suppose it is bug in MVVM Light.\r\n\r\nCan you please check and fix it?\r\n\r\nBest regards,\r\nSaykor",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-05-19T02:52:19.947-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "TabControl + MVVM Light + EventToCommand Bug",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7638
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "In GalaSoft.MvvmLight.Platform (NET45) project \r\nin RelayCommandGeneric.cs file \r\nin public bool CanExecute(object parameter) function \r\ncondition if(paramter == null) used twice\r\n\r\nI think, second time instead\r\n    if (parameter == null || parameter is T)\r\nit should be\r\n    if (parameter != null || parameter is T)\r\n\r\nbecause we already used condition paramter == null\r\nand it will never get  to it if parramter == null;\r\n\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.4.0 (planning)",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-05-04T19:33:06.123-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "In RelayCommandGeneric CanExecute() condition paramter == null used twice",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7725
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

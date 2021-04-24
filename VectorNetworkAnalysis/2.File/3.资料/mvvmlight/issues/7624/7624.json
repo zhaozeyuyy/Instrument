@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-14T15:37:02.973-07:00",
+    "CommentCount": 4,
+    "Custom": null,
+    "Description": "On Windows 8.1 Enterprise with Visual Studio 2013 Ultimate, running the provided installer MvvmLight.VS2013.vsix fails.\r\n\r\nLog file:\r\n1/26/2014 2:25:36 PM - Microsoft VSIX Installer\r\n1/26/2014 2:25:36 PM - -------------------------------------------\r\n1/26/2014 2:25:36 PM - Initializing Install...\r\n1/26/2014 2:25:37 PM - Extension Details...\r\n1/26/2014 2:25:37 PM - \tIdentifier      : e64ef649-3f37-4b97-9ca4-2578ed4cad06\r\n1/26/2014 2:25:37 PM - \tName            : MVVM Light\r\n1/26/2014 2:25:37 PM - \tAuthor          : Laurent Bugnion (GalaSoft)\r\n1/26/2014 2:25:37 PM - \tVersion         : 4.2.30.0\r\n1/26/2014 2:25:37 PM - \tDescription     : The MVVM Light Toolkit is a set of components helping people to get started in the Model - View - ViewModel pattern in Windows 8, Silverlight, WPF and Windows Phone. It is a light and pragmatic framework that contains only the essential components needed.\r\n1/26/2014 2:25:37 PM - \tLocale          : en-US\r\n1/26/2014 2:25:37 PM - \tMoreInfoURL     : http://www.galasoft.ch/mvvm\r\n1/26/2014 2:25:37 PM - \tInstalledByMSI  : False\r\n1/26/2014 2:25:37 PM - \tSupportedFrameworkVersionRange : [0.0,2147483647.2147483647]\r\n1/26/2014 2:25:37 PM - \r\n1/26/2014 2:25:37 PM - \tSupported Products : \r\n1/26/2014 2:25:37 PM - \t\tMicrosoft.VisualStudio.Premium\r\n1/26/2014 2:25:37 PM - \t\t\tVersion : [12.0,13.0)\r\n1/26/2014 2:25:37 PM - \t\tMicrosoft.VisualStudio.Ultimate\r\n1/26/2014 2:25:37 PM - \t\t\tVersion : [12.0,13.0)\r\n1/26/2014 2:25:37 PM - \t\tMicrosoft.VisualStudio.Pro\r\n1/26/2014 2:25:37 PM - \t\t\tVersion : [12.0,13.0)\r\n1/26/2014 2:25:37 PM - \r\n1/26/2014 2:25:37 PM - \tReferences      : \r\n1/26/2014 2:25:37 PM - \r\n1/26/2014 2:25:37 PM - Searching for applicable products...\r\n1/26/2014 2:25:37 PM - Found installed product - Microsoft Visual Studio 2010 Ultimate\r\n1/26/2014 2:25:37 PM - Found installed product - Microsoft Visual Studio Ultimate 2012\r\n1/26/2014 2:25:37 PM - Found installed product - Microsoft Visual Studio Premium 2012\r\n1/26/2014 2:25:37 PM - Found installed product - Microsoft Visual Studio Professional 2012\r\n1/26/2014 2:25:37 PM - Found installed product - Microsoft LightSwitch for Visual Studio 2012\r\n1/26/2014 2:25:37 PM - Found installed product - Microsoft Visual Studio 2012 Shell (Integrated)\r\n1/26/2014 2:25:37 PM - Found installed product - Global Location\r\n1/26/2014 2:25:37 PM - Found installed product - ssms\r\n1/26/2014 2:25:37 PM - VSIXInstaller.NoApplicableSKUsException: This extension is not installable on any currently installed products.\r\n   at VSIXInstaller.App.InitializeInstall()\r\n   at System.Threading.Tasks.Task.InnerInvoke()\r\n   at System.Threading.Tasks.Task.Execute()\r\n\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V4.4.32.1",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-01-26T11:27:23.93-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "MVVM (MvvmLight.VS2013.vsix) installer fails to install for Visual Studio 2013",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7624
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nAre you positive that you have Visual Studio 2013 installed? The log says that it cannot find VS13. If you are attempting to install for VS12, you need to use the VS2012 VSIX. \n\nAs an alternative, may I suggest installing from the Visual Studio Gallery? Simply select Tools, Extensions and Updates and then search for MVVM Light. This will automatically select the correct version.\n\nCheers\nLaurent",
+      "PostedDate": "2014-01-26T12:05:50.42-08:00",
+      "Id": 131622
+    },
+    {
+      "Message": "Hello,\n\nI appreciate your response and am slightly offended.\n\nYour right, the log states the VS2013 installer could not find VS2013.  That's why I opened the issue.\n\nYes I'm positive that I have Visual Studio 2013 Ultimate installed on Windows 8.1 Enterprise. I also have VS2010 and VS2012 installed.\n\nYour software will install using NuGet, but you do not have a .Net 4.5.1 and Win 8.1 desktop compiled assembly. So I downloaded the source today and recompiled it so it will work under .Net 4.5.1 and Win 8.1 as a desktop DLL.\n\nI have not tried to recompile your installer or the snippets project yet.\n\nThank you for a great software project.\n\nRegards,\nHoward\n",
+      "PostedDate": "2014-01-26T15:11:37.463-08:00",
+      "Id": 131637
+    },
+    {
+      "Message": "No offense was meant, you should see some of the support requests I get. Better check first ;)\n\nA few thoughts about the issue.\n* You need to run VS13 at least once for the VSIX to detect it. Did you do that?\n* Did you try the method I recommended, which is using the Tools, Extensions and Updates dialog in VS13 to install MVVM Light?\n* Regarding Nuget, your remark surprises me. Nuget should detect .NET 4.5.1 and propose the WPF 4.5 version of MVVM Light. What exactly happens when you use Nuget on your project?\n\nThanks\nLaurent",
+      "PostedDate": "2014-01-27T00:05:14.65-08:00",
+      "Id": 131654
+    },
+    {
+      "Message": "◾You need to run VS13 at least once for the VSIX to detect it. Did you do that? \nYes, I've been developing with it for awhile on various projects.\n\n◾Did you try the method I recommended, which is using the Tools, Extensions and Updates dialog in VS13 to install MVVM Light? \nI tried this and it downloaded and installed from the internet. I have not gone through all of it to see if the templates and snippets have installed.\n\n◾Regarding Nuget, your remark surprises me. Nuget should detect .NET 4.5.1 and propose the WPF 4.5 version of MVVM Light. What exactly happens when you use Nuget on your project?\nI'll try to capture the details and post for you at a later time.\n\nThanks!\n",
+      "PostedDate": "2014-01-29T19:15:41.833-08:00",
+      "Id": 132077
+    }
+  ]
+}

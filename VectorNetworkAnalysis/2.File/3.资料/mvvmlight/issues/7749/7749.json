@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "It seems that the DialogService behaves differently on Android than in a UWP app.\r\n\r\nValues altered in the afterHideCallback, are do not have their newly assigned value when the dialog is hidden. Adding an extra delay seems to fix this, but I feel the behavior should be the same on all platforms.\r\n\r\n```\r\nvar dialog = SimpleIoc.Default.GetInstance<IDialogService>();\r\n\r\nstring dialogResult = \"default value\";\r\nawait dialog.ShowMessage(\"text\", \"title\", \"yes\", \"no\", \r\n    (result) => { \r\n        dialogResult = result ? \"yes\" : \"no\"; \r\n    });\r\n\r\n// waiting here makes sure the dialogResult is set on Android\r\n// await Task.Delay(100);\r\n\r\n// Android shows \"default value\", Windows shows \"yes\" or \"no\"\r\nawait dialog.ShowMessage(dialogResult, \"Result\");\r\n\r\n```",
+    "LastUpdatedDate": "2017-05-03T01:39:10.587-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2017-05-03T01:38:32.787-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Discrepancy in DialogService between Android and UWP",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 7749
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

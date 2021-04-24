@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-14T15:39:18.867-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When I install the newest version (4.2.30.0) via nuget I always get this error:\r\n\r\n> A reference to '...\\GalaSoft.MvvmLight.WPF45.dll could not be added. Please make sure that the file is accessible, and that it is a vaild assemlby or COM component.\r\n\r\nThis happens on two different PCs in two different enviornments.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V4.4.32.1",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2013-12-11T02:21:43.677-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Can not add reference to MVVMLight.WPF45",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7622
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

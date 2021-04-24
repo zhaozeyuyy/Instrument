@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "926183",
+    "ThreadId": "399235",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>I'm starting with MVVMLight right now and i have the folowing problem in VS 2012:</p>\r\n<p>When i create a WPF project and right after adding MVVM light with Nuget i'm losting the behaviors in expression blend... Just created an empty project added the MVVMLight and in blend i only have 2 behaviors. If i add the behavior by hand in xaml VS gives\r\n me the error:</p>\r\n<p>&quot;The type 'DataStateBehavior' from assembly 'Microsoft.Expression.Interactions' is built with an older version of the Blend SDK, and is not supported in a Windows Presentation Framework 4 project.&quot;</p>\r\n<p>If i dont add the MVVMLight the error does not occur.</p>\r\n<p>I hope you can help me,</p>\r\n<p>Thanks in advance</p>\r\n",
+    "PostedDate": "2012-10-13T10:59:07.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "927043",
+    "ThreadId": "399235",
+    "Html": "<p>This only happens when i create WPF application with .NET framework 4.5... Anyone?</p>",
+    "PostedDate": "2012-10-15T16:58:27.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "930136",
+    "ThreadId": "399235",
+    "Html": "<p>Good news, I fixed it by creating a specific version for .NET 4.5. I am in the process of&nbsp;updating the&nbsp;Nuget package, will report when it is ready.</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2012-10-21T13:06:57.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

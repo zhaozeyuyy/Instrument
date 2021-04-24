@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "998144",
+    "ThreadId": "432375",
+    "Html": "Hi Laurent,\r<br />\n<br />\ndo you have any timeline for the (on Jan. 2nd promissed) installer?\r<br />\n<br />\nRegards\r<br />\nManfred<br />\n",
+    "PostedDate": "2013-02-07T12:01:44.377-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "998207",
+    "ThreadId": "432375",
+    "Html": "Hi,\r<br />\n<br />\nI don't have the MSI finalized but I have all the pieces ready. What do you need?\r<br />\n<br />\nLaurent<br />\n",
+    "PostedDate": "2013-02-07T14:10:23.84-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "998213",
+    "ThreadId": "432375",
+    "Html": "Hi Laurent,\r<br />\n<br />\nthank you for the fast repsonse.\r<br />\nI love your VS Integration (snippets and templates).\r<br />\n<br />\nSo what I want is to have them &quot;up to date&quot; with the newest Version (WP8, WPF 4.5 are my targest).\r<br />\n<br />\nManfred<br />\n",
+    "PostedDate": "2013-02-07T14:21:53.877-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "998216",
+    "ThreadId": "432375",
+    "Html": "Sure,<br />\n<br />\nI assume VS12?<br />\n<br />\nFor the templates, you can use the latest VSIX at <a href=\"http://sdrv.ms/UZngfo\" rel=\"nofollow\">http://sdrv.ms/UZngfo</a> .<br />\n<br />\nUnfortunately I cannot install the snippets using the VSIX (ridiculous, I know...) but the snippets didn't change in the latest version. If you need them anyway let me know and I'll send them to you with a short checklist of how to install them.<br />\n<br />\nCheers<br />\nLaurent<br />\n",
+    "PostedDate": "2013-02-07T14:30:07.34-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "998218",
+    "ThreadId": "432375",
+    "Html": "Thank you Laurent,\r<br />\n<br />\nthis helped me a lot.\r<br />\nFor the snippets - no Problem - I can pull them from source and install manually.\r<br />\n<br />\nManfred<br />\n",
+    "PostedDate": "2013-02-07T14:34:51.42-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "998379",
+    "ThreadId": "432375",
+    "Html": "Awesome, happy it helped.\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2013-02-08T00:33:20.087-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

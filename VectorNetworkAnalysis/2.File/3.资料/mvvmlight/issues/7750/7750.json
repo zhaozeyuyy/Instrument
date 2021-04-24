@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "The .NET 4 \"GalaSoft.MvvmLight.dll\" in the latest (v5.3.0) NuGet Package generates a Compiler Error when \"DialogMessage\" Class is referenced even though the latest (v5.3.0) source code does not use the Constructor Override with the \"error\" Parameter and the default for that Parameter is \"false\".\r\n",
+    "LastUpdatedDate": "2017-08-09T10:20:16.017-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2017-08-09T10:04:16.91-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Error on DialogMessage via DLL but Obsolete \"error\" Not \"true\" in Source",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7750
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "^\"the Constructor Override\" for the Obsolete Attribute.",
+      "PostedDate": "2017-08-09T10:20:16.017-07:00",
+      "Id": 208761
+    }
+  ]
+}

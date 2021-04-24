@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "According to Microsoft documentation, \"The PropertyChanged event can indicate all properties on the object have changed by using either null or String.Empty as the property name in the PropertyChangedEventArgs.\" (https://msdn.microsoft.com/en-us/library/system.componentmodel.inotifypropertychanged.propertychanged(v=vs.110).aspx)\r\n\r\nBindings do not follow this rule and do not update when passing an empty string as the property name to PropertyChangedEventArgs.",
+    "LastUpdatedDate": "2016-12-16T16:03:19.527-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-12-16T16:02:31.133-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Bindings do not update when notifying with an empty string as property name",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7741
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "624520",
+    "ThreadId": "260567",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>my first post for perhaps a trivial question. But I haven&acute;t find clear solution in my google results.</p>\r\n<p>I&acute;m starting a new application with MVVM Light. Basically I have a main window, and a lot of other views. I just need to show this views (Modal or not Modal) &nbsp;when the user clicks some controls in the main window. But of course I dont want to\r\n break the View - ViewModel separation of concerns.&nbsp;</p>\r\n<p>I see the MessageDialog from Laurent, and what I need is more or less the same but for showing my own views.</p>\r\n<p>The idea is simple, but I haven&acute;t found any clear way to do it.</p>\r\n<p>Thanks in advance.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-06-07T21:03:50.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "849253",
+    "ThreadId": "260567",
+    "Html": "<p>Hi andurbal</p>\r\n<p>I would like to know the same thing. &nbsp;Have you had any feedback on this or figured it out yourself?</p>\r\n<p>Thanks</p>\r\n<p>Rich</p>",
+    "PostedDate": "2012-06-14T14:50:59.357-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "872917",
+    "ThreadId": "260567",
+    "Html": "<p>Hi. i have this problem too. all sample codes works with one mainwindow!. please help.</p>",
+    "PostedDate": "2012-07-18T03:03:06.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

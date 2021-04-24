@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "432128",
+    "ThreadId": "209620",
+    "Html": "<p>Hullo, it looks like in v3 the produced sample no longer matches the tutorial in <a href=\"http://www.galasoft.ch/mvvm/sample1/index.html\">http://www.galasoft.ch/mvvm/sample1/index.html</a>.&nbsp; Now it just says &quot;Welcome to MVVM Light&quot;.&nbsp; Is there some place else I should be looking?&nbsp;&nbsp;First time on MVVM.</p>\r\n<p>To be more precise, there is nothing in the Model folder and no other ViewModel than the MainViewModel.&nbsp; I went ahead and created a simple Person.cs and used the template to create a corresponding PersonViewModel.cs.&nbsp;</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>    <span style=\"color:blue\">public</span> <span style=\"color:blue\">class</span> Person\r\n    {\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">string</span> Name { <span style=\"color:blue\">get</span>; <span style=\"color:blue\">set</span>; }\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">int</span> Age { <span style=\"color:blue\">get</span>; <span style=\"color:blue\">set</span>; }\r\n    }\r\n</pre>\r\n</div>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>    <span style=\"color:blue\">public</span> <span style=\"color:blue\">class</span> PersonViewModel : ViewModelBase\r\n    {\r\n        <span style=\"color:blue\">private</span> Person m_person;\r\n\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;summary&gt;</span>\r\n        <span style=\"color:gray\">///</span><span style=\"color:green\"> Initializes a new instance of the PersonViewModel class.</span>\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;/summary&gt;</span>\r\n        <span style=\"color:blue\">public</span> PersonViewModel()\r\n        {\r\n            <span style=\"color:gray\">///</span><span style=\"color:green\">/if (IsInDesignMode)</span>\r\n            <span style=\"color:gray\">///</span><span style=\"color:green\">/{</span>\r\n            <span style=\"color:gray\">///</span><span style=\"color:green\">/    // Code runs in Blend --&gt; create design time data.</span>\r\n            <span style=\"color:gray\">///</span><span style=\"color:green\">/}</span>\r\n            <span style=\"color:gray\">///</span><span style=\"color:green\">/else</span>\r\n            <span style=\"color:gray\">///</span><span style=\"color:green\">/{</span>\r\n            <span style=\"color:gray\">///</span><span style=\"color:green\">/    // Code runs &quot;for real&quot;: Connect to service, etc...</span>\r\n            <span style=\"color:gray\">///</span><span style=\"color:green\">/}</span>\r\n        }\r\n\r\n        <span style=\"color:gray\">///</span><span style=\"color:green\">/public override void Cleanup()</span>\r\n        <span style=\"color:gray\">///</span><span style=\"color:green\">/{</span>\r\n        <span style=\"color:gray\">///</span><span style=\"color:green\">/    // Clean own resources if needed</span>\r\n\r\n        <span style=\"color:gray\">///</span><span style=\"color:green\">/    base.Cleanup();</span>\r\n        <span style=\"color:gray\">///</span><span style=\"color:green\">/}</span>\r\n    }\r\n</pre>\r\n<pre>However, it isn't clear how I ought to hook up Person and PersonViewModel.cs... (Ok, I can kind of guess, but would like to see the proposed way of doing it.)  At the top it says:</pre>\r\n<pre style=\"color:black;background-color:white\"><pre>Use the &lt;strong&gt;mvvminpc&lt;/strong&gt; snippet to add bindable properties to <span style=\"color:blue\">this</span> ViewModel.</pre>\r\n</pre>\r\n<pre> </pre>\r\n</div>",
+    "PostedDate": "2010-04-16T17:03:04.99-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "432132",
+    "ThreadId": "209620",
+    "Html": "<p><a href=\"http://mvvmlight.codeplex.com/Thread/View.aspx?ThreadId=207503\">http://mvvmlight.codeplex.com/Thread/View.aspx?ThreadId=207503</a></p>\r\n<p>Looks like there has been a previous comment on the removal of Item.cs.&nbsp;&nbsp; If there a doc somewhere with guidance on the intent of the framework, that would be sufficient.&nbsp; I can see it being annoying to keep removing the sample.</p>",
+    "PostedDate": "2010-04-16T17:31:51.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "432135",
+    "ThreadId": "209620",
+    "Html": "<p><a href=\"http://blog.galasoft.ch/archive/2010/03/16/whatrsquos-new-in-mvvm-light-v3.aspx\">http://blog.galasoft.ch/archive/2010/03/16/whatrsquos-new-in-mvvm-light-v3.aspx</a></p>\r\n<p>In case anyone else was wondering, in the comments Laurent discusses the removal of the sample and intention to create a demo project with documentation.&nbsp; In the meantime, I don't seem to be able to use the mvvminpc snippet...</p>\r\n<p>&nbsp;</p>\r\n<p>Link to sample code here: <a href=\"http://blog.galasoft.ch/archive/2010/03/16/sample-code-for-my-mix10-talk-online.aspx\">http://blog.galasoft.ch/archive/2010/03/16/sample-code-for-my-mix10-talk-online.aspx</a></p>",
+    "PostedDate": "2010-04-16T17:42:08.09-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "432314",
+    "ThreadId": "209620",
+    "Html": "<p>Hi,</p>\r\n<p>You are right about the sample, it is my mistake, I should have added a note to the page in question. I will try to publish the sample tomorrow, I will announce it on my blog http://blog.galasoft.ch.</p>\r\n<p>I also intend to build a much larger reference application demonstrating all the features of the toolkit.</p>\r\n<p>The mvvminpc snippet is used to declare a property that is bindable. It should normally appear when you type &quot;mvvm&quot; in a C# source code file. If it does not, it can be because you are not using the Visual Studio intellisense (are you using Resharper?) or because you installed in the wrong folder. The installation instructions for the code snippets can be found here:</p>\r\n<ul>\r\n<li>VS08:&nbsp;<a href=\"http://www.galasoft.ch/mvvm/installing/manually/#snippets08\">http://www.galasoft.ch/mvvm/installing/manually/#snippets08</a></li>\r\n<li>VS10:&nbsp;<a href=\"http://www.galasoft.ch/mvvm/installing/manually/#snippets10\">http://www.galasoft.ch/mvvm/installing/manually/#snippets10</a></li>\r\n</ul>\r\n<p>Please comment on this thread if you still don't get the snippet to work. Thanks.</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-17T14:07:45.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "844006",
+    "ThreadId": "209620",
+    "Html": "<p>I found this example very useful for understanding MVVM pattern : <a title=\"I found this example very useful for understanding MVVM pattern : Model-View-ViewModel Pattern (MVVM)\" href=\"http://www.codearsenal.net/2012/05/mvvm.html\">Model-View-ViewModel Pattern (MVVM)</a></p>",
+    "PostedDate": "2012-06-03T01:32:04.233-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

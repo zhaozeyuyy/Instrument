@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2016-04-17T10:23:52.61-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "L'appel à une fonction de IDialogService génére une erreur (\"Frame not in module\") sur la plateforme Android. (Xamarin.Forms v1.5.0.6446)\r\n\r\nLe probléme provient de la fonction CreateDialog de la classe DialogService. La ligne suivante pose un probléme sur Xamarin.Forms.\r\n\r\nvar builder = new AlertDialog.Builder(ActivityBase.CurrentActivity);\r\n\r\nIl semblerait qu\"il faille utiliser\r\n\r\nvar builder = new AlertDialog.Builder(Xamarin.Forms.Forms.Context);\r\n\r\nCordialement.\r\n\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.3.0",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-11-10T02:55:52.103-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Not an issue"
+    },
+    "Summary": "Erreur \"Frame Not In Module\" avec IDialogService sur Xamarin.Forms Android",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7710
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nFor Xamarin.Forms, you should probably use their own DisplayAlert method. [I have an example here](http://mvvmlight.codeplex.com/SourceControl/latest#Samples/Flowers/Flowers.Forms/Flowers.Forms/Helpers/DialogService.cs).\n\nI am working on improving the Android DialogService nonetheless.\n\nThanks\nLaurent",
+      "PostedDate": "2016-04-17T10:23:32.017-07:00",
+      "Id": 198667
+    }
+  ]
+}

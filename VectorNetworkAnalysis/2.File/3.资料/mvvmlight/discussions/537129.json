@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1217862",
+    "ThreadId": "537129",
+    "Html": "We have implement two forms (Display form and action form) with two view models (DiplayViewModel and AcdtionViewModel).\r<br />\n<br />\nIn Display form only list of products using list view should be displayed.\r<br />\nAnd in Action form should allow add/update/delete operations on the list displayed in Display form.\r<br />\n<br />\nCan any help share if any sample application is available or guide us through the best way to implement the above.<br />\n",
+    "PostedDate": "2014-03-03T04:43:41.797-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1219924",
+    "ThreadId": "537129",
+    "Html": "Use the Messenger to do this. \r<br />\n<br />\nI think you need to read up on more on MVVM and mvvmlight in general.<br />\n",
+    "PostedDate": "2014-03-06T08:36:16.79-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

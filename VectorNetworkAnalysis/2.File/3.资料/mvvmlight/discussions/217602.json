@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "460761",
+    "ThreadId": "217602",
+    "Html": "<p>Hey</p>\r\n<p>I really love the the toolkit and have used it&nbsp;a couple of times. Unfortunately&nbsp;in the latest&nbsp;XBAP app running in partial trust I ran into a couple of problems.</p>\r\n<p>The&nbsp;WPF part of the toolkit&nbsp;does not&nbsp;allow partial trusted callers. I added the [assembly:AllowPartiallyTrustedCallers] to the assemblyinfo.cs of the MVVMlight asembly&nbsp;and got&nbsp;the ViewModelBase&nbsp;part running.</p>\r\n<p>Unfortunately it seems that Microsoft for some reason&nbsp;is not allowing partially trusted callers in referenced assemblies of the WPF implementation of System.Windows.Interactivity.dll. Derivatives of</p>\r\n<p><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">TriggerAction&lt;T&gt; or Behavior&lt;T&gt; will throw an exception -&gt; EventToCommand.&nbsp;It seems a bit strange to me, since they have a version for Silverligt use, so I guess it&acute;s not for security reasons? Since this .dll has its origin in Blend and I guess it supports XBAPs it seems even more strange - the MS forum didn&acute;t have an explanation :-(</span></span></p>\r\n<p><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">1) Have you faced similar problems with XBAP solutions or am I doing something terrible wrong?</span></span></p>\r\n<p><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">2) Have you got an idea for a workaround with respect to attached behaviors and EventToCommand (except running the XBAP with full trust :-D). </span></span></p>\r\n<p><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">&nbsp;</span></span></p>\r\n<p><span style=\"font-size:x-small\"><span style=\"font-size:x-small\">&nbsp;</span></span></p>\r\n<p><span style=\"font-size:x-small\"></span>\r\n<p>&nbsp;&nbsp;&nbsp;</p>\r\n<p>&nbsp;</p>\r\n</p>\r\n&nbsp;",
+    "PostedDate": "2010-06-28T10:46:45.39-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

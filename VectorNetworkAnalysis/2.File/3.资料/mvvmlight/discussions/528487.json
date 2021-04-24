@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1201187",
+    "ThreadId": "528487",
+    "Html": "Hi,\r<br />\n<br />\nI have two forms,in which one form has a listview showing all the alerts(details).If right click the menuitem (UpdateAlert)on the lisviewitem,A new form will be displayed with two two textboxes and with update button,If i click update button,the control will goes to the Updateviewmodel.cs.From the UpdateViewModel,i have to access FirstViewMode's istview property to update the corresponding alert.\r<br />\n<br />\nCurrently i am accessing Listview Property by declaring it as a static.so that the values will available to the UpdateAlertViewModel.\r<br />\n<br />\nIs there any way to access the FirstViewModel's ListViewProperty values and update a ListviewItem in the UpdateViewModel(chid ViewModel) without declaring property as a static.\r<br />\n<br />\nMoreover,I have checkbox on the Firstviewmodel which indicates which type of alerts should be dispayed in the istView.I have to know whether the checkbox is checked or not from the UpdateViewModel.cs. To achieve this also i am declaring IsChecked property as static varialbe.\r<br />\n<br />\nCan anyone please help regarding this issue as it is some urgent requirement.Thanks in Advance.\r<br />\n<br />\nI am using mvvm light<br />\n",
+    "PostedDate": "2014-01-30T22:08:53.343-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

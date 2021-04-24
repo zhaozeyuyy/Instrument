@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Fixed in V5.3.0",
+    "ClosedDate": "2016-07-20T01:03:33.947-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "It returns it but doesn't remove it from the dictionary.\r\n\r\n```\r\npublic object GetAndRemoveParameter(Intent intent)\r\n{\r\n    if (intent == null)\r\n    {\r\n       throw new ArgumentNullException(\"intent\", \"This method must be called with a valid Activity intent\");\r\n    }\r\n\r\n    var key = intent.GetStringExtra(ParameterKeyName);\r\n\r\n    if (string.IsNullOrEmpty(key))\r\n    {\r\n       return null;\r\n    }\r\n\r\n    lock (_parametersByKey)\r\n    {\r\n        if (_parametersByKey.ContainsKey(key))\r\n        {\r\n            return _parametersByKey[key];\r\n        }\r\n\r\n        return null;\r\n    }\r\n}\r\n```",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.3.0",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-06-26T01:43:02.793-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Android NavigationService GetAndRemoveParameter doesn't remove the parameter",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7698
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

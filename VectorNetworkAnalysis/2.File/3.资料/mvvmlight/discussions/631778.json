@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1415966",
+    "ThreadId": "631778",
+    "Html": "I already posted this on the Xamarin forums and on StackOverflow but answers have been non-existing so far. I'm hopping by posting here someone can finally help me.<br />\n<br />\nI've used a few other MVVMLight bindings on my project and they have worked without problems but now I can't seem to get past this one.<br />\n<br />\nAfter inflating the <em>Fragment</em> on its <em>OnCreateView</em> I save a bunch of controls that I want to bind to: some are LinearLayouts (who I want to hide based on the VM's property) and some are TextViews which I want to bind strings to.<br />\n<br />\nOn my search for a solution for this problem I stumbled upon someone that said that the View might not be inflated as the <em>OnCreateView</em> ends so my reference to that control could be wrong/null/not right. Therefore I moved my setBinding expressions to the <em>OnActivityCreated</em> method to at least &quot;give it a little more time&quot;. Also, as per someone suggested, my views are all public properties in the <em>Fragment</em>.<br />\n<pre><code>pluginCodeLayoutBinding = this.SetBinding(\n() =&gt; ViewModel.CreateMode,\n() =&gt; pluginCodeLayout.Visibility,\nBindingMode.OneWay).ConvertSourceToTarget(Converters.BoolToVisibilityReverseConverter);\n\npluginCodeBinding = this.SetBinding(\n() =&gt; ViewModel.Script,\n() =&gt; pluginCode.Text,\nBindingMode.OneWay);</code></pre>\n\nThese bindings give out the following exceptions:<br />\n<strong>System.InvalidOperationException: Property not found: Visibility <br />\nSystem.InvalidOperationException: Property not found: Text</strong><br />\n<br />\nBut when the execution breaks on the exception I'm able to inspect pluginCodeLayout and see that it has the Visibility property with it's default value.<br />\n<br />\nAny help would be appreciated.<br />\n<br />\nThanks in advance!<br />\n",
+    "PostedDate": "2015-04-20T08:08:48.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1416285",
+    "ThreadId": "631778",
+    "Html": "<blockquote>\nNote: This was cross-posted from your StackOverflow question<br />\n</blockquote>\nMy team previously faced something similar and there's two things you can change in order for it to work:<br />\n<ol>\n<li>SetBinding directly in your previously fetched UI element (EditText or similar)</li>\n<li>\nAccess your view model statically (since you're already using MVVM Light, I assume you have a ViewModelLocator already in place, which can be accessed from your App.cs)<br />\n</li>\n</ol>\nWe didn't have the time to dig deeper for a proper explanation (the implementation wasn't correct anw), that being said, the previous points translate to something similar to this in code:<br />\n<pre><code>var pluginCode = view.FindViewById&lt;EditText&gt;(Resource.Id.PluginCode);\npluginCode.SetBinding(\n     () =&gt; App.Locator.MyViewModel.SomeStringProperty,\n     () =&gt; pluginCode.Text,\n BindingMode.TwoWay);</code></pre>\n\nDon't forget to remove the bindings when you don't need them any more.<br />\n",
+    "PostedDate": "2015-04-21T05:31:12.19-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

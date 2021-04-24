@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "441609",
+    "ThreadId": "212293",
+    "Html": "<p>Hello everyone,</p>\r\n<p>First, a huge thank-you to Laurent for not only this toolkit, but all of the tutorials and help you so generously provide to the community!</p>\r\n<p>I've started my first C#/WPF project using the toolkit, and have been creating my ViewModel's from the toolkit's ViewModelBase. Everything has been working wonderfully until I needed to use a particular feature of INotifyPropertyChanged that allows one to fire a PropertyChanged event for all properties at once.</p>\r\n<p>The MSDN documentation for INotifyPropertyChanged states that &quot;The <span><span>PropertyChanged</span></span> event can indicate all properties on the object have changed by using either <span><span><span>null</span></span></span> or <span><a href=\"http://msdn.microsoft.com/en-us/library/system.string.empty.aspx\">String<span>.</span>Empty</a></span> as the property name in the <span><a href=\"http://msdn.microsoft.com/en-us/library/system.componentmodel.propertychangedeventargs.aspx\">PropertyChangedEventArgs</a></span>.&quot;</p>\r\n<p>When I attempt to do this using the ViewModelBase, it fails with an ArgumentNullException from&nbsp;mscorlib&nbsp;in the case of RaisePropertyChanged(null), and an ArgumentException from GalaSoft.MvvmLight.WPF4.dll in the case of RaisePropertyChanged(String.Empty).</p>\r\n<p>I don't know whether this would be considered a bug in the ViewModelBase, or if this functionality was intentially left out. Either way, I'm guessing my only&nbsp;option is to override the RaisePropertyChanged(string propertyName) method and either fire the event directly if String.IsNullOrEmpty(propertyName), or&nbsp;pass it along to base.RaisePropertyChange(propertyName) for standard behaviour. However, being as new as I am to C#, I haven't found a way to make this work. Here is the code I tried:</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">protected</span> <span style=\"color:blue\">override</span> <span style=\"color:blue\">void</span> RaisePropertyChanged(<span style=\"color:blue\">string</span> propertyName)\r\n        {\r\n\r\n            <span style=\"color:blue\">if</span> (!String.IsNullOrEmpty(propertyName))\r\n               <span style=\"color:blue\">base</span>.RaisePropertyChanged(propertyName);\r\n            <span style=\"color:blue\">else</span>\r\n            {\r\n                 <span style=\"color:blue\">var</span> handler = base.PropertyChanged;\r\n                 <span style=\"color:blue\">if</span> (handler != <span style=\"color:blue\">null</span>)\r\n                    handler(<span style=\"color:blue\">this</span>, <span style=\"color:blue\">new</span> PropertyChangedEventArgs(<span style=\"color:blue\">null</span>));\r\n            }\r\n        }\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>The issue I'm having is that &quot;base.PropertyChanged&quot; is not valid, and I'm not clear why, or how best to fire the event directly from my derived ViewModel. Any suggestions would be very much appreciated.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-05-11T10:26:49.037-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "445757",
+    "ThreadId": "212293",
+    "Html": "<p>Hi.</p>\r\n<p>Sorry for the delay.</p>\r\n<p>This does sound like a bug indeed. I logged a bug in my backlog and will get to it in the next version.</p>\r\n<p>In the mean time, I would recommend taking the source file (see the Source Code tab on top of this page) and modifying it yourself. Feel free to include the code in your own project and modify it at will.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-05-21T02:19:41.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "668016",
+    "ThreadId": "212293",
+    "Html": "<p>Hi Laurent,</p>\r\n<p>Any update on that point ?</p>\r\n<p>In the meantime, it's possible to have the same behavior as RaisePropertyChanged(string.Empty) by resetting the data context of a view, i.e.:<br /><br />object currentContext = this.DataContext;<br />this.DataContext = null;<br />this.DataContext = currentContext;<br /><br />But as it must be executed by the view, it requires the view model to raise an event.</p>\r\n<p>Thx</p>",
+    "PostedDate": "2011-09-06T03:08:58.717-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "668023",
+    "ThreadId": "212293",
+    "Html": "<div id=\"MessageLabel6\" class=\"commentText\" style=\"width: 99%;\">Hi,<br />The issue is fixed in V4 beta 1. I am currently in the process of writing the release notes and will publish very soon. In the meantime, I pushed the installer to Skydrive: <br />https://skydrive.live.com/redir.aspx?cid=40cffde85f1ab56a&amp;resid=40CFFDE85F1AB56A!845<br /><br />The MSI will stay available there until I push it to Codeplex. This will be the same file, so feel free to use it already. Let me know if you find issues.<br /><br />Thanks,<br />Laurent</div>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-09-06T03:44:30.52-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

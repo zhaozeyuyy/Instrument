@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "605577",
+    "ThreadId": "255905",
+    "Html": "\r\n<p><span style=\"text-decoration:underline\">Here is solution that I came up with:</span></p>\r\n<p>1) RelayCommand class declaration could be as:</p>\r\n<p>public class RelayCommand&lt;T&gt; : ViewModelBase, ICommand</p>\r\n<p><br>\r\n2) Implementation of IsEnabled property could be as follows:</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public bool IsEnabled<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get { return _isEnabled; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (value != _isEnabled)<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _isEnabled = value;</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OnPropertyChanged(&quot;IsEnabled&quot;);<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>\r\n<p>3) Lastly you need to bind the IsEnabled property in xaml as follows:</p>\r\n<p>IsEnabled=&quot;{Binding Path=SearchCommand.IsEnabled}&quot;</p>\r\n",
+    "PostedDate": "2011-05-01T12:49:59.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "606821",
+    "ThreadId": "255905",
+    "Html": "<p>When you bind to an ICommand, it automatically takes care of the IsEnabled property. Don't bind that yourself.</p>\r\n<p>Return your condition from the canExecute lambda expression (the second, optional constructor parameter). If you need to refresh the enabled state, call RaiseCanExecuteChanged on the command object.</p>",
+    "PostedDate": "2011-05-03T20:25:25.66-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

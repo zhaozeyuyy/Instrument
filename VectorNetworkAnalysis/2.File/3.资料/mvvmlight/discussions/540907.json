@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1229373",
+    "ThreadId": "540907",
+    "Html": "Hello\r<br />\n<br />\nI just found that SimpleIoc's capability is limited. I'm tring to using other DI ioc instead of SimpleIoc (Service locator)\r<br />\n<br />\nWill this changement destroy my project's MVVMLight system?\r<br />\nI\r<br />\n<br />\nThanks<br />\n",
+    "PostedDate": "2014-04-02T02:46:36.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1229511",
+    "ThreadId": "540907",
+    "Html": "Anwser is Yes and No...<br />\n",
+    "PostedDate": "2014-04-02T08:08:15.753-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1229515",
+    "ThreadId": "540907",
+    "Html": "You can use other IOC systems with MVVM Light. Getting instances through the ServiceLocator works fine. Of course registering the instances will be different.<br />\n",
+    "PostedDate": "2014-04-02T08:21:28.603-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1229571",
+    "ThreadId": "540907",
+    "Html": "I have always used Unity with MVVM Light with no issues.<br />\n",
+    "PostedDate": "2014-04-02T10:24:57.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1229765",
+    "ThreadId": "540907",
+    "Html": "Thank you Laurent, thank you flyte\r<br />\nI used Ninject, it didn't work. I tought i should modify some of its code or my code source<br />\n",
+    "PostedDate": "2014-04-02T23:56:47.547-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1233877",
+    "ThreadId": "540907",
+    "Html": "We use Unity and it works fine.\r<br />\n<br />\nI've seen Ninject been used as well.<br />\n",
+    "PostedDate": "2014-04-14T06:01:40.303-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

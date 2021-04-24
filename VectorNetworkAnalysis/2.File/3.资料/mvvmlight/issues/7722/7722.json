@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "As per reporter's comments",
+    "ClosedDate": "2016-04-13T08:44:25.55-07:00",
+    "CommentCount": 5,
+    "Custom": null,
+    "Description": "Hello! I work on the .NET Native runtime and compiler team and we've recently had some reports about folks using MvvMLight on UWP and having a pretty non ideal time. The root cause of the issue is that lookups from delegates to their corresponding MethodInfos are horridly slow on .NET Native (think 10,000x slower). \r\n\r\nWe intend to get a fix for this into a future release of UWP tools but, in the mean time, it may benefit everyone if there was a mitigation placed into MvvMLight itself. The cases of this that we've seen would be greatly benefited by a small cache (10?) of these mappings but I must admit I have no hard data for how that should actually be tuned.\r\n\r\nI'll probably have time later this week to investigate what that looks like. Let me know if you have other questions or concerns.\r\n\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-03-07T00:19:19.72-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "WeakAction and WeakFunc .ctor are very slow on UWP",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 7722
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi Matt,\n\nSure, it shouldn't be a problem to add a fix like that. Does it make sense to add it for every version of just for .NET native?\n\nPlease let me know what you need me to do, and I'll do it. For info, I am working on V5.3, ETA for the release is mid-to-end of April. It would be great if we could have the fix in there.\n\nThanks\nLaurent",
+      "PostedDate": "2016-03-07T12:30:38.823-08:00",
+      "Id": 197266
+    },
+    {
+      "Message": "This issue only impacts applications using .NET Native (aka UWP). So whichever build stuff you use for that is appropriate... probably this NETFX_CORE one? It should be as easy as having a static dictionary from delegate to MethodInfo so that the lookup costs are only paid once. Presumably in a helper that can be shared between the classes. \n\nFortunately, the test cases for this are pretty simple. If you can make a million of these without getting bored waiting then you're good to go. :-)\n\nThat time line seems good. I find myself a bit more tied up this week than I'd originally planned so I'll check back in next week to see what of this I can pitch in on.",
+      "PostedDate": "2016-03-09T22:50:53.607-08:00",
+      "Id": 197839
+    },
+    {
+      "Message": "A few days late but checking in.\n\nThe good news: We're almost certainly going to have a fix for this in the next set of UWP tools for VS. In one of the applications that was using this it takes the total CPU time previously problematic navigation from 40% of time in this function to less than .1%.\n\nThe bad news: Anyone hitting this will have to wait until we hit RTM for those tools.\n\nThat said, the workaround should be pretty easy for folks to apply themselves... so long as they're comfortable with building their own copy of MvvMLight.\n\nThoughts?",
+      "PostedDate": "2016-03-14T17:35:04.533-07:00",
+      "Id": 197916
+    },
+    {
+      "Message": "This should be corrected in the compiler and runtime that are part of Windows Tools 1.3.1 which was made available yesterday. This issue can probably be closed now.",
+      "PostedDate": "2016-04-12T15:57:35.35-07:00",
+      "Id": 198536
+    },
+    {
+      "Message": "That's great news. I appreciate your proactive collaboration Matt. Thanks a lot for following up.",
+      "PostedDate": "2016-04-12T23:09:46.003-07:00",
+      "Id": 198544
+    }
+  ]
+}

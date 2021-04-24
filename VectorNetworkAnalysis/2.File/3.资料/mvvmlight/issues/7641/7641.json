@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-02-06T07:06:46.013-08:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Project vb.net 4 installed with mvvmlight version 4.3.31. Execution is OK. No problem. However, fxcop 10 message is\r\nThe indirectly-referenced assembly 'Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' could not be found. This assembly is not required for analysis, however, analysis results could be incomplete. This assembly was referenced by: C:\\Users\\User\\Documents\\Visual Studio 2010\\Projects\\Version 12 apps\\SrimadBhagavatam\\SrimadBhagavatam\\bin\\Release\\GalaSoft.MvvmLight.Extras.WPF4.dll. The bundled microsoft.practices.servicelocation is version 1.2.0.0.\r\n\r\nIf I upgrade to the latest version available 4.4, then it is not compiling at all saying that the dll does not have strong name.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-06-03T19:27:53.623-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Won't fix"
+    },
+    "Summary": "fxcop 10 warning ca 0060",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7641
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "You can download the file Microsoft.Practices.ServiceLocation.dll, add reference to it, set it as Copy To Output. This will resolve the errors at build time when the build machine may not have this dll readily available in its GAC.\n\nDownload:\nhttps://servicelocation.codeplex.com/\n",
+      "PostedDate": "2014-09-08T08:33:55.22-07:00",
+      "Id": 159079
+    }
+  ]
+}

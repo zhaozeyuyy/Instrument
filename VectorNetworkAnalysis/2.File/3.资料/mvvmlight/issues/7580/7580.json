@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Not reproducible.",
+    "ClosedDate": "2012-07-15T12:21:29.76-07:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "In the referenced System.Windows.Interactivity library that comes with the installer TriggerCollection (aka AttachableCollection) is now an ObservableCollection instead of a DependencyObjectCollection (as it was before) and so Bindings (for example Command) on EventToCommand do not work...",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4.1",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-07-14T13:58:48.333-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "EventToCommand not working on MvvmLight v4 RTM for WP71",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7580
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nI just tested and EventToCommand works as expected. Can you provide a repro so that I can investigate your problem?\n\nThanks,\nLaurent",
+      "PostedDate": "2012-07-14T14:35:54.213-07:00",
+      "Id": 70144
+    },
+    {
+      "Message": "Hi Laurent,\n\nMy bad.I retried it clean and it worked.Something had happened with my new project setup and for some reason i was referenencing a different Interactivity version dll with the problem i mention i above.Wierd because i could have sworn i had added the one from the MvvmLight setup.Anyways.\n\nThanks!\n\nAnargyros",
+      "PostedDate": "2012-07-15T11:40:51.673-07:00",
+      "Id": 70177
+    },
+    {
+      "Message": "No problems, happy it works now.",
+      "PostedDate": "2012-07-15T12:21:11.167-07:00",
+      "Id": 70178
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "1160991",
+    "ThreadId": "492941",
+    "Html": "I saw in the latest code that the CMNATTR constant is used to turn on the use of the CallerMemberName attribute. Unfortunately, it is only defined for the Debug configuration. Any chance it gets into the Release configuration as well?\r<br />\n<br />\nThanks,\r<br />\nJoost<br />\n",
+    "PostedDate": "2014-01-13T05:04:39.787-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1161073",
+    "ThreadId": "492941",
+    "Html": "Oh what a weird and stupid bug. Of course I will fix that ASAP. Sorry for the trouble.\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2014-01-13T05:35:41.713-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1203423",
+    "ThreadId": "492941",
+    "Html": "I would like to use this Method with CallerMemberName, when will it be released?\r<br />\nThx for this create project!<br />\n<pre><code>        protected virtual void RaisePropertyChanged&lt;T&gt;(\n#if CMNATTR\n            [CallerMemberName] string propertyName = null, \n#else\n            string propertyName,\n#endif\n            T oldValue = default(T), \n            T newValue = default(T), \n            bool broadcast = false)\n        {\n            if (string.IsNullOrEmpty(propertyName))\n            {\n                throw new ArgumentException(&quot;This method cannot be called with an empty string&quot;, &quot;propertyName&quot;);\n            }\n\n            RaisePropertyChanged(propertyName);\n\n            if (broadcast)\n            {\n                Broadcast(oldValue, newValue, propertyName);\n            }\n        }</code></pre>\n\n",
+    "PostedDate": "2014-02-06T05:26:14.397-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1227232",
+    "ThreadId": "492941",
+    "Html": "I would just like to know that I am correct when I've found that this has not yet been fixed? If not, I'm going ahead with a small inherited version of the ViewModelBase class in my project. Should be easy enough, although it would be nicer to not have to do this.<br />\n",
+    "PostedDate": "2014-03-27T01:09:04.303-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1227281",
+    "ThreadId": "492941",
+    "Html": "Hi,\r<br />\n<br />\nYes you are right. This is fixed in the next update that I will release at Build next week.\r<br />\n<br />\ncheers\r<br />\nLaurent <br />\n",
+    "PostedDate": "2014-03-27T04:07:51.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1227294",
+    "ThreadId": "492941",
+    "Html": "Thanks, Laurent. That is good news. Have a nice Build ;-)\r<br />\nThomas<br />\n",
+    "PostedDate": "2014-03-27T04:43:32.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1240588",
+    "ThreadId": "492941",
+    "Html": "The nuget package MVVM Light libraries only 4.3.31.1 fom 2014-04-04 still doesn't provide the method<br />\n<pre><code>bool Set&lt;T&gt;(ref T field, T newValue = null, bool broadcast = false, [CallerMemberName] string propertyName = null)</code></pre>\n\nCan you tell me, when the new version will be published?<br />\n<br />\nThe csproj file &quot;\\mvvmlight\\GalaSoft.MvvmLight\\GalaSoft.MvvmLight (NET45)\\GalaSoft.MvvmLight (NET45).csproj&quot; does compile every thing fine. But I would prefer nuget.<br />\n",
+    "PostedDate": "2014-05-02T04:22:58.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1244076",
+    "ThreadId": "492941",
+    "Html": "Fixed in V4.4.32<br />\n",
+    "PostedDate": "2014-05-11T09:27:09.423-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

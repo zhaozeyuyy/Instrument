@@ -1,0 +1,81 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-27T02:50:46.613-07:00",
+    "CommentCount": 7,
+    "Custom": null,
+    "Description": "We're using a RelayCommand<T> with both an execute and canExecute delegate in our view model. \r\nIn XAML, we bind Button.Command to the command and Button.CommandParameter to the selected item of ListBox.\r\n\r\nIn version 4, whenever the user changes the SelectedItem of the ListBox, the RelayCommand<T>.CanExecute is re-evaluated with the new command parameter value. \r\n\r\nAfter upgrading to version 5, the RelayCommand<T>.CanExecute is never evaluated. Not when the Window is loaded (because the command parameter is null at that moment), but also not when an item is selected in the list box.\r\n\r\nPlease fix!\r\n\r\nThanks,\r\nJoost",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.0.2",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-10-24T04:12:58.72-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Bug in RelayCommand<T>?",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7664
+  },
+  "FileAttachments": [
+    {
+      "FileId": 923597,
+      "FileName": "MvvmTest.zip",
+      "DownloadUrl": ".\\923597"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nCan you confirm:\n\n- that you are using WPF (I think so since you mention a Window)\n- that you are indeed on the latest version of MVVM Light (V5.0.2).\n\nThere was a bug with RelayCommand.CanExecute which was fixed in 5.0.2.\n\nThanks!\nLaurent",
+      "PostedDate": "2014-10-24T05:52:47.273-07:00",
+      "Id": 163173
+    },
+    {
+      "Message": "Hi Laurent,\n\nI can confirm both. \nWe always download the latest MVVM Light from the nuget repository.\n\nJoost",
+      "PostedDate": "2014-10-24T06:21:30.263-07:00",
+      "Id": 163178
+    },
+    {
+      "Message": "As an example, I've attached a test program in which a button is only enabled when a view model is selected whose name starts with \"A\".\r\n\r\nWith version 4.4.32.7 the button enables/disables nicely based on the selected item.\r\nWith version 5.0.2.0 the button is always disabled.\r\n\r\nHope this helps,\r\nJoost\r\n",
+      "PostedDate": "2014-10-24T06:44:08.55-07:00",
+      "Id": 163183
+    },
+    {
+      "Message": "Thanks for the repro, I will check it out!\n\nLaurent",
+      "PostedDate": "2014-10-24T06:57:11.99-07:00",
+      "Id": 163185
+    },
+    {
+      "Message": "Hi,\n\nCheck the release notes here:\nhttp://www.mvvmlight.net/installing/changes\n\nThe \"Important note about issue 7659\" is what you are looking for. I am working on a blog post to explain this more in details.\n\nDoing the following solves the issue:\n* Upgrade to MVVM Light Libs only V5.0.2 \n* Replace the GalaSoft.MvvmLight.Command namespace with GalaSoft.MvvmLight.CommandWpf \n\nThere is more technical detail about this issue here:\nhttps://mvvmlight.codeplex.com/workitem/7659\n\nCheers\nLaurent",
+      "PostedDate": "2014-10-24T09:13:59.77-07:00",
+      "Id": 163189
+    },
+    {
+      "Message": "Hi Laurent,\n\nSorry for not checking the release notes and bugging you with an old issue.\n\nThanks,\nJoost",
+      "PostedDate": "2014-10-27T00:40:40.793-07:00",
+      "Id": 163302
+    },
+    {
+      "Message": "No problems!\n\nCheers\nLaurent",
+      "PostedDate": "2014-10-27T02:50:20.81-07:00",
+      "Id": 163308
+    }
+  ]
+}

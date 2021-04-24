@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-03-23T06:11:43.497-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "Hi, \r\n\r\nI am reading the implementation of RelayCommand and trying to understand it a little better.\r\n\r\n```\r\n        public event EventHandler CanExecuteChanged\r\n        {\r\n            add\r\n            {\r\n                if (_canExecute != null)\r\n                {\r\n                    // add event handler to local handler backing field in a thread safe manner\r\n __                   EventHandler handler2;\r\n                    EventHandler canExecuteChanged = _requerySuggestedLocal;\r\n\r\n                    do\r\n                    {\r\n                        handler2 = canExecuteChanged;\r\n                        EventHandler handler3 = (EventHandler)Delegate.Combine(handler2, value);\r\n                        canExecuteChanged = System.Threading.Interlocked.CompareExchange<EventHandler>(\r\n                            ref _requerySuggestedLocal, \r\n                            handler3, \r\n                            handler2);\r\n                    } \r\n                    while (canExecuteChanged != handler2); __\r\n                    \r\n                    CommandManager.RequerySuggested += value;\r\n                }\r\n            }\r\n\r\n            remove\r\n            {\r\n                if (_canExecute != null)\r\n                {\r\n                    // removes an event handler from local backing field in a thread safe manner\r\n                    EventHandler handler2;\r\n                    EventHandler canExecuteChanged = this._requerySuggestedLocal;\r\n\r\n                    do\r\n                    {\r\n                        handler2 = canExecuteChanged;\r\n                        EventHandler handler3 = (EventHandler)Delegate.Remove(handler2, value);\r\n                        canExecuteChanged = System.Threading.Interlocked.CompareExchange<EventHandler>(\r\n                            ref this._requerySuggestedLocal, \r\n                            handler3, \r\n                            handler2);\r\n                    } \r\n                    while (canExecuteChanged != handler2); \r\n                    \r\n                    CommandManager.RequerySuggested -= value;\r\n                }\r\n            }\r\n        }\r\n```\r\n\r\nCould you please explain why is the while loop required in the event add and remove blocks and why is it required to combine handlers?\r\n\r\nThanks, ",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-03-19T00:38:57.387-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Not an issue"
+    },
+    "Summary": "RelayCommand implementation - not clear",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7689
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nHappy to start a discussion on that, but it's not an issue. Closing it for now. Feel free to open a discussion in the Discussions tab above,.\n\nCheers\nLaurent",
+      "PostedDate": "2015-03-23T06:11:08.303-07:00",
+      "Id": 179842
+    },
+    {
+      "Message": "I stand corrected. Will to just that. ",
+      "PostedDate": "2015-03-23T06:49:45.49-07:00",
+      "Id": 179848
+    }
+  ]
+}

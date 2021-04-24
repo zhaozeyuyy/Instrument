@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:57:25.933-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "In v4, Beta 1, Messenger.Default.Register(BaseClass, ....) does not receive messages sent by Messenger.Default.Send(SubClass).\r\n\r\nFor example, we use Messenger to re-route exceptions to a central place in the ViewModel which can display them gracefully and Messenger.Default.Register(Exception, ....) used to receive ApplicationExceptions, FormatExceptions, etc.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-04-23T11:06:59.437-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "v4, Beta 1 Messenger subclass vs. class",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7566
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

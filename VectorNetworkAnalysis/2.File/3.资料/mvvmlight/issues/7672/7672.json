@@ -1,0 +1,66 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-03-28T16:20:23.773-07:00",
+    "CommentCount": 4,
+    "Custom": null,
+    "Description": "Hi,\r\n\r\nAfter succesful install of v5.0.2 on vs2012, if creating a wpf4 project the following error appears:\r\nPackage installation error\r\nCould not add all required packages to project.\r\nThe following package failed to install\r\nCommonServiceLocator1.3 you are trying to install this package into a project that targets framework 4, but the target does not contain any assembly references that are competable with that framework.\r\n\r\nSee attached image for full message.\r\nDoes it mean the v5.0.2 supports only framework 4.5 ?\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "null",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-11-30T19:58:05.517-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Cannot repro"
+    },
+    "Summary": "package installation error msg in v5.0.2 and framework 4",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7672
+  },
+  "FileAttachments": [
+    {
+      "FileId": 958773,
+      "FileName": "image001.png",
+      "DownloadUrl": ".\\958773"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nDo I understand correctly that you are creating the WPF4 project using the installed project template (File, New, Project, MVVM Light (WPF4))?\n\nIf so, I just tried here and it worked fine. To be clear, CommonServiceLocator V1.3 is supported on WPF 4 projects (but not on WPF 3.5).\n\nCan you make sure that you have the latest Nuget version?\n\nThanks\nLaurent",
+      "PostedDate": "2014-12-01T02:14:29.58-08:00",
+      "Id": 166963
+    },
+    {
+      "Message": "Hi,\n\nThanks for your fast reply.\n\nThis problem only occur at my work PC. At home this work just fine.\nMy work PC has no direct internet access, so I've downloaded the VSIX file (VS2012) on another PC, and brought it to that work PC on some CD / DOK.\n\n\"Do I understand correctly that you are creating the WPF4 project using the installed project template (File, New, Project, MVVM Light (WPF4))?\"\n- That is correct.\n\nI'm unable to update the Nuget, unless there is some way for me to download redest version (offline standalone EXE that does not require me direct internet access).\n\nDo I need to manually install the \"CommonServiceLocator V1.3\" for this to work properly ?\n\nregards,\nIdan",
+      "PostedDate": "2014-12-01T22:31:25.247-08:00",
+      "Id": 167048
+    },
+    {
+      "Message": "Hi,\r\n\r\nI am very sorry but I can not reproduce this problem. I am working on V5.2. For now I am going to close this issue here. When I release V5.2, can you try again and let me know?\r\n\r\nThanks\r\nLaurent",
+      "PostedDate": "2015-03-28T16:20:03.977-07:00",
+      "Id": 180546
+    },
+    {
+      "Message": "I had exactly the same problem installing MVVM Light V5.0.2 by downloading MvvmLight.VS2012.vsix.  I tried targeting both 4 and 4.5 versions of the .NET framework, with the same disappointing results.",
+      "PostedDate": "2015-05-15T08:11:34.14-07:00",
+      "Id": 184431
+    }
+  ]
+}

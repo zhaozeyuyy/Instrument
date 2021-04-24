@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-03-14T09:21:27.987-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "I just created a user control dependency property for a Windows Phone 8 project.  I used the mvvmpropdp macro to create it.  Everything was fine except the default value for the dp was being set using the UIPropertyMetadata class instead of PropertyMetadata.  UIPropertyMetadata does not appear to be in the WP8 namespace.  I changed it to PropertyMetadata and everything was fine.\r\n\r\nIs UIPropertyMetadata supposed to be used in this context?",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-03-14T08:33:58.97-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "mvvmpropdp macro uses UIMetaPropertyData class?",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7629
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "mvvmpropdp is for WPF (full .NET version). For Silverlight and Windows Phone, please use mvvmslpropdp.\n\nThanks\nLaurent",
+      "PostedDate": "2014-03-14T09:20:44.603-07:00",
+      "Id": 136842
+    },
+    {
+      "Message": "Thanks Laurent.",
+      "PostedDate": "2014-03-14T10:43:51.003-07:00",
+      "Id": 136846
+    }
+  ]
+}

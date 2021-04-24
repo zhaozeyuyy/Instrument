@@ -1,0 +1,6 @@
+F:\WorkNew\LocalVNA\GalaSoft.MvvmLight\GalaSoft.MvvmLight (NET4)\bin\Debug\GalaSoft.MvvmLight.xml
+F:\WorkNew\LocalVNA\GalaSoft.MvvmLight\GalaSoft.MvvmLight (NET4)\bin\Debug\GalaSoft.MvvmLight.dll
+F:\WorkNew\LocalVNA\GalaSoft.MvvmLight\GalaSoft.MvvmLight (NET4)\bin\Debug\GalaSoft.MvvmLight.pdb
+F:\WorkNew\LocalVNA\GalaSoft.MvvmLight\GalaSoft.MvvmLight (NET4)\obj\Debug\GalaSoft.MvvmLight (NET4).csproj.CoreCompileInputs.cache
+F:\WorkNew\LocalVNA\GalaSoft.MvvmLight\GalaSoft.MvvmLight (NET4)\obj\Debug\GalaSoft.MvvmLight.dll
+F:\WorkNew\LocalVNA\GalaSoft.MvvmLight\GalaSoft.MvvmLight (NET4)\obj\Debug\GalaSoft.MvvmLight.pdb

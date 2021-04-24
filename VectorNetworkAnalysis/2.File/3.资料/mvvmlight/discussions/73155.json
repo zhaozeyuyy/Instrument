@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "249928",
+    "ThreadId": "73155",
+    "Html": "<p>Hi All,</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I heard&nbsp;&amp; read alot about MVVM but without fully under standing till i saw this video&nbsp;<a href=\"http://media01.smartcom.no/Microsite/go.aspx?eventid=4459&urlback=null&bitrate=526943\">http://media01.smartcom.no/Microsite/go.aspx?eventid=4459&amp;urlback=null&amp;bitrate=526943</a></p>\r\n<p>I hope this help others</p>\r\n<p>slyi</p>",
+    "PostedDate": "2009-10-26T14:06:19.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "250318",
+    "ThreadId": "73155",
+    "Html": "<p>Hi,</p>\r\n<p>Thanks a lot for your comment. Yeah, Jonas rocks. For info, the concept of ViewModelLocator is strongly inspired of work that Jonas did in Silverlight earlier this year, and of many discussions he and I had on MSN :)</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2009-10-27T13:18:57.273-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

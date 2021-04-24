@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "631339",
+    "ThreadId": "262387",
+    "Html": "<p>Hi I am writing my second windows 7 phone app. With this one I am trying MVVMLight.</p>\n<p>I have a ViewModel that&nbsp;communicates&nbsp;to a Model via a instance (property) of the model. &nbsp;In the Model, I have an ObservableCollection&lt;TimeSlotTemplates&gt;. When i work with an object in the Model, this working object is also in the OberservableCollection.  I just use a reference. So that is it for rampup.</p>\n<p>Now here is what I am seeing trouble. When I update the properties of the working object from the ViewModel.Model.WorkingObject.Property, the INotifyPropertyEvents fire and I have verified this. So say i set the properties of the working object to \"\" &nbsp;or  null. These raise the INotifyPropertyChanged Events in the properties of the working object fire, however the UI controls that are bound to these properties do not update.</p>\n<p>Here is a sample UI control:</p>\n<pre><div style=\"color: black; background-color: white;\"><pre>            &lt;StackPanel Grid.Row=<span style=\"color: #a31515;\">\"0\"</span>&gt;\n                &lt;TextBlock Text=<span style=\"color: #a31515;\">\"Title (max 60):\"</span> \n\t\t\t               Style=<span style=\"color: #a31515;\">\"{StaticResource PhoneTextTitle2Style}\"</span> /&gt;\n                &lt;ScrollViewer VerticalScrollBarVisibility=<span style=\"color: #a31515;\">\"Visible\"</span> Height=<span style=\"color: #a31515;\">\"60\"</span> &gt;\n                    &lt;TextBox Text=<span style=\"color: #a31515;\">\"{Binding model.workingTimeSlotTemplate.TitleText, Mode=TwoWay}\"</span> \n                             TextWrapping=<span style=\"color: #a31515;\">\"Wrap\"</span> MaxLength=<span style=\"color: #a31515;\">\"60\"</span> /&gt;\n                &lt;/ScrollViewer&gt;\n            &lt;/StackPanel&gt;</pre>\n<pre><br /></pre>\n<pre>Here is the property definition in the class:</pre>\n</div>\n</pre>\n<pre> <div style=\"color: black; background-color: white;\"><pre>    <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">class</span> TimeSlotTemplate : NotifyBase\n    { \n         <span style=\"color: blue;\">public</span> String TitleText\n        {\n            <span style=\"color: blue;\">get</span> { <span style=\"color: blue;\">return</span> titleText; }\n            <span style=\"color: blue;\">set</span>\n            {\n                <span style=\"color: blue;\">if</span> (titleText != value)\n                {\n                    titleText = value;\n                    OnPropertyChanged(<span style=\"color: #a31515;\">\"TitleText\"</span>);\n                }\n            }\n        }&nbsp;</pre>\n<pre>    ...\n</pre>\n<pre>   }</pre>\n<pre><br /></pre>\n</div>\n</pre>\n<pre>&nbsp;Any ideas? I know its not a bug in WP7 because my previous application did not use MVVMLight and updating properties worked properly.</pre>\n<pre>Thank you in advance for your help! BTW awesome MVVMLight keep improving it etc. </pre>",
+    "PostedDate": "2011-06-22T12:02:42.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "631350",
+    "ThreadId": "262387",
+    "Html": "<p>Hi,</p>\r\n<p>I don't have enough info to spot the problem. Can you post a repro?</p>\r\n<p>Do you modify the ObservableCollection after it is data bound?</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-06-22T12:17:08.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "631354",
+    "ThreadId": "262387",
+    "Html": "<p>I just add new objects to the collection as i need ObservableCollection&lt;TimeSlotTemplates&gt;.Add(TimeSlotTemplate) then properties are updated to that object in the collection.</p>\n<p>I am removing the reference to the working object in the collection and do work on the object directly. Once it is ready for save, I am going to add it to the collection for processing.</p>\n<p>I will let you know what I find.</p>",
+    "PostedDate": "2011-06-22T12:22:41.653-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "631616",
+    "ThreadId": "262387",
+    "Html": "<p>You can bitch slap me now. The base class's RaisePropertyChanged&nbsp;Event was not being called. I made new classes and forgot to call the base class method properly. Sorry to waste your very valuable time and thank you for answering so quickly.</p>",
+    "PostedDate": "2011-06-22T22:23:31.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "635277",
+    "ThreadId": "262387",
+    "Html": "<p>Done ;) Thanks for reporting!</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-06-30T02:09:36.39-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

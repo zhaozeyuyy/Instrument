@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "985528",
+    "ThreadId": "429311",
+    "Html": "\r\n<p>The current&nbsp;<a href=\"http://nuget.org/packages/MvvmLightLibs\">MvvmLightLibs</a>&nbsp;nuget package&nbsp;is not making use of&nbsp;<a href=\"http://nuget.org/packages/CommonServiceLocator\">CommonServiceLocator</a>&nbsp;nuget package. This is quite annoying\r\n because this create conflitcs on&nbsp;Microsoft.Practices.ServiceLocation.dll if you make use of another package that need&nbsp;<a href=\"http://nuget.org/packages/CommonServiceLocator\">CommonServiceLocator</a>&nbsp;.</p>\r\n<p>Do you think it's possible to create an offical nuget package that depends on&nbsp;<a href=\"http://nuget.org/packages/CommonServiceLocator\">CommonServiceLocator</a>&nbsp;?</p>\r\n",
+    "PostedDate": "2013-01-11T08:58:12.137-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "986356",
+    "ThreadId": "429311",
+    "Html": "\r\n<p>This is a problem that we have also come across, as we have been using both MVVM Light and Prism within our Silverlight application. Now, having begun the process of switching to use NuGet to manage our DLL's, we cannot use the MVVM Light NuGet package as\r\n there is a conflict around the CommonServiceLocator DLL.</p>\r\n<p>&nbsp;</p>\r\n<p>+1 to the idea of changing the official MVVM Light NuGet package to depend on the CommonServiceLocator package instead of the current situation.</p>\r\n",
+    "PostedDate": "2013-01-14T02:42:39.73-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "986362",
+    "ThreadId": "429311",
+    "Html": "\r\n<p>Thanks for the feedback. It is a good one. My main issue with the CommonServiceLocator package is that they are traditionally extremely slow to port their library to new platforms like Windows Phone or Windows 8. Due to this, I had to deliver my own builds.\r\n I will see if I can deliver the official one for supported platforms, and a custom build one for non supported platforms.</p>\r\n<p>Cheers<br>\r\nLaurent&nbsp;</p>\r\n",
+    "PostedDate": "2013-01-14T02:53:17.8-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "986365",
+    "ThreadId": "429311",
+    "Html": "\r\n<p>Thanks very much for replying so quickly. I look forward with interest to seeing what can be done.</p>\r\n<p>&nbsp;</p>\r\n<p>Martyn.</p>\r\n",
+    "PostedDate": "2013-01-14T02:55:06.697-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "986536",
+    "ThreadId": "429311",
+    "Html": "\r\n<p>This is a great. Thank you, it will be greatly appreciated.</p>\r\n<p><span style=\"font-size:10pt\">Damien.</span></p>\r\n",
+    "PostedDate": "2013-01-14T09:16:53.267-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "987902",
+    "ThreadId": "429311",
+    "Html": "\r\n<p>The Portable.CommonServiceLocator contains the existing signed CSL binaries as well as the PCL one that supports windows 8, .net 4.5 and others. Still waiting on Microsoft to include the PCL in their official package, but the binaries are the same in the\r\n one I mentioned.</p>\r\n",
+    "PostedDate": "2013-01-16T20:08:17.57-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988233",
+    "ThreadId": "429311",
+    "Html": "\r\n<p>Hi onovotny.</p>\r\n<p><span style=\"font-size:10pt\">This is a great work. Unfortunatly,&nbsp;<span>Portable.MvvmLightLibs is not compatible with .NET 4.0. Do you think it's possible to update the package ?</span></span></p>\r\n<p><span style=\"font-size:10pt\"><span>Damien</span></span></p>\r\n",
+    "PostedDate": "2013-01-17T09:03:09.403-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988235",
+    "ThreadId": "429311",
+    "Html": "\r\n<p>Hi Damien,</p>\r\n<p>Unfortunately, ICommand is only available for PCL's that target .NET 4.5 or later otherwise it'd be easy.</p>\r\n<p>There's more info on cross-platform MVVM here:<br>\r\n<a href=\"http://www.hanselman.com/blog/HiddenGemsInVisualStudio11BetaNETPortableClassLibraries.aspx\">http://www.hanselman.com/blog/HiddenGemsInVisualStudio11BetaNETPortableClassLibraries.aspx</a></p>\r\n<p>and here:<br>\r\n<a href=\"http://msdn.microsoft.com/en-us/library/hh563947.aspx\">http://msdn.microsoft.com/en-us/library/hh563947.aspx</a><br>\r\n<br>\r\nA matrix of supported features by platform is here:<br>\r\n<a href=\"http://msdn.microsoft.com/en-us/library/gg597391(v=VS.110).aspx#assemblies\">http://msdn.microsoft.com/en-us/library/gg597391(v=VS.110).aspx#assemblies</a></p>\r\n",
+    "PostedDate": "2013-01-17T09:05:26.157-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1001448",
+    "ThreadId": "429311",
+    "Html": "Hi,\r<br />\n<br />\nI just pushed a new build (4.1.27.0) to Nuget that is depending on the official CommonServiceLocator package where available.\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2013-02-14T12:29:02.893-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1001681",
+    "ThreadId": "429311",
+    "Html": "This is a good news !\r<br />\n<br />\nThank you Laurent.<br />\n",
+    "PostedDate": "2013-02-15T01:15:18.887-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1001685",
+    "ThreadId": "429311",
+    "Html": "Thank you very much Laurent.\r<br />\n<br />\nI am looking forward to trying this out in our project. Hopefully today.\r<br />\n<br />\nThanks again for all your efforts and hard work!\r<br />\n<br />\nMartyn.<br />\n",
+    "PostedDate": "2013-02-15T01:24:29.92-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

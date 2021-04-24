@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1331319",
+    "ThreadId": "574766",
+    "Html": "In Mvvmlight for android, I notice that  there is a mean to detach a binding through the extension method Detach(). But there is no way to detach a command after setting it with SetCommand() Extension Method. I wonder why this is missing ? Is it too hard to implement such a method through .net reflexion ?<br />\n",
+    "PostedDate": "2014-12-12T05:31:00.63-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1354601",
+    "ThreadId": "574766",
+    "Html": "It's a good point. I added Detach on bindings as an afterthought to provide a way to clean up event handlers. We could absolutely do the same on commands. I'll add it to the backlog.\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2015-02-21T08:06:49.303-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

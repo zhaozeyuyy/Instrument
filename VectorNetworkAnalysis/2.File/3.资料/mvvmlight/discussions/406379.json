@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "954474",
+    "ThreadId": "406379",
+    "Html": "\r\n<p>I know that a few solutions exist to making the application bar bindable. &nbsp;I'm currently using the phoneFX solution to do this. &nbsp;</p>\r\n<p>It would certainly be nice to have this capability rolled up into the mvvm light package as an extra. &nbsp;I know that it may make the project into more than what it was meant to do, but being able to bind to the app bar is a common need if you are trying\r\n to stay true to MVVM. &nbsp;I still question why MS implemented the app bar in the fashion that it is.&nbsp;</p>\r\n",
+    "PostedDate": "2012-12-11T04:05:49.54-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

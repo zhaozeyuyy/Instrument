@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1085253",
+    "ThreadId": "454621",
+    "Html": "Hi,\r<br />\n<br />\nour Team currently switched from MVVM Light 4.1.24 (msi) to MVVM Light 4.1.27 (NuGet).\r<br />\nSince this update we can't sign our assemblys with Strong Name, because the referenced MVVM Light assemblys doesn't have a strong Name.\r<br />\nDo we have to sign the MVVM Light dlls by ourseleves, or is there another solution?\r<br />\n<br />\nThanks,\r<br />\nDarius<br />\n",
+    "PostedDate": "2013-08-27T00:13:01.49-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

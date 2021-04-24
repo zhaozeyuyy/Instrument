@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1086422",
+    "ThreadId": "454933",
+    "Html": "I want to integrate the Mvvm toolkit . Is this possible/recommended, days after I started working on my project?\r<br />\nI am following this tutorial <a href=\"http://allcomputers.us/windows_phone/windows-phone-7---implementing-mvvm-on-windows-phone-by-using-mvvmlight.aspx\" rel=\"nofollow\">here</a> on how to integrate/use the toolkit. And from the sound of it, this has to be done only at the beginning of the project?\r<br />\nThanks<br />\n",
+    "PostedDate": "2013-08-29T17:51:44.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1086551",
+    "ThreadId": "454933",
+    "Html": "It depends.\r<br />\n<br />\nIs this an app that uses Prism heavily for example?\r<br />\nIs it a modular app or a standalone exe?\r<br />\nAre you already using another MVVM support framework or just using the design pattern and out of the box WPF stuff?\r<br />\n<br />\nI can't see why not, you can change your viewmodels to use GalaSoft.MvvmLight.ViewModelBase, ICleanup etc, you can change to MVVM light relaycommand quite easily, use the messenger etc. You don't have to use MVVM Light's Simple IoC, if your already using another IoC for DI etc such as Unity,MEF, niNject you can continue to use them, we use Unity with MVVM Light. You can hand crank a viewmodellocator, add a bootstrapper if required and change your app.xaml &amp; cs to change your app start-up (I'm assuming WPF).<br />\n",
+    "PostedDate": "2013-08-30T03:02:56.893-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1087104",
+    "ThreadId": "454933",
+    "Html": "It's a windows phone app. Most of the work I've done on it were UI related. I attempted integrating the toolkit and no issues so far. Thanks a lot for the help!!<br />\n",
+    "PostedDate": "2013-09-01T09:05:55.687-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1087349",
+    "ThreadId": "454933",
+    "Html": "Hi,\r<br />\n<br />\nNormally you should be able to integrate MVVM Light at any point in the project's lifetime. The templates are just there to help with the initial &quot;wiring&quot;.\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2013-09-02T07:20:40.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1087490",
+    "ThreadId": "454933",
+    "Html": "Thanks for the clarification Ibugnion.<br />\nI am running into another issue.<br />\nI have resource files(of type .resx) that I have been trying to access through my MainPage.xaml . So I created an AppViewModelBase which is suppose to link to my color resx file, and English and French localization files. In such way (I'm not sure if this is the right way to do it though):<br />\nThis is the AppViewModelBase class:<br />\n<pre><code>namespace dictio.ViewModel\n{\n    public class AppViewModelBase : ViewModelBase\n    {\n        //Linking to Colors resource table\n        private static AppRsrc_Colors rsrcClr = new AppRsrc_Colors();\n        public AppRsrc_Colors Resources { get { return rsrcClr; } }\n\n        //Linking to English resource table\n        private static AppRsrc_ENG rsrcLgENG = new AppRsrc_ENG();\n        public AppRsrc_ENG Resources { get { return rsrcLgENG; } }\n\n        //Linking to French resource table\n        private static AppRsrc_FRN rsrcLgFRN = new AppRsrc_FRN();\n        public AppRsrc_FRN Resources { get { return rsrcLgFRN; } }\n        \n    }\n}</code></pre>\n\nBut now that there is already a datacontext linking to the ViewModelLocator class in my MainPage.xaml...<br />\n(based on the following code:)<br />\n<pre><code>    DataContext=&quot;{Binding Main, Source={StaticResource Locator}}&quot;</code></pre>\n\n... how am I suppose to reference the AppViewModelBase class for the MainPage.xaml file to access property values of the different resource files by data binding?<br />\n(Example of binding in MainPage.xaml for a color in color resource table)<br />\n<pre><code>&lt;Setter Property=&quot;Background&quot; Value=&quot;{Binding base_bg_clr}&quot;/&gt;</code></pre>\n\n--Side note:--<br />\nVisual Studio didn't allow me to use another DataContext statement in MainPage.xaml .<br />\nAlso I read I could just make a class inherit from the AppViewModelBase, but I can't figure out where to plug the inheritance now that I integrate the MVVM toolkit. Is it a good idea to make the ViewModelLocator class inherit from AppViewModelBase.<br />\n",
+    "PostedDate": "2013-09-02T18:43:13.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

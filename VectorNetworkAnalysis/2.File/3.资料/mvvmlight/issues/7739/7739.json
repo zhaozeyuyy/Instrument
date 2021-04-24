@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Hi,\r\n\r\nAll my view models inherit ViewModelBase. When I close some views, I want to unregister the type, so that an uncached version is instantiated upon the next request. So in my ViewModelLocator I do a Cleanup when the view is closed for these applicable views:\r\n\r\n```c#\r\npublic static void Cleanup(ViewModelBase vm)\r\n{\r\n    SimpleIoc.Default.Unregister(vm);\r\n}\r\n```\r\n\r\nThis fails to unregister the applicable view model. Looking at the source, I see that the method uses `typeof(TClass)` (which yields ViewModelBase) to unregister the class. If it were used `.GetType()` the correct view model class would be returned and that works.\r\n\r\nPR submitted at https://mvvmlight.codeplex.com/SourceControl/network/forks/igitur/MVVMLight/contribution/8434\r\n",
+    "LastUpdatedDate": "2016-12-07T08:10:38.957-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-12-07T06:30:25-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "SimpleIoC Unregister type detection",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7739
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I'll check it out, thanks\n\nLaurent",
+      "PostedDate": "2016-12-07T08:10:38.957-08:00",
+      "Id": 205518
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "605683",
+    "ThreadId": "255934",
+    "Html": "\r\n<p>Hi, I just downloaded your latest build (as of 2011/5/1, mvvmlight_8ea49c2f278d) and unzipped it, yielding the 16-or-so folders. The folder that is of interest to me, as a WPF developer, I assume is GalaSoft.MvvmLight (NET4). Right? But within this folder,\r\n I see all fluff and no puff!&nbsp; No .cs files. Within the Command folder: nothing. Within the Helpers folder? nothing.</p>\r\n<p>Within the GalaSoft.MvvmLight (NET35) folder, however, I do see files. Gang's all there.</p>\r\n<p>GalaSoft.MvvmLight (SL4) however, also doesn't have anything within it (except for fluff - csproj, snk, StyleCop). ?</p>\r\n<p>Are you going to upload an update soon to supply the missing files for us .NET 4.0 developers?</p>\r\n<p>Also, btw - when I first opened your VS 2010 solution, many of the projects were not loadable.</p>\r\n<p>Thanks,</p>\r\n<p>James Hurst</p>\r\n<p>VS 2010 Ult, SP1&nbsp; (which still crashes several times/day, incidentally)</p>\r\n",
+    "PostedDate": "2011-05-01T20:31:35.85-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "606108",
+    "ThreadId": "255934",
+    "Html": "<p>Hi,</p>\r\n<p>Yes, I am sharing the code files between the various frameworks I support. The physical files are into the NET35 folder (this is historically where it all started ;) and as I added support for additional frameworks, I linked the files (Add as Link)</p>\r\n<p>Regarding the projects who don't load correctly, if you do not have, for instance, the Windows Phone 7 tools installed, the corresponding projects will not load correctly. If you want to develop for WPF4, you should use only the NET4 solution. For SL4, similarly, use the SL4 project.</p>\r\n<p>I hope that this helps understand how the project structure is built!</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-05-02T13:56:56.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "606244",
+    "ThreadId": "255934",
+    "Html": "Thank you Laurent for taking your time to respond. Yes - I should've seen that! I haven't delved into Silverlight yet and thus was unfamiliar with the concept of &quot;add as link&quot;.<br>\r\n<br>\r\nI understand perfectly now. And .. appreciate greatly your taking your time to create this toolkit and to share your experience.<br>\r\n<br>\r\nsincerely thine,<br>\r\n<br>\r\nJames hurst<br>\r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\nOn 5/2/2011 4:56 PM, lbugnion wrote:\r\n<blockquote type=\"cite\">\r\n<div>\r\n<table border=\"0\" cellpadding=\"0\" style=\"border-collapse:collapse\">\r\n<tbody>\r\n<tr>\r\n<td>\r\n<table bgcolor=\"#c0c0c0\" border=\"0\" cellpadding=\"0\" style=\"border-collapse:collapse\">\r\n<tbody>\r\n<tr>\r\n<td><font color=\"#cc3300\" face=\"Verdana,Arial,Helvetica,sans-serif\" size=\"2\">Message\r\n<b>RELEASED</b> </font></td>\r\n<td><font face=\"Verdana,Arial,Helvetica,sans-serif\" size=\"1\">[ <a href=\"https://www.vqme.com/pk/banner?op=remove_from_allow&From=notifications@codeplex.com&VU=82xqpsHeGabKOLEjGrggiA\">\r\nRemove</a> ] [ <a href=\"https://www.vqme.com/pk/banner?op=add_domain&Domain=codeplex.com&VU=82xqpsHeGabKOLEjGrggiA\">\r\nAllow Domain</a> ] [ <a href=\"https://www.vqme.com/pk/banner?op=block_sender&From=notifications@codeplex.com&VU=82xqpsHeGabKOLEjGrggiA\">\r\nBlock</a> ] </font></td>\r\n<td><font face=\"Verdana,Arial,Helvetica,sans-serif\" size=\"1\"><a href=\"https://www.vqme.com/userguide/details_released.html\"><font color=\"#ffffff\" size=\"1\">details\r\n</font></a></font></td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</td>\r\n</tr>\r\n<tr>\r\n<td align=\"right\">\r\n<table border=\"0\" cellpadding=\"0\" style=\"border-collapse:collapse\">\r\n<tbody>\r\n<tr>\r\n<td><font color=\"#999999\" face=\"Verdana,Arial,Helvetica,sans-serif\" size=\"1\"><a href=\"https://www.vqme.com/pk/heldemail\" style=\"text-decoration:none; color:rgb(153,153,153)\">Vanquish Anti-Spam Control Panel</a></font></td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</div>\r\n<div><br>\r\n</div>\r\n<p>From: lbugnion</p>\r\n<div id=\"x_x_ThreadNotificationPostBody\">\r\n<p>Hi,</p>\r\n<p>Yes, I am sharing the code files between the various frameworks I support. The physical files are into the NET35 folder (this is historically where it all started ;) and as I added support for additional frameworks, I linked the files (Add as Link)</p>\r\n<p>Regarding the projects who don't load correctly, if you do not have, for instance, the Windows Phone 7 tools installed, the corresponding projects will not load correctly. If you want to develop for WPF4, you should use only the NET4 solution. For SL4, similarly,\r\n use the SL4 project.</p>\r\n<p>I hope that this helps understand how the project structure is built!</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>\r\n</div>\r\n</blockquote>\r\n",
+    "PostedDate": "2011-05-02T23:08:58.007-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

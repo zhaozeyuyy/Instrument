@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "I think this exceeds the scope of SimpleIoc. The purpose of it is to have a simple implementation which covers basic needs. For more complex use cases, I recommend using another full blown IOC container. The fact that SimpleIoc implements IServiceLocator should make the transition quite easy.",
+    "ClosedDate": "2011-07-18T08:51:29.287-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Hi Laurent,\r\n\r\nI think it would be an improvement of your Ioc container if you add a custom attribute to define cache policy for created instances of given class in the container, so we will be able to mark that instances of given (stateless) view models have not to be kept (or not longer than a given period) in the container if there is no views referencing them.\r\n\r\nAnd thank you for this awesome toolkit!",
+    "LastUpdatedDate": "2011-07-18T08:51:29.287-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-05-28T04:59:28.24-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "SimpleIoc and cache policy",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7528
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I think this exceeds the scope of SimpleIoc. The purpose of it is to have a simple implementation which covers basic needs. For more complex use cases, I recommend using another full blown IOC container. The fact that SimpleIoc implements IServiceLocator should make the transition quite easy.",
+      "PostedDate": "2011-07-18T08:51:22.537-07:00",
+      "Id": 39866
+    }
+  ]
+}

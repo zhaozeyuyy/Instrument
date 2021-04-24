@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1070021",
+    "ThreadId": "450473",
+    "Html": "minimum count references in SL5 project is three:<br />\n<ul>\n<li>GalaSoft.MvvmLight.SL5.dll</li>\n<li>GalaSoft.MvvmLight.Extras.SL5.dll</li>\n<li>\nMicrosoft.Practices.ServiceLocation.dll<br />\n</li>\n</ul>\nQuestions:<br />\n<ul>\n<li>Why need to reference whole &quot;Extras&quot; if used only <strong>EventToCammand</strong> ?</li>\n<li>Why I need reference <strong>ServiceLocator</strong> if it unused at all?</li>\n</ul>\n",
+    "PostedDate": "2013-07-18T06:30:08.197-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1070064",
+    "ThreadId": "450473",
+    "Html": "Hi,<br />\n<br />\nI am happy to explain to you the decision behind this split in assemblies.<br />\n<br />\nMany firms have a long and arduous process when adding any external assembly. In the case of MVVM Light, I wanted to make this easier, so I isolated the two classes that require an external reference in the Extras assembly. These are the EventToCommand and the SimpleIoc classes. I could have gone even further and isolated the SimpleIoc in its own assembly, but this would have been kind of silly in my opinion.<br />\n<br />\nSo now we have:<br />\n<br />\nGS.dll --&gt; Everything without any external reference<br />\n<br />\nGS.Extras.dll<br />\n  -&gt; System.Windows.Interactivity.dll (for EventToCommand)<br />\n  -&gt; Microsoft.Practices.ServiceLocation.dll (for SimpleIoc)<br />\n<br />\nThis makes a lot of people's life easier. In your case, for some unknown reason, you seem adverse to include the MSFT.Practices.ServiceLocation assembly. I don't quite know why, but if it is really making your life a living hell, you can always get the code from here and recompile, leaving out the SimpleIoc class. Note however that you will need the System.Windows.Interactivity.dll anyway.<br />\n<br />\nAlso, note that the Blend SDK has a behavior named InvokeCommandAction which is very similar to EventToCommand (MVVM Light's behavior is a little more powerful in certain cases). This is a viable alternative if your needs are simple.<br />\n<br />\nHopefully this helps,<br />\nLaurent<br />\n",
+    "PostedDate": "2013-07-18T08:06:50.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

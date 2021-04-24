@@ -1,0 +1,51 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Hi\r\n\r\nI've a simple message which I  sent with the Messenger .\r\n\r\nNow Depending on the registration for this message I got a exception (s. below)\r\n\r\n\r\nThe following code works\r\n```\r\n     Messenger.Default.Register<ResolveEntityValueMessage>(this, (msg)=>handleEntityValueMessage(msg));\r\n\r\n```\r\nBut when I add a __additional parameter__ to my \"handleEntityValueMessage\" method and thus to the Lambda Expression I get an exception\r\n\r\n```\r\n     Messenger.Default.Register<ResolveEntityValueMessage>(this, (msg)=>handleEntityValueMessage(msg,servicelocator));\r\n\r\n```\r\n\r\nWhen removing the parameter again from the handleEntityValueMessage method and from the lambda no exception is thrown.\r\n\r\nI don't know if this issue is related to : http://mvvmlight.codeplex.com/workitem/7579 pls check it.\r\nI can reproduce it in the current release .\r\n\r\nThe StackTrace is : \r\n\r\nNon-static method requires a target\r\n   bei System.Reflection.RuntimeMethodInfo.CheckConsistency(Object target)\r\n   bei System.Reflection.RuntimeMethodInfo.InvokeArgumentsCheck(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)\r\n   bei System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)\r\n   bei System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)\r\n   bei GalaSoft.MvvmLight.Helpers.WeakAction`1.Execute(T parameter)\r\n   bei GalaSoft.MvvmLight.Helpers.WeakAction`1.ExecuteWithObject(Object parameter)\r\n   bei GalaSoft.MvvmLight.Messaging.Messenger.SendToList[TMessage](TMessage message, IEnumerable`1 weakActionsAndTokens, Type messageTargetType, Object token)\r\n   bei GalaSoft.MvvmLight.Messaging.Messenger.SendToTargetOrType[TMessage](TMessage message, Type messageTargetType, Object token)\r\n   bei GalaSoft.MvvmLight.Messaging.Messenger.Send[TMessage](TMessage message)\r\n   bei BR.SMARTCRM.Common.MVVM.Converter.EntityValueConverter.Convert(Object value, Type targetType, Object parameter, CultureInfo culture) in c:\\dev\\SC4\\SMARTCRM\\Framework\\BR.SMARTCRM.Common.MVVM\\Converter\\EntityValueConverter.cs:Zeile 42.\r\n   bei System.Windows.Data.BindingExpression.TransferValue(Object newValue, Boolean isASubPropertyChange)\r\n   bei System.Windows.Data.BindingExpression.ScheduleTransfer(Boolean isASubPropertyChange)\r\n   bei MS.Internal.Data.ClrBindingWorker.NewValueAvailable(Boolean dependencySourcesChanged, Boolean initialValue, Boolean isASubPropertyChange)\r\n   bei MS.Internal.Data.PropertyPathWorker.UpdateSourceValueState(Int32 k, ICollectionView collectionView, Object newValue, Boolean isASubPropertyChange)\r\n   bei MS.Internal.Data.ClrBindingWorker.OnSourcePropertyChanged(Object o, String propName)\r\n   bei MS.Internal.Data.PropertyPathWorker.OnPropertyChanged(Object sender, PropertyChangedEventArgs e)\r\n   bei System.Windows.WeakEventManager.ListenerList`1.DeliverEvent(Object sender, EventArgs e, Type managerType)\r\n   bei System.ComponentModel.PropertyChangedEventManager.OnPropertyChanged(Object sender, PropertyChangedEventArgs args)\r\n   bei GalaSoft.MvvmLight.ObservableObject.RaisePropertyChanged(String propertyName)\r\n\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.4.0 (planning)",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2013-02-14T05:36:52.76-08:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Messenger Bug when Assinging a Lambda Expression with a parameter to the messenger",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 6,
+    "Id": 7600
+  },
+  "FileAttachments": [
+    {
+      "FileId": 623366,
+      "FileName": "14-02-2013 14-27-27.png",
+      "DownloadUrl": ".\\623366"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nI just published an alpha version of V5.4.0 to Nuget. This version proposes a fix to this issue. This requires setting a new parameter called keepTargetAlive to true when you call Register. Note that while this allows using a closure, this also risks causing a (small) memory leak. \n\nI have preliminary documentation here: [http://www.mvvmlight.net/doc/weakaction.cshtml]. A more detailed article will be published as soon as I have time to finish it..\n\nHopefully this helps. This is an alpha, which means I am interested on your feedback.\n\nThanks!\nLaurent",
+      "PostedDate": "2016-12-04T09:39:12.867-08:00",
+      "Id": 205463
+    }
+  ]
+}

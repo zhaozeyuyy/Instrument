@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1166038",
+    "ThreadId": "497552",
+    "Html": "I added MVVM Light via Nuget to a new Metro app I'm building with VS 2013 Ultimate.  I read here that the MVVM Light install adds snippets too?  If so, I don't see them when I go to the Snippets Manager.  I am not using Resharper or any similar tool that might affect Intellisense.<br />\n<br />\nI'm guessing it's because I did not use the full installer.  If I remove the NuGet package now and use the full installer, will I break anything in my app?<br />\n<br />\nUPDATE: It looks like the full installer for the latest version isn't out yet.  Please tweet when it is.  Not the link on the main page for the manual installer goes to a 404 page:<br />\n<br />\n<a href=\"http://www.galasoft.ch/mvvm/installing/manually/\" rel=\"nofollow\">http://www.galasoft.ch/mvvm/installing/manually/</a><br />\n",
+    "PostedDate": "2014-01-14T11:49:32.193-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1166098",
+    "ThreadId": "497552",
+    "Html": "Hi,\r<br />\n<br />\nPlease go to the downloads section of this Codeplex site and use the VSIX installer for VS13.\r<br />\n<br />\nAlternatively you can use the Visual Studio Gallery in VS13 directly (Tools, Extensions and Updates).\r<br />\n<br />\ncheers\r<br />\nLaurent <br />\n",
+    "PostedDate": "2014-01-14T12:09:44.603-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1166147",
+    "ThreadId": "497552",
+    "Html": "Hello Laurent,<br />\n<br />\nI tried installing with:<br />\n<br />\nMvvmLight.VS2013.vsix<br />\n<br />\nbut when it ran an error dialog popped up saying &quot;This extension is not installable on any currently installed products&quot;.  I shut down all copies of VS &amp; Blend but I still get the error message.<br />\n<br />\nI took the Tools -&gt; Extensions &amp; Updates route and that worked.  I see the snippets now, thank you.<br />\n<br />\nDo you have a link to document that explains how to add the new MVVM Light to an existing project?  Currently I'm copying over the package from an Empty MVVM Light project I created for that purpose and merging the repositories.config file.  It works fine but I'm wondering if there's an easier way to do this in the future.<br />\n<br />\nAlso, is the EventToCommand behavior included in this setup?  I checked my project references and I do see GalaSoft.MvvmLight.Extras.Win8k, but I did a full search for EventToCommand in the Object browser and nothing came up.  I also don't see it in Blend in the Behaviors list.<br />\n",
+    "PostedDate": "2014-01-14T12:25:49.547-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1168751",
+    "ThreadId": "497552",
+    "Html": "Hi,\r<br />\n<br />\nI have to admit I don't know why the VSIX installer doesn't work for you. It sounds as if you are doing it right. \r<br />\n<br />\nIf you want, you can do the following: Create an empty Win8 app, and then add the Nuget package mvvmlight. This will add the DLLs you need as well as a ViewModelLocator and a MainViewModel. This is typically what I do to get started.\r<br />\n<br />\nRegarding your question about EventToCommand, please check this: <a href=\"http://blog.galasoft.ch/posts/2014/01/using-the-eventargsconverter-in-mvvm-light-and-why-is-there-no-eventtocommand-in-the-windows-8-1-version/\" rel=\"nofollow\">http://blog.galasoft.ch/posts/2014/01/using-the-eventargsconverter-in-mvvm-light-and-why-is-there-no-eventtocommand-in-the-windows-8-1-version/</a>\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2014-01-15T05:00:48.353-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1168853",
+    "ThreadId": "497552",
+    "Html": "Hello Laurent,\r<br />\n<br />\nRight, but for an existing project it's a bit more involved and frankly I don't see what MVVM Light could do about it.  It's just a bit of work that requires a human.  You also have to copy over all the files auto-created by the new MVVM Light template in the Common, Design, &amp; Model sub-directories to the existing MVVM Light project and adjust the namespace lines.  In addition, you have to copy over the needed changes from the new MainViewModel file to the existing one.  That's just the way it is sometimes.  It only takes about 30 to 45 minutes and it's definitely worth it.\r<br />\n<br />\nThat's a good article about EventToCommand.  I created an EventBehaviorTrigger yesterday with Blend to trigger a ViewModel Command that I need to execute when the pageRoot Loaded event fires.  Saved me from doing some really ugly, awkward code to make that happen. :)<br />\n",
+    "PostedDate": "2014-01-15T05:35:46.693-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "957244",
+    "ThreadId": "407052",
+    "Html": "\r\n<p>Is the August RTM on the downloads page the final version 4 for VS 2010?</p>\r\n",
+    "PostedDate": "2012-12-17T13:31:07.077-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "957257",
+    "ThreadId": "407052",
+    "Html": "\r\n<p>For right now yes but I am working on releasing a unified version valid for VS10 and VS12 both.</p>\r\n<p>Cheers<br>\r\nLaurent&nbsp;</p>\r\n",
+    "PostedDate": "2012-12-17T13:50:29.67-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "957266",
+    "ThreadId": "407052",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>Ah, very good, I'm in no hurry. Thanks!</p>\r\n",
+    "PostedDate": "2012-12-17T14:00:35.357-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "957269",
+    "ThreadId": "407052",
+    "Html": "\r\n<p>Nice :) Just curious, what framework are you planning to work with? (Silverlight, WPF, Windows Phone?) and which version of these frameworks?</p>\r\n<p>Any reason not to move to VS12?</p>\r\n<p>I definitely plan to support VS10 longer, just trying to get a feeling of the reasons to stay on VS10 (and &quot;it's too expensive to change&quot; is a damn good reason FWIW ;)</p>\r\n<p>Cheers<br>\r\nLaurent&nbsp;</p>\r\n",
+    "PostedDate": "2012-12-17T14:04:12.09-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "957301",
+    "ThreadId": "407052",
+    "Html": "\r\n<p>Working with WPF. I've done the classic C -&gt; C++ -&gt; VB -&gt; Winforms -&gt; WPF journey for the last two decades, and having invested quite a bit of effort in learning WPF, I am not happy with Microsoft just abandoning it. I believe they will have to come back\r\n to it because corporate America is not going to jump on the Windows 8 bandwagon. I'm seeing a lot of companies in my neck of the woods (think oil and gas) that need rich desktop visualization, they are adopting WPF, and like me, they must be unhappy with MS.</p>\r\n<p>Of course, I know I can do WPF 4.0 in VS 2012, but what's the point? The ALL CAPS menus and the monochrome icons that make me squint - just seems like change for the sake of change.&nbsp;</p>\r\n<p>I won't be surprised to see Bill Gates come out of retirement in 2013.</p>\r\n<p>Well, you asked...ha ha.</p>\r\n<p>Keep up the great work no MVVM Light!</p>\r\n<p>Jim</p>\r\n",
+    "PostedDate": "2012-12-17T14:54:09.387-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "957960",
+    "ThreadId": "407052",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Thanks for the details. Not sure why you have the impression that Microsoft is abandoning WPF, it is definitely not the case. WPF is and remains the best technology to build desktop applications. WinRT apps are not a replacement for WPF apps, rather a companion\r\n (very similar to a Windows Phone app, in fact). WPF is not going anywhere. We still do a lot of WPF work, for example with Kinect (often hybrid apps with some C++ components), or of course for LOB apps.</p>\r\n<p>VS12 is worth a try if you want my opinion, it is faster than VS10, and quite a few features were improved. I moved all my development to VS12 now and am quite happy about it. The new design is just a matter of habit I think, I don't really notice it anymore.&nbsp;</p>\r\n<p>Anyway, thanks for explaining :)</p>\r\n<p>Cheers<br>\r\nLaurent&nbsp;</p>\r\n",
+    "PostedDate": "2012-12-18T13:26:10.813-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "991417",
+    "ThreadId": "407052",
+    "Html": "\r\n<p>With regards to the reason for sticking with VS2010 for us it's project continuity. I've moved to 2012 for new projects, but old ones need to be maintained in the IDE they were started in for customer interoperability. This means I need to run VS2010 and\r\n VS2012 concurrently, which is causing me some issues with MVVMLight atm.</p>\r\n<p>Any idea how far off the unified version is?</p>\r\n",
+    "PostedDate": "2013-01-24T01:39:24.483-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1012019",
+    "ThreadId": "407052",
+    "Html": "How is the dual Vs 2010 and Vs 2012 version going?\r<br />\n<br />\nFor me I rather just go to Vs 2012 but Microsoft made sure to make it as hard as possible for me to achieve this. I just got a windows 7 phone and have no desire to program on for windows 8 phones at this time simply because I am making applications and not games and I don't think my projects at this time will gain too much from the improvements windows 8 made and when I factor in the how many devices are actually out there I rather go after the entire market share then only those who have windows 8 phones.\r<br />\n<br />\nOf course this would not be a problem if I could install Windows Phone SDK and have it work in Visual Studios 2012 but since I am using Windows 7 at work I can't because I can't install windows 8 sdk what has windows 7 sdk in it.\r<br />\n<br />\nI am not sure how this is going to work if I install MVVM light 4 RT and make a project and then go home where I have a windows 8 machine what would have 4.1 installed...not sure what will happen.<br />\n",
+    "PostedDate": "2013-03-07T13:22:58.153-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

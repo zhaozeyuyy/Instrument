@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "736308",
+    "ThreadId": "290170",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I am thinking of a feature whereby the RelayCommand has a Executed event? So listeners can subscribe to know whether the Command is executed or not.</p>\r\n<p>I am not sure if there is a way to do this currently? If there is, please let me know here.</p>\r\n<p>Thanks!</p>\r\n",
+    "PostedDate": "2012-02-02T01:18:53.883-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

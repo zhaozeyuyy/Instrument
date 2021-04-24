@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "523895",
+    "ThreadId": "235196",
+    "Html": "\r\n<p>I am having an issue with getting a 'Collection was modified' exception inside the Messenger code - the stack trace is as follows.</p>\r\n<p>Message = Collection was modified; enumeration operation may not execute.<br>\r\n<br>\r\nStack Trace:<br>\r\n&nbsp;&nbsp; at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)<br>\r\n&nbsp;&nbsp; at System.Collections.Generic.List`1.Enumerator.MoveNextRare()<br>\r\n&nbsp;&nbsp; at System.Collections.Generic.List`1.Enumerator.MoveNext()<br>\r\n&nbsp;&nbsp; at GalaSoft.MvvmLight.Messaging.Messenger.CleanupList(IDictionary`2 lists)<br>\r\n&nbsp;&nbsp; at GalaSoft.MvvmLight.Messaging.Messenger.Cleanup()<br>\r\n&nbsp;&nbsp; at GalaSoft.MvvmLight.Messaging.Messenger.SendToTargetOrType[TMessage](TMessage message, Type messageTargetType, Object token)<br>\r\n&nbsp;&nbsp; at GalaSoft.MvvmLight.Messaging.Messenger.Send[TMessage](TMessage message)</p>\r\n<p>I saw that you cloned your list inside of SendToTargetOrType() but not inside of CleanupList(). Do you have any thoughts on the reason I would be getting this exception currently? The Messages gets sent from the non-UI thread, so I am not sure if that is\r\n part of the issue.</p>\r\n",
+    "PostedDate": "2010-11-18T09:02:18.083-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "525035",
+    "ThreadId": "235196",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>This sounds like a bug. Can you send me a repro?</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2010-11-21T13:22:26.86-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "563951",
+    "ThreadId": "235196",
+    "Html": "\r\n<p>Salut Laurent,</p>\r\n<p>I was getting the same error in my multi-threaded program -one thread was sending messages, and the other was creating objects which registered to receive messages. &nbsp;</p>\r\n<p>I fixed it by adding a lock on &quot;lists&quot; in CleanupLists(), and similarly locking &quot;recipients&quot; in Register(...) ... you already had this lock on UnregisterFromLists</p>\r\n<p>Regards,</p>\r\n<p>&nbsp;&nbsp; &nbsp; &nbsp;Damian</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-02-10T06:38:54.14-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "563962",
+    "ThreadId": "235196",
+    "Html": "\r\n<p>Thanks Damian I will fix the bug and push it with the next preview.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2011-02-10T07:02:53.34-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "564265",
+    "ThreadId": "235196",
+    "Html": "<p>Great thanks - and congrats on Mix</p>\r\n<p>A+</p>\r\n<p>Damian</p>",
+    "PostedDate": "2011-02-10T15:57:52.547-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "614727",
+    "ThreadId": "235196",
+    "Html": "<p>Hi,</p>\r\n<p>Is this change part of any recent drops of code? &nbsp;I got what I thought was the latest but did not see a fix in there. &nbsp;I tried to implement the fix on my own, but perhaps I am applying the fix incorrectly because I am still seeing issues.</p>\r\n<p>Thank you,</p>\r\n<p>Josef</p>",
+    "PostedDate": "2011-05-18T09:56:00.47-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "615816",
+    "ThreadId": "235196",
+    "Html": "<p>Hi,</p>\r\n<p>Can you describe the issue you have more precisely? Some locking has been introduced, but I found out that some is still missing and want to make sure that I am not missing anything this time,</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-05-20T05:22:08.727-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "615998",
+    "ThreadId": "235196",
+    "Html": "<p>Laurent,</p>\r\n<p>We were getting a <strong>InvalidOperationException </strong>on a collection being modified during one of the foreach loops in <strong>CleanupList()</strong>. &nbsp;It was on the line that says</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">foreach</span> (WeakActionAndToken item <span style=\"color: blue;\">in</span> list.Value)\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>The situation was basically that we were doing a lot (couple of thousands) of register's very rapidly. &nbsp;We were also doing a bunch of send's during those register's. &nbsp;Our system was generally being hammered by a lot of processing, as this was a stress test that we were doing. &nbsp;We did see that there was a lock in <strong>CleanupList() </strong>on the <strong>lists </strong>object. &nbsp;The scope of the lock that was already there was on everything in the method except for the<strong> if (lists == null)</strong> check. &nbsp;We did not see a corresponding lock on an equivalent object to \"<strong>lists</strong>\" in the <strong>Register()</strong> method. &nbsp;There is a lock on the <strong>_registerLock </strong>object, but the equivalent of the \"<strong>lists</strong>\" object, which in <strong>Register()</strong> is \"<strong>recipients</strong>\" (a reference to <strong>_recipientsStrictAction </strong>or <strong>_recipientsOfSubclassesAction</strong>) does not have a lock. &nbsp;Perhaps I am misunderstanding what is going on here, but to me this seemed to be an issue. &nbsp;We ended up putting a lock on the \"<strong>recipients</strong>\" object as was suggested by dmehers to encompass all of the code in <strong>Register() </strong>after \"<strong>recipients</strong>\" is set. &nbsp;This seemed to correct our initial issue. &nbsp;The reason I wrote my first message was because we were applying the lock incorrectly (I think). &nbsp;I don't remember how we were locking in<strong> Register()</strong>, but the lock I explained earlier seems to have fixed our issue.</p>\r\n<p>But then we ran into another exception. &nbsp;We got another <strong>InvalidOperationException</strong>&nbsp;on a collection being modified, but this time it was in the <strong>SendToList()</strong> method. &nbsp;This was on the line that says&nbsp;\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">foreach</span> (WeakActionAndToken item <span style=\"color: blue;\">in</span> list)\r\n</pre>\r\n</div>\r\n</p>\r\n<p>This seemed to be&nbsp;occurring when <strong>SendToList()</strong>&nbsp;is called based on<strong>&nbsp;_recipientsStrictAction</strong>. &nbsp;We don't use any messaging that includes the subclasses, so it may be an issue there as well but we didn't see it through our tests. &nbsp;What we ended up doing to fix this was removing the <strong>listClone</strong>&nbsp;in <strong>SendToList()</strong>. &nbsp;Instead, we ended up putting locks around&nbsp;<strong>list = _recipientsOfSubclassesAction[type];</strong>&nbsp;and <strong>List&lt;WeakActionAndToken&gt; list = _recipientsStrictAction[messageType];</strong>&nbsp;in the <strong>SendToTargetOrType() </strong>method by locking the <strong>_recipientsOfSubclassesAction</strong>&nbsp;and <strong>_recipientsStrictAction</strong>&nbsp;objects respectively. &nbsp;Inside of those locks, we performed the list cloning using <strong>Take()</strong>&nbsp;to replace the <strong>listClone</strong>&nbsp;that we removed from <strong>SendToList()</strong>.</p>\r\n<p>I hope this makes sense and that it doesn't introduce other errors. &nbsp;Based on our testing over the last couple days, these two fixes corrected any exceptions that we had been seeing. &nbsp;If it would help that I send you our version of the Messenger class, please let me know. &nbsp;I guess I could also post the two methods (<strong>Register() </strong>and <strong>SendToTargetOrType()</strong>) that we changed in its entirety... &nbsp;I will try to remember to do that.</p>\r\n<p>I hope this helps. &nbsp;MVVM Light has helped us out immensely, and we owe a lot to the community and to Laurent in particular. &nbsp;Thanks!</p>",
+    "PostedDate": "2011-05-20T10:52:45.9-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "616020",
+    "ThreadId": "235196",
+    "Html": "<p>Here is the code for Register()</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">virtual</span> <span style=\"color: blue;\">void</span> Register&lt;TMessage&gt;(\r\n            <span style=\"color: blue;\">object</span> recipient,\r\n            <span style=\"color: blue;\">object</span> token,\r\n            <span style=\"color: blue;\">bool</span> receiveDerivedMessagesToo,\r\n            Action&lt;TMessage&gt; action)\r\n        {\r\n            <span style=\"color: blue;\">lock</span> (_registerLock)\r\n            {\r\n                Type messageType = <span style=\"color: blue;\">typeof</span>(TMessage);\r\n\r\n                Dictionary&lt;Type, List&lt;WeakActionAndToken&gt;&gt; recipients;\r\n\r\n                <span style=\"color: blue;\">if</span> (receiveDerivedMessagesToo)\r\n                {\r\n                    <span style=\"color: blue;\">if</span> (_recipientsOfSubclassesAction == <span style=\"color: blue;\">null</span>)\r\n                    {\r\n                        _recipientsOfSubclassesAction = <span style=\"color: blue;\">new</span> Dictionary&lt;Type, List&lt;WeakActionAndToken&gt;&gt;();\r\n                    }\r\n\r\n                    recipients = _recipientsOfSubclassesAction;\r\n                }\r\n                <span style=\"color: blue;\">else</span>\r\n                {\r\n                    <span style=\"color: blue;\">if</span> (_recipientsStrictAction == <span style=\"color: blue;\">null</span>)\r\n                    {\r\n                        _recipientsStrictAction = <span style=\"color: blue;\">new</span> Dictionary&lt;Type, List&lt;WeakActionAndToken&gt;&gt;();\r\n                    }\r\n\r\n                    recipients = _recipientsStrictAction;\r\n                }\r\n\r\n                <span style=\"color: blue;\">lock</span> (recipients) <span style=\"color: green;\">//The lock we added</span>\r\n                {\r\n\r\n                    List&lt;WeakActionAndToken&gt; list;\r\n\r\n                    <span style=\"color: blue;\">if</span> (!recipients.ContainsKey(messageType))\r\n                    {\r\n                        list = <span style=\"color: blue;\">new</span> List&lt;WeakActionAndToken&gt;();\r\n                        recipients.Add(messageType, list);\r\n                    }\r\n                    <span style=\"color: blue;\">else</span>\r\n                    {\r\n                        list = recipients[messageType];\r\n                    }\r\n\r\n                    <span style=\"color: blue;\">var</span> weakAction = <span style=\"color: blue;\">new</span> WeakAction&lt;TMessage&gt;(recipient, action);\r\n                    <span style=\"color: blue;\">var</span> item = <span style=\"color: blue;\">new</span> WeakActionAndToken\r\n                    {\r\n                        Action = weakAction,\r\n                        Token = token\r\n                    };\r\n                    list.Add(item);\r\n                }\r\n            }\r\n\r\n            Cleanup();\r\n        }\r\n\r\n</pre>\r\n</div>\r\n</p>\r\n<p>And here is the code for SendToTargetOrType()</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>        <span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> SendToTargetOrType&lt;TMessage&gt;(TMessage message, Type messageTargetType, <span style=\"color: blue;\">object</span> token)\r\n        {\r\n            Type messageType = <span style=\"color: blue;\">typeof</span>(TMessage);\r\n\r\n            <span style=\"color: blue;\">if</span> (_recipientsOfSubclassesAction != <span style=\"color: blue;\">null</span>)\r\n            {\r\n                <span style=\"color: green;\">// Clone to protect from people registering in a \"receive message\" method</span>\r\n                <span style=\"color: green;\">// Bug correction Messaging BL0008.002</span>\r\n                List&lt;Type&gt; listClone =\r\n                    _recipientsOfSubclassesAction.Keys.Take(_recipientsOfSubclassesAction.Count()).ToList();\r\n\r\n                <span style=\"color: blue;\">foreach</span> (Type type <span style=\"color: blue;\">in</span> listClone)\r\n                {\r\n                    List&lt;WeakActionAndToken&gt; list = <span style=\"color: blue;\">null</span>;\r\n\r\n                    <span style=\"color: blue;\">if</span> (messageType == type\r\n                        || messageType.IsSubclassOf(type)\r\n                        || Implements(messageType, type))\r\n                    {\r\n                        <span style=\"color: blue;\">lock</span> (_recipientsOfSubclassesAction)  <span style=\"color: green;\">//The lock we added</span>\r\n                        {\r\n                            <span style=\"color: green;\">//The list we cloned</span>\r\n                            list = _recipientsOfSubclassesAction[type].Take(_recipientsOfSubclassesAction[type].Count()).ToList();\r\n                        }\r\n                    }\r\n\r\n                    SendToList(message, list, messageTargetType, token);\r\n                }\r\n            }\r\n\r\n            <span style=\"color: blue;\">if</span> (_recipientsStrictAction != <span style=\"color: blue;\">null</span>)\r\n            {\r\n                <span style=\"color: blue;\">if</span> (_recipientsStrictAction.ContainsKey(messageType))\r\n                {\r\n                    List&lt;WeakActionAndToken&gt; list = <span style=\"color: blue;\">null</span>;\r\n                    <span style=\"color: blue;\">lock</span> (_recipientsStrictAction)  <span style=\"color: green;\">//The lock we added</span>\r\n                    {\r\n                        <span style=\"color: green;\">//The list we cloned</span>\r\n                        list = _recipientsStrictAction[messageType].Take(_recipientsStrictAction[messageType].Count()).ToList();\r\n                    }\r\n                    SendToList(message, list, messageTargetType, token);\r\n                }\r\n            }\r\n\r\n            Cleanup();\r\n        }\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2011-05-20T11:28:35.917-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "621920",
+    "ThreadId": "235196",
+    "Html": "<p>Just following up on that. I am introducing these fixes in the code this weekend. I want to take the occasion to correct another bug which is trickier. Once I am done, i plan to push the fix in V3 too, not just V4.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-06-02T04:46:29.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "678623",
+    "ThreadId": "235196",
+    "Html": "<blockquote style=\"padding-bottom: 0px; font-style: italic; margin: 0.25em 1em 0px; padding-left: 0.25em; padding-right: 0.25em; padding-top: 0px; border: #ccc 0.1em solid;\"><strong>lbugnion wrote:</strong><br />\r\n<p>Just following up on that. I am introducing these fixes in the code this weekend. I want to take the occasion to correct another bug which is trickier. Once I am done, i plan to push the fix in V3 too, not just V4.</p>\r\n</blockquote>\r\n<p>Hello,<br />I analyzed the version released on 1 September 2011 [v3]. From the source code [v3code] it looks like the fix was pushed to V3 (thanks) but I cannot find it in the binary [v3msi] (reading the source code from the dll via reflector).<br />I also noted that, in [v3msi], GalaSoft.MvvmLight.WPF4.dll declares versione 3.0.0.28535 (that is older of my local \"outdated\" dll, that is 29166).<br />Can you please double check the binary released at [v3msi] at the page [v3]?<br />Cheers<br />Luca</p>\r\n<p>[v3] <a href=\"http://mvvmlight.codeplex.com/releases/view/71278\">http://mvvmlight.codeplex.com/releases/view/71278</a><br />[v3code] <a href=\"http://mvvmlight.codeplex.com/SourceControl/changeset/view/ab7442f70691\">http://mvvmlight.codeplex.com/SourceControl/changeset/view/ab7442f70691</a><br />[v3msi] <a href=\"http://mvvmlight.codeplex.com/releases/71278/download/267119\">http://mvvmlight.codeplex.com/releases/71278/download/267119</a></p>",
+    "PostedDate": "2011-09-30T05:38:57.613-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "892603",
+    "ThreadId": "389397",
+    "Html": "\r\n<p>In ViewModelBase, in the method body with signature:</p>\r\n<pre style=\"font-family:Consolas; font-size:12; color:black; background:white\"><span style=\"color:blue\">protected</span>&nbsp;<span style=\"color:blue\">virtual</span>&nbsp;<span style=\"color:blue\">void</span>&nbsp;RaisePropertyChanged&lt;T&gt;(<span style=\"color:#2b91af\">Expression</span>&lt;<span style=\"color:#2b91af\">Func</span>&lt;T&gt;&gt;&nbsp;propertyExpression,&nbsp;T&nbsp;oldValue,&nbsp;T&nbsp;newValue,&nbsp;<span style=\"color:blue\">bool</span>&nbsp;broadcast)\r\n</pre>\r\n<p>you don't call into base RaisePropertyChanged method, like in other methods of the class, but you call the PropertyChangedHandler directly...</p>\r\n<p>Is there a reason for doing so? Maybe I'm too tired, but I think it could be refactored like the other overload of the method..</p>\r\n<p>Hope this helps (not so much I know, but a cleaner code is a better code don't you think? ;)</p>\r\n<p>Cheers<br>\r\nPaolo</p>\r\n",
+    "PostedDate": "2012-07-28T12:22:23.467-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "893703",
+    "ThreadId": "389397",
+    "Html": "<p>I have this on my backlog though with a rather low priority to be honest. I need to check it out in details first. I remember that back then I tried to consolidate that code but for some reason it didn't quite work so I left it. I will check it out again.</p>\r\n<p>Cheers,<br />Laurent</p>",
+    "PostedDate": "2012-07-31T08:14:00.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "914844",
+    "ThreadId": "389397",
+    "Html": "<p>First of all, just want to say thanks for MVVM Light, its a great tool.</p>\r\n<p>Thought I'd throw in my thoughts here as I ran in to an issue related to this today.&nbsp; I wanted to override RaisedPropertyChanged and run some special logic there.&nbsp; I got to digging around and seen that there were 4 overloads, two in ViewModelBase and two in ObservableObject.</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">protected</span> <span style=\"color: blue;\">virtual</span> <span style=\"color: blue;\">void</span> RaisePropertyChanged&lt;T&gt;(Expression&lt;Func&lt;T&gt;&gt; propertyExpression, T oldValue, T newValue, <span style=\"color: blue;\">bool</span> broadcast)\r\n<span style=\"color: blue;\">protected</span> <span style=\"color: blue;\">virtual</span> <span style=\"color: blue;\">void</span> RaisePropertyChanged&lt;T&gt;(<span style=\"color: blue;\">string</span> propertyName, T oldValue, T newValue, <span style=\"color: blue;\">bool</span> broadcast)\r\n</pre>\r\n</div>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">protected</span> <span style=\"color: blue;\">virtual</span> <span style=\"color: blue;\">void</span> RaisePropertyChanged&lt;T&gt;(Expression&lt;Func&lt;T&gt;&gt; propertyExpression)\r\n<span style=\"color: blue;\">protected</span> <span style=\"color: blue;\">virtual</span> <span style=\"color: blue;\">void</span> RaisePropertyChanged(<span style=\"color: blue;\">string</span> propertyName)\r\n</pre>\r\n</div>\r\n<p>Ideally it would be nice to override \"RaisedPropertyChanged(string propertyName)\" in ObservableObject and have all others call up to it.&nbsp; Maybe I'd have to override that and the Expression&lt;Func&lt;T&gt;&gt; versions as well.&nbsp; As it currently stands though, I have to rely on the specifics of what is going on under the hood and override both ObservableObject methods as well as \"protected virtual void RaisePropertyChanged&lt;T&gt;(Expression&lt;Func&lt;T&gt;&gt; propertyExpression, T oldValue, T newValue, bool broadcast)\" on ViewModelBase but NOT \"protected virtual void RaisePropertyChanged&lt;T&gt;(string propertyName, T oldValue, T newValue, bool broadcast)\", otherwise, my logic could run twice.&nbsp; Not a huge deal, but it just leaves my code heavily reliant on how things are currently set up and easily breakable with any potential new versions of MVVM Light.</p>",
+    "PostedDate": "2012-09-19T14:13:40.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

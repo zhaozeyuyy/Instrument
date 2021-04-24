@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T07:24:48.423-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hello, recently I upgraded MVVMLight(Portable) from 4.1.24-beta2 to 4.1.27.1 and Portable.CommonServiceLocator is automatically upgraded from 1.2 to 1.2.2 automatically by nuget.\r\n\r\nThe above is the only changes I have and now here comes a TypeInitializationException on constructor of RelayCommand:\r\n\r\nSystem.TypeInitializationException occurred\r\n  Message=“GalaSoft.MvvmLight.Command.RelayCommand”的类型初始值设定项引发异常。\r\n  TypeName=GalaSoft.MvvmLight.Command.RelayCommand\r\n  StackTrace:\r\n       位于 GalaSoft.MvvmLight.Command.RelayCommand..ctor(Action execute, Func`1 canExecute)\r\n       位于 MyXXXViewModel.SetupCommands()\r\n  InnerException: System.IO.FileLoadException\r\n       Message=未能加载文件或程序集“GalaSoft.MvvmLight.Platform.SL4, Version=4.1.26.30523, Culture=neutral, PublicKeyToken=null”或它的某一个依赖项。请求的程序集版本与应用程序域中已经绑定或清单中指定的程序集版本冲突。 (异常来自 HRESULT:0x80131053)\r\n       StackTrace:\r\n            位于 System.Reflection.RuntimeAssembly._nLoad(AssemdsafblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)\r\n            位于 System.Reflection.RuntimeAssembly.nLoad(AssemblyName fileName, String codeBase, Evidence assemblySecurity, RuntimeAssembly locationHint, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)\r\n            位于 System.Reflection.RuntimeAssembly.InternalLoadAssemblyName(AssemblyName assemblyRef, Evidence assemblySecurity, RuntimeAssembly reqAssembly, StackCrawlMark& stackMark, Boolean throwOnFileNotFound, Boolean forIntrospection, Boolean suppressSecurityChecks)\r\n            位于 System.Reflection.RuntimeAssembly.InternalLoad(String assemblyString, Evidence assemblySecurity, StackCrawlMark& stackMark, Boolean forIntrospection)\r\n            位于 System.Reflection.Assembly.Load(String assemblyString)\r\n            位于 System.Func`2.Invoke(T arg)\r\n            位于 GalaSoft.MvvmLight.Internal.ProbingAdapterResolver.ProbeForPlatformSpecificAssembly(String platformName)\r\n            位于 GalaSoft.MvvmLight.Internal.ProbingAdapterResolver.ProbeForPlatformSpecificAssembly()\r\n            位于 GalaSoft.MvvmLight.Internal.ProbingAdapterResolver.GetPlatformSpecificAssembly()\r\n            位于 GalaSoft.MvvmLight.Internal.ProbingAdapterResolver.Resolve(Type type)\r\n            位于 GalaSoft.MvvmLight.Internal.PlatformAdapter.Resolve[T](Boolean throwIfNotFound)\r\n            位于 GalaSoft.MvvmLight.Command.RelayCommand..cctor()\r\n       InnerException: \r\n\r\nI am sorry for the Chinese characters in the message but I wish the rest of the information could help. Thanks.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V4.4.32.1",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2013-02-18T22:31:07.707-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "TypeInitializationException on RelayCommand after upgrading to 4.1.27.1",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7602
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

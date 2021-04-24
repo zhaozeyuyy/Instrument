@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "588811",
+    "ThreadId": "251794",
+    "Html": "<p>Hi Laurent</p>\n<p>first oft all thanks&nbsp;for&nbsp;the very&nbsp;nice light MVVM framework. But there is a thing I am&nbsp;missing very much: a generic CollectionViewModel which wraps a collection of&nbsp;model objects, wraps each model object in a ViewModel and keeps the collection of model and the collection of ViewModel objects in sync.</p>\n<p>I am really interested in your opinion since there are so many discussions in the web.</p>\n<p>Greetings from Germany,</p>\n<p>Tobias</p>",
+    "PostedDate": "2011-03-30T06:40:59.043-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "590001",
+    "ThreadId": "251794",
+    "Html": "<p>Hi Laurent,</p>\n<p>me again :-)</p>\n<p>I think a generic CollectionViewModel is a really interesting thing. You do not agree with me? I have read many many discussions in the web where folks wrote their own solutions. But every implementation has the one or other disadvantage so I thought an  implementation in a framework could be much better because many people are giving their input and testing takes place a lot by the community. You know, many eyes are better than one.</p>\n<p>Here are my first steps and I will go on with it in the next few days:</p>\n<div style=\"color: black; background-color: white;\">\n<pre><span style=\"color: blue;\">public</span> <span style=\"color: blue;\">interface</span> IContainsModel&lt;TModel&gt;\n{\n  TModel Model { <span style=\"color: blue;\">get</span>; <span style=\"color: blue;\">set</span>; }\n}\n\n\n<span style=\"color: blue;\">public</span> <span style=\"color: blue;\">class</span> CollectionItemViewModel&lt;TModel&gt; : ViewModelBaseDynamic, IContainsModel&lt;TModel&gt;\n{\n\n  <span style=\"color: blue;\">#region</span> IContainsModel&lt;TModel&gt; Members\n\n  <span style=\"color: blue;\">public</span> TModel Model { <span style=\"color: blue;\">get</span>; <span style=\"color: blue;\">set</span>; }\n\n  <span style=\"color: blue;\">#endregion</span>\n}\n\n\n<span style=\"color: blue;\">public</span> <span style=\"color: blue;\">class</span> CollectionViewModel&lt;TModel, TViewModel&gt; : ObservableCollection&lt;TViewModel&gt;\n\t<span style=\"color: blue;\">where</span> TViewModel : IContainsModel&lt;TModel&gt;, <span style=\"color: blue;\">new</span>()\n{\n  <span style=\"color: blue;\">private</span> IEnumerable&lt;TModel&gt; _models;\n  <span style=\"color: blue;\">private</span> ObservableCollection&lt;TViewModel&gt; _viewModels;\n\n  <span style=\"color: blue;\">public</span> CollectionViewModel(IEnumerable&lt;TModel&gt; modelCollection)\n  {\n    _models = modelCollection;\n    _viewModels.AddRange(modelCollection.Select(model =&gt; <span style=\"color: blue;\">new</span> TViewModel() { Model = model }));\n\n    INotifyCollectionChanged modelCollectionAsINotifyCollectionChanged = modelCollection <span style=\"color: blue;\">as</span> INotifyCollectionChanged;\n    <span style=\"color: blue;\">if</span> (modelCollectionAsINotifyCollectionChanged != <span style=\"color: blue;\">null</span>)\n    {\n      <span style=\"color: green;\">// Handle the synchronization from model collection to ViewModel collection</span>\n      <span style=\"color: green;\">//modelCollectionAsINotifyCollectionChanged.CollectionChanged += ...</span>\n    }\n\n    <span style=\"color: green;\">// Handle the synchronization from ViewModel collection to model collection</span>\n    <span style=\"color: green;\">//_viewModels.CollectionChanged += ...</span>\n  }\n}\n\n</pre>\n</div>\n<p>By the way:<span style=\"color: #2b91af;\"> ViewModelBaseDynamic</span> is a class which derives from DynamicObject and otherwise has the same implementation than your <span style=\"color: #2b91af;\">ViewModelBase</span>. I will write an interface to enable the CollectionViewModel to support both of them.</p>\n<p>What are you thinking about that?</p>\n<p>Tobias</p>",
+    "PostedDate": "2011-03-31T22:57:06.733-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "591923",
+    "ThreadId": "251794",
+    "Html": "<p>Hi,</p>\r\n<p>First, thanks a lot for taking the time to write. I am not dissing any idea, I do realize that some are very useful to certains while they seem less so to others. My goal in MVVM Light is to keep it, well, light ;) by adding only features that are a) not very easy to add by yourself, b) are causing a lot of repetitive work if done without a helper or c) all of the above.</p>\r\n<p>In the case of this particular feature, it is not something that I have felt a strong need for. Now I know that you use that, and I know that for you, this feature is very useful. I did not however observe a need for it in the community in general. My recommendation would be to publish that in your blog, and see what the response is. If you can show me that there is a strong demand for this feature, I will be happy to reconsider and maybe add it in V5.</p>\r\n<p>Deal?</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-04-05T04:46:55.9-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "597012",
+    "ThreadId": "251794",
+    "Html": "<p>Hi Laurent,</p>\r\n<p>hold on tight: I don't have a blog! I think blogs are great if you have something to say more than once a half year. There are toooooo many blogs out there which contains only a handful of useful posts. Don't you lose track of blogs you are interested in?</p>\r\n<p>Back to subject! My colleagues and me are wondering over and over again about the omission of \"to many\" relationships in the MVVM pattern. Many articels in magazines and blogs about MVVM don't consider them. So I was really wondering about the missing support for them in the existing MVVM frameworks/tools/helpers.</p>\r\n<p>My suggestion is to post my code here in a few days in this discussion and announce it on stackoverflow so we can see if there is a demand for such a feature. Alright? I am looking forward for the upcoming discussions.</p>\r\n<p>Greetings, Tobias</p>",
+    "PostedDate": "2011-04-13T23:57:30.07-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "606832",
+    "ThreadId": "251794",
+    "Html": "<p>I posted an ObservableCollection and a BindingList at <a href=\"http://updatecontrols.net/doc/node/39\">my blog</a>. Try those out and see if they meet your needs.</p>\r\n<p>Laurent, if I see a good response, you can have these classes for V5.&nbsp;I'll let you know.</p>",
+    "PostedDate": "2011-05-03T20:54:56.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "607022",
+    "ThreadId": "251794",
+    "Html": "<p>Good feedback guys, thanks. I will keep an eye on that matter.</p>",
+    "PostedDate": "2011-05-04T05:00:18.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

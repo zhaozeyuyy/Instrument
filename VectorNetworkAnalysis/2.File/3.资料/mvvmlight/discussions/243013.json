@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "554240",
+    "ThreadId": "243013",
+    "Html": "\r\n<p>I'm quite new to both WP7 and MVVM so I thought a good start would be to start reading Jesse Liberty's posts using MVVM Light and WP7.</p>\r\n<p>In his most recent&nbsp;<a title=\"Passing Parameters in Behaviours\" href=\"http://jesseliberty.com/2011/01/09/passing-parameters-with-behaviors-in-mvvm-light-for-windows-phone/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed:&#43;JesseLiberty-SilverlightGeek&#43;(Jesse&#43;Liberty&#43;-&#43;Silverlight&#43;Geek)\" target=\"_blank\">post</a>&nbsp;he\r\n demonstrates passing parameters in behaviours to help build a master-detail application. Unfortunately his post stops at the point I needed most help on...</p>\r\n<p>...in his post on selecting an item a RelayCommand is executed with the Customer as a parameter. He then just shows a simple message box to show some detail about the customer.</p>\r\n<p>What I would be interested in seeing is how the parameter is passed to the DetailsViewModel, followed by navigation to the DetailsPage.&nbsp;</p>\r\n<p>My first attempt had me creating 2 messages (one for the navigation and one for the Customer(changed)) but this doesn't feel right :(&nbsp;</p>\r\n<p>Any comments would be appreciated...(the following code is my first attempt for you to laugh at)</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>       <span style=\"color:blue\">public</span> MainViewModel()\r\n        {\r\n            DetailsPageCommand = <span style=\"color:blue\">new</span> RelayCommand&lt;Customer&gt;((msg) =&gt; ShowCustomerDetails(msg));\r\n        }\r\n\r\n        <span style=\"color:blue\">private</span> <span style=\"color:blue\">object</span> ShowCustomerDetails(Customer msg)\r\n        {</pre>\r\n</div>\r\n<p></p>\r\n<pre><span><span style=\"white-space:pre\">\t</span>    // 2 messages are thrown, one to go to the right page and the second to set the customer context</span></pre>\r\n<pre>            Messenger.Default.Send&lt;Customer&gt;(msg);</pre>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>           \r\n            <span style=\"color:blue\">var</span> pageMessage = <span style=\"color:blue\">new</span> GoToPageMessage { PageName = <span style=\"color:#a31515\">&quot;Details&quot;</span> };\r\n            Messenger.Default.Send&lt;GoToPageMessage&gt;(pageMessage);\r\n\r\n            <span style=\"color:blue\">return</span> <span style=\"color:blue\">null</span>;\r\n        }\r\n</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2011-01-24T01:49:20.41-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "554261",
+    "ThreadId": "243013",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>As usual there are multiple ways to solve this.</p>\r\n<ol>\r\n<li>Send one message only, but have two recipients for this message, one that sets the selected customer, and the other recipient that navigates to the page.\r\n</li><li>Avoid messages altogether, and instead use a hierarchy of viewmodels, and a navigation service.\r\n</li><li>Use a message to set the customer, and the navigation service to navigate </li></ol>\r\n<p>Number 2 is usually my favorite for the scenario you mention:</p>\r\n<ul>\r\n<li>Have a property on the Main VM (of type Customer) named SelectedCustomer. </li><li>Have the RelayCommand (or even a simple binding) assign the selected customer to that property.\r\n</li><li>Set the DetailsPage's DataContext to {Binding Source={StaticResource Locator}, Path=Main.SelectedCustomer}\r\n</li><li>Use the navigation service to navigate to the DetailsPage. </li></ul>\r\n<p>I talk about navigation service in the context of Windows Phone 7 here: <a href=\"http://blog.galasoft.ch/archive/2011/01/06/navigation-in-a-wp7-application-with-mvvm-light.aspx\">\r\nhttp://blog.galasoft.ch/archive/2011/01/06/navigation-in-a-wp7-application-with-mvvm-light.aspx</a></p>\r\n<p>I hope it helps to get a better picture or the alternatives.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-01-24T02:51:59.437-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "554279",
+    "ThreadId": "243013",
+    "Html": "\r\n<p>Laurent,</p>\r\n<p>Thanks for your speedy response...I had considered using the same ViewModel for both the Details and Master as you suggest in your response:</p>\r\n<li>Set the DetailsPage's DataContext to {Binding Source={StaticResource Locator}, Path=Main.SelectedCustomer}\r\n<p>but I imagined (for some reason) that this breaks some of the rules of MVVM.</p>\r\n<p>Thanks</p>\r\n<p>Scott</p>\r\n</li>",
+    "PostedDate": "2011-01-24T03:39:26.65-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "563345",
+    "ThreadId": "243013",
+    "Html": "\r\n<p>Its not really breaking rules, its really more of a what works preference when it comes to mvvm, obviously there are purists but this isn't a thread for that..&nbsp; Aside from that what he is basically doing is passing a parameter via the binding based\r\n on the viewmodel you wanted to pass (DetailsViewModel), only its populated with the proper information from the mainviewmodel which just happens to have a Property of the type you needed, your just playing the path game.</p>\r\n",
+    "PostedDate": "2011-02-09T07:37:54.237-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "827011",
+    "ThreadId": "243013",
+    "Html": "<p>hi,</p>\n<p>I have been looking at the Jesse Liberty's posts not passing in parameters to the ViewModel seemed a strange, but searching the web has not shown me a good solution. The hierarchy of viewmodels creates a dependency between the ViewModels, I like the message service and I would prefer the navigation service to have the responsibilty to pass message to the ViewModel.</p>\n<p>&nbsp;</p>\n<p>Paul</p>",
+    "PostedDate": "2012-04-22T04:35:04.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

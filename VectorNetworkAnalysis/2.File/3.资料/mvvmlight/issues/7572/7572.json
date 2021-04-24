@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T03:10:59.24-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "The Nuget package for MVVM Light on the Windows 8 Consumer preview adds an incorrect XMLNS reference to the ViewModel name space for the Locator.\r\n\r\nIt currently adds the reference thus:\r\nxmlns:vm=\"clr-namespace:<namespace>.ViewModel\"\r\n\r\nCorrect notation for windows 8 project references should be as follows:\r\nxmlns:vm=\"using:<namespace>.ViewModel\"\r\n\r\nJust a minor correction and one easily made by hand but would be good if the Nuget Package was updated to reflect this.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4.1",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-05-30T07:19:28.457-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "XMLNS reference added to projects through Nuget package for Win8CP",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7572
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Ah yes it is a good point. Damn, I think that will force me to create a separate package for Windows 8... I will fix it.",
+      "PostedDate": "2012-05-30T08:20:29.92-07:00",
+      "Id": 66972
+    }
+  ]
+}

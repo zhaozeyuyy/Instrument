@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-03-28T13:02:29.843-07:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "Lets says I have two instances of EventToCommand on a control, each with their own command. \r\n\r\nSometimes CommandA fires it's CanExecuteChanged and disables the control. Then CommandB fires it's CanExecuteChanged and enables the control. Other times CommandB fires first, leaving the control disabled.\r\n\r\nEventToCommand should not be mucking about with the IsEnabled property, it simply doesn't have the information necessary to update it correctly. Meanwhile I'm seeing memory leaks caused by having an event handler attached to the Command object.\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-10-18T12:29:25.663-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Won't fix"
+    },
+    "Summary": "EventToCommand Non-determinisitically disables controls",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7549
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nThere is a level of frustration I can sense in this issue ;) Let's work together to try and resolve it.\n\nFirst your suggestion to \"not muck about with the IsEnabled property\" is not doable. There are many scenarios where a command should disable a control, and using the IsEnabled property is the only way to do this. Removing this feature would introduce a breaking change, which I am not happy about. So the feature will stay.\n\nRegarding the memory leak, it is a known issue that I am looking at.\n\nFinally, regarding the non-deterministic disabling of controls: If you have two command, and one enables the control while the other disables it, there is nothing much I can do. The order in which the actions are executed depends on how they are registered with the Trigger. I will see if I can make this more deterministic but I am not sure I even have a possibility to do that.\n\nIf you feel that this is an unfair treatment of this issue, please let me know. \n\nThanks,\nLaurent",
+      "PostedDate": "2011-10-23T08:15:35.72-07:00",
+      "Id": 47573
+    },
+    {
+      "Message": "Rather than changing the controls IsEnabled property using the command one can simply bind that separately. \n\nThe vast majority of commands that are going to be bound don’t implement CanExecute anyway. And even if it does you can only use it in situations where you are 100% sure that it is the one and only EventToCommand that is bound to the control and there is nothing bound to IsEnabled. Simply stated, the limited cases where this works fails the “pit of success” philosophy of API design. ",
+      "PostedDate": "2012-01-13T01:41:21.333-08:00",
+      "Id": 52621
+    },
+    {
+      "Message": "After giving this a lot of thoughts again, I decided to not change the current behavior.\r\n\r\nMany applications out there rely on this behavior, so it would be a breaking change. I cannot think of a way to change this behavior without risking breaking stuff.\r\n\r\nFor those rare scenarios where you have more than one EventToCommand on one single control, and you risk the scenario described above, I recommend not using EventToCommand and instead using the Blend team's InvokeCommandAction.\r\n",
+      "PostedDate": "2015-03-28T13:02:01.747-07:00",
+      "Id": 180545
+    }
+  ]
+}

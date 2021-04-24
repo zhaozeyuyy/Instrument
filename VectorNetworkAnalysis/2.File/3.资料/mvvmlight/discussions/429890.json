@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "988061",
+    "ThreadId": "429890",
+    "Html": "\r\n<p>Hi</p>\r\n<p>I am working on a small application at the minute that I started using PRISM 4 & Unity for IOC/DI. I have struggled quite a bit to keep my modules loose when it comes to functionality such as the following:</p>\r\n<p>A client module holds functionality for a client entity, strangely enough!!! A client, and many other entities, can have notes attached. So I have a notes module.</p>\r\n<p>From my ClientView I have an add new note button and an edit note button. I have struggled no end in an attempt to get my note view/edit view to display as a modal window without my other system modules holding a reference to the Notes module.</p>\r\n<p>Is this easily achievable with MVVM light? The&nbsp;PRISM framework&nbsp;seems to offer nice methods around this for Silverlight but not WPF?</p>\r\n<p>Thanks for any advice.</p>\r\n",
+    "PostedDate": "2013-01-17T04:03:40.227-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

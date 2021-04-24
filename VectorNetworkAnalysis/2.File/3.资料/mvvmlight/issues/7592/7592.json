@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:58:59.223-07:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "Any chance you can add support for VS 2012 Express for Windows Phone? This is the version that comes with the WP8 SDK. Thanks",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4.1 for Visual Studio 2012",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-10-01T09:37:08.493-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "VS 2012 Express WP8 Support",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7592
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nUnfortunately I cannot provide support for an SDK as long as the SDK is not released to the public. Can you contact me per email though?\n\nThanks,\nLaurent",
+      "PostedDate": "2012-10-01T14:19:43.203-07:00",
+      "Id": 78205
+    },
+    {
+      "Message": "The V4.1 which was released on the same day as the WP8 SDK supports Visual Studio express.",
+      "PostedDate": "2012-11-11T14:55:29.58-08:00",
+      "Id": 82201
+    },
+    {
+      "Message": "WP 8 is supported in the PCL version here:\nhttps://nuget.org/packages/Portable.MvvmLightLibs",
+      "PostedDate": "2012-11-17T09:14:53.173-08:00",
+      "Id": 82648
+    }
+  ]
+}

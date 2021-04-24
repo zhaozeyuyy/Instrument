@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Duplicate to issue 7542",
+    "ClosedDate": "2013-03-27T07:37:40.067-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "I have come to this issue when was trying to create a report and visualizing through the Microsoft ReportViewer component (from VS2010 SP1). This updated control requires that the classes involved in the datasource of the report are annotated with the [Serializable] attribute.\r\n\r\nThe issue comes that as model classes uses as base class ObservableObject the report is not rendered correctly when using nested objects as ObservableObject is not annotated with [Serializable] attribute.\r\n\r\nWould be great if in an upcoming release this class include the annotation on the class.\r\n\r\nSome could think that there is no need for that as the class itself doesn't contains anything that is not serializable, but the [Serializable] attribute is a must in the new versions (since VS2011 SP1) of the ReportViewer.",
+    "LastUpdatedDate": "2013-03-27T07:37:40.067-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2013-03-27T06:40:35.113-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "[Serializable] attribute on ObservableObject class",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7606
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Duplicate to 7542",
+      "PostedDate": "2013-03-27T07:37:31.347-07:00",
+      "Id": 94524
+    }
+  ]
+}

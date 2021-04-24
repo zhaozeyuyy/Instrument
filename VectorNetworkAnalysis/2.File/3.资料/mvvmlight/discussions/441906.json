@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1036950",
+    "ThreadId": "441906",
+    "Html": "Dear all,\r<br />\n \r<br />\nI have a WPF standard application which implement MVVM pattern using the MVVM light tool kit. Using actually the verison 4.0 of it. When running that app under Windows 7 touch PC I do not have any trouble but when trying that same app under Windows 8 Desktop, it seems that when using the Messenger to send Message betwenn different ViewModel, message are not  receive properly.\r<br />\n \r<br />\nBy setting  abreak point at the receiver, it is not hit and no exception occurs\r<br />\n<br />\nThe project has been build using VS 2010.\r<br />\n \r<br />\nDoes anyone have met this issue and how to solved ?<br />\n",
+    "PostedDate": "2013-04-29T00:11:20.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

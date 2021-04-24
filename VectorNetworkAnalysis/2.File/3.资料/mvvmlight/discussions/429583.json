@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "986577",
+    "ThreadId": "429583",
+    "Html": "\r\n<p>We are still stuck in 2010 for the immediate (only the immediate :-)) future.</p>\r\n<p>I really would love to make use tf this stuff but I did not see any way to do that in VS 2910.</p>\r\n<p>Can anyone help with that?</p>\r\n<p>Thanks,</p>\r\n<p>~glenn</p>\r\n",
+    "PostedDate": "2013-01-14T10:18:04.45-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "986578",
+    "ThreadId": "429583",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Visual Studio 2010 is supported. What did you try?</p>\r\n<p>Thanks</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2013-01-14T10:20:24.03-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "986579",
+    "ThreadId": "429583",
+    "Html": "\r\n<p>Just to be clear, Visual Studio 2910 is not supported yet but maybe my grand grand grand grand ... grand grand children will continue the legacy ;)</p>\r\n",
+    "PostedDate": "2013-01-14T10:21:07.75-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

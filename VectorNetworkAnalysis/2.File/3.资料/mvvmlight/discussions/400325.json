@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "930497",
+    "ThreadId": "400325",
+    "Html": "\r\n<p>I'm having the same problem as many others regarding the MVVM Light ToolKit setup&nbsp;GalaSoft.MvvmLight.4.0.23.4.msi</p>\r\n<p>&quot;There is a problem with this windows installer package.<br>\r\nA program required for this install to complete could not be run.&nbsp;<br>\r\nContact your support personnel or package vendor.&quot;</p>\r\n<p>I am trying to install it on XP SP3 on a Xeon desktop. I have managed to install it on my i5 laptop with the same operating system configuration.</p>\r\n<p>Checking the event log gives the following response.</p>\r\n<p><span style=\"font-size:8.5pt\">The description for Event ID ( 11721 ) in Source ( MsiInstaller ) cannot be found. The local computer may not have the necessary registry information or message DLL files to display messages from a remote computer. You may be\r\n able to use the /AUXSOURCE= flag to retrieve this description; see Help and Support for details. The following information is part of the event: Product: MVVM Light Toolkit -- Error 1721. There is a problem with this Windows Installer package. A program required\r\n for this install to complete could not be run. Contact your support personnel or package vendor. Action: PostSetupActionVS10Machine, location: C:\\, command: C:\\Documents and Settings\\cz1ml0\\Application Data\\\\MvvmLight\\ModifyRegistryKey.exe -i10m &quot;C:\\Program\r\n Files\\Laurent Bugnion (GalaSoft)\\Mvvm Light Toolkit\\Snippets\\CSharp\\ , (NULL), (NULL),</span></p>\r\n<p>&nbsp;</p>\r\n<p>Any ideas?</p>\r\n<p>&nbsp;</p>\r\n<p>Just installed V3 without problems. V4 installer seems to spend much longer doing something with Templates and then fails in the same way.</p>\r\n<p>I have tried&nbsp;GalaSoft.MvvmLight.V4beta1.4.0.2.19.msi and&nbsp;GalaSoft.MvvmLight.4.0.23.4.msi.</p>\r\n",
+    "PostedDate": "2012-10-22T08:09:56.04-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "930894",
+    "ThreadId": "400325",
+    "Html": "<p>If I take the ModifyRegistryKey.exe file from my laptop, where installation succeeds, the installation gets all the way to installing after updating Templates before it fails.</p>\r\n<p>With a fake .exe or no exe, the installation fails pretty much immediately.</p>",
+    "PostedDate": "2012-10-23T01:36:42.823-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "931066",
+    "ThreadId": "400325",
+    "Html": "<p>As I've yet to have any success with this, I simply copied the files from my laptop to my Desktop. Voila, it seems to work.</p>",
+    "PostedDate": "2012-10-23T06:41:11.367-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "893592",
+    "ThreadId": "389706",
+    "Html": "\r\n<p>Hi</p>\r\n<p>in RelayCommand and RelayCommand&lt;T&gt; implementation I've found that you attach event handlers to CommandManager.RequerySuggested event but you don't keep a strong reference, as suggested in MSDN:\r\n<a href=\"http://msdn.microsoft.com/en-us/library/system.windows.input.commandmanager.requerysuggested.aspx\">\r\nhttp://msdn.microsoft.com/en-us/library/system.windows.input.commandmanager.requerysuggested.aspx</a></p>\r\n<p>In fact (at least in my project) if I call MyCommand.RaiseCanExecuteChanged() on a command used in EventToCommand action it does nothing, and MustToggleIsEnabled is effectively non-functional.</p>\r\n<p>I've changed your implementation with this:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>        <span style=\"color:blue\">private</span> EventHandler _requerySuggestedLocal;\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;summary&gt;</span>\r\n        <span style=\"color:gray\">///</span><span style=\"color:green\"> Occurs when changes occur that affect whether the command should execute.</span>\r\n        <span style=\"color:gray\">///</span> <span style=\"color:gray\">&lt;/summary&gt;</span>\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">event</span> EventHandler CanExecuteChanged\r\n        {\r\n            add\r\n            {\r\n                <span style=\"color:blue\">if</span> (_canExecute != <span style=\"color:blue\">null</span>)\r\n                {\r\n                    <span style=\"color:green\">// add event handler to local handler backing field in a thread safe manner</span>\r\n                    EventHandler handler2;\r\n                    EventHandler canExecuteChanged = <span style=\"color:blue\">this</span>._requerySuggestedLocal;\r\n                    <span style=\"color:blue\">do</span>\r\n                    {\r\n                        handler2 = canExecuteChanged;\r\n                        EventHandler handler3 = (EventHandler)Delegate.Combine(handler2, value);\r\n                        canExecuteChanged = Interlocked.CompareExchange&lt;EventHandler&gt;(<span style=\"color:blue\">ref</span> <span style=\"color:blue\">this</span>._requerySuggestedLocal, handler3, handler2);\r\n                    } <span style=\"color:blue\">while</span> (canExecuteChanged != handler2);\r\n\r\n                    CommandManager.RequerySuggested &#43;= value;\r\n                }\r\n            }\r\n\r\n            remove\r\n            {\r\n                <span style=\"color:blue\">if</span> (_canExecute != <span style=\"color:blue\">null</span>)\r\n                {\r\n                    <span style=\"color:green\">// removes an event handler from local backing field in a thread safe manner</span>\r\n                    EventHandler handler2;\r\n                    EventHandler canExecuteChanged = <span style=\"color:blue\">this</span>._requerySuggestedLocal;\r\n                    <span style=\"color:blue\">do</span>\r\n                    {\r\n                        handler2 = canExecuteChanged;\r\n                        EventHandler handler3 = (EventHandler)Delegate.Remove(handler2, value);\r\n                        canExecuteChanged = Interlocked.CompareExchange&lt;EventHandler&gt;(<span style=\"color:blue\">ref</span> <span style=\"color:blue\">this</span>._requerySuggestedLocal, handler3, handler2);\r\n                    } <span style=\"color:blue\">while</span> (canExecuteChanged != handler2);\r\n\r\n                    CommandManager.RequerySuggested -= value;\r\n                }\r\n            }\r\n        }\r\n\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>And now my EventToCommand actions are working fine.</p>\r\n<p>Cheers<br>\r\nPaolo</p>\r\n",
+    "PostedDate": "2012-07-31T05:34:15.583-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "893668",
+    "ThreadId": "389706",
+    "Html": "<p>Hi,</p>\r\n<p>Good feedback, I added that to my backlog. Thanks!</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2012-07-31T07:07:47.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "894517",
+    "ThreadId": "389706",
+    "Html": "<p>Backlog?</p>\r\n<p>already mentioned this same thing end of 2010, then v3, you promised for v4 (so I had to copy sources and change myself) and still?</p>",
+    "PostedDate": "2012-08-02T01:41:20.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "894527",
+    "ThreadId": "389706",
+    "Html": "<p>Hi,</p>\r\n<p>I understand your frustration. MVVM Light is a project that I manage during my free time. As I mentioned earlier, deciding which features to implement in which version is not always easy, and I decided to release V4 before I was able to finish all the items on my backlog. Some things take time, especially testing, making sure that it doesn't break anything, etc. Not looking for excuses here, just trying to let you see the reality of a project like MVVM Light. I am also very conservative in accepting contributions (meaning that I generally don't) because I want to avoid spending time managing different contributors, and because I want to keep the code tight and small.</p>\r\n<p>I am always grateful for people reaching out, and due to the feedback regarding this particular issue, I bumped the priority so that it will be handled in the next release, which will come much faster than V3 -&gt; V4. I am aware I took much too long to release V4 and I want to avoid this error in the future.</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2012-08-02T02:03:24.963-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "894575",
+    "ThreadId": "389706",
+    "Html": "\r\n<div>\r\n<p>Hi,</p>\r\n<p></p>\r\n<p>Thanks for your answer.</p>\r\n<p>You told me more or less same thing in 2010 (and I can accept what you say) </p>\r\n<p>But, at that time I have also sent you the solution that I implemented, if I remember well, just adding some lines to your code…. So providing the solution was quite easy and fast, and hey, MVVM Light is a nice framework so we are using it in real applications…</p>\r\n<p></p>\r\n<p></p>\r\n<p><span style=\"font-size:10.0pt\">Sincerely yours,</span></p>\r\n<p><span style=\"font-size:10.0pt\"></span></p>\r\n<p><span style=\"font-size:10.0pt\">Geert</span></p>\r\n<p><span style=\"font-size:10.0pt\"></span></p>\r\n<p><span style=\"font-size:10.0pt\">Mobile: &#43;32(486)434324</span></p>\r\n<p><span style=\"font-size:10.0pt\">Skype: geertdeprez</span></p>\r\n<p></p>\r\n<p><i><u><span style=\"font-size:10.0pt\">Please think about the environment before printing this e-mail.</span></u></i></p>\r\n<p></p>\r\n</div>\r\n",
+    "PostedDate": "2012-08-02T03:47:32.723-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "894602",
+    "ThreadId": "389706",
+    "Html": "<p>I know how you feel Geert and I agree with you, I should have done this earlier. I am going in vacation tomorrow, and I will take the occasion to push a new version with that change inside.&nbsp;</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2012-08-02T04:43:47.837-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

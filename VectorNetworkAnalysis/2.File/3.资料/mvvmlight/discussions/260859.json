@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "625755",
+    "ThreadId": "260859",
+    "Html": "\r\n<p>Hi</p>\r\n<p>My Projects are using code contratcs to ensure code quality. now theres a gap when using MVVM Light, because they are not equipt with contracts.</p>\r\n<p>Adding them on my own isn't a good idea because they would get lost with each MVVM Light update :-(</p>\r\n<p>Are there plans to add them to the tool kit ?</p>\r\n",
+    "PostedDate": "2011-06-09T23:02:04.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

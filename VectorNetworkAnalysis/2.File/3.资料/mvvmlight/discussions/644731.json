@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1443616",
+    "ThreadId": "644731",
+    "Html": "We're working on our first WPF app here. I think it likely that we'll adopt MVVM Light as the framework (toolkit) for doing our development. I've watched the Pluralsight course that Laurent put out on MVVM Light. It was good; in fact very good. But I'm sorry I'm still not getting navigation using locator. I could really use a concrete example app to see how its meant to be done.\r<br />\n<br />\nCan someone please point me to an example?<br />\n",
+    "PostedDate": "2015-09-08T09:59:58.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1446290",
+    "ThreadId": "644731",
+    "Html": "This is a good example explaining how to use MvvmLight INavigationService.\r<br />\nIt worked fine for me. I believe you'll find it helpful.\r<br />\n<br />\n<a href=\"http://stackoverflow.com/questions/28966819/mvvm-light-5-0-how-to-use-the-navigation-service\" rel=\"nofollow\">http://stackoverflow.com/questions/28966819/mvvm-light-5-0-how-to-use-the-navigation-service</a><br />\n",
+    "PostedDate": "2015-09-29T01:50:29.78-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1447920",
+    "ThreadId": "644731",
+    "Html": "On the MVVM Light documentation page, Laurent says that he is working on documentation for INavigationService for WPF (as well as others that he hasn't documented yet.) Is it ever going to be done, or does he recommend following the solution @pskyv posted the link to above? I could really use feedback on what is the best practice for implementing INavigationService in WPF.\r<br />\n<br />\nThank you,\r<br />\nCindy<br />\n",
+    "PostedDate": "2015-10-09T13:34:34.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1488304",
+    "ThreadId": "644731",
+    "Html": "Hi,\r<br />\n<br />\nPlease see the following sample while I work on a post about it.\r<br />\n<br />\n<a href=\"https://1drv.ms/u/s!As15SQCXjw37p7IeUvd8zgVRn9frTA\" rel=\"nofollow\">https://1drv.ms/u/s!As15SQCXjw37p7IeUvd8zgVRn9frTA</a>\r<br />\n<br />\nNote that this is just a proposed implementation, there are many ways how one could do navigation or dialogs in WPF.\r<br />\n<br />\nTake care\r<br />\nLaurent<br />\n",
+    "PostedDate": "2016-11-18T04:34:36.143-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "670899",
+    "ThreadId": "272358",
+    "Html": "\r\n<p>Hi all,</p>\r\n<p>I want to give the new V4 beta a working over, however I've discovered that the installer wishes that I uninstall the previous version of MVVMLight (installed using the V3 MSI installer).</p>\r\n<p>This is sub optimal as I still need to build against V3 on my release branches and wish to try V4 on my dev branch.</p>\r\n<p>Has anyone had success in getting both installed side by side? Alternatively could the installer be renamed to &quot;MVVM Light Toolkit V4&quot;?</p>\r\n<p>Cheers<br>\r\nRod</p>\r\n",
+    "PostedDate": "2011-09-12T19:40:04.86-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "672802",
+    "ThreadId": "272358",
+    "Html": "<p>Another point on the installer is that is doesn't actually install the project templates or snippets. &nbsp;I un-installed V3 and had to remove the old templates and snippets manually but the new installer didn't add the new versions</p>\r\n<p>&nbsp;</p>\r\n<p>Rgds</p>\r\n<p>Simon (Darkside) Jackson</p>\r\n<p>@DDreaper</p>",
+    "PostedDate": "2011-09-16T09:12:46.267-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "683674",
+    "ThreadId": "272358",
+    "Html": "<p>Did a fresh install today and at the point the MSI tried to install the templates it comes up with a dos box with the following error:</p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"white-space: pre;\"> </span>Error when installing Snippets</p>\r\n<p><span style=\"white-space: pre;\"> </span>Could not find part of path 'D:\\Visual Studio 2010\\Code Snippets..'</p>\r\n<p>&nbsp;</p>\r\n<p>Hope this helps with the installer issues.</p>",
+    "PostedDate": "2011-10-13T06:33:12.67-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "683686",
+    "ThreadId": "272358",
+    "Html": "<p>Hi,</p>\r\n<p>I am abroad these days but I will check it out when I am back home.</p>\r\n<p>cheers</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-10-13T06:49:35.71-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "691533",
+    "ThreadId": "272358",
+    "Html": "<p>Right after some further investigation I found part of my problem. &nbsp;If I have BOTH VS2010 ultimate and VS express installed, the templates and snippets are only installed in the Ultimate edition.</p>\r\n<p>In previous installs for MVVMLight, it was always available in both.</p>\r\n<p>Hope this helps?</p>\r\n<p>Smion</p>",
+    "PostedDate": "2011-10-31T03:02:26.017-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "691535",
+    "ThreadId": "272358",
+    "Html": "<p>Hi,</p>\r\n<p>It is correct that in case both the Ultimate and Express editions are available, I only install for the Ultimate version. When I wrote the installer, it seemed rational, since I couldn't picture people using the Express edition when Ultimate was available. Is that something that you do? It is possible to install for both versions if they are installed, but then it will take longer because I need to execute devenv /setup for both versions.</p>\r\n<p>Cheers,<br />Laurent</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-10-31T03:08:29.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "691547",
+    "ThreadId": "272358",
+    "Html": "<p>Well I've managed to manually install the templates and posted the solution here to Stack Overflow:</p>\r\n<p>http://stackoverflow.com/questions/4023277/silverlight-for-windows-7-phone-option-is-not-shown-in-add-new-item-option</p>\r\n<p>&nbsp;</p>\r\n<p>As for use, I only use ultimate when I have to :D, for general coding express just starts quicker and is less prone to crashing as Ultimate (but that's just me).</p>\r\n<p>Add as well that I only noticed today that the Phone Express is not the same as the normal C# Express as it's a different executable lol</p>\r\n<p>&nbsp;</p>\r\n<p>I think to be on the safe side, I'd install the templates into which ever editions are actually installed to avoid confusion.</p>\r\n<p>As for the side by side dev question above, I'm sure it would be a nice to have.</p>",
+    "PostedDate": "2011-10-31T03:39:18.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "691558",
+    "ThreadId": "272358",
+    "Html": "<p>Good points. I will see if I can modify the installer to install into the various expression editions.</p>\r\n<p>Cheers,<br />Laurent&nbsp;</p>",
+    "PostedDate": "2011-10-31T04:08:04.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

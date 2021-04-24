@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "596997",
+    "ThreadId": "253823",
+    "Html": "\r\n<p>Hi</p>\r\n<p>In some projects I need an Implementation of INotifyPropertyChanging on the ViewModel. Currently I subclass from viewmodelbase to &quot;myOwnViewModelBase&quot; there I implement INotifyPropertyChanging.</p>\r\n<p>What about having INotifyPropertyChanging implemented in the MVVVM Light ViewModelBase ? Or perhaps getting some other MVVM Light Class which specializes the Viewmodelbase ?</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-04-13T23:14:58.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "610293",
+    "ThreadId": "253823",
+    "Html": "<p>Hi,</p>\r\n<p>So sorry for the delay in replying. INotifyPropertyChanging is on the backlog already for V4.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-05-10T09:00:29.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "704827",
+    "ThreadId": "253823",
+    "Html": "<p>Hi Laurent,</p>\r\n<p>&nbsp; &nbsp; I am just getting started with WP7 development, MVVM, etc. &nbsp; Your toolkit (v4 preview) looks very promising. &nbsp;I too would like to see a standard implementation of&nbsp;INotifyPropertyChang<strong>ing</strong>&nbsp;for the same reason the previous poster mentioned. &nbsp;It seems to fit well on your ObservableObject class. &nbsp;I created my own&nbsp;ObservableObject class and derived from yours, but the need to raise the NotifyPropertyChangi<strong>ng</strong> and&nbsp;NotifyPropertyChang<strong>ed</strong>&nbsp;events&nbsp;immediately&nbsp;before and after the property set meant that I had to re-implement all of the meaningful methods within my subclass. &nbsp;Are you still planning to add this in v4? &nbsp;If so, do you have an ETA?</p>\r\n<p>Thanks,&nbsp;Tom.</p>",
+    "PostedDate": "2011-11-29T08:24:36.513-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "705021",
+    "ThreadId": "253823",
+    "Html": "<p>Hi,</p>\r\n<p>Yes it is still planned. I am fighting with a memory leak in the Messenger in the moment, so it is hard to set a date on a release, but rest assured I am working very actively on MVVM Light at the moment.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-11-29T15:14:08.717-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

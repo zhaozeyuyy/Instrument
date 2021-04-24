@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1447990",
+    "ThreadId": "646060",
+    "Html": "I use mvvm-light in my Universal Windows App. My app is in Swedish only, but when uploaded to the Store, the Store thought I was using English too because of resources in the CommonServiceLocator. See details here:\r<br />\n<br />\n<a href=\"https://commonservicelocator.codeplex.com/workitem/16060\" rel=\"nofollow\">https://commonservicelocator.codeplex.com/workitem/16060</a>\r<br />\n<br />\nNow I have solved the problem myself by simply by removing the resources from that library. \r<br />\nI just wanted to share this if someone else gets this problem. It took my several hours to figure out why this was happening :-(. Interestingly this only affects Windows 10-apps, windows 8.1 apps don’t seem to have the same problem.<br />\n",
+    "PostedDate": "2015-10-10T04:40:13.95-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1447995",
+    "ThreadId": "646060",
+    "Html": "That sucks. Unfortunately I am not involved in this library, though maybe someone could fix it there... Anyway thanks for sharing!<br />\n",
+    "PostedDate": "2015-10-10T05:17:11.01-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1454705",
+    "ThreadId": "646060",
+    "Html": "Hi,\r<br />\n<br />\n This is a bug in VS15. See this blog post\r<br />\n<a href=\"http://blog.galasoft.ch/posts/2015/12/solving-the-issue-where-unexpected-languages-appear-when-you-submit-to-the-windows-10-store-mvvmlight/\" rel=\"nofollow\">http://blog.galasoft.ch/posts/2015/12/solving-the-issue-where-unexpected-languages-appear-when-you-submit-to-the-windows-10-store-mvvmlight/</a>\r<br />\n<br />\n Laurent<br />\n",
+    "PostedDate": "2015-12-05T06:19:34.96-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1454707",
+    "ThreadId": "646060",
+    "Html": "Wow, I didn’t expect that :-). Thanks for all your work. I will try that workaround :-)<br />\n",
+    "PostedDate": "2015-12-05T06:41:34.7-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

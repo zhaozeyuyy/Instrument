@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1041184",
+    "ThreadId": "443052",
+    "Html": "I get the following error message (from the event log) when attempting to install GalaSoft.MvvmLight.4.1.24.0.msi:<br />\n<br />\nProduct: MVVM Light Toolkit -- Error 1721. There is a problem with this Windows Installer package. A program required for this install to complete could not be run. Contact your support personnel or package vendor. Action: PostSetupActionVS10Machine, location: D:\\, command: C:\\Users\\MYUSERNAME\\AppData\\Roaming\\MvvmLight\\ModifyRegistryKey.exe -i10m &quot;C:\\Program Files (x86)\\Laurent Bugnion (GalaSoft)\\Mvvm Light Toolkit\\Snippets\\CSharp\\<br />\n<br />\nA similar error has been reported before (see <a href=\"https://mvvmlight.codeplex.com/discussions/274919\" rel=\"nofollow\">https://mvvmlight.codeplex.com/discussions/274919</a>).  Does this installation package need to be updated (as mentioned in the referenced post) or is there a work around solution?<br />\n<br />\nThanks,<br />\n<br />\nIan<br />\n",
+    "PostedDate": "2013-05-08T21:12:35.633-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1174012",
+    "ThreadId": "504649",
+    "Html": "Hi,\r<br />\n<br />\nI am new to MVVM Light and I am havign trouble getting off the ground. I have a WPF .net 4.5 project using VS2013 Professional. I used nuget to add MVVM Light to my project. \r<br />\n<br />\nThe first issue I had was that I tried to register a ns using;\r<br />\n<br />\nxmlns:cmd=&quot;clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.WPF45&quot;\r<br />\n<br />\nThen tried;<br />\n<pre><code>&lt;cmd:EventToCommand Command=&quot;{Binding GridItemEdit}&quot; PassEventArgsToCommand=&quot;True&quot;/&gt;\n</code></pre>\n\nI didn't get any intellisense on cmd: until I changed the ns registration to;\r<br />\n<br />\nxmlns:cmd =&quot;<a href=\"http://www.galasoft.ch/mvvmlight\" rel=\"nofollow\">http://www.galasoft.ch/mvvmlight</a>&quot;\r<br />\n<br />\nAt this point my app would now compile and intellisense works.\r<br />\n<br />\nWhen I run my app, I now receive;\r<br />\n<br />\nCould not load file or assembly 'System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The located assembly's manifest definition does not match the assembly reference. \r<br />\n<br />\nI have used  Interaction.Triggers in other parts of my app with no issues. I am not sure why this is happening. If I remove the code <br />\n<pre><code>&lt;cmd:EventToCommand Command=&quot;{Binding GridItemEdit}&quot; PassEventArgsToCommand=&quot;True&quot;/&gt;\n</code></pre>\n\nThe app works fine.\r<br />\n<br />\nHelp!\r<br />\n<br />\nThank you.\r<br />\n<br />\nGeorge<br />\n",
+    "PostedDate": "2014-01-17T07:46:13.517-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1174109",
+    "ThreadId": "504649",
+    "Html": "Hi,\r<br />\n<br />\nI have setup a test project to remove any noise from my project and it seems as though the issue may lie with PRISM or Unity extensions. Before adding the nuget references to Unity the app run fine. Not sure why this is happening. Anyone have any ideas?\r<br />\n<br />\nThanks,\r<br />\n<br />\nGeorge<br />\n",
+    "PostedDate": "2014-01-17T08:24:32.433-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1174168",
+    "ThreadId": "504649",
+    "Html": "I have done a little more work on this and my project blows up when I add a reference to PRISM. The error is still the same i.e. System.Windows.Interactivity etc but I know see;\r<br />\n<br />\nThe type 'EventToCommand' from assembly 'GalaSoft.MvvmLight,Extras.WPF45' is built with an older version of the Blend SDK, and is not supported in a Windows Presentation Framework 4 project.\r<br />\n<br />\nWhen I hover over the &lt;cmd:EventToCommand ......<br />\n",
+    "PostedDate": "2014-01-17T08:44:26.747-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1183731",
+    "ThreadId": "504649",
+    "Html": "The issue was that I needed to add references to the MVVM Light libs in my Shell app. I added references to then Module I was working on which was fine until I tried to run the app.<br />\n",
+    "PostedDate": "2014-01-20T01:55:05.49-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2014-01-20T01:55:12.447-08:00"
+  }
+]

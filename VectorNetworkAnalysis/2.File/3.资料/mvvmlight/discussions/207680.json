@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "425043",
+    "ThreadId": "207680",
+    "Html": "Hi, \r\n\r\nis there some consideration about its using under XBAP?  Because I'm trying it with a \r\nXBAP and I get  SecurityException after referenced MVVMLight library...",
+    "PostedDate": "2010-03-29T11:13:05.353-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

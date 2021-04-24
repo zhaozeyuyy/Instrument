@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1093873",
+    "ThreadId": "457258",
+    "Html": "Hi,\r<br />\n<br />\nI am using WPF MVVM Light to implement our application. I want to know the best practice to clean up  all the viewmodels and any other resources used. What is the approach to be followed.\r<br />\nCan any provide a sample app on this.\r<br />\n<br />\n<br />\nThanks in advance.<br />\n",
+    "PostedDate": "2013-09-17T23:38:07.27-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1093879",
+    "ThreadId": "457258",
+    "Html": "Hi,\r<br />\n<br />\nResharper provides a good visual indication of which resources are unused, by graying them out in the XAML.\r<br />\n<br />\ncheers \r<br />\nLaurent <br />\n",
+    "PostedDate": "2013-09-17T23:59:22.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

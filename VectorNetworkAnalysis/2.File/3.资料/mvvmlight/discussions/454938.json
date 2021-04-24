@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1086437",
+    "ThreadId": "454938",
+    "Html": "Our product loads only dlls. So we create class libraries and integrate WPF stuff in it following  MVVM pattern. Now if want to use MVVM light how do i need to integrate that. <br />\n",
+    "PostedDate": "2013-08-29T18:54:18.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1086557",
+    "ThreadId": "454938",
+    "Html": "All our modules are stand-alone dll's (class libraries with usercontrols) loaded into a Prism shell and use MVVM Light's messenger to communicate. Each module has it's own viewmodellocator, the viewmodels inherit GalaSoft.MvvmLight.ViewModelBase, ICleanUP and our own framework interface and use RelayCommand and Messenger etc.\r<br />\n<br />\nAs long as your DLL's reference the MVVM Light libs you should be good to go (don't quite me on that though).<br />\n",
+    "PostedDate": "2013-08-30T03:20:03.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1087291",
+    "ThreadId": "454938",
+    "Html": "Thanks tazzer,\r<br />\n<br />\nCould you please share a sample module. That would be of great help.<br />\n",
+    "PostedDate": "2013-09-02T03:34:58.477-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1087293",
+    "ThreadId": "454938",
+    "Html": "I can't as it's pre-production commercial system so I unfortunately share a module.\r<br />\n<br />\nI'm happy to pass on snippets, assist where possible etc but I can't share the code as it's IP and would break my terms of employment contract.<br />\n",
+    "PostedDate": "2013-09-02T03:45:53.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1087296",
+    "ThreadId": "454938",
+    "Html": "Hi,\r<br />\n<br />\nYou can reference MVVM Light from a class library and use the Messenger, SimpleIoc or any other class contained in MVVM Light. You must pay attention to two things:\r<br />\n<br />\n1) The version of MVVM Light referenced by the class library must also be referenced by the application. We see sometimes some version conflicts, this is .NET standard really.\r<br />\n<br />\n2) The Messenger, SimpleIoc etc all have default (static) instances which means that you can use them as long as all the modules run in the same AppDomain. For instance, you can send a message using the Messenger from your class library to the main app, no problems, but only if the library is loaded in the same AppDomain as the main app. This is in general the case.\r<br />\n<br />\nHope this helps\r<br />\nLaurent<br />\n",
+    "PostedDate": "2013-09-02T04:00:06.933-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

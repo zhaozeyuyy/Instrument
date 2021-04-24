@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "606173",
+    "ThreadId": "256073",
+    "Html": "\r\n<p>Hi Laurent,</p>\r\n<p>We have been playing with the version 3 of MVVM Light and are looking forward to some of the changes coming with v4. &nbsp;Just wondering if you have a target release yet?</p>\r\n<p>I have downloaded the latest build and was able to compile successfully, and use the DLLs. &nbsp;I am guessing both the project templates and snippets will have to change for v4 right? &nbsp;I did get the project templates to build, but not really sure how\r\n you have the templates built in the zip files.</p>\r\n<p>Thanks!</p>\r\n",
+    "PostedDate": "2011-05-02T17:00:59.163-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "610317",
+    "ThreadId": "256073",
+    "Html": "<p>Hi,</p>\r\n<p>I still have a few features I would like to add in V4, and given the \"side project\" nature of this work... hard to be sure about a date. I will do my best to release V4 before the summer vacation.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-05-10T09:32:27.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "642310",
+    "ThreadId": "256073",
+    "Html": "<p>Laurent,</p>\r\n<p>I'm sure you have been busy, but and updates on your next release (V4)? Big fan of you stuff and your writings and am looking forward to this next release.</p>\r\n<p>Dustin Griffith</p>",
+    "PostedDate": "2011-07-14T06:35:48.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "643800",
+    "ThreadId": "256073",
+    "Html": "<p>Hi,</p>\r\n<p>Working actively on it these days. I was hoping to be able to release something before the summer vacation, but I got delayed by work and also a big private project (moving to a new house ;). Progress is good though.</p>\r\n<p>Hope this helps,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-07-18T09:56:09.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

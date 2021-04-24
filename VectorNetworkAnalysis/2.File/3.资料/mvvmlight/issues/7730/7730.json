@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "I got a WPF application that shows a button bound to a command like that:\r\n\r\n```\r\n<Button Command=\"{Binding DownloadCommand}\" Content=\"Download\">\r\n```\r\n```\r\n...\r\nusing GalaSoft.MvvmLight;\r\nusing GalaSoft.MvvmLight.CommandWpf;\r\n...\r\n\r\nprivate ICommand _downloadCommand;\r\npublic ICommand DownloadCommand\r\n{\r\n    get { return _downloadCommand ?? (_downloadCommand = new RelayCommand(Download, () => IsEnabled)); }\r\n}\r\n\r\nprivate bool _isEnabled = true;\r\npublic bool IsEnabled\r\n{\r\n    get{\r\n        return _isEnabled;\r\n    }\r\n    set{\r\n        _isEnabled= value;\r\n        RaisePropertyChanged();\r\n    }\r\n}   \r\n```\r\nThe problem is, the button won't be enabled immediately after I set IsEnabled to false, __but only after I click inside the application window.__\r\n\r\nIf I use \"CommandManager.InvalidateRequerySuggested ();\", it works perfectly, but I read that is not the most recommended when several commands need to be updated. This did not happen before :(\r\n\r\ni'm use MVVM Light 5.3.0.0\r\n\r\nCould you help me understand this behaviour and show me how to fix this?",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.3.1 (planning)",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-06-16T06:00:35.6-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "ICommand CanExecute not triggering after PropertyChanged?",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7730
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Seems to be related to [url: https://mvvmlight.codeplex.com/workitem/7708]. I will take a look in V5.3.1.",
+      "PostedDate": "2016-07-20T00:51:52.15-07:00",
+      "Id": 200742
+    },
+    {
+      "Message": "I add information that could be useful:\n\nIf within the Task.Run not add anything. It works perfectly. Buttons are activated and deactivated again.\n\nprivate async void Download()\n{\n    Reset();\n\n    await Task.Run(() =>\n    {\n        // WIDTHOUT CODE\n        // WIDTHOUT CODE\n        // WIDTHOUT CODE\n    });\n\n    Reset();\n}\n\n        private void Reset()\n        {\n            IsEnabled = !IsEnabled;\n            IsEnabledCancel = !IsEnabledCancel;\n        }",
+      "PostedDate": "2016-07-21T06:44:50.737-07:00",
+      "Id": 200777
+    }
+  ]
+}

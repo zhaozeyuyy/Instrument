@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T07:13:10.377-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "I often need to add a string property to my view models to feedback the reason why the command can't execute (usually via a tooltip on a command button). This requires an extra string on my viewmodel for each command (code smell!). The obvious fix is to have a string property on RelayCommand. The only issue then is that RelayCommand would have to implement INotifyPropertyChanged!",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-11-03T09:03:39.103-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Won't fix"
+    },
+    "Summary": "Add Feedback to RelayCommand",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7553
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Of course that does give a slight issue as it's common to expose commands as ICommand on viewmodels to help with mocking in unit tests. This wouldn't expose the new property (although a WPF binding would find it anyway). Strictly speaking RelayCommand would have to implement an interface eg ICommand2 which derives from ICommand and adds the extra property. Is this too much for a \"light\" framework? I suppose I could inherit from RelayCommand and add all this myself!",
+      "PostedDate": "2011-11-03T09:23:03.55-07:00",
+      "Id": 48372
+    },
+    {
+      "Message": "This sounds fairly specific for a general-purpose, light framework.  My suggestion to antidemon would be to create an interface - i.e. \"IProvideTooltip\" or \"IProvideHint\" - that exposes a Tooltip/Hint string, and then extend the DelegateCommand class in your own projects to implement that interface (as well as INotifyPropertyChanged).\n\nThen just keep it in your personal toolbox for future use ;)",
+      "PostedDate": "2012-05-29T08:38:35.787-07:00",
+      "Id": 66879
+    }
+  ]
+}

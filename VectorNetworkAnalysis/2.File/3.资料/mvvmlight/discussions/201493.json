@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "410393",
+    "ThreadId": "201493",
+    "Html": "<p>I have a UserControl (a part) that has a ViewModel. That UserControl is embedded in another UserControl (a page) with its own ViewModel. When attaching an EventToCommand behavior to the &quot;part&quot; UserControl, the command is sent to the &quot;part&quot; ViewModel because that is the datacontext for that control. I want the command to go to the &quot;page&quot; ViewModel. How can I tell the EventToCommand behavior to use the &quot;page&quot; datacontext instead of the &quot;part&quot; datacontext?</p>\r\n<p>The &quot;page&quot; datacontext is set using a ViewModelLocator.</p>\r\n<p>&lt;UserControl.DataContext&gt;<br>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;Binding Path=&quot;MyVM&quot; Source=&quot;{StaticResource Locator}&quot;/&gt;<br>&lt;/UserControl.DataContext&gt;</p>\r\n<p>I have only been able to come up with an unsatisfactory solution and am looking for help solving this problem.</p>",
+    "PostedDate": "2010-02-26T15:54:25.12-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "412517",
+    "ThreadId": "201493",
+    "Html": "<p>Give the layout panel, but not the page UserControl, a name. Then see the example below.</p>\r\n<p>&lt;UserControl.DataContext&gt;<br>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;Binding Path=&quot;MyVM&quot; Source=&quot;{StaticResource Locator}&quot;/&gt;<br>&lt;/UserControl.DataContext&gt;<br>&nbsp;&nbsp; &nbsp;<br>&lt;Grid x:Name=&quot;LayoutRoot&quot;&gt;</p>\r\n<p>&lt;local:PartCtrl x:Name=&quot;MyPartCtrl&quot;&nbsp; &gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;i:Interaction.Triggers&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;i:EventTrigger EventName=&quot;MouseEnter&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;cmd:EventToCommand&nbsp; Command='{Binding ElementName=&quot;LayoutRoot&quot;, Path=&quot;DataContext.MyCommand&quot;, Mode=OneWay }'&nbsp; /&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;/i:EventTrigger&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;/i:Interaction.Triggers&gt;<br>&lt;/local:PartCtrl&gt;</p>\r\n<p>&lt;/Grid&gt;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-02-28T15:07:33.063-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "412523",
+    "ThreadId": "201493",
+    "Html": "<p>Hi Orrin,</p>\r\n<p>Sorry for the delay. I just returned from two weeks of absence.</p>\r\n<p>What you mention will work indeed. If your main view model is a singleton (i.e. defined as a static property of the ViewModelLocator), another way is to do:</p>\r\n<p>Command=&quot;{Binding Source={StaticResource Locator}, Path=MyVM.MyCommand}&quot;</p>\r\n<p>Cheers and thanks for the feedback!</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-02-28T15:39:12.78-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "412539",
+    "ThreadId": "201493",
+    "Html": "\r\nLaurent,<br>\r\n<br>\r\nThank you for the advice. And thank you for creating a great framework.<br>\r\n<br>\r\nOrrin<br>\r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\nlbugnion wrote:\r\n<blockquote cite=\"mid:CO1MSFTVADM02gC81Tb0002a3fe@CO1MSFTVADM02.SND.RNO.GBL\">\r\n  \r\n  \r\n  <p>From: lbugnion</p>\r\n  <div id=ThreadNotificationPostBody>\r\n  <p>Hi Orrin,</p>\r\n  <p>Sorry for the delay. I just returned from two weeks of absence.</p>\r\n  <p>What you mention will work indeed. If your main view model is a\r\nsingleton (i.e. defined as a static property of the ViewModelLocator),\r\nanother way is to do:</p>\r\n  <p>Command=&quot;{Binding Source={StaticResource Locator},\r\nPath=MyVM.MyCommand}&quot;</p>\r\n  <p>Cheers and thanks for the feedback!</p>\r\n  <p>Laurent</p>\r\n  </div>\r\n  \r\n</blockquote>\r\n",
+    "PostedDate": "2010-02-28T17:25:52.06-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "432460",
+    "ThreadId": "201493",
+    "Html": "<p>Hi,</p>\r\n<p>As you are a previous user of the discussion tab on the MVVM Light Codeplex site, I would like to inform you that I decided to encourage the usage of StackOverflow for questions regarding the MVVM Light toolkit. Please tag your questions with the mvvm-light tag.</p>\r\n<p>StackOverflow is an awesome site where tons of developers help others with their technical question.</p>\r\n<p><a href=\"http://stackoverflow.com/questions/tagged/mvvm-light\">http://stackoverflow.com/questions/tagged/mvvm-light</a></p>\r\n<p>I will monitor this tag on the StackOverflow website and do my best to answer questions. The advantage of StackOverflow over the Codeplex discussion is the sheer number of qualified developers able to help you with your questions, the visibility of the question itself, and the whole StackOverflow infrastructure (reputation, up- or down-vote, comments, etc)</p>\r\n<p>Thanks!</p>\r\n<p>Laurent</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-18T11:58:43.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

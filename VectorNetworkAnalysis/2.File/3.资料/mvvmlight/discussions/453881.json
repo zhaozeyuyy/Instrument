@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1082399",
+    "ThreadId": "453881",
+    "Html": "Hello,\r<br />\n<br />\nIs there anywhere I can find some sample project on how to use DispatcherHelper class? \r<br />\nI'm using MVVM Light toolkit and I need a way to send messages from worker thread to UI in order to display log message in the view.\r<br />\n<br />\nAny help is appreciated.\r<br />\n<br />\nThanks,\r<br />\n-Alex<br />\n",
+    "PostedDate": "2013-08-19T16:06:56.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

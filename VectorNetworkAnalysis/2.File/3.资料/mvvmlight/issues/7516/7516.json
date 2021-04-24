@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:53:48.533-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "ObservableObject is basically just the part of ViewModelBase that implements INotifyPropertyChanged, but it's very convenient to have as a separate class (as in Josh Smith's MVVM Foundation) because view-models are not the only objects that need to implement INotifyPropertyChanged. For example, let's say you have a DataGrid that binds to a list of Person objects. If any of the properties in Person can change while the user is viewing the DataGrid, Person would need to implement INotifyPropertyChanged. (I realize that if Person is auto-generated using something like LinqToSql, it will probably already implement INotifyPropertyChanged, but there are cases where I need to make view-specific versions of entity model objects, say, because I need to include a command to support a button column in a DataGrid.)",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 beta 1",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-03-04T13:06:09.703-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "How about an \"ObservableObject\" class?",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7516
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

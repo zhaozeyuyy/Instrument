@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "857008",
+    "ThreadId": "361867",
+    "Html": "\r\n<p>Hi Laurent,</p>\r\n<p>I guess the subjects speaks for itself ;-) I am currently integrating the new interface from WPF 4.5 into my new ViewModels and I have quite a lot repetitive code &agrave;&nbsp;la</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>Dictionary&lt;String, List&lt;String&gt;&gt; errors = <span style=\"color:blue\">new</span> Dictionary&lt;<span style=\"color:blue\">string</span>, List&lt;<span style=\"color:blue\">string</span>&gt;&gt;();\r\n</pre>\r\n</div>\r\n<p>plus additional Methods for adding and removing errors.</p>\r\n<p>What is your opinion on this?</p>\r\n<p>Keep up the great work</p>\r\n<p>Still loving MVVM Light,<br>\r\nStill loving WPF.</p>\r\n<p>cheers pothmann</p>\r\n",
+    "PostedDate": "2012-07-03T12:32:13.91-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

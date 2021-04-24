@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1470600",
+    "ThreadId": "653734",
+    "Html": "Hello,\r<br />\n<br />\nMaybe a stupid question ;-)\r<br />\n<br />\nIn a fresh new Universal Windows app for Win10 (VS2015 community) all my reference dissapear when I try to install the MVVMLight-Libs through the Nuget program. \r<br />\n<br />\nI'm talking about Microsoft.AppplicationsInsights; Microsoft.AppplicationsInsights.Persistencechannel; Microsoft.AppplicationsInsights.WindowApps  and Microsoft.NETCore.UniversalWindowsPlatform.  All are nuget packages\r<br />\nThe Universal Windows-references doesn't disappear though.\r<br />\n<br />\nWhen removing the MVVMLight-Libs packages all above packages return.\r<br />\n<br />\nAs when the references disappear, i got problems with: The type or namespace name 'System' could not be found (are you missing a using directive or an assembly reference?)\r<br />\n<br />\nAny ideas?\r<br />\n<br />\nkind regards,\r<br />\n<br />\nPieter <br />\n",
+    "PostedDate": "2016-04-19T03:55:51.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1470608",
+    "ThreadId": "653734",
+    "Html": "Hi.\r<br />\n<br />\nIt's not a stupid question, but it is also the first time I hear about this. It sounds like a Nuget issue. Is it only with MVVM Light that you see this issue? Can you send me more information about your system? Do you have the latest Nuget version?\r<br />\n<br />\nI can take it up with the Nuget team, but I think it might be an issue on your machine (I hate to say that...)\r<br />\n<br />\nLaurent<br />\n",
+    "PostedDate": "2016-04-19T04:36:22.55-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1470629",
+    "ThreadId": "653734",
+    "Html": "Hi Laurent,<br />\n<br />\nthanks for the feedback. <br />\nI have 3 machines which are configured for programming. I thought I have the issue on all three of them.<br />\n<br />\nI just tried it another way. Installing the reference through the extensions and update. <br />\nThen new project =&gt;MVVMLight win10<br />\nBut then, I have the same problem. <br />\nThe System-references are gone?<br />\n<br />\nsee prtscrn<br />\n<img src=\"http://i64.tinypic.com/2uyixra.png\" alt=\"Image\" /><br />\n<br />\n<br />\nEDIT: just tried extra things:<br />\n<br />\nNew -&gt; Blank app (Universal Windows). <br />\nThese are current references:<br />\n<img src=\"https://i.imgur.com/LnygKIs.png\" alt=\"Image\" /><br />\n<br />\nAfter testing with Nuget Prism MVVM, all other references are kept:<br />\n<img src=\"https://i.imgur.com/yA39rme.png\" alt=\"Image\" /><br />\n<br />\nThen removed Prism, situation is again as Situation 1.<br />\nthrough Nuget, added the MVVMLightLibs and all other Nuget packages are gone!<br />\n<img src=\"https://i.imgur.com/VaJyDkH.png\" alt=\"Image\" /><br />\n<br />\nNuget package manager however, still find them, but my solution doesn't...<br />\n<img src=\"https://i.imgur.com/iwtSIsI.png\" alt=\"Image\" /><br />\n<br />\nkind regards,<br />\n<br />\nPieter <br />\n",
+    "PostedDate": "2016-04-19T07:18:13.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1470634",
+    "ThreadId": "653734",
+    "Html": "And when you build, the packages are not restored?\r<br />\n<br />\nI will try this at home and let you know if I can repro.\r<br />\n<br />\nLaurent<br />\n",
+    "PostedDate": "2016-04-19T07:48:35.547-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1470650",
+    "ThreadId": "653734",
+    "Html": "I tried your suggestion above already before, but I didn't think it helped.\r<br />\nNow I'm at my pc @home, and here I don't have the reference problem... everything works as expected.\r<br />\n<br />\nI have a third pc on my work, and i will test it also there tomorrow.\r<br />\n<br />\nEither way, I will keep you updated!\r<br />\n<br />\nkind regards,<br />\n",
+    "PostedDate": "2016-04-19T10:32:04.343-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1470749",
+    "ThreadId": "653734",
+    "Html": "Please make sure that you have the latest version of Nuget installed everywhere. The Windows 10 templates uses the new Nuget &quot;features&quot; (not willingly but I have no choice) which is restoring packages when you build the solution. I suspect that you might have an old version of Nuget which fails to restore the packages. That should happen automatically.<br />\n",
+    "PostedDate": "2016-04-20T04:09:12.243-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

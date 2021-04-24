@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1175117",
+    "ThreadId": "505624",
+    "Html": "Am  I missing something here, when I add a new MvvmView it always adds a Window instead of a UserControl. I've normally worked in VB so have had to add my own Views, but thought I'd create some templates in VB. So created a C# project and added a MvvmView to see exactly what was created. I wasn't expecting a Window !!<br />\n<br />\nStu<br />\n",
+    "PostedDate": "2014-01-17T14:43:09.43-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1191247",
+    "ThreadId": "505624",
+    "Html": "Hi,\r<br />\n<br />\nI assume you talk about the WPF templates? If so, that is correct. The item templates in MVVM Light are not very complex. Their purpose is mostly educational.\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2014-01-22T09:40:04.95-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1191436",
+    "ThreadId": "505624",
+    "Html": "Hi Laurent\r<br />\n<br />\nYes I was. In my C# application if I add a new MvvmView (WPF) I was expecting to get a new UserControl with a bit of added Xaml (DataContext) and maybe a bit of code in the Class. I didn't understand why the Xaml looked OK, but the Class reads <strong>public partial class MvvmView4 : Window</strong>. If it's is supposed to be a Window OK, still don't understand why?\r<br />\n<br />\nThanks Stuart<br />\n",
+    "PostedDate": "2014-01-22T10:54:58.1-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

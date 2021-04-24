@@ -1,0 +1,71 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T03:02:30.303-07:00",
+    "CommentCount": 5,
+    "Custom": null,
+    "Description": "I've created a new WPF application and used nuget to install MVVM Light. The default MainViewModel states in a comment that the \"mvvminpc\" snippet is available to add bindable properties.\r\n\r\nHowever, typing this snippet doesn't actually do anything nor does it show up in intellisense. How can I make it available?",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-06-09T11:03:45.94-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Not an issue"
+    },
+    "Summary": "mvvminpc snippet not available after nuget-based install?",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7574
+  },
+  "FileAttachments": [
+    {
+      "FileId": 800830,
+      "FileName": "propmvvm.snippet",
+      "DownloadUrl": ".\\800830"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nNuget does not currently have a mechanism allowing to install snippets or templates. You are right that the comment mentioning mvvminpc is confusing. I will remove it.\n\nThanks\nLaurent",
+      "PostedDate": "2012-06-12T01:07:43.96-07:00",
+      "Id": 67781
+    },
+    {
+      "Message": "Hello,\n\nJust looking for this snipped for a few minutes, before finding this post. Could you add the snipped, or a link to it in the class?\n\nFabrice",
+      "PostedDate": "2013-04-27T23:24:29.717-07:00",
+      "Id": 98704
+    },
+    {
+      "Message": "I am using VS Express 2012 for Windows Phone on Windows 8 Pro, installed the MVVM Light and the snippets is not showing.  There is a solution to manually add the snippet, but couldn't found the folder.",
+      "PostedDate": "2013-05-17T09:30:52.313-07:00",
+      "Id": 100464
+    },
+    {
+      "Message": "If you use the NuGet version then you can simply make your own snippet, based on the standard prop snippet. I have attached the one I use. In Visual Studio, open Tools/Code Snippet Manager, select C#, and press 'Import'. Then select the file.\r\nThe snippet becomes available as 'propmvvm'.",
+      "PostedDate": "2014-02-17T23:20:18.75-08:00",
+      "Id": 133914
+    },
+    {
+      "Message": "\n\r\n\r** Closed by lbugnion 10/13/2014 3:02AM",
+      "PostedDate": "2014-10-13T03:02:04.597-07:00",
+      "Id": 162160
+    }
+  ]
+}

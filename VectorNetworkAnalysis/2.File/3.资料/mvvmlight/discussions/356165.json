@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "837719",
+    "ThreadId": "356165",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I'm using MVVM Light v4 rc to create a Metro app. Can I just ask if it should currently be possible to debug design time data from Blend 5 beta by attaching the visual studio 2011 debugger as you demonstrated in Mix '10 with Blend 4 and VS2010? I can't get\r\n it to work at the moment and am not sure if its down to my code or the beta software?</p>\r\n<p>thanks in advance,</p>\r\n<p>J.</p>\r\n",
+    "PostedDate": "2012-05-17T08:08:00.827-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "838098",
+    "ThreadId": "356165",
+    "Html": "<p>In addition I think the design time binding just doesn't work at the moment with these early builds. Can anyone confirm this?</p>",
+    "PostedDate": "2012-05-18T04:18:59.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "838104",
+    "ThreadId": "356165",
+    "Html": "<p>Hi,</p>\r\n<p>Design time binding works. For instance, check the following blog post</p>\r\n<p><a href=\"http://blog.galasoft.ch/archive/2012/04/18/slides-and-source-code-for-my-past-talks-this-year.aspx\">http://blog.galasoft.ch/archive/2012/04/18/slides-and-source-code-for-my-past-talks-this-year.aspx</a></p>\r\n<p><a href=\"http://blog.galasoft.ch/archive/2012/04/18/slides-and-source-code-for-my-past-talks-this-year.aspx\"></a>If you download&nbsp;https://skydrive.live.com/redir.aspx?cid=40cffde85f1ab56a&amp;resid=40CFFDE85F1AB56A!1273&amp;parid=40CFFDE85F1AB56A!1267 and open in Blend for WinRT or in the Visual Studio Designer, you will see some design time data.</p>\r\n<p>The technique of attaching VS11 to Blend 5 unfortunately does not work anymore.&nbsp;</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2012-05-18T04:34:34.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "838125",
+    "ThreadId": "356165",
+    "Html": "<p>Hi Laurent,</p>\r\n<p>Many thanks for the reply.&nbsp; Yes, I can see the data in the example code you mentioned, so I must have something wrong with my code. I will take a look.</p>\r\n<p>Shame about not being able to debug. Hopefully just a beta thing.</p>\r\n<p>kind regards,<br />John.</p>",
+    "PostedDate": "2012-05-18T05:56:14.63-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "838142",
+    "ThreadId": "356165",
+    "Html": "<p>Just an update to let you know, I have succeeded in getting design time data coming through. I think my problem might be related to using a GridView bound to a CollectionViewSource defined in the XAML as follows:</p>\r\n<p><span style=\"color: blue;\">&lt;</span><span style=\"color: #a31515;\">CollectionViewSource</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color: red;\">x:Name</span><span style=\"color: blue;\">=</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">groupedItemsViewSource</span><span style=\"color: black;\">\"</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color: red;\">Source</span><span style=\"color: blue;\">=</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">{Binding Groups}</span><span style=\"color: black;\">\"</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color: red;\">IsSourceGrouped</span><span style=\"color: blue;\">=</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">true</span><span style=\"color: black;\">\"</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color: red;\">ItemsPath</span><span style=\"color: blue;\">=</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">Items</span><span style=\"color: black;\">\"</span><span style=\"color: blue;\">/&gt;</span></p>\r\n<p>&nbsp;If I bind a ListBox to the same collection (Groups) in the same page I see the data at design time, so its something to do with the GridView and/or the CollectionViewSource.</p>",
+    "PostedDate": "2012-05-18T07:03:16.647-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "946187",
+    "ThreadId": "356165",
+    "Html": "\r\n<blockquote style=\"border:solid .1em #ccc; font-style:italic; margin:.25em 1em 0 1em; padding:0 .25em 0 .25em\">\r\n<strong>jdbell wrote:</strong><br>\r\n<p>Just an update to let you know, I have succeeded in getting design time data coming through. I think my problem might be related to using a GridView bound to a CollectionViewSource defined in the XAML as follows:</p>\r\n<p><span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">CollectionViewSource</span><br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:red\">x:Name</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">groupedItemsViewSource</span><span style=\"color:black\">&quot;</span><br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:red\">Source</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">{Binding Groups}</span><span style=\"color:black\">&quot;</span><br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:red\">IsSourceGrouped</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">true</span><span style=\"color:black\">&quot;</span><br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:red\">ItemsPath</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">Items</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">/&gt;</span></p>\r\n<p>&nbsp;If I bind a ListBox to the same collection (Groups) in the same page I see the data at design time, so its something to do with the GridView and/or the CollectionViewSource.</p>\r\n</blockquote>\r\n<p>You could set the Source for the design, here is an article explaining how:&nbsp;http://bit.ly/TacvU0</p>\r\n",
+    "PostedDate": "2012-11-23T09:38:24.637-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 5,
+    "Custom": null,
+    "Description": "I'm trying to bind an ICommand from view to ViewModel in an Android/iOS native app.  Unfortunately this fails because of the SimpleConverter which tries to convert using `System.Convert.ChangeType(value, typeof (TTarget));`\r\n\r\nThis method creates a new object and obviously interfaces cannot be instanciated.  A check should be added to validate if a direct cast can be done before attempting to use `System.Convert`.  The following fails but if you change ICommand to RelayCommand on both View and VM, it works.  Using an empty converter also works (3rd code block).\r\n\r\nView\r\n```\r\n        public ICommand UpdateWatermarkCommand { get; }\r\n\r\n        public override void ViewDidLoad()\r\n        {\r\n            base.ViewDidLoad();\r\n\r\n            this.SetBinding(() => UpdateWatermarkCommand, ViewModel, () => ViewModel.DisplayWatermarkCommand, BindingMode.OneTime);\r\n        }\r\n```\r\n\r\nViewModel\r\n```\r\n        public ICommand DisplayWatermarkCommand { get; set; }\r\n```\r\n\r\nUsing empty converter\r\n```\r\n        public override void ViewDidLoad()\r\n        {\r\n            base.ViewDidLoad();\r\n\r\n            this.SetBinding(() => UpdateWatermarkCommand, ViewModel, () => ViewModel.DisplayWatermarkCommand, BindingMode.OneTime).ConvertSourceToTarget(DirectMap);\r\n        }\r\n\r\n        private ICommand DirectMap(ICommand arg)\r\n        {\r\n            return arg;\r\n        }\r\n```",
+    "LastUpdatedDate": "2017-08-18T19:04:26.343-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2017-08-18T10:21:00.543-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Binding to Interfaces fail",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7752
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nInteresting use case. Out of curiosity, why do you want to bind commands together?\n\nThat said I see your point about interfaces. I will add an item to my backlog,\n\nThanks\nLaurent",
+      "PostedDate": "2017-08-18T17:38:18.26-07:00",
+      "Id": 208778
+    },
+    {
+      "Message": "Yes it is a pretty theoretical use of bindings and of course in the usual lifetime of the view & VM it is equivalent to a simple assigment.  However, I chose to do this in case the View Model changes at runtime which I'm not even sure is properly handled by your binding engine to be honest (given the binding is done on the object directly as opposed to using the dot operator in Xaml)\n\nWith that said, it is common to bind commands through Xaml in Xamarin Forms, Wpf or UWP and in the best world your binding engine would allow it to.",
+      "PostedDate": "2017-08-18T18:15:32.477-07:00",
+      "Id": 208779
+    },
+    {
+      "Message": "Yes in XAML they use a Binding to add a Command to a UI element which supports it. There is no such thing in Android or iOS since the UI elements don't have a Command property, but I propose to use the SetCommand extension method to achieve the same effect.\n\nFor example\n\n_myButton.SetCommand(AnyCommand); // which uses the default event for the UI element, for example Click for a button\n\nor \n_myButton.SetCommand(\"EventName\", AnyCommand); // if you want to observe another event.\n\nWould that make more sense?\nLaurent\n",
+      "PostedDate": "2017-08-18T18:44:11.003-07:00",
+      "Id": 208780
+    },
+    {
+      "Message": "Not sure how I missed the SetCommand method but I wrote my own weak subscription and binding classes to map events to commands.",
+      "PostedDate": "2017-08-18T19:03:33.787-07:00",
+      "Id": 208781
+    },
+    {
+      "Message": "Not sure how I missed the SetCommand methods but I wrote my own weak subscription and binding classes to bind events to commands.",
+      "PostedDate": "2017-08-18T19:04:26.343-07:00",
+      "Id": 208782
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "Id": "1149753",
+    "ThreadId": "483764",
+    "Html": "Hi<br />\n<br />\nSimple question: it's possible to delete a single non-tokenized class instance without de-registering the interface from the SimpleIoC container?<br />\n<br />\nThe scenario is:<br />\nA window (based on a registered viewmodel) that makes a summary of the current loaded project file (injected with IoC). When I close and re-open another file the IoC keeps the old viewmodel instance without refreshing project data.<br />\n<br />\nNow I have to do something like this to refresh dependencies:<br />\nSimpleIoC.Unregister&lt;MyClass&gt;(); // &lt;- Istantiated<br />\nSimpleIoC.Register&lt;MyClass&gt;();<br />\n<br />\nWhat about to add a de-instatiator method? (or a version of Unregister(bool deleteInstanceOnly))?<br />\n<br />\nThank you<br />\nLorenzo<br />\n",
+    "PostedDate": "2014-01-05T11:45:51.577-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1157785",
+    "ThreadId": "483764",
+    "Html": "Sorry for my first post.\r<br />\n<br />\nI've found your second overload of Unregister&lt;T&gt;(instance) wich provides the functionality I was looking for.\r<br />\n<br />\nLorenzo<br />\n",
+    "PostedDate": "2014-01-12T07:35:41.617-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1197580",
+    "ThreadId": "483764",
+    "Html": "Hi\r<br />\n<br />\nafter some tests I noticed that Unregister doesn't work properly.\r<br />\n<br />\nIf I do something like this:\r<br />\n<br />\n// Creates a registration for my view model type resolving the class's dependencies\r<br />\nSimpleIoC.Default.Register&lt;MyVMType&gt;(); \r<br />\n<br />\n// Put the instance in a local variable\r<br />\nvar myClassInstance = SimpleIoC.Default.GetInstance&lt;MyVMType&gt;();\r<br />\n<br />\n// Unregister the instance. As the manual says: &quot;this method only delete the previous created instance WITHOUT removing the registration.&quot;\r<br />\nSimpleIoC.Default.Unregister(myClassInstance);\r<br />\n<br />\n// Try to get a new instance\r<br />\nSimpleIoC.GetInstance&lt;MyVMType&gt;(); // ERROR! Reports: &quot;Type not found in cache without a key: MyVMType&quot;\r<br />\n<br />\nAm I doing something wrong?\r<br />\n<br />\nThank you!\r<br />\nLorenzo<br />\n",
+    "PostedDate": "2014-01-25T14:20:59.7-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1198920",
+    "ThreadId": "483764",
+    "Html": "Hmmm,\r<br />\n<br />\nIt does appear to work like that, Unity would just create a new class instance.<br />\n<pre><code>// Cleanup\n((IDisposable)ServiceLocator.Current.GetInstance&lt;ICustomerDataService&gt;()).Dispose();\nSimpleIoc.Default.Unregister&lt;ICustomerDataService&gt;();\n\n//Fails\nICustomerDataService test = ServiceLocator.Current.GetInstance&lt;ICustomerDataService&gt;();\n\n//Works\nSimpleIoc.Default.Register&lt;ICustomerDataService, CustomerDataService&gt;();\nICustomerDataService test = ServiceLocator.Current.GetInstance&lt;ICustomerDataService&gt;();\n</code></pre>\n\nI guess you can use a token if you want multiple instances but in my tests if you unregister a specific type you have to re-register before you can use it.\r<br />\n<br />\n&quot;Removes the given instance from the cache. The class itself remains registered and can be used to create other instances.&quot;\r<br />\n<br />\nAs you say, the documentation would lead you to believe you just have to call GetInstance.<br />\n",
+    "PostedDate": "2014-01-27T04:05:56.49-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1242999",
+    "ThreadId": "483764",
+    "Html": "I've come across the same problem. I've looked into the SimpleIoc.cs file in the source and the problem appears to be that when removing the instance, the factories are also removed. This results in SimpleIoc not being able to instantiate a new instance.\r<br />\n<br />\nBased on the method description, I'd say this is a bug, but can easily be fixed if you have the code. In the example, I've just commented out the 'if(_factories...' bit and it seems to be working now.<br />\n<pre><code>        public void Unregister&lt;TClass&gt;(TClass instance)\n            where TClass : class\n        {\n            lock (_syncLock)\n            {\n                var classType = typeof(TClass);\n\n                if (_instancesRegistry.ContainsKey(classType))\n                {\n                    var list = _instancesRegistry[classType];\n\n                    var pairs = list.Where(pair =&gt; pair.Value == instance).ToList();\n                    for (var index = 0; index &lt; pairs.Count(); index++)\n                    {\n                        var key = pairs[index].Key;\n\n                        list.Remove(key);\n\n                        //if (_factories.ContainsKey(classType))\n                        //{\n                        //  if (_factories[classType].ContainsKey(key))\n                        //  {\n                        //      _factories[classType].Remove(key);\n                        //  }\n                        //}\n                    }\n                }\n            }\n        }</code></pre>\n\n",
+    "PostedDate": "2014-05-08T04:45:41.76-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1243039",
+    "ThreadId": "483764",
+    "Html": "Hi,\r<br />\n<br />\nIt sounds like a bug to me as well. I will think about it just to make sure that this is not breaking anything but I agree that the expected behavior should be to NOT remove the factory.\r<br />\n<br />\nLet me check that out.\r<br />\n<br />\nThanks\r<br />\nLaurent<br />\n",
+    "PostedDate": "2014-05-08T06:16:17.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1243153",
+    "ThreadId": "483764",
+    "Html": "Hi Laurent,\r<br />\n<br />\nJust noticed that the same issue seems to appear in the &quot;public void Unregister&lt;TClass&gt;(string key)&quot; method as well. \r<br />\n<br />\n( Been exploring the code a bit. Loving the toolkit though! :-) )\r<br />\n<br />\nRegards,\r<br />\nLlewelyn<br />\n",
+    "PostedDate": "2014-05-08T09:21:27.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1255167",
+    "ThreadId": "483764",
+    "Html": "Hi Laurent,<br />\n<br />\nRun into the same issue recently. Tried it out, the fix from llewelynrex works. Is it possible to implement this fix to the next version?<br />\n<br />\nOtherwise, I really like this toolkit though!<br />\n<br />\nRegards<br />\nzuberbro<br />\n",
+    "PostedDate": "2014-06-11T05:01:11.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1258221",
+    "ThreadId": "483764",
+    "Html": "I've created Issue 7636 for this problem, zuberbro. Could you cast your vote there? Might give this problem a higher priority if more people vote for it. At the moment, there are only 2 votes.\r<br />\n<br />\nKind Regards,\r<br />\nLlewelyn<br />\n",
+    "PostedDate": "2014-06-20T05:13:12.807-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1258232",
+    "ThreadId": "483764",
+    "Html": "I have talked to Laurent last Monday. He will review this and most likely fix it in a next release. - I just give a vote, didn't see it.\r<br />\nCheers\r<br />\nzuberbro<br />\n",
+    "PostedDate": "2014-06-20T05:57:44.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1258319",
+    "ThreadId": "483764",
+    "Html": "Ah, brilliant! Looking forward to the new release. :)<br />\n",
+    "PostedDate": "2014-06-20T08:51:06.44-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1323243",
+    "ThreadId": "483764",
+    "Html": "I think there has been a new release since the last post here, but it seems the bug is still there. Could you please fix the issue?<br />\n",
+    "PostedDate": "2014-11-17T23:27:42.793-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1323258",
+    "ThreadId": "483764",
+    "Html": "Hi,\r<br />\n<br />\nThe V5 release was a big construction site where I finally took the Portable class library as the main branch. This simplifies the process for me and will allow me to release new versions faster. It might be a little frustrating for the users because I decided to release V5 before I was able to address all the bugs but the situation is much cleaner now and I will address this particular bug next.\r<br />\n<br />\nSorry for the delay and be assured that this is important to me.\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2014-11-18T00:13:22.247-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1349351",
+    "ThreadId": "483764",
+    "Html": "Hi,\r<br />\n<br />\nHere is an update: I fixed the issue by changing slightly the way that Unregister(TService instance) works. Now you can do this:<br />\n<pre><code>            SimpleIoc.Default.Reset();\n            SimpleIoc.Default.Register&lt;TestClass1&gt;();\n\n            Assert.IsTrue(SimpleIoc.Default.IsRegistered&lt;TestClass1&gt;());\n            Assert.IsFalse(SimpleIoc.Default.ContainsCreated&lt;TestClass1&gt;());\n\n            const string key = &quot;key1&quot;;\n            var instance1 = SimpleIoc.Default.GetInstance&lt;TestClass1&gt;(key);\n\n            Assert.IsTrue(SimpleIoc.Default.IsRegistered&lt;TestClass1&gt;());\n            Assert.IsTrue(SimpleIoc.Default.ContainsCreated&lt;TestClass1&gt;());\n\n            var instance2 = SimpleIoc.Default.GetInstance&lt;TestClass1&gt;(key);\n            Assert.AreSame(instance1, instance2);\n\n            SimpleIoc.Default.Unregister(instance1);\n\n            Assert.IsTrue(SimpleIoc.Default.IsRegistered&lt;TestClass1&gt;());\n            Assert.IsFalse(SimpleIoc.Default.ContainsCreated&lt;TestClass1&gt;());\n\n            var instance3 = SimpleIoc.Default.GetInstance&lt;TestClass1&gt;(key);\n            Assert.AreNotSame(instance1, instance3);\n</code></pre>\n\nor (more to the point of this discussion), you can also do:<br />\n<pre><code>            SimpleIoc.Default.Reset();\n            SimpleIoc.Default.Register&lt;TestClass1&gt;();\n\n            Assert.IsTrue(SimpleIoc.Default.IsRegistered&lt;TestClass1&gt;());\n            Assert.IsFalse(SimpleIoc.Default.ContainsCreated&lt;TestClass1&gt;());\n\n            var instance1 = SimpleIoc.Default.GetInstance&lt;TestClass1&gt;();\n\n            Assert.IsTrue(SimpleIoc.Default.IsRegistered&lt;TestClass1&gt;());\n            Assert.IsTrue(SimpleIoc.Default.ContainsCreated&lt;TestClass1&gt;());\n\n            var instance2 = SimpleIoc.Default.GetInstance&lt;TestClass1&gt;();\n            Assert.AreSame(instance1, instance2);\n\n            SimpleIoc.Default.Unregister(instance1);\n\n            Assert.IsTrue(SimpleIoc.Default.IsRegistered&lt;TestClass1&gt;());\n            Assert.IsFalse(SimpleIoc.Default.ContainsCreated&lt;TestClass1&gt;());\n\n            var instance3 = SimpleIoc.Default.GetInstance&lt;TestClass1&gt;();\n            Assert.AreNotSame(instance1, instance3);\n</code></pre>\n\nNotice that this is a breaking change which I think makes sense, as this promotes a much better practice here. Before, if you were unregistering the only instance and then trying to reinstance, you would get an ActivationException. Now, this just works.\r<br />\n<br />\nI hope that this is not going to break too much code but I don't think so. Relying on an exception being thrown is not a great practice ;) and it was rather weird having to &quot;force unregister&quot; before getting a new instance again.\r<br />\n<br />\nThis change is implemented now and will come in V5.1 coming up most probably this weekend (8 Feb 2015).\r<br />\n<br />\nThanks for the patience everyone.\r<br />\nLaurent<br />\n",
+    "PostedDate": "2015-02-05T08:35:03.923-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1349770",
+    "ThreadId": "483764",
+    "Html": "DLLs are available here:\r<br />\n<a href=\"http://1drv.ms/1ylP1TS\" rel=\"nofollow\">http://1drv.ms/1ylP1TS</a>\r<br />\n<br />\nNuget will be updated ASAP.<br />\n",
+    "PostedDate": "2015-02-06T09:12:31.76-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

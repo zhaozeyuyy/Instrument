@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1474097",
+    "ThreadId": "654869",
+    "Html": "Hello all,<br />\n<br />\nThis is not a bug so much as a feature request. If this is in the wrong place I apologize. This question/feature request pertains to SimpleIoc.<br />\n<br />\nCurrently in SimpleIoc you use the following line of code to register a type. <br />\n<br />\nSimpleIoc.Default.Register&lt;ModuleRegistryService&gt;(); <br />\n<br />\nOr<br />\n<br />\nSimpleIoc.Default.Register&lt;IModuleRegistryService, ModuleRegistryService&gt;();<br />\n<br />\nThis has worked great for me so far with no issues. However, I am now trying to automatically register certain types within my project based on certain things falling into place with that type. Unfortunately it would seem SimpleIoc does not support registering just System.Type types. If that makes any since. Aka I need to do something like this:<br />\n<br />\nSimpleIoc.Default.Register(typeof(ModuleRegistryService)); <br />\n<br />\nOr<br />\n<br />\nSimpleIoc.Default.Register(typeof(IModuleRegistryService), typeof(ModuleRegistryService));<br />\n<br />\nI found a work around here which I would rather not use: <a href=\"http://stackoverflow.com/questions/25422460/how-to-register-from-type-to-t\" rel=\"nofollow\">http://stackoverflow.com/questions/25422460/how-to-register-from-type-to-t</a><br />\n<br />\nI have also researched using other Ioc containers and I really like SimpleIoc and use it extensively in my projects so I would rather not switch if I do not have to.<br />\n<br />\nWould it be possible to add this functionality into SimpleIoc?<br />\n<br />\nThanks,<br />\nBob<br />\n<br />\nP.S I would also need to be able to resolve them with a type.<br />\n",
+    "PostedDate": "2016-05-23T14:03:01.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

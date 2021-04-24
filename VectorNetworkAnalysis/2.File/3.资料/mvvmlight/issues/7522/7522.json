@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:54:29.153-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "according to recent recommendations, every delegate should be either Action or Func, otherwise delegate values can not be assigned one instead of other despite having same signature. i suggests to change Predicate<T>  =>  Func<T, bool>\r\nin RelayCommandGeneric.cs",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 beta 1",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-04-17T20:39:01.36-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "used deprecated Predicate<T> instead of Func<T, bool>",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7522
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Fixed in V4 beta 1",
+      "PostedDate": "2011-09-11T15:12:32.407-07:00",
+      "Id": 44520
+    }
+  ]
+}

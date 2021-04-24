@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:58:51.47-07:00",
+    "CommentCount": 5,
+    "Custom": null,
+    "Description": "Please consider this issue:\r\nWhen we have parametrized RelayCommand and define own CanExecute method for example:\r\nprivate RelayCommand<Window> _closeCommand\r\npublic RelayCommand<Window> CloseCommand\r\n{\r\nget\r\n{\r\n    if(_closeCommand == null)\r\n        _closeCommand = new RelayCommand(OnCloseCommand,OnCanCloseCommand);\r\n    return _closeCommand;\r\n}\r\n}\r\n\r\npublic void OnCloseCommand(Window wnd)\r\n{\r\nif(OnCloseCommand(wnd))\r\n    wnd.Close();\r\n}\r\npublic bool OnCanCloseCommand(Window wnd)\r\n{\r\nreturn wnd != null;\r\n}\r\n\r\nAfter creating this command, binding it (to a button Command and necessarily CommandParameter properties for example) and building it\r\nwe will get designer error that will say: hey you have got InvalidCastException because\r\nof unabling to cast Microsoft.Expression.WpfPlatform.InstanceBuilders.(here goes concrete class name, \r\nit may be WindowInstance or something other that you trying to pass with CommandParameter property\r\nof control) to the System.Windows.Window\r\n\r\nHere goes example for resolving this issue in MVVM Light source code, I mark it with this\r\ncomment // <====== PLEASE CONSIDER FOR ADDING THIS CONDITION...\r\nCould you please add something like: if(parameter is T) to the GalaSoft.MvvmLight(NET35)\\RelayCommandGeneric.cs\r\n\r\npublic bool CanExecute(object parameter)\r\n        {\r\n            if (_canExecute == null)\r\n            {\r\n                return true;\r\n            }\r\n\r\n            if (_canExecute.IsStatic || _canExecute.IsAlive)\r\n            {\r\n                if (parameter == null\r\n#if NETFX_CORE\r\n                    && typeof(T).GetTypeInfo().IsValueType)\r\n#else\r\n                    && typeof(T).IsValueType)\r\n#endif\r\n                {\r\n                    return _canExecute.Execute(default(T));\r\n                }\r\n                \r\n                if (parameter is T) // <====== PLEASE CONSIDER FOR ADDING THIS CONDITION\r\n                    return _canExecute.Execute((T) parameter);\r\n            }\r\n\r\n            return false;\r\n        }\r\n\r\nWith best regards!\r\nAshot Muradian, ashotmuradian@hotmail.com",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "null",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-09-19T02:32:10.083-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "RelayCommandGeneric.cs CanExecute raises InvalidCastException",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 7589
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "This has been fixed in the portable version here:\nhttps://nuget.org/packages/Portable.MvvmLightLibs\n\n",
+      "PostedDate": "2012-11-17T09:11:24.03-08:00",
+      "Id": 82645
+    },
+    {
+      "Message": "Fix will be available in V5.1",
+      "PostedDate": "2014-10-13T02:57:24.78-07:00",
+      "Id": 162158
+    },
+    {
+      "Message": "See https://mvvmlight.codeplex.com/SourceControl/changeset/04290f6bcfc2",
+      "PostedDate": "2014-10-13T03:01:15.253-07:00",
+      "Id": 162159
+    },
+    {
+      "Message": "I'm currently on v5.3 and for Windows 10 builds greater than 14136 I get the following error. Could someone help me out?\n\n```\nException thrown: 'System.InvalidCastException' in aopp.exe\nException thrown: 'System.Reflection.TargetInvocationException' in mscorlib.dll\nSystem.Windows.Data Error: 8 : Cannot save value from target back to source. BindingExpression:Path=Items[0].Selected; DataItem='CollectionViewGroupInternal' (HashCode=35847919); target element is 'ToggleButton' (Name='prodbut'); target property is 'IsChecked' (type 'Nullable`1') InvalidCastException:'System.InvalidCastException: Specified cast is not valid.\n   at kompass.Converters.BillProductsGroupPriceMultiConverter.Convert(Object[] values, Type targetType, Object parameter, CultureInfo culture) in C:\\Users\\Converters\\Converter.cs:line 15\n   at System.Windows.Data.MultiBindingExpression.TransferValue()\n   at System.Windows.Data.MultiBindingExpression.Transfer()\n   at System.Windows.Data.MultiBindingExpression.InvalidateChild(BindingExpressionBase bindingExpression)\n   at System.Windows.Data.BindingExpressionBase.Invalidate(Boolean isASubPropertyChange)\n   at System.Windows.Data.BindingExpression.TransferValue(Object newValue, Boolean isASubPropertyChange)\n   at System.Windows.Data.BindingExpression.ScheduleTransfer(Boolean isASubPropertyChange)\n   at MS.Internal.Data.ClrBindingWorker.NewValueAvailable(Boolean dependencySourcesChanged, Boolean initialValue, Boolean isASubPropertyChange)\n   at MS.Internal.Data.PropertyPathWorker.UpdateSourceValueState(Int32 k, ICollectionView collectionView, Object newValue, Boolean isASubPropertyChange)\n   at MS.Internal.Data.ClrBindingWorker.OnSourcePropertyChanged(Object o, String propName)\n   at MS.Internal.Data.PropertyPathWorker.OnPropertyChanged(Object sender, PropertyChangedEventArgs e)\n   at System.Windows.WeakEventManager.ListenerList`1.DeliverEvent(Object sender, EventArgs e, Type managerType)\n   at System.ComponentModel.PropertyChangedEventManager.OnPropertyChanged(Object sender, PropertyChangedEventArgs args)\n   at System.Collections.ObjectModel.ReadOnlyObservableCollection`1.OnPropertyChanged(PropertyChangedEventArgs args)\n   at System.Collections.ObjectModel.ReadOnlyObservableCollection`1.HandlePropertyChanged(Object sender, PropertyChangedEventArgs e)\n   at System.Collections.ObjectModel.ObservableCollection`1.OnPropertyChanged(PropertyChangedEventArgs e)\n   at System.Collections.ObjectModel.ObservableCollection`1.ClearItems()\n   at System.Collections.ObjectModel.Collection`1.Clear()\n   at MS.Internal.Data.CollectionViewGroupInternal.Clear()\n   at MS.Internal.Data.CollectionViewGroupInternal.Clear()\n   at MS.Internal.Data.CollectionViewGroupInternal.Clear()\n   at MS.Internal.Data.CollectionViewGroupInternal.Clear()\n   at System.Windows.Data.ListCollectionView.PrepareShaping()\n   at System.Windows.Data.ListCollectionView.PrepareLocalArray()\n   at System.Windows.Data.ListCollectionView.RefreshOverride()\n   at System.Windows.Data.CollectionView.RefreshInternal()\n   at System.Windows.Data.CollectionView.RefreshOrDefer()\n   at System.Windows.Data.ListCollectionView.ProcessCollectionChanged(NotifyCollectionChangedEventArgs args)\n   at System.Windows.Data.CollectionView.OnCollectionChanged(Object sender, NotifyCollectionChangedEventArgs args)\n   at System.Collections.Specialized.NotifyCollectionChangedEventHandler.Invoke(Object sender, NotifyCollectionChangedEventArgs e)\n   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)\n   at kompass.Helpers.ItemsChangeObservableCollection`1.item_PropertyChanged(Object sender, PropertyChangedEventArgs e) in C:\\ObservableCollection.cs:line 65\n   at System.ComponentModel.PropertyChangedEventHandler.Invoke(Object sender, PropertyChangedEventArgs e)\n   at GalaSoft.MvvmLight.ObservableObject.RaisePropertyChanged(String propertyName) in D:\\GalaSoft\\mydotnet\\MVVMLight\\source\\GalaSoft.MvvmLight\\GalaSoft.MvvmLight (PCL)\\ObservableObject.cs:line 198\n   at kompass.Model.BillProductModel.set_Selected(Boolean value) in C:\\Model.cs:line 81'\nException thrown: 'System.ArgumentOutOfRangeException' in mscorlib.dll\nException thrown: 'System.Reflection.TargetInvocationException' in mscorlib.dll\nBypass prompt for source file: D:\\GalaSoft\\mydotnet\\MVVMLight\\source\\GalaSoft.MvvmLight\\GalaSoft.MvvmLight (PCL)\\Command\\RelayCommandGeneric.cs.\nBypass prompt for source file: D:\\GalaSoft\\mydotnet\\MVVMLight\\source\\GalaSoft.MvvmLight\\GalaSoft.MvvmLight (PCL)\\Command\\RelayCommandGeneric.cs.\n```",
+      "PostedDate": "2016-05-11T09:05:49.28-07:00",
+      "Id": 199473
+    },
+    {
+      "Message": "Hi,\n\nNote that this issue is closed because it was fixed. Your comment points to something else altogether. It seems that you are having an exception within the BillProductsGroupPriceMultiConverter class. Try to set a breakpoint there and debug.\n\nThanks\nLaurent",
+      "PostedDate": "2016-05-11T09:48:27.137-07:00",
+      "Id": 199477
+    }
+  ]
+}

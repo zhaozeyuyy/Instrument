@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T02:37:23.37-07:00",
+    "CommentCount": 6,
+    "Custom": null,
+    "Description": "I guess I could use http://whydoidoit.com/silverlight-serializer/ but it would be nice to be able to use DataContractSerializer etc.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-09-12T20:08:57.547-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Won't fix"
+    },
+    "Summary": "Enhancement Request: Make ObservableObject and ViewModelBase serializable by adding the [DataContract]or [Serializable] attribute.",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 12,
+    "Id": 7542
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Here is the class I'm currently using for ObservableObject\n\n```\nnamespace Benson.ComponentModel\n{\n    using System;\n    using System.ComponentModel;\n    using System.Runtime.CompilerServices;\n\n    // ReSharper disable once CSharpWarnings::CS1584\n    /// <summary>\n    /// Implementation of <see cref=\"INotifyPropertyChanged\"/> for .NET 4.5\n    /// </summary>\n    /// <remarks>\n    /// Taken in part from http://danrigby.com/2012/04/01/inotifypropertychanged-the-net-4-5-way-revisited/\n    /// </remarks>\n    [Serializable]\n    public abstract class ObservableObject : INotifyPropertyChanged\n    {\n        #region Fields\n\n        [NonSerialized]\n        private PropertyChangedEventHandler propertyChanged;\n\n        #endregion\n\n        #region Public Events\n\n        /// <summary>\n        /// Multicast event for property change notifications.\n        /// </summary>\n        public event PropertyChangedEventHandler PropertyChanged\n        {\n            add\n            {\n                this.propertyChanged += value;\n            }\n            remove\n            {\n                this.propertyChanged -= value;\n            }\n        }\n\n        #endregion\n\n        #region Methods\n\n        /// <summary>\n        /// Notifies listeners that a property value has changed.\n        /// </summary>\n        /// <param name=\"propertyName\">Name of the property used to notify listeners.  This\n        /// value is optional and can be provided automatically when invoked from compilers\n        /// that support <see cref=\"CallerMemberNameAttribute\"/>.</param>\n        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)\n        {\n            var eventHandler = this.propertyChanged;\n            if (eventHandler != null)\n            {\n                eventHandler(this, new PropertyChangedEventArgs(propertyName));\n            }\n        }\n\n        /// <summary>\n        /// Checks if a property already matches a desired value.  Sets the property and\n        /// notifies listeners only when necessary.\n        /// </summary>\n        /// <typeparam name=\"T\">Type of the property.</typeparam>\n        /// <param name=\"storage\">Reference to a property with both getter and setter.</param>\n        /// <param name=\"value\">Desired value for the property.</param>\n        /// <param name=\"propertyName\">Name of the property used to notify listeners.  This\n        /// value is optional and can be provided automatically when invoked from compilers that\n        /// support CallerMemberName.</param>\n        /// <returns>True if the value was changed, false if the existing value matched the\n        /// desired value.</returns>\n        protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] String propertyName = null)\n        {\n            if (Equals(storage, value))\n            {\n                return false;\n            }\n\n            storage = value;\n            // ReSharper disable once ExplicitCallerInfoArgument\n            this.OnPropertyChanged(propertyName);\n            return true;\n        }\n\n        #endregion\n    }\n}\n```",
+      "PostedDate": "2013-07-24T18:59:26.817-07:00",
+      "Id": 107341
+    },
+    {
+      "Message": "Is there any chance to see this happen? The request is old but no response has been made. ",
+      "PostedDate": "2014-02-20T05:12:13.947-08:00",
+      "Id": 134193
+    },
+    {
+      "Message": "Hi,\n\nAfter a lot of dicussions with experts in serializations, I decided against adding the requested attribute to the ViewModelBase (VMB) and ObservableObject (OO) classes. There are multiple reasons.\n\n* You can use JSON.net to serialize the existing VMB and OO classes already, without any changes. JSON.net is a modern serializer that \"just works\".\n* For other situations, you can follow one of the strategies:\n* * Implement a separate class for the state serialization\n* * Subclass VMB or OO and use that instead\n* * Implement your own VMB/OO classes.\n\nSorry that I am disappointing you, it was an interesting discussion with the noted experts, but I think it is safer this way.\n\nCheers\nLaurent",
+      "PostedDate": "2014-10-13T02:36:29.59-07:00",
+      "Id": 162153
+    },
+    {
+      "Message": "I'm curious what the \"noted experts\" said was the downside of implementing the basic changes I've shown above?",
+      "PostedDate": "2014-10-14T17:55:19.46-07:00",
+      "Id": 162289
+    },
+    {
+      "Message": "Hi,\n\nThat's a fair request. The most recent discussion happened on a private mailing list, between a set of Microsoft MVPs (the MVP title per se does not imply that we're experts on anything ;) but some of the guys on that list have a huge experience in these areas).\n\nBrian Noyes wrote a long article, following this discussion:\nhttp://briannoyes.net/2014/09/29/be-aware-of-differences-in-explicit-and-implicit-deserialization-with-dcs/\n\nThis is probably the most complete way to explain why I am reluctant to change the current implementation. Hopefully the alternatives I suggested above make sense.\n\nCheers\nLaurent",
+      "PostedDate": "2014-10-15T08:25:46.08-07:00",
+      "Id": 162323
+    },
+    {
+      "Message": "Hi Laurent,\n\nI'm obviously missing something?  Just because there are things to be aware of with serialization how does it hurt to have a Serializable base class?\n\nIs it that you don't want the support headaches from dealing with folks that don't know what they're doing and hit issues like the one in the blog post?\n\nPS  It's been ages since I looked at this sort of code so I'm probably missing something obvious.\n\nCheers,\n\nJon",
+      "PostedDate": "2014-10-21T01:40:30.49-07:00",
+      "Id": 162798
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T03:19:39.827-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "\r\nA Button in a Listbox binds to a RelayCommand<int>, as Parameter it binds a int property of an entity.\r\n\r\nWhen the listbox clears everything works fine as long as the WindowLanguage isn't changed manually. (So en-us)\r\n\r\nBut i have to change the window language to the current Culture. (s. http://stackoverflow.com/questions/9382696/showing-culture-aware-short-date-and-time-string-from-datetimeoffset-in-xaml)\r\n\r\nThen the relaycommand raises a Nullreference Exception. (s. Stacktrace)\r\nwhen I change the RelayCommand<int> to RelayCommand<object> I can see the reason.\r\n\r\nWhen the language isn't change, the Action for CanExecuteChanged isn't raised when the entity doesn't exists.\r\nBut when the language is changed to de-de than the Action is raised with null as value. So I assume that in this case a convert to int is tried inside the Command.\r\n\r\n\r\n\r\n\r\nStacktrace\r\n\r\n\tServer stack trace:\r\n\t   at GalaSoft.MvvmLight.Command.RelayCommand`1.CanExecute﴾Object\r\n\tparameter﴿\r\n\t   at\r\n\tMS.Internal.Commands.CommandHelpers.CanExecuteCommandSource﴾IComma\r\n\tndSource commandSource﴿\r\n\t   at System.Windows.Controls.Primitives.ButtonBase.UpdateCanExecute﴾﴿\r\n\t   at\r\n\tSystem.Windows.Controls.Primitives.ButtonBase.OnCanExecuteChanged﴾Object\r\n\tsender, EventArgs e﴿\r\n\t   at System.EventHandler.Invoke﴾Object sender, EventArgs e﴿\r\n\t   at\r\n\tGalaSoft.MvvmLight.Command.RelayCommand`1.RaiseCanExecuteChanged﴾﴿\r\n\t   at BE.FogBugz.Tracker.ViewModel.WorkingOnTasksViewModel.refresh﴾﴿ in\r\n\t",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-02-22T01:29:44.57-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "NullRefBug in RelayCommand<T> when changing Window Language",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7561
+  },
+  "FileAttachments": [
+    {
+      "FileId": 345756,
+      "FileName": "22-02-2012 09-49-05.png",
+      "DownloadUrl": ".\\345756"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Here screenshot of the exception",
+      "PostedDate": "2012-02-22T01:30:03.213-08:00",
+      "Id": 56373
+    }
+  ]
+}

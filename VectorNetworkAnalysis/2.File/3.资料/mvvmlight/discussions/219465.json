@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "467414",
+    "ThreadId": "219465",
+    "Html": "<p>Hi,</p>\r\n<p>I am having trouble getting the MVVM-Light templates working since installing the new Beta of the WP7 tools.&nbsp; I was able to manually changes the assemble references (now Microsoft.Phone) but when I try to deploy to the emulator I get an error about the AppGenericIcon.png not being found (I tried changing it to ApplicaitonIcon.png).</p>\r\n<p>Is there a list of changes that need to be made to the project in order to use the latest tools until the templates are updated?</p>\r\n<p>Thanks in advance!</p>",
+    "PostedDate": "2010-07-14T12:04:38.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "467422",
+    "ThreadId": "219465",
+    "Html": "Hi,\r\n\r\nYes there were many breaking changes in the WP7 dev tools beta regarding the project template. The DLLs work fine though. I will push a new version ASAP.\r\n\r\nCheers,\r\nLaurent",
+    "PostedDate": "2010-07-14T12:28:43.58-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

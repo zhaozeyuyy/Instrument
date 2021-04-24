@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "602334",
+    "ThreadId": "255158",
+    "Html": "\r\n<p>It would be great having the mvvm light tool kit targeting only the client framework.</p>\r\n<p>&nbsp;</p>\r\n<p>All of my applications target client framework only. So if I decide to use the MVVM Light Toolkit i'd have to retarget all my projects event though the don't have any need for the full framework except the mvvm light toolkit.</p>\r\n<p>&nbsp;</p>\r\n<p>is there any chance to get it target only the client framework ?</p>\r\n",
+    "PostedDate": "2011-04-25T02:40:54.78-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "602336",
+    "ThreadId": "255158",
+    "Html": "<p>Sorry my fault. just recognized that only the unit tests arent client framework.</p>\r\n<p>sorry my fault : -)</p>",
+    "PostedDate": "2011-04-25T02:41:48.07-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

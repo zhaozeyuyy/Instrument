@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "517236",
+    "ThreadId": "233533",
+    "Html": "\r\n<p>Will the source code for the Silverlight 4 version of MVVM light be post anytime soon? The binaries work but using the published source code does not. In particular, the EventToCommand functionality is broken.</p>\r\n",
+    "PostedDate": "2010-11-04T11:52:36.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "517767",
+    "ThreadId": "233533",
+    "Html": "\r\n<p>I use the latest source code here :&nbsp;<a href=\"http://mvvmlight.codeplex.com/SourceControl/list/changesets\">http://mvvmlight.codeplex.com/SourceControl/list/changesets<br>\r\nI</a>&nbsp;clicked on Download Latest Version on the right of the screen. I compiled the code and it works well for me...</p>\r\n",
+    "PostedDate": "2010-11-05T09:16:36.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "519178",
+    "ThreadId": "233533",
+    "Html": "\r\n<p>Hey guys,</p>\r\n<p>There was a little confusion in the source code, especially the two versions for VS 2008 and VS 2010. I cleaned it up now.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2010-11-08T23:31:32.32-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "523970",
+    "ThreadId": "233533",
+    "Html": "\r\n<p>Hi Laurent,</p>\r\n<p>Thanks for putting the new code up. I downloaded and converted the projects to Silverlight 4 (as you mentioned, they were already updated for VS2010). There were a couple of issue. First the GalaSoft.MvvmLight.Test suite failed to complete. I also created\r\n a test app (SL4) that attempted to use EventToCommand. This all compiled fine but the command (on MouseEnter of a TextBox) never fired. I have all the prerequisites. The RelayCommand to a ButtonBase works fine, it's only the EventToCommand that seems to be\r\n broken.</p>\r\n<p>I'd appreciate any advise you may have on this.</p>\r\n<p>Thanks,</p>\r\n<p>Arch</p>\r\n",
+    "PostedDate": "2010-11-18T12:06:51.473-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "525031",
+    "ThreadId": "233533",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>There was an issue with the code, only Silverlight 3 and WPF3.5 made it to Codeplex for some reason. I corrected this, and now by selecting Silverlight 4, you should be able to make everything work fine. Let me know!</p>\r\n<p>Cheers</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2010-11-21T12:58:50.027-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "525451",
+    "ThreadId": "233533",
+    "Html": "\r\n<p>Works perfectly!&nbsp;</p>\r\n<p>Thank you Laurent for this amazing toolkit.</p>\r\n<p>Regards,</p>\r\n<p>Arch</p>\r\n",
+    "PostedDate": "2010-11-22T11:33:10.973-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

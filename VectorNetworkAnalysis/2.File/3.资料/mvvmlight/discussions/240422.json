@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "543759",
+    "ThreadId": "240422",
+    "Html": "\r\n<p>We're writing a WPF app where a ViewModel (child) needs to let know another ViewModel (parent) to Refresh it's ICollectionView.</p>\r\n<p>In another post (<a href=\"http://bit.ly/e0lDzR\">http://bit.ly/e0lDzR</a>) I read that currently a Message would be a good pratice.</p>\r\n<p>Is that still the case ?<br>\r\nIs there a better way to solve this problem ?<br>\r\nI can't imagine that nobody ever wrote more than 1 ViewModel and didn't run into a problem a like :-).</p>\r\n<p>Thanks in advance,</p>\r\n<p>Michael<br>\r\n@modul8com</p>\r\n",
+    "PostedDate": "2011-01-04T07:46:05.877-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "544140",
+    "ThreadId": "240422",
+    "Html": "\r\n<p>I wrote a blog post about this very thing only a few months ago. See if it helps:</p>\r\n<p><a href=\"http://matthamilton.net/nested-viewmodels\">Nested ViewModels</a></p>\r\n<p>Cheers,<br>\r\nMatt</p>\r\n",
+    "PostedDate": "2011-01-04T23:42:21.74-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T06:30:46.863-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "i am using VS2013 Express for Windows Desktop Version 12.0.21005.1 REL\r\nMicrosoft .NET Version 4.5.50938\r\n\r\ni installed and updated mvvm light with NuGet and got the version 4.4.32.39728.\r\n\r\nthis code gives me the error: The type 'EventToCommand' from assembly 'Galasoft.MvvmLight.Extras' is build with an older version of the Blend SDK, and is not supported in a Windows Presentation Framework 4 project. \r\n```\r\nxmlns:i=\"clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity\"\r\nxmlns:cmd=\"clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras\"\r\n...\r\n<i:Interaction.Triggers>\r\n                <i:EventTrigger EventName=\"Click\">\r\n                    <cmd:EventToCommand PassEventArgsToCommand=\"True\"\r\n                                            Command=\"{Binding TestEventCommand}\" />\r\n                </i:EventTrigger>\r\n</i:Interaction.Triggers>\r\n```\r\n\r\nthe application it self is working, but i the designer is broken (invalid markup).\r\n\r\nhow can i solve this?\r\n\r\nedit: updating VS2013 manually to update 2 solved the issue!",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.0.0.1",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-07-15T05:07:42.28-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Design-Time Error: EventToCommand is built with an older version of the blend SDK",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7649
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

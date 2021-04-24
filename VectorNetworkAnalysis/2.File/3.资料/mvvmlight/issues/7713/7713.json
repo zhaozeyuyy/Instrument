@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-12-21T08:25:28.45-08:00",
+    "CommentCount": 5,
+    "Custom": null,
+    "Description": "Wow, so this error has got me stomped. I am using this with xamarin. It has worked for some time now and I am not sure if this is a xamarin issue or not.  The code that is the issue has been the same since I created the app. Just trying to get some ideas on what is going on. I just do not know. Any information or ideas you guys might have on it would be awesome. I also sent a email to xamarin. If I get any information on it I will update this issue.\r\n\r\nThis is in a Xamarin.iOS project. \r\n\r\nSo here is the deal. I am using SimpleIoC from the MVVMLight libraries to inject all my classes using the register on the SimpleIoC. In my App.xaml.cs file I register all of my IoC stuffs. Here is the issue. When I compile the app on my physical phone I get a exception that is below:\r\n\r\n\"Microsoft.Practices.ServiceLocation.ActivationException: Cannot register: No public constructor found in ModuleRegistryService.\"\r\n\r\nThis exception takes place on this line of code:\r\n\r\nSimpleIoc.Default.Register<ModuleRegistryService>();\r\n\r\nIf I change this line of code to this it works fine (With the notable issue of not being about to resolve the other dependencies with this method.):\r\n\r\nSimpleIoc.Default.Register(()=>new ModuleRegistryService());\r\n\r\nHere is the code for the public constructor on the ModuleRegisteryService:\r\n\r\n        /// <summary>\r\n        ///     Creates a new Registry Service for use within the app.\r\n        /// </summary>\r\n        public ModuleRegistryService()\r\n        {\r\n            modules = new List<IModule>();\r\n            mainMenuItems = new ObservableCollection<IMainMenuItemsViewModel>();\r\n        }\r\n\r\nWell here is the kicker that has got me completely stomped on this one. If I run this same code above on the simulator it runs fine. So what I am thinking is for some reason when it is complied against the phone it is for some reason making my constructors private and/or hiding it???? I just do not get it. Any ideas on this one?\r\n\r\nThanks,\r\nBob",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-12-14T16:02:48.553-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Not an issue"
+    },
+    "Summary": "No Public Constructor Found (Xamarin.iOS)",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7713
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nThis sounds like a linker issue. The linker will remove members (in this case a default constructor) if it is not used explicitly in the application. Since the IOC uses the default constructor by reflection, it is possible that the linker does not detect it (the linker is not very clever unfortunately). In the second way, you are explicitly calling the default constructor and so it does not happen. Very annoying but unfortunately I cannot change that, it's the linker behavior.\n\nI recommend you use the second way as a workaround. Sorry about that.\nLaurent",
+      "PostedDate": "2015-12-15T04:05:08.13-08:00",
+      "Id": 194581
+    },
+    {
+      "Message": "Can you try adding the [Preserve] attribute on your default constructor in the VM, and see if it solves the issue?",
+      "PostedDate": "2015-12-15T04:06:14.727-08:00",
+      "Id": 194582
+    },
+    {
+      "Message": "Thanks for the response! So I contacted xamarin about it as well and they also think it is linker issue.\n\nI remember someone talking about the constructor disappearing like that. In fact that reminded me of something that might have changed. I will see if that is the issue. I will also try the preserve thing as well.\n\nI will report back with my findings.\n\nThanks,\nBob",
+      "PostedDate": "2015-12-15T08:52:41.98-08:00",
+      "Id": 194597
+    },
+    {
+      "Message": "So I found the issue. In the iOS project settings I accdently set the linker behavior to \"Link All Assemblies.\" This broke it for devices. I changed it back to \"Link SDK assemblies only\" and now everything is working fine.\n\nThanks for the heads up that reminded me of this issue.\n\nSee ya,\nBob",
+      "PostedDate": "2015-12-15T09:14:56.933-08:00",
+      "Id": 194598
+    },
+    {
+      "Message": "Happy to hear, closing as \"not an issue\". Thanks for the feedback.",
+      "PostedDate": "2015-12-21T08:23:15.257-08:00",
+      "Id": 194731
+    }
+  ]
+}

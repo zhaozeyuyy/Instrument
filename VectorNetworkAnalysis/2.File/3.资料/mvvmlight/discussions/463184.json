@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1110681",
+    "ThreadId": "463184",
+    "Html": "Hi Laurent,\r<br />\n<br />\nI love MVVM Light, and have enjoyed using it on several mid sized projects... \r<br />\nI've always wished that it was as simple to use Data Annotation in WPF, as it is in ASP.NET. \r<br />\nAs of .Net 4.5 INotifyDataErrorInfo has been added for WPF, and I thought how wonderful would it be if MVVM Light had this baked in.  I found the following article and it seems the implementation would be fairly simple. \r<br />\n<br />\nHowever, I do understand that this framework is called MVVM Light for a reason, and this may not truly fit in with the spirit of your framework.\r<br />\n<br />\n<a href=\"http://anthymecaillard.wordpress.com/2012/03/26/wpf-4-5-validation-asynchrone/\" rel=\"nofollow\">http://anthymecaillard.wordpress.com/2012/03/26/wpf-4-5-validation-asynchrone/</a>\r<br />\n<br />\nThanks \r<br />\nDon W.<br />\n",
+    "PostedDate": "2013-10-22T10:04:13.09-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1117559",
+    "ThreadId": "463184",
+    "Html": "Don,<br />\n<br />\nThanks for the link.<br />\n<br />\nI'd agree it would be nice to add.<br />\n",
+    "PostedDate": "2013-11-05T02:35:30.373-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

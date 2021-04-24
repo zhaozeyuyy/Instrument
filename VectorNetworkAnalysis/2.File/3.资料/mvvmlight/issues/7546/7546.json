@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:56:02.117-07:00",
+    "CommentCount": 6,
+    "Custom": null,
+    "Description": "Hi,\r\n\r\nAfter chagning from v3 SP1 to 4, I noticed that the RelayCommand's CanExecute callback was not called anymore. Seems that the new implementation does not anymore use the  CommandManager.InvalidateRequerySuggested method, which may be the reason for the changed behavior.\r\n\r\nI cannot unfortunately post any samples, but just wanted to report that the current implementation may cause issues for people migrating to the latest version.\r\n\r\n--\r\nMatti",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-10-05T07:26:11.987-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "RelayCommand - RaiseCanExecuteChanged: Changed behavior",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 7546
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I think I recall that Laurent had mentioned that the CommandManager was slightly unreliable.",
+      "PostedDate": "2011-10-09T19:35:24.55-07:00",
+      "Id": 46485
+    },
+    {
+      "Message": "Yes, He mentions the unreliability in his blog, but gives no scenarios where this would occur. To me it has worked just perfectly. There seems to be some ideological reasons for the change also. It would be good if the CommandManager could still be used at least optionally.\n\nIt seems to me that the new implementation requires much more manual coding with messaging or events to trigger the CanExecute delegate.\n\n--\nMatti\n",
+      "PostedDate": "2011-10-10T04:04:50.09-07:00",
+      "Id": 46519
+    },
+    {
+      "Message": "Hi,\n\nThe issue with the CommandManager in WPF is a pet peeve of mine. It is not possible to be sure that it will fire (and if it does, it often fires too much, on every single UI event). As such I prefer the Silverlight implementation where one needs to raise the CanExecuteChanged event explicitly.\n\nThis is however a breaking change, and breaking changes are never a happy occurrence. I am considering biting the bullet and reverting to the old implementation just to avoid the breaking change. Stay tuned.\n\nCheers,\nLaurent",
+      "PostedDate": "2011-10-23T10:38:25.983-07:00",
+      "Id": 47580
+    },
+    {
+      "Message": "I don't understand the following about this change:\n\nI downloaded and installed the current GalaSoft.MvvmLight.V4beta1.msi\n(\"uploaded Oct 7\").  Reflector shows RelayCommand.CanExecuteChanged \nin the WPF4.dll is using the \"newer\" technique that does NOT use \nCommandManager.RequerySuggested.\n\n    add\n    {\n        EventHandler handler2;\n        EventHandler canExecuteChanged = this.CanExecuteChanged;\n        do\n        {\n\t\t\t... more stuff here ...\n        }\n        while (canExecuteChanged != handler2);\n    }\n\nBut when I look at the source code that is apparently supposed to \ncorrespond to the above GalaSoft.MvvmLight.V4beta1.msi \n(change set 7083e76f9123) it shows the \"old\" technique:\n\n\tadd\n\t{\n\t\tif (_canExecute != null)\n\t\t{\n\t\t\tCommandManager.RequerySuggested += value;\n\t\t}\n\t}\n\nShouldn't this change set be what GalaSoft.MvvmLight.V4beta1.msi \nuploaded Oct 7 was built from?\n\nThanks,\nVic",
+      "PostedDate": "2011-11-04T22:00:27.143-07:00",
+      "Id": 48465
+    },
+    {
+      "Message": "Oops.  My mistake.  I was comparing the older V3 source code with the newer V4beta1 MSI.\nToo bad there is no way to erase my previous incorrect comment.\n\nVic",
+      "PostedDate": "2011-11-04T22:09:56.687-07:00",
+      "Id": 48466
+    },
+    {
+      "Message": "Update: \n\nMy \"solution\" to the undesired (to me) V4beta1 changes to the implementation of RelayCommand under WPF was to create my own modified V4beta1 release.  I just replaced the stock V4beta1 RelayCommand.cs and RelayCommandGeneric.cs with the stock V3 copies of those files.  So now I get the other improvements of V4beta1, without the changed RelayCommand.\n\nThis causes some of the stock V4beta1 unit tests to fail (as you would expect), but otherwise I haven't seen any negative side effects.\n\nVic",
+      "PostedDate": "2011-11-05T13:42:25.26-07:00",
+      "Id": 48476
+    }
+  ]
+}

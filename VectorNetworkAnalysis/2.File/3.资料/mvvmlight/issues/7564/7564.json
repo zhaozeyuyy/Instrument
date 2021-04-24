@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Fixed in V5.3.0",
+    "ClosedDate": "2016-07-20T01:05:10.09-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "The two overloads of the RaisePropertyChanged method in the ObservableObject class should funnel into a single common virtual method, instead of duplicating event code inside of each.  \r\n\r\nThis will make overriding the virtual method easier, and will reduce the number of code changes needed if we - for instance - enhance the method in the future.\r\n\r\nProposed fix:\r\n\r\nprotected virtual void RaisePropertyChanged(string propertyName)\r\n{\r\n    VerifyPropertyName(propertyName);\r\n    var handler = PropertyChanged;\r\n    if (handler != null)\r\n    {\r\n        handler(this, new PropertyChangedEventArgs(propertyName));\r\n    }\r\n}\r\n\r\nprotected void RaisePropertyChanged<T>(Expression<Func<T>> propertyExpression)\r\n{\r\n    if (propertyExpression == null)\r\n    {\r\n        return;\r\n    }\r\n    var body = propertyExpression.Body as MemberExpression;\r\n    if(body != null)\r\n    {\r\n        RaisePropertyChanged(body.Member.Name);\r\n    }\r\n}\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.3.0",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-03-27T08:13:32.97-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "The RaisePropertyChanged Overloads Contain Duplicate Code",
+    "Type": {
+      "Name": "Task",
+      "Id": 2
+    },
+    "VoteCount": 2,
+    "Id": 7564
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Resolved in V5.3. Will close the issue when this is version is released.",
+      "PostedDate": "2016-01-17T12:20:59.09-08:00",
+      "Id": 195526
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "No real usage outside of unit tests scenario, and in a unit test there are other ways to verify the correctness of the RelayCommand's Action.",
+    "ClosedDate": "2012-10-20T08:57:55.517-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Currently there is no way to check what is the method name that was associated to a RelayCommand. This can be useful in unit testing scenario where you need to check that the correct method is wired-up in the RelayCommand.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-09-21T16:00:38.213-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Expose the MethodName of a RelayCommand",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7590
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "This causes a few issues. First, adding API just for the purpose of testing is not considered a very good practice. I don't really see a usage for this property outside of unit testing. Then, there is the fact that many times (probably most, actually), the method is an anonymous delegate. So even if the property was there, it wouldn't be very helpful.\n\nFor unit testing, I recommend rather setting a known attribute inside the relaycommand's action, and then to assert the value of this property, both before and after the RelayCommand's Execute is called. This will prove that the correct method has been called.\n\nI will close this issue for now. If you feel strongly that I am wrong about this, please let me know.\nLaurent",
+      "PostedDate": "2012-10-20T08:56:25.82-07:00",
+      "Id": 80547
+    }
+  ]
+}

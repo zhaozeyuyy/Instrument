@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1317002",
+    "ThreadId": "570722",
+    "Html": "Hi,<br />\nCan you please add the .extmap.xml for the Silverlight build/nuget package?<br />\n<br />\nThis will enable XAP Assembly Caching<br />\n<pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;\n&lt;manifest xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; \n          xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;\n  &lt;assembly&gt;\n    &lt;name&gt;GalaSoft.MvvmLight&lt;/name&gt;\n    &lt;version&gt;5.0.2.32242&lt;/version&gt;\n    &lt;publickeytoken&gt;69ff1c9caf797bd5&lt;/publickeytoken&gt;\n    &lt;relpath&gt;GalaSoft.MvvmLight.dll&lt;/relpath&gt;\n    &lt;extension downloadUri=&quot;GalaSoft.MvvmLight.zip&quot; /&gt;\n  &lt;/assembly&gt;\n&lt;/manifest&gt;\n\n&lt;?xml version=&quot;1.0&quot;?&gt;\n&lt;manifest xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; \n          xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;\n  &lt;assembly&gt;\n    &lt;name&gt;GalaSoft.MvvmLight.Extras&lt;/name&gt;\n    &lt;version&gt;5.0.2.32242&lt;/version&gt;\n    &lt;publickeytoken&gt;69ff1c9caf797bd5&lt;/publickeytoken&gt;\n    &lt;relpath&gt;GalaSoft.MvvmLight.Extras.dll&lt;/relpath&gt;\n    &lt;extension downloadUri=&quot;GalaSoft.MvvmLight.Extras.zip&quot; /&gt;\n  &lt;/assembly&gt;\n&lt;/manifest&gt;</code></pre>\n\n",
+    "PostedDate": "2014-10-28T05:28:34.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

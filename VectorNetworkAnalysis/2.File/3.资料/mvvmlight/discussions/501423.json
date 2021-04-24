@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1170482",
+    "ThreadId": "501423",
+    "Html": "I am having an issue with the MVVM Light libraries that I can't seem to solve.  I am using VS2013 C#.  I have placed the GalaSoft MVVM libraries (MVVMLight.WPF45 and MVVMLight.Extras.WPF45) in a folder on my system.  I then replaced the references in the project with these files and set the Copy Local property to false.<br />\n<br />\nThe project compiles fine (no errors or warnings), but when run, I get this error:<br />\n<pre><code>System.TypeInitializationException was unhandled\nMessage: An unhandled exception of type 'System.TypeInitializationException' occurred in mscorlib.dll\nAdditional information: The type initializer for '[appName].App' threw an exception.\n</code></pre>\n\nBTW - I get the same result just setting the Copy Local property to false without replacing the references.  I am unable to set a breakpoint early enough in execution to catch the error.<br />\n<br />\nAny ideas?<br />\n",
+    "PostedDate": "2014-01-16T06:26:17.11-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1187496",
+    "ThreadId": "501423",
+    "Html": "Come on, guys.  No one has an answer for this?  Has anyone ever seen this problem?<br />\n",
+    "PostedDate": "2014-01-21T06:35:37.563-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

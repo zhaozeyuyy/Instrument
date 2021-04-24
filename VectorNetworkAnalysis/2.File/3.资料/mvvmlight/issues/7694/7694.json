@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "ObservableObject needs a Set() method to easily use another property as the backing field.\r\nThis would allow the use of an object to hold all of the backing fields for the ViewModel.\r\nIt would be useful because using the model object itself as the backing fields helps insure proper naming and increases maintainability. In addition, this would remove the need to duplicate all of the fields from the model again as private fields in the ViewModel. Instead you just create a an instance of the object you're modeling.\r\n\r\n[Proposed Implementation.](https://gist.github.com/jacobhands/9e4e790d1d28c6bbc9b9)\r\n\r\nExample usage:\r\n```\r\nprivate Person p = new Person();\r\npublic string FirstName\r\n{\r\n    get { return p.FirstName; }\r\n    set { Set(\"FirstName\", x => p.FirstName = x, p.FirstName, value); }\r\n}\r\npublic string LastName\r\n{\r\n    get { return p.LastName; }\r\n    set { Set(x => p.LastName = x, p.LastName, value); }\r\n}\r\n```",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-05-28T12:55:21.12-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "There should be a Set() command to make wrapping objects from the model as a ViewModel easier.",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 1,
+    "Id": 7694
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nThat's an interesting proposal. In practice I do not duplicate properties but I rather bind to the Model's properties (and I make my Model an ObservableObject). But I realize that it is not always possible to raise PropertyChanged in the model. I will add this to the backlog.\n\nThanks for the proposal.\nLaurent",
+      "PostedDate": "2016-01-16T13:49:51.307-08:00",
+      "Id": 195504
+    }
+  ]
+}

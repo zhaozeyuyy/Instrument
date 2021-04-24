@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1495360",
+    "ThreadId": "662490",
+    "Html": "Hi Laurent,\r<br />\n<br />\nDifferent overloads of ObservableObject.RaisePropertyChanged (using a string or an expression) both raise the handler. As the final raise of the event is based on a string propertyname, I think it would be cool to have the &quot;Expression&quot; version to call the &quot;string&quot; version instead of raising the handler on his own.\r<br />\nIn the case you want to catch the RaisePropertyChanged event from a subclass, you would need to only override the string version to be sure to have all cases (name resolution from expression is already solved).\r<br />\n<br />\nCheers from Paris !<br />\n",
+    "PostedDate": "2017-04-10T10:32:23.547-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

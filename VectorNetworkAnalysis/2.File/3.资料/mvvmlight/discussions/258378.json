@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "615804",
+    "ThreadId": "258378",
+    "Html": "\r\n<p>Hi Laurent,</p>\r\n<p>My be I'm wrong, but&nbsp;what if we have in the action (used in a <strong>WeakAction</strong>) a strong reference to the action's owner (for example&nbsp;in the action's code we have something like\r\n<strong>this</strong>.<em>member</em>). Will we have&nbsp;then a strong reference to the target (through the&nbsp;action) that will keep the it away from the GC? So,&nbsp;I think it's better to use&nbsp;a WeakReference and to the action.</p>\r\n<p>Thank you!</p>\r\n",
+    "PostedDate": "2011-05-20T04:46:05.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "615933",
+    "ThreadId": "258378",
+    "Html": "<p>FYI, this issue came up in the context of discussing messenger <a href=\"http://mvvmlight.codeplex.com/discussions/235068\" target=\"_blank\">here</a>&nbsp;so I believe Laurent is aware of it.</p>\n<p>When I last took a look at MVVM Light I posted a discussion of some&nbsp;possible solutions to the <em>weak action</em> problem&nbsp;<a href=\"http://www.codeneverwritten.com/2011/04/10/weakaction-or-delegates-with-a-weak-reference-to-their-target/\" target=\"_blank\">here</a>, feel free to use the solutions I suggested there if you wish.</p>\n<p>Curt</p>\n<p>&nbsp;</p>",
+    "PostedDate": "2011-05-20T08:49:57.413-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "621944",
+    "ThreadId": "258378",
+    "Html": "<p>Curt, FWIW unfortunately your proposed solution will not work on SL/WP7 due to the restrictions on the CreateDelegate method. In consequence I am rather going to follow the approach described here:</p>\n<p><a href=\"http://blog.tonysneed.com/2011/03/22/building-a-leak-proof-eventing-model/\">http://blog.tonysneed.com/2011/03/22/building-a-leak-proof-eventing-model/</a></p>\n<p>Cheers,</p>\n<p>Laurent</p>",
+    "PostedDate": "2011-06-02T05:49:40.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "624251",
+    "ThreadId": "258378",
+    "Html": "<p>Hey Laurent, that seems a reasonable approach.</p>\r\n<p>Curt</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-06-07T10:09:46.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "625627",
+    "ThreadId": "258378",
+    "Html": "<p>Am I missing something or can you not just change WeakAction to have WeakReference to the Action?</p>\r\n<p>My simple below seems to suggest it would work</p>\r\n<pre><pre>    public class ClassToGc\r\n    {\r\n        int i = 0;\r\n\r\n        public void AnAction()\r\n        {\r\n            Console.WriteLine(\"foo\");\r\n        }\r\n    }\r\n    class Program\r\n    {\r\n\r\n        static void Main(string[] args)\r\n        {\r\n            ClassToGc gcer = new ClassToGc();\r\n\r\n            WeakReference refer = new WeakReference(gcer);\r\n\r\n            Action act = gcer.AnAction;\r\n\r\n            WeakReference actreferr = new WeakReference(act);            \r\n\r\n            Console.WriteLine(refer.IsAlive);\r\n\r\n            gcer = null;\r\n            act = null;\r\n                        \r\n            \r\n            GC.Collect();\r\n            GC.WaitForPendingFinalizers();\r\n            GC.Collect();\r\n            GC.WaitForPendingFinalizers();\r\n\r\n            Console.WriteLine(refer.IsAlive);\r\n        }\r\n    }</pre>\r\n</pre>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-06-09T14:04:40.09-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "625646",
+    "ThreadId": "258378",
+    "Html": "<p>Yes Musmuris,</p>\r\n<p>But if you nullify only 'act', but not 'gcer', then after garbage collection 'refer' will be still alive, but not 'actreferr'. So the target may be still alive and waiting for notifications but notification action couldn't be executed.</p>",
+    "PostedDate": "2011-06-09T14:52:10.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "625652",
+    "ThreadId": "258378",
+    "Html": "<p>Ah yes... that's the bit I would be missing then!</p>",
+    "PostedDate": "2011-06-09T15:18:14.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

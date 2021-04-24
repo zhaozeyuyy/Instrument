@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "I cannot see MVVM Light extension in Visual Studio 2017. By when should we expect it to be available?",
+    "LastUpdatedDate": "2017-04-26T12:23:16.66-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2017-03-08T02:48:33.167-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "VS2017 extension",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 7747
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi, that is correct, I had a busy few weeks and didn't have the time to publish the extension. I will do my best to make it available in the next few days. In the mean time you can use Nuget to install the MVVM Light libraries in an existing application. I am aware that the templates are useful and needed, and am committed to publish this soon.\n\nThanks for writing\nLaurent",
+      "PostedDate": "2017-03-08T04:53:54.317-08:00",
+      "Id": 207678
+    },
+    {
+      "Message": "Will be possible to use MvvmLight also in VS2017 .Net Standard based projects ?",
+      "PostedDate": "2017-03-31T04:41:42.017-07:00",
+      "Id": 208007
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "510219",
+    "ThreadId": "231716",
+    "Html": "<p>Hi,</p>\r\n<p>I am trying to create a dynamic tabbing functionality, when a user clicks a button it will create a tab with its own view and its own viewmodel.</p>\r\n<p>I am using a DataTemplate to achieve this:</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>&lt;DataTemplate x:Shared=<span style=\"color:#a31515\">&quot;False&quot;</span> DataType=<span style=\"color:#a31515\">&quot;{x:Type vm:CustomCanvasViewModel}&quot;</span>&gt;\r\n            &lt;wpfview:CustomCanvas&gt;\r\n            &lt;/wpfview:CustomCanvas&gt;\r\n        &lt;/DataTemplate&gt;\r\n</pre>\r\n</div>\r\n</p>\r\n<p><br>I also have a :</p>\r\n<p>&nbsp; public ObservableCollection&lt;CustomCanvasViewModel&gt; Workspaces { get; set; }</p>\r\n<p>Workspaces.Add( new CustomCanvasViewModel ());</p>\r\n<p>So I am binding the tabcontrol with Workspaces. The problem i am having is that all the view's are being shared though all the created tabs. So any changes made to a tab it is reflecting across all of them.</p>\r\n<p>I am not sure if a missing something or how would you recommend to achieve this.</p>\r\n<p>I will really appreciate your help.</p>\r\n<p><br>Thanks in Advance.</p>\r\n<p><br>Jose</p>",
+    "PostedDate": "2010-10-20T16:57:39.003-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "511500",
+    "ThreadId": "231716",
+    "Html": "\r\n<p>Are you using dependency injection for your viewmodels? &nbsp;If yes is it passing in the same viewmodel for each instance? you may need to change your dependency injection to use transient.</p>\r\n",
+    "PostedDate": "2010-10-23T06:51:18.083-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "512229",
+    "ThreadId": "231716",
+    "Html": "\r\n<p>Nop, I am not using dependency injection.</p>\r\n<p>I am just binding the view model and view by using a data template of the viewmodel type.</p>\r\n<p>Should I use it? If so how would you recommend to do it?</p>\r\n<p>Thanks In Advance.<br>\r\nJose</p>\r\n",
+    "PostedDate": "2010-10-25T09:17:37.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "528248",
+    "ThreadId": "231716",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>With or without dependency injection, what you need in the case where the same view is instantiated multiple times is to instantiate the corresponding viewmodel multiple times too. Instead of using a singleton viewmodel, return a different viewmodel when\r\n the property is called.</p>\r\n<p>Makes sense?</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2010-11-29T06:26:24.873-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "539588",
+    "ThreadId": "231716",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>I'm probably a little late in replying but I momentarily had this issue to when I realized that within the view model I was reusing some common data components. So its possible that the view itself looks like its the same because the underlying data in the\r\n view model is the same. You may want to check that out.&nbsp; Also, you can setup messaging to send messages to your workspace view model to open new &quot;editors&quot; or even close the current one. This helps decouple the workspaces view model from the rest of the\r\n application.</p>\r\n",
+    "PostedDate": "2010-12-22T14:07:28.09-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

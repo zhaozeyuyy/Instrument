@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Hi,\n\nI tried both the V4 beta 1 installer and the V3 installer, and in both cases all the assemblies were installed correctly (in C:\\Program Files (x86)\\Laurent Bugnion (GalaSoft)\\Mvvm Light Toolkit\\Binaries).\n\nI am going to close that issue as unreproducible. If you continue to get that issue, please let me know on email.\n\nCheers,\nLaurent ",
+    "ClosedDate": "2011-10-23T09:00:32.797-07:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "I might be totally blind but I can't install the binaries for WPF/.Net4 with the installer. They don't seem to be included at all.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-09-22T00:21:49.803-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": ".Net4/WPF Binaries missing in installer",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7545
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "This applies to the stable v3 as well as to the beta of v4.",
+      "PostedDate": "2011-09-22T00:22:41.357-07:00",
+      "Id": 45299
+    },
+    {
+      "Message": "I will check it out asap.\n\nLaurent",
+      "PostedDate": "2011-09-22T07:44:08.51-07:00",
+      "Id": 45326
+    },
+    {
+      "Message": "Hi,\n\nI tried both the V4 beta 1 installer and the V3 installer, and in both cases all the assemblies were installed correctly (in C:\\Program Files (x86)\\Laurent Bugnion (GalaSoft)\\Mvvm Light Toolkit\\Binaries).\n\nI am going to close that issue as unreproducible. If you continue to get that issue, please let me know on email.\n\nCheers,\nLaurent",
+      "PostedDate": "2011-10-23T08:59:22.78-07:00",
+      "Id": 47577
+    }
+  ]
+}

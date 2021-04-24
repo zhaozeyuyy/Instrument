@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1464964",
+    "ThreadId": "651882",
+    "Html": "Hello,\r<br />\n<br />\nI would like to ask whether anybody detects any weird behavior of MVVM Light Toolkit if you enable <strong>&quot;Compile with .NET Native tool chain&quot;</strong> in UWP project. For example if I send a message via messenger sometimes I receive it and sometimes not. It happens only when I enable &quot;.NET Native tool&quot;.\r<br />\n<br />\nI am currently trying to investigate the problem in order to provide some useful sample to demonstrate the issue.<br />\n",
+    "PostedDate": "2016-02-29T00:51:58.587-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1465895",
+    "ThreadId": "651882",
+    "Html": "It is probably connected with this issue &quot;<a href=\"https://mvvmlight.codeplex.com/workitem/7722\" rel=\"nofollow\">WeakAction and WeakFunc .ctor are very slow on UWP</a>&quot;.<br />\n",
+    "PostedDate": "2016-03-07T04:46:17.317-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1466058",
+    "ThreadId": "651882",
+    "Html": "In my experience the messages arrive but registering them is very slow with .Net Native. All in all we have very serious performance problems when compiled with .Net Native which could very well be the problem kubakista linked.<br />\n",
+    "PostedDate": "2016-03-08T02:30:34.913-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1470083",
+    "ThreadId": "651882",
+    "Html": "Hi Amenti,\r<br />\n<br />\nit looks like that they fixed the issue with &quot;WeakAction and WeakFunc&quot;, however, I can see still the problem with Messenger. Could you please confirm whether you can see still the same problem?\r<br />\n<br />\nThank you,\r<br />\nJakub<br />\n",
+    "PostedDate": "2016-04-13T23:25:29.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1470171",
+    "ThreadId": "651882",
+    "Html": "Hi,\r<br />\n<br />\nPlease note that nothing in MVVM Light code changed. The bug was acknowledged by Microsoft as being a bug of the .NET Core components. You will probably need the latest .NET core components to see a difference in behavior.\r<br />\n<br />\nHopefully this clarifies.\r<br />\n<br />\nTake care\r<br />\nLaurent<br />\n",
+    "PostedDate": "2016-04-14T09:53:03.49-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1475599",
+    "ThreadId": "651882",
+    "Html": "It looks like that my problem was caused by this: <a href=\"https://mvvmlight.codeplex.com/workitem/7640\" rel=\"nofollow\">Messenger message dispatch does not work for lambdas with closures</a>.<br />\n",
+    "PostedDate": "2016-06-09T12:35:24.803-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2016-06-09T12:35:34.71-07:00"
+  }
+]

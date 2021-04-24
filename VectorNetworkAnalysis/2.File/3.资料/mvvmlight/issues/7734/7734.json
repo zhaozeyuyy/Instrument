@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Hello,\r\n\r\nSimpleIoc.Default property can return different instances in a multi threaded environment.\r\n\r\n```\r\n    [TestClass]\r\n    public class SimpleIocTest\r\n    {\r\n        [TestMethod]\r\n        public void SimpleIocDefaultPropertyIsThreadSave()\r\n        {\r\n            // Arrange\r\n            const int maxRuns = 100;\r\n            var results = new SimpleIoc[maxRuns];\r\n\r\n            // Act\r\n            Parallel.For(0, maxRuns, indx => results[indx] = SimpleIoc.Default);\r\n\r\n            //Assert\r\n            for(var indx = 1; indx < maxRuns; ++indx)\r\n                Assert.AreSame(results[0], results[indx], $\"SimpleIoc Instance 0 is not same like Simple Ioc Instance {indx}\");\r\n        }\r\n    }\r\n```\r\nI'm not sure to reproduce the problem using this short unit test on every computer... To enforce the problem, you can add temporarly a constructor in SimpleIoc which calls simply thread.sleep(100).\r\n\r\nA solution could be to implement the \"double-checked locking\" pattern in SimpleIoc.Default property.\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.3.1 (planning)",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-07-19T22:10:05.06-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "SimpleIoc Default property returns multiple instances",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7734
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Dang. Good catch. Will fix in next release.",
+      "PostedDate": "2016-07-20T00:02:19.443-07:00",
+      "Id": 200739
+    }
+  ]
+}

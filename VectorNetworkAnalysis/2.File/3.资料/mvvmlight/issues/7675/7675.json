@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-01-13T01:45:48.283-08:00",
+    "CommentCount": 4,
+    "Custom": null,
+    "Description": "I tried to reproduce your Xamarin Evolve demo and I'm facing an issue with the NavigationService.\r\n\r\n__Configure method problem:__\r\n\r\nXamarin Evolve Configure signature\r\n```\r\npublic void Configure(string pageKey, Type pageType)\r\n```\r\n\r\nGalaSoft.MvvmLight.Platform (Android) Configure signature\r\n```\r\npublic void Configure(string key, Type activityType)\r\n```\r\n\r\nGalaSoft.MvvmLight.Platform (iOS)\r\n```\r\npublic void Configure(string key, Type controllerType)\r\n```\r\n\r\nGalaSoft.MvvmLight.Platform (WPSL81) Configure signature\r\n```\r\npublic void Configure(string key, Uri targetUri)\r\n```\r\n\r\nDo you think it would be possible to add the same signature on the WPSL81 version?\r\n\r\n__Initiliaze method problem__\r\n\r\nXamarin Evolve has an Initiliaze methods for all three platforms.\r\n```\r\npublic void Initialize(NavigationPage navigation)\r\n```\r\n\r\nThere is only one specific for iOS\r\n```\r\npublic void Initialize(UINavigationController navigation)\r\n```",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-12-04T07:15:57.227-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Not an issue"
+    },
+    "Summary": "Xamarin Evolve demo NavigationService & nuget v5.0.2 is different",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7675
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nThe Initialize and the Configure methods are platform-specific. They need to be different because of differences in the way that the navigation works on all these platforms. Can you explain what you mean?\n\nThanks\nLaurent",
+      "PostedDate": "2014-12-04T08:21:00.567-08:00",
+      "Id": 167249
+    },
+    {
+      "Message": "Thanks for your quick reply Laurent,\n\nLooking at the code of your demo at Xamarin Evolve, all the code that is related to the navigation is in the PCL project.\n\nThe NavigationService class seems to be platform agnostic in the Evolve demo project, and the configuration code could be shared across all platforms.",
+      "PostedDate": "2014-12-04T10:06:46.973-08:00",
+      "Id": 167255
+    },
+    {
+      "Message": "After reviewing the code again, it is Platform agnostic in Xamarin Forms world...",
+      "PostedDate": "2014-12-04T10:15:36.63-08:00",
+      "Id": 167257
+    },
+    {
+      "Message": "Laurent, you can close both issues I have opened. There is no bug at all...\n\nI am the bug :)\n\nI watched again your video, and you clearly says that there is a limitation with nuget that prevent having your NavigationService & DialogService helpers in the current packages!\n\nThanks Laurent!",
+      "PostedDate": "2014-12-05T02:19:44.293-08:00",
+      "Id": 167351
+    }
+  ]
+}

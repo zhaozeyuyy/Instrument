@@ -1,0 +1,75 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-02-15T10:12:39.557-08:00",
+    "CommentCount": 7,
+    "Custom": null,
+    "Description": "Hi,\r\n\r\nI have been using the following code in a windows phone 7 application for some time ( using the binaries from WP71).\r\n\r\nSimpleIOC.Default.GetInstance<viewModel>() \r\nand\r\nSimpleIOC.Default.Unregister(simpleIOC.Default.GetInstance<viewModel>())\r\n\r\nIn wp7 -\r\ncalling GetInstance - returns an instance of the viewmodel.\r\ncalling Unregister - removes the instance\r\ncalling GetInstance - returns a new instance.\r\n\r\n\r\nhowever in WP8:\r\ncalling GetInstance - returns an instance of the viewmodel.\r\ncalling Unregister - removes the instance\r\ncalling GetInstance - returns the following error\r\n\r\n{Microsoft.Practices.ServiceLocation.ActivationException: Type not found in cache without a key: MvvmLightTestApp.ViewModel.SecondaryViewModel\r\n   at GalaSoft.MvvmLight.Ioc.SimpleIoc.DoGetService(Type serviceType, String key)\r\n   at GalaSoft.MvvmLight.Ioc.SimpleIoc.GetInstance[TService]()\r\n   at MvvmLightTestApp.MainPage.Button_Click_1(Object sender, RoutedEventArgs e)\r\n   at System.Windows.Controls.Primitives.ButtonBase.OnClick()\r\n   at System.Windows.Controls.Button.OnClick()\r\n\r\nAny help would be appreciated\r\n\r\nThanks\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "null",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2013-02-13T03:11:43.353-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Windows Phone 8 Unregister error",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7599
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I am having kind of the same issue. Difference mine is on windows 8. My main page view model works perfectly and I have my secondary page view and viewModel set up the same way. When I navigate to the secondary page before the page loads I get this exception:\n\nType not found in cache:System.String\n\nwith this StackTrace:\n\n   at GalaSoft.MvvmLight.Ioc.SimpleIoc.DoGetService(Type serviceType, String key) in d:\\GalaSoft\\mydotnet\\MvvmLight\\Source\\GalaSoft.MvvmLight\\GalaSoft.MvvmLight.Extras (NET35)\\Ioc\\SimpleIoc.cs:line 532\n   at GalaSoft.MvvmLight.Ioc.SimpleIoc.GetService(Type serviceType) in d:\\GalaSoft\\mydotnet\\MvvmLight\\Source\\GalaSoft.MvvmLight\\GalaSoft.MvvmLight.Extras (NET35)\\Ioc\\SimpleIoc.cs:line 768\n   at GalaSoft.MvvmLight.Ioc.SimpleIoc.MakeInstance[TClass]() in d:\\GalaSoft\\mydotnet\\MvvmLight\\Source\\GalaSoft.MvvmLight\\GalaSoft.MvvmLight.Extras (NET35)\\Ioc\\SimpleIoc.cs:line 708\n\nI have the latest binaries installed and Visual Studio 2012 is updated to update 2.\n\nPlease Help.",
+      "PostedDate": "2013-05-04T11:26:34.1-07:00",
+      "Id": 99381
+    },
+    {
+      "Message": "It appears as if it is not getting assigned a key in registration. I don't know just guessing.\n\nThanks for your hard work.",
+      "PostedDate": "2013-05-04T11:48:00.26-07:00",
+      "Id": 99382
+    },
+    {
+      "Message": "Nevermind I solved my own problem. I was trying to pass a string as a parameter to the constructor of my viewmodel and obviously I didn't have it worked out correctly with the container.",
+      "PostedDate": "2013-05-04T12:05:09.147-07:00",
+      "Id": 99383
+    },
+    {
+      "Message": "Hi,\n\nI have a similar problem. When I do the following in a WP8 App, the app crashes with an ActivationException:\n```\nSimpleIoc.Default.Register<MyViewModel>();\nvar vm = SimpleIoc.Default.GetInstance<MyViewModel>();\nSimpleIoc.Default.Unregister<MyViewModel>(vm);\nvm = SimpleIoc.Default.GetInstance<MyViewModel>(); // <-- Exception\n```\n\nCan anyone tell me, if my understanding of the Unregister<T>(T instance) overload is wrong, or if this is still an unresolved bug? Maybe I'm using the methods in a way that is not supposed.\n\nAny help or hint is very much appreciated. Thanks in advance.\n~Raphael",
+      "PostedDate": "2014-04-23T05:14:08.853-07:00",
+      "Id": 142743
+    },
+    {
+      "Message": "edit: MyViewModel's constructor has an IDataService parameter and a class is registered with SimpleIoc for that interface.",
+      "PostedDate": "2014-04-23T05:28:15.69-07:00",
+      "Id": 142744
+    },
+    {
+      "Message": "Fixed in V5.1 (upcoming)",
+      "PostedDate": "2015-02-06T07:01:20.533-08:00",
+      "Id": 173626
+    },
+    {
+      "Message": "DLLs are available here:\nhttp://1drv.ms/1ylP1TS\n\nNuget will be updated ASAP.",
+      "PostedDate": "2015-02-06T09:13:22.323-08:00",
+      "Id": 173655
+    }
+  ]
+}

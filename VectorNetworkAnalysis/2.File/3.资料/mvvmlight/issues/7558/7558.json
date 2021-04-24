@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:56:45.64-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "When trying to create a new project in VS2010, I select the MvvmLight (WPF4) template, and it gave me an error message about not being able to find ProjectForTemplate.csproj in \"C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\Common7\\IDE\\ProjectTemplatesCache\\CSharp\\Windows\\Mvvm\\MvvmLight.WPF4.zip\" .\r\n\r\nI changed the name of the file MvvmLight.WPF4.csproj to ProjectForTemplate.csproj and after doing so, I was able to create a project of project type \"MvvmLight (WPF4)\" in VS2010.\r\n\r\nI also tried creating a new project in Microsoft Expression Blend 4. When I have MvvmLight (WPF) or any of the native .Net project type's selected, the UI allows me to hit the \"OK\" button. However, when I have MvvmLight (WPF4) selected, the \"OK\" button is disabled.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-01-18T12:36:44.497-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Can't New Project of type MvvmLight (WPF4) in VS2010 or Blend4 (Toolkit V3 SP1)",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 4,
+    "Id": 7558
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Thanks for the note. It is indeed a regression test in the last revision. I will fix ASAP.\n\nCheers,\nLaurent",
+      "PostedDate": "2012-01-18T13:29:35.233-08:00",
+      "Id": 53533
+    }
+  ]
+}

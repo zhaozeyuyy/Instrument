@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:55:56.157-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "The nuget does not support Windows 8 metro apps. It needs a \".NETCore, Version=v4.5\" target.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-09-17T15:40:31.22-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Need support for Windows 8 apps in nuget package",
+    "Type": {
+      "Name": "Task",
+      "Id": 2
+    },
+    "VoteCount": 1,
+    "Id": 7544
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Right now, MVVM Light for Windows 8 is not in NuGet. I will add it soon.",
+      "PostedDate": "2011-10-23T08:28:21.1-07:00",
+      "Id": 47575
+    },
+    {
+      "Message": "Fixed",
+      "PostedDate": "2012-05-21T00:10:18.607-07:00",
+      "Id": 66295
+    }
+  ]
+}

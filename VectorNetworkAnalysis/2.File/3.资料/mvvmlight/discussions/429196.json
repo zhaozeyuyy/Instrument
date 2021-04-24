@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "985124",
+    "ThreadId": "429196",
+    "Html": "\r\n<p>It seems that I can't download the msi installer ... I keep getting stuck in an endless &quot;download&quot; loop ...&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Does somebody else has this problem ?&nbsp;</p>\r\n",
+    "PostedDate": "2013-01-10T11:46:17.357-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "985125",
+    "ThreadId": "429196",
+    "Html": "\r\n<p>Oh forgot something :)</p>\r\n<p>I tried to download :&nbsp;http://mvvmlight.codeplex.com/downloads/get/524082</p>\r\n",
+    "PostedDate": "2013-01-10T11:46:54.313-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "985145",
+    "ThreadId": "429196",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I can download&nbsp;http://mvvmlight.codeplex.com/downloads/get/524082 and&nbsp;http://mvvmlight.codeplex.com/downloads/get/476364 fine using Chrome. Which browser are you using?</p>\r\n<p>Someone else on Twitter reported the same issue (or was it you?)</p>\r\n<p>Thanks<br>\r\nLaurent&nbsp;</p>\r\n",
+    "PostedDate": "2013-01-10T12:42:57.427-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "985160",
+    "ThreadId": "429196",
+    "Html": "\r\n<p>It wasn't me :)</p>\r\n<p>&nbsp;</p>\r\n<p>But I tried Chrome, IE, Firefox on 3 different machines (located different physical places)</p>\r\n<p>And none of them succeeded in downloading the msi.&nbsp;</p>\r\n<p>But I can download the source ... that's the strange part ... (but don't have the tools currently here to build the installer ... so I would love to download the msi )</p>\r\n",
+    "PostedDate": "2013-01-10T13:33:25.14-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "985166",
+    "ThreadId": "429196",
+    "Html": "\r\n<p>The MSI is available at&nbsp;http://sdrv.ms/VMDC9E</p>\r\n",
+    "PostedDate": "2013-01-10T13:55:38.473-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

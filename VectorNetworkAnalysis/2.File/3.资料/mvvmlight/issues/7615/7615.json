@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-14T15:37:37.52-07:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "It appears that GalaSoft.MvvmLight.Extras.WPF4 have been compiled for .NET 4.5 by mistake. Surely they should be compiled for .NET 4.0?\r\n\r\n> The primary reference \"GalaSoft.MvvmLight.Extras.WPF4, Version=4.1.27.22692, Culture=neutral, PublicKeyToken=1673db7d5906b0ad, processorArchitecture=MSIL\" could not be resolved because it has an indirect dependency on the assembly \"System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35\" which was built against the \".NETFramework,Version=v4.5\" framework. This is a higher version than the currently targeted framework \".NETFramework,Version=v4.0\".\t\r\n\r\nnic",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V4.4.32.1",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2013-07-04T08:48:20.977-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "WPF4 versions compiled for .NET 4.5 in 4.1.27",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7615
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Just looked and this was true in 4.1.24 as well.",
+      "PostedDate": "2013-07-04T08:54:10.46-07:00",
+      "Id": 105131
+    },
+    {
+      "Message": "I had exactly the same issue. I'm using the latest version on NuGet for my .NET4.0 application and now being blocked.\nAny plan to fix it?",
+      "PostedDate": "2013-08-03T21:57:05.847-07:00",
+      "Id": 108478
+    },
+    {
+      "Message": "Sorry for my false alert. I was on .NET 4.5 and lowered my version to 4.0. There was a binding redirection left in my app.config which caused the lookup of 4.5 dll.",
+      "PostedDate": "2013-08-05T01:33:07.537-07:00",
+      "Id": 108530
+    }
+  ]
+}

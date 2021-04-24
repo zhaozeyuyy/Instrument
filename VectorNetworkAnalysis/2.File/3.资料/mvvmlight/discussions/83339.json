@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "286557",
+    "ThreadId": "83339",
+    "Html": "<p>Hi,</p>\r\n<p>while I am really happy with the architecture imposed by MVVMlight on my application so far there is one pattern I felt I had to use which made me feel a bit uncomfortable.</p>\r\n<p>It concerns the interaction from ViewModel to code-behind:<br>In some scenarios changing the bound VM-property (base for the View's itemsource) does not reflect in the view - this is for example the case for a GraphSharp control or a DataGrid. Another scenario when this pattern occurs in my app is when I want to set the focus on a (rich-)textbox.<br>So I needed to call the respective Refresh() / Recalculate() / Focus() method on the control. Coming from the ViewModel I have no direct access to the control-object (as thats obviously the concern of the View - my ViewModel should not be aware of the WPF control, should it?)</p>\r\n<p>So far I solved this problem by exposing for example a RequestRefresh-Event in the ViewModel the View (in its code behind) subscribes to in its DataContextChanged event-handler.<br>This works, but felt quite dirty somehow. How do you guys solve this?</p>\r\n<p>Thanks a bunch and yet again cheers for this great and lightweight framework,<br>Hinnerk</p>\r\n<p>p.s. really sorry if this question shows just a major ignorance of the MVVM pattern ;-(</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-02-06T03:17:02.887-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "286836",
+    "ThreadId": "83339",
+    "Html": "<p>Hi,</p>\r\n<p>This is probably&nbsp;the most discussed pattern around MVVM, so no ignorance there at all, you're just in the same boat as us all :) In fact, there is an interesting discussion around this right now on the WPF Disciples group:</p>\r\n<p><a href=\"http://groups.google.com/group/wpf-disciples/browse_thread/thread/7588c66f21fb82af\">http://groups.google.com/group/wpf-disciples/browse_thread/thread/7588c66f21fb82af</a></p>\r\n<p>(check the latest messages in the thread). Glenn Block speaks of 6 different manners to communicate with the View.</p>\r\n<p>&nbsp;1. INPC / Property binding</p>\r\n<p>2. Events</p>\r\n<p>3. Messages (Event Aggregator/Messenger/RX framework)</p>\r\n<p>4. Through an intermediary such as a service</p>\r\n<p>5. Through an interface</p>\r\n<p>6. Through delegates (View passes delegates to the VM which it can use to call it back. For example VM might expose a SetActions method which the View calls passing it delegates.</p>\r\n<p>Which method you choose depends very much on your scenario and personal preferences. For myself, I rely on bindings (of course), on Messages and sometimes on one or the other of the six.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-02-07T10:28:43.337-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "286847",
+    "ThreadId": "83339",
+    "Html": "<p>Hi Laurent,<br>thank you a lot for your reply. I didnt consider messages yet - thats interesting - especially as I felt I had underused that feature of your framework so far.</p>\r\n<p>Again thank you and have a nice week,<br>Hinnerk :-)</p>",
+    "PostedDate": "2010-02-07T11:25:02.45-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:54:45.55-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "method Messenger.Implements() used in every Send in loop for every subscriber, that is relatively frequent. this method uses slow Reflection-based technique to archive same result as fast native Type.IsAssignableFrom(). i suggests to remove method \"Implements()\" and change reference to it  (in Messenger.cs):\r\n\r\nImplements(item.Action.Target.GetType(), messageTargetType)\r\n\r\n=>\r\n\r\nmessageTargetType.IsAssignableFrom (item.Action.Target.GetType ())\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-04-17T21:52:57.547-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "unnecessary complicated method Messenger.Implements",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7524
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

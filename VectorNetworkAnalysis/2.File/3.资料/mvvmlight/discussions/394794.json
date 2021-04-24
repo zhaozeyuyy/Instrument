@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "909725",
+    "ThreadId": "394794",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>&nbsp; &nbsp; I just started building a windows phone application and i am very much&nbsp;conscious&nbsp;about the application's memory constraints. So my doubt is, is there any advantage for dynamic view models over static view models. I think if i create\r\n static view models, while the time of application launching the memory will be allocated for all my view models and &nbsp;it may eventually increase my application's memory usage. How i can&nbsp;tackle this situation. I found in V 4.0. A SimpleIOC&nbsp;container&nbsp;is\r\n added along with the libraries, how i can make use of that. provide some samples or documentations that make me learn the technology easier. &nbsp; &nbsp;&nbsp; &nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-09-07T10:44:34.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

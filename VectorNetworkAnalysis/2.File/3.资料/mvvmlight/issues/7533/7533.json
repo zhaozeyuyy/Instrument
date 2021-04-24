@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:55:20.09-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "If ViewModel implements ICustomTypeDescriptor it is possible to implement bindings to properties that don't exist on the ViewModel  class. In this case VerifyPropertyName() will always throw an exception that specified property does not exist. It is true, but it is not convenient :)\r\n\r\nI guess that VerifyPropertyName() should also check specified property name against the list of \"virtual\" properties returned by  ICustomTypeDescriptor.GetProperties().",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-06-19T07:05:56.857-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "VerifyPropertyName doesn't check for ICustomTypeDescriptor implementation",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7533
+  },
+  "FileAttachments": [
+    {
+      "FileId": 251019,
+      "FileName": "CustomTypeDescriptor.rar",
+      "DownloadUrl": ".\\251019"
+    }
+  ],
+  "Comments": []
+}

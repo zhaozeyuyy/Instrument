@@ -1,0 +1,51 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "As Karl Shifflet lays out in the his article Input Validation – UI Exceptions & Model Validation Errors (http://karlshifflett.wordpress.com/mvvm/input-validation-ui-exceptions-model-validation-errors/) UI error events need to be handled in order to allow complete validation and prevent a drift between the UI and the underlying Model.\r\n\r\nKarl's implementation introduces a View base class, which in my opinion is counter productive as Views may need different base classes, such as UserControls, Windows, etc.\r\n\r\nIn order to circumnavigate this drawback a collegue and me decided to implement the Functionality for passing the UI error back to the ViewModel. As we use your framework we think that it would make a nice extension (maybe in the Extras namespace). The classes CamelCaseString and UIValidationError are 1:1 copies from Karl's code. The ValidationViewModelBase in the implementation inherits from the MVVMLight ViewModelBase. The class MvvmValidation contains the impementation of the dependency property to register the handler (which is also 1:1 from Karl's code) with the System.Windows.Controls.Validation.ErrorEvent event.\r\n\r\nFeel free to modify the code and the namespaces to fit into your environment.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-02-16T07:28:43.59-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Addition Request:  UI Validation Handling",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 4,
+    "Id": 7513
+  },
+  "FileAttachments": [
+    {
+      "FileId": 208602,
+      "FileName": "Validation.zip",
+      "DownloadUrl": ".\\208602"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "I was just curious if there is an implementation example for this?",
+      "PostedDate": "2014-11-19T10:56:34.247-08:00",
+      "Id": 166119
+    }
+  ]
+}

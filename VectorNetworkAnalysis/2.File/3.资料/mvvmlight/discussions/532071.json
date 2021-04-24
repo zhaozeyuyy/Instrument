@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1208819",
+    "ThreadId": "532071",
+    "Html": "Hi,\r<br />\n<br />\nI just created a sample application that makes use of MVVM Lights:<br />\n<ul>\n<li>ViewModelBase</li>\n<li>EventToCommand and</li>\n<li>\nRelayCommand feature:<br />\n</li>\n</ul>\n<a href=\"http://www.codeproject.com/Articles/719143/AvalonDock-2-0-Tutorial-Part-5-Load-Save-Layout-wi?msg=4759934#xx4759934xx\" rel=\"nofollow\">http://www.codeproject.com/Articles/719143/AvalonDock-2-0-Tutorial-Part-5-Load-Save-Layout-wi?msg=4759934#xx4759934xx</a>\r<br />\n<br />\nsee Download Version_05_LoadSaveCommand.zip\r<br />\n<br />\nPlease let me know what you think about it. I'll extend the article later but I thought there might be someone here to give comment on this as well.<br />\n",
+    "PostedDate": "2014-02-15T15:39:23.217-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

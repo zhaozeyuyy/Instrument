@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "850368",
+    "ThreadId": "360000",
+    "Html": "\r\n<p>Hi Laurent,</p>\r\n<p>Uncommenting the sample code in the constructor of the ViewModelLocator that registers dataservices (and setting up the appropriate bindings / app.xaml change) causes an exception in the designer when viewing mainpage.xaml. This is because for the ViewModelLocater\r\n is created twice and the SimpleIoc.Register calls are made twice. It would be useful if uncommenting this code led to a usable application.</p>\r\n<p>A simple workaround is to make the sample constructor of ViewModelLocator into a static constructor instead of an instance constructor.</p>\r\n<p>(Note: I'm using MVVM Light with VS 2012 and a Metro UI, I haven't investigated whether this is the same for the earlier stable versions).</p>\r\n",
+    "PostedDate": "2012-06-18T07:37:32.66-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "902482",
+    "ThreadId": "360000",
+    "Html": "<p>Thanks Joshka!</p>\r\n<p>I was going nuts over this exception in the designer ...</p>\r\n<p>So I can confirm your workaround works also in VS 2010 and MVVMLight v 4.0.23.37706 (NuGet today: package id=\"MvvmLightLibs\" version=\"4.1.23.0\")</p>\r\n<p>&nbsp;</p>\r\n<p>Greetings</p>\r\n<p>DeepCore</p>",
+    "PostedDate": "2012-08-22T04:53:57.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

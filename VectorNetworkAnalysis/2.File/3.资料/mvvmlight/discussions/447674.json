@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1059111",
+    "ThreadId": "447674",
+    "Html": "I have a problem accessing the EventToCommand in my WPF4 application. It seems it is not accessible from the namespace I included.\r<br />\n<br />\nI added the references by using NUGET.\r<br />\n<br />\nThe references GalaSoft.MvvmLight.Extras.WPF4, GalaSoft.MvvmLight.WPF4 and System.Windows.Interactivity were added.\r<br />\n<br />\nIn my .xaml I included <br />\n<pre><code>xmlns:cmd=&quot;namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF4&quot;</code></pre>\n\nI want to add a trigger to a textbox, something like:<br />\n<pre><code>&lt;TextBlock Text=&quot;A command&quot; &gt;\n  &lt;i:Interaction.Triggers&gt;\n     &lt;i:EventTrigger EventName=&quot;MouseDown&quot;&gt;\n        &lt;cmd:EventToCommand Command=&quot;{Binding DoActionCommand}&quot;/&gt;\n     &lt;/i:EventTrigger&gt;\n  &lt;/i:Interaction.Triggers&gt;\n&lt;/TextBlock&gt;</code></pre>\n\nHowever the EventToCommand is not recognized. (and I don't get IntelliSense from cmd:\r<br />\n<br />\nCan someone help?<br />\n",
+    "PostedDate": "2013-06-20T04:46:26.907-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

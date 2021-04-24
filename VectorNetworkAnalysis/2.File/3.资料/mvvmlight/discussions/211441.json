@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "438536",
+    "ThreadId": "211441",
+    "Html": "<p>I am having an interesting time getting this to work:</p>\r\n<p>Has anyone used the messaging&nbsp;system in mvvm light toolkit to get this working, or some other method?</p>\r\n<p>How do you set a second windows parent from the ViewModel?</p>\r\n<p>example:</p>\r\n<p>view1 viewModel1</p>\r\n<p>viewModel1's command calls:</p>\r\n<p>var view2 = new view2</p>\r\n<p>view2.Owner = &lt;----This is the problem area. How do I get view1 as the owner here from the viewModel?</p>\r\n<p>view2.Show()</p>\r\n<p>Thank you!</p>",
+    "PostedDate": "2010-05-03T15:03:39.163-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "438549",
+    "ThreadId": "211441",
+    "Html": "<p>Hi,</p>\r\n<p>In my opinion, opening a new window is the responsibility of the View, not of the ViewModel. Personally, I would use the same approach as used for displaying a dialog box (this was discussed in this forum already):</p>\r\n<ul>\r\n<li>Have the ViewModel send a Message to the View requesting that it opens a new Window.</li>\r\n<li>(alternatively) use an IDialogService or whatever you want to call it which you pass to the ViewModel's constructor. This service will be in charge of opening the Window (or of delegating this task to the View).</li>\r\n</ul>\r\n<p>This way, you keep a clean separation of concerns and your VM remains testable (you can unit test that the request to open the new WIndow has been sent, but you couldn't test that the window has been, indeed, open).</p>\r\n<p>Does that make sense?</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>\r\n<p>PS: For more responses, I recommend you post questions to&nbsp;<a href=\"http://stackoverflow.com/questions/tagged/mvvm-light\">http://stackoverflow.com/questions/tagged/mvvm-light</a>&nbsp;(make sure to use the tag mvvm-light). I check the questions as often as I can, and more qualified people lurk there and are able to answer your questions if I can't ;)</p>",
+    "PostedDate": "2010-05-03T15:51:09.64-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "438550",
+    "ThreadId": "211441",
+    "Html": "<p>Laurent - thank you for the response.</p>\r\n<p>Currently I'am using an interface that is passed into the viewmodels constructor, the part I was missing is sending a message to the view to open a new view / dialog etc...&nbsp;</p>\r\n<p>This makes sense as it will be able to handle assigning ownership etc... I am going to give it a try and post the results on stackoverflow - I created this post and tagged with mvvm-light:</p>\r\n<p><a href=\"http://stackoverflow.com/questions/2761162/wpf-mvvm-get-parent-from-view-model\">http://stackoverflow.com/questions/2761162/wpf-mvvm-get-parent-from-view-model</a></p>\r\n<p>Once again thank you for your valuable time!</p>",
+    "PostedDate": "2010-05-03T15:59:40.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

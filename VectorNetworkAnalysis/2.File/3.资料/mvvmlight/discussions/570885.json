@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1317581",
+    "ThreadId": "570885",
+    "Html": "CanExecute Method still can not work in WPF with latest MvvmLight version on Nuget<br />\n",
+    "PostedDate": "2014-10-30T00:50:11.793-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1317586",
+    "ThreadId": "570885",
+    "Html": "Finally, I realized that there's a new public method from RelayCommand Called RaiseCanExecuteChanged().\r<br />\nWith this method, I am able to notify UI to update by invoke CanExecute().\r<br />\nProblem solved.<br />\n",
+    "PostedDate": "2014-10-30T01:07:06.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1339981",
+    "ThreadId": "570885",
+    "Html": "As far as I know, RaiseCanExecuteChanged is not new at all, it's been there for years. However, you shouldn't need to use it.\r<br />\n<br />\nThe problem you're seeing can be fixed by changing your &quot;using&quot; statement from GalaSoft.MvvmLight.Command to GalaSoft.MvvmLight.CommandWpf. I saw a blog post by the author of this toolkit, explaining why this was necessary, but can't remember where it was. You can probably find it with some searching. However, just adding &quot;Wpf&quot; to the end of the using will fix your problem without you having to call RaiseCanExecuteChanged yourself.<br />\n",
+    "PostedDate": "2015-01-08T01:43:06.84-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

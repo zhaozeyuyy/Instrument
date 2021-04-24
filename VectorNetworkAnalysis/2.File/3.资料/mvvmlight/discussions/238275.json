@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "535394",
+    "ThreadId": "238275",
+    "Html": "\r\n<p>Hi</p>\r\n<p>In my Silverlight application I want to authenticate the user before giving him access to the UI. What is the most elegant way of doing that?</p>\r\n<p>I'm consider doing it this way:</p>\r\n<p>1) In the Application_Startup event in App.xaml.cs I show a dialog (view: loginForm.xaml) where the user has to submit valid credentials</p>\r\n<p>2) If credentials is valid. Navigate to the MainView.xaml</p>\r\n<p>Is there any session-object in Silverlight that I can save information about the user and his role? Different roles has different access to my application. This is regular business application functionality and I hope there is some good samples for scenarios\r\n like this.</p>\r\n",
+    "PostedDate": "2010-12-14T00:46:44.37-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

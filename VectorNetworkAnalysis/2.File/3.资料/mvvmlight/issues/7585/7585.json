@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Duplicate with Issue 7572",
+    "ClosedDate": "2012-10-28T10:33:55.033-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "In one project I installed MVVM Light through NuGet and then uninstalled it. My App.xaml was missing x:Class=\"...\" and xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\".",
+    "LastUpdatedDate": "2012-10-28T10:33:55.033-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-08-18T02:51:55.46-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "App.xaml damaged after Nuget uninstall",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7585
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

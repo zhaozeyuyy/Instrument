@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "679336",
+    "ThreadId": "274590",
+    "Html": "\r\n<p>Is there some sample application where the new MVVM toolkit is used with a Metro style app?<br>\r\nIts difficult to get started without any sample code.</p>\r\n<p>I'm just started to use MVVMlight - used Prism with WPF before.</p>\r\n",
+    "PostedDate": "2011-10-03T06:19:39.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679347",
+    "ThreadId": "274590",
+    "Html": "<p>Considering I released this morning at 2AM, there is no sample available yet ;) However I am working on a \"what's new\" blog post and will follow with a sample application, stay tuned to [url:http://blog.galasoft.ch].</p>\r\n<p>Cheers,<br />Laurent</p>",
+    "PostedDate": "2011-10-03T06:47:22.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "679417",
+    "ThreadId": "274590",
+    "Html": "<p>No problem. I appreciate your work! Not easy to port all that stuff over to WinRT. Many things changed... Especially the Collection binding stuff makes me hoping for an update :)</p>",
+    "PostedDate": "2011-10-03T10:01:27.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "998968",
+    "ThreadId": "432583",
+    "Html": "I've got an issue where my WPF application cannot be published with ClickOnce.\r<br />\n<br />\nThe application uses Nuget packages MVVM Light 4.1.26.1, Unity 2.1.505.2, CommonServiceLocator 1.0.\r<br />\n<br />\nThe problem is that when I publish, it all build fine, but I get this error when I try and install the clickonce package:\r<br />\n<br />\n<strong>Unable to install or run the application. The application requires that assembly Microsoft.Practices.ServiceLocation Version 1.0.0.0 be installed into the Global Assembly Cache (GAC) first.</strong>\r<br />\n<br />\n<br />\nI did some digging and saw that there were two references to that assembly in the manifest, and one of them was marked as a prerequisite which I can't get rid of:<br />\n<pre><code>&lt;dependency&gt;\n    &lt;dependentAssembly dependencyType=&quot;preRequisite&quot; allowDelayedBinding=&quot;true&quot;&gt;\n      &lt;assemblyIdentity name=&quot;Microsoft.Practices.ServiceLocation&quot; version=&quot;1.0.0.0&quot; publicKeyToken=&quot;59D6D24383174AC4&quot; language=&quot;neutral&quot; processorArchitecture=&quot;msil&quot; /&gt;\n    &lt;/dependentAssembly&gt;\n  &lt;/dependency&gt;\n\n&lt;dependency&gt;\n    &lt;dependentAssembly dependencyType=&quot;install&quot; allowDelayedBinding=&quot;true&quot; codebase=&quot;Microsoft.Practices.ServiceLocation.dll&quot; size=&quot;29760&quot;&gt;\n      &lt;assemblyIdentity name=&quot;Microsoft.Practices.ServiceLocation&quot; version=&quot;1.0.0.0&quot; publicKeyToken=&quot;31BF3856AD364E35&quot; language=&quot;neutral&quot; processorArchitecture=&quot;msil&quot; /&gt;\n      &lt;hash&gt;\n        &lt;dsig:Transforms&gt;\n          &lt;dsig:Transform Algorithm=&quot;urn:schemas-microsoft-com:HashTransforms.Identity&quot; /&gt;\n        &lt;/dsig:Transforms&gt;\n        &lt;dsig:DigestMethod Algorithm=&quot;http://www.w3.org/2000/09/xmldsig#sha256&quot; /&gt;\n        &lt;dsig:DigestValue&gt;eee+a+dQmhpSY/ApLxRipXdEp8UsTaZHXHClBU0Iwyc=&lt;/dsig:DigestValue&gt;\n      &lt;/hash&gt;\n    &lt;/dependentAssembly&gt;\n  &lt;/dependency&gt;</code></pre>\n\nI'm pretty sure the issue with the ClickOnce is down to there being two references to this assembly with the same version (but notice the different public key tokens).\r<br />\n<br />\nI created a very simple repro as follows:<br />\n<ol>\n<li>\nCreate a new WPF application<br />\n</li>\n<li>\nAdd Nuget package MVVM Light<br />\n</li>\n<li>\nAdd Nuget package Unity<br />\n</li>\n<li>\nBuild and publish the WPF application<br />\n</li>\n<li>\nTry and install the published MyApp.application clickOnce package....get the error detailed above <br />\n</li>\n</ol>\nHere's a repro project:\r<br />\n<br />\n<a href=\"http://sdrv.ms/Xj9SDP\" rel=\"nofollow\">Skydrive repro project link</a>\r<br />\n<br />\nAny ideas how I might get over this?<br />\n",
+    "PostedDate": "2013-02-09T11:55:38.957-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1001445",
+    "ThreadId": "432583",
+    "Html": "Hi,\r<br />\n<br />\nPlease try again. I just pushed a new build (4.1.27.0) to Nuget that is depending on the official CommonServiceLocator package where available. This should fix your issue. If you have more problems, please make sure to let me know.\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2013-02-14T12:26:57.063-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1002142",
+    "ThreadId": "432583",
+    "Html": "Mr Bugnion you are a legend, this has fixed all my woes. Kudos on the speedy turnaround....cheers! <br />\n",
+    "PostedDate": "2013-02-16T01:38:03.38-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1416453",
+    "ThreadId": "432583",
+    "Html": "Hello,\r<br />\n<br />\nI am facing the similar issue when I am using MVVM Light libraries only version 5.1.1.0. I saw the similar entries on the .Manifest file. Appreciate any help on this.\r<br />\n<br />\nThanks,<br />\n",
+    "PostedDate": "2015-04-21T12:49:17.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

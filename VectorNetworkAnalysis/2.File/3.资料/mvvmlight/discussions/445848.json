@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1052227",
+    "ThreadId": "445848",
+    "Html": "Hi,\r<br />\n<br />\nI want to create a master details in WPF45 page using MVVM light can you please suggest me some article or sample or example which I can referrer.\r<br />\n<br />\nI want to understand how to notify parent when child records modified. And in-case there are some property in parent which dependent on child how to notify those property change to parent. Is it feasible to notify parent without using messaging?\r<br />\n<br />\nPFB the sample class hierarchy:\r<br />\n<br />\n<strong>Candidate</strong><br />\n<pre><code>- Name\n- Address\n- Expenses\n- IsStipend [This property will be true in-case candidate having Stipend type of expense]\n- IsMeal [This property will be true in-case candidate having Meal type of expense]\n- IsContingency\n- IsTravel\n</code></pre>\n\n<strong>Expense</strong><br />\n<pre><code>- Description\n- ExpenseType\n</code></pre>\n\n",
+    "PostedDate": "2013-06-03T09:16:47.64-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

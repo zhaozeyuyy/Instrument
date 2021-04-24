@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "408205",
+    "ThreadId": "199498",
+    "Html": "<p>Firstly, love the toolkit. Very intuitive. Good work!</p>\r\n<p>I'm experiencing a small issue with EventToCommand in a sl3 app. I need to monitor the size of an element, so I've implemented a RelayCommand&lt;SizeChangedEventArgs&gt; in my VM to which I have bound the SizeChanged event using EventToCommand.</p>\r\n<p>It seems to work fine, except for the fact that the first time the event fires (directly prior to the element's Loaded event) the RelayCommand is not called. Each subsequent SizeChanged event calls successfully, just not the initial event.</p>\r\n<p>Is this expected behaviour, a bug or could it be something I've done wrong?</p>\r\n<p>Thanks.</p>",
+    "PostedDate": "2010-02-26T03:47:24.57-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "412414",
+    "ThreadId": "199498",
+    "Html": "<p>Hi,</p>\r\n<p>Honestly, I am not sure. Could it be that the first time SizeChanged is called, the RelayCommand is not &quot;wired&quot; yet?</p>\r\n<p>If you send me a repro, I will take a look at the sequence of events.</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-02-28T03:59:45.98-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "413584",
+    "ThreadId": "199498",
+    "Html": "<p>Laurent,</p>\r\n<p>Thanks for getting back to me. Have tried to make a repro project, but the same behaviour does not manifest. I can only conclude that the issue must be contained within my project, so I'll investigate further and update if I get to the bottom of the problem.</p>\r\n<p>I had the same thought about the wiring, and it seems the most likely explanation, but I have confirmed that the ViewModel &amp; RelayCommand are created prior to the element's creation so I'm not sure where the problem could be arising.</p>\r\n<p>Regards,</p>",
+    "PostedDate": "2010-03-03T02:18:53.723-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "494657",
+    "ThreadId": "199498",
+    "Html": "<p>I am having the same issue.&nbsp; I have a control which I need an accurate Height and Width for.&nbsp; I have the Height and Width in the ViewModel bound to the control (the view) but the size never seems to get updated on the view model end.&nbsp; I figured I could use the SizeChanged event so I set up my trigger like so:</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>    <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">i</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">Interaction.Triggers</span><span style=\"color:blue\">&gt;</span>\r\n        <span style=\"color:green\">&lt;!-- Wire the MouseLeftButtonDown event to the corresponding command in the ViewModel --&gt;</span>\r\n        <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">i</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">EventTrigger</span> <span style=\"color:red\">EventName</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">SizeChanged</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">&gt;</span>\r\n            <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">cmd</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">EventToCommand</span> <span style=\"color:red\">Command</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">{Binding SizeChangedCommand}</span><span style=\"color:black\">&quot;</span> <span style=\"color:red\">PassEventArgsToCommand</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">True</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">/&gt;</span>\r\n        <span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">i</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">EventTrigger</span><span style=\"color:blue\">&gt;</span>\r\n    <span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">i</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">Interaction.Triggers</span><span style=\"color:blue\">&gt;</span>\r\n</pre>\r\n</div>\r\n<p>However, the command is never called.&nbsp; I confirm that SizeChanged is firing by setting up a view-side event handler but it never seems to fire the command.</p>",
+    "PostedDate": "2010-09-16T14:09:53.447-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "494820",
+    "ThreadId": "199498",
+    "Html": "<p>Sorry to say I never really resolved it so cannot help you, though it has been some time since I revisited the issue, in my case I worked around it by simply using an event handler on the SizeChanged element event and changing the public W/H values on my static ViewModel instance from that code-behind handler.</p>\r\n<p>A little dirty, but it works just as well as any other way. Good luck.</p>",
+    "PostedDate": "2010-09-17T00:16:58.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "494954",
+    "ThreadId": "199498",
+    "Html": "<p>Thanks.&nbsp; My research revealed that we are not the only ones with the issue and not everyone is using the MVVM Light Framework.&nbsp; Most seem to have the problem related with the event being fired on an object within an ItemsControl (which is my case).&nbsp; It appears to be some bug in Silverlight itself.&nbsp; I worked around it by creating a behavior that handles the SizeChanged event and calls the specified command on the viewmodel.&nbsp; This is exactly what the RelayCommand and EventToCommand were supposed to be doing but aren't working.&nbsp; My behavior works perfectly.</p>",
+    "PostedDate": "2010-09-17T06:24:11.307-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "495098",
+    "ThreadId": "199498",
+    "Html": "<p>Hey guys,</p>\r\n<p>Just to clarfiy, i am monitoring this thread and I will definitely investigate. I might come back to you then to ask for some code if you allow. I am just too swamped in the morning to progress on MVVM Light, but this will clear up after the WP7 launch.</p>\r\n<p>Thanks for helping each other ;)</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-09-17T10:02:46.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "495112",
+    "ThreadId": "199498",
+    "Html": "<p>Its ok Laurent.&nbsp; I totally understand.&nbsp; As I mentioned, I found a work around.</p>\r\n<p>I suspect that there is some sort of timing issue involved here.&nbsp; SInce it works fine with a behavior, it should work with a trigger but something must be happening under the hood.&nbsp; My behavior is still calling a command on my ViewModel that is using RelayCommand.&nbsp; All my behavior does it handle the SizeChanged event fired by the attached object and calls the corresponding command.</p>\r\n<p>Good luck with the WP7 stuff and PDC (if you will be there).</p>\r\n<p>Todd</p>",
+    "PostedDate": "2010-09-17T10:30:29.983-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "507144",
+    "ThreadId": "199498",
+    "Html": "<p>Hi,</p>\r\n<p>I had the same problem with another event. I have debugged the MVVM Light source code and I found why my command was not called.<br>Laurent, the problem is on the Invoke method : you check if the AssociatedElement is well enabled. In some cases, we would like the command to be called even if the control is not enabled. I think it could be the same problem with&nbsp;<span>SizeChanged event.<br></span></p>\r\n<p>A new boolean property on the EventCommand class will be welcome - &nbsp;public bool YouMustInvokeTheCommandEvenIfTheControlIsDisabled ;-)<br><br>Or you could replace the line :<br><strong>if (AssociatedElementIsDisabled()) { return; }</strong> -&nbsp;I don't know if checking IsEnabled property value of the control is a good idea or not<br>by<br><strong>if (AssociatedObject == null) { return; }</strong><br>It's what I did for the moment, waiting a fix...</p>\r\n<p>Cordially,<br>St&eacute;phane.</p>",
+    "PostedDate": "2010-10-14T02:51:03.323-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "645329",
+    "ThreadId": "199498",
+    "Html": "<p>Ran into the same issue with SL5 Beta and a modified MVVM Toolkit 4. We worked around it for now by doing the following on the view's codebehind</p>\n<p><span style=\"font-family: Consolas; font-size: x-small;\"><span style=\"font-family: Consolas; font-size: x-small;\">&nbsp;</span></span>&nbsp; <span style=\"color: blue;\">public</span> MyView()<br />&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; InitializeComponent();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MyLayoutRoot.SizeChanged += <span style=\"color: blue;\">new</span> SizeChangedEventHandler(MyLayoutRoot_SizeChanged);<br />&nbsp;&nbsp;&nbsp; }<br /><br />&nbsp;&nbsp;&nbsp; <span style=\"color: blue;\">void</span> MyLayoutRoot_SizeChanged(<span style=\"color: blue;\">object</span> sender, SizeChangedEventArgs e)<br />&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IMyViewModel vm = (IMyViewModel)<span style=\"color: blue;\">this</span>.DataContext;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; vm.RootGridWidth = ((Grid)sender).ActualWidth;<br />&nbsp;&nbsp;&nbsp; }</p>\n<p>Would be reassuring to know that this would be addressed in the next release. Thank you very much,</p>\n<p>Mohamad.</p>",
+    "PostedDate": "2011-07-20T21:34:54.04-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "651058",
+    "ThreadId": "199498",
+    "Html": "<p>For the moment (I use the MVVM Light V4 preview 2), I saw no change about this. I hope that Laurent will add a new property on the EventCommand to invoke the command even the control is disabled, but I don't think that will resolve the problem with the SizeChanged event.<br /> <br /> Cordially,<br /> St&eacute;phane.</p>",
+    "PostedDate": "2011-08-02T03:00:38.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

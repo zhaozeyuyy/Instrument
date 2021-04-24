@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "426716",
+    "ThreadId": "208132",
+    "Html": "<p>How to I get the EventToCommand behavior to show up in blend for a windows phone 7 app? &nbsp;I tried manually adding it in the solution and the solution would not compile.</p>",
+    "PostedDate": "2010-04-01T21:38:37.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "426736",
+    "ThreadId": "208132",
+    "Html": "<p>Hi,</p>\r\n<p>I am about to release a service pack for V3 that supports this scenario.</p>\r\n<p>Adding EventToCommand manually works (at least in my tests) but the syntax is a bit convoluted. Try adding another behavior to your element, and tweak the syntax to use EventToCommand instead. I will try to push the new version this weekend.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-01T23:41:46.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "426806",
+    "ThreadId": "208132",
+    "Html": "<p>I will try the manual way again until the service pack is released. Thanks for answering the question so quick.</p>",
+    "PostedDate": "2010-04-02T05:48:29.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "427563",
+    "ThreadId": "208132",
+    "Html": "<p>Hi,</p>\r\n<p>Just wanted to make sure that you saw this:</p>\r\n<p>http://blog.galasoft.ch/archive/2010/04/03/mvvm-light-toolkit-v3-sp1-for-windows-phone-7.aspx</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-05T11:49:32.967-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

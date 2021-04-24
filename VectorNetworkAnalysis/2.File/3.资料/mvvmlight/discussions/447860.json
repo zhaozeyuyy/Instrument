@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1059810",
+    "ThreadId": "447860",
+    "Html": "Creating a new Silverlight 5 project and adding the portable version of MVVM Light via NuGet adds GalaSoft.MvvmLight.Platform.SL4 along with the SL5 versions of BCL and Interactivity.\r<br />\n<br />\nTrying to then use EventToCommand results in the old error about Platform.SL4 being &quot;built with an older version of the Blend SDK.&quot;\r<br />\n<br />\nI assume there simply needs to be a Platform.SL5?\r<br />\n<br />\n(the intent is of course to use with our own PCL projects, but I created a simple SL5 test project to make sure that they weren't causing problems)<br />\n",
+    "PostedDate": "2013-06-21T15:35:14.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1059842",
+    "ThreadId": "447860",
+    "Html": "Hi,\r<br />\n<br />\nI just created a sample of SL5 mvvm light and PCL and didn't have any issue. A few things:<br />\n<ul>\n<li>it should not add the SL4 version of the assemblies but the PCL version which does not have a SL* prefix.</li>\n<li>\nmake very sure that you use the PCL version not only in your library, but also in your application.<br />\n</li>\n</ul>\nI think there is a configuration error somewhere in your project. I can send you the sample I implemented if you want.\r<br />\n<br />\nLet me know,\r<br />\nLaurent<br />\n",
+    "PostedDate": "2013-06-21T22:40:19.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1059941",
+    "ThreadId": "447860",
+    "Html": "Hi Laurent, thanks for replying. Sorry, I guess I should have been more detailed; I was trying to be concise.\r<br />\n<br />\nMy understanding is thus:<br />\n<ul>\n<li>\nThe PCL version of the assemblies does not support EventToCommand (it simply is not there when viewed in ObjectBrowser). Which makes some sense since it is view-specific.<br />\n</li>\n<li>\nEventToCommand is added by platform-specific assemblies which are included in the PCL NuGet package. (e.g. GalaSoft.MvvmLight.Platform.SL4)<br />\n</li>\n<li>\nTo use EventToCommand in the views, the views must be in a Silverlight project (not just a PCL project targeting Silverlight) that references the PCL assemblies as well as the platform-specific assembly (rather than the Silverlight version of MvvmLight which would be incompatible with PCL ViewModels referencing the PCL version).<br />\n</li>\n</ul>\nAll I did was create a new default SL5 project in Visual Studio, add MVVM Light PCL via NuGet, and verify that attempting to use EventToCommand caused errors. (nothing fancy, just the simple standard example usage)\r<br />\n<br />\nAlso, I did verify that doing the same with SL4 worked fine (as I expected, since there is a Platform.SL4 but no Platform.SL5). \r<br />\n<br />\n<br />\nI assume that your sample project is not actually using EventToCommand in SL5? If I'm wrong, I would indeed be happy to see your sample.<br />\n",
+    "PostedDate": "2013-06-22T12:18:07.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1069673",
+    "ThreadId": "447860",
+    "Html": "I have updated the PCL Nuget package to include a SL5 platform assembly that uses the SL5 interactivity libs.<br />\n",
+    "PostedDate": "2013-07-17T12:00:17.097-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

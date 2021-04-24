@@ -1,0 +1,71 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "See sample, issue is not reproducible.",
+    "ClosedDate": "2012-07-13T13:08:02.28-07:00",
+    "CommentCount": 5,
+    "Custom": null,
+    "Description": "i try with a simple example:\r\n\r\npublic RelayCommand CmdCnt { get { return new RelayCommand(BtnCnt, CanContinue); } }\r\n\r\nmy function CanContinue is raised when ViewModel is created but never more called.\r\nI try to call the function with RaiseCanExecuteChanged but still not work.\r\n\r\nCmdCnt.RaiseCanExecuteChanged();\r\n \r\n\r\n",
+    "LastUpdatedDate": "2012-07-13T13:28:41.43-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-07-13T02:40:25.877-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "RaiseCanExecuteChanged in Win8 with Release Candidate",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7578
+  },
+  "FileAttachments": [
+    {
+      "FileId": 447262,
+      "FileName": "MvvmLight8.zip",
+      "DownloadUrl": ".\\447262"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nHow do you bind to the RelayCommand? RaiseCanExecuteChanged will do just = that, raise the CanExecuteChanged event. If no one is subscribed to the = CanExecutedChanged event (such as through a Binding, for instance), then = the CanExecute method is never called. It is normal behavior.\n\nCheers,\nLaurent",
+      "PostedDate": "2012-07-13T10:28:16.893-07:00",
+      "Id": 70105
+    },
+    {
+      "Message": "I use binding so\n\n<Button Content=\"ClickMe\" Command=\"{Binding CmdCnt}\"/>\n\nand the DataContext of my View is my ViewModel\nthe only difference about my previous version (WPF WinForm) is that in WPF i not need to call RaiseCanExecuteChanged and all work so good.\n\nBut maybe i wrong something in Metro App...\n\nTks \nAndrea.",
+      "PostedDate": "2012-07-13T11:19:56.68-07:00",
+      "Id": 70109
+    },
+    {
+      "Message": "You are right that in WPF, you don't need to call RaiseCanExecuteChanged, however this works differently in Silverlight and in Metro. So what you do is correct. The CanExecute method *should* be called, so something else is wrong. Let me make a sample for you ok?\n\nCheers,\nLaurent",
+      "PostedDate": "2012-07-13T12:40:26.6-07:00",
+      "Id": 70112
+    },
+    {
+      "Message": "Here is an example showing that RaiseCanExecuteChanged causes the CanExecute method to be called when the command is databound.\r\n\r\nLet me know if you have issues with that sample.\r\n\r\nCheers,\r\nLaurent",
+      "PostedDate": "2012-07-13T13:07:35.297-07:00",
+      "Id": 70116
+    },
+    {
+      "Message": "Tks so much!\nI found my wrong! \n\nnow so work:\nprivate RelayCommand _cmdCnt;\npublic RelayCommand CmdCnt { get { return _cmdCnt ?? (_cmdCnt = new RelayCommand(BtnCnt, CanContinue)); } }\n\nbefore so not work(the code was the same in WPF):\npublic RelayCommand CmdCnt { get { return new RelayCommand(BtnCnt, CanContinue); } }\n\nTks again...\nbye\nAndrea.\n\n\n",
+      "PostedDate": "2012-07-13T13:28:41.43-07:00",
+      "Id": 70119
+    }
+  ]
+}

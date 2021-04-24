@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-08-21T03:55:28.177-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "I have a WPF4 project with MVVMLight libraries ver 4.3.31.28629 and the designer throw the error \r\nCannot create an instance of \"ViewModelLocator\".\r\n\r\nI also tried with a blank project with only the MVVMlight libraries installed via nuget and still got the error.\r\n\r\nI need to fix this because I highly need to use design time models\r\n\r\n\r\n",
+    "LastUpdatedDate": "2014-08-21T03:55:28.177-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-07-21T08:30:20.043-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Cannot repro"
+    },
+    "Summary": "Cannot create an instance of \"ViewModelLocator\".",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7651
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nThe \"ViewModelLocator\" error indicates an issue with your code. This can be as simple as needing to compile the app (the binaries need to be built for the designer to be active).\n\nI couldn't repro what you described so I am closing the issue now. If you feel it is not correct, please reach out to me.\n\nThanks\nLaurent",
+      "PostedDate": "2014-08-21T03:55:20.05-07:00",
+      "Id": 155907
+    }
+  ]
+}

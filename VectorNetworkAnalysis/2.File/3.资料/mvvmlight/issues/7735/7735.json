@@ -1,0 +1,80 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 8,
+    "Custom": null,
+    "Description": "Are there any plans for a netstandard release?",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.4.0 (planning)",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-07-20T10:55:50.907-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "NetStandard Release?",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 6,
+    "Id": 7735
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Yes this is the main focus of V5.4. ETA is not totally clear because I am busy recording a Pluralsight course but I want to try to do this not too late.\n\n",
+      "PostedDate": "2016-07-21T08:50:44.313-07:00",
+      "Id": 200780
+    },
+    {
+      "Message": "Perfect, thanks!",
+      "PostedDate": "2016-07-21T09:33:23.697-07:00",
+      "Id": 200781
+    },
+    {
+      "Message": "No updates?",
+      "PostedDate": "2016-09-18T03:00:41.273-07:00",
+      "Id": 204133
+    },
+    {
+      "Message": "Is there any news here?  Perhaps a fork/branch or something others could help contribute to?\n\nWe use protobuf-net throughout our projects and it's cut over to netstandard.   I've managed to port most of our core libraries except for MvvmLightLibs.",
+      "PostedDate": "2016-10-05T21:35:51.66-07:00",
+      "Id": 204539
+    },
+    {
+      "Message": "I had a quick go at creating a .netstandard 1.3 version of MvvmLightLibs yesterday.\n\nThe main hurdle was the lack of a corresponding CommonServiceLocator package.\n\nTo that end I've submitted a pull request over there:\nhttps://commonservicelocator.codeplex.com/SourceControl/network/forks/hastarin/netstandard/contribution/8979\n",
+      "PostedDate": "2016-10-07T22:53:49.517-07:00",
+      "Id": 204584
+    },
+    {
+      "Message": "Damn those dependencies.\n\nIn the past when CommonServiceLocator was not available for Silverlight, I bundled it with MVVM Light directly. We could also do that here and wait until the CSL team ports it to restore the reference \n\nThoughts?",
+      "PostedDate": "2016-10-07T23:21:36.273-07:00",
+      "Id": 204585
+    },
+    {
+      "Message": "Looks like the only option.\n\nQuote from an issue on the other unity project:\n> I asked Jeff Fritz at a Dotnet meetup and he was not aware of any efforts to bring Unity IOC forward to core. The team has largely been dispersed throughout Microsoft.",
+      "PostedDate": "2016-11-28T11:47:12.413-08:00",
+      "Id": 205338
+    },
+    {
+      "Message": "Just a quick note that the CommonServiceLocator has finally been updated (5 days ago) so this should now be possible.",
+      "PostedDate": "2017-09-25T18:01:35.617-07:00",
+      "Id": 208820
+    }
+  ]
+}

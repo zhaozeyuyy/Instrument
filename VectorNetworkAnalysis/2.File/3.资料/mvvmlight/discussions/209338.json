@@ -1,0 +1,138 @@
+[
+  {
+    "Id": "430976",
+    "ThreadId": "209338",
+    "Html": "<p>Hi all</p>\r\n<p>I've been struggling a bit trying to get my head around creating dialogs using MVVM with the MVVM Light Toolkit, I'm aware of the existence of the DialogMessage class, but have no real idea how to use it.</p>\r\n<p>Would someone be so kind as to describe how you would send a message to a view instructing it to open a dialog box (a simple messagebox with ok/cancel is fine) and then return the result to the caller.</p>\r\n<p>I've been looking everywhere for something but to no avail.</p>",
+    "PostedDate": "2010-04-14T08:25:25.983-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "432471",
+    "ThreadId": "209338",
+    "Html": "<p>Hi,</p>\r\n<p>I posted a sample showing a DialogMessage being used. I will blog about it soon.</p>\r\n<p><a href=\"http://www.galasoft.ch/mvvm/resources/Samples/DialogMessageSample.zip\">http://www.galasoft.ch/mvvm/resources/Samples/DialogMessageSample.zip</a></p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-18T13:48:15.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "432637",
+    "ThreadId": "209338",
+    "Html": "<p>Thanks again Laurent, this has helped a lot.</p>\r\n<p>One of the problems I've noticed with MVVM as a whole is that there seems to few, if any, examples of a more typical windows applicaiton. Every example I've found seems to focus on a single view rather than any kind of menu driven, multiple windowed application. I can only assume that a lot of this is due to the tendency for a lot of MVVM's proponents being Silverlight developers.</p>\r\n<p>Once I get this project finished I think I'm going to blog about my experiences and hopefully help anyone who finds themselves in the same situation as myself.</p>",
+    "PostedDate": "2010-04-19T02:51:22.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "436209",
+    "ThreadId": "209338",
+    "Html": "<p>awesome - this helped me as well.</p>",
+    "PostedDate": "2010-04-27T15:57:32.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "439342",
+    "ThreadId": "209338",
+    "Html": "<p>Laurent,</p>\r\n<p>I used this sample and apparently I am doing something wrong because the box never appears on my version. What could I be doing wrong? There are no errors.</p>\r\n<p style=\"line-height:normal;margin:0in 0in 0pt\"><span style=\"font-family:Consolas;color:blue;font-size:9.5pt\">var</span><span style=\"font-family:Consolas;font-size:9.5pt\"> message = <span style=\"color:blue\">new</span> <span style=\"color:#2b91af\">DialogMessage</span>(<span style=\"color:#a31515\">&quot;Are you sure want to delete ??&quot;</span>, <span style=\"color:#a31515\">&quot;Confirm Delete&quot;</span>, DialogMessageCallback)</span></p>\r\n<p style=\"line-height:normal;margin:0in 0in 0pt\"><span style=\"font-family:Consolas;font-size:9.5pt\">{</span></p>\r\n<p style=\"line-height:normal;margin:0in 0in 0pt\"><span style=\"font-family:Consolas;font-size:9.5pt\"><span style=\"\">&nbsp;&nbsp;&nbsp; </span>Button = System.Windows.<span style=\"color:#2b91af\">MessageBoxButton</span>.OKCancel,</span></p>\r\n<p style=\"line-height:normal;margin:0in 0in 0pt\"><span style=\"font-family:Consolas;font-size:9.5pt\"><span style=\"\">&nbsp;&nbsp;&nbsp; </span>Caption = <span style=\"color:#a31515\">&quot;Caption??&quot;</span><span style=\"\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></p>\r\n<p style=\"line-height:normal;margin:0in 0in 0pt\"><span style=\"font-family:Consolas;font-size:9.5pt\">};</span></p>\r\n<p style=\"line-height:normal;margin:0in 0in 0pt\"><span style=\"font-family:Consolas;font-size:9.5pt\">&nbsp;</span></p>\r\n<p style=\"line-height:normal;margin:0in 0in 0pt\"><span style=\"font-family:Consolas;color:#2b91af;font-size:9.5pt\">Messenger</span><span style=\"font-family:Consolas;font-size:9.5pt\">.Default.Send(message);</span></p>\r\n<p>&nbsp;</p>\r\n<div id=\"_mcePaste\" style=\"width:1px;height:1px;overflow:hidden;top:0px;left:-10000px\">﻿</div>",
+    "PostedDate": "2010-05-05T09:14:35.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "439347",
+    "ThreadId": "209338",
+    "Html": "<p>Hi,</p>\r\n<p>Sending is one thing, but you also need to receive the message and handle it in the view ;) The message's purpose is not to actually <em>show</em>&nbsp;the dialog, it is to ask the view to show it.</p>\r\n<p>If you check the sample I posted (see above), you will see that in MainPage.xaml.cs, the MainPage receives the message, displays the MessageBox and passes the result to the callback.</p>\r\n<p>The point of the exercise is to separate the concerns: The ViewModel wants a dialog to be shown, but doesn't want to know how. The View just displays the dialog, but doesn't handle the result.</p>\r\n<p>Does that make sense?</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-05-05T09:24:33.667-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "455720",
+    "ThreadId": "209338",
+    "Html": "<p>Laurent,</p>\r\n<p>Your example helped me&nbsp;a great deal.&nbsp; Thanks for the fine work you are doing.</p>",
+    "PostedDate": "2010-06-15T09:52:54.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "497479",
+    "ThreadId": "209338",
+    "Html": "<p>Laurent,&nbsp;I have nothing to add except my thanks for your demo and framework.</p>",
+    "PostedDate": "2010-09-23T04:50:31.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "531199",
+    "ThreadId": "209338",
+    "Html": "\r\n<p>Laurent - great sample and nice solution. Helped me dive into the messaging part of MVVM Light too.</p>\r\n<p>Thanks!!!</p>\r\n<p>Todd</p>\r\n",
+    "PostedDate": "2010-12-04T13:06:29.493-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "561512",
+    "ThreadId": "209338",
+    "Html": "\r\n<p>&nbsp;</p>\r\n<p>I've implemented a Behavior that listens to a Message from the ViewModel. It's based on Laurent Bugnion solution, but since it doesn't use code behind and is more reusable, I think it's more elegant.</p>\r\n<p>&nbsp;</p>\r\n<p><br>\r\n<a title=\"Check it out here\" href=\"http://blogs.microsoft.co.il/blogs/eladkatz/archive/2011/02/06/mvvm-how-to-show-a-dialog-box-from-the-viewmodel-using-behaviors.aspx\">Check it out here</a></p>\r\n",
+    "PostedDate": "2011-02-06T09:27:48.34-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "582089",
+    "ThreadId": "209338",
+    "Html": "<p>I'm looking to add in a \"function pad\" type of behavior to my application but not sure how best to accomplish it (DialogMessage? NotificationMessageWithCallback?)..</p>\r\n<p>I've got a list of items (in my example, a list of books from thier collection) presented to the user and have the wiring in place to detect the SelectedBook when the user selects an item from the list. Upon selection, I want to display a popup that presents a list of available functions (mark as read, mark as loaned out, leave review, etc..) to the user. Once the user takes action, I want to simply clear their current selection and remove the popup.</p>\r\n<p>So I either want to override the standard OK, Cancel, etc.. options provided by the standard dialog stuff or perhaps raise a NotificationMessageWithCallback and pass in the ViewModel that contains my SelectedBook, have my view register and respond to that and then hide itself when the user makes a selection but I'm unclear as to how to get the action (mark as read, loaned out, leave review, etc..) back into the callback.</p>\r\n<p>Does anyone have any examples of displaying some sort of user entry view in a popup by using some of the Messaging framework available in MVVM Light where the user response isn't just a simple OK/Cancel?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2011-03-17T07:19:26.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "682997",
+    "ThreadId": "209338",
+    "Html": "<p>Hi Laurent,</p>\r\n<p>I watched your presentation on the MVVM pattern using MVVM Light and would like to try it in my new WPF application that will be based on the Entity Framework 4.1.</p>\r\n<p>Have you already made any demo on similar case or blogged on it? I'd be glad to take a look.</p>\r\n<p>Do you guys know any example of best practices for using the two together?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks</p>",
+    "PostedDate": "2011-10-12T01:23:16.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1125610",
+    "ThreadId": "209338",
+    "Html": "How do you use the the dialog boxes that allow for custom buttons(like &quot;yes&quot; or &quot;no&quot;) do you have to hook it up to the Xna dialog box or something?<br />\n",
+    "PostedDate": "2013-11-17T14:38:10.413-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1218923",
+    "ThreadId": "209338",
+    "Html": "Hi Laurent.\r<br />\nLink for DialogMessageSample.zip is broken. Could You please fix it.<br />\n",
+    "PostedDate": "2014-03-04T02:40:32.74-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1218973",
+    "ThreadId": "209338",
+    "Html": "Fixed, sorry about the inconvenience<br />\n",
+    "PostedDate": "2014-03-04T05:17:40.49-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1231122",
+    "ThreadId": "209338",
+    "Html": "Hi Laurent,\r<br />\nI'm a fan of yours , appreciated your works very much .\r<br />\n<br />\nI have looking around samples for how to send a simple notification message with callback , Couldn't get a detailed one.\r<br />\nI'm trying to achieve a folderbrowserTask with this Notification message with callback.\r<br />\nPlease bless me with any reference <br />\n",
+    "PostedDate": "2014-04-06T22:23:19.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1341345",
+    "ThreadId": "209338",
+    "Html": "It took me quite long time to get as much informations about MVVM pattern with user input dialogs (MessageBox, OpenFileDialog, etc.) as possible. Solutions I found were either too much complicated or involved lot of XAML code which I really hate.\r<br />\nMy solution is about creating dialog service which is class that have references to UI namespace and have method to get needed values. This method get values from user by showing appropriate user interface.\r<br />\nDialog service instance is injected into viewmodels using SimpleIoC container and then used inside viewmodel when needed.\r<br />\nI think this approach is good, what do you think?\r<br />\n<br />\nP.S. I love MVVM Light framework, it is very simple yet very powerful. Things like Unity, Prism or Windsor are overengineered monstrosities.<br />\n",
+    "PostedDate": "2015-01-13T00:11:58.93-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

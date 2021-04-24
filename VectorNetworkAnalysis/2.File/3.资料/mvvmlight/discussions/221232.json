@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "472105",
+    "ThreadId": "221232",
+    "Html": "<p>Hi</p>\r\n<p>I try to find a way for handeling errors when using Commands (classic Binding &amp; event style).</p>\r\n<p>Would it be ok to surround _execute() in RelayCommand with try catch and add a third constructor with an Action callback for a error handler? The only problem with this approach is, that i want the error handler in my View class (i just need it for displaying - no rollback logic or so - just some GUI vodoo). Would it be possible to add a Attached property for error handling so that i can provide a error handler (at the View)?</p>\r\n<p>Thanks<br>michael</p>\r\n<p>PS: MVVM Light Toolkit is a greate framework!!! I like the light approach!!!&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-24T07:08:01.08-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

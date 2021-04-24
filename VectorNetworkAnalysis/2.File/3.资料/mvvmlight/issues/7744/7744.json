@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The error is very obvious:\r\n\r\n_Cannot find App.xaml in this project, no other changes made. If you are installing in a PCL, please use \"MVVM Light Libs Only\" instead._\r\n\r\nThis is because there is no `App.xaml` file in a VB.NET project, but there is an `Application.xaml`, with the same content. I can't possibly know what Microsoft developers where thinking when they took the decision to name them differently in C#/VB, but that's how things are.",
+    "LastUpdatedDate": "2017-01-09T02:41:56.86-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2017-01-09T02:41:30.767-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "MVVM fails to nuget install on blank new VB.NET project",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7744
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

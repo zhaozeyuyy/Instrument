@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "282715",
+    "ThreadId": "82284",
+    "Html": "<p>I'm getting an error if I open a View that contains another view (with :<br>&quot;The resource with the Name &quot;Locator&quot; cannot be found.&quot; (or something similar, thats my translation from the german exception message)</p>\r\n<p>I have a MainViewModel and a EmployeesViewModel and they are declared in my ViewModelLocator as static Properties:</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre>        <span style=\"color:Blue\">#region</span> MainViewModel\r\n        <span style=\"color:Blue\">private</span> <span style=\"color:Blue\">static</span> MainViewModel _main;\r\n\r\n        <span style=\"color:Blue\">public</span> <span style=\"color:Blue\">static</span> MainViewModel MainStatic\r\n        {\r\n            <span style=\"color:Blue\">get</span>\r\n            {\r\n                <span style=\"color:Blue\">if</span> (_main == <span style=\"color:Blue\">null</span>)\r\n                {\r\n                    CreateMain();\r\n                }\r\n                <span style=\"color:Blue\">return</span> _main;\r\n            }\r\n        }\r\n\r\n        <span style=\"color:Blue\">public</span> MainViewModel Main\r\n        {\r\n            <span style=\"color:Blue\">get</span> { <span style=\"color:Blue\">return</span> MainStatic; }\r\n        }\r\n\r\n        <span style=\"color:Blue\">public</span> <span style=\"color:Blue\">static</span> <span style=\"color:Blue\">void</span> ClearMain()\r\n        {\r\n            <span style=\"color:Blue\">if</span> (_main != <span style=\"color:Blue\">null</span>)\r\n            {\r\n                _main.Dispose();\r\n                _main = <span style=\"color:Blue\">null</span>;\r\n            }\r\n        }\r\n\r\n        <span style=\"color:Blue\">private</span> <span style=\"color:Blue\">static</span> <span style=\"color:Blue\">void</span> CreateMain()\r\n        {\r\n            <span style=\"color:Blue\">if</span> (_main == <span style=\"color:Blue\">null</span>)\r\n            {\r\n                _main = <span style=\"color:Blue\">new</span> MainViewModel(<span style=\"color:Blue\">null</span>);\r\n                <span style=\"color:Blue\">if</span> (!_main.IsInDesignMode)\r\n                {\r\n                    _main.Model = ConnectionManager.Model;\r\n                }\r\n            }\r\n        }\r\n        <span style=\"color:Blue\">#endregion</span>\r\n\r\n        <span style=\"color:Blue\">#region</span> EmployeesViewModel\r\n        <span style=\"color:Blue\">private</span> <span style=\"color:Blue\">static</span> EmployeesViewModel _employees;\r\n\r\n        <span style=\"color:Blue\">public</span> EmployeesViewModel EmployeesStatic\r\n        {\r\n            <span style=\"color:Blue\">get</span>\r\n            {\r\n                <span style=\"color:Blue\">if</span> (_employees == <span style=\"color:Blue\">null</span>)\r\n                {\r\n                    _employees = <span style=\"color:Blue\">new</span> EmployeesViewModel();\r\n                }\r\n                <span style=\"color:Blue\">return</span> _employees;\r\n            }\r\n        }\r\n\r\n        <span style=\"color:Blue\">public</span> EmployeesViewModel Employees\r\n        {\r\n            <span style=\"color:Blue\">get</span> { <span style=\"color:Blue\">return</span> EmployeesStatic; }\r\n        }\r\n        <span style=\"color:Blue\">#endregion</span><br></pre>\r\n</div>\r\n<p>In the App.xaml&nbsp;is my Resource of type ViewModelLocator with the x:Key=&quot;Locator&quot;:<br><span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">vm</span><span style=\"color:Blue\">:</span><span style=\"color:#A31515\">ViewModelLocator</span> <span style=\"color:Red\">x:Key</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">Locator</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">d:IsDataSource</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">true</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">/&gt;</span></p>\r\n<p>My MainWindow consumes the MainViewModel and my EmployeesView consumes the EmployeesViewModel.<br>For example:<br><span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">Window.DataContext</span><span style=\"color:Blue\">&gt;</span><br><span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">Binding</span> <span style=\"color:Red\">Mode</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">OneWay</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">Path</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">Main</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">Source</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">{StaticResource Locator}</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">/&gt;</span><br><span style=\"color:Blue\">&lt;/</span><span style=\"color:#A31515\">Window.DataContext</span><span style=\"color:Blue\">&gt;</span><br>and<br><span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">UserControl.DataContext</span><span style=\"color:Blue\">&gt;</span><br><span style=\"color:Blue\">&lt;</span><span style=\"color:#A31515\">Binding</span> <span style=\"color:Red\">Mode</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">OneWay</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">Path</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">Employees</span><span style=\"color:Black\">&quot;</span> <span style=\"color:Red\">Source</span><span style=\"color:Blue\">=</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">{StaticResource Locator}</span><span style=\"color:Black\">&quot;</span><span style=\"color:Blue\">/&gt;</span><br><span style=\"color:Blue\">&lt;/</span><span style=\"color:#A31515\">UserControl.DataContext</span><span style=\"color:Blue\">&gt;</span></p>\r\n<p>So far the specific EmployeesView doesn't show any error, but if I open the MainWindow it says in the Results window, that the resource key &quot;Locator&quot; cannot be found (which is thrown by the EmployeesView instance in my MainWindow).</p>\r\n<p>Although I can run the Application and everything works correctly.<br>I'm using .NET 4 and Expression Blend Preview for .NET 4. Visual Studio 2010 doesn't show that specific error message.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-01-28T05:11:31.947-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "282828",
+    "ThreadId": "82284",
+    "Html": "<p>Hi,</p>\r\n<p>There is at the moment a known bug in Expression Blend that prevents it to find a static global resource (which is what the Locator is).</p>\r\n<p>To solve this, store the Locator in the UserControl's local resource temporarily, and then remove it when you are done designing.</p>\r\n<p>The Blend team is aware of this issue, and hopefully it will get fixed soon.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-01-28T09:02:11.953-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "426477",
+    "ThreadId": "82284",
+    "Html": "<p>Hi Laurent,</p>\r\n<p>I wonder if the bug is resolved in the new Blend 4 Beta. I tried it and Blend is still telling me, that it cannot find the resource.</p>\r\n<p>Regards<br>Tobias</p>",
+    "PostedDate": "2010-04-01T07:34:15.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "429941",
+    "ThreadId": "82284",
+    "Html": "<p>Hi Tobias,</p>\r\n<p>I tested in Blend 4 beta, and the bug seems resolved now. If you create a UserControl and set the DataContext to {Binding Source={StaticResource Locator}, Path=VMNAME}, it works fine.</p>\r\n<p>If you still have issues, can you send me a repro?</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-12T02:25:42.09-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430314",
+    "ThreadId": "82284",
+    "Html": "<p>Hi Laurent,</p>\r\n<p>unfortunately it is not possible to add attachements to this discussion list. I have indeed an example where the problem still exists.<br>I'm using the same binding technique like you mentioned above.</p>\r\n<p>Blend 4 Beta error message:<br>&quot;Cannot find resource named 'Locator'. Resource names are case sensitive.&quot;<br>Always getting this error in the designer for&nbsp;a child view with the DataContext set to the ViewModelLocator.</p>\r\n<p>Tobias</p>",
+    "PostedDate": "2010-04-12T23:22:17.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430349",
+    "ThreadId": "82284",
+    "Html": "<p>Hey Tobias,</p>\r\n<p>Please send to laurent (at) galasoft (dot) ch</p>\r\n<p>I will check it out and if needed will work with the Blend team to try and solve this.</p>\r\n<p>Note that this error appears also before all the objects are built. Did you try simply building the app in Blend (ctrl-shift-B) ?</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-13T01:40:57.85-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "609916",
+    "ThreadId": "82284",
+    "Html": "<p>I am struggling with this very same problem.&nbsp; The application runs as expected but in design mode e.g. Blend 4, it says it cannot create an instance of \"ViewModelLocator\".&nbsp; I have been tearing my hair out trying to work around this issue but I cannot resolve it.&nbsp; This happened all along, but got significantly worse when I added Castle dependency injection to my application's viewmodels.&nbsp; IT actually doesn't matter how complicated or simple the view is - just won't create an instance.</p>\r\n<p>I have done the following:</p>\r\n<p>1) Created fake repositories, and I inject those when the vm is created in design mode, or let Castle do it&nbsp; at runtime.&nbsp; No improvement</p>\r\n<p>2) Tried moving the references to vmLocator (<em>ok, I admit I renamed it from Locator - but I have tried it with the default name too</em>)&nbsp; from app.xaml to various usercontrols and MainWindow. No difference</p>\r\n<p>3) Tried&nbsp; rebuilding the whole mess in Blend 4.&nbsp; No difference.</p>\r\n<p>4) Considered creating an entirely new ViewModelLocator base class but I really want to NOT do that since I am trying to use MvvMLight as intact as possible (and Castle, etc.).&nbsp; This cannot possibly be so obdurate.</p>\r\n<p>I am concerned it may be something blindingly obvious, which will make me feel really stupid, but I have run out of ideas on how to address this.</p>\r\n<p>Any help would be appreciated.</p>",
+    "PostedDate": "2011-05-09T19:45:20.367-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "613285",
+    "ThreadId": "82284",
+    "Html": "<p><span style=\"color: #7030a0; font-size: 15px;\">Hi,</span></p>\r\n<p><span style=\"color: #7030a0; font-size: 15px;\">The error that Blend cannot create an instance of ViewModelLocator is usually a symptom of something deeper. Did you try to debug in Blend and see what happens?</span></p>\r\n<p><span style=\"color: #7030a0; font-size: 15px;\">If you don&rsquo;t know how to debug your app when it runs in Blend, send me a note and I&rsquo;ll send you a checklist.</span></p>\r\n<p><span style=\"color: #7030a0; font-size: 15px;\">Cheers,</span></p>\r\n<p><span style=\"font-size: 11pt; color: #7030a0;\">Laurent</span></p>",
+    "PostedDate": "2011-05-16T05:04:50.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "631699",
+    "ThreadId": "82284",
+    "Html": "<p>Hi Laurent, i have find a solution to this issue (Blend)</p>\r\n<p>i have create an helper that allow you to add a resource for design time of you usercontrol / windows etc....</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>  <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">class</span> ViewModelLocatorHelper\r\n    {\r\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">static</span> <span style=\"color: blue;\">void</span> CreateStaticViewModelLocatorForDesigner(FrameworkElement control, <span style=\"color: blue;\">object</span> ViewModelLocator)\r\n        {\r\n            <span style=\"color: blue;\">if</span> (AppDomain.CurrentDomain.BaseDirectory.Contains(<span style=\"color: #a31515;\">\"Blend 4\"</span>))\r\n                control.Resources.Add(<span style=\"color: #a31515;\">\"Locator\"</span>, ViewModelLocator);\r\n        }\r\n    }\r\n</pre>\r\n</div>\r\n</p>\r\n<pre>then you have to use on your binding context of your view (usercontrol / window) before the initializecomponents simply like that.</pre>\r\n<pre><div style=\"color: black; background-color: white;\"><pre><span style=\"color: blue;\">public</span> MyView()\r\n        {\r\n            ViewModelLocatorHelper.CreateStaticViewModelLocatorForDesigner(<span style=\"color: blue;\">this</span>, <span style=\"color: blue;\">new</span> ViewModelLocator());\r\n            <span style=\"color: blue;\">this</span>.InitializeComponent();\r\n        }\r\n</pre>\r\n</div>\r\n<br /></pre>\r\n<pre>you have just to be sure that your Resource in App.xaml has the same name of your \"Locator\" named in the Helper.</pre>\r\n<pre>I hope this help.</pre>\r\n<pre>Happy Coding...</pre>",
+    "PostedDate": "2011-06-23T02:25:20.92-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "656890",
+    "ThreadId": "82284",
+    "Html": "<p>Make sure the Blend has opened the entire solution and NOT just the single project containing the views. I was right-clicking in Visual Studio and selecting Open In Expression Blend. To my surprize, Blend could not find the solution file, so it only opened the single project.</p>\r\n<p>When I realized this, I launched Blend directly, pointed it to the solution file,&nbsp;and then Blend was able to find the ViewModelLocator in my view.</p>\r\n<p>Regards,</p>\r\n<p>Andrew</p>",
+    "PostedDate": "2011-08-11T16:46:34.84-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "689725",
+    "ThreadId": "82284",
+    "Html": "<p>GianlucaCucco,</p>\r\n<p>Thanks, your method DO work !</p>",
+    "PostedDate": "2011-10-26T09:36:39.527-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "723029",
+    "ThreadId": "82284",
+    "Html": "<p>Many thanks, GianlucaCucco!</p>",
+    "PostedDate": "2012-01-10T04:15:52.223-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

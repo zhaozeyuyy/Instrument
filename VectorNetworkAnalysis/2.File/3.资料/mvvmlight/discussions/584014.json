@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1358762",
+    "ThreadId": "584014",
+    "Html": "Is there any risk of Memory Leak when  Mvvmlight Messenger  (android platform) is used for notification  between short lived ViewModels (ViewModels that doesn't appear in ViewModel Locator) without calling  Unregister Methods?<br />\n",
+    "PostedDate": "2015-03-02T06:02:56.877-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

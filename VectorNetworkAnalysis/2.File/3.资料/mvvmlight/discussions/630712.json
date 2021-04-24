@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1414245",
+    "ThreadId": "630712",
+    "Html": "I am in need to show About dialog from main window. Do you think that something as simple as this requires to create ICommand in ViewModel and execute this command from View or I can simply create handler in code-behind and call (New AboutDialog).ShowDialog()?<br />\n",
+    "PostedDate": "2015-04-15T05:12:48.403-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1414757",
+    "ThreadId": "630712",
+    "Html": "Personally, if you don't have a specific need to share this code across platforms, I would do it in code behind.\r<br />\n<br />\nLaurent<br />\n",
+    "PostedDate": "2015-04-16T05:23:13.103-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

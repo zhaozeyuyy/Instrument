@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2016-01-16T14:20:03.517-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I'm trying to implement EventToCommand within one of my views, but when I add the code (below), then I get a parser error:\r\n\r\n\"A value of type 'EventToCommand' cannot be added to a collection or dictionary of type 'TriggerActionCollection'.\"\r\n\r\nIs this code configured correctly?  Seems to be the same as many other online examples I've seen.  Thanks in advance for any assistance.\r\n\r\n```\r\nxmlns:galaSoft=\"clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.SL5\"\r\n\r\n\r\n<i:Interaction.Triggers>\r\n    <i:EventTrigger EventName=\"KeyDown\">\r\n        <galaSoft:EventToCommand Command=\"{Binding Test}\" PassEventArgsToCommand=\"True\" />\r\n    </i:EventTrigger>\r\n</i:Interaction.Triggers>\r\n```\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2013-06-10T08:31:27.247-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Cannot repro"
+    },
+    "Summary": "EventToCommand xaml error, \"A value of type 'EventToCommand' cannot be added to a collection or dictionary of type 'TriggerActionCollection'.\"",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7610
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

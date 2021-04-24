@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1359231",
+    "ThreadId": "584289",
+    "Html": "Hi,\r<br />\nI need to reome the back entry in the la last mvvm light version using the INavigationService\r<br />\nbut in the interface I can implement only the methods GoBack and NavigateTo.\r<br />\nHow I can solve this problem using the framework?\r<br />\n<br />\nBye\r<br />\nDaniele<br />\n",
+    "PostedDate": "2015-03-03T01:55:37.293-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1359234",
+    "ThreadId": "584289",
+    "Html": "Hi,\r<br />\n<br />\nYou are right, this feature is not available at the moment.\r<br />\n<br />\nI would recommend declaring your own interface (which may or may not derive from INavigationService, as you wish) and implement the method yourself. I'll consider adding this feature in a future version.\r<br />\n<br />\nThanks for your input,\r<br />\nLaurent<br />\n",
+    "PostedDate": "2015-03-03T02:02:45.203-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1416287",
+    "ThreadId": "584289",
+    "Html": "Implement a custom NavigationService that receives a <code>bool ClearBackstack</code> parameter in each page configuration, checking it in the NavigateTo method implementation.<br />\n",
+    "PostedDate": "2015-04-21T05:36:59.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1421299",
+    "ThreadId": "584289",
+    "Html": "Hi Laurent,,\r<br />\n<br />\nI was following your sample Flowers on Xamarin.Forms and was going through implementation of NavigationService.In my Xamarin.forms application , in one of my ViewModel I need to use PushModalAsync/PopModalAsync for navigation. But the current implementation of NavigationService only use PushAsync/PopAsync.\r<br />\n<br />\nSo how can I implement INavigationService in order to make use of PushModalAsync/PopModalAsync for navigation.\r<br />\n<br />\nkpant<br />\n",
+    "PostedDate": "2015-04-29T03:07:39.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

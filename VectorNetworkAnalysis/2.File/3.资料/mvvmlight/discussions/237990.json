@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "534307",
+    "ThreadId": "237990",
+    "Html": "\r\n<p>I was just wondering why there is no installer available which makes installing all the required dll's and templates easy ? No need to follow the manual install procedure.</p>\r\n",
+    "PostedDate": "2010-12-11T01:22:51.797-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "534321",
+    "ThreadId": "237990",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>An automated installer for MVVM Light is less trivial than it seems at first, due to the number of platforms and the number of tools supported. However, you will be happy to know that an esteemed member of the MVVM Light community&nbsp;is&nbsp;working on\r\n one currently. I will publish details on my blog as soon as it is available.</p>\r\n<p>Cheers</p>\r\n<p>Laurent&nbsp;</p>\r\n",
+    "PostedDate": "2010-12-11T03:17:31.477-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

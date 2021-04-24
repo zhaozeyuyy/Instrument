@@ -1,0 +1,12 @@
+F:\WorkNew\LocalVNA\GalaSoft.MvvmLight\GalaSoft.MvvmLight.Extras (NET4)\bin\Debug\GalaSoft.MvvmLight.Extras.XML
+F:\WorkNew\LocalVNA\GalaSoft.MvvmLight\GalaSoft.MvvmLight.Extras (NET4)\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+F:\WorkNew\LocalVNA\GalaSoft.MvvmLight\GalaSoft.MvvmLight.Extras (NET4)\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+F:\WorkNew\LocalVNA\GalaSoft.MvvmLight\GalaSoft.MvvmLight.Extras (NET4)\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+F:\WorkNew\LocalVNA\GalaSoft.MvvmLight\GalaSoft.MvvmLight.Extras (NET4)\bin\Debug\System.Windows.Interactivity.dll
+F:\WorkNew\LocalVNA\GalaSoft.MvvmLight\GalaSoft.MvvmLight.Extras (NET4)\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+F:\WorkNew\LocalVNA\GalaSoft.MvvmLight\GalaSoft.MvvmLight.Extras (NET4)\bin\Debug\System.Windows.Interactivity.xml
+F:\WorkNew\LocalVNA\GalaSoft.MvvmLight\GalaSoft.MvvmLight.Extras (NET4)\obj\Debug\GalaSoft.MvvmLight.Extras (NET4).csprojAssemblyReference.cache
+F:\WorkNew\LocalVNA\GalaSoft.MvvmLight\GalaSoft.MvvmLight.Extras (NET4)\obj\Debug\GalaSoft.MvvmLight.Extras (NET4).csproj.CoreCompileInputs.cache
+F:\WorkNew\LocalVNA\GalaSoft.MvvmLight\GalaSoft.MvvmLight.Extras (NET4)\obj\Debug\GalaSoft.MvvmLight.Extras (NET4).csproj.CopyComplete
+F:\WorkNew\LocalVNA\GalaSoft.MvvmLight\GalaSoft.MvvmLight.Extras (NET4)\obj\Debug\GalaSoft.MvvmLight.Extras.dll
+F:\WorkNew\LocalVNA\GalaSoft.MvvmLight\GalaSoft.MvvmLight.Extras (NET4)\obj\Debug\GalaSoft.MvvmLight.Extras.pdb

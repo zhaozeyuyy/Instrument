@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "843705",
+    "ThreadId": "358031",
+    "Html": "\r\n<p>Hi everyone -</p>\r\n<p>Yesterday we announced some changes that we've made between the Beta and RC releases of MEF for Metro style apps. I know that quite a few people like to use MEF with MVVM Light, so in the interests of not surprising anyone too much I thought I'd post a link\r\n to the announcement here.</p>\r\n<p><a href=\"http://blogs.msdn.com/b/bclteam/archive/2012/05/30/mef-and-tpl-dataflow-nuget-packages-for-net-framework-4-5-rc.aspx\">http://blogs.msdn.com/b/bclteam/archive/2012/05/30/mef-and-tpl-dataflow-nuget-packages-for-net-framework-4-5-rc.aspx</a></p>\r\n<p>In addition to moving to NuGet for distribution, we've made some API changes with the explicit goal of making it easier to implement MVVM on top of MEF in Metro style apps. It is now simpler to implement per-view scoping of parts (using the [SharingBoundary]\r\n and [Shared] attributes) and much easier to avoid leaking references.</p>\r\n<p>The changes necessary for moving forwards should be straightforward, but in case anyone needs help please feel free to contact us at the MEF discussion forum (http://mef.codeplex.com) or via this post.</p>\r\n<p>Best regards,</p>\r\n<p>Nick (from the MEF team)</p>\r\n",
+    "PostedDate": "2012-06-01T13:59:33.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "843708",
+    "ThreadId": "358031",
+    "Html": "<p>This is awesome, thanks Nick. Really appreciate you taking the time to make an&nbsp;announcement&nbsp;here.</p>\r\n<p>Cheers,<br />Laurent&nbsp;</p>",
+    "PostedDate": "2012-06-01T14:17:13.013-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

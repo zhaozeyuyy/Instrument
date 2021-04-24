@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1312995",
+    "ThreadId": "569717",
+    "Html": "Good evening,\r<br />\nI'm having trouble just getting started with the new version 5.0.0.1 portable libraries.  First I create an empty solution, then I add a new Portable Class Library that targets Windows Phone 8.1, Xamarin.Android and Xamarin.iOS.  From there I use nuget to add the MVVMLight package.  Nuget will then add the ViewModel folder, MainViewModel &amp; ViewModelLocator.  However it does NOT update the references and I get an error stating &quot;Cannot find App.xaml in this project, no other changes made.&quot;.  Since the references are not updated, I am unable to build this simple library.  Any guidance on this issue would be appreciated. THanks!<br />\n",
+    "PostedDate": "2014-10-13T21:23:02.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1313086",
+    "ThreadId": "569717",
+    "Html": "Hi,<br />\n<br />\nFor a portable class library, please use the package &quot;MVVM Light Libs only&quot; found at <a href=\"http://www.nuget.org/packages/MvvmLightLibs/\" rel=\"nofollow\">http://www.nuget.org/packages/MvvmLightLibs/</a><br />\n<br />\nThe other package is only for applications.<br />\n<br />\nI will update the error message to make this clearer.<br />\n<br />\nThanks<br />\nLaurent<br />\n",
+    "PostedDate": "2014-10-14T02:48:15.39-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1313089",
+    "ThreadId": "569717",
+    "Html": "FYI there seems to be an issue with Nuget not adding the proper reference to CommonServiceLocator.\r<br />\n<br />\nSorry for the issue. Right now, I need you to use Nuget to add a reference to the CommonServiceLocator package (V1.3) in addition to MVVM Light Libs only.\r<br />\n<br />\nI sent an email to the Nuget team to see what the problem is.\r<br />\n<br />\nThanks\r<br />\nLaurent<br />\n",
+    "PostedDate": "2014-10-14T03:19:23.657-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1313289",
+    "ThreadId": "569717",
+    "Html": "The issue should be fixed in V5.0.1 available on Nuget now.\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2014-10-14T13:21:15.953-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "508560",
+    "ThreadId": "231246",
+    "Html": "<p>Hi all,</p>\r\n<p>I'm kinda new to SilverLight but have been playing around with the WP7 SDK. I found it a bit surprising that a WP7 (non-XNA) apps only had the Manipulation overrides available to recognize touch input. Luckily the the<a href=\"http://silverlight.codeplex.com/\"> SilverLight Toolkit</a> is available to fill the gap. The one thing I don't see in the toolkit is a Behavior to make it easier to bind to a view model. So I wrapped the toolkit GestureListener in a Behavior with associated triggers so that you can bind Gesture to a ViewModel rather than directly to a View:</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>    <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">Grid</span><span style=\"color:blue\">&gt;</span>\r\n        <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">i</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">Interaction.Behaviors</span><span style=\"color:blue\">&gt;</span>\r\n            <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">li</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">GestureBehavior</span><span style=\"color:blue\">/&gt;</span>\r\n        <span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">i</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">Interaction.Behaviors</span><span style=\"color:blue\">&gt;</span>\r\n        <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">i</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">Interaction.Triggers</span><span style=\"color:blue\">&gt;</span>\r\n            <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">li</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">FlickTrigger</span><span style=\"color:blue\">&gt;</span>\r\n                <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">cmd</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">EventToCommand</span> <span style=\"color:red\">Command</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">{Binding FlickCommand}</span><span style=\"color:black\">&quot;</span> <span style=\"color:red\">PassEventArgsToCommand</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">True</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">/&gt;</span>\r\n            <span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">li</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">FlickTrigger</span><span style=\"color:blue\">&gt;</span>\r\n            <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">li</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">DoubleTapTrigger</span><span style=\"color:blue\">&gt;</span>\r\n                <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">cmd</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">EventToCommand</span> <span style=\"color:red\">Command</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">{Binding DoubleTapCommand}</span><span style=\"color:black\">&quot;</span> <span style=\"color:red\">PassEventArgsToCommand</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">True</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">/&gt;</span>\r\n            <span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">li</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">DoubleTapTrigger</span><span style=\"color:blue\">&gt;</span>\r\n        <span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">i</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">Interaction.Triggers</span><span style=\"color:blue\">&gt;</span>\r\n    <span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">Grid</span><span style=\"color:blue\">&gt;</span>\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>Honestly, being newish to all things WPFy I'm not sure if this is the correct approach but I couldn't figure out how to make it work otherwise.</p>\r\n<p>Anyway if anyone is interested in such a thing I can share the code.</p>",
+    "PostedDate": "2010-10-17T16:35:31.937-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "543637",
+    "ThreadId": "231246",
+    "Html": "\r\n<p>Hi, i'm really interested in your solution for this. Can you pass me the sourcecode?</p>\r\n",
+    "PostedDate": "2011-01-04T04:05:23.187-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "543639",
+    "ThreadId": "231246",
+    "Html": "\r\n<p>Sure. Private message me your email address and i'll send it along.</p>\r\n",
+    "PostedDate": "2011-01-04T04:11:58.353-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

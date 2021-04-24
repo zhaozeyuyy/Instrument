@@ -1,0 +1,71 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:55:43.66-07:00",
+    "CommentCount": 5,
+    "Custom": null,
+    "Description": "I was trying to send messages created by the Activator.CreateInstance (as opposed to using new) via the messenger without success.\r\n\r\nUpon inspection, I notice that my message instance was of type \"object { MyNamespace.MyClass }\" as opposed to \"MyNamespace.MyClass\".\r\n\r\nI am using the Activator to create my messages because my messages are coming from a Socket / deserialization implementation.\r\n\r\nchanging the following in the Messenger.cs would fix my issue :\r\n\r\n        private void SendToTargetOrType<TMessage>(TMessage message, Type messageTargetType, object token)\r\n        {\r\n            var messageType = typeof(TMessage);\r\n\r\n\r\nto :\r\n\r\n         private void SendToTargetOrType<TMessage>(TMessage message, Type messageTargetType, object token)\r\n        {\r\n            //Type messageType = typeof(TMessage);\r\n            Type messageType = message.GetType();\r\n\r\nwould help me.\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 beta 1",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-08-16T11:07:22.883-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Messenger support for uncast objects",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7539
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1549267,
+      "FileName": "MainPage.xaml.cs",
+      "DownloadUrl": ".\\1549267"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "To Replicate :\npublic class TestArgs {\n\n    }\n\n    public class Test : ViewModelBase {\n\n        public Test()\n        {\n            //register\n            MessengerInstance.Register<TestArgs>(this, TestMethod);\n\n            object message = Activator.CreateInstance(typeof(TestArgs));\n\n\n            //will not send because message type is seen as object\n            MessengerInstance.Send(message);\n\n        }\n\n        public void TestMethod(TestArgs args)\n        {\n        }\n\n    }",
+      "PostedDate": "2011-08-18T09:23:04.613-07:00",
+      "Id": 42984
+    },
+    {
+      "Message": "Hello ?\n\nA simple Yes, No would be cool. Its been a week",
+      "PostedDate": "2011-08-25T13:24:31.857-07:00",
+      "Id": 43360
+    },
+    {
+      "Message": "Hi,\n\nSorry for the delay. I happen to have a life ;) and in that life, I moved to a new house last week and had to handle my kids starting in a new school.\n\nYour proposal seems straightforward enough. I need to check that there are no unwanted side effects, and I should be able to push it in V4 beta 1, which will come out as soon as I sort a couple of issues with the installer.\n\nCheers,\nLaurent",
+      "PostedDate": "2011-08-26T06:04:34.31-07:00",
+      "Id": 43402
+    },
+    {
+      "Message": "Fixed in V4 beta 1",
+      "PostedDate": "2011-09-11T15:10:18.64-07:00",
+      "Id": 44517
+    },
+    {
+      "Message": "Hi,\r\nnot sure, if this is by design or it's still this bug unfixed, but when sending CustomMessage type saved into temporary variable of type MessageBase, then it's not delivered to listeners of type CustomMessage.\r\n\r\nSee the simple repro in the attachment:\r\n\r\n",
+      "PostedDate": "2016-02-19T06:12:21.617-08:00",
+      "Id": 196803
+    }
+  ]
+}

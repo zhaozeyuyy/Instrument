@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "967376",
+    "ThreadId": "415203",
+    "Html": "\r\n<p>This is the first time I am working with MVVM Light and its View Model Locator. There is still some aspects I don't really get with the &quot;view first&quot; approach of MVVM Light. Before I was using Prism and Regions which allowed a &quot;view model first&quot;\r\n approach where you were instatiating a view model yourself.</p>\r\n<p>What I don't get is how do you provide a parameter to a view model. For example I have a view with a collection of different objects and then I want to navigate to one of this object, but unfortunately I cannot pass the Id of my object to this view model\r\n because the view model will be resolved from the target view data context. Therefore my new page will open with the correct view model but will not display anything because it does not know about the object to load.</p>\r\n<p>There is actually <a href=\"http://geoffwebbercross.blogspot.ch/2012/04/mvvm-light-passing-params-to-target.html\">\r\nthis solution</a> to which Laurent replied, but has it has been said it is still not really satisfactory. For example it would not work in a scenario where your view model instance are not singletons.</p>\r\n<p>So I wanted to know if anybody got some tips and tricks to get it to work with no workarounds or if Laurent got another solution :-)</p>\r\n<p>Thanks.</p>\r\n",
+    "PostedDate": "2012-12-22T03:08:19.53-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

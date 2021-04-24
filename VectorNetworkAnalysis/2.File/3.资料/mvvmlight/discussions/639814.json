@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1430025",
+    "ThreadId": "639814",
+    "Html": "Hi,\r<br />\n<br />\nAll my view models inherit ViewModelBase. When I close some views, I want to unregister the type, so that an uncached version is instantiated upon the next request. So in my ViewModelLocator I do a Cleanup when the view is closed for these applicable views:<br />\n<div style=\"color:Black;background-color:White;\"><pre>\r\n<span style=\"color:Blue;\">public</span> <span style=\"color:Blue;\">static</span> <span style=\"color:Blue;\">void</span> Cleanup(ViewModelBase vm)\n{\n    SimpleIoc.Default.Unregister(vm);\n}\r\n</pre></div>This fails to unregister the applicable view model. Looking at the source, I see that the method uses <code>typeof(TClass)</code> (which yields ViewModelBase) to unregister the class. If it were used <code>.GetType()</code> the correct view model class would be returned and that works.\r<br />\n<br />\nSo I'm looking for suggestions on how to proceed forward. I can submit a pull request that changes <code>SimpleIoC.cs</code> line 493 from <br />\n<div style=\"color:Black;background-color:White;\"><pre>\r\n<span style=\"color:Blue;\">var</span> classType = <span style=\"color:Blue;\">typeof</span>(TClass);\r\n</pre></div>to<br />\n<div style=\"color:Black;background-color:White;\"><pre>\r\n<span style=\"color:Blue;\">var</span> classType = instance.GetType();\r\n</pre></div>But I'm not sure whether that will break other things.\r<br />\n<br />\nOr I can add another overloaded Unregister() method that does the job. \r<br />\n<br />\nPlease advise, experts.<br />\n",
+    "PostedDate": "2015-06-11T01:34:56.393-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1430028",
+    "ThreadId": "639814",
+    "Html": "Changing my cleanup method to:<br />\n<div style=\"color:Black;background-color:White;\"><pre>\r\n        <span style=\"color:Blue;\">public</span> <span style=\"color:Blue;\">static</span> <span style=\"color:Blue;\">void</span> Cleanup(ViewModelBase vm)\n        {\n            SimpleIoc.Default.Unregister(Convert.ChangeType(vm, vm.GetType()));\n        }\r\n</pre></div>solved my problem, although I consider it a bit of a hack. The ChangeType() method coerces the ViewModelBase base class to an instance of the actual child view model class.<br />\n",
+    "PostedDate": "2015-06-11T01:48:28.917-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1441166",
+    "ThreadId": "639814",
+    "Html": "<strong>igitur wrote:</strong><br />\n<blockquote>\nChanging my cleanup method to:<br />\n<div style=\"color:Black;background-color:White;\"><pre>\r\n        <span style=\"color:Blue;\">public</span> <span style=\"color:Blue;\">static</span> <span style=\"color:Blue;\">void</span> Cleanup(ViewModelBase vm)\n        {\n            SimpleIoc.Default.Unregister(Convert.ChangeType(vm, vm.GetType()));\n        }\r\n</pre></div>solved my problem, although I consider it a bit of a hack. The ChangeType() method coerces the ViewModelBase base class to an instance of the actual child view model class.<br />\n</blockquote>\nNo, ignore this comment. That did NOT solve the problem. I'll create a PR with my suggested fix and let's see if there's some feedback.<br />\n",
+    "PostedDate": "2015-08-20T07:42:26.68-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1441167",
+    "ThreadId": "639814",
+    "Html": "PR logged at <a href=\"https://mvvmlight.codeplex.com/SourceControl/network/forks/igitur/MVVMLight/contribution/8434\" rel=\"nofollow\">https://mvvmlight.codeplex.com/SourceControl/network/forks/igitur/MVVMLight/contribution/8434</a><br />\n",
+    "PostedDate": "2015-08-20T07:55:56.29-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

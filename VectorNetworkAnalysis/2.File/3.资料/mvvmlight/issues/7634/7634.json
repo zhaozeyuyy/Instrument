@@ -1,0 +1,56 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:59:32.887-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "Attempting to resolve dependency 'MvvmLightLibs (≥ 4.2.30.0)'.\r\nAttempting to resolve dependency 'CommonServiceLocator (≥ 1.2)'.\r\nSuccessfully installed 'CommonServiceLocator 1.2'.\r\nSuccessfully installed 'MvvmLightLibs 4.3.31.1'.\r\nSuccessfully installed 'MvvmLight 4.2.30.0'.\r\nSuccessfully uninstalled 'CommonServiceLocator 1.2'.\r\nInstall failed. Rolling back...\r\nCould not install package 'CommonServiceLocator 1.2'. You are trying to install this package into a project that targets '.NETFramework,Version=v4.5', but the package does not contain any assembly references that are compatible with that framework. For more information, contact the package author.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V4.4.32.1",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-04-07T06:11:49.29-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Could not install package 'CommonServiceLocator 1.2'. You are trying to install this package into a project that targets '.NETFramework,Version=v4.5', but the package does not contain any assembly references that are compatible with that framework.",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7634
+  },
+  "FileAttachments": [
+    {
+      "FileId": 824386,
+      "FileName": "err.png",
+      "DownloadUrl": ".\\824386"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Hi laurent,\n\nPlease help on this issue,\nmany times i used mvvm toolkit and never faced such issue before. \n\nThanks:\nSachin",
+      "PostedDate": "2014-04-07T22:40:00.697-07:00",
+      "Id": 140919
+    },
+    {
+      "Message": "This is nuget problem i updated nuget manager then its working fine.",
+      "PostedDate": "2014-04-21T22:31:35.73-07:00",
+      "Id": 142564
+    }
+  ]
+}

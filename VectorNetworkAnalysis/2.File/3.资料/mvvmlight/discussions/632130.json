@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1416629",
+    "ThreadId": "632130",
+    "Html": "Hello community,<br />\n<br />\ni need a jump-index (A...Z) on the right side of my tableview.<br />\n<br />\nLike this one:<br />\n<a href=\"http://developer.xamarin.com/guides/ios/user_interface/tables/part_2_-_populating_a_table_with_data/#Adding_an_Index\" rel=\"nofollow\">http://developer.xamarin.com/guides/ios/user_interface/tables/part_2_-_populating_a_table_with_data/#Adding_an_Index</a><br />\n<br />\nCode of MvvmLight class &quot;ObservableTableViewController.cs&quot; has a commentar &quot;In the current implementation, only one section is supported&quot;. I created my own class ObservableTableViewControllerExtended, with override for NumberOfSections, RowsInSection, SectionIndexTitles.<br />\n<br />\nBut I get at deploy an exception:<br />\n&quot;objective c exception: attempt to insert row 1 into section 0 but there are only 1 rows after update in section 0&quot;.<br />\n<br />\nPlease help.<br />\n<br />\nbest regards, julia<br />\n",
+    "PostedDate": "2015-04-22T01:35:43.963-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

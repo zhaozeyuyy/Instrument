@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "590784",
+    "ThreadId": "252281",
+    "Html": "\r\n<p>I'm&nbsp;hooked on MVVM Light Toolkit so great work!</p>\r\n<p>I'm working on a WP7 app and need to tombstone the data. When using the current stable version with the ViewModelBase I got the 'not serializable' error. I tried the latest version\r\n<a id=\"x_ChangeSetLink0\" title=\"View change set cd110ba734ea\" href=\"http://mvvmlight.codeplex.com/SourceControl/changeset/changes/cd110ba734ea\" style=\"font-weight:bold\">\r\ncd110ba734ea</a>&nbsp;for 'serializablility' but because i have lists of data that also inherit from ViewModelBase I still get the error of ViewModelBase is not serializable because of not having a&nbsp;parameterless public constructor. Now I checked in the\r\n source&nbsp;of the ViewModelBase&nbsp;and it does have the correct constructor. But when I moved the NotifyPropertyChanged base class into the ViewModelBase class&nbsp;the tombstoning starts to work. I don't get to much more exception error info so this is\r\n the extent of the information.</p>\r\n",
+    "PostedDate": "2011-04-02T16:46:11.34-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "590846",
+    "ThreadId": "252281",
+    "Html": "<p>Oh yeah, it's because I am&nbsp;a stupid idiot ;-) I was so happy to have fixed the bug, and then I went ahead and made the constructor of the NotifyPropertyChanged class protected. Old habits die hard.. Oh well, This is what preview versions are for, right? ;-)&nbsp;I'll fix that soon (again...)</p>\r\n<p>Cheers</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-04-02T23:20:35.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "590899",
+    "ThreadId": "252281",
+    "Html": "<p>Don't be too hard on your self: we're here to keep you sharp ;)</p>",
+    "PostedDate": "2011-04-03T05:29:18.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "593086",
+    "ThreadId": "252281",
+    "Html": "<p>Hi again,</p>\r\n<p>I just tested against two different serializers, and it worked fine (one JSON serializer and one binary serializer).</p>\r\n<p>Before I test further, can you tell me which serializer it failed into?</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-04-06T13:25:45.22-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

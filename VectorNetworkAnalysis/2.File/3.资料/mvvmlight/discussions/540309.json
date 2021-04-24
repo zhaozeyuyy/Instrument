@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1227261",
+    "ThreadId": "540309",
+    "Html": "Hi\r<br />\n<br />\nI'm confusing that why ActionReference and Reference existed both in WeakAction ? They don't reference the same object?\r<br />\n<br />\nSorry maybe this is a stupid question, but from the definition of WeakReference, i really didn't understand the different between ActionReference and Reference\r<br />\n<br />\nThanks<br />\n",
+    "PostedDate": "2014-03-27T03:11:43.513-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1227269",
+    "ThreadId": "540309",
+    "Html": "Hi,\r<br />\n<br />\nMost of the time it is the same object. But there is a possibility that a user defines a Reference for lifetime management of the recipient, and that the method is defined in another object, or that it is static.\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2014-03-27T03:36:30.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1227286",
+    "ThreadId": "540309",
+    "Html": "Hi Laurent<br />\n<br />\nI looked up the Messengers.cs. in where the constructor WeakAction(object target, Action&lt;T&gt; action) is used. <br />\nHere target is a recipient, it is not a target of action.<br />\n<br />\n:)<br />\n<br />\nThanks a lot <br />\nComiscience<br />\n",
+    "PostedDate": "2014-03-27T04:20:10.807-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

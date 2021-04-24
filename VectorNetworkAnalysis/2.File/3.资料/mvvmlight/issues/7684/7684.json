@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 4,
+    "Custom": null,
+    "Description": "We are using Xamarin.iOS unified API and hitting this same issue:\r\n\r\nhttp://stackoverflow.com/questions/28210124/mvvmlight-and-xamarin-unified-api-property-not-found\r\n\r\nHowever, we are trying to do a viewmodel -> controller binding (basically OneWayToSource in WPF world) and since the Property Not Found exception is being hit on the VM property we are not able to use the workaround mentioned in that stack overflow. For now, we are listening to the \"PropertyChanged\" event in our iOS controller and changing the property after checking the PropertyEvent property of the event args. We would like to avoid this so hopefully a fix can be put in soon. \r\n\r\nFor tracking this down, I tried to see if it was a Xamarin runtime reflection issue by stepping through getting the type and looking up by property name and that worked. That was not in the Extension method itself though, for some reason whenever I try to download the source code from Codeplex the iOS platform helpers folder is missing all the binding files, including extensions.\r\n\r\nLet me know anything else I can provide to help trace this down. Thanks!",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "null",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-02-20T13:20:45.183-08:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "\"Property Not Found\" on ViewModel public property",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7684
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nThanks for the report. Can you give me more details on how the property is declared? Finding the property through reflection can be tricky depending on its visibility. I'd like to understand better what wall you are hitting and either fix it, or at least give a better error handling.\n\nThe files are \"missing\" from the Helpers folder on iOS because they are linked from the Android one. Physically there is only one copy of the Binding files on the drive, into the Android / Helpers folder. This is because I use the same code on both platforms.\n\nLooking forward to getting more details.\n\nCheers\nLaurent",
+      "PostedDate": "2015-02-21T08:46:39.553-08:00",
+      "Id": 175038
+    },
+    {
+      "Message": "Laurent,\n\nThe property is declared publicly in a public class, wrapping a private member variable. To make things even stranger, we can work around this if the view model is stored in another object as opposed to the iOS controller. For example:\n\nViewModel.Property - this would hit the exception, even if the reference is public in the controller\nStorageObject.ViewModel.Property - this would not hit the exception\n\nThat is good to know about the setup of the source code. I will try to step through the code and give you more details on what exact step is failing.\n\nThank you!",
+      "PostedDate": "2015-02-21T19:39:34.763-08:00",
+      "Id": 175068
+    },
+    {
+      "Message": "I am sure you know that but just to be sure, if the ViewModel is a property of the Controller, the SetBinding method must be called on the Controller, not on the ViewModel itself.\n\nI.e.\n\nthis.SetBinding(()=>ViewModel.Property)\n\nAnd not\n\nViewModel.SetBinding(()=> ViewModel.Property)\n\nJust making sure \n\nCheets\nLaurent",
+      "PostedDate": "2015-02-22T00:47:16.053-08:00",
+      "Id": 175070
+    },
+    {
+      "Message": "Hi,\n\nHave you had a chance to step through the project? Alternatively, can you provide me a repro so I can investigate?\n\nThanks\nLaurent",
+      "PostedDate": "2015-04-01T03:00:01.607-07:00",
+      "Id": 180616
+    }
+  ]
+}

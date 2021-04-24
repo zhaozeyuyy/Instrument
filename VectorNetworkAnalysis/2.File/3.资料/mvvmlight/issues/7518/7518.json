@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:54:02.4-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "There are times when it is practical to do change notification for all properties of an object. According to the Silverlight 4 documentation of the PropertyChangedEvent:\r\n\r\n\"The PropertyChanged event can indicate that all properties on the object have changed by using either null or String.Empty for the PropertyName property of the PropertyChangedEventArgs.\"\r\n\r\nUnfortunately, when RaisePropertyChanged is called with null or an empty string an exception is thrown. To avoid this problem please add the following two lines at the beginning of VerifyPropertyChanged to support this use case in the future:\r\n\r\nif(string.IsNullOrEmpty(propertyname))\r\n    return;\r\n\r\n\r\n\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-03-07T07:45:10.19-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "VerifyPropertyName should ignore strings that are null or empty",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 5,
+    "Id": 7518
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "This is not correct. This will cause the code to simply return without triggering the desired update. \n\n",
+      "PostedDate": "2011-08-17T06:18:53.803-07:00",
+      "Id": 42894
+    }
+  ]
+}

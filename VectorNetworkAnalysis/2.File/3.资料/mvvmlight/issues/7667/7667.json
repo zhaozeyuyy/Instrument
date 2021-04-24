@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2016-01-16T14:02:40.507-08:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Bonjour,\r\n\r\nlorsque je bind une valeur sur une de mes datagrid (de syncfusion), j'obtiens une erreur sur la fonction RaisePropertyChanged et cela empêche l'ouverture de ma Vue. L'erreur indique une erreur de binding avec comme message \"Paramètre incorrect\". Je n'ai pas aucne autre précision sur l'erreur. Je vous donne l'extrait de code de ma propriété bindée plus bas. Je n'ai aucune idée d'où peut venir l'erreur ayant peu d'information sur celle-ci. Je précise que j'ai mis à jour le toolkit MVVMLight de la version 4.2 à la dernière 5 et également que j'ai mis à jour mes composants syncfusions. Cela marchait très bien avant ces mises à jour.\r\n\r\nCordialement,\r\n\r\nExtrait de ma propriété bindée:\r\n```\r\n      /// <summary>\r\n        /// The <see cref=\"Commandes\" /> property's name.\r\n        /// </summary>\r\n        public const string CommandesPropertyName = \"Commandes\";\r\n\r\n        private ObservableCollection<Commande> _commandes = new ObservableCollection<Commande>();\r\n\r\n        /// <summary>\r\n        /// Sets and gets the Commandes property.\r\n        /// Changes to that property's value raise the PropertyChanged event. \r\n        /// </summary>\r\n        public ObservableCollection<Commande> Commandes\r\n        {\r\n            get\r\n            {\r\n                return _commandes;\r\n            }\r\n\r\n            set\r\n            {\r\n                if (_commandes == value)\r\n                {\r\n                    return;\r\n                }\r\n\r\n                _commandes = value;\r\n                RaisePropertyChanged(CommandesPropertyName);\r\n            }\r\n        }\r\n```",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-11-08T05:55:08.677-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Cannot repro"
+    },
+    "Summary": "RaisePropertyChanged issue",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7667
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Bonjour,\r\n\r\nDifficile de me prononcer sans plus de details.\r\n\r\nUne precision: La plupart du temps, il est inutile d'appeler \"RaisePropertyChanged\" sur une propriete de type ObservableCollection, vu que celle-ci ne change pas durant le cours de l'application, mais uniquement son contenu change.\r\n\r\nSi vous pouvez me fournir un example ou ce probleme est visible, j'apprecierais.\r\n\r\nMerci\r\nLaurent",
+      "PostedDate": "2015-03-28T11:07:35.593-07:00",
+      "Id": 180544
+    }
+  ]
+}

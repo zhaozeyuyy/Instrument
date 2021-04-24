@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1114152",
+    "ThreadId": "464256",
+    "Html": "hi,\r<br />\n<br />\nI have a  typical requirement. I am using MVVM light for my development. I have a menu on view and i need to access this object in viewmodel to perform some operations.\r<br />\n<br />\nCan any one suggest a way to pass menu object from view to viewmodel.\r<br />\n<br />\n<br />\nThanks in advance.<br />\n",
+    "PostedDate": "2013-10-30T07:12:09.327-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1114224",
+    "ThreadId": "464256",
+    "Html": "Hi,\r<br />\n<br />\nYou shouldn't really pass controls to your VM, if possible you should bind to properties, collections etc and use templates in your view.\r<br />\n<br />\nIf you really needed to pass the control to your viewmodel I'd maybe use a relaycommand.\r<br />\n<br />\nI had to do this once thanks to a control that wasn't MVVM friendly:\r<br />\n<br />\nView<br />\n<pre><code>    &lt;i:Interaction.Triggers&gt;\n        &lt;i:EventTrigger EventName=&quot;Loaded&quot;&gt;\n            &lt;mvvm:EventToCommand Command=&quot;{Binding commandCarouselInit}&quot; CommandParameter=&quot;{Binding ElementName=carousel_personview}&quot; /&gt;\n        &lt;/i:EventTrigger&gt;\n    &lt;/i:Interaction.Triggers&gt;</code></pre>\n\nViewModel<br />\n<pre><code>public PreviewViewModel()\n        {\n\n            // Register to listen for framework and shell messages\n            this.commandCarouselInit = new RelayCommand&lt;object&gt;((s) =&gt; CarouselSetup(s as Carousel));\n        }</code></pre>\n\nIf your just want to trigger events in your WM from your context menu you can do something like this (this sample uses Telerik RadContextMenu)<br />\n<pre><code>                      &lt;telerik:RadContextMenu.ContextMenu&gt;\n                            &lt;telerik:RadContextMenu InheritDataContext=&quot;True&quot;&gt;\n                                &lt;telerik:RadMenuItem Header=&quot;Add To favourites&quot;\n                                                        Command='{Binding commandAddFav}' \n                                                        CommandParameter='{Binding Menu.UIElement.SelectedItem, RelativeSource={RelativeSource Self}}' &gt;\n                                    &lt;telerik:RadMenuItem.IconTemplate&gt;\n                                        &lt;DataTemplate&gt;\n                                            &lt;Image Source=&quot;{StaticResource modulehistory_addfavourite&quot; /&gt;\n                                        &lt;/DataTemplate&gt;\n                                    &lt;/telerik:RadMenuItem.IconTemplate&gt;\n                                &lt;/telerik:RadMenuItem&gt;\n                            &lt;/telerik:RadContextMenu&gt;\n                        &lt;/telerik:RadContextMenu.ContextMenu&gt;\n\n                       this.commandAddFav = new RelayCommand&lt;object&gt;((s) =&gt; { if (s != null) { AddToFavourites(s as ModuleHistory); } });</code></pre>\n\n",
+    "PostedDate": "2013-10-30T09:00:19.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

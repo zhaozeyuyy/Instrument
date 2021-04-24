@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "533047",
+    "ThreadId": "237635",
+    "Html": "\r\n<p>Hi</p>\r\n<p>I'm developing a Windows Phone 7 application using MVVM Light Toolkit. I fetch data to put in my ListBoxes and views by calling Web Services. I'm thinking of create a ServiceAgent class to handle the async web service calls but I'm not sure what is the best\r\n pattern to do this.</p>\r\n<p>Should my exception handling be in the service agent? If a exception occurs how to give the user a message? The view is the place to pop-up a messagebox, the viewModel is the place to call the service agent, and the agent call the external service. Or is\r\n it? Could someone give me a code example on how to call a web service&nbsp; and how the exception handling is could be done?</p>\r\n<p>Hope someone could give me some code illustrating how you are doing this, thanks.&nbsp;</p>\r\n",
+    "PostedDate": "2010-12-08T11:41:30.5-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "533326",
+    "ThreadId": "237635",
+    "Html": "\r\n<p>Hi</p>\r\n<p>I did&nbsp;find a very good solution myself by looking at a video of Laurent Bugnion and copy some of his ideas as it was just what I was looking for.</p>\r\n<p>I created a ServiceAgent with this Interface:</p>\r\n<pre>public interface IServiceAgent\r\n{\r\n        void GetNewsItems(Action&lt;IEnumerable&lt;NewsFeed&gt;, Exception&gt; callback);\r\n}</pre>\r\n<p>So that&nbsp;in my ViewModel I can have a code like this:</p>\r\n<pre> serviceAgent = new ServiceAgent.ServiceAgent();\r\n                serviceAgent.GetNewsItems((feeds, error) =&gt;\r\n                {\r\n                    if (error != null)\r\n                    {\r\n                        //fire an event to notify the view to show a messagebox     \r\n                    }\r\n                    else this.NewsFeeds = Converters.ConvertToObservableCollection&lt;NewsFeed&gt;(feeds);\r\n                });</pre>\r\n<p><br>\r\n<br>\r\nThe this.NewsFeeds is a property in my ViewModel that the View is binding to and the result is perfect. This is very clean code and separate concerns very well.</p>\r\n<p>I guess it's ok to have an event in the ViewModel for the View to subscribe for and show an appropriate message if something fails? This doesn't breake the idea of MVVM?</p>\r\n<p>Thank you Laurent ;-)&nbsp;</p>\r\n",
+    "PostedDate": "2010-12-09T03:18:05.24-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "533333",
+    "ThreadId": "237635",
+    "Html": "\r\n<p>Hey!</p>\r\n<p>Yep that looks good :)</p>\r\n<p>Regarding ViewModel -&gt; View communication: There are multiple patterns that work well.</p>\r\n<p>- Very decoupled: using the Messenger to pass a message from the VM to the view. Some people I respect do that. In my opinion it's a bit overkill, because the VM and the View are pretty coupled by nature, but some people like the super decoupled model.</p>\r\n<p>- Event: Tight coupling from the View to the VM, but at least the VM doesn't know who subscribes to the event. Fairly testable. I do that sometimes, especially subscribing to the VM's PropertyChanged event, for example when the View needs to start an animation\r\n instead of just showing a state.</p>\r\n<p>- View services: Same pattern than with the IServiceAgent, but going up (to the view) instead of down (to the model). For instance, INavigationService, IAnimationService, IDialogService etc. Have the View implement it (if the service is simple), or an accessory\r\n class (for example the NavigationService). Inject this into the ViewModel (either with an IOC container, or simply through property injection) and voila. The VM can call MyDialogService.ShowDialog(...) and doesn't need to know what will happen. Very testable\r\n (with mocks), quite nice.</p>\r\n<p>Makes sense?</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2010-12-09T03:40:47.78-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "533543",
+    "ThreadId": "237635",
+    "Html": "\r\n<p>Hi Laurent</p>\r\n<p>Thank you for your time and thoughts. My first thought is that the first pattern is the cleanest and easiest to design, read, maintain and with less code. Is that right?</p>\r\n<p>Doing it with an event may be OK once, but I expect to use this all over my application so I think this is&nbsp;not the way to do it.</p>\r\n<p>Your third suggestion is maybe the way you like best? But it will be more code and maybe&nbsp;diffucult to read&nbsp;with multiple services?</p>\r\n<p>I'm pretty new to&nbsp;Silverlight so could you give me short description of the Messenger pattern?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks again, and thank you for this great toolkit!!!!!</p>\r\n<p>PS! I see that Prism 4&nbsp;has&nbsp;been released with support for WP7, but I'll stick with MVVM Light Toolkit because it&nbsp;keeps things simple. Are you comming with an update to soon?&nbsp;</p>\r\n",
+    "PostedDate": "2010-12-09T10:34:18.49-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

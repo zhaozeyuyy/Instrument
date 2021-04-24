@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1486266",
+    "ThreadId": "658761",
+    "Html": "Hello All,<br />\n<br />\nI know everyone is busy with normal work and what not...  I am looking for a great example/implementation of the DialogService and NavigationService in a plain ole WPF desktop application.  Currently in Visual Studio 2015 using MVVM Light 5.2 and C#.  Does anyone have or know of one that I could look at to help me along the path of getting  this injected (yes pun intended :-) )  into my application.   I searched the past discussions and there was a query not quite a year ago (Dec 17th, 2015), but nothing since, so that didn't help out too much.<br />\n<br />\nThanks in advance,<br />\n<br />\nKevin Orcutt<br />\n",
+    "PostedDate": "2016-10-17T08:04:27.17-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1486454",
+    "ThreadId": "658761",
+    "Html": "Hi,\r<br />\n<br />\nI just worked on a cool project in WPF and implemented a Nav and Dialog service. I will extract them and post as a sample.\r<br />\n<br />\nTake care\r<br />\nLaurent<br />\n",
+    "PostedDate": "2016-10-20T02:08:29.173-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1487951",
+    "ThreadId": "658761",
+    "Html": "Hi Laurent, \r<br />\nI too am trying to find a decent example of this. I have followed the Pluralsight course but that seems to be geared towards Windows Phone. Any Luck with extracting the sample?\r<br />\n<br />\nRegards,\r<br />\n<br />\nMax<br />\n",
+    "PostedDate": "2016-11-15T09:26:44.68-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1488302",
+    "ThreadId": "658761",
+    "Html": "Hi!\r<br />\n<br />\nYes!! In fact I just finished extracting the nav and dialog service from a WPF app I worked on recently. I want to write an article about that but in advance, here is the code:\r<br />\n<br />\n<a href=\"https://1drv.ms/u/s!As15SQCXjw37p7IeUvd8zgVRn9frTA\" rel=\"nofollow\">https://1drv.ms/u/s!As15SQCXjw37p7IeUvd8zgVRn9frTA</a>\r<br />\n<br />\nKeep in mind that there are many ways one could do navigation or dialog in WPF. This is just a proposed implementation.\r<br />\n<br />\nThanks!\r<br />\nLaurent<br />\n",
+    "PostedDate": "2016-11-18T04:31:47.927-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

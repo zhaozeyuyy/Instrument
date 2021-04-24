@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Not an MVVM Light issue (order of bindings must be respected for anything in XAML to work)",
+    "ClosedDate": "2014-10-13T03:06:24.21-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "When attached to the Load event of the page or user control the EventToCommand successfully call the handler in the ViewModel but does not pass the CommandParameter. However, the same XAML is attached to another event, button click for example, the Command handler receives the databound data as its parameter.\r\nXaml:\r\n\t\t<i:EventTrigger EventName=\"Loaded\" SourceObject=\"{Binding ElementName=Control}\">\r\n\t\t\t<Command:EventToCommand x:Name=\"etcLoad\" \r\n\t\t\t\t\t\t\t\t\tCommand=\"{Binding LoadCommand}\" \r\n\t\t\t\t\t\t\t\t\tCommandParameter=\"{Binding Target, ElementName=Control}\" />\r\n\t\t</i:EventTrigger>\r\n\r\nTarget is a string DP on the View.\r\n\r\nVM Code:\r\n\r\n\t\tinternal void Load(string p_Param)\r\n\t\t{\r\n\t\t\tthis.Initialise();\r\n\t\t}\r\n\r\n\t\tpublic RelayCommand<string> LoadCommand { get; private set; }\r\n\r\nand the Command is assigned so:\r\n\r\n\t\tthis.LoadCommand = new RelayCommand<string>(this.Load);\r\n\r\nI am almost certain that the problem lies with the binding being done later than the assignment to the Target DP or something similar. I am interested in finding a solution for this ASAP or some other way that I might get a string out of the View and into the ViewModel where the string is assigned from the OnNavigateTo override. The goal is to provide the selection of a tab based on a query property supplied via the URI i.e. \"/Views/DisplayTabDetails?Tab=Tab1\" or similar.\r\n\r\nMany thanks in advance.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-10-21T05:48:50.65-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Not an issue"
+    },
+    "Summary": "EventToCommand fails to pass Command Parameter on Load Event",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7550
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

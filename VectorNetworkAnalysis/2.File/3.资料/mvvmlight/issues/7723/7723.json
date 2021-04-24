@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "No time unfortunately.",
+    "ClosedDate": "2017-11-25T08:08:38.07-08:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Hi,\r\nAre you facing this issue ? It seems that many samples do not work on Windows 7 and VS 2013.\r\nSometimes, Windows 8.1 is required (for Windows Phone support) but sometimes it's more tricky.\r\nFor instance, I cannot start the \"Flowers\" sample because of missing references and other errors.\r\nRegards",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.4.0 (planning)",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-03-23T07:11:06.98-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Won't fix"
+    },
+    "Summary": "Some samples do not work on Windows 7 and VS 2013",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7723
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I will take a look. It's hard to support old OSes but I understand that Windows 7 is important. I cannot guarantee when I will have time to spin a VM and check this out, but I will add this to the backlog.",
+      "PostedDate": "2016-07-20T01:00:55.373-07:00",
+      "Id": 200748
+    }
+  ]
+}

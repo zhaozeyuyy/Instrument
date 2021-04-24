@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "270338",
+    "ThreadId": "78957",
+    "Html": "<p>I get an exception when running this program. I am 90% sure it is becuase we have a firewall, and that any attempt to go out the the web have to go out through a proxy that needs username, password.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-12-23T08:53:16.07-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "270340",
+    "ThreadId": "78957",
+    "Html": "<p>Hi,</p>\r\n<p>Sorry about that. The utility is just a small app I developed for fun. I don;t plan to make a more elaborate version for proxies, to be honest. To be notified of new versions, check my blog (http://blog.galasoft.ch) or my Twitter feed (http://www.twitter.com/lbugnion).</p>\r\n<p>Friendly,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2009-12-23T08:58:19.5-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

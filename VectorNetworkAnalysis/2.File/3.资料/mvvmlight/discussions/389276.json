@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "892150",
+    "ThreadId": "389276",
+    "Html": "\r\n<p>Hi</p>\r\n<p>I'm currently using a combination of toolkits in my solution (I like to explore all the possibilities and get the best from all), and I've started to look at your code and features it offers.</p>\r\n<p>One suggestion is to add a PropertyObserver helper class, like the one in MVVM Foundation. I found it useful in a couple of scenarios, and it could be a nice addition to your wonderful toolkit.</p>\r\n<p>On the other hand I'm planning to swap out the ObservableObject and RelayCommand classes of MVVM Foundation with yours, that I found more complete.</p>\r\n<p>Just wondering if extract only the pieces I'm planning to use or include your full toolkit as a dependency... I know that the nightmare will be keeping the pieces from various toolkits in sync with authors updates!</p>\r\n<p>Paolo</p>\r\n",
+    "PostedDate": "2012-07-27T01:42:11.763-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892185",
+    "ThreadId": "389276",
+    "Html": "<p>Hi,</p>\r\n<p>PropertyObserver is on my list for V5.</p>\r\n<p>What I would recommend you to do is to use the MVVM Light assemblies together with MVVM Foundation's assemblies. I think they shouldn't conflict with each other. This will make it easier to upgrade to a next version, instead of having to maintain the code.</p>\r\n<p>Cheers<br />Laurent</p>",
+    "PostedDate": "2012-07-27T03:28:29.907-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1356483",
+    "ThreadId": "582056",
+    "Html": "_Any plans to add converters support?<br />\nI guess I could add it, interested?_<br />\n<br />\nUpdate: Nevermind, I see you have in fact conversion support through Binding.ConvertSourceToTarget and ConvertTargetToSource methods.<br />\n",
+    "PostedDate": "2015-02-27T12:13:16.13-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

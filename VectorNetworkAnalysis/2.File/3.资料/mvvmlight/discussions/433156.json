@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1001242",
+    "ThreadId": "433156",
+    "Html": "We are creating a solution that contains both Win8 and WP8 projects, which share a common Portable Class Library that wraps the data service that feeds the applications.  When I tried to use NuGet to install the package MvvmLightLibs to the PCL project, I get the following error message:\r<br />\n<br />\ninstall-package : Could not install package 'MvvmLightLibs 4.1.26.1'. You are trying to install this package into a project \r<br />\nthat targets 'portable-win+net45+wp80', but the package does not contain any assembly references or content files that are \r<br />\ncompatible with that framework. For more information, contact the package author.\r<br />\n<br />\nAm I going about this the right way?  How can I use MVVM Light in my PCL so that I can share that library with my Win8 and WP8 projects at the same time?  I did install NuGet 2.2 before running this.  Thanks in advance for your help.<br />\n",
+    "PostedDate": "2013-02-14T07:26:34.017-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1001281",
+    "ThreadId": "433156",
+    "Html": "Turns out I was installing the wrong NuGet package.  The correct command for the portable version of the MVVM Light libs is \r<br />\n<br />\ninstall-package portable.mvvmlightlibs -prerelease<br />\n",
+    "PostedDate": "2013-02-14T08:03:42.79-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

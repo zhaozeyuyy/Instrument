@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "721889",
+    "ThreadId": "285320",
+    "Html": "\r\n<p>Hi</p>\r\n<p>are there plans for implemnt a async method for sending message ?</p>\r\n<p>This wait the send can be asynchronous and can be awaited.</p>\r\n",
+    "PostedDate": "2012-01-07T10:28:11.197-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

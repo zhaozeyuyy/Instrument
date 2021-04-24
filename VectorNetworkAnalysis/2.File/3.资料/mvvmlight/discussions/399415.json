@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "926781",
+    "ThreadId": "399415",
+    "Html": "\r\n<p>Hi Laurent,</p>\r\n<p>I built a Windows Store style app with MVVM Light and I'm getting a certification test failure on requirement 3.10, the Direct3D feature part of the test.&nbsp; I went back and ran the certification on a BlankApp and then the base MVVM Light.&nbsp; On the\r\n BlankApp I don't get the cert error but on the base MVVM Light application I do.&nbsp; I also then ran the test on the app from your recent MSDN article and get the error on that app as well. My questions are then,</p>\r\n<p>* do you see this error on the apps you build?&nbsp; (if not, then I'm probably looking for something in my hardware setup, though I've tried this on two boxes)</p>\r\n<p>* and, if not, do you have any ideas as to where I might look?&nbsp; As I say, the BlankApp template didn't return an error but the base MVVM Light template app did (at least on my boxes).</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2012-10-15T08:32:47.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "927534",
+    "ThreadId": "399415",
+    "Html": "<p>I've been working with a MS tech and it seems this test issue is related to my boxes as he doesn't repro the error on his machine. &nbsp;Sorry for the report; thanks for MVVM Light!</p>",
+    "PostedDate": "2012-10-16T09:40:00.95-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

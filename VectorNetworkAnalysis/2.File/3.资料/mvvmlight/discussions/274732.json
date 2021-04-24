@@ -1,0 +1,114 @@
+[
+  {
+    "Id": "679863",
+    "ThreadId": "274732",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>I was attempting to install the newly released version for win8 on the developer preview version of win8. When the console ModifyRegistryKey app runs, it errors out and the installation stalls. The console remains open with this error:</p>\r\n<p>Syntax: ModifyRegistryKey [-i11u|-i11m|-i10u|-i10m|-i10x|-i08u|-i08m|-uu|-um] [p<br>\r\nathOfSnippetsFolder];[pathOfVs10Express]</p>\r\n<p>Any ideas?</p>\r\n<p>Rod</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-10-04T08:51:52.58-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "680122",
+    "ThreadId": "274732",
+    "Html": "<p>Hi,</p>\n<p>I also have problems installing MVVM Light Toolkit for Windows 8. The setup fails and shows the following message: \"There is a problem with the Windows Installer Package. A program required for this install to complete could not be ryn. Contact your support personnel or package vendor.\"</p>\n<p>I'm installing MVVM Light Toolkit for Windows 8 on Windows 8 Developer Preview 64 bit that is running on Virtual Box 4.1.4.</p>\n<p>Andrea</p>",
+    "PostedDate": "2011-10-04T22:00:08.287-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "680480",
+    "ThreadId": "274732",
+    "Html": "<p>Quick update guys: The second issue (OasisLiveForever) was reported by a few people, and I am on it. It seems that there is an issue because the custom action is using .NET 4 and Windows 8 comes with .NET 4.5 only by default. It works on my machine because I also have VS10 installed side by side, and this installs .NET4.</p>\r\n<p>The first issue (RodWatkins) is not something I have seen anyone else reporting. As soon as I have a fix for the second issue, I will pass the link to you guys for testing, and if it doesn't fix Rod's issue, I will work with you directly on that.</p>\r\n<p>Thanks<br />Laurent&nbsp;</p>",
+    "PostedDate": "2011-10-05T13:14:27.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "680500",
+    "ThreadId": "274732",
+    "Html": "<p>OK can you guys please try this one:</p>\n<p><a href=\"http://is.gd/mvvmlightwin8\">http://is.gd/mvvmlightwin8</a></p>\n<p>I recompiled the custom action using .NET 4.5 which is installed by default in Windows 8. Please let me know if that solves your issues.</p>\n<p>Thanks a lot for the help,<br /> Laurent&nbsp;</p>",
+    "PostedDate": "2011-10-05T13:54:00.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "680543",
+    "ThreadId": "274732",
+    "Html": "<p>Sorry, here is another update: I worked with Tim Heuer from Microsoft to find the cause of the issue, and it is not (as I first thought) due to the custom action, but rather to some missing keys in the registry when only VS11 Express is installed. I assume that you guys also have the \"vanilla\" package with only VS11 Express, and no VS11 Ultimate installed, is that right?</p>\r\n<p>Ignore the previous message with the MSI, i will now make a VHD with a vanilla Win8 install and fix the MSI.</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-10-05T15:22:05.96-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "680563",
+    "ThreadId": "274732",
+    "Html": "<p>Actually, I have the developer's preview of VS Ultimate installed (along side the express version) on my win8 machine.&nbsp;Are those keys still missing if you only have the 2011 versions installed?</p>\r\n<p>A little manual fiddling&nbsp;bypassing the installer and I got everything up and running, but I'm sure you want the wrinkles in the installer fixed. I am not at my win8 machine now,&nbsp;but I'll try the new installer tonight and let you know if it solves the problem I had.</p>\r\n<p>Thanks!!&nbsp;</p>",
+    "PostedDate": "2011-10-05T15:49:01.653-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "680717",
+    "ThreadId": "274732",
+    "Html": "<p>Hi Rod,</p>\r\n<p>After you try the Debug installer posted at the link above, can you please send me the file c:\\temp\\mvvmlightinstall.txt?</p>\r\n<p>Thanks in advance,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-10-06T03:20:53.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "680847",
+    "ThreadId": "274732",
+    "Html": "<p>Huh, no change, same error. And oddly, there is no mvvmlightinstaller.txt in c:\\temp. There's no c:\\temp at all.&nbsp;I presume it crashing before the code to create the log.</p>\r\n<p>Rod</p>",
+    "PostedDate": "2011-10-06T08:43:07.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "680860",
+    "ThreadId": "274732",
+    "Html": "<p>Hey Rod,</p>\r\n<p>Are you on MSN or Skype?&nbsp;</p>\r\n<p>Thanks,<br />Laurent</p>\r\n<p>(Send per email to laurent at galasoft dot ch if you can)</p>",
+    "PostedDate": "2011-10-06T09:08:59.33-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "681122",
+    "ThreadId": "274732",
+    "Html": "<p>Hi Laurent,</p>\r\n<p>I tried to install the debug version that you recompiled but I get the same error.<br />This is the content of the file&nbsp;C:\\temp\\mvvmlightinstall.txt</p>\r\n<p>Starting install at 10/6/20118:25:54 PM<br />Args[0]: -i11m<br />Args[1]: C:\\Program Files (x86)\\Laurent Bugnion (GalaSoft)\\Mvvm Light Toolkit\\SnippetsWin8\\;<br />RunInstall<br />Checking subKey Software\\Microsoft\\VisualStudio\\11.0\\Languages\\CodeExpansions\\CSharp\\Paths in HKEY_LOCAL_MACHINE<br />subKey == null (Software\\Microsoft\\VisualStudio\\11.0\\Languages\\CodeExpansions\\CSharp\\Paths)<br />Ending install at 10/6/20118:25:54 PM<br />Starting install at 10/6/20118:25:54 PM<br />Args[0]: -i11u<br />Args[1]: C:\\Program Files (x86)\\Laurent Bugnion (GalaSoft)\\Mvvm Light Toolkit\\SnippetsWin8\\;<br />RunInstall<br />Checking subKey Software\\Microsoft\\VisualStudio\\11.0\\Languages\\CodeExpansions\\Visual C# in HKEY_CURRENT_USER<br />subKey == null (Software\\Microsoft\\VisualStudio\\11.0\\Languages\\CodeExpansions\\Visual C#)<br />Ending install at 10/6/20118:25:54 PM</p>",
+    "PostedDate": "2011-10-06T20:30:26.1-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "681141",
+    "ThreadId": "274732",
+    "Html": "<p>Hi,</p>\r\n<p>Thanks! in your case it is due to discrepancies between the VS11 and VS11 Express. I will publish today a page explaining how to manually install. I will also fix the installer for VS11 express, but that might take a little more time. Stay tuned to my blog (blog.galasoft.ch), I will publish when ready.</p>\r\n<p>Thanks again,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-10-06T22:07:44.643-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "681601",
+    "ThreadId": "274732",
+    "Html": "<p>Hey guys,</p>\r\n<p>Please try this installer, it should correct most (or all ;) errors http://mvvmlight.codeplex.com/releases/view/74325&nbsp;</p>\r\n<p>Please let me know if it works (or not) ;)</p>\r\n<p>Cheers,<br />Laurent&nbsp;</p>",
+    "PostedDate": "2011-10-08T06:22:22.353-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "681731",
+    "ThreadId": "274732",
+    "Html": "<p>Hi Laurent,</p>\r\n<p>the new version works great.</p>\r\n<p>Thank you very much.</p>",
+    "PostedDate": "2011-10-08T21:46:30.5-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "681899",
+    "ThreadId": "274732",
+    "Html": "<p>Works like a charm now. Sorry for not responding sooner. It's Thanksgiving weekend here in Canada, so I've been busy (cooking, eating, watching hockey, eating again)!</p>\r\n<p>thanks!!</p>\r\n<p>Rod</p>",
+    "PostedDate": "2011-10-09T15:26:20.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

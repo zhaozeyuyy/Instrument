@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2016-05-11T09:40:40.103-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "I love MVVM Light, and I wonder why the project has not moved to GitHub yet, since it is where most, if not all, other .NET Foundation projects are hosted, and most developers are active. \r\n\r\nIt would certainly add some attention if the project moved there as it would be more visible. \r\n\r\nPlease consider this in order to make further innovation possible.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-05-11T07:24:48.29-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Not an issue"
+    },
+    "Summary": "Why not move to GitHub?",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7727
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nLong story short, it mostly boils down to GitHub not supporting Mercurial. I use Git when I am paid for it, I use Mercurial everywhere else. There are almost no incentives at the moment to move to GitHub, considering that the project is already getting so much attention. \n\nNot saying it will never happen, but for now it's not something that is very attractive.\n\nThanks for your feedback\nLaurent",
+      "PostedDate": "2016-05-11T09:40:15.423-07:00",
+      "Id": 199474
+    }
+  ]
+}

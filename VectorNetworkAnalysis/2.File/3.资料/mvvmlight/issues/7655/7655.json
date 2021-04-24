@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T06:27:48.307-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I updated NuGet packages today (8/19/2014) for both MVVM Light and the CommonServiceLocator. After doing this, my project can no longer resolve the Microsoft.Practices namespace. This means that the following won't work:\r\n\r\n```\r\nServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);\r\n```\r\n\r\nWhat should I do to resolve this? Thanks.\r\n\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.0.0.1",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-08-19T12:14:36.487-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "After NuGet updates, can't resolve Microsoft.Practices namespace",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7655
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,61 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "hello, I always getting an error in vs 2015 when I am using mvvmlight with an android project. Every time reference to any mvvmlight object occurs the error. I can run the application, but vs marks this as an error. The error says: Error\tCS0012\tThe type 'Object' is defined in an assembly that is not referenced. You must add a reference to assembly 'System.Runtime, Version=4.0.0.0. The error occurs in the sample flower project too.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-09-30T07:45:42.583-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Refernce Error in VS 2015 (Android Project)",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7707
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1491466,
+      "FileName": "mvvmlight-vserror.jpg",
+      "DownloadUrl": ".\\1491466"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "HI,\n\nPlease make sure that you are using the latest version (stable or newer) of the Xamarin SDK.\n\nThanks\nLaurent",
+      "PostedDate": "2015-09-30T08:30:15.603-07:00",
+      "Id": 190937
+    },
+    {
+      "Message": "Hello Laurent,\n\nthank you for the hint...\nI have been checked for new stable version in vs 2015 but all is up to date...\nShould I update to beta version?\n\nbye\nMarkus\n",
+      "PostedDate": "2015-09-30T09:12:50.777-07:00",
+      "Id": 190940
+    },
+    {
+      "Message": "Hello again,\r\n\r\nI have been updated to the newest xamarin beta.\r\nBut the same error appears. This error comes on my desktop and laptop machine.\r\nEnclosed you will find a screenshot from the error...\r\nAny suggestion what else to do?\r\n\r\nbye\r\nMarkus\r\n",
+      "PostedDate": "2015-09-30T23:42:39.48-07:00",
+      "Id": 190957
+    }
+  ]
+}

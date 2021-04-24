@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1483767",
+    "ThreadId": "657983",
+    "Html": "HI,\r<br />\nusing the toolkit I'm able to send a message with callback but in the callback I can only receive\r<br />\na string but not generic type like a List&lt;string&gt;.\r<br />\nIs there a way to manage it?\r<br />\n<br />\nThanks\r<br />\nRegards\r<br />\nDaniele<br />\n",
+    "PostedDate": "2016-09-15T07:25:50.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:57:38.727-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "The link http://www.galasoft.ch/mvvm/getstarted is specified in the XML doc header which is created for most classes in a new MVVM Light project.\r\n\r\nEither fix the webpage or change the link",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-05-09T05:16:34.873-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "http://www.galasoft.ch/mvvm/getstarted gives 404",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7568
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nThe redirect module I am using on my website is broken, and of course this =\nhappened while I am out. I will fix it asap next week. Sorry for the issue.=\nIn the meantime, you can use http://www.galasoft.ch/mvvm (same page).\n\nCheers\nLaurent",
+      "PostedDate": "2012-05-09T19:27:06.283-07:00",
+      "Id": 65299
+    },
+    {
+      "Message": "Fixed now.\n\nCheers,\nLaurent",
+      "PostedDate": "2012-05-15T12:59:18.723-07:00",
+      "Id": 65854
+    }
+  ]
+}

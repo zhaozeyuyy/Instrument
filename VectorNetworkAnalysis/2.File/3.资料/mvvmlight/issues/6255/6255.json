@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "A GenericMessage<T1> is not a base class of GenericMessage<T2> even when T1 is a base class of T2. I hesitated to add this feature to the Messenger, but found it confusing. Your best bet here is to define a new message class.",
+    "ClosedDate": "2011-05-16T01:35:23.823-07:00",
+    "CommentCount": 2,
+    "Custom": "",
+    "Description": "Shouldn't this test pass, or I'm doing something wrong:\n\n[TestMethod]\npublic void derived_message_subscription()\n{\n    bool handled = false;\n    Messenger.Default.Register<GenericMessage<baseClass>>(this, true, (msg) => handled = true);\n    Messenger.Default.Send(new GenericMessage<testClass>(new testClass()));\n    Assert.IsTrue(handled);\n}\n\npublic abstract class baseClass { }\npublic class testClass : baseClass { }",
+    "LastUpdatedDate": "2011-05-16T01:35:23.823-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2010-06-06T05:27:08.573-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Receive messages for derived types",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 6255
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Just figure out that when i don't use GenericMessage test pass. Is it bug or feature?",
+      "PostedDate": "2010-06-06T05:32:27.543-07:00",
+      "Id": 18026
+    },
+    {
+      "Message": "Hi,\n\nSorry for the long delay in replying to this.\n\nA GenericMessage<T1> is not a base class of GenericMessage<T2> even when T1 is a base class of T2. I hesitated to add this feature to the Messenger, but found it confusing. Your best bet here is to define a new message class.\n\nCheers,\nLaurent",
+      "PostedDate": "2011-05-16T01:35:08.087-07:00",
+      "Id": 35811
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "722052",
+    "ThreadId": "285361",
+    "Html": "\r\n<p>Hi</p>\r\n<p>in my applications i have some common scenarios. I think there a lot of people with similar scenarios.</p>\r\n<p>For example I have an bool IsBusy and string BusyText Property to which I bind the visibilty of a busy indicator.</p>\r\n<p>It would be&nbsp; great to get this in somekind as a base functionality.</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-01-08T04:13:13.76-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

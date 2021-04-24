@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1058244",
+    "ThreadId": "447436",
+    "Html": "I have a WPF application with <a href=\"http://www.example.com\" rel=\"nofollow\">Page navigation</a>. I use MvvmLight toolkit. I have two pages: FirstPage (default page) and SecondPage. On FirstPage I navigate to SecondPage.\r<br />\n<br />\nI want to pass a parameter to SecondPage.<br />\n<pre><code>//code on FirstPage\nNavigationService.NavigateTo(new Uri(&quot;SecondPage.xaml&quot;, UriKind.Relative));\nMessenger.Default.Send&lt;string&gt;(&quot;my mess&quot;);\n\n//code on SecondPage\n//constructor\npublic SecondPage()\n{\n  Messenger.Default.Register&lt;string&gt;(this, GetMess);\n}\n\nprivate void GetMess(string obj)\n{\n\n}</code></pre>\n\nWhen you first start it's not working. I can create an instance of SecondPage,<br />\n<pre><code>PageSecond page = new  PageSecond();\n</code></pre>\n\nbut it is not beautiful.  Help me please.<br />\n",
+    "PostedDate": "2013-06-18T08:04:14.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

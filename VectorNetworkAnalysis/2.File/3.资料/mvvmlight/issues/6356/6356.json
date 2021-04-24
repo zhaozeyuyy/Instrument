@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 6,
+    "Custom": null,
+    "Description": "Not sure if this was a design decision but IMessenger.Send seems to be missing overload that accepts a token",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2010-06-26T20:04:39.737-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "IMessenger.Send Missing Overload That Accepts a Token",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 5,
+    "Id": 6356
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "There are actually a number of overloads that accept a token, but none that except *just* a token. It would be very convenient to be able to send a message with just a token. The token would act as both the unique identifier for the message *and* as the message itself. Very common scenario for me.",
+      "PostedDate": "2011-03-04T13:00:01.163-08:00",
+      "Id": 30010
+    },
+    {
+      "Message": "That should read \"accept *just* a token\".",
+      "PostedDate": "2011-03-04T13:00:45.58-08:00",
+      "Id": 30011
+    },
+    {
+      "Message": "Hi, and sorry for the long delay in replying...\n\nDan, I am trying to evaluate the need for this solution. What you try to achieve is a simple \"ping\" if I understand correctly. This can be done with a simple message + token, for example sending a bool with a token would fulfill this purpose, am I right?\n\nNot denying that there is a real usage for a \"ping\" function, but trying to balance this with the addition of an extra method to the API... what are your thoughts?\n\nThanks,\nLaurent",
+      "PostedDate": "2011-05-16T01:46:14.487-07:00",
+      "Id": 35814
+    },
+    {
+      "Message": "Hi Laurent,\n\nIt's definitely a balancing act. I don't think you can get away with just another overload to Send here. You'd need to create a new method (maybe Ping or Alert?). This does make the API more complicated, but in my opinion, it's worth it because the  API is lacking something many programmers would expect from past experiences with MVVM messengers. The way it is now, it's like having a Car API without a Brake method You can argue that all you have to do is set the Speed to zero, but people are really expecting a brake method, and it would be simpler to use. \n\nFor example, I currently have a message that alerts all view-models to \"select all\".\n\nI really just wanted to do something like \"Messenger.Ping(MessageToken.SelectAll)\". Instead, I had to do \"Messenger.Send(MessageToken.SelectAll, MessageToken.SelectAll)\".\n\nThen, to register for this message, I did this:\n\nMessenger.Register<MessageToken>(this, MessageToken.SelectAll, token => UpdateOnSelectAll());\n\nI'm thinking maybe this could be simplified to something like this:\n\nMessenger.Listen(this, MessageToken.SelectAll, () => UpdateOnSelectAll());\n\n(Note: I like to use enums for tokens because it makes it very easy to find all the references to a particular token -- so I can easily find all the \"sends\" and \"registers\" for a particular token. All, if I want to change the name of a token, it makes that a breeze as well.)",
+      "PostedDate": "2011-05-16T10:31:46.03-07:00",
+      "Id": 35844
+    },
+    {
+      "Message": "Laurent, I just received an email saying this issue has been fixed, but I have not been able to find a new method addressing the case where you just pass in a token. Did you intent to mark this rejected or am I just not seeing the new method? Thx.",
+      "PostedDate": "2012-07-15T23:10:13.717-07:00",
+      "Id": 70191
+    },
+    {
+      "Message": "I got confused with another issue, sorry. I reopened this, target is V5.\n\nCheers\nLaurent",
+      "PostedDate": "2012-07-16T04:24:53.59-07:00",
+      "Id": 70207
+    }
+  ]
+}

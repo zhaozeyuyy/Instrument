@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Nuget issues :(",
+    "ClosedDate": "2014-10-13T07:26:21.05-07:00",
+    "CommentCount": 4,
+    "Custom": null,
+    "Description": "As I mentioned in the title, I got System.Windows.Interactivity.dll removed from my project references once I uninstalled the package.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2013-03-22T02:10:31.073-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Won't fix"
+    },
+    "Summary": "Uninstalling package \"MVVM Light Libraries Only\" removes \"System.Windows.Interactivity.dll\"",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7604
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nJust to be sure, you had Sys.Win.Interactivity in your application BEFORE you installed the Nuget package? I will check but I remember I saw that bug already reported for Nuget. Unfortunately there is really nothing I can do about this (except tell the Nuget team again they should fix that).\n\nCheers\nLaurent",
+      "PostedDate": "2013-03-22T03:20:08.92-07:00",
+      "Id": 94055
+    },
+    {
+      "Message": "Actually I had Interactivity dll installed by another package: Blend Interactivity for Silverlight. ",
+      "PostedDate": "2013-03-22T03:41:58.01-07:00",
+      "Id": 94056
+    },
+    {
+      "Message": "Laurent,\n\nRegarding your comment on NuGet bug: could this issue (removing Interactivity dll by uninstalling MVVM Light) be caused by some dependency? I remember when I uninstalled MVVM Light package it asked me if I wanted to uninstall Common Locator (a MVVM Light dependency) and I opted for uninstalling that one too (Common Locator).",
+      "PostedDate": "2013-03-22T03:46:59.73-07:00",
+      "Id": 94057
+    },
+    {
+      "Message": "I don't think that the dependency to the Common Service Locator can cause this. The locator one does not have any other dependencies.\n\nI will do some tests and see what's happening. I know that Nuget is known to do that sometimes.\n\nCheers\nLaurent",
+      "PostedDate": "2013-03-25T06:20:56.33-07:00",
+      "Id": 94271
+    }
+  ]
+}

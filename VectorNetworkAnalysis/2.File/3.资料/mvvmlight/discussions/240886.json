@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "545572",
+    "ThreadId": "240886",
+    "Html": "\r\n<p>I posted this over on <a title=\"http://stackoverflow.com/questions/4627683/eventtocommand-passeventargstocommand-on-control-loaded-unloaded-event-yields-nul\" href=\"http://j.mp/grBvrd\" target=\"_self\">\r\nStackOverflow</a>&nbsp;&amp; <a title=\"http://forums.silverlight.net/forums/p/215511/510857.aspx#510857\" href=\"http://j.mp/eeyB8m\">\r\nSilverlight forums</a> but am posting here as well because I figure people get notified of new Discussions :)</p>\r\n<p>Basically, my ViewModels need to be aware of the View's Loaded event, <strong>\r\nand its sender/EventArgs.</strong></p>\r\n<p>It appears that what I'm trying to do is impossible: RoutedEventArgs.OriginalSource is null even when wiring up a code-behind EventHandler, and I see no way to get the sender, unless I wire it manually.&nbsp;</p>\r\n<p><br>\r\nIt may be that I should be going about this a different way -- I'm just not sure what I should be doing instead.</p>\r\n<p>My application is a windowed environment. I'm using a modeless ChildWindow control and a special WindowHost into which all windows are added (and also provides a taskbar).<br>\r\nWhen a user performs an action that should open a window, the ViewModel Command handling that action uses a helper class through which all window creations are&nbsp;funneled.&nbsp;<br>\r\n<br>\r\nThe problem with this is that the helper class needs to know about the WindowHost control on the MainPage, so it can add the ChildWindow to it.<br>\r\nHow can I solve this problem without hard references between view &amp; viewmodel, and without one-off code in the codebehind?</p>\r\n",
+    "PostedDate": "2011-01-07T11:15:04.273-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

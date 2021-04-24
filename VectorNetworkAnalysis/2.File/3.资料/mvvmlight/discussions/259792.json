@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "621432",
+    "ThreadId": "259792",
+    "Html": "\r\n<p>Are these &quot;BL&quot; tags in the source control stable point releases that I can use in a project, or alpha/beta previews that aren't production ready? I am starting a new project and am hesitant to commit myself to V3 which could be outdated in a few weeks, especially\r\n since V4 has some features I would like to use. Are there any potential sources of problems starting my project with BL16 then upgrading to the final release when it's done?</p>\r\n",
+    "PostedDate": "2011-06-01T08:16:02.79-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "621898",
+    "ThreadId": "259792",
+    "Html": "<p>Hi,</p>\r\n<p>The BL16 (BL stands for base level) is a preview build indeed. I still have work to do on V4 before I can call it a stable release. However changes from V3 to V4 are incremental, and I try not to introduce breaking changes (though some APIs might be marked as deprecated). As such, i recommend the following:</p>\r\n<ul>\r\n<li>If you need a feature present only in V4 (the SimpleIoc comes to mind), then I recommend you swap already now.</li>\r\n<li>If not, then I rather recommend staying on V3 until I release a more stable V4.</li>\r\n</ul>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-06-02T03:40:29.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

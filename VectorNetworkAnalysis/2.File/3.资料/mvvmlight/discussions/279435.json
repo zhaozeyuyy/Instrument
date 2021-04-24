@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "698083",
+    "ThreadId": "279435",
+    "Html": "<p>I just upgraded to v4 of MVVM light. Unfortunately, my enable and disable features of RelayCommand are no longer working. Any help would be great. I am using WPF.</p>\n<p>If I force a call to RaiseCanExecuteChanged() it works fine. But that is a horrible thing to have to do for each Command.</p>",
+    "PostedDate": "2011-11-14T13:37:20.937-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "698303",
+    "ThreadId": "279435",
+    "Html": "<p><span style=\"color: #7030a0; font-size: 15px;\">Hi,</span></p>\r\n<p><span style=\"color: #7030a0; font-size: 15px;\">Are you using WPF?</span></p>\r\n<p><span style=\"color: #7030a0; font-size: 15px;\">Thanks,<br /></span><span style=\"color: #7030a0; font-size: 15px;\">Laurent</span></p>",
+    "PostedDate": "2011-11-15T02:33:56.183-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "698379",
+    "ThreadId": "279435",
+    "Html": "<p>Sorry I updated my original post a min later with the following.</p>\r\n<p>&nbsp;</p>\r\n<p>I am using WPF 4.</p>\r\n<p>If I force a call to RaiseCanExecuteChanged() it works fine. But that is a horrible thing to have to do for each Command.</p>",
+    "PostedDate": "2011-11-15T06:03:41.223-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "698454",
+    "ThreadId": "279435",
+    "Html": "<p>I was able to find a reference to the same issue in the Issue Tracker. If I don't use the CommandManager what is the best practice for explicitly calling the RaisCanExectueChanged() method?</p>",
+    "PostedDate": "2011-11-15T07:45:18.083-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "698517",
+    "ThreadId": "279435",
+    "Html": "<p>For the time being I rebuilt v4 with code from v3 to use CommandManager. I will refactor my code slowly to use the new method.</p>",
+    "PostedDate": "2011-11-15T09:27:11.417-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "700867",
+    "ThreadId": "279435",
+    "Html": "<p>Hi, sorry for the delay</p>\r\n<p>In WPF MVVM Light V4, I changed the way that the RelayCommand raise the CanExecuteChanged. My goal was to make the implementation closer from the Silverlight one, and also to avoid using the CommandManager class which always seemed flaky to me.</p>\r\n<p>However this is a breaking change that has been annoying some users (which I can understand), so I am considering reverting to an implementation allowing using the CommandManager or (optionally) to use the Silverlight way.</p>\r\n<p>Sorry for the worries in the meantime. I would recommend keeping the V3 implementation for the time being.&nbsp;</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-11-20T10:52:37.3-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

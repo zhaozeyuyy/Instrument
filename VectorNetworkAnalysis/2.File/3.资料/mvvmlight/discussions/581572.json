@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1354772",
+    "ThreadId": "581572",
+    "Html": "Anyone experienced problems using mvvmlight at design time in a winrt universal app?\r<br />\nIn windows 8.1 application everytime i try to poulate data in design time (using if IsInDesignMode in the viewmodel) the view in visualstudio get broken up showing typeloadexception: Could not find Windows Runtime type 'Windows.UI.Xaml.Data.VisualStateGroup'.\r<br />\nSame thing of course in blend.\r<br />\nAm I missing something?<br />\n",
+    "PostedDate": "2015-02-22T15:07:10.347-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1354864",
+    "ThreadId": "581572",
+    "Html": "I mean, I get this:\r<br />\n<img src=\"http://bits.hencos.it/dwl_apps/typeloadexc.jpg\" alt=\"Image\" /><br />\n",
+    "PostedDate": "2015-02-23T04:26:59.2-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1417098",
+    "ThreadId": "581572",
+    "Html": "Hi,\r<br />\n<br />\nI've got exactly the same problem. I used the sample project provided by Laurent Bugnion : &quot;Using the MVVM Pattern in Windows 8&quot;.\r<br />\nThe same exception - concerning different types - occurs when I debug the xaml editor (through XDesProc.exe) to understand why I can't get any data loading at design-time.\r<br />\n<br />\npuckkk did you manage to solve this problem?\r<br />\nanyone else?\r<br />\n<br />\nthanks<br />\n",
+    "PostedDate": "2015-04-23T05:09:17.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1417104",
+    "ThreadId": "581572",
+    "Html": "Ok I just solved my problem... the sample I used was targeting Windows 8.0. I switched to 8.1 (be careful, it's not possible to switch back), now everything works fine.\r<br />\nThat's weird since the targeted types existed in the Windows 8.0 reference (Windows.winmd), but they could not be loaded at design-time.<br />\n",
+    "PostedDate": "2015-04-23T05:37:21.893-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

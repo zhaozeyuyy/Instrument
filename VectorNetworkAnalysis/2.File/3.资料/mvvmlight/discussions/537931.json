@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1219091",
+    "ThreadId": "537931",
+    "Html": "Hi Laurent,<br />\n<br />\nHaving fun learning and using the MVVM Light toolkit for a large ribbon-driven app. I've run into a headache, though: Our main viewmodel will have many commands, bound to our various ribbon buttons. I'd prefer to have each command in its own class so that MainViewModel.cs doesn't grow to thousands of lines of command logic.<br />\n<br />\nI asked <a href=\"http://stackoverflow.com/questions/22156351/icommand-implementations-in-a-separate-classes-using-only-mvvm-light\" rel=\"nofollow\">a question on SO</a> but no luck so far. Is there a &quot;subclass-friendly&quot; version of RelayCommand that lets one modularize command methods into classes? If not, why not and what would you advise?<br />\n<br />\nThanks!<br />\n",
+    "PostedDate": "2014-03-04T09:33:05.103-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1219194",
+    "ThreadId": "537931",
+    "Html": "Hi,\r<br />\n<br />\nThe way I do is that I have &quot;sub-viewmodels&quot;. For example, in the case of the MainViewModel, let's imagine that you have a PrintCommand and a CancelPrintCommand. You can have a new class called &quot;PrinterViewModel&quot;, and expose an instance of this class in the MainViewModel. Have the PrintCommand and the CancelPrintCommand in this PrinterViewModel (this also allows modular unit testing, which is neat).\r<br />\n<br />\nThen in XAML:\r<br />\n<br />\nCommand=&quot;{Binding Main.Printer.PrintCommand}&quot;\r<br />\n<br />\nAlternatively, you could do\r<br />\n<br />\nnew RelayCommand(() =&gt; Printer.DoSomething())\r<br />\n<br />\nDoes that make sense?\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2014-03-04T12:48:55.247-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1219200",
+    "ThreadId": "537931",
+    "Html": "Thanks, I was thinking about going it that way. We host an editor control with a bunch of formatting commands, for instance, so I'll create a separate viewmodel for the &quot;active editor&quot;.<br />\n<br />\nOut of curiosity, is there a reason MVVM Light uses RelayCommand rather than a subclassable ICommand? I mean, that lambda syntax is super-convenient, but why no CommandBase for &quot;heavier&quot; commands? Is it just that it's never been needed (using modular viewmodels) or is there some technical reason?<br />\n",
+    "PostedDate": "2014-03-04T12:55:13.323-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1219209",
+    "ThreadId": "537931",
+    "Html": "I think the last time I implemented ICommand (or worked on a project that implemented ICommand) was probably 3 or 4 years ago. It's just that it is a hassle to have to implement a whole class every time. I prefer to have multiple viewmodels with each a set of RelayCommands, than one viewmodel with a set of commands that each implement ICommand separately. In my experience it's more efficient this way. \r<br />\n<br />\nThat said, ICommand is there if you use MVVM Light or not, and you can absolutely implement that if you prefer :)\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2014-03-04T13:19:42.06-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1219264",
+    "ThreadId": "537931",
+    "Html": "That makes sense, Laurent--thanks for clarifying!<br />\n",
+    "PostedDate": "2014-03-04T16:55:26.51-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

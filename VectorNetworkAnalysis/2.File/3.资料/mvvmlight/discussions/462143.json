@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1107349",
+    "ThreadId": "462143",
+    "Html": "I have a base class that references the mvvm light toolkit and when I reference the same dll in the derived class I get can't find assembly Galasoft.Mvvmlight.sl5 dll. I am tired of banging my head against a wall does anyone have some insight?<br />\n",
+    "PostedDate": "2013-10-14T13:47:36.247-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1112662",
+    "ThreadId": "462143",
+    "Html": "Hi,\r<br />\n<br />\nAre you using the PCL version? If so, you need to make sure your main app also references the nuget package.<br />\n",
+    "PostedDate": "2013-10-27T08:43:00.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1112748",
+    "ThreadId": "462143",
+    "Html": "\r\n<div dir=\"ltr\" style=\"font-family:'Calibri','Segoe UI','Meiryo','Microsoft YaHei UI','Microsoft JhengHei UI','Malgun Gothic','sans-serif'; font-size:12pt\">\r\n<div>Yes, both my ViewModel project and my main app’s project are referencing Portable.MvvmLight, as well as Microsoft.Bcl.Build and Microsoft.Bcl. Although I should say that the BCL packages don’t show under “References” in *any* project - I assume that they’re\r\n doing something other than adding assembly references.</div>\r\n<div><br>\r\n</div>\r\n<div>Matt</div>\r\n<div><br>\r\n</div>\r\n<div></div>\r\n<div style=\"padding-top:5px; border-top-color:rgb(229,229,229); border-top-width:1px; border-top-style:solid\">\r\n<div><font face=\" 'Calibri', 'Segoe UI', 'Meiryo', 'Microsoft YaHei UI', 'Microsoft JhengHei UI', 'Malgun Gothic', 'sans-serif'\" style=\"line-height:15pt; letter-spacing:0.02em; font-family:\"><b></b></font></div>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2013-10-27T12:36:25.643-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

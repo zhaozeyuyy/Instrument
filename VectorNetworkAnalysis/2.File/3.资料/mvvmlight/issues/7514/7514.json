@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Closing as duplicate to #7554. Planning to handle this in V5.",
+    "ClosedDate": "2012-07-15T03:33:15.77-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "This framework would become infinitely more usable if the \"DependsOn\" attribute outlined in numerous blog posts on the subject - and implemented in the \"ViewModelSupport\" project here on Codeplex - was implemented within MVVM Light's ViewModelBase class.\r\n\r\nViewModelSupport Implementation: http://viewmodelsupport.codeplex.com/\r\nAccompanying Blog Post: http://houseofbilz.com/archives/2010/05/08/adventures-in-mvvm-my-viewmodel-base/",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V5",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-03-01T05:45:25.257-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Add \"DependsOn\" Attribute to ViewModelBase",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7514
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "totally agree, property chaining is the feature i miss most when using MVVM light.  Hate putting RaiseCanExecuteChanged() on my command classes in setters of my VM's properties.",
+      "PostedDate": "2012-03-16T13:21:52.767-07:00",
+      "Id": 57865
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "628042",
+    "ThreadId": "261465",
+    "Html": "\r\n<p>Loving the framework and learning so much more every day using the framework.</p>\r\n<p>One thing I found missing while using the messenger with callback though was the ability to pass an object with the message to feed into the receiving object and then feed back another object with the callback.</p>\r\n<p>At the moment I can only send a string as the notification (the .Notification property) and I think this would be better to be more generic like the rest of the messenger methods.</p>\r\n<p>Something along the lines of:</p>\r\n<pre><span>Messenger</span>.Default.Send&lt;ObservableCollection&lt;AddonModel&gt;&gt;(<span>new</span>&nbsp;<span>NotificationMessageAction</span>&lt;<span>ObservableCollection</span>&lt;<span>AddonModel</span>&gt;&gt;(object,(message) =&gt; { localColection = null; localColection = message;});\r\n</pre>\r\n<p>So that it is in line with the other Send methods.</p>\r\n",
+    "PostedDate": "2011-06-15T03:30:07.78-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "631018",
+    "ThreadId": "261465",
+    "Html": "<p>I had the same needs and I ended up writing a new class (a message) that combines GenericMessage&lt;T&gt; and NotificationMessageAction&lt;T&gt; classes of the Toolkit.</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">public</span> <span style=\"color: blue;\">class</span> GenericMessageAction&lt;TMessageData, TCallbackParameter&gt; : NotificationMessageAction&lt;TCallbackParameter&gt;\r\n    {\r\n        <span style=\"color: blue;\">public</span> GenericMessageAction(TMessageData data, Action&lt;TCallbackParameter&gt; callback)\r\n            : <span style=\"color: blue;\">base</span>(<span style=\"color: #a31515;\">\"\"</span>, callback)\r\n        {\r\n            <span style=\"color: blue;\">this</span>.Data = data;\r\n        }\r\n\r\n        <span style=\"color: blue;\">public</span> GenericMessageAction(Action&lt;TCallbackParameter&gt; callback)\r\n            : <span style=\"color: blue;\">base</span>(<span style=\"color: #a31515;\">\"\"</span>, callback)\r\n        {\r\n        }\r\n\r\n        <span style=\"color: blue;\">public</span> TMessageData Data { <span style=\"color: blue;\">get</span>; <span style=\"color: blue;\">set</span>; }\r\n    }\r\n</pre>\r\n</div>\r\n</p>\r\n<p>I found this to be extremely useful for me and I'm wondering why it is not part of the toolkit (or maybe I'm doing something wrong...).</p>",
+    "PostedDate": "2011-06-22T03:14:51.493-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1483768",
+    "ThreadId": "261465",
+    "Html": "Hi,\r<br />\nCould you provide an example on how I can use it?\r<br />\n<br />\nThanks\r<br />\nDaniele<br />\n",
+    "PostedDate": "2016-09-15T07:32:10.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

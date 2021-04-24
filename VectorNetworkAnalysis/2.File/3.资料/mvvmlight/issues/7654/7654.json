@@ -1,0 +1,51 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Not an EventToCommand issue.",
+    "ClosedDate": "2014-08-19T07:07:33.193-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "\r\nWhile using MVVM Light, EventToCommand is not working for custom events. Let me explain my case with simple custom button example. \r\n\r\nInitially, i have successfully added MVVM Light in my sample. I have created one custom event(named as CustomModelLoaded) in my custom button class. Then i placed my button in UserControl. Here, i did my binding to custom event with EventToCommand.\r\n\r\nIn MainWindow, i used DataTemplate to show that UserControl to particular TabItem Content. While switching  to that particular tab, eventtocommand not working. In my custom button class, i raised my event from OnApplyTemplate method.\r\n\r\nBut the above scenario works fine, when i placed the usercontrol as direct content to TabItem. I don't know what i did wrong or is this issue? Look at my attached sample and help me to move further on this.",
+    "LastUpdatedDate": "2014-08-19T07:07:33.193-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-08-19T05:14:04.08-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Not an issue"
+    },
+    "Summary": "EventToCommand not working for custom event for the controls inside DataTemplate",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7654
+  },
+  "FileAttachments": [
+    {
+      "FileId": 895011,
+      "FileName": "EventToCommandMVVM_CheckingSample.zip",
+      "DownloadUrl": ".\\895011"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nAs I explained in the discussion you opened earlier, this is not an EventToCommand issue. It just means that the EventTrigger does not get the event that is supposed to trigger it. If you replace EventToCommand by another behavior, you will most certainly see that the behavior is also not triggered in your specific case.\n\nI recommend asking StackOverflow about your specific issue.\n\nThanks\nLaurent",
+      "PostedDate": "2014-08-19T07:07:14.207-07:00",
+      "Id": 155733
+    }
+  ]
+}

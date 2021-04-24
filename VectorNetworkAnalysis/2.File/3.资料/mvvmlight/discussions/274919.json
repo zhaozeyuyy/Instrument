@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "680554",
+    "ThreadId": "274919",
+    "Html": "<p>I just recently had to reimage my dev machine and so I need to install V3 of the MVVMLight toolkit.&nbsp; I downloaded the new msi installer and attempt to use it.</p>\n<p>I go through the wizard and life appears to be good....&nbsp; It gets to the point where it is copying files and then after a few seconds gives the following error.</p>\n<p>\"There is a problem with this Windows Installer package.&nbsp; A program required for this install to complete could not be run.&nbsp; Contact your support personnel or package vendor.\"</p>\n<p>I have both VS2008 and VS2010 SP1 installed on my machine.&nbsp; ﻿﻿The OS is Windows XP and all windows updates have been installed as well as all prerequisites listed for MVVMLight.&nbsp; I am a local adminstrator on the box.&nbsp;</p>\n<p>Any suggestions on what is causing this error and how to resolve would be appreciated.</p>\n<p>&nbsp;</p>\n<p>Thanks,</p>\n<p>&nbsp;</p>\n<p>Brent</p>",
+    "PostedDate": "2011-10-05T15:39:25.593-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "680573",
+    "ThreadId": "274919",
+    "Html": "<p>Here is an update.... I should have looked in the event log before posting....</p>\n<p>The problem appears to be that the path to the ModifyRegistryKey executable in the PostSetupAction contains spaces and has not been enclosed in quotes.</p>\n<p><span style=\"font-size: xx-small;\">&nbsp;</span></p>\n<p>&nbsp;\n<hr />\n</p>\n<p style=\"padding-left: 30px;\">The description for Event ID ( 11721 ) in Source ( MsiInstaller ) cannot be found. The local computer may not have the necessary registry information or message DLL files to display messages from a remote computer. You may be able to use the /AUXSOURCE= flag to retrieve this description; see Help and Support for details. The following information is part of the event: Product: MVVM Light Toolkit -- Error 1721. There is a problem with this Windows Installer package. A program required for this install to complete could not be run. Contact your support personnel or package vendor. Action: PostSetupActionVS08Machine, location: B:\\, command: <em><strong>C:\\Documents and Settings\\broett01\\Application Data\\\\MvvmLight\\ModifyRegistryKey.exe </strong></em>-i08m \"C:\\Program Files\\Laurent Bugnion (GalaSoft)\\Mvvm Light Toolkit\\Snippets\\;B:\\ , (NULL), (NULL), (NULL), (NULL), , .</p>\n<p>&nbsp;</p>\n<hr />",
+    "PostedDate": "2011-10-05T16:07:12.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "680714",
+    "ThreadId": "274919",
+    "Html": "<p>Hi,</p>\r\n<p>So sorry about that. Thanks for the report. I will post an updated installer today.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-10-06T03:16:09.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "681370",
+    "ThreadId": "274919",
+    "Html": "<p>Hi,</p>\r\n<p>I posted an updated MSI where this small error is corrected. Can you try again? Simply download the MSI from the download section, replacing the one you had downloaded previously, and reinstall.</p>\r\n<p>Thanks!</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-10-07T09:51:25.103-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "681393",
+    "ThreadId": "274919",
+    "Html": "<p>Laurent,</p>\r\n<p>The new version of the installer works perfectly.&nbsp; Thanks again for a great toolkit!</p>\r\n<p>Cheers,</p>\r\n<p>Brent</p>",
+    "PostedDate": "2011-10-07T10:50:45.363-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "902700",
+    "ThreadId": "274919",
+    "Html": "<p>I have very much the same (or similar) issue attempting to install V4.0.23.3 (July 29) on a Windows XP SP3 machine with both VS2005, VS2008, and VS2010. I downloaded V3 and it installed just fine, but it would seem that V4 suffers from the same fate as V3 did at the time of this original posting.</p>\r\n<p>Here is the EventLog message: \r\n<hr />\r\n</p>\r\n<p>The description for Event ID ( 11721 ) in Source ( MsiInstaller ) cannot be found. The local computer may not have the necessary registry information or message DLL files to display messages from a remote computer. You may be able to use the /AUXSOURCE= flag to retrieve this description; see Help and Support for details. The following information is part of the event: Product: MVVM Light Toolkit -- Error 1721. There is a problem with this Windows Installer package. A program required for this install to complete could not be run. Contact your support personnel or package vendor. Action: PostSetupActionVS10Machine, location: C:\\, command: <strong>C:\\Documents and Settings\\sjmartin\\Application Data\\\\MvvmLight\\ModifyRegistryKey.exe</strong> -i10m \"C:\\Program Files\\Laurent Bugnion (GalaSoft)\\Mvvm Light Toolkit\\Snippets\\CSharp\\ , (NULL), (NULL), (NULL), (NULL), , .</p>",
+    "PostedDate": "2012-08-22T13:50:21.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "924888",
+    "ThreadId": "274919",
+    "Html": "\r\n<p>I get the same error when trying to install 4.0.23.4 on windows 7 with Visual Studio 2010 installed.</p>\r\n<p>&nbsp;</p>\r\n<p>Product: MVVM Light Toolkit -- Error 1721. There is a problem with this Windows Installer package. A program required for this install to complete could not be run. Contact your support personnel or package vendor. Action: PostRemoveActionMachine, location:\r\n C:\\, command: C:\\Users\\Administrator\\AppData\\Roaming\\\\MvvmLight\\ModifyRegistryKey.exe -um &quot;C:\\Program Files (x86)\\Laurent Bugnion (GalaSoft)\\Mvvm Light Toolkit\\Snippets\\;C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\</p>\r\n<p>&nbsp;</p>\r\n<p>UPDATE/FIXED</p>\r\n<p>I think I fixed/worked around it. I turned out that &quot;C:\\Users\\Administrator\\AppData\\Roaming\\\\MvvmLight\\ModifyRegistryKey.exe&quot; didn't exists. I created an empty console program with that name and put it in this position. Now I could uninstall an older version\r\n and install the newer. I probably also works when you directly install a new version.</p>\r\n<p>Hope this will help someone else. :)</p>\r\n",
+    "PostedDate": "2012-10-10T12:49:23.043-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "925871",
+    "ThreadId": "274919",
+    "Html": "<p>I get the same problem:</p>\r\n<p><span lang=\"EN-ZA\">\r\n<p>Product: MVVM Light Toolkit -- Error 1721. There is a problem with this Windows Installer package. A program required for this install to complete could not be run. Contact your support personnel or package vendor. Action: PostSetupActionVpdx10, location: E:\\, command: C:\\Users\\Peter Shrosbree\\AppData\\Roaming\\\\MvvmLight\\ModifyRegistryKey.exe -i10vpdx \"C:\\Program Files (x86)\\Laurent Bugnion (GalaSoft)\\Mvvm Light Toolkit\\Snippets\\CSharp\\</p>\r\n<p>&nbsp;</p>\r\n<p>Notice there is no closing quote.</p>\r\n</span></p>\r\n<p>I tried the workaround of creating&nbsp;the dummy ModifyRegistryKey.exe&nbsp;executable and placing it in the directory, but it had no effect.</p>\r\n<p>Any suggestions?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<div id=\"_mcePaste\" class=\"mcePaste\" style=\"overflow: hidden; height: 1px; position: absolute; left: -10000px; top: 0px; width: 1px;\">﻿</div>",
+    "PostedDate": "2012-10-12T08:57:47.293-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "925902",
+    "ThreadId": "274919",
+    "Html": "\r\n<div>\r\n<p><span style=\"font-size:11.0pt; font-family:\">Hi,</span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\">Believe it or not, it is correct that the last quote should NOT be there, or else there are some issues in the MSI.\r\n</span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\">Please follow the steps to get me a log:</span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<p style=\"text-indent:-18.0pt\"><span style=\"font-size:11.0pt; font-family:\"><span style=\"\">-<span style=\"font:7.0pt\">\r\n</span></span></span><span style=\"font-size:11.0pt; font-family:\">Uninstall MVVM Light</span></p>\r\n<p style=\"text-indent:-18.0pt\"><span style=\"font-size:11.0pt; font-family:\"><span style=\"\">-<span style=\"font:7.0pt\">\r\n</span></span></span><span style=\"font-size:11.0pt; font-family:\">Create a folder named “mvvmlighttempo” in C:\\</span></p>\r\n<p style=\"text-indent:-18.0pt\"><span style=\"font-size:11.0pt; font-family:\"><span style=\"\">-<span style=\"font:7.0pt\">\r\n</span></span></span><span style=\"font-size:11.0pt; font-family:\">Rerun the same installer</span></p>\r\n<p style=\"text-indent:-18.0pt\"><span style=\"font-size:11.0pt; font-family:\"><span style=\"\">-<span style=\"font:7.0pt\">\r\n</span></span></span><span style=\"font-size:11.0pt; font-family:\">Send me the file mvvmlightlog.txt located in that folder.</span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\">You can then delete the folder</span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\">Thanks in advance</span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\">Laurent</span></p>\r\n</div>\r\n",
+    "PostedDate": "2012-10-12T10:10:01.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1063096",
+    "ThreadId": "274919",
+    "Html": "Hi, \r<br />\n<br />\nI am getting the same error with ModifyRegistry command. I'm on Windows 7 Professional, the error appairs for <br />\n<ul>\n<li>4.0.23.4 msi package </li>\n<li>\n4.1.24.0 msi package<br />\n</li>\n</ul>\nAny suggestion? \r<br />\n<br />\nThanks in advance<br />\n",
+    "PostedDate": "2013-07-01T02:59:06.073-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

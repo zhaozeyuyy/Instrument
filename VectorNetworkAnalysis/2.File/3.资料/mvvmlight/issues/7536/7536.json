@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Hi,\n\nThis is most likely due to multiple registrations. Don't forget that when you navigate away from a page (forward navigation), the page remains in memory. When you navigate back to it, if you register again, the recipient will be available twice in the recipient list, and the delegate will also be executed twice.\n\nThe best practice is to register to the messenger in the \"OnNavigatedTo\" override method, and to unregister in \"OnNavigatingFrom\". This ensures that every displayed page gets messages only once. \n\nI will close this issue, but I have an item in my backlog for the next version (V5) to make this better, for instance by adding an API to make sure that a given instance (or class) can only be registered once. However this needs a bit of thinking first.\n\nCheers,\nLaurent",
+    "ClosedDate": "2011-08-03T23:22:00.627-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "WP 7.0 application.\r\n\r\nI will try to describe the scenario:\r\n\r\nI have a page with Popup which is opened upon MouseLeftButtonDown event of a TextBox.  The popup is opened using the mvvmlight messaging to send a message back to the page.  When message is received the Popup is opened.  Now this all works fine the first time I access the page.  However if I close the page, then re-open it and tap again on the TextBox to open the Popup, I find that the message is now received twice by my page in my NotificationMessageReceived method - even though it is only sent once from my view model.  I end up getting very strange behaviour with the Popup - it ends up being opened twice (kind of 2 copies of the Popup overlayed) and will then not close properly.  I have stepped through this in the debugger numerous times and can confirm that the behaviour is entirely consistent and repeatable. \r\n\r\nHas anyone else experienced this kind of strange behaviour?\r\n\r\nRegards,\r\n\r\nDavid  ",
+    "LastUpdatedDate": "2011-08-03T23:22:00.627-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-08-03T15:48:37.62-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Messenger Notifications Firing Twice",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7536
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

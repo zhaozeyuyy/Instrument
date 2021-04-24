@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "428728",
+    "ThreadId": "208685",
+    "Html": "<p>Hi Laurent,</p>\r\n<p>I am new to Silver Light and MVVM and just 2,3 days back while googling I found MVVM Light toolkit ... and till now what I have explored it is really great&nbsp; , thanks for this wonderful effort :)</p>\r\n<p>Please excuse my ignorance as I told you I am new to Silverlight &amp; MVVM , actually I am little confused till now between Command , RelayCommand &amp; EventToCommand. I have downloaded your MIX10 code samples and have looked at your RelayCommand &amp; Command samples ... what is difference between Command &amp; RelayCommand ? If one has RelayCommand then why would he/she will be using simple Command by inheriting from ICommand ?</p>\r\n<p>And if I am using RelayCommand then when and why I need to use EventToCommand , does RelayCommand only work for simple Button base control's Click Events ???&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Purpose of EventToCommand is just to pass the EventArgs to ViewModel ? If i violate the MVVM pattern ...then I can handle all events in code behind.. so then do I need to use EvetToCommand ?</p>\r\n<p>Thanks for your support &amp; time.</p>\r\n<p>Shah.</p>\r\n<h1><a id=\"Header1_HeaderTitle\" title=\"The Title Of This Blog.\" href=\"http://blog.galasoft.ch/Default.aspx\"><br></a></h1>",
+    "PostedDate": "2010-04-08T03:31:41.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "429913",
+    "ThreadId": "208685",
+    "Html": "<p>Hi,</p>\r\n<p>First thing you want to do is spell it Silverlight (one word, one capital) :)</p>\r\n<p>You got it absolutely right: ICommand is the interface that is present in the framework. You can of course implement your own ICommand classes. RelayCommand is one implementation of ICommand that is encapsulated. Its goal is to react when invoked and to relay the invocation to methods (using delegates or lambda expressions). The end result is that you do not need to write your own ICommand implementation, thus you have less code to maintain.</p>\r\n<p>As for EventToCommand, it works around a problem in Silverlight: Commands are only available on Buttons (and other clickable controls like RadioButton, Checkbox, ToggleButton, etc...), and only when the control is clicked. For all other elements and all other events, there is no solution out of the box. The EventToCommand is a Blend behavior that allows binding any event of any UIElement to a command. What you mention about EventArgs and the ability to pass it to the command is really just a side effect.</p>\r\n<p>For more information about commands, you can read this article:</p>\r\n<p><a href=\"http://blog.galasoft.ch/archive/2009/09/26/using-relaycommands-in-silverlight-and-wpf.aspx\">http://blog.galasoft.ch/archive/2009/09/26/using-relaycommands-in-silverlight-and-wpf.aspx</a></p>\r\n<p>About EventToCommand:</p>\r\n<p><a href=\"http://blog.galasoft.ch/archive/2009/11/05/mvvm-light-toolkit-v3-alpha-2-eventtocommand-behavior.aspx\">http://blog.galasoft.ch/archive/2009/11/05/mvvm-light-toolkit-v3-alpha-2-eventtocommand-behavior.aspx</a></p>\r\n<p><a href=\"http://blog.galasoft.ch/archive/2009/12/17/silverlight-4-dragampdrop-with-eventtocommand.aspx\">http://blog.galasoft.ch/archive/2009/12/17/silverlight-4-dragampdrop-with-eventtocommand.aspx</a></p>\r\n<p>Finally, I have a short explanation of Commands as well as a demo comparing a classical implementation of ICommand to the RelayCommand in my MIX10 talk:</p>\r\n<p><a href=\"http://live.visitmix.com/MIX10/Sessions/EX14\">http://live.visitmix.com/MIX10/Sessions/EX14</a></p>\r\n<p>Enjoy,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-12T00:49:52.55-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "431267",
+    "ThreadId": "208685",
+    "Html": "<p>Thanks a lot&nbsp; Laurent&nbsp; for your help and this great toolkit :)</p>",
+    "PostedDate": "2010-04-14T22:37:26.29-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

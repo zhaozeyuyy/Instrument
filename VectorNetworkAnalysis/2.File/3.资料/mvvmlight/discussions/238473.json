@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "536160",
+    "ThreadId": "238473",
+    "Html": "\r\n<p>I would like to suggest that the template code be modified to be StyleCop compliant.&nbsp; You've done the work to adhere to the FxCop rules and it would be equally nice to see the code style cleaned up a bit.</p>\r\n",
+    "PostedDate": "2010-12-15T07:41:10.627-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "536182",
+    "ThreadId": "238473",
+    "Html": "\r\n<p>Absolutely. It is in the backlog :)</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2010-12-15T08:14:07.457-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

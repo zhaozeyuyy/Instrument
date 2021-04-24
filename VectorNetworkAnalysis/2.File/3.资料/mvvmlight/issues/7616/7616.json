@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "EventToCommand (and behaviors in general) are not supported in Win8.",
+    "ClosedDate": "2013-08-20T09:07:48.24-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "     EventToCommand commandbound can't be solved in win8 as in my wp app.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2013-08-19T18:14:27.493-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "EventToCommand commandbound can't be solved in win8",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7616
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "```\n <Image Grid.Column=\"1\"\n                               Source=\"{Binding Path=VerificationCodeImage}\" \n                               OpacityMask=\"Black\"\n                               Height=\"45\"\n                               Visibility=\"{Binding DownloadingVerificationCode, Converter={StaticResource BoolToVisibilityReverse}}\"\n                               HorizontalAlignment=\"Left\">\n                            <i:Interaction.Triggers>\n                                <i:EventTrigger EventName=\"Tap\">\n                                    <command:EventToCommand Command=\"{Binding Login.RenewVerificationCodeCommand, Mode=OneWay, Source={StaticResource Locator}}\"\n                                                CommandParameter=\"{Binding Mode=OneWay}\" />\n                                </i:EventTrigger>\n                            </i:Interaction.Triggers>\n                        </Image>\n```\nabove is my wp code,it can bound the tap command",
+      "PostedDate": "2013-08-19T18:16:22.2-07:00",
+      "Id": 110424
+    }
+  ]
+}

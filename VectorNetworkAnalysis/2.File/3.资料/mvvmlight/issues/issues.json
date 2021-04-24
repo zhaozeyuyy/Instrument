@@ -1,0 +1,1022 @@
+[
+  {
+    "Id": 5218,
+    "Title": "Bug(s) in BindingListener"
+  },
+  {
+    "Id": 5855,
+    "Title": "VS2010 in Virtual Machine - compilation error?"
+  },
+  {
+    "Id": 6255,
+    "Title": "Receive messages for derived types"
+  },
+  {
+    "Id": 6356,
+    "Title": "IMessenger.Send Missing Overload That Accepts a Token"
+  },
+  {
+    "Id": 6808,
+    "Title": "enhancement request: public no param constructor on ViewModelBase"
+  },
+  {
+    "Id": 6908,
+    "Title": "Feature request: IEventArgsConverter for EventToCommand"
+  },
+  {
+    "Id": 6979,
+    "Title": "Use EventToCommand on Storyboards"
+  },
+  {
+    "Id": 6989,
+    "Title": "RaisePropertyChanged should not raise event for string.Empty"
+  },
+  {
+    "Id": 6993,
+    "Title": "RaisePropertyChanged should not raise event for string.Empty"
+  },
+  {
+    "Id": 7113,
+    "Title": "EventToCommand bug founded!"
+  },
+  {
+    "Id": 7180,
+    "Title": "Enhancement Request: Additional snippets for commands"
+  },
+  {
+    "Id": 7214,
+    "Title": "Problem with RelayCommand, CanExecute, and CanExecuteChanged"
+  },
+  {
+    "Id": 7245,
+    "Title": "Enhancement Request: GenericMessageAction classes"
+  },
+  {
+    "Id": 7293,
+    "Title": "Memory leak using Interaction Triggers on Loaded Event"
+  },
+  {
+    "Id": 7511,
+    "Title": "Error when deploying WPF in ClickOnce"
+  },
+  {
+    "Id": 7512,
+    "Title": "EventToCommand Memory Leak (Windows Phone 7 SP1 Toolkit)"
+  },
+  {
+    "Id": 7513,
+    "Title": "Addition Request:  UI Validation Handling"
+  },
+  {
+    "Id": 7514,
+    "Title": "Add \"DependsOn\" Attribute to ViewModelBase"
+  },
+  {
+    "Id": 7515,
+    "Title": "Enhancement Request: Add http reference for MvvmLight"
+  },
+  {
+    "Id": 7516,
+    "Title": "How about an \"ObservableObject\" class?"
+  },
+  {
+    "Id": 7517,
+    "Title": "How about an installer?"
+  },
+  {
+    "Id": 7518,
+    "Title": "VerifyPropertyName should ignore strings that are null or empty"
+  },
+  {
+    "Id": 7519,
+    "Title": " Constraining Send<TMessage,TTarget> by a base class does not work."
+  },
+  {
+    "Id": 7520,
+    "Title": "RaisePorpertyChanged() fails in ReleaseBuild"
+  },
+  {
+    "Id": 7521,
+    "Title": "race condition in Messenger.Default"
+  },
+  {
+    "Id": 7522,
+    "Title": "used deprecated Predicate<T> instead of Func<T, bool>"
+  },
+  {
+    "Id": 7523,
+    "Title": "ViewModelBase's unnecessary dependence on specific Messenger"
+  },
+  {
+    "Id": 7524,
+    "Title": "unnecessary complicated method Messenger.Implements"
+  },
+  {
+    "Id": 7525,
+    "Title": "multiple race conditions in Messenger using recipients collections"
+  },
+  {
+    "Id": 7526,
+    "Title": "ObservableObject needs some way to clear event subscriptions"
+  },
+  {
+    "Id": 7527,
+    "Title": "MEF with Messaging issue"
+  },
+  {
+    "Id": 7528,
+    "Title": "SimpleIoc and cache policy"
+  },
+  {
+    "Id": 7529,
+    "Title": "Generic RelayCommand and Value Types"
+  },
+  {
+    "Id": 7530,
+    "Title": "Collection was modified; enumeration operation may not execute."
+  },
+  {
+    "Id": 7531,
+    "Title": "SVN trunk needed for read only"
+  },
+  {
+    "Id": 7532,
+    "Title": "RelayCommand and Memory Leak caused by CanExecuteChanged event"
+  },
+  {
+    "Id": 7533,
+    "Title": "VerifyPropertyName doesn't check for ICustomTypeDescriptor implementation"
+  },
+  {
+    "Id": 7534,
+    "Title": "RelayCommand has security issue"
+  },
+  {
+    "Id": 7535,
+    "Title": "Unregister All Message Recipients of Type <T>"
+  },
+  {
+    "Id": 7536,
+    "Title": "Messenger Notifications Firing Twice"
+  },
+  {
+    "Id": 7537,
+    "Title": "The command is not invoked when the associated element is disabled"
+  },
+  {
+    "Id": 7538,
+    "Title": "Installer does not work correctly for non-english IDE"
+  },
+  {
+    "Id": 7539,
+    "Title": "Messenger support for uncast objects"
+  },
+  {
+    "Id": 7540,
+    "Title": "ObservableObject and VerifyProperty"
+  },
+  {
+    "Id": 7541,
+    "Title": "INSTALLER: MvvmView (WP7) template looks incorrect and old"
+  },
+  {
+    "Id": 7542,
+    "Title": "Enhancement Request: Make ObservableObject and ViewModelBase serializable by adding the [DataContract]or [Serializable] attribute."
+  },
+  {
+    "Id": 7543,
+    "Title": "System.MissingMethodException"
+  },
+  {
+    "Id": 7544,
+    "Title": "Need support for Windows 8 apps in nuget package"
+  },
+  {
+    "Id": 7545,
+    "Title": ".Net4/WPF Binaries missing in installer"
+  },
+  {
+    "Id": 7546,
+    "Title": "RelayCommand - RaiseCanExecuteChanged: Changed behavior"
+  },
+  {
+    "Id": 7547,
+    "Title": "mvvmRelayMethodCanExecute snippet has wrong shortcut"
+  },
+  {
+    "Id": 7548,
+    "Title": "Create CommandBase Class"
+  },
+  {
+    "Id": 7549,
+    "Title": "EventToCommand Non-determinisitically disables controls"
+  },
+  {
+    "Id": 7550,
+    "Title": "EventToCommand fails to pass Command Parameter on Load Event"
+  },
+  {
+    "Id": 7551,
+    "Title": "Enhance ViewModelBase.Set/ObservableObject.Set"
+  },
+  {
+    "Id": 7552,
+    "Title": "Possible NullReferenceException in RaisePropertyChanged"
+  },
+  {
+    "Id": 7553,
+    "Title": "Add Feedback to RelayCommand"
+  },
+  {
+    "Id": 7554,
+    "Title": "Add a Property Dependency system to RaisePropertyChanged"
+  },
+  {
+    "Id": 7555,
+    "Title": "Async CTP Support"
+  },
+  {
+    "Id": 7556,
+    "Title": "KeyNotFoundException in Messenger.SendToTargetOrType"
+  },
+  {
+    "Id": 7557,
+    "Title": "ViewModelBase.IsInDesignMode is not working for VS plug-in"
+  },
+  {
+    "Id": 7558,
+    "Title": "Can't New Project of type MvvmLight (WPF4) in VS2010 or Blend4 (Toolkit V3 SP1)"
+  },
+  {
+    "Id": 7559,
+    "Title": "No binaries for WPF 4 on windows 7 Visual Studio Express 2010"
+  },
+  {
+    "Id": 7560,
+    "Title": "DirectoryNotFoundException on ViewModelLocator"
+  },
+  {
+    "Id": 7561,
+    "Title": "NullRefBug in RelayCommand<T> when changing Window Language"
+  },
+  {
+    "Id": 7562,
+    "Title": "Messenger no longer accepts null message"
+  },
+  {
+    "Id": 7563,
+    "Title": "The type 'Windows.UI.Xaml.Data.INotifyPropertyChanged' is defined in an assembly that is not referenced"
+  },
+  {
+    "Id": 7564,
+    "Title": "The RaisePropertyChanged Overloads Contain Duplicate Code"
+  },
+  {
+    "Id": 7565,
+    "Title": "SimpleIoc does not register factory, key"
+  },
+  {
+    "Id": 7566,
+    "Title": "v4, Beta 1 Messenger subclass vs. class"
+  },
+  {
+    "Id": 7567,
+    "Title": "Win8 fails certification caused by Microsoft.Practices.ServiceLocation "
+  },
+  {
+    "Id": 7568,
+    "Title": "http://www.galasoft.ch/mvvm/getstarted gives 404"
+  },
+  {
+    "Id": 7569,
+    "Title": "EventToCommand not firing when within busy BusyIndicator"
+  },
+  {
+    "Id": 7570,
+    "Title": "MVVMLight v4.0.21.25721 SimpleIoc unregister and register not working as expected"
+  },
+  {
+    "Id": 7571,
+    "Title": "Design Data Issue in MVVM Light V4b1 for Windows 8 Consumer Preview"
+  },
+  {
+    "Id": 7572,
+    "Title": "XMLNS reference added to projects through Nuget package for Win8CP"
+  },
+  {
+    "Id": 7573,
+    "Title": "MVVM Light for Windows 8 Release Preview"
+  },
+  {
+    "Id": 7574,
+    "Title": "mvvminpc snippet not available after nuget-based install?"
+  },
+  {
+    "Id": 7575,
+    "Title": "WP7 - Tasks in RelayCommand cause app restart when Tombstoning option set in debugger"
+  },
+  {
+    "Id": 7576,
+    "Title": "Proposed changes to UniversalConverter"
+  },
+  {
+    "Id": 7577,
+    "Title": "SimpleIoc misleading error when class has private constructor"
+  },
+  {
+    "Id": 7578,
+    "Title": "RaiseCanExecuteChanged in Win8 with Release Candidate"
+  },
+  {
+    "Id": 7579,
+    "Title": "Messenger: Non-static method requires a target"
+  },
+  {
+    "Id": 7580,
+    "Title": "EventToCommand not working on MvvmLight v4 RTM for WP71"
+  },
+  {
+    "Id": 7581,
+    "Title": "Deadlock with Register and Send"
+  },
+  {
+    "Id": 7582,
+    "Title": "RelayCommand Variable Scope Lost"
+  },
+  {
+    "Id": 7583,
+    "Title": "UniversalConverter support null value"
+  },
+  {
+    "Id": 7584,
+    "Title": "Metro template assets "
+  },
+  {
+    "Id": 7585,
+    "Title": "App.xaml damaged after Nuget uninstall"
+  },
+  {
+    "Id": 7587,
+    "Title": "SimpleIoc-Method GetAllInstances(Type serviceType) extension to base classes"
+  },
+  {
+    "Id": 7588,
+    "Title": "Silverlight RelayCommand<T> does not work with nullable valuetypes"
+  },
+  {
+    "Id": 7589,
+    "Title": "RelayCommandGeneric.cs CanExecute raises InvalidCastException"
+  },
+  {
+    "Id": 7590,
+    "Title": "Expose the MethodName of a RelayCommand"
+  },
+  {
+    "Id": 7591,
+    "Title": "MVVM Light Documentation Needed"
+  },
+  {
+    "Id": 7592,
+    "Title": "VS 2012 Express WP8 Support"
+  },
+  {
+    "Id": 7593,
+    "Title": "Support for VS Express 2012 for Windows Desktop"
+  },
+  {
+    "Id": 7594,
+    "Title": "VS 2012 XML Design time error"
+  },
+  {
+    "Id": 7595,
+    "Title": "Register throws exception when class without ctor and static field is registered"
+  },
+  {
+    "Id": 7596,
+    "Title": "System.InvalidCastException on RaiseCanExecuteChanged"
+  },
+  {
+    "Id": 7597,
+    "Title": "Can't install visx"
+  },
+  {
+    "Id": 7598,
+    "Title": "replaced question to stackoverflow"
+  },
+  {
+    "Id": 7599,
+    "Title": "Windows Phone 8 Unregister error"
+  },
+  {
+    "Id": 7600,
+    "Title": "Messenger Bug when Assinging a Lambda Expression with a parameter to the messenger"
+  },
+  {
+    "Id": 7601,
+    "Title": "ContainsCreated with key, Win8 not working"
+  },
+  {
+    "Id": 7602,
+    "Title": "TypeInitializationException on RelayCommand after upgrading to 4.1.27.1"
+  },
+  {
+    "Id": 7603,
+    "Title": "Implement [CallerMemberName] for RaisePropertyChanged"
+  },
+  {
+    "Id": 7604,
+    "Title": "Uninstalling package \"MVVM Light Libraries Only\" removes \"System.Windows.Interactivity.dll\""
+  },
+  {
+    "Id": 7605,
+    "Title": "RelayCommand fails if delegate contains a non-constant method parameter"
+  },
+  {
+    "Id": 7606,
+    "Title": "[Serializable] attribute on ObservableObject class"
+  },
+  {
+    "Id": 7607,
+    "Title": "Invalid property name validation in WinRT/ObservableObject"
+  },
+  {
+    "Id": 7608,
+    "Title": "Exception, presumably because of missing class or file: WeakActionGeneric.cs"
+  },
+  {
+    "Id": 7609,
+    "Title": "New Messenger.Default.IsRegistered<> to help debugging Messenger issues."
+  },
+  {
+    "Id": 7610,
+    "Title": "EventToCommand xaml error, \"A value of type 'EventToCommand' cannot be added to a collection or dictionary of type 'TriggerActionCollection'.\""
+  },
+  {
+    "Id": 7611,
+    "Title": "MVVM Light Toolkit V4 RTM - Missing Shapes in Blend Expression 4"
+  },
+  {
+    "Id": 7612,
+    "Title": "Type not found in cache error"
+  },
+  {
+    "Id": 7613,
+    "Title": "Grid with StaticResource DataContext EventToCommand doesn't work."
+  },
+  {
+    "Id": 7614,
+    "Title": "WeakAction issue for WinRT version"
+  },
+  {
+    "Id": 7615,
+    "Title": "WPF4 versions compiled for .NET 4.5 in 4.1.27"
+  },
+  {
+    "Id": 7616,
+    "Title": "EventToCommand commandbound can't be solved in win8"
+  },
+  {
+    "Id": 7617,
+    "Title": "MSI installer fails (MSI error 1721)"
+  },
+  {
+    "Id": 7618,
+    "Title": "Cant Reference PCL Project With MVVM Light Portable from WPF project"
+  },
+  {
+    "Id": 7619,
+    "Title": "SimpleIoC.GetService throws instead of returning null for nonexistent service"
+  },
+  {
+    "Id": 7620,
+    "Title": "Issues in WPF Templates for .NET 4.5"
+  },
+  {
+    "Id": 7621,
+    "Title": "Windows Phone 7 Template Missing?"
+  },
+  {
+    "Id": 7622,
+    "Title": "Can not add reference to MVVMLight.WPF45"
+  },
+  {
+    "Id": 7623,
+    "Title": "WinRT (Win8.1) having a second view make RaisePropertyChanged failing"
+  },
+  {
+    "Id": 7624,
+    "Title": "MVVM (MvvmLight.VS2013.vsix) installer fails to install for Visual Studio 2013"
+  },
+  {
+    "Id": 7625,
+    "Title": "Package Installation Error"
+  },
+  {
+    "Id": 7626,
+    "Title": "ServiceLocator, SpecificVersion and Resharper"
+  },
+  {
+    "Id": 7627,
+    "Title": "class OrientationStateBehavior Issue"
+  },
+  {
+    "Id": 7628,
+    "Title": "WP8 Slider and EventToCommand"
+  },
+  {
+    "Id": 7629,
+    "Title": "mvvmpropdp macro uses UIMetaPropertyData class?"
+  },
+  {
+    "Id": 7630,
+    "Title": "await warnings in fresh install/new project 8.1"
+  },
+  {
+    "Id": 7631,
+    "Title": "How to implement CommandParameter In Extensions Class"
+  },
+  {
+    "Id": 7632,
+    "Title": "MvvM Light Toolkit Certificate Error"
+  },
+  {
+    "Id": 7633,
+    "Title": "Windows Phone 7 project no  longer compiling after upgrade to 4.3.31.0"
+  },
+  {
+    "Id": 7634,
+    "Title": "Could not install package 'CommonServiceLocator 1.2'. You are trying to install this package into a project that targets '.NETFramework,Version=v4.5', but the package does not contain any assembly references that are compatible with that framework."
+  },
+  {
+    "Id": 7635,
+    "Title": "MVVM Light & MEF"
+  },
+  {
+    "Id": 7636,
+    "Title": "Issue with SimpleIoc public void Unregister<TClass>(TClass instance)"
+  },
+  {
+    "Id": 7637,
+    "Title": "CommonServiceLocator 1.2 delivered in portable-net45+wp8+win8+wpa81"
+  },
+  {
+    "Id": 7638,
+    "Title": "TabControl + MVVM Light + EventToCommand Bug"
+  },
+  {
+    "Id": 7639,
+    "Title": "MVVM Light Libraries Only PCL - RelayCommand<T> not working properly in WPF"
+  },
+  {
+    "Id": 7640,
+    "Title": "Messenger message dispatch does not work for lambdas with closures"
+  },
+  {
+    "Id": 7641,
+    "Title": "fxcop 10 warning ca 0060"
+  },
+  {
+    "Id": 7642,
+    "Title": "cannot create an instance of viewmodellocator"
+  },
+  {
+    "Id": 7643,
+    "Title": "Make DispatcherHelper available in the PCL library"
+  },
+  {
+    "Id": 7644,
+    "Title": "Different DLL versions for .NET 4.0 and .NET 4.5"
+  },
+  {
+    "Id": 7645,
+    "Title": "PCL Strong Name Key"
+  },
+  {
+    "Id": 7646,
+    "Title": "Add ability to filter out message loops"
+  },
+  {
+    "Id": 7647,
+    "Title": "Galasoft mvvm light certification issues"
+  },
+  {
+    "Id": 7648,
+    "Title": "Mvvm light incompatible binary in PCL build for Windows Store Apps"
+  },
+  {
+    "Id": 7649,
+    "Title": "Design-Time Error: EventToCommand is built with an older version of the blend SDK"
+  },
+  {
+    "Id": 7650,
+    "Title": "Remove unsupported XmlnsDefinition from WP projects"
+  },
+  {
+    "Id": 7651,
+    "Title": "Cannot create an instance of \"ViewModelLocator\"."
+  },
+  {
+    "Id": 7652,
+    "Title": "Windows Universal app with android project binding error"
+  },
+  {
+    "Id": 7653,
+    "Title": "Remove unsupported RaisePropertyChanging from mvvmpc snippet"
+  },
+  {
+    "Id": 7654,
+    "Title": "EventToCommand not working for custom event for the controls inside DataTemplate"
+  },
+  {
+    "Id": 7655,
+    "Title": "After NuGet updates, can't resolve Microsoft.Practices namespace"
+  },
+  {
+    "Id": 7656,
+    "Title": "MVVM light Messenger Action execute after first time Windows Uinversal 8.1"
+  },
+  {
+    "Id": 7657,
+    "Title": "MVVM Light 4.4.32.1 is not signed"
+  },
+  {
+    "Id": 7658,
+    "Title": "Messenger Send/Receive does not work for hosted WPF-UserControl"
+  },
+  {
+    "Id": 7659,
+    "Title": "Relay Command CanExecute() not working in WPF"
+  },
+  {
+    "Id": 7660,
+    "Title": "How to Binding a Command with RelayCommand class in MVVM Light in WindowsPhone8.1?"
+  },
+  {
+    "Id": 7661,
+    "Title": "NavigationService.GoBack does not update CurrentPageKey (Universal App)"
+  },
+  {
+    "Id": 7662,
+    "Title": "RaisePropertyChanging gone in V.5 ?!"
+  },
+  {
+    "Id": 7663,
+    "Title": "Relay Command CanExecute() not working in WinRT for refence types"
+  },
+  {
+    "Id": 7664,
+    "Title": "Bug in RelayCommand<T>?"
+  },
+  {
+    "Id": 7665,
+    "Title": "commands not refreshing the ui"
+  },
+  {
+    "Id": 7666,
+    "Title": "no use of System.Runtime.CompilerServices?"
+  },
+  {
+    "Id": 7667,
+    "Title": "RaisePropertyChanged issue"
+  },
+  {
+    "Id": 7668,
+    "Title": "RelayCommand<T>.CanExecute with null parameter returns false always (since 5.0)"
+  },
+  {
+    "Id": 7669,
+    "Title": "Binding on the SelectedItem Property ( Android)"
+  },
+  {
+    "Id": 7670,
+    "Title": "iOS - bindings do not work on device"
+  },
+  {
+    "Id": 7671,
+    "Title": "Exception in IsInDesignModeNet() in WP8 app"
+  },
+  {
+    "Id": 7672,
+    "Title": "package installation error msg in v5.0.2 and framework 4"
+  },
+  {
+    "Id": 7673,
+    "Title": "Android: Binding on a dynamically generated view "
+  },
+  {
+    "Id": 7674,
+    "Title": "DialogService throws in Xamarin Android"
+  },
+  {
+    "Id": 7675,
+    "Title": "Xamarin Evolve demo NavigationService & nuget v5.0.2 is different"
+  },
+  {
+    "Id": 7676,
+    "Title": "SimpleIoc does not unregister properly on closing for Xamarin Forms / Android"
+  },
+  {
+    "Id": 7677,
+    "Title": "conflict between dll's"
+  },
+  {
+    "Id": 7678,
+    "Title": "The name \"ViewModelLocator\" does not exist in the namespace \"using:XXX.ViewModel\""
+  },
+  {
+    "Id": 7679,
+    "Title": "MonoTouch10 vs. Xamarinios10 "
+  },
+  {
+    "Id": 7680,
+    "Title": "MVVMLight WPF template for App.xaml causing Blend 2013 to crash."
+  },
+  {
+    "Id": 7681,
+    "Title": "SimpleIoc not re-throwing exceptions thrown within constructors"
+  },
+  {
+    "Id": 7682,
+    "Title": "WhenSourceChanges calls callback multiple times on iOS"
+  },
+  {
+    "Id": 7683,
+    "Title": "UI controls do not update after some time passed‏"
+  },
+  {
+    "Id": 7684,
+    "Title": "\"Property Not Found\" on ViewModel public property"
+  },
+  {
+    "Id": 7685,
+    "Title": "iOS MvvmLight Storyboard not found"
+  },
+  {
+    "Id": 7686,
+    "Title": "Navigation on Activate"
+  },
+  {
+    "Id": 7687,
+    "Title": "Xamarin Native Android Navigation issue"
+  },
+  {
+    "Id": 7688,
+    "Title": "Bindings not working in iOS"
+  },
+  {
+    "Id": 7689,
+    "Title": "RelayCommand implementation - not clear"
+  },
+  {
+    "Id": 7690,
+    "Title": "CanExecuteChanged is not being raised with 5.1.1.0"
+  },
+  {
+    "Id": 7691,
+    "Title": "Application crashing when using NavigationService.NavigateTo()"
+  },
+  {
+    "Id": 7692,
+    "Title": "Request: Messenger On UI Thread"
+  },
+  {
+    "Id": 7693,
+    "Title": "Visual Studio 2015"
+  },
+  {
+    "Id": 7694,
+    "Title": "There should be a Set() command to make wrapping objects from the model as a ViewModel easier."
+  },
+  {
+    "Id": 7695,
+    "Title": "Asynchronously load Blendable view model data"
+  },
+  {
+    "Id": 7696,
+    "Title": "RecyclerView support?"
+  },
+  {
+    "Id": 7697,
+    "Title": "CommandWpf.RelayCommand RaiseCanExecuteChanged does nothing if fired from non UI thread"
+  },
+  {
+    "Id": 7698,
+    "Title": "Android NavigationService GetAndRemoveParameter doesn't remove the parameter"
+  },
+  {
+    "Id": 7699,
+    "Title": "Extract Messaging into separate NuGet package"
+  },
+  {
+    "Id": 7700,
+    "Title": "Add GalaSoft.MvvmLight.Views.NavigationService.ctor(Frame) method"
+  },
+  {
+    "Id": 7701,
+    "Title": "RaisePC public ?"
+  },
+  {
+    "Id": 7702,
+    "Title": "Platform.dll need to set dialog.CancelCommandIndex = 1;"
+  },
+  {
+    "Id": 7703,
+    "Title": "Messenger not receiving with Background Tasks"
+  },
+  {
+    "Id": 7704,
+    "Title": "NavigationService"
+  },
+  {
+    "Id": 7705,
+    "Title": "RaiseCanExecuteChanged COM Exception during Navigation"
+  },
+  {
+    "Id": 7706,
+    "Title": "Error in Install.ps1"
+  },
+  {
+    "Id": 7707,
+    "Title": "Refernce Error in VS 2015 (Android Project)"
+  },
+  {
+    "Id": 7708,
+    "Title": "Problem with CanExecute"
+  },
+  {
+    "Id": 7709,
+    "Title": "'GalaSoft.MvvmLight.Platform' is built with an older version of the Blend SDK"
+  },
+  {
+    "Id": 7710,
+    "Title": "Erreur \"Frame Not In Module\" avec IDialogService sur Xamarin.Forms Android"
+  },
+  {
+    "Id": 7711,
+    "Title": "Microsoft.Practices.Unity referencing ServiceLocation verion 1.0"
+  },
+  {
+    "Id": 7712,
+    "Title": "Install create another ViewModelLocator instance"
+  },
+  {
+    "Id": 7713,
+    "Title": "No Public Constructor Found (Xamarin.iOS)"
+  },
+  {
+    "Id": 7714,
+    "Title": "MvvmLight 5.2.0 does not install MvvmLightLibs into PCL project"
+  },
+  {
+    "Id": 7715,
+    "Title": "Copyright notice (in commercial software)"
+  },
+  {
+    "Id": 7716,
+    "Title": "MVVM Light Dialog and IOT"
+  },
+  {
+    "Id": 7717,
+    "Title": "Detach of Command Bindings"
+  },
+  {
+    "Id": 7718,
+    "Title": "Binding to an observable collection with different layouts"
+  },
+  {
+    "Id": 7719,
+    "Title": "DialogService under Android needs API-Level 17+"
+  },
+  {
+    "Id": 7720,
+    "Title": "DialogService (UWP) does not set empty title"
+  },
+  {
+    "Id": 7721,
+    "Title": "Closures not working with RelayCommand"
+  },
+  {
+    "Id": 7722,
+    "Title": "WeakAction and WeakFunc .ctor are very slow on UWP"
+  },
+  {
+    "Id": 7723,
+    "Title": "Some samples do not work on Windows 7 and VS 2013"
+  },
+  {
+    "Id": 7724,
+    "Title": "Binding Doesn't Update and fails silently if not triggered from UI thread"
+  },
+  {
+    "Id": 7725,
+    "Title": "In RelayCommandGeneric CanExecute() condition paramter == null used twice"
+  },
+  {
+    "Id": 7726,
+    "Title": "Disabling \"Enable Project Code\" doesn't remove design view "
+  },
+  {
+    "Id": 7727,
+    "Title": "Why not move to GitHub?"
+  },
+  {
+    "Id": 7728,
+    "Title": "Design Data does not work with .NET 4.6.1"
+  },
+  {
+    "Id": 7729,
+    "Title": "VS2015 and 5.2 no-likie, manual nuget 5.3 no-likie either"
+  },
+  {
+    "Id": 7730,
+    "Title": "ICommand CanExecute not triggering after PropertyChanged?"
+  },
+  {
+    "Id": 7731,
+    "Title": "EventToCommand not working with RaiseEvent"
+  },
+  {
+    "Id": 7732,
+    "Title": "Memory leak"
+  },
+  {
+    "Id": 7733,
+    "Title": "Xamarin.iOS TwoWay binding memory leak"
+  },
+  {
+    "Id": 7734,
+    "Title": "SimpleIoc Default property returns multiple instances"
+  },
+  {
+    "Id": 7735,
+    "Title": "NetStandard Release?"
+  },
+  {
+    "Id": 7736,
+    "Title": "Converter Not Used With Fallback Value"
+  },
+  {
+    "Id": 7737,
+    "Title": "Inconsistent FallbackValue & Converter Usage"
+  },
+  {
+    "Id": 7738,
+    "Title": "Error when adding MvvmLightLibs nuget package to Xamarin.Forms PCL project"
+  },
+  {
+    "Id": 7739,
+    "Title": "SimpleIoC Unregister type detection"
+  },
+  {
+    "Id": 7740,
+    "Title": "MVVM Light adds large number of system assemblies to the installer"
+  },
+  {
+    "Id": 7741,
+    "Title": "Bindings do not update when notifying with an empty string as property name"
+  },
+  {
+    "Id": 7742,
+    "Title": "Nullable<T> not supported as CommandParameter"
+  },
+  {
+    "Id": 7743,
+    "Title": "Exclude CommonServiceLocator library from the MVVM Light dependecies"
+  },
+  {
+    "Id": 7744,
+    "Title": "MVVM fails to nuget install on blank new VB.NET project"
+  },
+  {
+    "Id": 7745,
+    "Title": "UWP : Update binding in async methods"
+  },
+  {
+    "Id": 7746,
+    "Title": "[SimpleIoc] Add a way to invoke Dispose() on all created instances that dispose IDisposable"
+  },
+  {
+    "Id": 7747,
+    "Title": "VS2017 extension"
+  },
+  {
+    "Id": 7748,
+    "Title": "NullPointerException when using DialogService provided by the lib"
+  },
+  {
+    "Id": 7749,
+    "Title": "Discrepancy in DialogService between Android and UWP"
+  },
+  {
+    "Id": 7750,
+    "Title": "Error on DialogMessage via DLL but Obsolete \"error\" Not \"true\" in Source"
+  },
+  {
+    "Id": 7751,
+    "Title": "NuGet Package Has .NET 4.5 DLL but Source Stops at 4.0"
+  },
+  {
+    "Id": 7752,
+    "Title": "Binding to Interfaces fail"
+  }
+]

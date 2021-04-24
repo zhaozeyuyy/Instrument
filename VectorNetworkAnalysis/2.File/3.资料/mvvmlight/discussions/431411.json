@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "994137",
+    "ThreadId": "431411",
+    "Html": "Would it be difficult to get rid of dependency from MVVM Light to CommonServiceLocator? Abstracting from dependency injection container may be considered a controversial design decision (an alternative is to constrain its usage to the start-up code where it can easily be replaced).<br />\n<br />\nUpdate: from what I found on the other thread (<a href=\"http://mvvmlight.codeplex.com/discussions/429311\" rel=\"nofollow\">http://mvvmlight.codeplex.com/discussions/429311</a>) I got a bit confused. That request is the opposite of mine.<br />\n",
+    "PostedDate": "2013-01-30T05:47:59.79-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "994160",
+    "ThreadId": "431411",
+    "Html": "Originally this question addressed portable MVVM Light fork as I thought that the main branch didn't have this dependency. Now I understand that this change would break backwards compatibility since this dependency exists for long time, just wasn't specified on NuGet.<br />\n",
+    "PostedDate": "2013-01-30T06:41:04.163-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

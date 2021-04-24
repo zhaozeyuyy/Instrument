@@ -1,0 +1,51 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "\r\nI followed the instructions in [Re-enabling the CommandManager feature with RelayCommand in MVVM Light V5 ](http://blog.galasoft.ch/posts/2015/01/re-enabling-the-commandmanager-feature-with-relaycommand-in-mvvm-light-v5/)\r\n\r\nIn the attached project, the buttons are disabled when clicked, but only are enabled if the GUI is clicked after the task attached to each button has finished.\r\n\r\nHave I done something wrong?\r\n\r\nDavid",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.3.1 (planning)",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-10-17T10:41:09.577-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Problem with CanExecute",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 5,
+    "Id": 7708
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1497056,
+      "FileName": "CanExecute2.zip",
+      "DownloadUrl": ".\\1497056"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Seems to be related to [url: https://mvvmlight.codeplex.com/workitem/7730]. I will take a look in V5.3.1.",
+      "PostedDate": "2016-07-20T00:52:24.8-07:00",
+      "Id": 200743
+    }
+  ]
+}

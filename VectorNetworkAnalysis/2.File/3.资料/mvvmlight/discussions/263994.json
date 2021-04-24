@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "637722",
+    "ThreadId": "263994",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I am working on SL3 with MVVM Light. &nbsp;</p>\r\n<p>I have a datagrid which has a column, Name &nbsp;to be validated which I want to prevent the user from entering special characters.&nbsp;</p>\r\n<p>I have written the logic in the setter for the Name field corresponding in Model (in WCF service) &nbsp;to the column in the datagrid. &nbsp;That is, &nbsp;to throw an ArgumentException whenevr user enters an ivalid character and submit.&nbsp;</p>\r\n<pre>Then the datagrid column is declared like this &lt;data:DataGridTextColumn Header=&quot;Name&quot; &nbsp;MinWidth=&quot;200&quot; &nbsp;Binding=&quot;{Binding Name,Mode=TwoWay,ValidatesOnExceptions=true}&quot; Width=&quot;Auto&quot;&gt;&lt;/data:DataGridTextColumn &gt;</pre>\r\n<pre>I can see the setter property in the Model throwing an exception correctly. But I cannot see any error indication in the Datagrid column. </pre>\r\n<pre><br></pre>\r\n<pre>I am wondering am I missing something here.?Appreciate your help.</pre>\r\n<pre><br></pre>\r\n<pre>Regards,</pre>\r\n<pre>Jaleel</pre>\r\n",
+    "PostedDate": "2011-07-05T13:25:49.747-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

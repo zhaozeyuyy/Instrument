@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "806380",
+    "ThreadId": "347546",
+    "Html": "\r\n<p>Hi</p>\r\n<p>Im not really sure where the bleeding is, but I am suspecting the observableObject or the observableCollection.</p>\r\n<p>I have a class that holds a list of type observableCollection which holds Observable objects</p>\r\n<p>Class document</p>\r\n<p>ObservableCollection Records&lt;Record&gt;</p>\r\n<p>&nbsp;</p>\r\n<p>public class&nbsp;Record : ObservableObject</p>\r\n<p>&nbsp;</p>\r\n<p>when I have bound to my document.Records list and wants to add 1000 new records in a loop I get huge performance issues. Can anyone tell me that Im doing something obvious wrong?</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-03-06T11:05:59.297-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806395",
+    "ThreadId": "347546",
+    "Html": "\r\n<div>\r\n<div style=\"font-family:Calibri,sans-serif; font-size:11pt\">Hi,<br>\r\n<br>\r\nIs your collection bound to the UI before you start filling your objects? Are you using bindings with converters?<br>\r\n<br>\r\nCheers<br>\r\nLaurent<br>\r\n<br>\r\nSent from my Windows Phone<br>\r\n</div>\r\n</div>\r\n<hr>\r\n<span style=\"font-family:Tahoma,sans-serif; font-size:10pt; font-weight:bold\">From:\r\n</span><span style=\"font-family:Tahoma,sans-serif; font-size:10pt\">genvej</span><br>\r\n<span style=\"font-family:Tahoma,sans-serif; font-size:10pt; font-weight:bold\">Sent:\r\n</span><span style=\"font-family:Tahoma,sans-serif; font-size:10pt\">06.03.2012 20:06</span><br>\r\n<span style=\"font-family:Tahoma,sans-serif; font-size:10pt; font-weight:bold\">To:\r\n</span><span style=\"font-family:Tahoma,sans-serif; font-size:10pt\">laurent@galasoft.ch</span><br>\r\n<span style=\"font-family:Tahoma,sans-serif; font-size:10pt; font-weight:bold\">Subject:\r\n</span><span style=\"font-family:Tahoma,sans-serif; font-size:10pt\">Performance issue? [mvvmlight:347546]</span><br>\r\n<br>\r\n<p>From: genvej</p>\r\n<div id=\"ThreadNotificationPostBody\">\r\n<p>Hi</p>\r\n<p>Im not really sure where the bleeding is, but I am suspecting the observableObject or the observableCollection.</p>\r\n<p>I have a class that holds a list of type observableCollection which holds Observable objects</p>\r\n<p>Class document</p>\r\n<p>ObservableCollection Records&lt;Record&gt;</p>\r\n<p></p>\r\n<p>public class Record : ObservableObject</p>\r\n<p></p>\r\n<p>when I have bound to my document.Records list and wants to add 1000 new records in a loop I get huge performance issues. Can anyone tell me that Im doing something obvious wrong?</p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n</div>\r\n",
+    "PostedDate": "2012-03-06T11:22:15.1-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "806425",
+    "ThreadId": "347546",
+    "Html": "<p>Yes... my collection is bound to UI when filling objects. If that is a problem is there a way to unbound while looping??</p>\r\n<p>&nbsp;I have no converters to speak of.</p>",
+    "PostedDate": "2012-03-06T11:57:04.303-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

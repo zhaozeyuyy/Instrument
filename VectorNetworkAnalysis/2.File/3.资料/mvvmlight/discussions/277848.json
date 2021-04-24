@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "691967",
+    "ThreadId": "277848",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Currently MVVM Light (WP7) project template for Visual Studio creates Model and ViewModel folders.</p>\r\n<p>But the View xamls are added directly under the project (In solution explorer).&nbsp;As the number of view files increases this may clutter the project file structure.</p>\r\n<p>May I propose that we add the xamls and their code behinds under a &quot;View&quot; folder and the image files under &quot;View\\Image&quot; folder.&nbsp;</p>\r\n<p>App.xaml can remain directly under the main project because it represents the app and is not really a View</p>\r\n<p>MainPage.xaml can go under View.</p>\r\n<p>All png, jpg files can go under View\\Image folder.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks,</p>\r\n<p>Souvik&nbsp;</p>\r\n",
+    "PostedDate": "2011-11-01T00:03:48.01-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

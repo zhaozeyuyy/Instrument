@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-01-13T10:18:11.833-08:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "The DialogService is working fine on iOS and Windows Phone, but it throws in Android.\r\n\r\nTo reproduce the bug:\r\nCreate a new Shared Project (Blank App Xamarin Forms)\r\nRight click solution and add MVVM Light Libraries only on all three project\r\nUncheck Fast Deploy in Android project properties\r\nAdd in App.cs (in shared project) at the beginning of GetMainPage()\r\n\r\n```\r\nvar srv = new DialogService();\r\nsrv.ShowMessage(\"test\", \"test\");\r\n```\r\n\r\nRun Windows Phone, it's fine\r\n\r\nRun Android it throws with this exception:\r\n\r\n```\r\n{Java.Lang.NullPointerException: Exception of type 'Java.Lang.NullPointerException' was thrown.\r\n  at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw () [0x00000] in <filename unknown>:0 \r\n  at Android.Runtime.JNIEnv.CallNonvirtualVoidMethod (IntPtr jobject, IntPtr jclass, IntPtr jmethod, Android.Runtime.JValue[] parms) [0x00084] in /Users/builder/data/lanes/monodroid-mlion-monodroid-4.20-series/ba9bbbdd/source/monodroid/src/Mono.Android/src/Runtime/JNIEnv.g.cs:896 \r\n  at Android.Runtime.JNIEnv.FinishCreateInstance (IntPtr instance, IntPtr jclass, IntPtr constructorId, Android.Runtime.JValue[] constructorParameters) [0x0000b] in /Users/builder/data/lanes/monodroid-mlion-monodroid-4.20-series/ba9bbbdd/source/monodroid/src/Mono.Android/src/Runtime/JNIEnv.cs:288 \r\n  at Android.App.AlertDialog+Builder..ctor (Android.Content.Context context) [0x000ef] in /Users/builder/data/lanes/monodroid-mlion-monodroid-4.20-series/ba9bbbdd/source/monodroid/src/Mono.Android/platforms/android-19/src/generated/Android.App.AlertDialog.cs:73 \r\n  at GalaSoft.MvvmLight.Views.DialogService.CreateBuilder (System.String message, System.String title, System.String buttonConfirmText, System.String buttonCancelText, System.Action afterHideCallback, System.Action`1 afterHideCallbackWithResponse, System.Action`1 afterHideInternal) [0x00022] in c:\\MvvmLight\\Source\\GalaSoft.MvvmLight\\GalaSoft.MvvmLight.Platform (Android)\\Views\\DialogService.cs:222 \r\n  at GalaSoft.MvvmLight.Views.DialogService.ShowMessage (System.String message, System.String title) [0x00006] in c:\\MvvmLight\\Source\\GalaSoft.MvvmLight\\GalaSoft.MvvmLight.Platform (Android)\\Views\\DialogService.cs:103 \r\n  at AppT.App.GetMainPage () [0x00008] in c:\\DevTests\\AppT\\AppT\\AppT\\App.cs:18 \r\n  --- End of managed exception stack trace ---\r\njava.lang.NullPointerException\r\n\tat android.app.AlertDialog.resolveDialogTheme(AlertDialog.java:143)\r\n\tat android.app.AlertDialog$Builder.<init>(AlertDialog.java:360)\r\n\tat appt.droid.MainActivity.n_onCreate(Native Method)\r\n\tat appt.droid.MainActivity.onCreate(MainActivity.java:28)\r\n\tat android.app.Activity.performCreate(Activity.java:5231)\r\n\tat android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1087)\r\n\tat android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2159)\r\n\tat android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:2245)\r\n\tat android.app.ActivityThread.access$800(ActivityThread.java:135)\r\n\tat android.app.ActivityThread$H.handleMessage(ActivityThread.java:1196)\r\n\tat android.os.Handler.dispatchMessage(Handler.java:102)\r\n\tat android.os.Looper.loop(Looper.java:136)\r\n\tat android.app.ActivityThread.main(ActivityThread.java:5017)\r\n\tat java.lang.reflect.Method.invokeNative(Native Method)\r\n\tat java.lang.reflect.Method.invoke(Method.java:515)\r\n\tat com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:779)\r\n\tat com.android.internal.os.ZygoteInit.main(ZygoteInit.java:595)\r\n\tat dalvik.system.NativeStart.main(Native Method)\r\n}\r\n```\r\n\r\n\r\n\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-12-02T07:55:59.203-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Not an issue"
+    },
+    "Summary": "DialogService throws in Xamarin Android",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7674
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Same problem with my previous issue, I didn't use the Xamarin Evolve implementation.",
+      "PostedDate": "2014-12-05T02:38:28.483-08:00",
+      "Id": 167355
+    }
+  ]
+}

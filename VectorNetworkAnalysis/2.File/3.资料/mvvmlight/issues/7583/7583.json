@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "UniversalConverter will be removed in V4.1",
+    "ClosedDate": "2012-10-20T08:59:39.283-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "Thanks for the great toolkit!\r\n\r\nWhen using UniversalConverter it would be convenient to be able to compare the value to null in the lambda expression.  For example, disabling a button when a property is null.\r\n\r\n<Button IsEnabled=\"{Binding \r\n\t\t\t\t\tPath=MyObjectProperty,\r\n\t\t\t\t\tConverter={StaticResource UniversalConverter},\r\n\t\t\t\t\tConverterParameter='p=>p!=null'}\" >\r\n\r\nToday the Convert operation returns immediately when null is passed for value.\r\n\r\nI'm not too familiar with dynamic methods, and it appears you might need value.GetType() to create the delegate, so I'm afraid I can't propose any solution.\r\n\r\nThanks.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-08-01T20:16:55.81-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "UniversalConverter support null value",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7583
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "i can't use this converter,  it lead to blend  breakdown",
+      "PostedDate": "2012-09-03T20:48:25.897-07:00",
+      "Id": 76237
+    },
+    {
+      "Message": "I am removing the UniversalConverter from MVVM Light. This was an experiment that didn't really pan out well, too many issues and not really usable. Closing all related issues. If there is a real interest from the community, I will release the code as is in a separate package.\n\nLaurent",
+      "PostedDate": "2012-10-20T08:59:06.08-07:00",
+      "Id": 80548
+    }
+  ]
+}

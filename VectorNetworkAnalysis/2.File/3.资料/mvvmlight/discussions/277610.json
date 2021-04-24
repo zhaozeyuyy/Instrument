@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "691058",
+    "ThreadId": "277610",
+    "Html": "\r\n<p>Hey</p>\r\n<p>I am new with using this amazing MVVM toolik. - I write my programs with VB.NET in Silverlight.</p>\r\n<p>And I have a question about the Messaging. <br>\r\nI have to provide about 5 IList's(of T) in a Child Control. At the moment, I see two possible ways to do this</p>\r\n<p>1) I do the messaging for each IList and receive the messages step-by-step<br>\r\n2) Or I will create a class, which holds all 5 of this IList's and transfer this class.</p>\r\n<p>So, what will be the better solution?</p>\r\n<p>And an additional question: When I want to give this List's back again to the master Control (after they have been changed), will the GenericMessage(of T) be the best thing for this?\r\n<br>\r\nOr is there an other way with a better solution?</p>\r\n<p>THX - Have a nice weekend</p>\r\n",
+    "PostedDate": "2011-10-28T23:42:55.71-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

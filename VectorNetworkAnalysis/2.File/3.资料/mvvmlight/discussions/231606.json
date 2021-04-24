@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "509829",
+    "ThreadId": "231606",
+    "Html": "<p>Hi,</p>\r\n<p>Thanks for this great project, I am using it in my WP7 app and my SL4 app.&nbsp;</p>\r\n<p>I have a problem - to handle tombstoning in my WP7 app I dump my whole viewmodel into the&nbsp;<span style=\"font-family:Consolas, 'Courier New', Courier, monospace;white-space:pre\">PhoneApplicationService state as per <a href=\"http://www.imaginativeuniversal.com/blog/post/2010/09/12/Patterns-of-Windows-Phone-Architecture-Part-III.aspx\">this blog post</a>.</span></p>\r\n<p>This fails as all my VMs inherit from&nbsp;ViewModelBase which does not have a public&nbsp;parameterless&nbsp;constructor defined and therefore cannot be serilizable. I know I can edit the source but I was just wondering if this is by design or if it could be changed in the future (I am not a&nbsp;serialization&nbsp;or MVVM guru!)</p>\r\n<p><a href=\"http://www.imaginativeuniversal.com/blog/post/2010/09/12/Patterns-of-Windows-Phone-Architecture-Part-III.aspx\">http://www.imaginativeuniversal.com/blog/post/2010/09/12/Patterns-of-Windows-Phone-Architecture-Part-III.aspx</a></p>\r\n<p><span style=\"font-family:Consolas, 'Courier New', Courier, monospace;white-space:pre\"><a href=\"http://stackoverflow.com/questions/3976170/issue-with-mvvmlight-viewmodelbase-public-parameterless-constructor-in-inherited\">http://stackoverflow.com/questions/3976170/issue-with-mvvmlight-viewmodelbase-public-parameterless-constructor-in-inherited</a><br></span></p>",
+    "PostedDate": "2010-10-20T02:23:52.86-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "510854",
+    "ThreadId": "231606",
+    "Html": "\r\n<p>Laurent posted a reply to this <a href=\"http://stackoverflow.com/questions/3976170/issue-with-mvvmlight-viewmodelbase-public-parameterless-constructor-in-inherited\">\r\nhere</a>.</p>\r\n",
+    "PostedDate": "2010-10-21T18:19:27.44-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "521823",
+    "ThreadId": "231606",
+    "Html": "\r\n<p>I just hit a different manifestation of this same issue in my normal Silverlight 4 app trying to save ViewModels to IsolatesStorage. It took me a while to realise the issue due to misleading error messages from SL. You can read more about it here (check\r\n my answer)</p>\r\n<p><a href=\"http://stackoverflow.com/questions/4175956/is-there-a-size-limit-of-16k-for-silverlight-localsettings-isolatedstoragesettin/4179563#4179563\">http://stackoverflow.com/questions/4175956/is-there-a-size-limit-of-16k-for-silverlight-localsettings-isolatedstoragesettin/4179563#4179563</a></p>\r\n<p>So the work-around is to download the ViewModelBase class and mark it as public... hopefully this can be considered in a future release. I have found the need to save my VM to disk on 2 different projects now - I am actually&nbsp;surprised&nbsp;no one has\r\n run into this issue before trying to persist ViewModels?</p>\r\n",
+    "PostedDate": "2010-11-14T12:38:45.45-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

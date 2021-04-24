@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "I am building an Android app using Xamarin and mvvm-light and I am using DialogService provided by mvvmlight....When I click the button bound to the following command I get an exception.\r\n```\r\nprivate RelayCommand _getEventsCommand;\r\n\r\npublic RelayCommand GetEventsCommand\r\n{\r\n    get\r\n    {\r\n        return _getEventsCommand\r\n            ?? (_getEventsCommand = new RelayCommand(() => _dialogService.ShowMessage(\"sample alert message\", \"Sample alert title\")));\r\n    }\r\n}\r\n```\r\n\r\nAnd the exception:\r\n```\r\n03-17 17:20:59.850 E/mono    (16027): Unhandled Exception:\r\n03-17 17:20:59.850 E/mono    (16027): Java.Lang.NullPointerException: Attempt to invoke virtual method 'android.content.res.Resources$Theme android.content.Context.getTheme()' on a null object reference\r\n03-17 17:20:59.850 E/mono    (16027):   --- End of managed Java.Lang.NullPointerException stack trace ---\r\n03-17 17:20:59.850 E/mono    (16027): java.lang.NullPointerException: Attempt to invoke virtual method 'android.content.res.Resources$Theme android.content.Context.getTheme()' on a null object reference\r\n03-17 17:20:59.850 E/mono    (16027):   at android.app.AlertDialog.resolveDialogTheme(AlertDialog.java:222)\r\n03-17 17:20:59.850 E/mono    (16027):   at android.app.AlertDialog$Builder.<init>(AlertDialog.java:452)\r\n03-17 17:20:59.850 E/mono    (16027):   at mono.android.view.View_OnClickListenerImplementor.n_onClick(Native Method)\r\n03-17 17:20:59.850 E/mono    (16027):   at mono.android.view.View_OnClickListenerImplementor.onClick(View_OnClickListenerImplementor.java:30)\r\n03-17 17:20:59.850 E/mono    (16027):   at android.view.View.performClick(View.java:5204)\r\n03-17 17:20:59.850 E/mono    (16027):   at android.view.View$PerformClick.run(View.java:21153)\r\n03-17 17:20:59.850 E/mono    (16027):   at android.os.Handler.handleCallback(Handler.java:739)\r\n03-17 17:20:59.850 E/mono    (16027):   at android.os.Handler.dispatchMessage(Handler.java:95)\r\n03-17 17:20:59.850 E/mono    (16027):   at android.os.Looper.loop(Looper.java:148)\r\n03-17 17:20:59.850 E/mono    (16027):   at android.app.ActivityThread.main(ActivityThread.java:5417)\r\n03-17 17:20:59.850 E/mono    (16027):   at java.lang.reflect.Method.invoke(Native Method)\r\n03-17 17:20:59.850 E/mono    (16027):   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:726)\r\n03-17 17:20:59.850 E/mono    (16027):   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:616)\r\n03-17 17:20:59.850 E/mono    (16027): \r\n__03-17 17:20:59.850 E/mono-rt (16027): [ERROR] FATAL UNHANDLED EXCEPTION: Java.Lang.NullPointerException: Attempt to invoke virtual method 'android.content.res.Resources$Theme android.content.Context.getTheme()' on a null object reference\r\n__03-17 17:20:59.850 E/mono-rt (16027):   --- End of managed Java.Lang.NullPointerException stack trace ---\r\n03-17 17:20:59.850 E/mono-rt (16027): java.lang.NullPointerException: Attempt to invoke virtual method 'android.content.res.Resources$Theme android.content.Context.getTheme()' on a null object reference\r\n03-17 17:20:59.850 E/mono-rt (16027):   at android.app.AlertDialog.resolveDialogTheme(AlertDialog.java:222)\r\n03-17 17:20:59.850 E/mono-rt (16027):   at android.app.AlertDialog$Builder.<init>(AlertDialog.java:452)\r\n03-17 17:20:59.850 E/mono-rt (16027):   at mono.android.view.View_OnClickListenerImplementor.n_onClick(Native Method)\r\n03-17 17:20:59.850 E/mono-rt (16027):   at mono.android.view.View_OnClickListenerImplementor.onClick(View_OnClickListenerImplementor.java:30)\r\n03-17 17:20:59.850 E/mono-rt (16027):   at android.view.View.performClick(View.java:5204)\r\n03-17 17:20:59.850 E/mono-rt (16027):   at android.view.View$PerformClick.run(View.java:21153)\r\n03-17 17:20:59.850 E/mono-rt (16027):   at android.os.Handler.handleCallback(Handler.java:739)\r\n03-17 17:20:59.850 E/mono-rt (16027):   at android.os.Handler.dispatchMessage(Handler.java:95)\r\n03-17 17:20:59.850 E/mono-rt (16027):   at android.os.Looper.loop(Looper.java:148)\r\n03-17 17:20:59.850 E/mono-rt (16027):   at android.app.ActivityThread.main(ActivityThread.java:5417)\r\n03-17 17:20:59.850 E/mono-rt (16027):   at java.lang.reflect.Method.invoke(Native Method)\r\n03-17 17:20:59.850 E/mono-rt (16027):   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:726)\r\n03-17 17:20:59.850 E/mono-rt (16027):   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:616)\r\n```\r\n\r\nAm I doing something wrong or it's a bug somewhere in the lib?",
+    "LastUpdatedDate": "2017-03-23T07:08:52.293-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2017-03-17T09:18:06.303-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "NullPointerException when using DialogService provided by the lib",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7748
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Just made a test: I have copy-pasted the implementation of DialogService from mvvm light into my project and I don't get this exception anymore. Everything works fine.",
+      "PostedDate": "2017-03-23T07:08:52.293-07:00",
+      "Id": 207888
+    }
+  ]
+}

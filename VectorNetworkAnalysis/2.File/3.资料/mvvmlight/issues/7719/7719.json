@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "The implementation of _DialogService_ uses in _private static AlertDialogInfo CreateDialog_ _builder.SetOnDismissListener_.\r\n\r\nThis function is new in Level 17.\r\n\r\nIf you compile the source for Levels Prior 17 you get an error.\r\n\r\nOne possible Solution is to warp this lines of code with a test of OS-Version like this:\r\n```\r\nif (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.JellyBeanMr1)\r\n            {\r\n                builder.SetOnDismissListener(new OnDismissListener(() =>\r\n                {\r\n                    tcs.TrySetResult(false);\r\n\r\n                    if (afterHideCallbackWithResponse != null)\r\n                    {\r\n                        afterHideCallbackWithResponse(false);\r\n                    }\r\n                }));\r\n            }\r\n```\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-02-05T05:31:51.097-08:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "DialogService under Android needs API-Level 17+",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7719
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Bumped into this issue. DialogService worked on API lvl 10 with MvvmLightLibs 5.1.0 but fails on 5.3.0.\n\nSince I wanted to use 5.3.0 I worked around it by copying the code of the 5.1.0 DialogService class and used that, like:\n\n```\nif (Android.OS.Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.JellyBeanMr1)\n{\n    SimpleIoc.Default.Register<IDialogService, DialogService>();\n}\nelse\n{\n    SimpleIoc.Default.Register<IDialogService, AppCompatDialogService>();\n}\n```",
+      "PostedDate": "2016-06-29T01:32:28.193-07:00",
+      "Id": 200332
+    }
+  ]
+}

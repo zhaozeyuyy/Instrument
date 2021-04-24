@@ -1,0 +1,114 @@
+[
+  {
+    "Id": "843470",
+    "ThreadId": "357958",
+    "Html": "\r\n<p>Hi Laurent,</p>\r\n<p>congratulations for your lightweight framework!</p>\r\n<p>I was wondering if it would be a good idea to go to a Portable Class Library with&nbsp;Messaging, Input, and Helpers namespace that will have all the common features of all the frameworks the MVVMLight will target...</p>\r\n<p>The specific ones, could be different dll's for each system (eliminating the conditional compilation directives)</p>\r\n<p>I gave it a try, and it is really nice.</p>\r\n<p>What are your thoughts on this? (despites that this will create breaking changes...)</p>\r\n<p>Regards,</p>\r\n<p>Michael</p>\r\n",
+    "PostedDate": "2012-06-01T02:39:33.107-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "847130",
+    "ThreadId": "357958",
+    "Html": "<p>Hi Michael,</p>\r\n<p>You can find my portable fork of MVVM Light here:</p>\r\n<p><a href=\"http://mvvmlight.codeplex.com/SourceControl/network/forks/onovotny/MvvmLightPortable\">http://mvvmlight.codeplex.com/SourceControl/network/forks/onovotny/MvvmLightPortable</a></p>\r\n<p>It's up-to-date with what's in the main release.</p>",
+    "PostedDate": "2012-06-10T10:54:51.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "847354",
+    "ThreadId": "357958",
+    "Html": "<p>Thanks,</p>\r\n<p>nice work, i will give it a try...</p>\r\n<p>I hope to be included in the nuget distribution, inorder to be more accessible, as soon as the vs2012 is released....</p>\r\n<p>Regards,</p>\r\n<p>Michael</p>",
+    "PostedDate": "2012-06-11T02:25:06.643-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "849778",
+    "ThreadId": "357958",
+    "Html": "<p>Appreciate the fork for portable library.&nbsp; Am looking to use in an upcoming project.</p>\r\n<p>One immediate question however is that I've noticed the IsInDesignMode and IsInDesignModeStatic properties have been removed.&nbsp; Are you planning on implementing an alternative (e.g. Reflection) to support this?</p>\r\n<p>Cheers.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-06-16T01:32:05.593-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "849866",
+    "ThreadId": "357958",
+    "Html": "<p>Hi rossmhk,</p>\r\n<p>As per your suggestion, I just updated the portable fork to support IsInDesignMode and IsInDesignModeStatic by using reflection to detect the platform and extract the value.</p>\r\n<p>Due to the fact that private reflection throws on WinRT and SL, we can test and check for desktop .NET. Then, we can try to load up the WinRT class, which will fail in SL. Finally, we can try to load the SL version.</p>\r\n<p>In this way, we ultimately know which system it's running on and since the properties we need are all public, there aren't any blockers with using reflection to get the values.</p>\r\n<p>Oren</p>",
+    "PostedDate": "2012-06-16T10:35:56.63-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "849926",
+    "ThreadId": "357958",
+    "Html": "<p>Thanks Oren.&nbsp;</p>\r\n<p>I have checked out the code and trying it now.&nbsp; I am encountering&nbsp;my first problem with running in VS2010/WP7.1 phone app project.&nbsp; It's returning false when I have the check in my ViewModelLocator class (within my portable library assembly).&nbsp; Am using the VS2010 XAML designer on a basic View and following the same logic as the MVVMLight application template where it checks in the ViewModelLocator() constructor.&nbsp; Any issue if this is in different portable library assembly to the View assembly?</p>\r\n<p>Regards,</p>\r\n<p>Ross</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-06-16T19:48:35.177-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "850025",
+    "ThreadId": "357958",
+    "Html": "<p>Hi Ross,</p>\r\n<p>Looks like my detection logic wasn't working quite right as when in the VS Designer in SL and WP, it was detecting it as .NET first. I've updated the logic a bit to try to get it more accurate in the designer. I've also added a few test pages for all of the platforms and it seems to be working correctly now.</p>\r\n<p>&nbsp;</p>\r\n<p>Can you please check the latest code and see if it works for you?</p>\r\n<p>Thanks!</p>\r\n<p>Oren</p>",
+    "PostedDate": "2012-06-17T07:38:35.93-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "850148",
+    "ThreadId": "357958",
+    "Html": "<p>Thanks Oren.&nbsp; Initial test looks good.&nbsp; Will let you know if anything else crops up.&nbsp; Appreciate the help.</p>",
+    "PostedDate": "2012-06-17T18:31:00.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "856859",
+    "ThreadId": "357958",
+    "Html": "\r\n<p>Just pinging this thread to note that I've updated the PCL fork with Laurent's latest changes for V4.</p>\r\n",
+    "PostedDate": "2012-07-03T08:16:10.553-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "922871",
+    "ThreadId": "357958",
+    "Html": "<p>Hi,</p>\r\n<p>Prism just released Portable Libraries for framework 4.5 ...</p>\r\n<p>It really would be nice to have MVVM Light distributed on nuget&nbsp;as Portable dll's ..</p>\r\n<p>Regards,</p>\r\n<p>Michael</p>",
+    "PostedDate": "2012-10-06T09:32:46.67-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943297",
+    "ThreadId": "357958",
+    "Html": "\r\n<p>Hi Michael,</p>\r\n<p>I've put the PCL version on NuGet here: <a href=\"https://nuget.org/packages/Portable.MvvmLightLibs\">\r\nhttps://nuget.org/packages/Portable.MvvmLightLibs</a></p>\r\n<p>Regards,<br>\r\nOren</p>\r\n",
+    "PostedDate": "2012-11-17T11:19:41.727-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "949517",
+    "ThreadId": "357958",
+    "Html": "\r\n<p>I have created a PCL project that targets .NET 4.5, Silverlight 4, Windows Phone 7.1 and Windows Store Apps and the following message shows when trying to add MVVM Light PCL via NuGet:</p>\r\n<p>Install-Package : Could not install package 'Portable.MvvmLightLibs 4.1.24-beta5'. You are trying to install this package into a project that targets '.NETPortable,Version=v4.0,Profile=Profile2', but the package does not contain any assembly references that\r\n are compatible with that framework. For more information, contact the package author.At line:1 char:16</p>\r\n",
+    "PostedDate": "2012-11-30T06:10:26.79-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "949528",
+    "ThreadId": "357958",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Do you have NuGet 2.1 installed? Portable Class Libraries were only supported starting in version 2.1.</p>\r\n<p>Regards,<br>\r\nOren</p>\r\n",
+    "PostedDate": "2012-11-30T06:39:00.793-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "949531",
+    "ThreadId": "357958",
+    "Html": "\r\n<p>That was it. Had a clean install of VS2012 and didn't update NuGet to the latest verstion...</p>\r\n",
+    "PostedDate": "2012-11-30T06:42:56.047-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

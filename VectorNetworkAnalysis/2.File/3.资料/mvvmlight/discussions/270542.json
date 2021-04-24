@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "663867",
+    "ThreadId": "270542",
+    "Html": "\r\n<p>I have seen a number of discussions about porting this to VB.net.&nbsp; Can you provide a timeline?&nbsp; Sure could use it..&nbsp; MVVM and Ria Services and Silverlight is hard enought on the brain.&nbsp; Adding C# to the mix will make my head explode!&nbsp;\r\n C# may be in my future, but not now...</p>\r\n",
+    "PostedDate": "2011-08-26T08:38:10.26-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "895825",
+    "ThreadId": "270542",
+    "Html": "\r\n<p>I'm using MVVM Light with VB.net, the only thing you miss out on is the code snippets and the templates. &nbsp;I've just converted the code snippets to VB.net, and may try to find time for the templates soon. &nbsp;Snippets are a bit time consuming to convert,\r\n the template should be easier. :) &nbsp;As is always the case I found this&nbsp;http://mvvmlight.codeplex.com/SourceControl/network &nbsp; by searching through this forum:) looks like its for V3 so I guess I didn't waste my time because I did the snippets\r\n for V4, not sure how much would have changed though...</p>\r\n<p>And it looks like Laurent is aware of the desire for VB templates. &nbsp; &nbsp;<a href=\"http://mvvmlight.codeplex.com/discussions/240041\">http://mvvmlight.codeplex.com/discussions/240041</a>&nbsp;though once again this is from a while back. &nbsp;I really\r\n don't want to create a fork just for VB snippets, but if your interested I'd be happy to send them to you.</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2012-08-05T16:48:03.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1079276",
+    "ThreadId": "270542",
+    "Html": "I would also be interested in a VB.Net port. Are there any vb.net tutorials? <br />\n",
+    "PostedDate": "2013-08-11T10:31:10.743-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1080426",
+    "ThreadId": "270542",
+    "Html": "I used to write VB.NET (was easier historically as I used to use VB6 way back) and still do occasionally but it's mostly C#.<br />\n<br />\nI got fed up of porting samples into VB for MVVM stuff and the syntax was getting clunky so I moved to C# a while back.  Having a look at my messenger code which uses callbacks in places I'm not 100% sure how I'd port that back to VB.NET.<br />\n<br />\nI know moving to C# from VB.NET may seem like big step but it may be worth it in the long run, your skills will be more in demand. Prism has full VB samples but we only use Prism for the modularity part as we have a shell decoupled from the application modules, this approach works very with to MVVM Light.<br />\n",
+    "PostedDate": "2013-08-14T02:11:01.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1082053",
+    "ThreadId": "270542",
+    "Html": "Hey guys,\r<br />\n<br />\nIf someone provides me with current templates and snippets for VB.NET, I will integrate that in the next installer. \r<br />\n<br />\nThanks\r<br />\nLaurent<br />\n",
+    "PostedDate": "2013-08-19T02:22:21.82-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084000",
+    "ThreadId": "270542",
+    "Html": "<strong>lbugnion wrote:</strong><br />\n<blockquote>\nHey guys,<br />\n<br />\nIf someone provides me with current templates and snippets for VB.NET, I will integrate that in the next installer. <br />\n<br />\nThanks<br />\nLaurent<br />\n</blockquote>\nI have 3 templates for startes, copied 1:1 from C#, just changed syntax where to send?<br />\n",
+    "PostedDate": "2013-08-23T00:24:46.657-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084101",
+    "ThreadId": "270542",
+    "Html": "Hi,\r<br />\n<br />\nPlease send to my email Laurent at galasoft dot ch\r<br />\n<br />\nThanks!\r<br />\nLaurent<br />\n",
+    "PostedDate": "2013-08-23T04:40:47.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1084674",
+    "ThreadId": "270542",
+    "Html": "Hi<br />\n<br />\nSent the files, if I translate more I will send them.<br />\n",
+    "PostedDate": "2013-08-25T09:38:43.767-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1342249",
+    "ThreadId": "270542",
+    "Html": "Hello, so what happened to that templates? can I get it somewhere? \r<br />\n<br />\nThanks <br />\n",
+    "PostedDate": "2015-01-15T09:27:00.627-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

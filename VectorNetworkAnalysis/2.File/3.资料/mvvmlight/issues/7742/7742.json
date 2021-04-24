@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "The RelayCommand<T> object does not support Nullable<T> as generic type. \r\nSee the question / answer on [StackOverflow](http://stackoverflow.com/questions/41281435/how-do-i-pass-nullableboolean-value-to-commandparameter) and the [code snippet](https://github.com/paulcbetts/mvvmlight/blob/master/GalaSoft.MvvmLight/GalaSoft.MvvmLight%20(NET35)/Command/RelayCommandGeneric.cs#L198-L205) that causes the issue.\r\n\r\nThe problem is that in the Execute method of RelayCommand<T>, the parameter type is compared to generic type T. Because the return value of GetType() of a Nullable<T> returns T, the parameter is converter in the Execute method. This causes the following exception:\r\n\r\nSystem.InvalidCastException: Invalid cast from 'System.Boolean' to 'System.Nullable`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]'.",
+    "LastUpdatedDate": "2016-12-22T05:02:50.16-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-12-22T05:02:50.16-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Nullable<T> not supported as CommandParameter",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7742
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

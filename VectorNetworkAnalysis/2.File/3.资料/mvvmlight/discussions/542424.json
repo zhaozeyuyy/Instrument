@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1234700",
+    "ThreadId": "542424",
+    "Html": "What is the benefit of IoC container in MVVM Light? What is the benefit of the ViewModelLocator? Why not instantiating the view-models directly in the XAML file like below:<br />\n<pre><code>&lt;UserControl&gt;\n    &lt;UserControl.DataContext&gt;\n        &lt;vm:MainViewModel/&gt;\n    &lt;/UserControl.DataContext&gt;\n\n    &lt;!-- Other user control elements here --&gt;\n\n&lt;/UserControl&gt;</code></pre>\n\n",
+    "PostedDate": "2014-04-16T06:39:43.07-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1244078",
+    "ThreadId": "542424",
+    "Html": "There are multiple reasons and I encourage you to read this:\r<br />\n<br />\n<a href=\"http://msdn.microsoft.com/en-us/magazine/jj991965.aspx\" rel=\"nofollow\">http://msdn.microsoft.com/en-us/magazine/jj991965.aspx</a>\r<br />\n<br />\nMainly, the way you use up there gives you zero control on the lifetime of the ViewModel, and also forces you to use parameter-less constructors, which is limiting.\r<br />\n<br />\nCheers\r<br />\nLaurent.<br />\n",
+    "PostedDate": "2014-05-11T09:29:21.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1253221",
+    "ThreadId": "542424",
+    "Html": "Hello,\r<br />\n<br />\nFirst, I'd like to say &quot;Bravo !&quot; for this MVVM Light Toolkit. Real a splendid work.\r<br />\n<br />\nI'm starting to learn it (discovering MVVM at the same time) and it is very helpful to get samples... :-)\r<br />\nEspecially on this IoC topic for which I've not fully understood all the intrincacies.\r<br />\n<br />\nHowever, in the above referred article (MSDN) it appears that the sample is no longer available (Archive Gallery has been retired). Would you mind to tell where I can get this Code Sample?\r<br />\n<br />\nThanks\r<br />\nChristian<br />\n",
+    "PostedDate": "2014-06-05T03:25:42.4-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1253278",
+    "ThreadId": "542424",
+    "Html": "Hi and thanks for the kind words. I need to talk to the editor of MSDN magazine to see what's up with that.\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2014-06-05T06:31:51.07-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

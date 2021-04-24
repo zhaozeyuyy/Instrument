@@ -1,0 +1,56 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": "",
+    "Description": "In order to add additional flexibility to the messaging framework I like to suggest to add action classes to augment GenericMessage class. These classes would allow the user greater flexibility in specifying what he passes into the message and what he expects from the callback as a result. IMHO, this is especially useful if more complex dialog classes (i.e. custom dialogs need to be shown and the data for these dialogs needs to be passed, or if the dialog requests input from the user that then needs to be processed by the message's sender.\n\nThe attached file contains a sample implementation.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2010-09-24T05:44:56.833-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Enhancement Request: GenericMessageAction classes",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 1,
+    "Id": 7245
+  },
+  "FileAttachments": [
+    {
+      "FileId": 162954,
+      "FileName": "GenericMessageAction.cs",
+      "DownloadUrl": ".\\162954"
+    },
+    {
+      "FileId": 162955,
+      "FileName": "GenericMessageAction - Fixed.cs",
+      "DownloadUrl": ".\\162955"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "The first file (GenericMessageAction.cs) does not set the callback - but it cannot be deleted - so please only consider the second file.",
+      "PostedDate": "2010-09-24T05:50:01.63-07:00",
+      "Id": 18027
+    }
+  ]
+}

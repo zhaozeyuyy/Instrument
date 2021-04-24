@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "474282",
+    "ThreadId": "221851",
+    "Html": "Hi\r\n\r\nI have a situation where I wish to create some combo-boxes dynamically, and I would like to bind the 'SelectedItemChanged' event to an ICommand on the view model. Normally I would do this in the XAML but as I am creating these dynamically (in the code behind of the view - don't ask...) I also need to create the bindings dynamically.\r\n\r\nCan anybody help?\r\n\r\n     ",
+    "PostedDate": "2010-07-29T07:44:58.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

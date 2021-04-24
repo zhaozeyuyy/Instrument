@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1120954",
+    "ThreadId": "467341",
+    "Html": "I have a textblock in WPF which is bound to a property in my ViewModel class. On click of a button I wish to modify the property and expect the same to be reflected in my textblock. I want all these to be done purely using MVVM (MVVMLight). I am using MMVM light and VS 2012. Challenges- On button click the changes are not being reflected. Though the program execution is going inside the property , changes are not being made.<br />\n<h2>Please Help !!</h2>\nProgram- ViewModel<br />\n<pre><code>using GalaSoft.MvvmLight;\nusing GalaSoft.MvvmLight.Command;\nusing MvvmLight1_Trail.Model;\nusing System.ComponentModel;\nusing System.Threading;\n\nnamespace MvvmLight1_Trail.ViewModel\n{\n\npublic class MainViewModel : ViewModelBase\n{\n\n\n\n    public RelayCommand PressCommand { get; private set; }\n    Thread t;\n    private string _welcomeTitle = string.Empty;\n\n\n    public string MyText\n    {\n        get\n        {\n            return _welcomeTitle;\n        }\n\n        set\n        {\n            if (_welcomeTitle == value)\n            {\n                return;\n            }\n\n            _welcomeTitle = value;\n            RaisePropertyChanged(MyText);\n        }\n    }\n\n    /// &lt;summary&gt;\n    /// Initializes a new instance of the MainViewModel class.\n    /// &lt;/summary&gt;\n    public MainViewModel()\n    {\n        PressCommand = new RelayCommand(() =&gt; MyFunc());\n        myfunc();\n    }\n\n    private void MyFunc()\n    {\n        this.MyText = &quot;Hi2&quot;;\n    }\n\n    private void myfunc()\n    {\n\n        this.MyText = &quot;Hello&quot;;\n        this.MyText = &quot;Hi&quot;;\n\n    }\n}\n}</code></pre>\n\nView:<br />\n<pre><code>&lt;Window x:Class=&quot;MvvmLight1_Trail.MainWindow&quot;\n        xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;\n        xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;\n        xmlns:d=&quot;http://schemas.microsoft.com/expression/blend/2008&quot;\n        xmlns:mc=&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot;\n        xmlns:ignore=&quot;http://www.ignore.com&quot;\n        mc:Ignorable=&quot;d ignore&quot;\n        Height=&quot;500&quot;\n        Width=&quot;500&quot;\n        Title=&quot;MVVM Light Application&quot;\n        DataContext=&quot;{Binding Main, Source={StaticResource Locator}}&quot;&gt;\n    \n    \n\n    &lt;Grid x:Name=&quot;LayoutRoot&quot;&gt;\n\n        \n        &lt;TextBlock FontSize=&quot;34&quot;\n                   Text=&quot;{Binding Path=MyText,UpdateSourceTrigger=Default, Mode=TwoWay}&quot;\n                   VerticalAlignment=&quot;Center&quot;\n                   HorizontalAlignment=&quot;Center&quot;\n                   TextWrapping=&quot;Wrap&quot; /&gt;\n        &lt;Button Width=&quot;100&quot; Height=&quot;100&quot; Command=&quot;{Binding PressCommand}&quot; Margin=&quot;198.985,277.537,193.014,92.462&quot; Content=&quot;Press Me&quot;/&gt;\n       \n    &lt;/Grid&gt;\n&lt;/Window&gt;</code></pre>\n\n",
+    "PostedDate": "2013-11-10T02:59:05.677-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1120984",
+    "ThreadId": "467341",
+    "Html": "What exactly do you see when you run the program?<br />\n<br />\nFrom inspection, I expect the TextBlock to display:<br />\n&quot;Hello&quot;  // This will not be visible, as it is immediately overwritten by 'Hi' in the call to myfunc()<br />\n&quot;Hi&quot;<br />\n// Click the button<br />\n&quot;Hi2&quot;   // in MyFunc()<br />\n<br />\nI toggled up a demo app from the Galasoft &quot;MVVMLight (WPF4)&quot; template, and it works as expected.<br />\nYou can get my project from Skydrive: <a href=\"http://sdrv.ms/19RD1ge\" rel=\"nofollow\">http://sdrv.ms/19RD1ge</a><br />\n",
+    "PostedDate": "2013-11-10T06:19:06.61-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1122412",
+    "ThreadId": "467341",
+    "Html": "The problem lies in your property:<br />\n<pre><code>public string MyText\n    {\n        get\n        {\n            return _welcomeTitle;\n        }\n\n        set\n        {\n            if (_welcomeTitle == value)\n            {\n                return;\n            }\n\n            _welcomeTitle = value;\n            RaisePropertyChanged(MyText);\n        }\n    }</code></pre>\n\nWhat exactly is <strong>RaisePropertyChanged(MyText);</strong> doing here? You aren't sending a notification that the property called &quot;MyText&quot; needs updating, rather you are saying a property that is named with what ever the current value of the text <strong>property</strong> MyText, (which is first &quot;Hello&quot;, and then &quot;Hi&quot;),  should be updated.<br />\n<br />\nYou should follow the mvvmlight code snippets when creating INotifiyPropertyChanged properties, which contain a const string with the property name like so:<br />\n<pre><code>public const string MyTextPropertyName = &quot;MyText&quot;;</code></pre>\n\nand then your call to RaisePropertyChanged looks like this:<br />\n<pre><code>            RaisePropertyChanged(MyTextPropertyName );</code></pre>\n\n",
+    "PostedDate": "2013-11-12T08:34:45.663-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1122441",
+    "ThreadId": "467341",
+    "Html": "I do that mistake too sometimes. My guess is that you wanted to do<br />\n<pre><code>RaisePropertyChanged(() =&gt; MyText);</code></pre>\n\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2013-11-12T09:36:07.857-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1122839",
+    "ThreadId": "467341",
+    "Html": "This works fine for me<br />\n<pre><code>private string _serviceURL;\n        public string ServiceURL\n        {\n            get { return this._serviceURL; }\n            set\n            {\n                if (this._serviceURL != value)\n                {\n                    this._serviceURL = value;\n                    RaisePropertyChanged(&quot;ServiceURL&quot;);\n                }\n            }\n        }</code></pre>\n\n",
+    "PostedDate": "2013-11-13T02:57:51.653-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1428127",
+    "ThreadId": "638965",
+    "Html": "I have this binding:\r<br />\n<br />\nRejectBtn.SetCommand(&quot;TouchUpInside&quot;, Vm.RejectCommand);\r<br />\n<br />\nRelayCommand&lt;string&gt; _rejectCommand;\r<br />\npublic RelayCommand&lt;string&gt; RejectCommand\r<br />\n{<br />\n<pre><code>get\n{\n    return _rejectCommand ?? (_rejectCommand = \n            new RelayCommand&lt;string&gt;(\n        async (param) =&gt;\n        {\n\n        }));\n}</code></pre>\n\n}\r<br />\n<br />\nHow do i pass a parameter?<br />\n",
+    "PostedDate": "2015-05-30T15:39:11.81-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1430655",
+    "ThreadId": "638965",
+    "Html": "For now, you need to create a Binding to the parameter. Are you looking at a fixed value parameter? For the moment I am not supporting that, but I will add it in a future release. For the moment, you should ignore the SetCommand button, and use \r<br />\n<br />\nRejectBtn.TouchUpInside+= (s, e) =&gt;\r<br />\n{<br />\n<pre><code>Vm.RejectCommand.Execute(YOUPARAMETERHERE);</code></pre>\n\n}\r<br />\n<br />\nLaurent<br />\n",
+    "PostedDate": "2015-06-17T00:09:06.563-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

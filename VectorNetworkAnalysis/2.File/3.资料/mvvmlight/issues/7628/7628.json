@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Not an MVVM light issue, due to EventTrigger not reacting to the events.",
+    "ClosedDate": "2014-03-11T07:32:28.953-07:00",
+    "CommentCount": 6,
+    "Custom": null,
+    "Description": "I'm having a go at writing a small media player for my Windows Phone (more for learning purposes if anything), and am using mvvm-light. When a video is playing, I have a timer that periodically updates the slider position (and ensures that it's in sync). When I slide the slider around, I pause the timer, so it doesn't skip about. I use the ManipulationStarted event to pause the timer, and ManipulationComplete to resume it.\r\n\r\nI've tried using EventToCommand, but only the ManipulationStarted event fires. When I lift my finger off the phone, ManipulationComplete doesn't fire.\r\n\r\nThis is my xaml :\r\n```\r\n<Slider x:Name=\"PlaybackSlider\" HorizontalAlignment=\"Stretch\" Margin=\"20,0\" VerticalAlignment=\"Bottom\" Maximum=\"{Binding MaxSteps}\" Value=\"{Binding Offset, Mode=TwoWay}\" Style=\"{StaticResource SliderStyle1}\" >\r\n    <i:Interaction.Triggers>\r\n        <i:EventTrigger EventName=\"ManipulationStarted\">\r\n            <Command:EventToCommand Command=\"{Binding PlayOffsetBegin}\"/>\r\n        </i:EventTrigger>\r\n        <i:EventTrigger EventName=\"ManipulationCompleted\">\r\n            <Command:EventToCommand Command=\"{Binding PlayOffsetEnd}\"/>\r\n        </i:EventTrigger>\r\n        <i:EventTrigger EventName=\"MouseMove\">\r\n            <Command:EventToCommand Command=\"{Binding PlayOffsetUpdate}\"/>\r\n        </i:EventTrigger>\r\n    </i:Interaction.Triggers>\r\n</Slider>\r\n```\r\n\r\nThe bindings are relay commands.\r\n\r\nIf I implement it like this, it all works fine :\r\n\r\n```\r\n<Slider x:Name=\"PlaybackSlider\" \r\n    ManipulationStarted=\"PlaybackSlider_ManipulationStarted\" \r\n    ManipulationCompleted=\"PlaybackSlider_ManipulationCompleted\" \r\n    HorizontalAlignment=\"Stretch\" Margin=\"20,0\" VerticalAlignment=\"Bottom\" \r\n    Maximum=\"{Binding MaxSteps}\" Value=\"{Binding Offset, Mode=TwoWay}\"/>\r\n```\r\n\r\nI'm using the latest version of MVVM Light, and the issue manifests when using the emulator, or an actual device.",
+    "LastUpdatedDate": "2014-03-11T07:32:28.953-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-03-09T19:15:03.583-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "WP8 Slider and EventToCommand",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7628
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Note : I've posted the question on StackOverflow too, but not getting very far on that one.",
+      "PostedDate": "2014-03-09T19:15:46.577-07:00",
+      "Id": 136345
+    },
+    {
+      "Message": "Hi,\n\nIt is most probably not an issue of MVVM Light but of the EventTrigger. Can you try with another Action (foe instance InvokeCommandAction or GoToStateAction). Do they get triggered?\n\nthanks \nLaurent ",
+      "PostedDate": "2014-03-09T22:07:19.42-07:00",
+      "Id": 136352
+    },
+    {
+      "Message": "A few other actions worked. The \"Tap\" event, and \"MouseLeave\" event seemed to work.\nI'll give the MSDN forums a go if it's an issue with the EventTrigger,",
+      "PostedDate": "2014-03-10T01:55:54.73-07:00",
+      "Id": 136365
+    },
+    {
+      "Message": "Hi,\n\nI didn't mean trying with other events, but with other TriggerActions such as InvokeCommandAction. EventTrigger works only with routed events, so if the event you are trying to handle is not routed, the EventTrigger will not trigger any of the included actions.\n\nI'll give it a try when I have a moment.\n\nCheers\nLaurent",
+      "PostedDate": "2014-03-10T02:30:47.543-07:00",
+      "Id": 136374
+    },
+    {
+      "Message": "I tried the InvokeCommandAction, and no luck on that one too.",
+      "PostedDate": "2014-03-11T06:11:54.887-07:00",
+      "Id": 136502
+    },
+    {
+      "Message": "Ok thanks for trying. I'll close the issue here. The usual workaround in that case is to handle the event in code behind and to call the command from there.\n\ncheers\nLaurent",
+      "PostedDate": "2014-03-11T07:30:39.317-07:00",
+      "Id": 136507
+    }
+  ]
+}

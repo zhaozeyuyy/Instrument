@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-14T15:38:11.85-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi\r\n\r\nI get an error when I try to make a new WP8 application in VS 2012.\r\n\r\nI tried reinstalling the package \r\n\r\n\r\nSetup for Visual Studio 2012 (Pro, Premium, Ultimate)\r\nMVVM Light V4.2.30.0\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V4.4.32.1",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-02-10T15:47:29.727-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Package Installation Error",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7625
+  },
+  "FileAttachments": [
+    {
+      "FileId": 791135,
+      "FileName": "ScreenShot004.png",
+      "DownloadUrl": ".\\791135"
+    }
+  ],
+  "Comments": []
+}

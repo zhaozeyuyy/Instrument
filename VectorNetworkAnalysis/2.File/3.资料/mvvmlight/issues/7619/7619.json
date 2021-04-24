@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-02-15T10:12:55.89-08:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "According to documentation of SimpleIoC.GetService inherited via System.ServiceProvider.GetService() it ought to return null when service is not registered yet SimpleIoC throws ActivationException.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "null",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2013-10-07T08:36:06.303-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "SimpleIoC.GetService throws instead of returning null for nonexistent service",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7619
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Updated the documentation to reflect the (correct) behavior of throwing ActivationException (per the CommonServiceLocator interface definition). Will be in V5.1.",
+      "PostedDate": "2015-02-06T06:59:21.413-08:00",
+      "Id": 173624
+    },
+    {
+      "Message": "DLLs are available here:\nhttp://1drv.ms/1ylP1TS\n\nNuget will be updated ASAP.",
+      "PostedDate": "2015-02-06T09:13:29.353-08:00",
+      "Id": 173656
+    }
+  ]
+}

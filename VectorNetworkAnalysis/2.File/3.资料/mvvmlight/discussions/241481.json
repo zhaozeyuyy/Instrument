@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "548141",
+    "ThreadId": "241481",
+    "Html": "\r\n<p>My general question is should the View react to the ViewModel or should the ViewModel react to the View.</p>\r\n<p>For example you have Display bool that is true when a dialog is displayed or false otherwise.&nbsp; The dialog's IsOpen attribute is bound to this property.&nbsp; Should I fire a command &quot;GetInput&quot; on the ViewModel which will get some data to fill a ListBox\r\n and then set Display to true, or should I set IsOpen to true which I will then watch this in the ViewModel to get the data if needed.</p>\r\n<p>Should I completely devoid UI stuff from the ViewModel.&nbsp; It seems to me to have a pure separation the ViewModel would have to react to what the view does through the bound properties.&nbsp; Or is a 2 way communication all right?</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2011-01-12T10:06:23.473-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "548440",
+    "ThreadId": "241481",
+    "Html": "\r\n<p>Since this is not an MVVMLight specific question u should probably post it to stackoverflow http://stackoverflow.com/</p>\r\n",
+    "PostedDate": "2011-01-12T21:09:32.547-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

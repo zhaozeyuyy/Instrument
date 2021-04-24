@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:54:09.063-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "If I specify a concrete base class for generic argument TTarget, I do not receive a message.  However, if I specify an interface type then Send works as expected.  Is this a bug or a design decision.\r\n\r\nThe code in question is in Messenger.SendToList().  I notice there is a check for whether the target implements message target type but not if it is a subclass.\r\n\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-03-14T14:15:22.243-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": " Constraining Send<TMessage,TTarget> by a base class does not work.",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 7519
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "1477328",
+    "ThreadId": "655903",
+    "Html": "This is my model:<br />\n<pre><code>int amount;\n    public int Amount\n    {\n        get { return amount; }\n        set\n        {\n            if(Set(() =&gt; Amount, ref amount, value));\n        }\n    }</code></pre>\n\nWhen I click on button Amount will plus 1:<br />\n<pre><code>Amount++;\n\nvar tvAmount = convertView.FindViewById(Resource.Id.tvAmount);\ntvAmount.Text = viewModel.Model.Amount;\n</code></pre>\n\nBut UI not update. When I scroll listview. UI changed<br />\n<br />\nI want to TextView change when I click. Please help me!<br />\nThank so much!<br />\n",
+    "PostedDate": "2016-06-27T00:49:51.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1477377",
+    "ThreadId": "655903",
+    "Html": "Hi.\r<br />\n<br />\nYou need to set a binding between Amount and the TextView.\r<br />\n<br />\nSee my Xamarin Evolve presentation and the corresponding code sample.\r<br />\n<a href=\"http://www.galasoft.ch/presentations/presentationdetails.cshtml?name=2016006\" rel=\"nofollow\">http://www.galasoft.ch/presentations/presentationdetails.cshtml?name=2016006</a>\r<br />\n<br />\nThanks\r<br />\nLaurent<br />\n",
+    "PostedDate": "2016-06-27T12:57:33.447-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1477409",
+    "ThreadId": "655903",
+    "Html": "<blockquote>\nSystem.InvalidOperationException: Are you trying to use SetBinding with a local variable? Try to use new Binding instead<br />\n</blockquote>\n<pre><code>            tvAmount.SetBinding(() =&gt; viewModel.Model.AmountFormatted, () =&gt; tvAmount.Text);\n</code></pre>\n\nWhen I binding, I got an exception.<br />\n<br />\nHoangwy<br />\nThanks<br />\n",
+    "PostedDate": "2016-06-27T19:47:33.45-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1477416",
+    "ThreadId": "655903",
+    "Html": "Hi,\r<br />\n<br />\nAgain, please check the code sample from my Xamarin Evolve talk. There is a similar sample there. Also, read the text of the error. You cannot use the SetBinding method with local variables. You need to use new Binding() instead.\r<br />\n<br />\nThank you\r<br />\nLaurent<br />\n",
+    "PostedDate": "2016-06-27T21:41:17.497-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1477431",
+    "ThreadId": "655903",
+    "Html": "Hi Laurent,\r<br />\n<br />\nCould you can make a simple example about this?\r<br />\n<br />\nThanks so much!\r<br />\nhoangwy<br />\n",
+    "PostedDate": "2016-06-27T23:51:09.957-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1477441",
+    "ThreadId": "655903",
+    "Html": "I Found an example, thank Laurent &lt;3<br />\n",
+    "PostedDate": "2016-06-28T00:36:36.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1477443",
+    "ThreadId": "655903",
+    "Html": "OK, just to be sure we talk about the same:\r<br />\n<br />\nWhat you want is this:\r<br />\n<a href=\"https://github.com/lbugnion/sample-evolve-2016/blob/master/XamBindingSample/XamBindingSample.Droid/ListsActivity.cs\" rel=\"nofollow\">https://github.com/lbugnion/sample-evolve-2016/blob/master/XamBindingSample/XamBindingSample.Droid/ListsActivity.cs</a>\r<br />\n<br />\nLines 83 and below.\r<br />\n<br />\nThanks\r<br />\nLaurent<br />\n",
+    "PostedDate": "2016-06-28T00:43:42.887-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1477701",
+    "ThreadId": "655903",
+    "Html": "Hi Ibugnion,\r<br />\n<br />\nCan I use Fragment with MVVMLight?\r<br />\n<br />\nThanks!\r<br />\nhoangwy<br />\n",
+    "PostedDate": "2016-06-29T20:14:08.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

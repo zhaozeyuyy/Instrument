@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "679251",
+    "ThreadId": "274568",
+    "Html": "\r\n<p>Hello</p>\r\n<p>I am developing a WP7 application, and reached the tombstoning stage&hellip;</p>\r\n<p>There are a lot of different solutions for that, but I understand that now, with MVVM light ver. 4, the best solution is to use serialization. I cannot found any example of this method.</p>\r\n<p>I don&rsquo;t understand how the sterilization occur on <span style=\"font-size:9.5pt\">\r\nApplication_Deactivated</span></p>\r\n<p>And <span style=\"font-size:9.5pt\">Application_Activated.</span></p>\r\n<p>&nbsp;</p>\r\n<p>Thanks!</p>\r\n",
+    "PostedDate": "2011-10-03T01:01:32.323-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "681686",
+    "ThreadId": "274568",
+    "Html": "<p>Hi all,</p>\r\n<p>&nbsp;I've the same issue than idosmail. I am migrating to V4 to solve the issue of serialization, but it still not work.</p>\r\n<p>&nbsp;***</p>\r\n<p><span style=\"font-size: small;\"><span style=\"font-size: small;\"><span>\r\n<p>{System.Runtime.Serialization.InvalidDataContractException: Type 'Expense2.ViewModel.vmBase' cannot inherit from a type that is not marked with DataContractAttribute or SerializableAttribute. Consider marking the base type 'GalaSoft.MvvmLight.ViewModelBase' with DataContractAttribute or SerializableAttribute, or removing them from the derived type.</p>\r\n</span></span></span></p>\r\n<p>&nbsp;***</p>\r\n<p>Any idea to solve this topic?</p>\r\n<p>Thank</p>",
+    "PostedDate": "2011-10-08T14:24:56.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

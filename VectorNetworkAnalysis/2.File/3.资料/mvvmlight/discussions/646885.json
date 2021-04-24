@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1450632",
+    "ThreadId": "646885",
+    "Html": "I'm trying to hook up a Framework element to my ViewModel using an EventTrigger.\r<br />\nI finally determined that EventToCommand has been moved to GalaSoft.MvvmLight.Platform and updated my xmal declaration to the following:\r<br />\n<br />\nxmlns:i=&quot;clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity&quot;\r<br />\nxmlns:cmd=&quot;clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform&quot;\r<br />\n<br />\nMy trigger declaration follows:\r<br />\n<br />\n&lt;i:Interaction.Triggers&gt;<br />\n<pre><code>            &lt;i:EventTrigger EventName=&quot;SelectedItemChanged&quot; &gt;\n                &lt;cmd:EventToCommand Command=&quot;{Binding Mode=OneWay, Path=TempCmd}&quot; PassEventArgsToCommand=&quot;False&quot; /&gt;\n            &lt;/i:EventTrigger&gt;\n        &lt;/i:Interaction.Triggers&gt; \n</code></pre>\n\nThe &lt;cmd:EventToCommand is producing the error:<br />\n<pre><code>           Cannot add content to an object of type &quot;EventTrigger&quot;.\n</code></pre>\n\nI'm obviously missing something.  Does someone have any suggestions?\r<br />\n<br />\nThank-you.\r<br />\n<br />\n<br />\nDave K<br />\n",
+    "PostedDate": "2015-11-01T14:29:08.497-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

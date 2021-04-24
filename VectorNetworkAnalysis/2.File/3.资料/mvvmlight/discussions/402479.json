@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "938840",
+    "ThreadId": "402479",
+    "Html": "\r\n<p>Hi Laurent,</p>\r\n<p>I have just installed the newest update and I have found that UniversalConverter (and whole namespace GalaSoft.MvvmLight.Converters in GalaSoft.MvvmLight.Extras.WPF4 assembly) is missing.</p>\r\n<p>Is it by design?<br>\r\nWhy?</p>\r\n<p>It was very helpful converter, I liked it very much.</p>\r\n<p>Regards<br>\r\nJacek</p>\r\n",
+    "PostedDate": "2012-11-08T15:04:22.767-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "938851",
+    "ThreadId": "402479",
+    "Html": "\r\n<div>\r\n<div style=\"font-size:11pt; font-family:Calibri,sans-serif\">Hi,<br>\r\n<br>\r\nI am retiring UniversalConverter, it had many issues. If you want to use it, I encourage you to get the code and put it in your own dll.\r\n<br>\r\n<br>\r\nCheers <br>\r\nLaurent<br>\r\n<br>\r\nSent from my beautiful Nokia Lumia 920</div>\r\n</div>\r\n<div dir=\"ltr\">\r\n<hr>\r\n<span style=\"font-size:11pt; font-family:Calibri,sans-serif; font-weight:bold\">From:\r\n</span><span style=\"font-size:11pt; font-family:Calibri,sans-serif\"><a href=\"mailto:notifications@codeplex.com\">jpyt</a></span><br>\r\n<span style=\"font-size:11pt; font-family:Calibri,sans-serif; font-weight:bold\">Sent:\r\n</span><span style=\"font-size:11pt; font-family:Calibri,sans-serif\">‎2012-‎11-‎09 00:05</span><br>\r\n<span style=\"font-size:11pt; font-family:Calibri,sans-serif; font-weight:bold\">To:\r\n</span><span style=\"font-size:11pt; font-family:Calibri,sans-serif\"><a href=\"mailto:laurent@galasoft.ch\">laurent@galasoft.ch</a></span><br>\r\n<span style=\"font-size:11pt; font-family:Calibri,sans-serif; font-weight:bold\">Subject:\r\n</span><span style=\"font-size:11pt; font-family:Calibri,sans-serif\">Missing UniversalConverter in MvvmLight 4.1.24.16313[mvvmlight:402479]</span><br>\r\n<br>\r\n</div>\r\n<p>From: jpyt</p>\r\n<div id=\"ThreadNotificationPostBody\">\r\n<p>Hi Laurent,</p>\r\n<p>I have just installed the newest update and I have found that UniversalConverter (and whole namespace GalaSoft.MvvmLight.Converters in GalaSoft.MvvmLight.Extras.WPF4 assembly) is missing.</p>\r\n<p>Is it be design?<br>\r\nWhy?</p>\r\n<p>It was very helpful converter, I liked it very much.</p>\r\n<p>Regards<br>\r\nJacek</p>\r\n</div>\r\n",
+    "PostedDate": "2012-11-08T15:31:24.163-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "938853",
+    "ThreadId": "402479",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Thanks for quick reply (very quick in the middle of the night&nbsp;- best support ever :) )<br>\r\nI will do as you wrote, I will get the cod and use in my own dll.</p>\r\n<p>Regards<br>\r\nJacek</p>\r\n",
+    "PostedDate": "2012-11-08T15:37:57.957-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1222031",
+    "ThreadId": "402479",
+    "Html": "From where can I get the code for &quot;UniversalConverter&quot;?\r<br />\n<br />\nThanks,\r<br />\nVinay<br />\n",
+    "PostedDate": "2014-03-12T12:02:08.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

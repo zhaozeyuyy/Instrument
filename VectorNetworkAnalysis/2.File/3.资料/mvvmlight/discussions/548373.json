@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1255431",
+    "ThreadId": "548373",
+    "Html": "I'm trying to install the 4.4.32.1 nuget package to a new WP 8.1 app but keep getting this error message:\r<br />\n<br />\nInstalling 'Portable.MvvmLightLibs 4.4.32.1'.\r<br />\nSuccessfully installed 'Portable.MvvmLightLibs 4.4.32.1'.\r<br />\nAdding 'Portable.MvvmLightLibs 4.4.32.1' to TestApplication.\r<br />\nUninstalling 'Portable.MvvmLightLibs 4.4.32.1'.\r<br />\nSuccessfully uninstalled 'Portable.MvvmLightLibs 4.4.32.1'.\r<br />\nInstall failed. Rolling back...\r<br />\nCould not install package 'Portable.MvvmLightLibs 4.4.32.1'. You are trying to install this package into a project that targets 'WindowsPhoneApp,Version=v8.1', but the package does not contain any assembly references or content files that are compatible with that framework. For more information, contact the package author.\r<br />\n<br />\nAny ideas as to why I can't install? Has anyone posted compiled PCL binaries?<br />\n",
+    "PostedDate": "2014-06-11T19:54:07.643-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1255504",
+    "ThreadId": "548373",
+    "Html": "Hi,\r<br />\n<br />\nI will check it out. It should work (yeah I know, standard BS reply ;)\r<br />\n<br />\nCan you please try with the MVVMLightLibsOnly package?\r<br />\n<br />\nThanks\r<br />\nLaurent<br />\n",
+    "PostedDate": "2014-06-12T02:17:53.123-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1255627",
+    "ThreadId": "548373",
+    "Html": "\r\n<div>\r\n<div style=\"font-family:Calibri,sans-serif; font-size:11pt\">Argh it was a PEBKAC issue. I had to update my nuget feature and it worked after that!<br>\r\n<br>\r\nThanks,<br>\r\nSohum.</div>\r\n</div>\r\n<div dir=\"ltr\">\r\n<hr>\r\n<span style=\"font-family:Calibri,sans-serif; font-size:11pt; font-weight:bold\"></span></div>\r\n",
+    "PostedDate": "2014-06-12T08:31:09.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

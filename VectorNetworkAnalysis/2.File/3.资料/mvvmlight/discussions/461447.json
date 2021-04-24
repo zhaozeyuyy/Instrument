@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1104707",
+    "ThreadId": "461447",
+    "Html": "Hi,\r<br />\n<br />\nI have some custom attributes for all viewmodels. I would like to retrieve all instance types to reflect on the custom attributes. Is it possible to retrieve all instances of the Ioc _instancesRegistry ?<br />\n",
+    "PostedDate": "2013-10-07T12:02:44.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

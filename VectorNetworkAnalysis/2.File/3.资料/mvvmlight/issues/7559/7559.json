@@ -1,0 +1,71 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:56:51.863-07:00",
+    "CommentCount": 5,
+    "Custom": null,
+    "Description": "I've been using the procedure described at Laurent's Website and in the binaries directory, I have only 5 dirs corresponding to Silverlight 3/4/5, WP7 and WP71. Nothing about .Net 4.\r\n\r\nI've tried GalaSoft.MvvmLight.V3.0.2.19 and GalaSoft.MvvmLight.V4beta1.4.0.2.19 with the same result.\r\n\r\nOn the v4 beta 1, the install window doesn't show .Net in the binaries nor the Snippets as you can see on the attached screenshoot.\r\n\r\nCould this be related to the fact that I'm using Studio 2010 Express despite that Laurent said that his package can also be used with Express? I can understand that the snippets are not shown is this case, but what about the binaries.\r\n\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-01-23T07:06:32.393-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "No binaries for WPF 4 on windows 7 Visual Studio Express 2010",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7559
+  },
+  "FileAttachments": [
+    {
+      "FileId": 331822,
+      "FileName": "InstallMVVMLightPb.png",
+      "DownloadUrl": ".\\331822"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "I have also been unable to install MVVM-LightV4 beta 1/4.0.2.19 with VS2010 Express (XP SP3) - the MVVM-Light templates do not appear when creating a new project.\nI posted at http://stackoverflow.com/questions/10335879/mvvm-light-templates-dont-appear-in-vs2010-express but have not had any replies.\nI would like to know if this is an incompatibility with VS2010-Express and whether it is going to be fixed, or if anyone has a workaround.",
+      "PostedDate": "2012-04-28T05:39:05.31-07:00",
+      "Id": 63945
+    },
+    {
+      "Message": "I'm experiencing the same problem.  Have you figured out a workaround?  I downloaded the V3SP1 zip file, but couldn't find instructions on how to install it.  I messed around for a bit, but could never get things working in VS Express 2010.",
+      "PostedDate": "2012-06-14T15:24:56.85-07:00",
+      "Id": 68026
+    },
+    {
+      "Message": "I had a conversation with Laurent Bugnion back in april. He said he was going to look into it and get back to me but I've heard nothing since and haven't had time to follow up. I'll post if I hear anything.",
+      "PostedDate": "2012-06-15T12:13:59.047-07:00",
+      "Id": 68076
+    },
+    {
+      "Message": "Hi,\n\nI am planning a massive overhaul of the install experience especially around Express editions. Sorry it is taking so long. In the meantime, please consider using Nuget to install the DLLs.\n\nhttp://galasoft.ch/mvvm/installing/nuget/\n\nCheers,Laurent",
+      "PostedDate": "2012-06-15T12:45:16.53-07:00",
+      "Id": 68079
+    },
+    {
+      "Message": "Thanks Laurent.\n\nI managed to get up and running yesterday by doing the following.  I'm posting this, in case people have issues with Nugent, which I haven't tried.  \n\n+ I the downloaded V3 SP1 zip from here: http://mvvmlight.codeplex.com/releases/view/60473\n\n+ Unzip GalaSoft.MvvmLight.Templates.V3.VS10.zip and place your dev language's ItemTemplates and ProjectTemplates .zip file under \\My Documents\\Visual Studio 2010\\Templates then the appropriate directory under both ItemTemplates and ProjectTemplates.\n\n+ Unzip GalaSoft.MvvmLight.Binaries.V3.zip and place the \"Laurent Bugnion (GalaSoft)\" directory in your \"Program Files\" directory.\n\n+ Start Visual Studio, and you should be able to create a MVVM Light project, and add MVVM items.",
+      "PostedDate": "2012-06-15T16:02:56.623-07:00",
+      "Id": 68089
+    }
+  ]
+}

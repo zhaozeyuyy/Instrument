@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "1340966",
+    "ThreadId": "577454",
+    "Html": "It would be very nice if separate binaries of latest version will be also available for download for Visual Studio Express developers who can not use NuGet.<br />\n",
+    "PostedDate": "2015-01-11T23:48:04.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1344972",
+    "ThreadId": "577454",
+    "Html": "Have you discovered this yet?: <a href=\"http://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx\" rel=\"nofollow\">http://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx</a>  It's basically VS Pro for free.<br />\n",
+    "PostedDate": "2015-01-21T17:57:20.79-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1345072",
+    "ThreadId": "577454",
+    "Html": "<strong>CADbloke wrote:</strong><br />\n<blockquote>\nHave you discovered this yet?: <a href=\"http://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx\" rel=\"nofollow\">http://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx</a>  It's basically VS Pro for free.<br />\n</blockquote>\nVery good, I did not know about it. Question is if it is not somewhat time-limited (it will not work after half a year for example).<br />\nBut for now, I am limited to Visual Basic 2010 Express which does not support NuGet or other add-ins so I need binaries (I will not undergo this library source code compiling).<br />\n",
+    "PostedDate": "2015-01-22T04:05:25.333-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1345924",
+    "ThreadId": "577454",
+    "Html": "Hi,\r<br />\n<br />\nI would also recommend using the VS13 community edition. It is essentially Visual Studio Pro 13 and is free. The Express editions are not supported anymore.\r<br />\n<br />\nI can possibly give you the DLLs but I do not compile on Visual Studio 2010 anymore and I don't test VS10 anymore either. That would be without any guarantee that it will work. If that's OK with you, fine.\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2015-01-26T13:55:19.593-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1346179",
+    "ThreadId": "577454",
+    "Html": "Thank you for reply. There are some fundamental limitations why I can not use VSC2013 yet, maybe in near future. For now, I found a way to get what I need: Install NuGet package into empty project in Visual Web Developer 2010 Express (which supports NuGet) and copy these latest binaries into my Visual Basic 2010 Express project.<br />\n",
+    "PostedDate": "2015-01-27T01:26:49.103-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1346208",
+    "ThreadId": "577454",
+    "Html": "That sounds like a good workaround. Thanks!<br />\n",
+    "PostedDate": "2015-01-27T02:30:26.07-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

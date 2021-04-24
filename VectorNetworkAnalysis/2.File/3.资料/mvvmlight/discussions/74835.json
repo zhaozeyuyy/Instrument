@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "256120",
+    "ThreadId": "74835",
+    "Html": "<p>Hello Laurent,</p>\r\n<p>this is maybe both a question regarding usage of the Toolkit as well as regarding general application architecture with MVVM.</p>\r\n<p>I am refactoring an existing&nbsp; WPF application to your toolkit and struggled with the decision if the handling of events should stay in the code-behind. Your recent blogpost about Commands bound to Events came as a blessing at just the right moment.<br>So far (in the old app) I am capturing user input in a richtextbox (special commands like Tab or Escape keypresses) with the KeyUp event. Using your new triggers lets me assign a Command to this event but I am at a loss how to access the information I so far got from the event arguments (in this case the actual key pressed).&nbsp; Is this approach (handling such logic in the ViewModel) even a valid approach or should such stay in the code-behind. And if it is a valid use-case for your new EventCommand feature: is it possible to get the EventArgs as parameters to the command?</p>\r\n<p>Thank you a lot,<br>Hinnerk</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-11-11T13:46:05.747-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "256146",
+    "ThreadId": "74835",
+    "Html": "<p>Hi,</p>\r\n<p>You make a very valid point. At the current time, there is no way to get the EventArgs and pass that as a parameter to the command. I am honestly not even sure this is possible, you gave me something to think about for the next release :) Thanks for that.</p>\r\n<p>For the records, I don't think there is anything wrong with code in the code-behind, as long as it makes sense. View-related code (such as starting/stopping animations) and code such as the one you have now are OK in the code behind in my opinion. The only issue with code in the code behind is that it is harder (or even impossible) to unit test, which is why we try to find ways to minimize the amount of code there.</p>\r\n<p>In your specific case, and given the fact that, as I said, I cannot grab the EventArgs, I would handle the event in the code behind, and from there execute the command. I will try to find a way to enhance EventToCommand, stay posted on my blog for additional info in case I find a way.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2009-11-11T15:17:02.007-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "256156",
+    "ThreadId": "74835",
+    "Html": "<p>Hi Laurent,</p>\r\n<p>thank you for your quick response.</p>\r\n<p>Yes - I am not afraid of using code-behind (tbh I dont foresee the need to really have this level of abstraction to the view in my case, its just MVVM simply feels more &quot;natural&quot; regarding the design features WPF offers).<br>Just it would be preferable if there was some intuitive seperation of code-behind and viewmodel code as in where to look if i am searching for a particular function in the applications code. <br>The way you suggest - animations etc and minimal event handlers just passing args through to a command in the code-behind is intuitive enough for me.</p>\r\n<p>Again thanks for this very nice toolkit,<br>I am looking forward to anything you come up with and release,<br>Hinnerk</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-11-11T15:37:42.183-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "256157",
+    "ThreadId": "74835",
+    "Html": "<p>I didn't mean to discourage you to use VMs and Commands though ;) I am sure you got that.</p>\r\n<p>For the records, I just checked and there is indeed a simple way to get the EventArgs so I can pass it to the Command. I just need to come up with a clean syntax to do that (because there is only one parameter to a Command, so I need to see how to let the user choose between the CommandParameter or the EventArgs to be passed to the RelayCommand).</p>\r\n<p>Thanks a lot for this!</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2009-11-11T15:45:29.91-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "256327",
+    "ThreadId": "74835",
+    "Html": "<p>Sounds great - I'll treat the proxy event-handlers in the code-behind as a temporary solution than :-)</p>\r\n<p>Cheers,<br>Hinnerk</p>",
+    "PostedDate": "2009-11-12T06:49:48.573-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "256811",
+    "ThreadId": "74835",
+    "Html": "<p>I&nbsp;added this feature in changeset 34855, available in the Source section of this site.</p>\r\n<p>You need to set the &quot;PassEventArgsToCommand&quot; property to true in the EventToCommand tag to enable this feature. Then, use a RelayCommand&lt;EventArgs&gt; to receive the EventArgs as the parameter. I will post a sample a little later.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-11-13T08:28:19.193-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "256919",
+    "ThreadId": "74835",
+    "Html": "<p>Great! Works like a charm.</p>\r\n<p>Thank you a bunch Laurent for the quick and helpful response and action.<br>Glad I decided on using this framework :-)</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-11-13T12:29:17.78-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "257072",
+    "ThreadId": "74835",
+    "Html": "<p>Hi again Laurent,</p>\r\n<p>just read your Blog-post regarding this issue and I certainly agree that using a WPF-specific type like KeyEventArgs or MouseButtonEventArgs in the ViewModel violates the original idea of seperation of concerns.<br>Guess in the end one would have to stick to the skeleton-event-handler-proxies in the code-behind which take the event-args, extract whatever parameter is of interest (in my example above the character of the keypress) and call the worker method with a char signature in the VM. Personally (being new to MVVM) I am unsure how &quot;clean&quot; it is to access the VM by going through the Views datacontext in the code-behind. Is that considered a best-practice? After all it strengthens the coupling of View-&gt;VM</p>\r\n<p>In any way I am thankful for your shortcut which allows me to avoid having yet another level of abstraction in command-handling (reducing boilerplate code when binding a new command by 50%) while still making full use of WPF databinding. Also the app could be very easily refactored to a &quot;full&quot; MVVM seperation if I'd need to implement a second type f View.</p>\r\n<p>Cheers,<br>Hinnerk</p>",
+    "PostedDate": "2009-11-14T05:32:38.767-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "257198",
+    "ThreadId": "74835",
+    "Html": "<p>Hi Hinnerk,</p>\r\n<p>My point in the blog post was that instead of exposing, for instance, MouseEventArgs (which is quite a &quot;low level&quot; UI class), maybe encapsulating the UI elements in a UserControl and exposing a higher level event on that UserControl would be better, from an abstraction point of view.</p>\r\n<p>That said, I totally agree that this could be a total overkill in some smaller size projects, which is why it makes sense to have the possibility to get the EventArgs in the VM directly.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2009-11-15T01:44:53.723-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "432455",
+    "ThreadId": "74835",
+    "Html": "<p>Hi,</p>\r\n<p>As you are a previous user of the discussion tab on the MVVM Light Codeplex site, I would like to inform you that I decided to encourage the usage of StackOverflow for questions regarding the MVVM Light toolkit. Please tag your questions with the mvvm-light tag.</p>\r\n<p>StackOverflow is an awesome site where tons of developers help others with their technical question.</p>\r\n<p><a href=\"http://stackoverflow.com/questions/tagged/mvvm-light\">http://stackoverflow.com/questions/tagged/mvvm-light</a></p>\r\n<p>I will monitor this tag on the StackOverflow website and do my best to answer questions. The advantage of StackOverflow over the Codeplex discussion is the sheer number of qualified developers able to help you with your questions, the visibility of the question itself, and the whole StackOverflow infrastructure (reputation, up- or down-vote, comments, etc)</p>\r\n<p>Thanks!</p>\r\n<p>Laurent</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-18T11:54:34.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

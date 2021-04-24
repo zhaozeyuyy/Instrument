@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "448474",
+    "ThreadId": "214146",
+    "Html": "<p>Ok how does one play sounds and trigger storyboard in a MVVM app.&nbsp; Here is a simplified example to get the point across</p>\r\n<p>Button Click--&gt;ViewModel--&gt;Checks to see if Button Color is Blue and User has Clicked twice--&gt;If true then I play the Storyboard and the sound. I have looked for examples online but it seems like most just cheat around. I would like one way of doing it. Code would help.</p>",
+    "PostedDate": "2010-05-27T19:09:22.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449956",
+    "ThreadId": "214146",
+    "Html": "<p>Hi,</p>\r\n<p>Such functionality can be implemented by passing an ISoundService and IAnimationService to the ViewModel, two interfaces that the MainPage (or the MainWindow in WPF) can implement. This way you keep a neat separation of concerns.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-06-01T04:03:40.407-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "450880",
+    "ThreadId": "214146",
+    "Html": "<p>If No one minds, Can i get example in code to see how it would be done. Just a simple example. I am new to MVVM so I don't know how it would fite. If I understand Something like</p>\r\n<p>&nbsp;</p>\r\n<p>In the View--&gt;Implement Interface</p>\r\n<p>Pass the Interface to the ViewModel?</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-06-02T15:25:43.917-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

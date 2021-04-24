@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-14T13:32:18.08-07:00",
+    "CommentCount": 6,
+    "Custom": null,
+    "Description": "Just upgraded several nuget packages for Windows Phone 7 project including MVVM light libraries  upgrade to 4.3.31.0. \r\n\r\nWhen recompiling the project I get the following errors, could this have something to do with the upgrade of MVVM Light, or do I need to solve this problem in another way? \r\n\r\nWindows Phone 7 does not compile, but Windows Phone 8 projects does compile without problems.\r\n\r\n10>C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\Microsoft.Common.targets(1605,5): warning MSB3258: The primary reference \"GalaSoft.MvvmLight.Extras.WP71, Version=4.3.31.28777, Culture=neutral, processorArchitecture=MSIL\" could not be resolved because it has an indirect dependency on the .NET Framework assembly \"System.Windows, Version=2.0.6.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e\" which has a higher version \"2.0.6.0\" than the version \"2.0.5.0\" in the current target framework.\r\n\r\n10>C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\Microsoft.Common.targets(1605,5): warning MSB3258: The primary reference \"GalaSoft.MvvmLight.WP71, Version=4.3.31.28777, Culture=neutral, processorArchitecture=MSIL\" could not be resolved because it has an indirect dependency on the .NET Framework assembly \"System.Windows, Version=2.0.6.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e\" which has a higher version \"2.0.6.0\" than the version \"2.0.5.0\" in the current target framework.\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V4.4.32.1",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-04-05T11:18:51.053-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Windows Phone 7 project no  longer compiling after upgrade to 4.3.31.0",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 7633
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "\n\nNote: the previous MVVM light library  version 4.2.30.0 did work, but it seems that this previous library is no longer in the Nuget repository.\n\nFound some old MVVM sources on my system and used those in my projects ans was able to compile again the WP7 project. So it seems there is something wrong in the latest Nuget package for WP7",
+      "PostedDate": "2014-04-05T12:39:32-07:00",
+      "Id": 140671
+    },
+    {
+      "Message": "Thanks for the note. Like you I suspect something is wrong with the Nuget package. I will check it out tomorrow and let you know.\n\ncheers\nLaurent ",
+      "PostedDate": "2014-04-05T17:11:40.767-07:00",
+      "Id": 140690
+    },
+    {
+      "Message": "Probably related - there is a bug in the MVVM (PCL) NuGet package - in my WP8 project I use the EventToCommand in XAML. In version 4.2.30.0 all worked, but in 4.3.31.0 it's no longer working, because the GalaSoft.MvvmLight.Platform.dll assembly is actually built for WP8.1, not WP8!\nI had to revert to previous version of that package to continue the development.\n\nNote I have also a question, why is there separate wp8 and wpa81 folder in the NuGet package if there is already portable-net45+wp8+win8+wpa81 folder that works on that platform as well?",
+      "PostedDate": "2014-04-06T07:32:06.36-07:00",
+      "Id": 140719
+    },
+    {
+      "Message": "Thanks for the additional comment. Travelling now, I Laurent,check it asap. For now, please revert to 4.2.30 which is functionally identical.\n\ncheers\nLaurent ",
+      "PostedDate": "2014-04-06T08:13:56.493-07:00",
+      "Id": 140720
+    },
+    {
+      "Message": "thanks for the feedback, will await patiently :)",
+      "PostedDate": "2014-04-07T10:49:52.003-07:00",
+      "Id": 140840
+    },
+    {
+      "Message": "Could you do me a favor and check now with V4.4.32 (available on Nuget).\n\nI found a few issues with the WP7.1 version and I think i fixed them all.\n\nThanks!\nLaurent",
+      "PostedDate": "2014-05-11T09:24:04.97-07:00",
+      "Id": 146230
+    }
+  ]
+}

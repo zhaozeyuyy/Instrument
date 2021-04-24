@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-02-06T07:48:56.44-08:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "I have installed the binaries, then tried to install the visx but I receive an error.\r\n\r\nThese are the last lines of the log:\r\n\r\nFound installed product - Microsoft Visual Studio Express 2012 for Windows 8\r\n26/11/2012 23.22.11 - Found installed product - Global Location\r\n26/11/2012 23.22.11 - VSIXInstaller.NoApplicableSKUsException: This extension is not installable on any currently installed products.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-11-27T14:25:50.6-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Can't install visx",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7597
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Please use VS13 community edition instead of the deprecated Express edition.",
+      "PostedDate": "2015-02-06T06:58:12.977-08:00",
+      "Id": 173623
+    }
+  ]
+}

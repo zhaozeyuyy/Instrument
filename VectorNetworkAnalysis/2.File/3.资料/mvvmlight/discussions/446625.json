@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1055140",
+    "ThreadId": "446625",
+    "Html": "Hi.\r<br />\n<br />\nI'm trying to implement EventToCommand within one of my views, but when I add the code (below), then I get a parser error: \r<br />\n<br />\n&quot;A value of type 'EventToCommand' cannot be added to a collection or dictionary of type 'TriggerActionCollection'.&quot; \r<br />\n<br />\nIs this code configured correctly? Seems to be the same as many other online examples I've seen. Thanks in advance for any assistance.\r<br />\n<br />\nxmlns:galaSoft=&quot;clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.SL5&quot;\r<br />\n<br />\n&lt;i:Interaction.Triggers&gt;<br />\n<pre><code>&lt;i:EventTrigger EventName=&quot;KeyDown&quot;&gt;\n    &lt;galaSoft:EventToCommand Command=&quot;{Binding Test}&quot; PassEventArgsToCommand=&quot;True&quot; /&gt;\n&lt;/i:EventTrigger&gt;</code></pre>\n\n&lt;/i:Interaction.Triggers&gt;<br />\n",
+    "PostedDate": "2013-06-10T17:27:48.06-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

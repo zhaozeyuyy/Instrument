@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "697310",
+    "ThreadId": "279193",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I'm trying MVVM Light Toolkit for Windows 8 Developer Preview and I noticed that DialogMessage is not implemented.<br>\r\nMessageBoxButton and MessageBoxResult are no more available in Windows 8; Windows.UI.Popups.MessageDialog have been introduced with the support for up to three UICommand.</p>\r\n<p>Which is the best way to manage a dialog&nbsp;in MVVM pattern in Windows 8? If I directly use MessageDialog,&nbsp;the ViewModel knows something tha is about View.<br>\r\nI think DialogMessage is the best way to manage dialog (sending a message from the viewmodel and handling it in the view and manage callback to the viemodel).</p>\r\n<p>Are you going to implement DialogMessage also for Windows 8 version?</p>\r\n",
+    "PostedDate": "2011-11-12T02:25:50.7-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "700878",
+    "ThreadId": "279193",
+    "Html": "<p>Hi,</p>\n<p>Yes the main disadvantage of DialogMessage in the current implementation is that it uses view classes (the MessageBoxResult) in the VM. This is not very clean.&nbsp;</p>\n<p>This is the reason why i didn't port it to WIndows 8. The MessageBoxResult class is not available in WinRT, and I am planning to change the implementation in all versions to rely on booleans instead of MessageBoxResult.</p>\n<p>In the meantime, did you consider using a DialogService like I show in <a href=\"http://www.galasoft.ch/mvvmvideo2\">my MIX11 video</a>&nbsp;?</p>\n<p>&nbsp;</p>\n<p>Cheers,</p>\n<p>Laurent</p>",
+    "PostedDate": "2011-11-20T11:21:16.807-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

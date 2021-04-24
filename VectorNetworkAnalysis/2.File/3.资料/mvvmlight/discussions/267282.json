@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "650484",
+    "ThreadId": "267282",
+    "Html": "\r\n<p>Hi all,</p>\r\n<p>In my ViewModel I have this code:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre> <span style=\"color:blue\">var</span> message = <span style=\"color:blue\">new</span> DialogMessage(<span style=\"color:#a31515\">&quot;Dit artikel is al verkocht&quot;</span>, DialogMessageCallback)\r\n                {\r\n                    Button = MessageBoxButton.OK,\r\n                    Caption = <span style=\"color:#a31515\">&quot;Continue?&quot;</span>\r\n                };\r\n\r\n                Messenger.Default.Send(message);\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>And in my MainWindow.xaml.cs:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>InitializeComponent();\r\n            Messenger.Default.Register&lt;DialogMessage&gt;(\r\n               <span style=\"color:blue\">this</span>,\r\n               msg =&gt;\r\n               {\r\n                   <span style=\"color:blue\">var</span> result = MessageBox.Show(\r\n                       msg.Content,\r\n                       msg.Caption,\r\n                       msg.Button);\r\n\r\n                   <span style=\"color:green\">// Send callback</span>\r\n                   msg.ProcessCallback(result);\r\n               });\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>I copy this code from a example.</p>\r\n<p>Problem: When I send the message it always receives it but the Messagebox is only showing once. When I send it again it enters the code of the Messagebox but I don't see the Messagebox but when I check the result it's still saying OK. So he remembered the\r\n result of the previeus Messagebox...</p>\r\n<p>&nbsp;</p>\r\n<p>Any help?</p>\r\n",
+    "PostedDate": "2011-08-01T04:50:04.083-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

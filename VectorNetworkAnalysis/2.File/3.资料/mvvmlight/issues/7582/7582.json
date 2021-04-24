@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:58:28.38-07:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "int myNum = 1;\r\nvar command = new RelayCommand(() => { myNum = 2;}, () => myNum == 1);\r\n\r\nIn the code above a button is bound to the command. Before the latest update it would work but now it does not. When trying to put a break point in the canExecute, it is never even triggered when it should be.\r\n\r\nFound a work around of making the variable myNum a field of the class. Could there be a scoping issue with local variables?",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "null",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-07-26T14:58:42.783-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "RelayCommand Variable Scope Lost",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 7582
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nCan you give me more information: Which framework are you using that on? (WPF, Silverlight, Windows Phone, Windows 8)?\n\nThanks,\nLaurent\n",
+      "PostedDate": "2012-07-27T03:33:33.9-07:00",
+      "Id": 72492
+    },
+    {
+      "Message": "Hi,\n\n    Of course. I am using the WPF framework.\n\nThanks,\nMichael",
+      "PostedDate": "2012-07-27T09:46:52.483-07:00",
+      "Id": 72516
+    },
+    {
+      "Message": "Same problem here, using WPF, .NET 4. I noticed a change in the WeakAction class but am unsure if that's where the problem was introduced.",
+      "PostedDate": "2012-08-17T07:42:00.807-07:00",
+      "Id": 74451
+    }
+  ]
+}

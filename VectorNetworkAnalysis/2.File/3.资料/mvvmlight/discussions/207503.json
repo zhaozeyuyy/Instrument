@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "424435",
+    "ThreadId": "207503",
+    "Html": "<p>Salut Laurent,</p>\r\n<p>I couldn't find the model example (item.cs) in the SL4 project template. Is this on purpose?</p>\r\n<p>Ueli</p>",
+    "PostedDate": "2010-03-27T06:46:39.747-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "429973",
+    "ThreadId": "207503",
+    "Html": "<p>Hi,</p>\r\n<p>Sorry for the delay in the response.</p>\r\n<p>I removed the sample application and replaced with an empty template, because it was annoying to have to remove all the existing logic every time you wanted to create a new application.</p>\r\n<p>Currently I am considering building a reference app to demo all aspects of the MVVM Light Toolkit. This will however take a little time...</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-12T05:16:17.837-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430023",
+    "ThreadId": "207503",
+    "Html": "<p>A sample app would be cool. There is always a lot you can learn from how smarter guys wire their code up. (and how everything was meant to be)</p>\r\n<p>cu,<br>Ueli</p>",
+    "PostedDate": "2010-04-12T07:27:39.813-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

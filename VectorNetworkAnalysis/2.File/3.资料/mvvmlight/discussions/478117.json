@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1142580",
+    "ThreadId": "478117",
+    "Html": "Hi,\r<br />\n  in the ModelViewLocator I have this:<br />\n<pre><code>        SimpleIoc.Default.Register&lt;ISerializeObjects, SerializeObjects&gt;();\n        SimpleIoc.Default.Register&lt;IViewLocator, ViewLocator&gt;();\n\n        SimpleIoc.Default.Register&lt;INavigate&gt;(() =&gt;\n        {\n            return new WindowsPhoneNavigator(App.RootFrame,\n                //ServiceLocator.Current.GetInstance&lt;IViewLocator&gt;(),\n                //ServiceLocator.Current.GetInstance&lt;ISerializeObjects&gt;()\n                new ViewLocator(),\n                new SerializeObjects()\n                );\n        });\n</code></pre>\n\ncompiling I find this error\r<br />\nError\t6\tThere is already a factory registered for PortableLib.Interfaces.INavigate.\tD:\\Sorgenti\\CS 45\\WinApps\\ArtiMarzialiWp8\\App.xaml\t5\t5\tArtiMarzialiWp8\r<br />\n<br />\nbut all seems to work fine: this error happened when I moved the code in a project with the portable version of Mvvm Light\r<br />\n<br />\nI'm missing something?\r<br />\nthanks,\r<br />\n  luca<br />\n",
+    "PostedDate": "2013-12-27T08:53:13.773-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

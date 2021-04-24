@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "423213",
+    "ThreadId": "207188",
+    "Html": "<p>Thanks for providing this framework.&nbsp; I had previously been using MVVM Foundation, but decided to make the jump to this one because it offers a few additional features which I think I'll need.&nbsp;</p>\r\n<p>In my ViewModels, I had been using PropertyObserver to listen for PropertyChanged events on other VMs.&nbsp; Since MVVM Light does not seem to have a counterpart to this, what is the recommended way to achieve this?</p>\r\n<p>Here is an example scenario:&nbsp; Suppose I have a hierarchy or relatives; Parent, Child, Grandchild.&nbsp; I would like the Parent ViewModel to expose properties called &quot;ChildCount&quot; and &quot;GrandchildCount&quot; and fire PropertyChanged events for the UI to pick up.&nbsp;</p>\r\n<p>ChildCount is easy because Parent fires a PropertyChanged event whenever a Child is added/removed.&nbsp; It gets complicated because I want Parent to fire a &quot;GrandchildCount&quot; PropertyChanged event whenever one of its Children adds/removes a Grandchild.&nbsp; Right now the only way I can see to do this is in Parent, manually implement an IEventListener for each Child's ChildCount PropertyChanged event.&nbsp; This is conceptually what Josh Smith's PropertyObserver does.</p>\r\n<p>I made a sample program demonstrating this:</p>\r\n<p><a title=NestedViewModelExample.zip href=\"/jkatz2007.dreamhosters.com/wpf/NestedViewModelExample.zip\">http://jkatz2007.dreamhosters.com/wpf/NestedViewModelExample.zip</a></p>\r\n<p>It would make my day if someone can explain that I'm approaching this the wrong way, and there is actually a much easier way to do it.&nbsp;</p>\r\n<p>Thanks!</p>\r\n<p>-Justin</p>",
+    "PostedDate": "2010-03-24T13:03:30.867-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "423218",
+    "ThreadId": "207188",
+    "Html": "<p>Hi,</p>\r\n<p>I am very aware of Josh's work, as he is a colleague of mine at IdentityMine, a good friend, and someone I have been talking to about MVVM for multiple years now :) As of now, I would recommend using his PropertyObserver. This is a component that I am planning on integrating (aka stealing) in a future version of the toolkit. Josh's license allows you to copy the code into your own application, if you do not want to include an additional DLL.</p>\r\n<p>Another approach would be to use the Messenger to send messages when an event occurs. The ViewModelBase class has two overloads of the RaisePropertyChanged method. The second one (the one with oldValue and newValue) can broadcast a PropertyChangedMessage&lt;T&gt; to any listener that registered for a message of this type. However the risk of losing the overview on what you're doing is a bit bigger with the Messenger, because it is so much decoupled.</p>\r\n<p>Hope this helps,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-03-24T13:10:08.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "423230",
+    "ThreadId": "207188",
+    "Html": "<p>Laurent,</p>\r\n<p>Thanks for the amazingly fast reply.&nbsp;</p>\r\n<p>It had crossed my mind to continue using the PropertyObserver as you suggest, but I was thought it meant I was missing a piece of the puzzle while trying to grasp your MVVM Light framework.&nbsp; Thanks for the reassurance.&nbsp;</p>\r\n<p>I considered using the overload which broadcasts, but I agree that it could get messy when I have multiple instances of Parent.&nbsp; I also considered using Notification Messages, since it seems like the right tool for the job.&nbsp; It would require two lines of code though; one to inform the UI, and another to inform the VMs:</p>\r\n<p>RaisePropertyChanged(&quot;ChildCount&quot;);&nbsp; //UI picks this up<br>Messenger.Default.Send(new NotificationMessage(this, &quot;ChildCount&quot;));&nbsp; //Parent VM listens for this message, then checks if sender is type Child</p>\r\n<p>I'll stick with Josh's PropertyObserver for now as you recommend; I look forward to future MVVM Light releases.</p>\r\n<p>Thanks,<br>Justin</p>",
+    "PostedDate": "2010-03-24T13:33:11.043-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

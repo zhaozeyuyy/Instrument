@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T06:28:40.24-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": " \r\nI have created a simple universal app targeting Windows Phone 8.1 & Windows 8.1 in Visual Studio 2013. I added an android project and implemented MvvmLight.\r\n\r\nViewmodelLocator, viewmodels & messaging all work fine. Databinding also works for the windows projects.\r\n\r\nWhen I try adding databinding within the android project - at run time I get an error:\r\n 'Property not found: Text'\r\n\r\nCode snippet below.\r\n\r\n```\r\nButton bindingButton = FindViewById<Button>(Resource.Id.button1);\r\n\r\nvar vm = ViewModelLocator.Main;\r\nthis.AddBinding(() => vm.AsyncCompleted,\r\n                () => bindingButton.Text,\r\n                BindingMode.TwoWay);\r\n\r\n```\r\n\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.0.0.1",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-08-06T00:15:54.953-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Windows Universal app with android project binding error",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7652
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "OK - solved it myself.\n\nI was originally following an example from the mvvm light home page which doesn't seem to work with an Android project within a Universal App.\n\nThe answer is to specify the Actual control to add the binding to and pass the fully qualified View Model property to the binding:\n```\n        Button bindingButton  = FindViewById<Button>(Resource.Id.button1);\n\n        bindingButton.AddBinding(\n                            () => ViewModelLocator.Main.AsyncCompleted,\n                            () => bindingButton.Text,\n                            BindingMode.OneWay);\n\n```",
+      "PostedDate": "2014-08-07T02:15:46.98-07:00",
+      "Id": 154719
+    }
+  ]
+}

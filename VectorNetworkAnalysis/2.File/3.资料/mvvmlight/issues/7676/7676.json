@@ -1,0 +1,66 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-01-06T06:42:13.6-08:00",
+    "CommentCount": 4,
+    "Custom": null,
+    "Description": "I'm using SimpleIoc on my Xamarin Forms project (latest, 1.3.0.6292).\r\nOn application initialization, I register intances. I do not explicitely unregister them.\r\n\r\nNow I get the following error on Android :\r\n\r\nIf I close my application and re-open it right away, the initialization crashes because the services seems to be already registered.\r\nDebugging shows my services from the previous instance are still registered on the SimpleIoc. Among those, my navigation service with previous instances. The error causes the application to crash if not handled.\r\n\r\nI couldn't test on iOS yet.\r\n\r\nOn the attached project, a sample with Android / iOS / Forms (PCL) with an basic example (test interface / implementation / SimpleIoc Registering) for reproducing purposes. I catch the error to display it on Debug window. Note that I removed the packages to lower the size file, please reaload them.\r\nTo reproduce, close application and re-open it on Android (physical device or emulator).\r\n\r\nFew workarounds : use a key (common on all the application), try / catch, explicit unregistering…",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-01-06T04:13:08.72-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Not an issue"
+    },
+    "Summary": "SimpleIoc does not unregister properly on closing for Xamarin Forms / Android",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7676
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1382575,
+      "FileName": "MVVMLightSimpleIocIssueOnForms.zip",
+      "DownloadUrl": ".\\1382575"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nThe SimpleIoc default instance is a singleton and as such is a static instance. If you do not unregister your services, it is expected that they still registered.\n\nWhat you are observing is simply that the application is not really terminated when you close it. It's up to you to make sure to only register an instance if it is not already registered. To do that you can use the IsRegistered method which returns true if the registration occurred on the SimpleIoc instance before.\n\nAlternatively you could use a non-default SimpleIoc instance (not a static singleton), and make sure to create a new one when your application is initialized again.\n\nIf you don't think this is proper, please reply. If I don't hear back from you, I'll close the issue.\n\nCheers\nLaurent",
+      "PostedDate": "2015-01-06T04:56:02.647-08:00",
+      "Id": 169532
+    },
+    {
+      "Message": "Hi,\n\nThanks for the quick answer Laurent, I understand what you mean.\nI am actually using IsRegistered as a way to check this, and reset all my SimpleIoc in that case (to prevent the bug).\n\nWhat is actually counter-intuitive is that the App is being recreated, even though it was not terminated, while the singleton was never cleared.\nSo without a proper clearing, you still have the services from the previous instance of « App », for example the navigation service with all the previous objects. What are the states of the previous objects, I can't even tell.\n\nThis could be a major problem (even in the amazing example that was given on Xamarin Evolve), especially because it's not obvious, nor easy to understand at all.\n\nOne easy way to fix would be to reset the SimpleIoc before every init.\nThe other idea I had was to analyze the MainActivity lifecycle to reset the SimpleIoc when we reach a state where creating an App again becomes necessary (onDestroy maybe ?).\n\nWhile I agree this issue must be closed (it's not an issue on SimpleIoc), I still think this is a major problem when developping on Xamarin.Android (and probably because I initialized the SimpleIoc on the Forms project). But again, this is not specific to SimpleIoc.\n\nI can't see what to do to warn other people though. Because I garantee most of people won't detect the potential bug of initializing SimpleIoc on the App constructor. Do you have any idea ?\n\nBest regards, and thanks again for the quick answer.\nPaul",
+      "PostedDate": "2015-01-06T05:54:05.263-08:00",
+      "Id": 169535
+    },
+    {
+      "Message": "Hi Paul,\n\nYes I understand what you mean and I agree. Seems like a flaw in the Android application model. It reminds me very much of what happens in ASP.NET when you register static objects, managing the lifetime is tricky.\n\nI'll try to give some thoughts on ways to warn the user, but even that is tricky too. Hopefully by education people will learn to handle their IOC registration with care.\n\nThanks again for raising the issue.\nLaurent",
+      "PostedDate": "2015-01-06T06:41:49.893-08:00",
+      "Id": 169541
+    },
+    {
+      "Message": "Thanks for your quick and accurate answer.\n\nThe cleanest way I found was to declare a Clean() method on the Xamarin.Forms App and call it on the OnDestroy() of the Android project.\n\nThe main confusion here is that Xamarin.Forms App lifecycle is NOT the application lifecycle.\n\nIf you're interested in pursuing the discussion, I opened a topic on Xamarin forums : http://forums.xamarin.com/discussion/30372/the-dangers-of-using-singletons-in-xamarin-forms-app-constructor\n\nBest regards,\nPaul",
+      "PostedDate": "2015-01-06T08:06:32.44-08:00",
+      "Id": 169545
+    }
+  ]
+}

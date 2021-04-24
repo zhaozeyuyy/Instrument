@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "256214",
+    "ThreadId": "74854",
+    "Html": "<p>Hi</p>\r\n<p>I think, this is a little bug in the newest version of the Messenger:</p>\r\n<p>Code in function SendToList&lt;TMessage&gt;:</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">if</span> (executeAction != <span style=\"color:Blue\">null</span>\r\n    &amp;&amp; item.Action.IsAlive\r\n    &amp;&amp; item.Action.Target != <span style=\"color:Blue\">null</span>\r\n    &amp;&amp; (messageTargetType == <span style=\"color:Blue\">null</span><br>        || item.Action.Target.GetType() == messageTargetType<br>        || Implements(item.Action.Target.GetType(), messageTargetType))<br>    &amp;&amp; <span style=\"color:#ff0000\">item.Token == token</span>)<br>{<br>    executeAction.ExecuteWithObject(message);<br>}<br></pre>\r\n</div>\r\n</p>\r\n<p>must be:</p>\r\n<p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">if</span> (executeAction != <span style=\"color:Blue\">null</span>\r\n    &amp;&amp; item.Action.IsAlive\r\n    &amp;&amp; item.Action.Target != <span style=\"color:Blue\">null</span>\r\n    &amp;&amp; (messageTargetType == <span style=\"color:Blue\">null</span><br>        || item.Action.Target.GetType() == messageTargetType<br>        || Implements(item.Action.Target.GetType(), messageTargetType))<br>    &amp;&amp; <span style=\"color:#ff0000\">item.Token.Equals(token)</span>)<br>{<br>    executeAction.ExecuteWithObject(message);<br>}<br></pre>\r\n</div>\r\n</p>\r\n<p>Greets</p>\r\n<p>Etxebarria</p>",
+    "PostedDate": "2009-11-11T22:51:22.987-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "256215",
+    "ThreadId": "74854",
+    "Html": "<p>sorry, the bug was also found in a past post...</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2009-11-11T22:54:14.817-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "256813",
+    "ThreadId": "74854",
+    "Html": "<p>The bug is fixed in the latest changeset.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2009-11-13T08:30:28.68-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "432454",
+    "ThreadId": "74854",
+    "Html": "<p>Hi,</p>\r\n<p>As you are a previous user of the discussion tab on the MVVM Light Codeplex site, I would like to inform you that I decided to encourage the usage of StackOverflow for questions regarding the MVVM Light toolkit. Please tag your questions with the mvvm-light tag.</p>\r\n<p>StackOverflow is an awesome site where tons of developers help others with their technical question.</p>\r\n<p><a href=\"http://stackoverflow.com/questions/tagged/mvvm-light\">http://stackoverflow.com/questions/tagged/mvvm-light</a></p>\r\n<p>I will monitor this tag on the StackOverflow website and do my best to answer questions. The advantage of StackOverflow over the Codeplex discussion is the sheer number of qualified developers able to help you with your questions, the visibility of the question itself, and the whole StackOverflow infrastructure (reputation, up- or down-vote, comments, etc)</p>\r\n<p>Thanks!</p>\r\n<p>Laurent</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-18T11:53:03.65-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

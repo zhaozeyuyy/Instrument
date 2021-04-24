@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2016-07-20T00:55:17.523-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "http://stackoverflow.com/questions/32540874/nuget-not-working-after-windows-refresh-windows-10-vs2015-community",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.3.0",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-09-25T03:41:59.777-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Error in Install.ps1",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7706
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Thanks for the report. I am seeing the same error. I will fix ASAP and push an update to Nuget.",
+      "PostedDate": "2015-09-25T05:13:02.52-07:00",
+      "Id": 190730
+    },
+    {
+      "Message": "Fixed in V5.3.0",
+      "PostedDate": "2016-07-20T00:55:56.057-07:00",
+      "Id": 200745
+    }
+  ]
+}

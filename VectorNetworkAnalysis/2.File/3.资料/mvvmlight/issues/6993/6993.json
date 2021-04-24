@@ -1,0 +1,80 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:53:10.203-07:00",
+    "CommentCount": 8,
+    "Custom": null,
+    "Description": "To raise all PropertyChanged Events of a ViewModel in one time I can use string.Empty for the property name in PropertyChangedEventArgs.\r\nSince I use GalaSoft.MvvmLight.ViewModelBase.RaisePropertyChanged of MVVM Light, I get the runtime error: Message=Property not found ParamName=\"\" Source=GalaSoft.MvvmLight.WPF4 This is because MVVM Light check all Property-Names.\r\n\r\nI would prefer to change VerifyPropertyName in ViewModelBase\r\nto something like this code:\r\n\r\n        /// <summary>\r\n        /// Verifies that a property name exists in this ViewModel. This method\r\n        /// can be called before the property is used, for instance before\r\n        /// calling RaisePropertyChanged. It avoids errors when a property name\r\n        /// is changed but some places are missed.\r\n        /// <para>This method is only active in DEBUG mode.</para>\r\n        /// </summary>\r\n        /// <param name=\"propertyName\"></param>\r\n        [Conditional(\"DEBUG\")]\r\n        [DebuggerStepThrough]\r\n        public void VerifyPropertyName(string propertyName)\r\n        {\r\n            var myType = this.GetType();\r\n\t\t\tif propertyName <> String.empty\r\n\t\t\t{\r\n\t\t\t\tif (myType.GetProperty(propertyName) == null)\r\n\t\t\t\t{\r\n\t\t\t\t\tthrow new ArgumentException(\"Property not found\", propertyName);\r\n\t\t\t\t}\r\n\t\t\t}\r\n        }\r\n\r\nI think this is a common issue.\r\n\r\nThanks Peter",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2010-08-25T02:40:06.273-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "RaisePropertyChanged should not raise event for string.Empty",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 8,
+    "Id": 6993
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "This code prevents raising notifying the view that it should resync all properties of a view model. Either passing null or an empty sting into the RaisePropertyChanged method will cause an error in DEBUG mode. This was confirmed here http://mvvmlight.codeplex.com/discussions/212293 as a bug. However, the current version still contains the same code.",
+      "PostedDate": "2011-02-16T07:54:25.803-08:00",
+      "Id": 28834
+    },
+    {
+      "Message": "Fix is really simple, too:\n\npublic void VerifyPropertyName(string propertyName)\n{\n    if (String.IsNullOrEmpty(propertyName))\n        return;\n    var myType = this.GetType();\n    if (myType.GetProperty(propertyName) == null)\n    {\n        throw new ArgumentException(\"Property not found\", propertyName);\n    }\n}\n\nYou could also optionally put the check in the RaisePropertyChanged method, but this has the benefit of avoiding the check entirely if DEBUG is not set.",
+      "PostedDate": "2011-02-25T12:28:05.637-08:00",
+      "Id": 29648
+    },
+    {
+      "Message": "@yadyn: It is no problem to fix ist, however, this requires a change of the ViewModelBase and, therefore, generates a branch, so my intention is to get it fixed in the main branch. An alternative fix would be to allow inheriting classes access to the property changed handler so that they can implement their own special RaisePropertyChanged methods for special cases.",
+      "PostedDate": "2011-03-09T02:55:41.893-08:00",
+      "Id": 30230
+    },
+    {
+      "Message": "Will fix this in the next version, sorry for the bother.",
+      "PostedDate": "2011-05-16T02:08:59.633-07:00",
+      "Id": 35816
+    },
+    {
+      "Message": "It's still not fixed. Any quick workaround that doesn't need to modify the code (as we use a compiled DLL) would be very useful. Thx",
+      "PostedDate": "2011-09-05T09:11:35.133-07:00",
+      "Id": 43906
+    },
+    {
+      "Message": "Okay, as a quick fix that doesn't involve the code of MVVM Light Toolkit, it's possible to refresh all bindings of a view by \"resetting\" its datacontext, i.e.\n\nobject currentContext = this.DataContext;\nthis.DataContext = null;\nthis.DataContext = currentContext;\n\nBut as it must be executed by the view, it requires the view model to raise an event, so it would be VERY useful a way more simple to be able to raise property change for the string.Empty value.\nThx",
+      "PostedDate": "2011-09-06T03:04:57.317-07:00",
+      "Id": 43950
+    },
+    {
+      "Message": "Hi,\nThe issue is fixed in V4 beta 1. I am currently in the process of writing the release notes and will publish very soon. In the meantime, I pushed the installer to Skydrive: \nhttps://skydrive.live.com/redir.aspx?cid=40cffde85f1ab56a&resid=40CFFDE85F1AB56A!845\n\nThe MSI will stay available there until I push it to Codeplex. This will be the same file, so feel free to use it already. Let me know if you find issues.\n\nThanks,\nLaurent",
+      "PostedDate": "2011-09-06T03:43:41.82-07:00",
+      "Id": 43952
+    },
+    {
+      "Message": "Now works great, thanks !",
+      "PostedDate": "2011-11-22T04:50:06.283-08:00",
+      "Id": 49324
+    }
+  ]
+}

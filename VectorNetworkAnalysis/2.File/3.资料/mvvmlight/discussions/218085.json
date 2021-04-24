@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "462421",
+    "ThreadId": "218085",
+    "Html": "What would be the best way to reload the data in a collection after an addition/modification/deletion has been made from an outside source.\r\n\r\nExample. Main page loads a grid. Each row has a combobox where the itemsource is addresstype (home, po box, etc.). A user then opens another screen to add another address type. How would you post the change notification back to a control that is seperate from an already loaded control.\r\n\r\nBasically a PropertyChangedNotication from an outside source.",
+    "PostedDate": "2010-07-01T17:00:19.977-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

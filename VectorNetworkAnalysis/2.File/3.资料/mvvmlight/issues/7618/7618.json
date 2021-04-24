@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-05-11T09:36:02.787-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Cannot reference a PCL dll that uses MVVM Light PCL from a WPF application that also uses MVVM Light PCL. Problem lies in the using GalaSoft.MvvmLight.Command;\r\nIf no RelayCommands exist in PCL project reference works ok, else I get this message \r\nError\t22\tThe type or namespace name 'ModuleA' could not be found (are you missing a using directive or an assembly reference?)\r\n\r\nI m using  GalaSoft.MvvmLight.Command Version v4.0.30319\r\nNUget package Portable.MvvmLightLibs 4.1.27.6 (both projects PCL & WPF)\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2013-08-29T04:01:44.93-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Cannot repro"
+    },
+    "Summary": "Cant Reference PCL Project With MVVM Light Portable from WPF project",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7618
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I cannot reproduce this. If you still have the issue, please let me know.\n\nThanks\nLaurent",
+      "PostedDate": "2014-05-11T09:35:35.83-07:00",
+      "Id": 146233
+    }
+  ]
+}

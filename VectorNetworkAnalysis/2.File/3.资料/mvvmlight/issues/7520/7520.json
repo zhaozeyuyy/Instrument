@@ -1,0 +1,95 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:54:15.52-07:00",
+    "CommentCount": 11,
+    "Custom": null,
+    "Description": "Hi,\r\nThis method fails in Release build due to performance optimizations. Here is an article that documents the issue. I am using BL00014.\r\n\r\nhttp://mvvmlight.codeplex.com/workitem/list/basic?field=CreationDate&direction=Descending&issuesToDisplay=Open&keywords=Release&emailSubscribedItemsOnly=false\r\n\r\nThanks for a great product\r\nCraig Richards",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-03-25T22:25:02.84-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "RaisePorpertyChanged() fails in ReleaseBuild",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 6,
+    "Id": 7520
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I ran into this bug today as well. What's interesting is that it only occurs when running a release build directly from the executable (i.e., not from within Visual Studio). With Debug builds, you can run the executable or from within Visual Studio, and it works fine. The problem occurs when setting a property with RaiseProperyChanged(). A workaround for now is to just use RaisePropertyChanged(() => NameOfProperty) instead.\n\nHere's the error I received when debugging in Visual Studio:\n\nSystem.InvalidOperationException was unhandled\n  Message=This method can only by invoked within a property setter.\n  Source=GalaSoft.MvvmLight.WPF4\n  StackTrace:\n       at GalaSoft.MvvmLight.NotifyPropertyChanged.RaisePropertyChanged() in C:\\Desktop\\mvvmlight-cd110ba734ea\\mvvmlight_cd110ba734ea\\GalaSoft.MvvmLight\\GalaSoft.MvvmLight (NET35)\\NotifyPropertyChanged.cs:line 126\n       at MyProj.ViewModels.NavigationPanelViewModel.Update(Int32 periodOffset) in C:\\Documents\\Projects\\MyProj\\Designs\\Main\\Solution\\MyProj\\ViewModels\\NavigationPanelViewModel.cs:line 48\n\nAnd here's the class file in question:\n\n\n    public class NavigationPanelViewModel : ViewModelBase\n    {\n        private int _scenarioPeriod = 0;\n        private readonly int _maxScenarioPeriod;\n\n        public ICommand JumpStartCommand { get; set; }\n        public ICommand StepBackwardCommand { get; set; }\n        public ICommand StepForwardCommand { get; set; }\n\n        public int ScenarioPeriod\n        {\n            get { return _scenarioPeriod; }\n            set\n            {\n                if (value == _scenarioPeriod) return;\n                _scenarioPeriod = value;\n                RaisePropertyChanged(); // *******this is the offending line of code*******\n            }\n        }\n\n        public int MaxScenarioPeriod\n        {\n            get { return _maxScenarioPeriod; }\n        }\n\n        public NavigationPanelViewModel(MainDbContextLocator dbContextLocator)\n        {\n            _maxScenarioPeriod = dbContextLocator.Current.Contacts.Max(c => c.ScenarioPeriod);\n            JumpStartCommand = new RelayCommand(() => Update(-ScenarioPeriod + 1));\n            StepBackwardCommand = new RelayCommand(() => Update(-1));\n            StepForwardCommand = new RelayCommand(() => Update(1));\n        }\n\n        public void Update(int periodOffset)\n        {\n            var scenarioPeriod = Math.Min(MaxScenarioPeriod, Math.Max(1, ScenarioPeriod + periodOffset));\n            if (scenarioPeriod == ScenarioPeriod) return;\n            ScenarioPeriod = scenarioPeriod; // ******* this is line 48 *******\n            App.Messenger.Send<int>(scenarioPeriod, MessageToken.ScenarioPeriodChanged);\n        }\n    }",
+      "PostedDate": "2011-04-21T19:38:54.117-07:00",
+      "Id": 34636
+    },
+    {
+      "Message": "@Craig Richards: You seem to have pasted the wrong link.",
+      "PostedDate": "2011-04-21T19:40:14.93-07:00",
+      "Id": 34637
+    },
+    {
+      "Message": "I'd recommend increasing the impact of this item from low to high.",
+      "PostedDate": "2011-05-19T07:49:23.007-07:00",
+      "Id": 36055
+    },
+    {
+      "Message": "I have the same problem too (http://stackoverflow.com/questions/6770809/mvvmlight-raisepropertychanged-error-in-release-builds). I'm guessing there's some weird compiler optimisation which is interfering with the way that ObservableObject.RaisePropertyChanged() reads the StackTrace to check whether the method is being called from inside a property setter, as the stack trace doesn't include the call to RPC from within the setter.\n\nVery strange that it works from within Visual Studio but not when run from Explorer - maybe the .vshost.exe is doing something?",
+      "PostedDate": "2011-07-20T20:01:45.557-07:00",
+      "Id": 40120
+    },
+    {
+      "Message": "See this link (http://stackoverflow.com/questions/6770809/mvvmlight-raisepropertychanged-error-in-release-builds/6782662#6782662) for an explanation / solution to this problem.",
+      "PostedDate": "2011-07-21T14:00:55.62-07:00",
+      "Id": 40227
+    },
+    {
+      "Message": "@Obalix That's a work around at best not much of a solution. The only reason for using this feature is the convenience of not having to type something in between the PropertyChanged parans.",
+      "PostedDate": "2011-07-21T14:31:27.733-07:00",
+      "Id": 40229
+    },
+    {
+      "Message": "Some nice circular linking between myself and Obalix - he links to my StackOverflow question, in which I link back to this issue :-). I agree with duluca, this is definitely an issue that needs resolving, so please vote it up so that Laurent knows we consider it important! \n\nAurimas86 has already suggested a better approach, using expressions rather than a stack trace (http://mvvmlight.codeplex.com/discussions/243955). It has the double benefit of removing some more boilerplate code, so IMHO it would be a double benefit to have this fixed.",
+      "PostedDate": "2011-07-21T16:00:53.233-07:00",
+      "Id": 40235
+    },
+    {
+      "Message": "Tweetet with Laurent about it here is his answer: http://twitter.com/LBugnion/status/94173507906318337",
+      "PostedDate": "2011-07-21T21:33:10.593-07:00",
+      "Id": 40246
+    },
+    {
+      "Message": "Outstanding work guys. I have been watching this indeed and will do my best to fix it in the next release.\n\ncheers\nLaurent",
+      "PostedDate": "2011-07-21T22:04:11.517-07:00",
+      "Id": 40247
+    },
+    {
+      "Message": "Fixed in V4 beta 1",
+      "PostedDate": "2011-09-11T15:11:07.587-07:00",
+      "Id": 44518
+    },
+    {
+      "Message": "Should be a bit more explicit. I removed this method from V4 beta 1 due to the flaws. Instead I implemented the Set() method as proposed here (with a few changes). Blog post will follow.",
+      "PostedDate": "2011-09-11T15:11:56.877-07:00",
+      "Id": 44519
+    }
+  ]
+}

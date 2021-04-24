@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1410495",
+    "ThreadId": "627117",
+    "Html": "I have a user control in its own project.\r<br />\nI am using the user control in the a wpf application.\r<br />\nThe user control can not recognize the key for the viewmodellocator because that resource key is in the app resource in the wpf application.\r<br />\nSo is the viewmodelocator is in the wpf app,  how does one hook up the viewmodellocator to the user control in a different assembly?<br />\n",
+    "PostedDate": "2015-04-14T03:58:26.02-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

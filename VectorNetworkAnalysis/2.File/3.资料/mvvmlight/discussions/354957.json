@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "833557",
+    "ThreadId": "354957",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>I really like being able to get MVVM Light updates via NuGet.</p>\r\n<p>When I install MVVM Light in to an existing project, is there a way to NOT have ViewModel.cs and ViewModelLocator.cs added to the project?</p>\r\n<p>Thanks.</p>\r\n",
+    "PostedDate": "2012-05-08T10:03:31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "833677",
+    "ThreadId": "354957",
+    "Html": "\r\n<div dir=\"ltr\">\r\n<div style=\"font-family:'Calibri'; color:#000000; font-size:12pt\">\r\n<div>Hey ccbVT,</div>\r\n<div></div>\r\n<div>Try installing the “mvvmlightlibs” package instead:</div>\r\n<div></div>\r\n<div><a title=\"http://nuget.org/packages/mvvmlightlibs\" href=\"http://nuget.org/packages/mvvmlightlibs\">http://nuget.org/packages/mvvmlightlibs</a></div>\r\n<div></div>\r\n<div>That’s just the libraries and none of the project infrastructure. I use it exclusively.</div>\r\n<div></div>\r\n<div>Hope this helps!<br>\r\nMatt</div>\r\n<div style=\"font-style:normal; display:inline; font-family:'Calibri'; color:#000000; font-size:small; font-weight:normal; text-decoration:none\">\r\n<div style=\"font:10pt tahoma\">\r\n<div></div>\r\n<div style=\"background:#f5f5f5\">\r\n<div style=\"\"><b>From:</b> [email removed] </div>\r\n<div><b>Sent:</b> Wednesday, May 09, 2012 3:03 AM</div>\r\n<div><b>To:</b> [email removed] </div>\r\n<div><b>Subject:</b> Installing MVVM Light via NuGet [mvvmlight:354957]</div>\r\n</div>\r\n</div>\r\n<div></div>\r\n</div>\r\n<div style=\"font-style:normal; display:inline; font-family:'Calibri'; color:#000000; font-size:small; font-weight:normal; text-decoration:none\">\r\n<p>From: ccbVT</p>\r\n<div id=\"ThreadNotificationPostBody\">\r\n<p>Hello,</p>\r\n<p>I really like being able to get MVVM Light updates via NuGet.</p>\r\n<p>When I install MVVM Light in to an existing project, is there a way to NOT have ViewModel.cs and ViewModelLocator.cs added to the project?</p>\r\n<p>Thanks.</p>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2012-05-08T15:11:09.03-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "833732",
+    "ThreadId": "354957",
+    "Html": "<p>@mabster -- Thanks! &nbsp;I'll look for that in the future.</p>",
+    "PostedDate": "2012-05-08T17:43:03.287-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

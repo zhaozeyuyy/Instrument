@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:56:15.827-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Can we have Set<T> return true|false depending on whether an event was raised or not?\r\n\r\ne.g.\r\n        protected bool Set<T>(\r\n            Expression<Func<T>> propertyExpression,\r\n            ref T field,\r\n            T newValue,\r\n            bool broadcast)\r\n        {\r\n            if (EqualityComparer<T>.Default.Equals(field, newValue))\r\n            {\r\n                return false;\r\n            }\r\n\r\n            var oldValue = field;\r\n            field = newValue;\r\n            RaisePropertyChanged(propertyExpression, oldValue, field, broadcast);\r\n\r\n            return true;\r\n        }\r\n\r\nThen we can write code like:\r\n\r\n        if( Set(\"AProperty\", ref _aProperty, value) ){\r\n            RaisePropertyChanged(\"_readonlyDerivedFromAProperty\");\r\n        }",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-10-22T15:58:13.41-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Enhance ViewModelBase.Set/ObservableObject.Set",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 1,
+    "Id": 7551
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

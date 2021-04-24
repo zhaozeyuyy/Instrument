@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "591759",
+    "ThreadId": "252520",
+    "Html": "\r\n<p>Just starting out on MVVM design, and I would like to know how is the MVVM Light Toolkit support on SharpDevelop? At first I guess the templates woudn't work, but besides that everything else should be fine.</p>\r\n<p>Anyone has tried it? How hard would it be to convert the templates to SharpDevelop?</p>\r\n",
+    "PostedDate": "2011-04-04T19:50:41.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "591838",
+    "ThreadId": "252520",
+    "Html": "<p>Hi,</p>\r\n<p>I am not super familiar with #develop. The project templates, item templates and code snippets in MVVM Light are targeted at Visual Studio, so there is a possibility that they do not work on #develop (except of course if the team decided to support the same formats, which would be a clever thing to do I guess). The components in the DLLs will work just fine, since eventually this is all .NET.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-04-05T01:01:47.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

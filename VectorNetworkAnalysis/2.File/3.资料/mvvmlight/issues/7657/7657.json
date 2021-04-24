@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T06:26:00.65-07:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "I am attempting to evaluate MVVM light for use in a commercial application, and it would seem that the assemblies are not signed?  I see this issue going back as far as June:\r\n\r\nhttps://mvvmlight.codeplex.com/discussions/549725\r\n\r\nIs this going to be fixed any time soon?  Is this the normal turn around for such a trivial item?  I was really hopeful this library would meet our needs, but it is not looking good so far.  \r\n\r\nIf it is expected that we download and build the code ourselves if we want signed assemblies, then that should be documented somewhere.  I have been on google now for far to long looking for someone that has a resolution to this issue.\r\n\r\nAny help is most appreciated.\r\n\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.0.0.1",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-09-03T13:06:55.517-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "MVVM Light 4.4.32.1 is not signed",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7657
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I noticed the library only files were newer than the full install.  It would appear the full install is signed.  Is the libraries only abandoned?",
+      "PostedDate": "2014-09-03T13:22:52.527-07:00",
+      "Id": 158746
+    },
+    {
+      "Message": "Hi,\n\nNo it's not normal and I will fix it in the next few days. Apologies for the inconvenience. \n\nLaurent",
+      "PostedDate": "2014-09-03T13:32:21.257-07:00",
+      "Id": 158747
+    },
+    {
+      "Message": "Much appreciated.  Thanks for the quick response.",
+      "PostedDate": "2014-09-03T14:04:36.98-07:00",
+      "Id": 158753
+    }
+  ]
+}

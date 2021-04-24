@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T06:25:04.1-07:00",
+    "CommentCount": 0,
+    "Custom": "",
+    "Description": "I get the following error only when I deploy my WPF app using ClickOnce:\n\nThe invocation of the constructor on type 'xxxx.ViewModelLocator' that matches the specified binding constraint threw an exception.\n   at System.Windows.Markup.WpfXamlLoader.Load(.....\n\nThis is my first ClickOnce deployment and of course I need to deploy quickly.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2010-10-28T12:53:08.86-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Cannot repro"
+    },
+    "Summary": "Error when deploying WPF in ClickOnce",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7511
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

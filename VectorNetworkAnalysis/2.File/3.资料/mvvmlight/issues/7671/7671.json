@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-02-15T10:14:15.23-08:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Just a minor issue, when using the PCL version of MvvmLight 5.0.2.0 in WP8 app, the ViewModelBase.IsInDesignModeStatic getter throws inner ArgumentNullException. For people with OCD, that don't like Exception logs in the Output windows this could be an issue :)\r\n\r\nProblem is in ViewModelBase.cs, line 207 and it can be fixed like this:\r\n```\r\n// now\r\nvar dmp = dm.GetTypeInfo().GetDeclaredField(\"IsInDesignModeProperty\").GetValue(null);\r\n\r\n// fixed\r\nif (dm == null) return false;\r\nvar dmp = dm.GetTypeInfo().GetDeclaredField(\"IsInDesignModeProperty\").GetValue(null);\r\n```\r\n\r\nThis is probably not the only place where similar exception could happen in this file. It's also better performance-wise to handle these errors manually and not using one big try/catch statement.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "null",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-11-24T07:17:41.33-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Exception in IsInDesignModeNet() in WP8 app",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7671
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Fixed in V5.1 (upcoming)",
+      "PostedDate": "2015-02-06T11:06:12.417-08:00",
+      "Id": 173667
+    }
+  ]
+}

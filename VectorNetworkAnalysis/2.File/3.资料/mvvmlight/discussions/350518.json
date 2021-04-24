@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "817295",
+    "ThreadId": "350518",
+    "Html": "\r\n<p>My question extends that expressed in a question on&nbsp;<a href=\"http://stackoverflow.com/questions/6020497/wpf-v4-mvvm-light-v4-bl16-mix11-relaycommand-canexecute-doesnt-fire/6038673#comment12275847_6038673  \">Stack Overflow - RelayCommand V4 - Can Execute\r\n Doesn't Fire</a>.</p>\r\n<p>I am a WPF developer and was wondering how this should work for me (Or a Silverlight developer I guess). We now need to:</p>\r\n<pre><code><span>RaiseCanExecuteChanged</span></code></pre>\r\n<p>On any property change which affects the command in question.&nbsp;What was the motivation for removing the automatic&nbsp;revaluation&nbsp;of the property?</p>\r\n<p>I'm not criticising the change, just interested as to the thought process.</p>\r\n<p>Thanks so much for your framework!</p>\r\n<p>Gav</p>\r\n",
+    "PostedDate": "2012-03-29T10:36:02.16-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "839249",
+    "ThreadId": "350518",
+    "Html": "<p>Hey,</p>\r\n<p>Sorry for the delay. In V4 RC, I restored the functionality as it was before. I really dislike the CommandManager a LOT because you basically have no control over it. I much prefer to RaiseCanExecuteChanged manually. However changing it brought more issues than it solved, notably because it is a breaking change. I thus decided to revert back to the old implementation.</p>\r\n<p>Sorry for the confusion.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2012-05-22T00:18:25.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

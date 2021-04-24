@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "435045",
+    "ThreadId": "210445",
+    "Html": "<p>Does mvvm-light handle memory ok?&nbsp; Specifically, if I register or subscribe to a message from within an instance, and that instance gets dropped from memory (and doesnt have a chance to unregister or unscubscribe)... what about the reference the messaging system had?&nbsp; Does it get removed?&nbsp;&nbsp;Or will it build up a memory leak?</p>",
+    "PostedDate": "2010-04-24T15:27:18.043-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435138",
+    "ThreadId": "210445",
+    "Html": "<p>Hi,</p>\r\n<p>All the recipients who subscribed to receive a message through the Messenger are weak-referenced. I recommend unregistering if you can, in order to have a cleaner process, &nbsp;but if you forget or don't have the possibility to unregister, the instances will be garbage collected anyway and do not cause a memory leak.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-25T04:03:37.74-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

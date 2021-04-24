@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "637082",
+    "ThreadId": "263838",
+    "Html": "\r\n<p>Hi Laurent,</p>\r\n<p>I'm not sure if it could be useful for someone else, but I think it could be helpful, especially in finding programming errors, if there is an attribute indicating that the given message type supports only single recipient. So if we try to register more\r\n than one recipients for the given message type (with the same token) an error could be thrown.</p>\r\n",
+    "PostedDate": "2011-07-04T08:56:14.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

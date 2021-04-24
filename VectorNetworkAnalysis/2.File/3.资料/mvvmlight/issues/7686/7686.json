@@ -1,0 +1,75 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 7,
+    "Custom": null,
+    "Description": "I have a page where I check if the user is logged or not in the `Activate` method, and if there is a session, I navigate to some other page, something like this:\r\n```\r\npublic void Activate(object parameter) {\r\n    if(userLogged) {\r\n        this._navigationService.NavigateTo(\"MyPage\", \"args\");\r\n    }\r\n}\r\n```\r\nI found that this does not work. For it to work I have to Delay about 100 miliseconds before doing the navigation. So it looks something like this:\r\n```\r\npublic async void Activate(object parameter) {\r\n    if(userLogged) {\r\n        await Task.Delay(100);\r\n        this._navigationService.NavigateTo(\"MyPage\", \"args\");\r\n    }\r\n}\r\n```\r\nNow, I'm not sure if this should be the normal behaviour or not, but I think my scenario is pretty reasonable. So if this is not an issue please explain me how I could correctly do this.\r\n\r\nRegards.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "null",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-03-03T06:54:35.203-08:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Navigation on Activate",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7686
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nNavigation on Android devices is synchronous, so I don't see why this should happen in your application. \n\nIs userLogged a field or a property? Does it do something which could explain why the delay is needed?\n\nThanks\nLaurent",
+      "PostedDate": "2015-03-03T10:19:29.813-08:00",
+      "Id": 176902
+    },
+    {
+      "Message": "I'm doing this in a Windows Phone 8.1 app.\nThe `userLogged` flag is already set so there is not await in the process. The code is executed fine, but the navigation does not occur.",
+      "PostedDate": "2015-03-03T10:29:41.807-08:00",
+      "Id": 176905
+    },
+    {
+      "Message": "OK I see. And when is the Activate method called exactly in the page's lifecycle?\n\nIdeally I'd love to see the whole source code. Any way to make that happen?\n\nThanks\nLaurent",
+      "PostedDate": "2015-03-03T12:12:11.517-08:00",
+      "Id": 176913
+    },
+    {
+      "Message": "I managed to create a test project showing the behaviour I described. You can download it here: [http://1drv.ms/1F8vbMG](http://1drv.ms/1F8vbMG)",
+      "PostedDate": "2015-03-04T02:21:45.677-08:00",
+      "Id": 176959
+    },
+    {
+      "Message": "Hi,\n\nI investigated the issue. It seems to be a problem of the Windows Phone Frame. I will pass this bug to the Microsoft phone team and will let you know what they say. I am a bit reluctant to fix that right now without getting their input first. \n\nInstead of delaying with Task.Delay, you can also use:\n\n```\nDispatcherHelper.RunAsync(\n    () => _navigationService.NavigateTo(NavigationConstants.ThirdPage, \"args\"));\n```\n\nWhat this does is put the navigation instruction at the end of the instructions queue on the UI thread. This gives the device the time to process all UI instructions first before the navigation occurs. More efficient than the Task.Delay, but still a hack anyway.\n\nI'll report back here when I find something out from the Windows Phone team\n\nCheers\nLaurent",
+      "PostedDate": "2015-04-01T01:34:40.537-07:00",
+      "Id": 180607
+    },
+    {
+      "Message": "FWIW I created a repro which does not use MVVM Light (just to help focus the discussion on the actual bug, which is a Frame issue).\n\nhttp://1drv.ms/1NBhwRc",
+      "PostedDate": "2015-04-01T02:10:07.097-07:00",
+      "Id": 180611
+    },
+    {
+      "Message": "Only now I saw your response, didn't get the email update... :/\n\nEither way thank you very much for your help. :)",
+      "PostedDate": "2015-08-26T10:33:40.56-07:00",
+      "Id": 189609
+    }
+  ]
+}

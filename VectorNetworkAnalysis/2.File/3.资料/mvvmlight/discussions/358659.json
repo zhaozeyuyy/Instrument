@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "845819",
+    "ThreadId": "358659",
+    "Html": "\r\n<p>Hi, I've just started using MVVM Light with a Windows 8 Metro App, and I'm trying to understand a couple of things about how ViewModelBase / ObservableObject Set() methods work.</p>\r\n<p>ObservableObject.Set() returns true if the property was changed. Is there a reason why ViewModelBase.Set() does not behave in the same fashion?</p>\r\n<p>Is there a reason why the ViewModelBase.Set() implementation does not call through to the ObservableObject.Set() methods?</p>\r\n<p>Is there a reason why ViewModelBase.Set() implementations do not raise property changing events?</p>\r\n",
+    "PostedDate": "2012-06-06T18:45:54.943-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "847178",
+    "ThreadId": "358659",
+    "Html": "<p>Hi,</p>\r\n<p>Very interesting questions, I had to check it out myself.</p>\r\n<p>1) Why does ObservableObject.Set return true and not ViewModelBase.Set? This is an oversight and will be fixed in V4 RTM.</p>\r\n<p>2) Is there a reason why ViewModelBase.Set does not call through OO.Set? Mostly this is because of the Broadcast feature that is only in the VMBase class. This feature allows you to specify that in addition to setting the value, you also want to send a PropertyChangedMessage using the VMBase's MessengerInstance.</p>\r\n<p>3) ViewModelBase.Set not raising PropertyChanging event was an oversight too. Not sure what i was thinking :)</p>\r\n<p>Cheers and thanks a lot for the feedback.</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2012-06-10T12:45:27.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

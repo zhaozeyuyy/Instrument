@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "I want to be able to use an EventToCommand trigger action on a storyboard so I can invoke a command on my view model when the storyboard completes.  Right now this throws a XamlParseException with the message:\r\n\r\nCannot attach type \"EventToCommand\" to type \"Storyboard\". Instances of type \"EventToCommand\" can only be attached to objects of type \"FrameworkElement\"",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2010-08-24T12:14:02.66-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Use EventToCommand on Storyboards",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 4,
+    "Id": 6979
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Really awesome if this could be implemented.",
+      "PostedDate": "2015-01-23T07:06:45.947-08:00",
+      "Id": 170713
+    }
+  ]
+}

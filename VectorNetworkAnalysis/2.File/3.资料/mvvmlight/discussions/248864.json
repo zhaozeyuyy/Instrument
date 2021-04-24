@@ -1,0 +1,90 @@
+[
+  {
+    "Id": "577178",
+    "ThreadId": "248864",
+    "Html": "\r\n<p>I have used Nuget to include a MvvmLight reference in my WPF 4.0 solution, and it works, but includes 10 Mb of files in project structure path: snippets, templates and dll for all implementations (WPF 3.5 and 4, SL 3 and 4 and WP7). I can't include all this\r\n in my SCM, so I have to clean them before checkin (I'm using TFS, which proposes me to upload all those files).</p>\r\n<p>I would have preferred that there was one Nuget package for each technology, so I can get only MvvmLight for WPF 4.0. Also templates and snippets should be appart, so I could get it separatelly (or maybe via another Nuget package). It would make the process\r\n more straightforward, only taking into account required files.</p>\r\n<p>I just have commented this with Laurent via Twitter, but now I realize this is the appropiate channel to do this suggestion.</p>\r\n",
+    "PostedDate": "2011-03-08T06:29:49.613-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "577229",
+    "ThreadId": "248864",
+    "Html": "<p>Hi,</p>\r\n<p>Thanks for the feedback. As already mentioned on Twitter, the Nuget package is an independant initiative. I will take a look and see if I can propose a better solution.</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-03-08T08:24:13.48-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "580295",
+    "ThreadId": "248864",
+    "Html": "<p>For info, I \"reclaimed ownership\" of the Nuget MVVM Light package. It means that I can now modify it at will.</p>\r\n<p>My plan is to make a new version with only the binaries. As far as I can see, the download should include all versions of the DLLs (SL3, SL4, WP7, WPF3.5 and WPF4) but that should be less heavy than it is now. I don't think that adding the snippets and&nbsp;templates makes much sense for a Nuget package. Does it?</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-03-14T14:12:24.783-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "580307",
+    "ThreadId": "248864",
+    "Html": "\r\n<div dir=\"ltr\">\r\n<div style=\"font-family:'Calibri'; color:#000000; font-size:12pt\">\r\n<div>I believe it’s possible to script the installation of snippets etc using Nuget’s PowerShell integration, but I don’t see the point in including them. A lightweight installer just for those pieces that users could download separately would make more sense,\r\n I reckon.</div>\r\n<div></div>\r\n<div>It’ll be interesting to see how small you can get the package, Laurent. The existing one was weighing in at over 10MB, from memory – big enough that it stopped me from wanting to use Nuget to add MVVM Light to my projects.</div>\r\n<div></div>\r\n<div>Matt</div>\r\n<div style=\"font-style:normal; display:inline; font-family:'Calibri'; color:#000000; font-size:small; font-weight:normal; text-decoration:none\">\r\n<div style=\"font:10pt tahoma\">\r\n<div></div>\r\n<div style=\"background:#f5f5f5\">\r\n<div style=\"\"><b>From:</b> [email removed] </div>\r\n<div><b>Sent:</b> Tuesday, March 15, 2011 8:12 AM</div>\r\n<div><b>To:</b> [email removed] </div>\r\n<div><b>Subject:</b> Re: Packages on Nuget [mvvmlight:248864]</div>\r\n</div>\r\n</div>\r\n<div></div>\r\n</div>\r\n<div style=\"font-style:normal; display:inline; font-family:'Calibri'; color:#000000; font-size:small; font-weight:normal; text-decoration:none\">\r\n<p>From: lbugnion</p>\r\n<div id=\"x_x_ThreadNotificationPostBody\">\r\n<p>For info, I &quot;reclaimed ownership&quot; of the Nuget MVVM Light package. It means that I can now modify it at will.</p>\r\n<p>My plan is to make a new version with only the binaries. As far as I can see, the download should include all versions of the DLLs (SL3, SL4, WP7, WPF3.5 and WPF4) but that should be less heavy than it is now. I don't think that adding the snippets and templates\r\n makes much sense for a Nuget package. Does it?</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2011-03-14T14:19:47.72-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "580339",
+    "ThreadId": "248864",
+    "Html": "<p>If we keep only the binaries, and even if all the available versions are downloaded (which I am not sure they are, being unfamiliar with how Nuget downloads the packages), this should total around 1MB maximum. I will try it out and then maybe you can test it. Stay tuned.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-03-14T14:42:41.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "580345",
+    "ThreadId": "248864",
+    "Html": "<p>BTW I should add that we are working on an automated installer for MVVM Light and the goal is to have it ready by MIX11.</p>",
+    "PostedDate": "2011-03-14T14:44:14.38-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "580381",
+    "ThreadId": "248864",
+    "Html": "<font size=\"2\"><font face=\"verdana,sans-serif\">\r\n<div><font size=\"2\"><font face=\"verdana,sans-serif\">I have to point that 1 package per technology was a better approach, this is just what is needed for a project, and you can always get another nuget package for other project in same solution. Also, with this\r\n min-sized packages the user would choose platform on nuget explorer, and after that he has not to modify files or references.</font></font></div>\r\n<div><font size=\"2\"><font face=\"verdana,sans-serif\">In this case, you can even include snippets/templates for each platform in each package (with a more complicated package content) without an excesive size (1-2 Mb).</font></font></div>\r\n<div><font size=\"2\"><font face=\"verdana,sans-serif\"><br>\r\n</font></font></div>\r\nOne more question: by &quot;Automated installer&quot; do you mean &quot;outside nuget&quot;, right? By now, I will prefer nuget platform.<br clear=\"all\">\r\n<br>\r\n</font></font>\r\n<div><font size=\"2\"><font face=\"verdana,sans-serif\">Thanks Laurent,</font></font>\r\n<div><font size=\"2\"><font face=\"verdana,sans-serif\"><br>\r\n</font></font></div>\r\n<div><font size=\"2\"><font face=\"verdana,sans-serif\">Pablo<br>\r\n</font></font>\r\n<div><br>\r\n</div>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2011-03-14T15:25:36.803-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "580596",
+    "ThreadId": "248864",
+    "Html": "<p>Hey Pablo,</p>\n<p>About 1 package per technology, I tend to disagree. Nuget has a mechanism allowing to add different technologies in the same package (in subfolders), allowing the correct technology to be picked automatically. I think it is less confusing for the user, as he is just picking \"MVVM Light\" from the catalog, instead of having to pick \"MVVM Light for Silverlight 4\" for instance. Also, this clutters the catalog less, offering only one global MVVM Light package.</p>\n<p>Regarding the automated installer, this is something that installs everything (snippets and templates in Studio, binaries in C:\\program files, etc) while Nuget installs only the references to the binaries. However this will note replace Nuget, it's just a different offering.</p>\n<p>Makes sense?</p>\n<p>Cheers,</p>\n<p>Laurent</p>",
+    "PostedDate": "2011-03-15T01:44:00.507-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "580616",
+    "ThreadId": "248864",
+    "Html": "<font size=\"2\"><font face=\"verdana,sans-serif\">Ok Laurent,</font></font>\r\n<div><font size=\"2\"><font face=\"verdana,sans-serif\"><br>\r\n</font></font></div>\r\n<div><font size=\"2\"><font face=\"verdana,sans-serif\">My point of view was focused on TFS (or other SCM), where I have to ignore/exclude all the other dll versions I don't gonna need. BTW, as you said current MvvmLight nuget package works well on choosing right\r\n dll's for current project, and truthly it's better to expose just one package for-all-tech, it's easier for the user.</font></font></div>\r\n<div><font size=\"2\"><font face=\"verdana,sans-serif\"><br>\r\n</font></font></div>\r\n<div><font size=\"2\"><font face=\"verdana,sans-serif\">I understand, and at least now I'll only have to remove a few Kb versus almost 10 Mb. I'm thinking that maybe my request is more for nuget team than for you.<br clear=\"all\">\r\n</font></font><font face=\"verdana, sans-serif\"><br>\r\n</font></div>\r\n<div><font face=\"verdana, sans-serif\">Thanks for your work, Laurent.</font></div>\r\n<div><font face=\"verdana, sans-serif\"><br>\r\n</font></div>\r\n<div><font face=\"verdana, sans-serif\">Pablo.</font></div>\r\n",
+    "PostedDate": "2011-03-15T02:18:24.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "590414",
+    "ThreadId": "248864",
+    "Html": "<p>Hi Laurent,</p>\r\n<p>&nbsp;</p>\r\n<p>Just a suggestion. It would be fine if you provide 2 packages :</p>\r\n<p>- a MVVM core package, with only&nbsp;GalaSoft.MvvmLight.dll</p>\r\n<p>- a MVVM full package, with core and Extras.dll and Interactivity.dll</p>\r\n<p>Thanks for your great library.</p>",
+    "PostedDate": "2011-04-01T12:33:23.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "590420",
+    "ThreadId": "248864",
+    "Html": "<p>Hi,</p>\r\n<p>Good idea. That might be what I end up doing.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-04-01T12:48:42.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

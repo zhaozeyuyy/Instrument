@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "929144",
+    "ThreadId": "399998",
+    "Html": "\r\n<p>Will MVVM lite work on all the platforms above.&nbsp; I am working on an application that I want to run on all three platforms so this is important to me.</p>\r\n",
+    "PostedDate": "2012-10-18T20:10:57.487-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "929604",
+    "ThreadId": "399998",
+    "Html": "<p>Hi,</p>\r\n<p>Yes MVVM Light works already on WinRT and I will publish an update for Windows Phone 8 as soon as the SDK will be made public. I already have one in fact, but I cannot distribute DLLs as long as the SDK is private, sorry.</p>\r\n<p>Cheers<br />Laurent</p>",
+    "PostedDate": "2012-10-19T13:05:38.417-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "929702",
+    "ThreadId": "399998",
+    "Html": "\r\n<div style=\"font-family:Calibri,'Segoe UI',Meiryo,'Microsoft YaHei UI','Microsoft JhengHei UI','Malgun Gothic','Khmer UI','Nirmala UI',Tunga,'Lao UI',Ebrima,sans-serif; font-size:16px\">\r\n<div>That is very cool. I was worried that I would have to look at other options if MVVM lite was not going to support all three platforms for a while.\r\n</div>\r\n<div></div>\r\n<div>Thanks for the quick reply.</div>\r\n<div>\r\n<div></div>\r\n<div>Sent from Windows Mail</div>\r\n<div></div>\r\n</div>\r\n<div style=\"border-top-color:rgb(225,225,225); border-top-width:1px; border-top-style:solid\">\r\n<strong>From:</strong> lbugnion<br>\r\n<strong>Sent:</strong> ‎October‎ ‎19‎, ‎2012 ‎3‎:‎05‎ ‎PM<br>\r\n<strong>To:</strong> pcresourcesllc@hotmail.com<br>\r\n<strong>Subject:</strong> Re: Win8, Window RT and WP8 Support [mvvmlight:399998]<br>\r\n</div>\r\n<div></div>\r\n<p>From: lbugnion</p>\r\n<div id=\"ThreadNotificationPostBody\">\r\n<p>Hi,</p>\r\n<p>Yes MVVM Light works already on WinRT and I will publish an update for Windows Phone 8 as soon as the SDK will be made public. I already have one in fact, but I cannot distribute DLLs as long as the SDK is private, sorry.</p>\r\n<p>Cheers<br>\r\nLaurent</p>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2012-10-19T19:38:43.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943274",
+    "ThreadId": "399998",
+    "Html": "\r\n<p>There's a PCL version that already supports all of the platforms, including WP8, here:</p>\r\n<p><a href=\"https://nuget.org/packages/Portable.MvvmLightLibs\">https://nuget.org/packages/Portable.MvvmLightLibs</a></p>\r\n",
+    "PostedDate": "2012-11-17T09:16:29.377-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943278",
+    "ThreadId": "399998",
+    "Html": "\r\n<p>Note however that I am not supporting the PCL version, at least not yet. The PCL version uses some unofficial DLLs to support the System.Windows.Interactivity namespace.</p>\r\n<p>There is a Windows Phone 8 version available in V4.1 of MVVM Light, see the Download section of this site.</p>\r\n<p>Thanks</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2012-11-17T09:23:31.213-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943290",
+    "ThreadId": "399998",
+    "Html": "\r\n<p>The DLLs are the signed, official Microsoft ones, at least for platforms other than NetCore4.5/Metro.</p>\r\n<p>Regards,<br>\r\nOren</p>\r\n",
+    "PostedDate": "2012-11-17T10:46:54.487-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943293",
+    "ThreadId": "399998",
+    "Html": "\r\n<p>OK I guess I misunderstood the &quot;unofficial&quot; moniker then. Maybe a better naming would be wise here, I know for sure that &quot;unofficial&quot; is going to frighten some people.</p>\r\n<p>Cheers<br>\r\nLaurent</p>\r\n",
+    "PostedDate": "2012-11-17T10:50:09.553-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

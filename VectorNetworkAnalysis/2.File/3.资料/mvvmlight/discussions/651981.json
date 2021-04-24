@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1465256",
+    "ThreadId": "651981",
+    "Html": "Why ISimpleIoc interface does not contain something as basic as GetInstance(Of T) method for getting registered instance?<br />\n",
+    "PostedDate": "2016-03-02T04:42:32.01-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1465260",
+    "ThreadId": "651981",
+    "Html": "Historically, the idea of most IOC containers was that people would use the ServiceLocator to get access to instances. But I agree with you, these days people are coming away a bit of the CommonServiceLocator pattern and many don't mind using ISimpleIoc all over. I will add the Get methods to it in a future version. Thanks for the feedback.<br />\n",
+    "PostedDate": "2016-03-02T05:09:13.663-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": "2016-03-02T05:40:48.353-08:00"
+  }
+]

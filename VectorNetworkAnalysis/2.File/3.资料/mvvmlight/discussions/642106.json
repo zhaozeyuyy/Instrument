@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1436474",
+    "ThreadId": "642106",
+    "Html": "With the introduction of Visual Studio 2015 we also get some now C# 6 features. I was playing around with this to improve my viewmodels and run into some issues/questions\r<br />\n<br />\n<strong>1. Set &amp; nameof() operator</strong>\r<br />\nWhat is preferred:<br />\n<pre><code>Set(() =&gt; MyProperty, ref _myProperty, value);</code></pre>\n\nor <br />\n<pre><code>Set(nameof(MyProperty, ref _myProperty, value);</code></pre>\n\n<strong>2. ICommand &amp; Auto-property initializers/Expression-bodied function members</strong>\r<br />\n<em>Auto-property initializers</em><br />\n<pre><code>public ICommand MyCommand { get; } = new RelayCommand(DoSomething);</code></pre>\n\nThis does not work because DoSomething needs to be a static member\r<br />\n<br />\n<em>Expression-bodied function members</em><br />\n<pre><code>public ICommand MyCommand =&gt; new RelayCommand(DoSomething);</code></pre>\n\nThis works, but then every time the MyCommand property is called\\bind a new instance of a relaycommand is created. Is this an issue?\r<br />\n<br />\nI would like to get some other opinions<br />\n",
+    "PostedDate": "2015-07-29T02:45:25.76-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

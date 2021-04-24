@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "537015",
+    "ThreadId": "238682",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I need to select multiple items from a ListBox. Since &quot;SelectedItems is not a DependencyProperty&quot;, I have created a EventToCommand as given in the MVVM Light sample for the datagrid.</p>\r\n<p>&nbsp;&lt;ListBox x:Name =&quot;LeftListBox&quot; Grid.Row=&quot;1&quot; Grid.Column=&quot;1&quot;&nbsp; Width=&quot;100&quot; HorizontalAlignment=&quot;Right&quot; Height=&quot;250&quot; SelectionMode=&quot;Extended&quot;&nbsp; ItemsSource=&quot;{Binding Path=LeftSearchFields}&quot;&gt;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;i:Interaction.Triggers&gt;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;i:EventTrigger EventName=&quot;SelectionChanged&quot;&gt;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;cmd:EventToCommand<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Command=&quot;{Binding LeftListSelectionChangedCommand, Mode=OneWay}&quot;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CommandParameter=&quot;{Binding SelectedItems, ElementName=LeftListBox}&quot;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /&gt;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/i:EventTrigger&gt;<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp; &lt;/i:Interaction.Triggers&gt;<br>\r\n&nbsp;&lt;/ListBox&gt;</p>\r\n<p>&nbsp;</p>\r\n<p>However, the Command parameter - &quot;SelectedItems&quot; doesnt seem to hold the selectedItems at all. Is there anything I am missing?</p>\r\n<p>Thanks</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp; &nbsp;</p>\r\n<div id=\"x__mcePaste\" style=\"width:1px; height:1px; overflow:hidden; top:0px; left:-10000px\">\r\n&#65279;</div>\r\n",
+    "PostedDate": "2010-12-16T14:34:56.823-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "537061",
+    "ThreadId": "238682",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>In what platform?</p>\r\n<p>In Silverlight, SelectedItems is not a dependency property, so bindings to that property are OneTime only. The binding is not updated when the value changes.</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2010-12-16T16:41:27.16-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:53:26.833-07:00",
+    "CommentCount": 5,
+    "Custom": null,
+    "Description": "Hello,\r\n\r\nWhen i use EventToCommand in a DataTemplate like this :\r\n\r\n <DataTemplate x:Name=\"PushPinTemplate\">\r\n        <map:Pushpin Location=\"{Binding Location}\" PositionOrigin=\"Center\" >\r\n                <i:Interaction.Triggers>\r\n                    <i:EventTrigger EventName=\"ManipulationStarted\">\r\n                        <mvvmLight:EventToCommand CommandParameter=\"{Binding}\" Command=\"{Binding Source={StaticResource Locator}, Path=Main.DispositifManipulationStartedCommand, Mode=OneWay}\"/>\r\n                    </i:EventTrigger>\r\n                    <i:EventTrigger EventName=\"ManipulationCompleted\">\r\n                        <mvvmLight:EventToCommand CommandParameter=\"{Binding}\" Command=\"{Binding Source={StaticResource Locator}, Path=Main.DispositifManipulationCompletedCommand, Mode=OneWay}\"/>\r\n                    </i:EventTrigger>\r\n                </i:Interaction.Triggers>\r\n                <map:Pushpin.Template>\r\n                    <ControlTemplate>\r\n  \t\t\t ....            \r\n                    </ControlTemplate>\r\n                </map:Pushpin.Template>\r\n            </map:Pushpin>\r\n  </DataTemplate>\r\n\r\nI have tried something like that :    \r\n       \r\nAdded an evenToCommand on the PushPin template :\r\n<i:EventTrigger EventName=\"Unloaded\">\r\n     <mvvmLight:EventToCommand CommandParameter=\"{Binding RelativeSource={RelativeSource Self}}\" Command=\"{Binding Source={StaticResource Locator}, Path=Main.RemoveTriggersCommand}\"/>\r\n</i:EventTrigger>\r\n\r\nThen the method : \r\n        private void RemoveTriggers(Control c)\r\n        {\r\n           var triggers = Interaction.GetTriggers(c);\r\n            foreach (var trigger in triggers)\r\n            {\r\n                foreach (EventToCommand action in trigger.Actions)\r\n                {\r\n                    action.ClearValue(EventToCommand.CommandProperty);\r\n                    action.ClearValue(EventToCommand.CommandParameterProperty);\r\n                    action.Detach();\r\n                }\r\n                trigger.Detach();\r\n            }\r\n            triggers.Clear();          \r\n        } \r\n\r\nBut memory usage keep growing up. How can i do ?\r\n\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2010-11-25T09:43:20.11-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "EventToCommand Memory Leak (Windows Phone 7 SP1 Toolkit)",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7512
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I've tried this also but same result :/\n\n        private void RemoveTriggers(DependencyObject c)\n        {\n            Interaction.GetTriggers(c).Clear();\n            Interaction.GetBehaviors(c).Clear();\n            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(c); i++)\n            {\n                var child = VisualTreeHelper.GetChild(c, i);\n                RemoveTriggers(child);\n            }\n        } \n\nI've read this too if it can help : http://blog.thekieners.com/2010/11/09/expression-blend-samples-not-working-with-silverlight-4-and-wpf-4/ \n\n",
+      "PostedDate": "2010-11-25T10:10:26.007-08:00",
+      "Id": 19110
+    },
+    {
+      "Message": "Having spent several hours on this one -  I'm not sure that the problem is actually within the EventToCommand code.  The BindingListener version that is included in the Mvvmlight Extras build is quite different (dated?) from the one in the current Expression.Samples.Interactivity.DataHelpers source tree but in either case the internal Detach() method (which clears the references preventing garbage collection) is only called when behaviours/triggers are explicitly removed from their associated control.  The following link is an excellent write up of this:\n\nhttp://www.sztronka.com/2010/01/behaviors-triggers-and-memory-leaks-in.html\n\nBasically the solution is to include the static  'Unwire' method (same as RemoveTriggers ?) described in the above link somwehere in your app and then call it when the page/Framework element is no longer required.  For MVVM EventToCommand with its own version of BindingListener this would appear to be sufficient but for other behaviours etc from the Expression.Samples.Interactivity library the proposed fixes to the BindingListener class are also required.  I haven't had the time to test all scenarios: my test page with buttons/EventToCommand now finalizes when expected.  If you didn't get the Unwire/RemoveTriggers to work it is probably that you have behaviours other than EventToCommand ie. Samples Behaviours on your page. \n\nThe other link that might help with testing (especially the finalize method) is here:\n\nhttp://sartorialsolutions.wordpress.com/2010/10/15/wp7-detecting-memory-leaks/\n\nOne word of warning on the Unwire() method - you want to be certain that the user will not be coming back to the page.  In particular do not use the unload event as the tigger if the page in question is not the last page in a navigation pathway since unload fires even when the navigation is forwards (the page is unloaded in the visual sense but will be redisplayed when the user naviagtes back). The back key event (plus any of your own buttons/events that result in backward navigation) should be used.",
+      "PostedDate": "2011-03-06T15:40:16.767-08:00",
+      "Id": 30082
+    },
+    {
+      "Message": "If i'm not mistaken, issue arises because RelayCommand keeps CanExecuteChanged handlers in memory.\nhttp://mvvmlight.codeplex.com/workitem/7532\nhttp://www.dotnetpatterns.net/entries/22-Workaround-for-Databinding-problem-with-the-LayoutTransform-found-in-the-SL-Toolkit.?goto=prev",
+      "PostedDate": "2011-08-11T07:19:03.393-07:00",
+      "Id": 42469
+    },
+    {
+      "Message": "I don't think having a Unwure method is the right thing to do. It would be much better to simply not have EventToCommand listen to the CanExecuteChanged event. It doesn't work right anyways, it just stomps on the IsEnabled property in a ham-fisted fashion.",
+      "PostedDate": "2011-10-18T12:35:00.61-07:00",
+      "Id": 47187
+    },
+    {
+      "Message": "Blogged on how to solve this : http://atomaras.wordpress.com/2012/04/23/solving-mvvmlights-eventtocommand-memory-leak-wp7/",
+      "PostedDate": "2012-04-23T17:55:46.823-07:00",
+      "Id": 63092
+    }
+  ]
+}

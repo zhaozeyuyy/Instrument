@@ -1,0 +1,66 @@
+[
+  {
+    "Id": "439170",
+    "ThreadId": "211626",
+    "Html": "<p>Hello Everyone,</p>\r\n<p>First, thank you for your job and your project :)</p>\r\n<p>I would like to know when the version MVVMLight will be compatible with WP7 April Refresh.</p>\r\n<p>Because since i use the last CTP of Microsoft, my project don't compile with MVVMLight libraries.</p>\r\n<p>Thank you for your answers.</p>\r\n<p>A french developer</p>",
+    "PostedDate": "2010-05-05T02:00:13.153-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "439201",
+    "ThreadId": "211626",
+    "Html": "<p>Hi,</p>\r\n<p>What problems exactly are you facing? There is a known issue when you use System.Windows.Interactivity.dll (it is unfortunately an issue that is not easy to solve, and out of my control. I am working on a fix, but I am not sure when I can have it).</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-05-05T03:32:19.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "439212",
+    "ThreadId": "211626",
+    "Html": "<p>Correction: I was mistaken, the issue with Sys.Windows.Iteractivity.dll does not seem to hit MVVM Light. I would love to know what issue you are facing, so that I can publish a corrective if needed.</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-05-05T04:25:28.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "439883",
+    "ThreadId": "211626",
+    "Html": "Can anyone have this XAML work with WP7?\r\n\r\n&lt;Button Content=&quot;New Game&quot; cmd:ButtonBaseExtensions.Command=&quot;{Binding TestCommand}&quot; /&gt;\r\n\r\nI have to add the &quot;GalaSoft.MvvmLight&quot; from the SL3 assemblies for this to compile. \r\n\r\nIf I just add the toolkit assemblies for WP7 (instead of SL3) it doesn't know what &quot;ButtonBaseExtensions&quot; is.\r\n\r\nVery confusing.",
+    "PostedDate": "2010-05-06T07:46:56.483-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "439964",
+    "ThreadId": "211626",
+    "Html": "<p>Hi,</p>\r\n<p>You do not need the SL3 assemblies. The ButtonBaseExtension is included in the&nbsp;GalaSoft.MvvmLight.WP7.dll. Simply add</p>\r\n<p>xmlns:cmd=&quot;clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.WP7&quot;</p>\r\n<p>in your&nbsp;PhoneApplicationPage to import the namespace, and then you can use the&nbsp;cmd:ButtonBaseExtensions.Command property.</p>\r\n<p>Hope that helps,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-05-06T09:35:33.27-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "440412",
+    "ThreadId": "211626",
+    "Html": "my bad.\r\n\r\nturns out the mvvm light assemblies weren't getting unblocked from &quot;C:\\Program Files\\Laurent Bugnion (GalaSoft)\\Mvvm Light Toolkit\\Binaries\\WP7&quot;\r\n\r\nI &quot;unblocked&quot; them but the changes were never getting saved from that location.\r\n\r\nI ended up copying the assemblies to my desktop where I could properly unblock them and everything worked after.",
+    "PostedDate": "2010-05-07T09:50:05.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "440416",
+    "ThreadId": "211626",
+    "Html": "<p>Happy to hear. The blocking &quot;feature&quot; burned me a few times too... I wish I could opt out of that.</p>\r\n<p>&nbsp;</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-05-07T10:14:58.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "569648",
+    "ThreadId": "211626",
+    "Html": "<p>Hi all,</p>\r\n<p>Just see this post because I was having the same problem.</p>\r\n<p>My experience was that the Intellisence proposed me only \"Command\" Namspace from the GalaSoft.MvvmLight.Extras.WP7 assembly&nbsp;even when GalaSoft.MvvmLight.WP7 assembly was referenced too ( I admit I was also too quick in adding this NameSpace to my xaml). So I wrote the xmlns my self without using Intellisence.</p>\r\n<p>Hope this can help someone else.</p>\r\n<p>Regards,</p>\r\n<p>Benoit.</p>",
+    "PostedDate": "2011-02-21T07:51:22.913-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

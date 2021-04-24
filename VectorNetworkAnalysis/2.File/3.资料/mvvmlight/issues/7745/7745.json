@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Hi Laurent,\r\n\r\nDo you have any idea about that ? is it possible or not ? and with x:Bind too ?\r\n\r\nI am have update trouble but if i put that in an awaited dispatcher call then it seems to work\r\n\r\nawait DispatchHelper.RunAsyncHigh(() =>\r\n\t\t\t{\r\n\t\t\t\tCurrentFolder = string.IsNullOrEmpty(CatalogService.Instance.Settings.Folder) ?\r\n\t\t\t\t   \"Selectionner un repository\" : CatalogService.Instance.Settings.Folder;\r\n\t\t\t});\r\n\r\nThanks\r\nGuillaume\r\n",
+    "LastUpdatedDate": "2017-02-09T12:04:38.563-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2017-02-09T12:04:38.563-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "UWP : Update binding in async methods",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7745
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

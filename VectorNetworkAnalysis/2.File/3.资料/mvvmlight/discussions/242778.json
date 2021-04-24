@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "553331",
+    "ThreadId": "242778",
+    "Html": "\r\n<p>Hi Laurent,</p>\r\n<p>I know you generally monitor stack overflow, but &nbsp;thought I'd post this here as well just to put a suggestion in for the next release. &nbsp;See my original SO post:</p>\r\n<p><a href=\"http://stackoverflow.com/questions/4728293/mvvm-light-dispatcherhelper-unit-testing-w-mstest\">http://stackoverflow.com/questions/4728293/mvvm-light-dispatcherhelper-unit-testing-w-mstest</a></p>\r\n<p>You gave me some good advice in your answer, but I ended up solving my problem with an update to the DispatcherHelper.Initialize() method. &nbsp;Take a look and see if it is something you think could be updated in the next version of Mvvm Light. &nbsp;From\r\n my limited scope of knowledge, it seems pretty safe, but you may have different thoughts.</p>\r\n<p>Thanks for this great toolkit! &nbsp;My team and I are using and loving it!</p>\r\n<p>Brian</p>\r\n",
+    "PostedDate": "2011-01-21T09:19:43.003-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

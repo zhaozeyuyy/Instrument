@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 4,
+    "Custom": null,
+    "Description": "We use a lot of bindings to observable collections. I couldn't find a way to detach a Command binding which causes issues when views are recycled and those views get bound again with view models. Basically I causes the commands to fire on the previously attached viewmodels as well.  ",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.4.0 (planning)",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-01-18T05:51:36.047-08:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Detach of Command Bindings",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 2,
+    "Id": 7717
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I have working code that can be used instead of the SetCommand extension method that will return an object with all the handlers that then can be used to detach. Here is the code\n\npublic static class BindingExtension\n    {\n        public static CommandBinding SetCommandEx(\n            this object element,\n            string eventName,\n            RelayCommand command)\n        {\n            var t = element.GetType();\n            var e = t.GetEvent(eventName);\n\n            if (e == null)\n            {\n                throw new ArgumentException(\"Event not found: \" + eventName, \"eventName\");\n            }\n\n            EventHandler handler = (s, args) =>\n            {\n                if (command.CanExecute(null))\n                {\n                    command.Execute(null);\n                }\n            };\n\n            e.AddEventHandler(\n                element,\n                handler);\n\n            var enabledProperty = t.GetProperty(\"Enabled\");\n            if (enabledProperty != null)\n            {\n                enabledProperty.SetValue(element, command.CanExecute(null));\n            }\n\n            EventHandler canExecuteHandler = (s, args) =>\n            {\n                if (enabledProperty != null)\n                {\n                    enabledProperty.SetValue(element, command.CanExecute(null));\n                }\n            };\n            \n            command.CanExecuteChanged += canExecuteHandler;\n\n            CommandBinding binding = new CommandBinding(element,eventName,handler,command, canExecuteHandler);\n            return binding;\n        }\n    }\n\n    public class CommandBinding\n    {\n        private readonly object _element;\n        private readonly string _eventName;\n        private readonly EventHandler _handler;\n        private readonly RelayCommand _command;\n        private readonly EventHandler _canExecuteHandler;\n\n        public CommandBinding(object element, string eventName,EventHandler handler, RelayCommand command, EventHandler canExecuteHandler)\n        {\n            _element = element;\n            _eventName = eventName;\n            _handler = handler;\n            _command = command;\n            _canExecuteHandler = canExecuteHandler;\n        }\n\n        public void Detach()\n        {\n            var t = _element.GetType();\n            var e = t.GetEvent(_eventName);\n\n            if (e == null)\n            {\n                throw new ArgumentException(\"Event not found: \" + _eventName, \"eventName\");\n            }\n            e.RemoveEventHandler(_element, _handler);\n            _command.CanExecuteChanged -= _canExecuteHandler;\n        }\n    }",
+      "PostedDate": "2016-01-18T05:53:48.647-08:00",
+      "Id": 195556
+    },
+    {
+      "Message": "Hey I just wanted to give some feedback and inform about the status. I initially wanted to take this feature in V5.3 which I will release at Evolve in less than 2 weeks. After starting to work on it, I realize that I need to write a few unit tests first to make sure that I don't introduce regressions. I am not sure if I will manage to do this before Evolve. As a consequence, I am moving this feature to V5.4. I already started working on it, so I am confident that I can release V5.4 (which will be a smaller update than V5.3) in a reasonable time.\n\nI like what you are doing here, and I will release something very similar. I already improved the Binding framework to allow data binding between items and elements in lists, and this goes in the same direction exactly. I am also taking this feature in the \"Next Steps\" slide of my Evolve presentation.\n\nThanks!\nLaurent",
+      "PostedDate": "2016-04-17T06:58:33.303-07:00",
+      "Id": 198665
+    },
+    {
+      "Message": "That's awesome. Thanks for the update.\nSteffen",
+      "PostedDate": "2016-04-17T16:36:09.773-07:00",
+      "Id": 198670
+    },
+    {
+      "Message": "Any news on this issue or V5.4? Is the work that was started included in V5.4-alpha?",
+      "PostedDate": "2017-02-27T18:49:50.54-08:00",
+      "Id": 207579
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1150990",
+    "ThreadId": "484093",
+    "Html": "Using Visual Studio 2013, Win7.  Installed MVVM Light and got a message that RelayCommand.cs was not found.  Discovered I was using the wrong version (found correct version <a href=\"http://mvvmlight.codeplex.com/discussions/476853\" rel=\"nofollow\">here</a>).  Still getting error message.<br />\n<br />\nFirst of all, I use VB and the extension is CS.  Could that be the problem?<br />\n<br />\nI noticed a line in the Disassembly that refers to net 35.  Do I need to uninstall the incorrect version first. then reinstall the correct version?  I just installed the correct over the wrong.<br />\n<br />\nI did a search for this file and it is on my c drive.<br />\n<br />\n<img src=\"C:\\Users\\emtest\\Pictures\\capture.jpg\" alt=\"Image\" /><br />\n<br />\n(sorry, cannot upload the image for some reason.  Here's the line in question:  g:\\GalaSoft\\mydotnet\\MvvmLight\\Source\\GalaSoft.MvvmLight\\GalaSoft.MvvmLight (NET35)\\Command\\RelayCommand.cs <br />\n<br />\nThanks.<br />\n",
+    "PostedDate": "2014-01-08T10:03:42.93-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1151021",
+    "ThreadId": "484093",
+    "Html": "Disregard.  I posted this to StackOverflow instead<br />\n",
+    "PostedDate": "2014-01-08T11:25:56.653-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1169479",
+    "ThreadId": "484093",
+    "Html": "This is not being answered in StackOverflow.  Can it be answered here, please?  <br />\n",
+    "PostedDate": "2014-01-15T09:12:52.93-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1169517",
+    "ThreadId": "484093",
+    "Html": "Hi,\r<br />\n<br />\nYou are getting an error which is independent of MVVM Light, but the error is thrown from within the RelayCommand, this is why it is looking for the source code file.\r<br />\n<br />\nIn my experience, errors in the RelayCommand are often caused by invalid casts, i.e. you expect a parameter of type A but in fact it is of type B. It would help if you would post the actual error message that you are getting. Just ignore the disassembly message.\r<br />\n<br />\nThanks\r<br />\nLaurent<br />\n",
+    "PostedDate": "2014-01-15T09:26:11.477-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

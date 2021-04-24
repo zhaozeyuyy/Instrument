@@ -1,0 +1,341 @@
+[
+  {
+    "Id": "0",
+    "Name": "MVVM Light V5.3.0",
+    "DevelopmentStatus": "Stable",
+    "Description": "Most work in this release will be around Data Binding in Xamarin. A few other issues should be solved there too.\nAvailable only through Nuget:\nWith scaffolding: [url:https://www.nuget.org/packages/MvvmLight/]\nLibraries only: [url:https://www.nuget.org/packages/MvvmLightLibs/]",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2016-07-20T00:36:45.633-07:00",
+    "Files": []
+  },
+  {
+    "Id": "1",
+    "Name": "MVVM Light V5.0.2",
+    "DevelopmentStatus": "Stable",
+    "Description": "Fixing a few bugs and issues.\nSee [url:http://www.mvvmlight.net/installing/changes]",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2014-10-20T13:46:45.587-07:00",
+    "Files": [
+      {
+        "Id": "88843466-29ac-422e-8ef9-198709626800",
+        "FileName": "MvvmLight.VS2013.vsix",
+        "Url": "./1/88843466-29ac-422e-8ef9-198709626800",
+        "Type": "Application",
+        "UploadDate": "2014-10-20T13:46:42.857-07:00"
+      },
+      {
+        "Id": "a6167c70-edd8-4581-b872-5bfcfc6ae18c",
+        "FileName": "MvvmLight.VS2012.vsix",
+        "Url": "./1/a6167c70-edd8-4581-b872-5bfcfc6ae18c",
+        "Type": "Application",
+        "UploadDate": "2014-10-20T13:46:43.9-07:00"
+      }
+    ]
+  },
+  {
+    "Id": "2",
+    "Name": "MVVM Light V4.4.32.1",
+    "DevelopmentStatus": "Stable",
+    "Description": "Available only on Nuget for the time being, an installer is in preparation.\n\nUse\nhttps://www.nuget.org/packages/MvvmLightLibs/\n(non-PCL)\n\nOr:\nhttps://www.nuget.org/packages/Portable.MvvmLightLibs/\n(PCL)",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2014-05-11T09:21:47.86-07:00",
+    "Files": []
+  },
+  {
+    "Id": "3",
+    "Name": "MVVM Light V4.2.30.0",
+    "DevelopmentStatus": "Stable",
+    "Description": "From this version, no more MSI! Instead, we now use the faster VSIX to deploy MVVM Light to your machines.\n\nPlease uninstall previous versions of MVVM Light from Programs and Features before installing this version.\n\nThis version currently supports Visual Studio 2012 and Visual Studio 2013 (Pro, Premium and Ultimate). Stay tuned for support for Express editions coming up. Make sure to download and install the correct VSIX file, depending if you use VS2012 or VS2013!\n\nThank you for your continuous support of MVVM Light!",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2014-10-13T02:27:02.453-07:00",
+    "Files": [
+      {
+        "Id": "ab801514-4126-45f9-88a6-d137daf6284f",
+        "FileName": "MvvmLight.VS2013.vsix",
+        "Url": "./3/ab801514-4126-45f9-88a6-d137daf6284f",
+        "Type": "Application",
+        "UploadDate": "2013-12-02T05:09:39.733-08:00"
+      },
+      {
+        "Id": "287ef27c-b9e6-4800-ba64-a5f83858d31e",
+        "FileName": "MvvmLight.VS2012.vsix",
+        "Url": "./3/287ef27c-b9e6-4800-ba64-a5f83858d31e",
+        "Type": "Application",
+        "UploadDate": "2013-12-02T05:03:17.64-08:00"
+      },
+      {
+        "Id": "c42c969a-86d7-48a3-a420-50fdcce7d153",
+        "FileName": "MvvmLight.VS2013SilverlightExpress.vsix",
+        "Url": "./3/c42c969a-86d7-48a3-a420-50fdcce7d153",
+        "Type": "Application",
+        "UploadDate": "2013-12-02T05:00:18.8-08:00"
+      },
+      {
+        "Id": "5b7511c2-54c0-4823-9c71-cd89ef12ac7e",
+        "FileName": "MvvmLight.VS2013WindowsExpress.vsix",
+        "Url": "./3/5b7511c2-54c0-4823-9c71-cd89ef12ac7e",
+        "Type": "Application",
+        "UploadDate": "2013-12-02T05:00:19.02-08:00"
+      },
+      {
+        "Id": "e25ce4bc-d618-44b6-954d-752fc5e8e08a",
+        "FileName": "MvvmLight.VS2013WinPhoneExpress.vsix",
+        "Url": "./3/e25ce4bc-d618-44b6-954d-752fc5e8e08a",
+        "Type": "Application",
+        "UploadDate": "2013-12-02T05:00:19.13-08:00"
+      },
+      {
+        "Id": "446c679b-3e9c-49bb-9648-39e73762884c",
+        "FileName": "MvvmLight.VS2013WpfExpress.vsix",
+        "Url": "./3/446c679b-3e9c-49bb-9648-39e73762884c",
+        "Type": "Application",
+        "UploadDate": "2013-12-02T05:00:19.363-08:00"
+      }
+    ]
+  },
+  {
+    "Id": "4",
+    "Name": "MVVM Light Toolkit V4.1 for Visual Studio 2012",
+    "DevelopmentStatus": "Stable",
+    "Description": "This version *only supports Visual Studio 2012* (and all Express editions too). If you use Visual Studio 2010, please stay tuned, we will publish an update in a few days with support for VS10.\n\nV4.1 supports:\n* Windows Phone 8\n* Windows 8 (Windows RT)\n* Silverlight 5\n* Silverlight 4\n* WPF 4.5\n* WPF 4\n* WPF 3.5\n\nAnd the following development environments:\n* Visual Studio 2012 (Pro, Premium, Ultimate)\n* Visual Studio 2012 Express for Windows 8\n* Visual Studio 2012 Express for Windows Phone 8\n* Visual Studio 2012 Express for Web \n* Visual Studio 2012 Express for Windows Desktop",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2014-10-13T02:28:26.033-07:00",
+    "Files": [
+      {
+        "Id": "4a90a46c-c80f-41c0-bead-6d1721364916",
+        "FileName": "GalaSoft.MvvmLight.4.1.24.0.msi",
+        "Url": "./4/4a90a46c-c80f-41c0-bead-6d1721364916",
+        "Type": "Application",
+        "UploadDate": "2012-10-30T09:29:02.623-07:00"
+      }
+    ]
+  },
+  {
+    "Id": "5",
+    "Name": "MVVM Light Toolkit V4 RTM",
+    "DevelopmentStatus": "Stable",
+    "Description": "Update 4.0.23.4: Update for Windows 8. Assemblies did not change, only the project template did.\n\nUpdate: 4.0.23.3: Reduced the depth of the installation path for VSIX packages, that was causing issues on some systems (path too long). The only change is in the installer and the VSIX. If you were able to install correctly, no need to install this version. \n\nUpdate: 4.0.23.2 corrects a small issue with the binaries on new projects on Windows 8 (WinRT) only.\n\n*The issue with the installer is fixed, sorry for the problems folks*\n\nThis version supports Silverlight 3, Silverlight 4, Silverlight 5, WPF 3.5 SP1, WPF4, Windows Phone 7.0 and 7.5, WinRT (Windows 8).\n\nSupport for Visual Studio 2010 and Visual Studio 2012 RC.",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2012-08-24T12:45:46.39-07:00",
+    "Files": [
+      {
+        "Id": "327f3591-86dc-4aec-a1e9-8ddb693ba4a4",
+        "FileName": "GalaSoft.MvvmLight.4.0.23.4.msi",
+        "Url": "./5/327f3591-86dc-4aec-a1e9-8ddb693ba4a4",
+        "Type": "Application",
+        "UploadDate": "2012-08-24T12:44:29.12-07:00"
+      }
+    ]
+  },
+  {
+    "Id": "6",
+    "Name": "MVVM Light Toolkit V4 beta 1",
+    "DevelopmentStatus": "Beta",
+    "Description": "Update 20120201: Fixed some issues with project templates, improved them.\n\nUpdate 20111218: Added Silverlight 5 to the mix.\n\nUpdate 20111007: Corrected a small error in the MSI that could cause the setup to fail\n\nThis is another preview of MVVM Light V4 and is tagged \"beta 1\". The API should be pretty stable. I am planning another beta (\"beta 2\") before making a final V4 release.\n\nList of changes is available at [url:http://www.galasoft.ch/mvvm/installing/changes/].",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2014-10-13T02:27:50.437-07:00",
+    "Files": [
+      {
+        "Id": "6c4aa367-f7bc-4733-8a39-c5ebdfd97783",
+        "FileName": "GalaSoft.MvvmLight.V4beta1.4.0.2.19.msi",
+        "Url": "./6/6c4aa367-f7bc-4733-8a39-c5ebdfd97783",
+        "Type": "Application",
+        "UploadDate": "2012-01-02T12:09:36.277-08:00"
+      }
+    ]
+  },
+  {
+    "Id": "7",
+    "Name": "MVVM Light Toolkit V3 SP1 Installer",
+    "DevelopmentStatus": "Stable",
+    "Description": "Update 20120125: Again a bug fix in WPF4 project template\n\nUpdate 20120102: Improvements/Bug fixes to project templates.\n\nUpdate 20111218: Added Silverlight 5 to the mix.\n\nUpdate 20111007: Corrected a small error in the MSI that could cause the setup to fail\n\n! Automated installer and support for non-English systems\n\nYes, finally MVVM Light comes with an installer! Installation instructions at [url:http://www.galasoft.ch/mvvm/installing].\nPlease send comments and bug reports to laurent (at) galasoft (dot) ch\n\nNote that the previous version (before 1st of September 2011) was partly failing on non-English systems. The current version corrects this issue.",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2012-01-24T15:22:08.75-08:00",
+    "Files": [
+      {
+        "Id": "e0983c44-0fa0-4c7c-b722-4f23a3dab5bf",
+        "FileName": "GalaSoft.MvvmLight.V3.0.3.19.msi",
+        "Url": "./7/e0983c44-0fa0-4c7c-b722-4f23a3dab5bf",
+        "Type": "Application",
+        "UploadDate": "2012-01-24T15:22:08.36-08:00"
+      }
+    ]
+  },
+  {
+    "Id": "8",
+    "Name": "MVVM Light Toolkit V3 SP1 (4)",
+    "DevelopmentStatus": "Stable",
+    "Description": "There was a small issue with the previous release that caused errors when installing the templates in VS10 Express. This release corrects the error. Only use this if you encountered issues when installing the previous release. No changes in the binaries.",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2011-02-06T08:58:14.35-08:00",
+    "Files": [
+      {
+        "Id": "d6b6faff-a26a-4c61-9b64-808401c5ff7b",
+        "FileName": "GalaSoft.MvvmLight.V3SP1WithHotfix.zip",
+        "Url": "./8/d6b6faff-a26a-4c61-9b64-808401c5ff7b",
+        "Type": "Application",
+        "UploadDate": "2011-02-06T08:58:13.663-08:00"
+      }
+    ]
+  },
+  {
+    "Id": "9",
+    "Name": "MVVM Light Toolkit V3 SP1 (3)",
+    "DevelopmentStatus": "Stable",
+    "Description": "Instructions for installation: [url:http://www.galasoft.ch/mvvm/installing/manually/]\n\nIncludes the hotfix templates for Windows Phone 7 development. This is only relevant if you didn't already install the hotfix described at [url:http://blog.galasoft.ch/archive/2010/07/22/mvvm-light-hotfix-for-windows-phone-7-developer-tools-beta.aspx].",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2011-02-06T08:35:36.587-08:00",
+    "Files": [
+      {
+        "Id": "dd30c005-59b5-443d-8b85-ea19978aaf2f",
+        "FileName": "GalaSoft.MvvmLight.V3SP1WithHotfix.zip",
+        "Url": "./9/dd30c005-59b5-443d-8b85-ea19978aaf2f",
+        "Type": "Application",
+        "UploadDate": "2011-01-23T07:44:12.827-08:00"
+      }
+    ]
+  },
+  {
+    "Id": "10",
+    "Name": "MVVM Light Toolkit V3 SP1 (2)",
+    "DevelopmentStatus": "Stable",
+    "Description": "Notice: If you are using the Windows Phone 7 tools RTM version, you need to install a hotfix after you install V3 SP1. The procedure is described at\n[url:http://blog.galasoft.ch/archive/2010/07/22/mvvm-light-hotfix-for-windows-phone-7-developer-tools-beta.aspx]\n\nSuper minor update to accommodate the new Blend 4 RC.\n\nOnly changes:\n* The path to the Blend 4 templates changed to be \"My Documents\\Expression\\Blend 4\" instead of \"My Documents\\Expression\\Blend 4 beta\"\n\nIf you have V3 SP1 installed already, simply change the name of this folder by removing the \"beta\" and you should be good to go.\n\nNo other changes.\n\nAs usual, installation instructions are at [url:http://www.galasoft.ch/mvvm/installing/manually/]",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2010-10-27T16:08:24.73-07:00",
+    "Files": [
+      {
+        "Id": "d75143f5-a3c5-49c0-ada3-1bfa7568bbdf",
+        "FileName": "GalaSoft.MvvmLight.V3SP1.zip",
+        "Url": "./10/d75143f5-a3c5-49c0-ada3-1bfa7568bbdf",
+        "Type": "Application",
+        "UploadDate": "2010-04-18T06:20:02.26-07:00"
+      }
+    ]
+  },
+  {
+    "Id": "11",
+    "Name": "MVVM Light Toolkit V3 SP1",
+    "DevelopmentStatus": "Stable",
+    "Description": "This release can be installed on top of V3, and adds the following features:\n\n* Project and Item templates for Visual Studio 10 Express (phone edition).\nUnzip these files in your “My Documents” folder, and you can now create a new MVVM Light application in the WinPhone7 version of Visual Studio 2010 Express.\n\n* Signed assemblies:\nAll the assemblies are now signed, which is a requirement in certain build configurations.\n\n* XML documentation files:\nThanks to Matt Casto for pinging me and reminding me that I had forgotten to include them (doh).\n\n* New and improved Windows Phone 7 assemblies and templates\n\nFor more information, see\n[url:http://blog.galasoft.ch/archive/2010/04/03/mvvm-light-toolkit-v3-sp1-for-windows-phone-7.aspx]\n\nInstallation: follow the instructions on \n[url:http://www.galasoft.ch/mvvm/installing/manually]",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2010-04-04T05:46:43.38-07:00",
+    "Files": [
+      {
+        "Id": "67e78202-5447-4b4f-bd8a-5daa8ef6b019",
+        "FileName": "GalaSoft.MvvmLight.V3SP1.zip",
+        "Url": "./11/67e78202-5447-4b4f-bd8a-5daa8ef6b019",
+        "Type": "Application",
+        "UploadDate": "2010-04-04T05:46:43.13-07:00"
+      }
+    ]
+  },
+  {
+    "Id": "12",
+    "Name": "MVVM Light Toolkit V3",
+    "DevelopmentStatus": "Stable",
+    "Description": "Download the Zip file and extract it to a local folder. Then, follow the instructions on the Installation page [url:http://www.galasoft.ch/mvvm/installing/manually]",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2010-03-17T05:19:58.887-07:00",
+    "Files": [
+      {
+        "Id": "e77737df-d045-4663-8184-0427765d689c",
+        "FileName": "GalaSoft.MvvmLight.V3.zip",
+        "Url": "./12/e77737df-d045-4663-8184-0427765d689c",
+        "Type": "Application",
+        "UploadDate": "2010-03-17T05:19:58.7-07:00"
+      }
+    ]
+  },
+  {
+    "Id": "13",
+    "Name": "GalaSoft.MvvmLight V3 alpha1",
+    "DevelopmentStatus": "Alpha",
+    "Description": "MVVM Light Toolkit V3 Alpha 1: [url: http://blog.galasoft.ch/archive/2009/10/27/mvvm-light-toolkit-v3-alpha-1.aspx]",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2009-10-27T13:06:36.447-07:00",
+    "Files": [
+      {
+        "Id": "34da053a-cc31-4247-bde1-397effe66cd9",
+        "FileName": "V3.0-BL0009-alpha1.zip",
+        "Url": "./13/34da053a-cc31-4247-bde1-397effe66cd9",
+        "Type": "Application",
+        "UploadDate": "2009-10-26T00:56:28.55-07:00"
+      }
+    ]
+  },
+  {
+    "Id": "14",
+    "Name": "MVVM Light Toolkit V2",
+    "DevelopmentStatus": "Stable",
+    "Description": "More information about MVVM Light Toolkit: [url: http://www.galasoft.ch/mvvm/getstarted].\nWhat's new in V2: [url: http://blog.galasoft.ch/archive/2009/10/03/mvvm-light-toolkit-v2-whatrsquos-new.aspx].",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2009-10-17T13:10:18.233-07:00",
+    "Files": [
+      {
+        "Id": "e8a48271-c284-4af9-b29a-727eeed3bf7c",
+        "FileName": "MvvmLightToolkit.Setup.msi",
+        "Url": "./14/e8a48271-c284-4af9-b29a-727eeed3bf7c",
+        "Type": "Application",
+        "UploadDate": "2009-10-17T11:16:21.463-07:00"
+      }
+    ]
+  },
+  {
+    "Id": "15",
+    "Name": "Triage",
+    "DevelopmentStatus": "Planning",
+    "Description": "This is a temporary place to store issues while they are triaged",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2014-10-13T02:27:26.297-07:00",
+    "Files": []
+  },
+  {
+    "Id": "16",
+    "Name": "MVVM Light V5.4.0 (planning)",
+    "DevelopmentStatus": "Planning",
+    "Description": "This is the \"After Evolve\" release, the one where I am packing the stuff I cannot put in V5.3 because of timing.",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2016-04-17T07:04:19.05-07:00",
+    "Files": []
+  },
+  {
+    "Id": "17",
+    "Name": "MVVM Light V5.3.1 (planning)",
+    "DevelopmentStatus": "Planning",
+    "Description": "A few bug fixes and installer for VS extension.",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2016-07-20T00:37:54.01-07:00",
+    "Files": []
+  },
+  {
+    "Id": "18",
+    "Name": "MVVM Light V5.2.0",
+    "DevelopmentStatus": "Stable",
+    "Description": "See the Release Notes at http://www.mvvmlight.net/installing/changes\n\nThis version is available for Windows 10 Universal application too (Visual Studio 2015). \n\nMake sure to select the right VSIX for your development environment!",
+    "ReleasedDatge": "0001-01-01T00:00:00",
+    "ModifiedDate": "2015-09-01T06:37:41.517-07:00",
+    "Files": [
+      {
+        "Id": "34cc60e5-34e4-4c03-91c8-81c66e7d734d",
+        "FileName": "MvvmLight.VS2015.vsix",
+        "Url": "./18/34cc60e5-34e4-4c03-91c8-81c66e7d734d",
+        "Type": "Application",
+        "UploadDate": "2015-09-01T06:37:40.55-07:00"
+      },
+      {
+        "Id": "2f53ff50-b5a6-40eb-8ac9-c5ad352edab2",
+        "FileName": "MvvmLight.VS2013.vsix",
+        "Url": "./18/2f53ff50-b5a6-40eb-8ac9-c5ad352edab2",
+        "Type": "Application",
+        "UploadDate": "2015-09-01T06:37:40.797-07:00"
+      },
+      {
+        "Id": "b1612a86-bebc-490f-9195-ad3b9a3552f1",
+        "FileName": "MvvmLight.VS2012.vsix",
+        "Url": "./18/b1612a86-bebc-490f-9195-ad3b9a3552f1",
+        "Type": "Application",
+        "UploadDate": "2015-09-01T06:37:40.97-07:00"
+      }
+    ]
+  }
+]

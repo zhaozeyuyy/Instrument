@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "571923",
+    "ThreadId": "247523",
+    "Html": "\r\n<p>Not too important but... you accidentally included some vssver2.scc file in the latest download</p>\r\n",
+    "PostedDate": "2011-02-24T21:03:38.273-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "572036",
+    "ThreadId": "247523",
+    "Html": "<p>Very weird considering I moved the Mercurial ages ago ;-) thanks for the note, I will check it out.</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-02-25T02:13:18.23-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

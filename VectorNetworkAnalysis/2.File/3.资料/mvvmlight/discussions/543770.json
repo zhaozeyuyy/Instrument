@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1239438",
+    "ThreadId": "543770",
+    "Html": "Hi, <br />\n<br />\nI've looked at 'Messenger and references' discussion, but I'm writing a new topic, because my issue is not technical, and I don't want to offtop there. (<a href=\"https://mvvmlight.codeplex.com/discussions/235068\" rel=\"nofollow\">https://mvvmlight.codeplex.com/discussions/235068</a>)<br />\n<br />\nI've encountered a doubt - Have I to code cleanup()/RequestCleanup method implementation to unregister previously registered Messenger in my viewmodel class? I'm afraid of memory leaks in the future.<br />\nI think I've found the documentation not to be enough bright 4 me.<br />\n<br />\nDescription of Messenger.Register&lt;TMessage&gt; is: '... Registering a recipient does not create a hard reference to it, so if this recipient is deleted, no memory leak is caused.' <br />\n1) Is this mean that I don't have to take care of it and implement-develop following solutions?<br />\n<br />\nOn the other hand, we can find in the code of  GalaSoft.MvvmLight.ViewModelBase abstract class the short info about the Cleanup() method:<br />\n<pre><code>        //\n        // Summary:\n        //     Unregisters this instance from the Messenger class.\n        //     To cleanup additional resources, override this method, clean up and then\n        //     call base.Cleanup().\n        public virtual void Cleanup();</code></pre>\n\nso 2) Is only invoking a Cleanup enough to unregister class-instance out of the Messenger? <br />\n<br />\n3) Or maybe I have to invoke 'Messenger.Default.Unregister(this); in the body of a Cleanup method?<br />\n<br />\n4) In the Unregister(Object) doc we read 'Unregisters a messager recipient completely' - what does the 'completely mean'?<br />\n<br />\nI'm very sorry if my post seems to have out of the context quotes, I wanted to point out what I'm more interested in.<br />\n<br />\nThanks 4 all your posts!<br />\n",
+    "PostedDate": "2014-04-29T10:18:34.427-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

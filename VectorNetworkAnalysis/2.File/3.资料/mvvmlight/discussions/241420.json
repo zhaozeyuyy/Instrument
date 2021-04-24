@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "547919",
+    "ThreadId": "241420",
+    "Html": "\r\n<p>hi, im trying to use the mvvmlight DialogMessage.</p>\r\n<pre><code>var message = new DialogMessage(\r\n            &quot;Confirm Delete&quot;, RemoveAddressAction)\r\n            { \r\n                Button = MessageBoxButton.OKCancel, \r\n                Caption = &quot;Caption??&quot; \r\n            };\r\n</code></pre>\r\n<p>VS2010 undelines the &quot;Button = MessageBoxButton.OKCancel&quot; line complaining about</p>\r\n<p>&quot;Cannot convert source type 'System.Windows.MessageBoxButton [PresentationFramework, Version=3.0.0.0, Culture...] to target type 'System.Windows.MessageBoxItem [GalaSoft.MvvmLight, Version=3.0.0.29216, ...]</p>\r\n<p>And a similar issue on the code behind on the view when I try to use the DialogMessage to show the messagebox.</p>\r\n<p>Has anyone encountered this before? I have no clue how to fix it.</p>\r\n<p>Thanks</p>\r\n",
+    "PostedDate": "2011-01-12T03:29:27.267-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547941",
+    "ThreadId": "241420",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Which version of the toolkit are you using (Silverlight, WPF, WP7)?</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2011-01-12T04:21:50.717-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547943",
+    "ThreadId": "241420",
+    "Html": "\r\n<p>Hi, im using WPF.</p>\r\n<p>thanks.</p>\r\n<p>Steve.</p>\r\n",
+    "PostedDate": "2011-01-12T04:22:57.737-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547966",
+    "ThreadId": "241420",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Quick test here works fine (WPF4, SL4). Please email me your address to get the code sample.</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2011-01-12T05:11:44.327-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "547974",
+    "ThreadId": "241420",
+    "Html": "\r\n<p>Laurent,&nbsp;</p>\r\n<p>My project is WPF 3.5, does DialogMessage only work with 4?</p>\r\n<p>email sent.</p>\r\n",
+    "PostedDate": "2011-01-12T05:16:15.59-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

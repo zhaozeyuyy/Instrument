@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2016-01-16T14:18:26.33-08:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I just installed the latest download package on Visual Studio 2012 Ultimate. I tried to use 'EventToCommand' class in a WPF 4.5 project (created from a template installed by your framework) and I kept getting the message that it was built using an older Blend SDK.\r\n\r\nWhen I checked the references, I saw that the template has referred to older version of MVVMLight DLLs (4.1.24.16313). Removing those references and referencing the newer DLLs did the job (4.1.24.16411).\r\n\r\nHope it helps someone else and you in future. Thanks for an awesome framework.\r\n\r\nKeep up the good work!",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.2.0",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2013-10-10T10:42:52.5-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Issues in WPF Templates for .NET 4.5",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7620
+  },
+  "FileAttachments": [
+    {
+      "FileId": 742272,
+      "FileName": "Wrong references.png",
+      "DownloadUrl": ".\\742272"
+    }
+  ],
+  "Comments": []
+}

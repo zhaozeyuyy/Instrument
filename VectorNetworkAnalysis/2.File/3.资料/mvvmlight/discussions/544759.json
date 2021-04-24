@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1243284",
+    "ThreadId": "544759",
+    "Html": "Hello,\r<br />\n<br />\n  When I try to make my WPF application a single executable with mvvm light v4.3.31.1 for .Net 4.0 using <a href=\"http://www.digitallycreated.net/Blog/61/combining-multiple-assemblies-into-a-single-exe-for-a-wpf-application\" rel=\"nofollow\">this method</a> I end up with an exception &quot;Entry point was not found&quot; when the executable is alone. It works only when the .config file and the Microsoft.Practices.ServiceLocation.dll is in the same folder as the executable, other dll are not required.\r<br />\n<br />\n  The exact same project works fine as a standalone when using .Net 4.5 and the last mvvm light version, but as I need to downgrade the framework version to 4.0 (for windows XP) I can't get it to work any more.\r<br />\n<br />\n  Is there a way to make the project use the common service locator in a &quot;normal&quot; way, without the config file ?<br />\n",
+    "PostedDate": "2014-05-08T14:03:15.83-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1244574",
+    "ThreadId": "544759",
+    "Html": "I fixed the problem by removing mvvm light installed from nuget, replacing it by the library only and creating the locator myself (with the same method as the first package). This wayt my executable don't need the assembly binding anymore.<br />\n",
+    "PostedDate": "2014-05-12T14:21:14.28-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

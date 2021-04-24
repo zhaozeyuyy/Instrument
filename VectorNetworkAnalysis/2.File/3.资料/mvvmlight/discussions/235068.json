@@ -1,0 +1,210 @@
+[
+  {
+    "Id": "523402",
+    "ThreadId": "235068",
+    "Html": "\r\n<p>Hi there,</p>\r\n<p>I'm curious about the design of the messenger: it holds weak references to the receipient objects, but not to the actions themselves. This means that if you do the obvious thing inside a class:</p>\r\n<pre>Messenger.Default.Register&lt;SomeMessage&gt;(this, ShowDialog);</pre>\r\n<p>where ShowDialog is an instance method defined as:</p>\r\n<pre>private void ShowDialog(SomeMessage msg)\r\n{\r\n}</pre>\r\n<p>... the Action&lt;SomeMessage&gt; delegate that's held (in a strong reference) by the Messenger class itself retains a strong reference to the target instance, meaning that object is never garbage-collected unless the handler is specifically unregistered.</p>\r\n<p>I think that it would be useful to have an overload of Register that delegates to an Action&lt;TRecipient, TMessage&gt;, where TRecipient is cast from the WeakReference that is currently held; then we could do this:</p>\r\n<pre>Messenger.Default.Register&lt;MyClass, SomeMessage&gt;(this, (myClassInstance, msg) =&gt; myClassInstance.ShowDialog(msg));</pre>\r\n<p>And avoid the problem.</p>\r\n<p>Thanks,</p>\r\n<p>Ben</p>\r\n",
+    "PostedDate": "2010-11-17T11:18:35.56-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "523443",
+    "ThreadId": "235068",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>This is an interesting point. I added an item in my backlog to look into this and come up with something to answer this concern.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2010-11-17T12:52:14.503-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "523934",
+    "ThreadId": "235068",
+    "Html": "\r\n<p>Hi Laurent,</p>\r\n<p>That's good news -- I think it's such a common usage that many people will run into this problem.</p>\r\n<p>Ben</p>\r\n",
+    "PostedDate": "2010-11-18T10:47:46.217-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "544855",
+    "ThreadId": "235068",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Ben is right, the Action holds a strong reference to the subscribing class. This prevents the garbage collection action's owner class, causing a memory leak.</p>\r\n<p>I have used the following code snippet to demonstrate the issue:</p>\r\n<p>Running the program shows that the GC collects the first client, but the second client object is still alive because the action creates a strong reference to it. Removing the act variable permits the collection of the second client, so the weak reference\r\n will be NULL in the CheckWref method.</p>\r\n<p>Anyway I think your did an excellent job with this framework, it is a great and truly a lightweight solution. Thank you!</p>\r\n<p>Paul</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;&nbsp;&nbsp; class Program<br>\r\n&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; private static WeakReference wref;<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; private static Action act;<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; static void Main(string[] args)<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; MakeRefs();<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; CheckWref();<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Console.ReadLine();<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; public static void MakeRefs()<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Client c1 = new Client(&quot;FirstClient&quot;);<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Client c2 = new Client(&quot;SecondClient&quot;);<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; wref = new WeakReference(c2);<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Action act = new Action(c2.DoIt);\r\n<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; public static void CheckWref()<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; GC.Collect();<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; if (wref.Target != null)<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Client c = wref.Target as Client;<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; act();<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; else<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Console.WriteLine(&quot;wref is null&quot;);<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;&nbsp;&nbsp; class Client<br>\r\n&nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; public Client(string name)<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Name = name;<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ~Client()<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Console.WriteLine(Name &#43; &quot; finalized&quot;);<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; public string Name<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; get;<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; set;<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br>\r\n<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; public void DoIt()<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; {<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Console.WriteLine(string.Format(&quot;{0}.DoIt();&quot;, Name));<br>\r\n&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br>\r\n&nbsp;&nbsp;&nbsp; }</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-01-06T07:59:30.617-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "545047",
+    "ThreadId": "235068",
+    "Html": "\r\n<p>Great work investigating. Thanks for that. I took good note.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2011-01-06T12:27:13.767-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "574613",
+    "ThreadId": "235068",
+    "Html": "<p>This is actually the exact problem I am having. Due to the structure of the Silverlight app I am working on, it is a little bit hard to know exactly when an appropriate time to unregister is. The register is actually being done in an entity, and some things would have to move around to be able to call unregister at the appropriate time. Is there a way around this? Can I explicitly create a WeakAction, or something like that?</p>\r\n<p>Other than this issue, I have had great success with this toolkit. Many thanks!</p>\r\n<p>--Morgan</p>",
+    "PostedDate": "2011-03-02T12:55:34.457-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "574625",
+    "ThreadId": "235068",
+    "Html": "<p>Morgan,</p>\n<p>This is the workaround I created -- an extension method for the Messenger class that uses a WeakReference to the target object in a closure that calls a static handler method. (Example usage below).</p>\n<div style=\"color: black; background-color: white;\">\n<pre><span style=\"color: blue;\">public</span> <span style=\"color: blue;\">static class</span> MessengerExtensions\n{\n    <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">static</span> <span style=\"color: blue;\">void</span> Register&lt;TRecipient, TMessage&gt;(<span style=\"color: blue;\">this</span> Messenger messenger, TRecipient recipient, <span style=\"color: blue;\">object</span> token, Action&lt;TRecipient, TMessage&gt; finalHandler)\n        <span style=\"color: blue;\">where</span> TRecipient : <span style=\"color: blue;\">class</span>\n    {\n        <span style=\"color: blue;\">if</span> (recipient == <span style=\"color: blue;\">null</span>)\n        {\n            <span style=\"color: blue;\">throw</span> <span style=\"color: blue;\">new</span> ArgumentNullException(<span style=\"color: #a31515;\">\"recipient\"</span>);\n        }\n    \n        <span style=\"color: blue;\">if</span> (finalHandler == <span style=\"color: blue;\">null</span>)\n        {\n            <span style=\"color: blue;\">throw</span> <span style=\"color: blue;\">new</span> ArgumentNullException(<span style=\"color: #a31515;\">\"finalHandler\"</span>);\n        }\n    \n        <span style=\"color: blue;\">if</span> (messenger == <span style=\"color: blue;\">null</span>)\n        {\n            <span style=\"color: blue;\">throw</span> <span style=\"color: blue;\">new</span> ArgumentNullException(<span style=\"color: #a31515;\">\"messenger\"</span>);\n        }\n    \n        <span style=\"color: green;\">// We can't use the recipient parameter in the closure, since that would simply create another strong</span>\n        <span style=\"color: green;\">// reference -- the situation we're trying to avoid. And since MVVM Light doesn't pass the recipient to </span>\n        <span style=\"color: green;\">// the message handler, we have no option but to create a WeakReference to it here and use that in the closure.</span>\n        <span style=\"color: blue;\">var</span> weakRef = <span style=\"color: blue;\">new</span> WeakReference(recipient);\n    \n        messenger.Register&lt;TMessage&gt;(recipient, token,\n            msg =&gt;\n            {\n                <span style=\"color: blue;\">var</span> r2 = weakRef.Target <span style=\"color: blue;\">as</span> TRecipient;\n    \n                <span style=\"color: blue;\">if</span> (r2 == <span style=\"color: blue;\">null</span>)\n                {\n                    <span style=\"color: green;\">// This shouldn't happen, since the fact that the Messenger is calling this method</span>\n                    <span style=\"color: green;\">// means the recipient is still alive. Still, I don't feel right ignoring the possibility.</span>\n                    <span style=\"color: green;\">// In addition, there's no great advantage to throwing an exception here -- so we simply assume </span>\n                    <span style=\"color: green;\">// the Messenger will unregister this closure when this method returns.</span>\n                    <span style=\"color: blue;\">return</span>;\n                }\n    \n                finalHandler(r2, msg);\n            });\n    }\n}    \n\n</pre>\n</div>\n<p>Example Usage:</p>\n<div style=\"color: black; background-color: white;\">\n<pre>Messenger.Default.Register&lt;RecipientClass, MessageClass&gt;(<span style=\"color: blue;\">this</span>, <span style=\"color: blue;\">null</span>, (_this, msg) =&gt; _this.Handler(msg));<br /><br /></pre>\n</div>\n<p>Note that if you opt to create the static handler as a lambda, as I've  done above, it should not close over any target object member variables (otherwise a strong reference will be created, and the problem will remain).</p>",
+    "PostedDate": "2011-03-02T13:18:27.183-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "574639",
+    "ThreadId": "235068",
+    "Html": "<p>Fantastic! That's exactly where my mind was going. Saved me some time :)</p>\r\n<p>--Morgan</p>",
+    "PostedDate": "2011-03-02T13:57:17.187-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "578070",
+    "ThreadId": "235068",
+    "Html": "<p>I noticed this problem too and I've put together a minimal test harness with some cases:</p>\r\n<p>- a class that registers with a simple lambda<br />- a class that registers with a lambda with a reference to \"this\"<br />- a class that registers with a named delegate</p>\r\n<p>Then I tried to instantiate these classes and unregister them in a few different ways:</p>\r\n<p>- no unregistration at all<br />- \"untyped\" unregistration, i.e. Messenger.Default.Unregister(this)<br />- \"typed\" unregistration, i.e. Messenger.Default.Unregister&lt;Message&gt;(this) where I only specify the type of message<br />- \"named\" unregistration, i.e. Messenger.Default.Unregister&lt;Message&gt;(this, MethodName) where I specify the type of the message and the name of the function.&nbsp;</p>\r\n<p>Result:</p>\r\n<p>- the simple lambda expression doesn't create any leak even without unregistration<br />- the lambda with reference to this needs the typed unregistration<br />- the named delegate needs the typed or the named unregistration.</p>\r\n<p>This is a bit surprising to me because I thought there would be no difference between the different types of unregistration.</p>\r\n<p>Here are the test classes so that you can experiment:</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>    <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">class</span> Message\r\n    { }\r\n\r\n    <span style=\"color: green;\">// just a common base class</span>\r\n    <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">class</span> MyViewModelBase : ViewModelBase\r\n    {\r\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">void</span> UntypedCleanup()\r\n        {\r\n            Messenger.Default.Unregister(<span style=\"color: blue;\">this</span>);\r\n        }\r\n\r\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">void</span> TypedCleanup()\r\n        {\r\n            Messenger.Default.Unregister&lt;Message&gt;(<span style=\"color: blue;\">this</span>);\r\n        }\r\n\r\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">virtual</span> <span style=\"color: blue;\">void</span> NamedCleanup() { }\r\n    }\r\n\r\n    <span style=\"color: green;\">// simple lambda</span>\r\n    <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">class</span> LambdaVM : MyViewModelBase\r\n    {\r\n        <span style=\"color: blue;\">public</span> LambdaVM()\r\n        {\r\n            Messenger.Default.Register&lt;Message&gt;(<span style=\"color: blue;\">this</span>, m =&gt; Console.WriteLine(<span style=\"color: #a31515;\">\"test\"</span>));\r\n        }\r\n    }\r\n    \r\n    <span style=\"color: green;\">// lambda with reference to this</span>\r\n    <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">class</span> LambdaThisVM : MyViewModelBase\r\n    {\r\n        <span style=\"color: blue;\">public</span> LambdaThisVM()\r\n        {\r\n            Messenger.Default.Register&lt;Message&gt;(<span style=\"color: blue;\">this</span>, m =&gt; Console.WriteLine(<span style=\"color: blue;\">this</span>.GetHashCode()));\r\n        }\r\n    }\r\n\r\n    <span style=\"color: green;\">// named delegate</span>\r\n    <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">class</span> DelegateVM : MyViewModelBase\r\n    {\r\n        <span style=\"color: blue;\">public</span> DelegateVM()\r\n        {\r\n            Messenger.Default.Register&lt;Message&gt;(<span style=\"color: blue;\">this</span>, OnMessage);\r\n        }\r\n\r\n        <span style=\"color: blue;\">private</span> <span style=\"color: blue;\">void</span> OnMessage(Message m)\r\n        {\r\n            Console.WriteLine(<span style=\"color: blue;\">this</span>.GetHashCode());\r\n        }\r\n\r\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">override</span> <span style=\"color: blue;\">void</span> NamedCleanup()\r\n        {\r\n            Messenger.Default.Unregister&lt;Message&gt;(<span style=\"color: blue;\">this</span>, OnMessage);\r\n        }\r\n    }\r\n</pre>\r\n</div>\r\n</p>\r\n<p>And this is the test harness:</p>\r\n<p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre>        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">enum</span> Cleanup\r\n        {\r\n            None,    <span style=\"color: green;\">// no cleanup</span>\r\n            Untyped, <span style=\"color: green;\">// Messenger.Unregister(this)</span>\r\n            Typed, <span style=\"color: green;\">// Messenger.Unregister&lt;Message&gt;(this)</span>\r\n            Named    <span style=\"color: green;\">// Messenger.Unregister&lt;Message&gt;(this, OnMessage)</span>\r\n        }\r\n\r\n        <span style=\"color: blue;\">public</span> <span style=\"color: blue;\">void</span> TestAll()\r\n        {\r\n            <span style=\"color: blue;\">var</span> survives = EscapesGC&lt;LambdaVM&gt;(Cleanup.None); <span style=\"color: green;\">// false (OK)</span>\r\n            survives = EscapesGC&lt;LambdaVM&gt;(Cleanup.Untyped);  <span style=\"color: green;\">// false (OK)</span>\r\n            survives = EscapesGC&lt;LambdaVM&gt;(Cleanup.Typed);    <span style=\"color: green;\">// false (OK)</span>\r\n\r\n            survives = EscapesGC&lt;LambdaThisVM&gt;(Cleanup.None);    <span style=\"color: green;\">// true (LEAK)</span>\r\n            survives = EscapesGC&lt;LambdaThisVM&gt;(Cleanup.Untyped); <span style=\"color: green;\">// true (LEAK)</span>\r\n            survives = EscapesGC&lt;LambdaThisVM&gt;(Cleanup.Typed);   <span style=\"color: green;\">// false (OK)</span>\r\n\r\n            survives = EscapesGC&lt;DelegateVM&gt;(Cleanup.None);    <span style=\"color: green;\">// true (LEAK)</span>\r\n            survives = EscapesGC&lt;DelegateVM&gt;(Cleanup.Untyped); <span style=\"color: green;\">// true (LEAK)</span>\r\n            survives = EscapesGC&lt;DelegateVM&gt;(Cleanup.Typed);   <span style=\"color: green;\">// false (OK)</span>\r\n            survives = EscapesGC&lt;DelegateVM&gt;(Cleanup.Named);   <span style=\"color: green;\">// false (OK)</span>\r\n        }\r\n\r\n        <span style=\"color: blue;\">private</span> <span style=\"color: blue;\">bool</span> EscapesGC&lt;T&gt;(Cleanup cleanupMode) <span style=\"color: blue;\">where</span> T : MyViewModelBase\r\n        {\r\n            <span style=\"color: blue;\">var</span> vm = Activator.CreateInstance&lt;T&gt;();\r\n            <span style=\"color: blue;\">var</span> reference = <span style=\"color: blue;\">new</span> WeakReference(vm);\r\n\r\n            <span style=\"color: blue;\">if</span> (cleanupMode == Cleanup.Untyped)\r\n                vm.UntypedCleanup();\r\n            <span style=\"color: blue;\">else</span> <span style=\"color: blue;\">if</span> (cleanupMode == Cleanup.Typed)\r\n                vm.TypedCleanup();\r\n            <span style=\"color: blue;\">else</span> <span style=\"color: blue;\">if</span> (cleanupMode == Cleanup.Named)\r\n                vm.NamedCleanup();\r\n\r\n            vm = <span style=\"color: blue;\">null</span>;\r\n            GC.Collect();\r\n            GC.WaitForPendingFinalizers();\r\n            <span style=\"color: blue;\">return</span> reference.IsAlive;\r\n        }\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2011-03-09T14:25:22.9-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "816226",
+    "ThreadId": "235068",
+    "Html": "\r\n<div>\r\n<p><span style=\"font-size:11.0pt; font-family:\">I didn’t push the fix out yet, you are correct. It is coming.</span></p>\r\n<p><span style=\"font-size:11.0pt; font-family:\"></span></p>\r\n<div>\r\n<div style=\"border:none; border-top:solid #B5C4DF 1.0pt; padding:3.0pt 0in 0in 0in\">\r\n<p><b><span style=\"font-size:10.0pt; font-family:\">From:</span></b><span style=\"font-size:10.0pt; font-family:\"> Pauli7 [email removed]\r\n<br>\r\n<b>Sent:</b> Tuesday, March 27, 2012 3:29 PM<br>\r\n<b>To:</b> laurent@galasoft.ch<br>\r\n<b>Subject:</b> Re: Messenger and references [mvvmlight:235068]</span></p>\r\n</div>\r\n</div>\r\n<p></p>\r\n<p><span style=\"font-size:9.0pt; font-family:\">From: Pauli7</span></p>\r\n<div id=\"ThreadNotificationPostBody\" style=\"margin-bottom:24.0pt\">\r\n<p><span style=\"font-size:9.0pt; font-family:\">Am I missing something or is this bug still not fixed in current MVVM light version?</span></p>\r\n</div>\r\n</div>\r\n",
+    "PostedDate": "2012-03-27T12:38:55.103-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "816527",
+    "ThreadId": "235068",
+    "Html": "<p>I went with something like Catel, though I did it first ;) and also I support more scenarios than he does.</p>\r\n<p>I can pass you a preview of the DLLs. Please email me your Live ID&nbsp;at Laurent (at) galasoft (dot) ch.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2012-03-28T05:52:40.543-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "840033",
+    "ThreadId": "235068",
+    "Html": "<p>Is it released?</p>",
+    "PostedDate": "2012-05-23T11:00:52.2-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "847309",
+    "ThreadId": "235068",
+    "Html": "<p>Hi Laurent,</p>\r\n<p>Thanks for your fantastic framework!!</p>\r\n<p>We also have memory leak because of this bug. <br />Could you please let me know if this bug is&nbsp; fixed? In which version?</p>\r\n<p>Thanks</p>\r\n<p>Arjen</p>",
+    "PostedDate": "2012-06-11T00:37:43.723-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "856156",
+    "ThreadId": "235068",
+    "Html": "<p>Hi Laurent,</p>\r\n<p>same problem here. Will it bit fixed soon? Could I have those preview DLLs?</p>\r\n<p>Thanks</p>\r\n<p>&nbsp;</p>\r\n<p>Tom</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-07-01T23:09:56.387-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "856416",
+    "ThreadId": "235068",
+    "Html": "<p>18 months after I first reported it, I'm <strong>shocked </strong>that this obvious, addressable memory leak is still not fixed in the release version of this product.</p>\r\n<p>I realize that MVVM light is free, but where is the professional responsibility?</p>",
+    "PostedDate": "2012-07-02T09:07:29.567-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "856439",
+    "ThreadId": "235068",
+    "Html": "<p>Hi,</p>\r\n<p>The RTM version of the DLLs available on Codeplex and Nuget fixes the issue. Please test it and report.</p>\r\n<p>It was not an easy bug to fix, mostly due to the differences in different platforms (Silverlight security makes the WPF fix impossible to apply, so testing was really tough.</p>\r\n<p>Ben, the solution you suggested back then&nbsp;is not applicable, and I had to work with quite a few people to find a fix. It is not an easy thing to do because it involves reflection. Keeping the action in a WeakReference does not work (the action will not be executed if it is kept in a WeakReference). The solution I have now works well in all the scenarios I tested and I will write an article about the changes. While I understand your frustration, I want to underline that MVVM Light is not just free but it is also open source, so the code is out there for you to download and fix where needed.</p>\r\n<p>One thing I decided in order to avoid long waits like this one is to turn around versions faster in the future. I hope that this will help avoiding frustrations.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2012-07-02T10:05:45.753-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "856460",
+    "ThreadId": "235068",
+    "Html": "<p>Laurent,</p>\r\n<p>That is good to hear.</p>\r\n<p>Not that I expected you to use it, because it's not terribly clean, but how is the solution I posted \"not applicable\"?</p>\r\n<p>I assume you don't mean that it doesn't solve the problem. :-)</p>\r\n<p>Ben</p>",
+    "PostedDate": "2012-07-02T11:09:27.69-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "856494",
+    "ThreadId": "235068",
+    "Html": "<p>Hi Ben,</p>\r\n<p>Sorry, what I meant is that my goal was to solve the issue with the existing registration methods. Your proposed solution was adding a new way to do work but was not solving the issue with the existing registration methods. I really didn't want to leave people with the old memory leak, which is why I embarked on the crusade to solve it for the existing methods.</p>\r\n<p>You are right I should probably have offered your workaround earlier. Sorry for that.</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2012-07-02T12:27:32.91-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "856508",
+    "ThreadId": "235068",
+    "Html": "<p>Laurent,</p>\r\n<p>Ah, of course -- it's great to hear you've solved it for existing usage, and I now understand why it took some time.</p>\r\n<p>Thanks again,</p>\r\n<p>Ben</p>",
+    "PostedDate": "2012-07-02T12:45:45.8-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "856514",
+    "ThreadId": "235068",
+    "Html": "<p>Thanks for you quick answer. I will try it tomorrow at work and will report my results :-).</p>",
+    "PostedDate": "2012-07-02T13:04:09.54-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "857199",
+    "ThreadId": "235068",
+    "Html": "<p>The leak seems to be closed for our software with the RTM version.</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks!</p>",
+    "PostedDate": "2012-07-04T00:51:20.01-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "869436",
+    "ThreadId": "235068",
+    "Html": "\r\n<p>Hi, we've encountered this problem recently too. It's great that you've done the work to fix this issue but having a quick look at the source code it looks like the token passed to Register() is stored as a hard reference still. I suspect it wouldn't be\r\n too big a job to change this to a weak reference so I'm going to try it myself and let you know if it sorts the problem. Also I notice that it will still hold a hard reference to the delegate in SL if the method is not public.</p>\r\n<p>ETA: I've changed WeakActionAndToken to store a weak reference to the token too (changed Token property to WeakToken) and I also changed all my delegates to be public and now the memory leak has gone away. I'll send over my modifications and you can decide\r\n if you want to incorporate them. It might be a good idea to make it optional to make the token a weak reference as this actually broke some of my other code as it happened to be the only thing holding a hard reference to that particular object.</p>\r\n",
+    "PostedDate": "2012-07-16T04:59:08.617-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "869636",
+    "ThreadId": "235068",
+    "Html": "<p>That is a very good point you make about the token. I usually think of tokens as simple values but indeed it could be an object. I will update the code like your propose. Out of curiosity, how do you handle the case where the token is not alive anymore?</p>\r\n<p>Regarding the SL private methods, it is correct that I am still using the old leaky implementation in that case. I will write documentation about this case. Unfortunately, the non-leaky way is impossible for private methods in SL due to security restrictions in the reflection API. As far as I can say after consulting many people who are much more clever than me (wink to Bart de Smaet amongst others), there is no other way to do that.</p>\r\n<p>Thanks!</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2012-07-16T07:26:07.07-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "869749",
+    "ThreadId": "235068",
+    "Html": "<p>Fair point about the private methods in SL, I didn't know this was the case so it would be great to make this a prominently documented \"feature\". That or possibly raise an exception when a private method is used in SL?</p>\r\n<p>I am using heavy objects as my tokens as it happens to suit my needs (it's the root object of a given instance of a \"form\" in my app) and I've been trying to avoid refactoring all the calling code to get around this. All I did to make it work was replace Token in WeakActionAndToken with a WeakReference called WeakToken and everywhere where it's accessed just did the check (item.WeakToken != null &amp;&amp; item.WeakToken.Target != null). I appreciate that I've brough this on myself to some degree as my token would keep the weak delegate reference alive too. Use a weak reference is no problem in this instance as long as you make sure you don't rely on the Messenger to keep your object alive.</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2012-07-16T08:43:54.06-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1119519",
+    "ThreadId": "235068",
+    "Html": "Hi,\r<br />\n<br />\nI've created an attached property for a Window that registers to receive a message and then closes the relevant window when it gets that message.  This is done by registering a lambda expression as the callback in the static functions.  In an older version (4.1.27.0) it caused the issue <a href=\"https://mvvmlight.codeplex.com/workitem/7579\" rel=\"nofollow\">https://mvvmlight.codeplex.com/workitem/7579</a>.  I updated to the latest version (4.2.30.0) and now the message is never received because the Action is only referenced by the messaging library which holds it in a weak reference.<br />\n\r<br />\nTo demonstrate I reproduced the issue in a simple unit test:<br />\n<pre><code>using System;\nusing Microsoft.VisualStudio.TestTools.UnitTesting;\nusing GalaSoft.MvvmLight.Messaging;\n\nnamespace KiMe.Accounts.Testing\n{\n    class TestMessage\n    {\n    }\n\n    class TestResult\n    {\n        public bool Called;\n\n        public void Callback()\n        {\n            Called = true;\n        }\n    }\n\n    [TestClass]\n    public class MvvmLightTests\n    {\n        [TestMethod]\n        public void MessengerWeakReferenceIssue()\n        {\n            var myReference = new TestResult();\n            Register(myReference);\n\n            GC.Collect();\n\n            Messenger.Default.Send(new TestMessage());\n\n            Assert.IsTrue(myReference.Called);\n        }\n\n        private static void Register(TestResult reference)\n        {\n            Messenger.Default.Register&lt;TestMessage&gt;(reference, (msg) =&gt; reference.Callback());\n        }\n    }\n}\n</code></pre>\n\nReading this topic I guess that's the designed behaviour, but it's not particularly obvious in this use-case so I thought it might be worth mentioning.<br />\n\r<br />\nCheers,\r<br />\n<br />\nMatt.<br />\n",
+    "PostedDate": "2013-11-06T18:23:27.093-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1129812",
+    "ThreadId": "235068",
+    "Html": "Has this fix been included in the latest release?\r<br />\n<br />\nThanks,\r<br />\nNathan<br />\n",
+    "PostedDate": "2013-11-27T16:02:45.38-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

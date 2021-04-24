@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "999749",
+    "ThreadId": "432764",
+    "Html": "I have been putting together a Win8 app for a little while now. Recently, for some reason on a couple pages I haven't modified in weeks the RaisePropertyChanged method causes execution to halt with no error thrown. \r<br />\n<br />\nWhat could cause this to happen?\r<br />\n<br />\nIf I remove the references to the properties in the View the issue no longer occurrs.<br />\n",
+    "PostedDate": "2013-02-11T14:17:39.68-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

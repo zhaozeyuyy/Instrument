@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "270241",
+    "ThreadId": "78922",
+    "Html": "<p>At the moment the only callback available when sending a DialogMessage is Action&lt;MessageBoxResult&gt;. This is a bit limited, it would be great if we could use Action&lt;object&gt; also. I know that this is easily implemented with a custom message class, but it would still be nice if it was available out of the box.</p>\r\n<p>/Henrik</p>",
+    "PostedDate": "2009-12-23T03:04:12.157-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "270341",
+    "ThreadId": "78922",
+    "Html": "<p>Hi,</p>\r\n<p>This is a very good point and I entered it in the backlog. In the mean time, you can use the new NotificationMessageAction&lt;T&gt; message type (available in V3/alpha) to send messages with a generic callback.&nbsp;</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2009-12-23T09:00:07.807-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "270354",
+    "ThreadId": "78922",
+    "Html": "<p>I had totally missed NotificationMessageAction. Will try it after the holidays. Thanks!</p>",
+    "PostedDate": "2009-12-23T09:47:14.457-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

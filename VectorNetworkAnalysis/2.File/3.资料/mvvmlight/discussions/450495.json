@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1070099",
+    "ThreadId": "450495",
+    "Html": "I use MVVM light for my windows phone project, and now I need pass 2 CommandParameters to RelayCommand, but I was not find any useful information. so anyone who can help me?<br />\n",
+    "PostedDate": "2013-07-18T09:24:56.497-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1071362",
+    "ThreadId": "450495",
+    "Html": "<strong>avril23 wrote:</strong><br />\n<blockquote>\nI use MVVM light for my windows phone project, and now I need pass 2 CommandParameters to RelayCommand, but I was not find any useful information. so anyone who can help me?<br />\n</blockquote>\nI think this has already been answered\r<br />\n<br />\n<a href=\"http://mvvmlight.codeplex.com/discussions/214548\" rel=\"nofollow\">http://mvvmlight.codeplex.com/discussions/214548</a>\r<br />\n<br />\nIf your using EventToCommand and your binding to an event you can pass the events parameters to a RelayCommand\r<br />\n<br />\nView<br />\n<pre><code>&lt;i:Interaction.Triggers&gt;\n                    &lt;i:EventTrigger EventName=&quot;SelectionChanging&quot;&gt;\n                        &lt;mvvm:EventToCommand Command=&quot;{Binding commandActivateModule}&quot; PassEventArgsToCommand=&quot;True&quot;  /&gt;\n                    &lt;/i:EventTrigger&gt;\n                &lt;/i:Interaction.Triggers&gt;\n            &lt;/telerik:RadCarousel&gt;\n</code></pre>\n\nVM<br />\n<pre><code>this.commandActivateModule = new RelayCommand&lt;object&gt;((s) =&gt; SelectModule(s as Telerik.Windows.Controls.SelectionChangingEventArgs));</code></pre>\n\nBinding the params as properties to the VM and then just calling the relaycommand might be enough or you can wrap up you params into a class and pass that class to the RelayCommand as it only accepts one parameter.<br />\n",
+    "PostedDate": "2013-07-22T08:33:22.01-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "629468",
+    "ThreadId": "261836",
+    "Html": "\r\n<p>Hello,</p>\r\n<p>I created a fork where I changed SimpleIoc to auto register unregistered types. That test shows what I am talking about:</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>        [TestMethod]\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">void</span> TestAutoRegister() {\r\n            SimpleIoc.Default.Reset();\r\n            SimpleIoc.Default.Register&lt;ITestClass, TestClass&gt;();\r\n            <span style=\"color:blue\">var</span> instance1 = SimpleIoc.Default.GetInstance&lt;TestClass3&gt;(); //TestClass3 has ITestClass as a constructor parameter\r\n            Assert.IsNotNull(instance1);\r\n            Assert.IsInstanceOfType(instance1.SavedProperty, <span style=\"color:blue\">typeof</span>(TestClass));\r\n        }\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p>If the type can be created, it gets registered and it's created. It it's an abstract class or an interface, you get the activation exception.</p>\r\n<p>I found it very useful to avoid having to register concrete types (like all my viewmodels).</p>\r\n<p>I also&nbsp;fixed the unit tests this new behavior broke.</p>\r\n<p>If you like the idea, I'm more than happy to send you a pull request.</p>\r\n<p>Cheers and thank you for this amazing framework,</p>\r\n<p>Andr&eacute; Carlucci</p>\r\n",
+    "PostedDate": "2011-06-17T21:30:41.89-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "635280",
+    "ThreadId": "261836",
+    "Html": "<p>That sounds nice, thanks for sharing!</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-06-30T02:18:50.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

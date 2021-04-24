@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1109852",
+    "ThreadId": "462922",
+    "Html": "Hi\r<br />\nWhen will be an upgrade to VS 2013 ?\r<br />\nThank you !<br />\n",
+    "PostedDate": "2013-10-21T01:05:34.947-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1234464",
+    "ThreadId": "462922",
+    "Html": "Bump<br />\n",
+    "PostedDate": "2014-04-15T13:31:35.807-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1234467",
+    "ThreadId": "462922",
+    "Html": "Hi,\r<br />\n<br />\nMVVM Light has been available on VS13 since it came out. Anything you are missing in particular?\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2014-04-15T13:34:25.917-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

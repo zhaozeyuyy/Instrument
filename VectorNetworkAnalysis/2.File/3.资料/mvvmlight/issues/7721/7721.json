@@ -1,0 +1,100 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 12,
+    "Custom": null,
+    "Description": "I'm using `RelayCommand` with a WPF project (.NET 4.6.1), and if the provided action contains local variables (closures), the command fails silently (the action is not executed and no exception is thrown).\r\n\r\nThis code fails:\r\n\r\n```\r\npublic ICommand GenerateCommand { get; private set; }\r\n\r\npublic MainWindowViewModel(FileDialogPresenter fileDialogPresenter, TextFileProcessor textFileProcessor)\r\n{\r\n    GenerateCommand = new RelayCommand(() => GenerateJsonFiles(fileDialogPresenter, textFileProcessor));\r\n}\r\n\r\nprivate void GenerateJsonFiles(FileDialogPresenter fileDialogPresenter, TextFileProcessor textFileProcessor)\r\n{\r\n    // do work\r\n}\r\n```\r\n\r\nThis also fails:\r\n\r\n```\r\npublic ICommand GenerateCommand { get; private set; }\r\n\r\npublic MainWindowViewModel(FileDialogPresenter fileDialogPresenter, TextFileProcessor textFileProcessor)\r\n{\r\n    Action generateAction = () => GenerateJsonFiles(fileDialogPresenter, textFileProcessor);\r\n    GenerateCommand = new RelayCommand(generateAction);\r\n}\r\n\r\nprivate void GenerateJsonFiles(FileDialogPresenter fileDialogPresenter, TextFileProcessor textFileProcessor)\r\n{\r\n    // do work\r\n}\r\n```\r\n\r\nThis works:\r\n\r\n```\r\nprivate readonly FileDialogPresenter _fileDialogPresenter;\r\nprivate readonly TextFileProcessor _textFileProcessor;\r\n\r\npublic ICommand GenerateCommand { get; private set; }\r\n\r\npublic MainWindowViewModel(FileDialogPresenter fileDialogPresenter, TextFileProcessor textFileProcessor)\r\n{\r\n        _fileDialogPresenter = fileDialogPresenter;\r\n        _textFileProcessor = textFileProcessor;\r\n        GenerateCommand = new RelayCommand(GenerateJsonFiles); // no closures\r\n}\r\n\r\nprivate void GenerateJsonFiles()\r\n{\r\n    // do work (uses fields instead of arguments)\r\n}\r\n```",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.4.0 (planning)",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-02-29T18:21:08.773-08:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Closures not working with RelayCommand",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 6,
+    "Id": 7721
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nYou are witnessing an unfortunate side effect of using Weak actions, which are dehydrating / rehydrating the content of the action. Closures are not included in that. I will try  to find a way  to solve that but to be honest  I don't know if it's even possible...\n\nLaurent",
+      "PostedDate": "2016-03-01T01:38:12.363-08:00",
+      "Id": 197094
+    },
+    {
+      "Message": "Thanks for your reply, Laurent.\n\nI'm sure you've seen this already, but here's a relevant [StackOverflow question](http://stackoverflow.com/questions/25730530/bug-in-weakaction-in-case-of-closure-action) on the topic.\n\nIf the solutions proposed in the answers aren't feasible to implement, it might help to at least mention the limitations on the action in the XML documentation comments for the `RelayCommand` constructor:\n\nSuggestion:\n\n```\n        /// <summary>\n        /// Initializes a new instance of the RelayCommand class that \n        /// can always execute.\n        /// </summary>\n        /// <param name=\"execute\">The execution logic. Note that closures are not supported due to the use of WeakActions (see http://stackoverflow.com/questions/25730530/).</param>\n        /// <exception cref=\"ArgumentNullException\">If the execute argument is null.</exception>\n        public RelayCommand(Action execute)\n            : this(execute, null)\n        {\n        }\n```",
+      "PostedDate": "2016-03-09T17:14:31.577-08:00",
+      "Id": 197838
+    },
+    {
+      "Message": "Hi,\n\nthis also hit me bad from behind when trying to bind Relaycommand to the Stateless State machine with an extension method:\n```\n internal static class CommandExt\n    {\n        public static ICommand CreateCommand<TState, TTrigger>(\n            this StateMachine<TState, TTrigger> stateMachine, TTrigger trigger)\n        {\n            return new RelayCommand\n                (\n                () => stateMachine.Fire(trigger),\n                () => stateMachine.CanFire(trigger)\n                );\n        }\n    }\n```\n\nthis works sometimes and sometimes not..argh..\n\nit allowed me to use \nICommand SomeCommand = _stateDefinition.Machine.CreateCommand(Trigger.SomeTrigger)\n```\nnow i have to use a very ugly verbose style like\n\n```\n SomeCommand = new GalaSoft.MvvmLight.CommandWpf.RelayCommand(Target1, CanExecute1);\n\n private bool CanExecute1()\n        {\n          return  _stateDefinition.Machine.CanFire(Trigger.SomeTrigger);\n        }\n\n private void Target1()\n        {\n            _stateDefinition.Machine.Fire(Trigger.SomeTrigger);\n        }\n```\n\nfor each single Command ... is there way to get this working again?",
+      "PostedDate": "2016-03-15T09:06:18.613-07:00",
+      "Id": 197935
+    },
+    {
+      "Message": "Related issues:\n[RelayCommand fails if delegate contains a non-constant method parameter](https://mvvmlight.codeplex.com/workitem/7605)\n[Messenger message dispatch does not work for lambdas with closures](https://mvvmlight.codeplex.com/workitem/7640)",
+      "PostedDate": "2016-03-30T20:57:26.147-07:00",
+      "Id": 198290
+    },
+    {
+      "Message": "Goddamit, just spent a day and a half on this.\n\nNot so much with `RelayCommand` but with `IMessenger. Register`. \n\nI had to trace through tons of source code and of course the results are non-deterministic so sometimes it worked and sometimes it didn't.\n\nThis is really untenable. I would argue that *most* of the usage of things like this is via lambdas as they give you one of the more useful constructs for scope management. \n\nAs a bare minimum there needs to be an FAQ and doc comments on `IMessenger.Register` to highlight this issue. Otherwise people are blowing tons of time trying to hunt down why their events sometimes not arriving (or worse, it doesn't manifest until production). If this can't be fixed I would recommend removing the messaging subsystem entirely and asking people to plug in their own as that would at least clarify this limitation.\n\nIf `WeakAction` is absolutely required and this otherwise can't be made workable, (and assuming I understand the issue) how about providing an error-checking mode that can be toggled via code or a config file. In this mode, when you register an event callback it would check Action.Target versus the stacktrace and issue an exception if the target class reference is not found in the callstack.\n\n",
+      "PostedDate": "2016-04-20T07:21:52.607-07:00",
+      "Id": 198867
+    },
+    {
+      "Message": "Hi,\n\nWhile I understand your frustration, I must underline that almost no one complained about the lack of support for closure in the Messenger, which has been published about 9 years ago. So I would say that most of the usage of lambdas is probably not what you think it is. It seems that more people are using closures with relaycommands, which sounds plausible to me.\n\nThat said. I understand the issue and I will think of a way to circumvent it. The biggest issue is that closures are not captured by the WeakAction and cannot be dehydrated / rehydrated. So in essence, the compromise we could have is that, if you want to use closure, you would lose the WeakAction altogether (which would be an opt-in scenario). \n\nAgreed on documenting it. I will add a note in the Messenger's Register method's XML comments now, and in the RelayCommand. This is a temporary measure, and hopefully I can find a better way to handle this.\n\nI remember the days when people were super afraid to use closure because no one really understood how they worked. Seems we came a long way and no with lambdas closures are more popular than ever before (which is actually a good thing, apart from the headache they are causing me now).\n\nTake care \nLaurent",
+      "PostedDate": "2016-04-20T08:24:23.99-07:00",
+      "Id": 198871
+    },
+    {
+      "Message": "Thanks for the attention.\n\nI suppose the lack of complaints might have to do with the flow of developers. Previously  wpf developers seem to have been flowing from oldschool winforms development where - although lambdas are completely possible and have been encouraged for a while - they are simply not a part of the Microsoft codesamples. Nowadays, however you have a lot more people who are coming from front-end frameworks where lightweight anonymous functions are *very* common. \n\nAlso keep in mind that for every person who reports an issue there are dozens who have had it and said nothing. I suspect with codeplex the number is actually a lot higher as you're also cutting the pool of potential issue reporters by individuals who either have a codeplex account or are willing to create one.",
+      "PostedDate": "2016-04-20T11:26:13.253-07:00",
+      "Id": 198872
+    },
+    {
+      "Message": "I don't disagree. I just meant in proportion to other issues in this backlog.\n\nFor now, I added a comment in the XML doc of all places where this can happen. I will consult with a few .NET people about possible ways to go around this (if there is one, I know who would know about it, and in fact it so happens that I will meet him in person in 2 weeks). If there isn't a way to handle the closure in the WeakAction, I am thinking of proposing a way to opt out of the WeakAction (in which case you would have to make sure to Unregister the Messenger (or discard the RelayCommand) to allow for garbage collection.\n\nShould be a really interesting issue to solve. In the mean time, the only way around this is to avoid closures...\n\nThanks again for the discussion,\nLaurent",
+      "PostedDate": "2016-04-20T11:53:33.68-07:00",
+      "Id": 198874
+    },
+    {
+      "Message": "I got bit by this bug when using the Messenger, nothing like spending a few housr trying to figure out why this isn't working.  If proper closure support isn't going to be supported, then you should set MVVM Light to end of life.  Closures are major part of C# now, not properly supporting an essential language feature just makes MVVM Light not fit for purpose.",
+      "PostedDate": "2016-11-22T20:52:21.42-08:00",
+      "Id": 205248
+    },
+    {
+      "Message": "Hi,\n\nI understand the frustration. Unfortunately as described in the Stackoverflow reference above, this problem just cannot be solved in an elegant manner.\n\nIn the next version of MVVM Light, I will give the user the possibility to opt-in into a behavior where the reference to the anonymous class created by the closure will be kept no matter what. This will prevent the garbage collector to collect this instance (which is the reason why the WeakAction fails when you use closures).\n\nTo be clear, this will cause a (small) potential memory leak to appear. By opting into the behavior (concretely, by passing \"true\" to an optional parameter in the RelayCommand constructor and in the Register method of the Messenger), you will acknowledge that this is indeed the behavior that you prefer. If you don't want this, you can always use the default behavior, and avoid using a closure.\n\nHopefully this will solve the problem in a satisfactory, non-breaking manner. \nI am planning to push this version as a preview this weekend. Please stay tuned.\n\nLaurent",
+      "PostedDate": "2016-11-23T02:19:45.44-08:00",
+      "Id": 205256
+    },
+    {
+      "Message": "Quick update after the weekend: I have a proposed implementation which would solve this issue but I am still looking for the best way to change the API (or not). I am contacting the C# team to run a few questions by them. If all goes well, I should be able to propose a poll on the change within a few days. \n\nLaurent",
+      "PostedDate": "2016-11-28T03:00:30.893-08:00",
+      "Id": 205327
+    },
+    {
+      "Message": "Hi,\n\n I just published an alpha version of V5.4.0 to Nuget. This version proposes a fix to this issue. This requires setting a new parameter called keepTargetAlive to true when you call Register. Note that while this allows using a closure, this also risks causing a (small) memory leak. \n\n I have preliminary documentation here: [http://www.mvvmlight.net/doc/weakaction.cshtml]. A more detailed article will be published as soon as I have time to finish it..\n\n Hopefully this helps. This is an alpha, which means I am interested on your feedback.\n\n Thanks!\n Laurent",
+      "PostedDate": "2016-12-04T09:42:12.17-08:00",
+      "Id": 205466
+    }
+  ]
+}

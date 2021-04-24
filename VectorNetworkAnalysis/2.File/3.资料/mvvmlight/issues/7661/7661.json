@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-02-15T10:13:34.127-08:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "If I call MVVM Light's NavigationService.GoBack(), the app correctly goes back to the previous page on the stack.\r\n\r\nHowever, the NavigationService.GoBack() implementation for Universal Apps (Win 8.1 / WP 8.1) does not update the CurrentPageKey to reflect that we're back at the previous page / ViewModel.\r\n\r\nWith no way to override the CurrentPageKey (private setter), the value is therefore wrong once you call GoBack(). Only alternative would be to always use NavigateTo() instead of GoBack() when returning to the previous page. But that would completely mess up the navigation stack.\r\n\r\n[NavigationService class](https://mvvmlight.codeplex.com/SourceControl/latest#GalaSoft.MvvmLight/GalaSoft.MvvmLight.Platform%20%28WIN81%29/Views/NavigationService.cs)\r\n\r\n\r\n\r\nPlus, it would be important to know from GoBack() if there actually was a previous page on the navigation stack. If no previous page is on the navigation stack, the app usually has to close. When taking the back hardware button into account on WP 8.1, I need to know whether I should set the event to \"handled\" or not - i.e., if the NavigationService successfully went back to the previous page or not.\r\n\r\nSo, the GoBack() method should return a bool if it was possible to go back or not. Ideally, it should also expose a method like \"bool CanGoBack()\" to check beforehand. It's handled like that in the NavigationHelper.cs that is part of the Universal App template by Microsoft.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "null",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-10-18T11:12:26.873-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "NavigationService.GoBack does not update CurrentPageKey (Universal App)",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7661
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Like Homer would say DOH about the CurrentPageKey. You are absolutely right of course, will fix ASAP.\n\nGood feedback about the CanGoBack. The challenge of course is to implement it in a consistent manner on all platforms. I will try.\n\nThanks!\nLaurent",
+      "PostedDate": "2014-10-18T11:36:01.487-07:00",
+      "Id": 162630
+    },
+    {
+      "Message": "Fixed in V5.1 (upcoming)",
+      "PostedDate": "2015-02-06T07:28:17.863-08:00",
+      "Id": 173631
+    },
+    {
+      "Message": "DLLs are available here:\nhttp://1drv.ms/1ylP1TS\n\nNuget will be updated ASAP.",
+      "PostedDate": "2015-02-06T09:12:57.917-08:00",
+      "Id": 173652
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1341470",
+    "ThreadId": "577618",
+    "Html": "Hi,<br />\n<br />\nI am trying to update my previous Silverlight Prism project to Xamarin with MVVMLight support. in previous project,  the ViewModel class normally declare like this. <br />\n<br />\npublic class FIBMainViewModel : NotificationObject, IPartImportsSatisfiedNotification, INavigationAware<br />\n{<br />\n//*<br />\n<pre><code>   public void OnNavigatedFrom(NavigationContext navigationContext)\n    {\n        //todo something when leave from the page\n    }\n\n    public void OnNavigatedTo(NavigationContext navigationContext)\n    {\n        // todo something when navigate to this view\n    }\n</code></pre>\n\n}<br />\n<br />\nMy question is:<br />\nHow to update OnNavigatedFrom and OnNavigatedTo method in MvvmLight ? <br />\n<br />\nI appreciate any of your help and sample code.<br />\n<br />\nMany thanks<br />\n<br />\nFENG<br />\n",
+    "PostedDate": "2015-01-13T07:15:23.397-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

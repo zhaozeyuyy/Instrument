@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1467044",
+    "ThreadId": "652590",
+    "Html": "Does anybody else had a problem with EventToCommand on .Net 4.5 WPF solution running on VS 2015 update 1 on a Windows 10 machine?<br />\nI got this error: The type 'EventToCommand' from assembly 'GalaSoft.MvvmLight.Platform' is built with an older version of the Blend SDK, and is not supported in a Windows Presentation Framework 4 project.<br />\nThis error is shown in the xaml designer.<br />\nOn Windows 8.1 machines of my coleagues the solution works fine!<br />\n<br />\nI've already tried to use<br />\n<pre><code>xmlns:i=&quot;http://schemas.microsoft.com/expression/2010/interactivity&quot; \nxmlns:command1=&quot;clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform&quot;</code></pre>\n\nand<br />\n<pre><code>xmlns:i=&quot;http://schemas.microsoft.com/expression/2010/interactivity&quot; \nxmlns:command1=&quot;http://www.galasoft.ch/mvvmlight&quot;</code></pre>\n\nnamespaces, but the error persists.<br />\n<br />\nThis is the code with the error:<br />\n<pre><code>&lt;i:Interaction.Triggers&gt;\n    &lt;i:EventTrigger EventName=&quot;SelectionChanged&quot;&gt;\n        &lt;command1:EventToCommand Command=&quot;{Binding SelectionChangedCommand}&quot; PassEventArgsToCommand=&quot;False&quot; CommandParameter=&quot;{Binding ElementName=gridProp, Path=SelectedCells}&quot; /&gt;\n    &lt;/i:EventTrigger&gt;\n&lt;/i:Interaction.Triggers&gt;</code></pre>\n\n",
+    "PostedDate": "2016-03-16T13:24:52.02-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1469295",
+    "ThreadId": "652590",
+    "Html": "Yes there is an issue for that. I moved to another mvvm package waiting for an official fix.<br />\n",
+    "PostedDate": "2016-04-07T04:20:36.877-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

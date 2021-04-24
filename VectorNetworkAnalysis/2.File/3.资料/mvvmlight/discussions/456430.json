@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1090829",
+    "ThreadId": "456430",
+    "Html": "Hi,  This is pretty simple, but being utterly new to wp8 and mvvmlight, I'm not figuring this out.<br />\n<br />\nTo put simply:<br />\n  On my MainPage.xaml, on the application bar, I have a New Task button.    This is bound to a Command:<br />\n<pre><code>&lt;behaviors:ApplicationBarIconButton Command=&quot;{Binding SaveNewTaskCommand}&quot;</code></pre>\n\nBut the SaveNewTaskCommand is in my NewViewModel.cs:<br />\n<pre><code>public RelayCommand SaveNewTaskCommand\n        {\n            \n            get { return new RelayCommand(SaveNewTask); }\n        }</code></pre>\n\n( .. and SaveNewTask simply navigates to my NewPage.xaml via:  _navigationService.NavigateTo(new <a href=\"mailto:Uri(@&quot;/View/NewPage.xaml&quot;,\" rel=\"nofollow\">Uri(@\"/View/NewPage.xaml\",</a> UriKind.Relative));  )<br />\n<br />\nHowever, nothing happens when I tap the New Task button. I'm guessing because I'm binding to a RelayCommand that's <strong>not</strong> in the MainViewModel<br />\n<br />\nSo I wasn't sure what the syntax is for specifying the correct context of that other ViewModel<br />\n<br />\nAny help is appreciated<br />\nSteve<br />\n<br />\n( p.s. I'm using the Cimalino toolkit for the appbar binding )<br />\n",
+    "PostedDate": "2013-09-10T12:52:23.993-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091090",
+    "ThreadId": "456430",
+    "Html": "Can't say I've done any WP8 dev so I'm not 100% sure how your using it.<br />\n<br />\nIs binding a relaycommand to a context outwith your viewmodel is a bit anti mvvm pattern? Not 100% sure on that one.<br />\n<br />\nIt might be better the use the messenger class, then in the viewmodel of your mainpage.xaml view you could send a message and as long as you subscribe to that message type in the NewViewModel class you can trigger your new task.<br />\n<br />\nA plan B anyway.<br />\n",
+    "PostedDate": "2013-09-11T04:15:52.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091116",
+    "ThreadId": "456430",
+    "Html": "Hi,\r<br />\n<br />\nYou can bind to any ViewModel as long as it is reachable. The VM can either be exposed through the ViewModelLocator in which case you can use:\r<br />\n<br />\nMyCommand=&quot;{Binding TheViewModel.TheCommand, Source={StaticResource Locator}}&quot;\r<br />\n<br />\nor it could be exposed as a property of the MainViewModel (for instance), in which case you can do\r<br />\n<br />\nMyCommand=&quot;{Binding TheViewModel.TheCommand}&quot; if MainViewModel is already the page's datacontext or\r<br />\nMyCommand=&quot;{Binding Main.TheViewModel.TheCommand, Source={StaticResource Locator}}&quot; \r<br />\n<br />\nSo basically it's all a matter of finding the reference to the VM that contains the RelayCommand. Note that Blend helps you a lot there (or the Visual Studio designer) with its Binding editor.\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2013-09-11T05:17:37.347-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091118",
+    "ThreadId": "456430",
+    "Html": "<strong>lbugnion wrote:</strong><br />\n<blockquote>\nHi,<br />\n<br />\nYou can bind to any ViewModel as long as it is reachable. The VM can either be exposed through the ViewModelLocator in which case you can use:<br />\n<br />\nMyCommand=&quot;{Binding TheViewModel.TheCommand, Source={StaticResource Locator}}&quot;<br />\n<br />\nor it could be exposed as a property of the MainViewModel (for instance), in which case you can do<br />\n<br />\nMyCommand=&quot;{Binding TheViewModel.TheCommand}&quot; if MainViewModel is already the page's datacontext or<br />\nMyCommand=&quot;{Binding Main.TheViewModel.TheCommand, Source={StaticResource Locator}}&quot; <br />\n<br />\nSo basically it's all a matter of finding the reference to the VM that contains the RelayCommand. Note that Blend helps you a lot there (or the Visual Studio designer) with its Binding editor.<br />\n<br />\nCheers<br />\nLaurent<br />\n</blockquote>\nThat's cool, I couldn't make that work, must have been doing something wrong :-)<br />\n",
+    "PostedDate": "2013-09-11T05:23:33.337-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1091321",
+    "ThreadId": "456430",
+    "Html": "Perfect Laurent, thank you very much.!<br />\n",
+    "PostedDate": "2013-09-11T10:16:51.163-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

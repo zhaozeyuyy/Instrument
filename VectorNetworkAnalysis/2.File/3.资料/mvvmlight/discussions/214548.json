@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "449918",
+    "ThreadId": "214548",
+    "Html": "<p>Hi,</p>\r\n<p>I want to know if it's possible to use relaycommand with two, three... parameters.</p>\r\n<p>In fact, I have several textbox that I must save in database. So, I don't know how I can send the content of textbox to modelview.</p>\r\n<p>Any Ideas ?</p>\r\n<p>&nbsp;</p>\r\n<p>thx</p>",
+    "PostedDate": "2010-06-01T02:26:10.573-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "449952",
+    "ThreadId": "214548",
+    "Html": "<p>Hi,</p>\r\n<p>The fact that RelayCommand can accept only one parameter is in fact due to the ICommandSource and ICommand interface that is built in Silverlight and WPF. ICommandSource declares only one CommandParameter, and ICommand has Execute(object parameter) only.</p>\r\n<p>In general however, this is not a problem. In your case, simply create a two way binding to string properties in your ViewModel. This way, the VM already has all the information it needs when the command is executed.</p>\r\n<p>Hope that helps,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-06-01T04:01:10.313-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "575374",
+    "ThreadId": "214548",
+    "Html": "<p>Hi Laurent,</p>\n<p>I have been using the MVVM Light toolkit for my Silverlight appilication.</p>\n<p>I have a requirement wherein i have to pass the EventArgs as well as the CommandParamter to the VM. Basically I want to pass the keyEvents and an object to the VM. The VM will check if the correct keyEvents where sent, if yes then do certain operations on the object passed.&nbsp;The object here is a TabControl, hence am not able to bind the entire TabControl to some property in my VM. Also, cannot bind the Items property of TabControl to a collection of TabItems in VM since I have a couple of TabItems created in XAML while some would be created at runtime, on user interaction. Hence, if I try to bind the Items property in XAML it says \"The property Items is set more than once\".</p>\n<p>From the discussion above I understand that passing&nbsp;only one&nbsp;parameter is a limitation of ICommandSource and ICommand interface. However, can you please suggest any workaround for the scenario above?</p>\n<p>Thanks</p>",
+    "PostedDate": "2011-03-03T20:55:22.003-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

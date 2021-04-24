@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "641002",
+    "ThreadId": "264805",
+    "Html": "\r\n<p>Information about the Portable Library Tools: <a href=\"http://visualstudiogallery.msdn.microsoft.com/b0e0b5e9-e138-410b-ad10-00cb3caf4981\">\r\nhttp://visualstudiogallery.msdn.microsoft.com/b0e0b5e9-e138-410b-ad10-00cb3caf4981</a></p>\r\n<p>By moving the ViewModel into a Portable Library Tools project I have to compile the ViewModels only one time and I can reuse them for WPF, Silverlight, WP7, (Xbox 360?).<br>\r\nThe limitation is, that&nbsp;I have to write my own &quot;MVVM Light Toolkit&quot; for the ViewModels.</p>\r\n<p>Are there any plans to support the Portable Library Tools in the future?</p>\r\n",
+    "PostedDate": "2011-07-12T04:43:19.213-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

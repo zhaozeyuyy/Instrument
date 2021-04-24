@@ -1,0 +1,60 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Fixed in V5.3.0",
+    "ClosedDate": "2016-07-20T00:55:34.467-07:00",
+    "CommentCount": 4,
+    "Custom": null,
+    "Description": "I was wondering if you will add support for the RecyclerView in the way you handle ListView.\r\n\r\nThanks,\r\nGeorge",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.3.0",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-06-15T17:46:34.167-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "RecyclerView support?",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 2,
+    "Id": 7696
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nThis is not planned for now. Maybe in a future release.\n\nThanks for the interest\nLaurent",
+      "PostedDate": "2016-01-16T13:42:37.38-08:00",
+      "Id": 195500
+    },
+    {
+      "Message": "After looking into it more closely, it seems doable for V5.3. I will try.\n\nLaurent",
+      "PostedDate": "2016-01-19T07:16:14.2-08:00",
+      "Id": 195602
+    },
+    {
+      "Message": "I added support for RecyclerView in the upcoming version of MVVm Light (V5.3) which will be released at Xamarin Evolve. I am going to extract this to a separate assembly (and nugget package) because of the dependency on the Support.V4 and Support.V7 assemblies.\n\nOnce you have the dependencies in place, you can use the Vm.Items.GetRecyclerAdapter extension method to get an ObservableRecyclerAdapter and then you can set it as the RecyclerView's adapter. I will also publish some samples showing how to use this. \n\nI hope you like it!\nLaurent",
+      "PostedDate": "2016-04-17T09:11:00.583-07:00",
+      "Id": 198666
+    },
+    {
+      "Message": "Fixed in V5.3.0",
+      "PostedDate": "2016-07-20T00:56:25.697-07:00",
+      "Id": 200746
+    }
+  ]
+}

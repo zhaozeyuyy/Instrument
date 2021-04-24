@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1454542",
+    "ThreadId": "648349",
+    "Html": "Hello,\r<br />\n<br />\nI like the new nav service.\r<br />\nBut I need for real use a concrete service and it would be great, if I could overwrite these methods.\r<br />\nAt the moment I have to create a new method with &quot;Custom&quot; Postfix and call the base method inside it...\r<br />\n<br />\nbye\r<br />\nMarkus<br />\n",
+    "PostedDate": "2015-12-04T02:17:26.947-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

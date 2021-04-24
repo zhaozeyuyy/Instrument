@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "428289",
+    "ThreadId": "208559",
+    "Html": "<p>Hello!</p>\r\n<p>I would like to generate a SketchFlow project with the toolkit in Blend. &nbsp;Is it an automatic way to do this?</p>\r\n<p>Thanks</p>\r\n<p>Patrick</p>",
+    "PostedDate": "2010-04-07T06:35:43.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "428326",
+    "ThreadId": "208559",
+    "Html": "<p>Hi,</p>\r\n<p>There is no automated way to do this, but if you create a SketchFlow project, you should be able to add MVVM Light to it manually. I started writing a blog post on how to add MVVM Light manually to an existing application. I will try and publish that ASAP on my blog <a href=\"http://blog.galasoft.ch\">http://blog.galasoft.ch</a></p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-07T08:00:55.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "649417",
+    "ThreadId": "208559",
+    "Html": "<p>&nbsp;</p>\r\n<p>After you created the sketchflow project all you need is 4 simple steps:</p>\r\n<p>1) Open the solution in Visual Studio</p>\r\n<p>2) To the Screens Project, Add a package library reference by nuget to the mvvmlight package&nbsp;</p>\r\n<p>3) Back in Blend, build, select the user control of your Screen_1.xaml</p>\r\n<p>4) In Common Properties / DataContext / New / DataBinding / set the DataSource to the Main Property of the Locator</p>\r\n<p><br />The latest step has to be repeated for each new view you need.</p>\r\n<p>More clear informations here:&nbsp;<a href=\"http://blog.galasoft.ch/lbugnion/archive/2011/05/07/mvvm-light-v3-on-nuget-now-with-wp7-support.aspx\">http://blog.galasoft.ch/lbugnion/archive/2011/05/07/mvvm-light-v3-on-nuget-now-with-wp7-support.aspx</a></p>",
+    "PostedDate": "2011-07-29T01:04:32.427-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

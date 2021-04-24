@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "520365",
+    "ThreadId": "234257",
+    "Html": "\r\n<p>Hi, Is it possible to call a relaycommand from code behind in a view?</p>\r\n<p>Since a view model is binding to the view, I would like to know a way to get instance of the viewmodel's command,</p>\r\n<p>then call it from code.</p>\r\n<p>This would be a simpler solution for confirmation dialog in view. Since view can handle this confirmation dialog by itself.</p>\r\n<p>Or another way is to binding the same view model to multiple view.</p>\r\n<p>So a view will bind its view model to the dialog view, and dialog view can trigger the command.</p>\r\n<p>I know the Messaging function in MVVMLight, I am just thinking about any other solutions.</p>\r\n<p><br>\r\nThanks a lot.</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-11-10T22:31:40.46-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "520590",
+    "ThreadId": "234257",
+    "Html": "\r\n<p>Does the confirmation dialog need logic? if yes then use the messenger class. &nbsp;If the dialog does something really simple that is only relate to ui then put it in code behind.</p>\r\n",
+    "PostedDate": "2010-11-11T07:12:37.93-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "520669",
+    "ThreadId": "234257",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Yes you can get and execute a RelayCommand as follows:</p>\r\n<p>var vm = (MainViewModel)DataContext;</p>\r\n<p>vm.MyCommand.Execute(null);</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2010-11-11T09:25:32.957-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "527316",
+    "ThreadId": "234257",
+    "Html": "\r\n<p>Thanks, I am ending up to using message.</p>\r\n<p>Messaging is a very good solution because it can communicate from view to VM or from VM to view.</p>\r\n<p>but it can not target a message to specific instance.</p>\r\n<p>For example, I have a 3 instances of a User Control in same window.</p>\r\n<p>This user control will accept a dialog message. Then i will have 3 pop ups...</p>\r\n<p>I haven't had a look at Service, so I am not sure if it can fix this issue.</p>\r\n",
+    "PostedDate": "2010-11-26T03:15:27.37-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

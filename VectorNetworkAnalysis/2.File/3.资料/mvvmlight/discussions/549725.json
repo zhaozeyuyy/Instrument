@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1259976",
+    "ThreadId": "549725",
+    "Html": "I'm using VS2010 and MVVM Light through NuGet, then updated MVVM Light through NuGet, giving:<br />\n<ul>\n<li>GalaSoft.MvvmLight V4.4.32.18939</li>\n<li>GalaSoft.MvvmLight.Extras V4.4.32.18940</li>\n<li>\nServiceLocator V1.3.0.0<br />\n</li>\n</ul>\nWe are targeting .NET 4.0, but due to our build server rules I get:\r<br />\n&quot;Assembly generation failed -- Referenced assembly 'GalaSoft.MvvmLight' does not have a strong name&quot;\r<br />\n<br />\nI see in your source code the SNK files, is there any way I can get this strongly named???<br />\n",
+    "PostedDate": "2014-06-26T03:38:11.613-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1289235",
+    "ThreadId": "549725",
+    "Html": "I have the same issue. After upgrading MvvmLight to V4.4.32, &quot;sn.exe -v&quot; states that the binaries in NET40 are not strongly named anymore.\r<br />\nBTW: The binaries in the NET45 folder are strongly named.<br />\n",
+    "PostedDate": "2014-08-12T05:33:15.587-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1313293",
+    "ThreadId": "549725",
+    "Html": "Fixed in V5<br />\n",
+    "PostedDate": "2014-10-14T13:24:47.723-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

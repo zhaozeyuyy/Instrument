@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1013833",
+    "ThreadId": "436289",
+    "Html": "hi\r<br />\ni downloaded GalaSoft.MvvmLight.4.1.24.0.msi and run it. after show install wizard, progress bar appears and say done.\r<br />\nAll file copied in C:\\Program Files (x86)\\Laurent Bugnion (GalaSoft)\\Mvvm Light Toolkit, but nothing in Visual Studio Template or snipets.\r<br />\nEnvironment:\r<br />\nWindows 7 Ultimate 64 bit\r<br />\nVisual Studio 2012 Ultimate <br />\n",
+    "PostedDate": "2013-03-12T05:15:13.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1013835",
+    "ThreadId": "436289",
+    "Html": "Sorry for the wrong.\r<br />\ni found a installed folder in All Programs in Start-menu. but MvvmLight folder dose not highlighted as new installed application, and readme shortcut target was &quot;C:\\Program Files (x86)\\Laurent Bugnion (GalaSoft)\\Mvvm Light Toolkit\\readme.html&quot; that is incorrect. correct target is &quot;mvvmlightreadme.html&quot;. \r<br />\nAfter reading the file &quot;ReadMe&quot; I realized that I should run C:/Program%20Files%20(x86)/Laurent%20Bugnion%20(GalaSoft)/Mvvm%20Light%20Toolkit/VSIX/MvvmLight.VS2012.vsix&quot; file for add template to VisualStudio.\r<br />\n<br />\nthanks a lot<br />\n",
+    "PostedDate": "2013-03-12T05:25:34.493-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1013858",
+    "ThreadId": "436289",
+    "Html": "Hi,\r<br />\n<br />\nSorry for the wrong shortcut to the readme. I will fix that.\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2013-03-12T06:10:50.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

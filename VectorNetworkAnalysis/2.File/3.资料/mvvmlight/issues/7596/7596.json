@@ -1,0 +1,86 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T07:21:08.467-07:00",
+    "CommentCount": 5,
+    "Custom": null,
+    "Description": "Hello,\r\ni have a list (in a combobox) with items. If I delete an item in the list I have to call RaiseCanExecuteChanged so that some CanExecute parts of a command are updated. But that leads me to an InvalidCastException in RelayCommandGeneric.cs.\r\n\r\nThe list holds \"ViewingProfile\"-items (strongly typed), but it looks like that after it is deleted there is an item of \"MS.Internal.NamedObject\" somewhere.\r\n\r\nWe use GalaSoft.MvvmLight.WPF4.dll with the assembly version 4.0.0.20592\r\n\r\nThanks!\r\n   Stefan",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.0.0.1",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-11-12T05:53:16.44-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "System.InvalidCastException on RaiseCanExecuteChanged",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7596
+  },
+  "FileAttachments": [
+    {
+      "FileId": 528717,
+      "FileName": "InvalidCastException.txt",
+      "DownloadUrl": ".\\528717"
+    },
+    {
+      "FileId": 528750,
+      "FileName": "RaiseCanExecuteChanged.zip",
+      "DownloadUrl": ".\\528750"
+    },
+    {
+      "FileId": 531050,
+      "FileName": "RelayCommandOfT.zip",
+      "DownloadUrl": ".\\531050"
+    },
+    {
+      "FileId": 531053,
+      "FileName": "RelayCommandOfT.zip",
+      "DownloadUrl": ".\\531053"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nThe NamedObject is an internal Microsoft object, so something might be wrong with your binding expression. Please provide some reproducible code that I can test here.\n\nThanks\nLaurent",
+      "PostedDate": "2012-11-12T07:00:05.757-08:00",
+      "Id": 82244
+    },
+    {
+      "Message": "Hello Laurent,\r\nI tried to assemble an example project (see attachment), it's a bit messy as I cut it out of an existing project.\r\n\r\nThere are three main objects (in the folder \"Main\"):\r\n- MainWindow.xaml with its code behind \r\n- ProfileMenuResources.xaml with templates and styles\r\n- ViewingProfileCollectionViewModel.vb is a kind of ViewModel for the ComboBox\r\n\r\nThe behavior is a little bit different to the original problem as now every time I try to delete an item in the combobox the exception is risen. \r\n\r\nTo examine it, run the program, open the ComboBox and delete any item by clicking on the delete button.\r\n\r\nBest regards!\r\n   Stefan",
+      "PostedDate": "2012-11-12T09:03:36.67-08:00",
+      "Id": 82250
+    },
+    {
+      "Message": "I added some code to RelayCommand(Of T), that could fix this problem. (See RelayCommandOfT.zip)",
+      "PostedDate": "2012-11-14T02:25:46.84-08:00",
+      "Id": 82454
+    },
+    {
+      "Message": "Had to add some more changes to RelayCommand(Of T)",
+      "PostedDate": "2012-11-14T02:37:55.913-08:00",
+      "Id": 82455
+    },
+    {
+      "Message": "This has been fixed in the pcl version here:\nhttps://nuget.org/packages/Portable.MvvmLightLibs\n",
+      "PostedDate": "2012-11-17T09:13:24.313-08:00",
+      "Id": 82647
+    }
+  ]
+}

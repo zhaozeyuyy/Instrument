@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:53:18.487-07:00",
+    "CommentCount": 0,
+    "Custom": "",
+    "Description": "Enclosed two additional snippets for command creation (one for typed commands the other for commands without parameters. I believe that they might be helpful and you may consider them for inclusion into the framework.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 beta 1",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2010-09-16T04:05:13.24-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Enhancement Request: Additional snippets for commands",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7180
+  },
+  "FileAttachments": [
+    {
+      "FileId": 162952,
+      "FileName": "mvvmTypedRealyCmd.snippet",
+      "DownloadUrl": ".\\162952"
+    },
+    {
+      "FileId": 162953,
+      "FileName": "mvvmTypedRealyCmd.snippet",
+      "DownloadUrl": ".\\162953"
+    }
+  ],
+  "Comments": []
+}

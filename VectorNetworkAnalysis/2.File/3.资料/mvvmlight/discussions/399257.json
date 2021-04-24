@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "926275",
+    "ThreadId": "399257",
+    "Html": "\r\n<p>In the past I've used various ways of communicating with the view to get it to open message boxes and file pickers and such, mostly using interactions (which no longer exist in Metro). &nbsp;Sometimes I just created an event, though that doesn't blend.</p>\r\n<p>I'm new to both MVVM Light and Metro development, and I'm wondering what's the best way to abstract these things.</p>\r\n<p>Any help is greatly appreciated!</p>\r\n<p>Chris</p>\r\n",
+    "PostedDate": "2012-10-13T19:06:23.48-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

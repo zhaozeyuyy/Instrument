@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:59:47.63-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": " Assembly GalaSoft.MvvmLight.dll, v4.4.32.18939\r\n\r\nThe name 'RaisePropertyChanging' does not exist in the current context",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "null",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-08-13T06:33:41.367-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Remove unsupported RaisePropertyChanging from mvvmpc snippet",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 4,
+    "Id": 7653
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Absolutely correct. I removed it from the snippets, and this will be included in the next installer.\nIn the meantime the snippets are available here in the source code https://mvvmlight.codeplex.com/SourceControl/changeset/50b583a71974",
+      "PostedDate": "2014-10-13T02:20:14.507-07:00",
+      "Id": 162152
+    }
+  ]
+}

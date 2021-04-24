@@ -1,0 +1,82 @@
+[
+  {
+    "Id": "436012",
+    "ThreadId": "210716",
+    "Html": "<p>If you are not using ExpressionBlend 4 what would the syntax for EventToCommand?</p>",
+    "PostedDate": "2010-04-27T08:27:57.697-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "436024",
+    "ThreadId": "210716",
+    "Html": "<p>Hi,</p>\r\n<p>The syntax is actually the same if you use Blend or not... except that Blend creates the XAML automatically :) OK OK, I know you know that.</p>\r\n<p>For the XAML syntax, check this post:</p>\r\n<p><a href=\"http://blog.galasoft.ch/archive/2009/11/05/mvvm-light-toolkit-v3-alpha-2-eventtocommand-behavior.aspx\">http://blog.galasoft.ch/archive/2009/11/05/mvvm-light-toolkit-v3-alpha-2-eventtocommand-behavior.aspx</a></p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-27T08:53:08.247-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "436148",
+    "ThreadId": "210716",
+    "Html": "I get the following error when trying to use in Windows7, VS10.\r\n\r\nThe tag 'EventToCommand' does not exist in XML namespace 'clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras'. ",
+    "PostedDate": "2010-04-27T13:26:50.037-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "436501",
+    "ThreadId": "210716",
+    "Html": "<p>Hi,</p>\r\n<p>This error is probably due to using the wrong assembly. For WPF4, you should use GalaSoft.MvvmLight.Extras.WPF4.dll which is inside the folder&nbsp;C:\\Program Files\\Laurent Bugnion (GalaSoft)\\Mvvm Light Toolkit\\Binaries\\WPF4</p>\r\n<p>Let me know if this solves the issue.</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-28T05:57:02.333-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "436569",
+    "ThreadId": "210716",
+    "Html": "<p>That is the file I am using.</p>",
+    "PostedDate": "2010-04-28T08:10:13.063-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "436605",
+    "ThreadId": "210716",
+    "Html": "<p>In this case the xmlns is wrong. It should be&nbsp;clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF4</p>\r\n<p>Sorry for the confusion, I now realize that I misled you with the link above. The assembly parameter in the xmlns attribute must reflect the name of the assembly without the extension .dll</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-28T09:14:14.037-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "436616",
+    "ThreadId": "210716",
+    "Html": "<p>Ok. One more question. I am using a custom control that has a RoutedEvent called SearchFocusRowChanged. I want to run the EventToCommand for that event. I have the following but it doesn't work.</p>\r\n<p>&nbsp;What&nbsp;am&nbsp;I doing wrong.&nbsp;</p>\r\n<p><span style=\"color:blue;font-size:9.5pt\">&lt;</span><span style=\"color:#a31515;font-size:9.5pt\">foundationv</span><span style=\"color:blue;font-size:9.5pt\">:</span><span style=\"color:#a31515;font-size:9.5pt\">SearchControl</span><span style=\"color:red;font-size:9.5pt\"> Style</span><span style=\"color:blue;font-size:9.5pt\">=&quot;{</span><span style=\"color:#a31515;font-size:9.5pt\">DynamicResource</span><span style=\"color:red;font-size:9.5pt\"> SearchControlStyle</span><span style=\"color:blue;font-size:9.5pt\">}&quot;</span><span style=\"color:red;font-size:9.5pt\"> SearcherClass</span><span style=\"color:blue;font-size:9.5pt\">=&quot;{</span><span style=\"color:#a31515;font-size:9.5pt\">x</span><span style=\"color:blue;font-size:9.5pt\">:</span><span style=\"color:#a31515;font-size:9.5pt\">Type</span><span style=\"color:red;font-size:9.5pt\"> searcher</span><span style=\"color:blue;font-size:9.5pt\">:</span><span style=\"color:red;font-size:9.5pt\">ContactSearcher</span><span style=\"color:blue;font-size:9.5pt\">}&quot;</span><span style=\"font-size:9.5pt\"> <span style=\"color:red\">ResultsGridStyle</span><span style=\"color:blue\">=&quot;{</span><span style=\"color:#a31515\">DynamicResource</span><span style=\"color:red\"> ContactGridControlStyle</span><span style=\"color:blue\">}&quot;</span>&nbsp;</span><span style=\"font-size:9.5pt\"> <span style=\"color:red\">x</span><span style=\"color:blue\">:</span><span style=\"color:red\">Name</span><span style=\"color:blue\">=&quot;mContactSearchControl&quot;</span><span style=\"color:red\"> HorizontalAlignment</span><span style=\"color:blue\">=&quot;Stretch&quot;</span><span style=\"color:red\"> VerticalAlignment</span><span style=\"color:blue\">=&quot;Stretch&quot;</span><span style=\"color:red\"> DataContext</span><span style=\"color:blue\">=&quot;{</span><span style=\"color:#a31515\">Binding</span><span style=\"color:red\"> Searcher</span><span style=\"color:blue\">}&quot;&gt;<br></span></span><span style=\"color:#a31515;font-size:9.5pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"color:blue;font-size:9.5pt\">&lt;</span><span style=\"color:#a31515;font-size:9.5pt\">i</span><span style=\"color:blue;font-size:9.5pt\">:</span><span style=\"color:#a31515;font-size:9.5pt\">Interaction.Triggers</span><span style=\"color:blue;font-size:9.5pt\">&gt;<br></span><span style=\"color:#a31515;font-size:9.5pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"color:blue;font-size:9.5pt\">&lt;</span><span style=\"color:#a31515;font-size:9.5pt\">i</span><span style=\"color:blue;font-size:9.5pt\">:</span><span style=\"color:#a31515;font-size:9.5pt\">EventTrigger</span><span style=\"color:red;font-size:9.5pt\"> EventName</span><span style=\"color:blue;font-size:9.5pt\">=&quot;SearchFocusedRowChanged&quot;&gt;<br></span><span style=\"color:#a31515;font-size:9.5pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"color:blue;font-size:9.5pt\">&lt;</span><span style=\"color:#a31515;font-size:9.5pt\">cmd</span><span style=\"color:blue;font-size:9.5pt\">:</span><span style=\"color:#a31515;font-size:9.5pt\">EventToCommand</span><span style=\"color:red;font-size:9.5pt\"> Command</span><span style=\"color:blue;font-size:9.5pt\">=&quot;{</span><span style=\"color:#a31515;font-size:9.5pt\">Binding</span><span style=\"color:red;font-size:9.5pt\"> SetCurrentCommand</span><span style=\"color:blue;font-size:9.5pt\">,</span><span style=\"color:red;font-size:9.5pt\"> Mode</span><span style=\"color:blue;font-size:9.5pt\">=OneWay}&quot;<br></span><span style=\"font-size:9.5pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style=\"color:red\">CommandParameter</span><span style=\"color:blue\">=&quot;{</span><span style=\"color:#a31515\">Binding</span><span style=\"color:red\"> SearchFocusedRow</span><span style=\"color:blue\">,</span><span style=\"color:red\"> Mode</span><span style=\"color:blue\">=OneWay}&quot;</span><span style=\"color:red\"> MustToggleIsEnabledValue</span><span style=\"color:blue\">=&quot;False&quot; /&gt;</span><span style=\"color:#a31515\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br></span></span><span style=\"color:#a31515;font-size:9.5pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"color:blue;font-size:9.5pt\">&lt;/</span><span style=\"color:#a31515;font-size:9.5pt\">i</span><span style=\"color:blue;font-size:9.5pt\">:</span><span style=\"color:#a31515;font-size:9.5pt\">EventTrigger</span><span style=\"color:blue;font-size:9.5pt\">&gt;<br></span><span style=\"color:#a31515;font-size:9.5pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"color:blue;font-size:9.5pt\">&lt;/</span><span style=\"color:#a31515;font-size:9.5pt\">i</span><span style=\"color:blue;font-size:9.5pt\">:</span><span style=\"color:#a31515;font-size:9.5pt\">Interaction.Triggers</span><span style=\"color:blue;font-size:9.5pt\">&gt;<br></span><span style=\"color:#a31515;font-size:9.5pt\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style=\"color:blue;font-size:9.5pt\">&lt;/</span><span style=\"color:#a31515;font-size:9.5pt\">foundationv</span><span style=\"color:blue;font-size:9.5pt\">:</span><span style=\"color:#a31515;font-size:9.5pt\">SearchControl</span><span style=\"color:blue;font-size:9.5pt\">&gt;</span></p>",
+    "PostedDate": "2010-04-28T09:28:55.683-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "437509",
+    "ThreadId": "210716",
+    "Html": "<p>Hi,</p>\r\n<p>I am not sure what the issue is, are you sure that the DataContext is set properly? Do you see a Data error in the output tab of Visual Studio when you run the application in debug mode, maybe telling you that the binding to&nbsp;SetCurrentCommand is invalid? Are you sure that the event&nbsp;SearchFocusedRowChanged is executed?</p>\r\n<p>If you cannot find the issue, can you try to make a small repro and send it to me per email?</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-30T05:04:14.557-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "438374",
+    "ThreadId": "210716",
+    "Html": "<p>I use IdeaBlade for data communication so this would be difficult. I can try just building an app with the controls. Would that work for you?</p>",
+    "PostedDate": "2010-05-03T07:57:10.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "440270",
+    "ThreadId": "210716",
+    "Html": "<p>Hi,</p>\r\n<p>Yes, any application where the error is visible.</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-05-07T02:30:06.967-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

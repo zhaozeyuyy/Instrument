@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1331073",
+    "ThreadId": "574692",
+    "Html": "I have seen many post regarding a more simple method in creating a bind to the INotifyPropertyChanged events.\r<br />\n<br />\nWe are now adding RaisePropertyChanged( ()=&gt; WelcomeTitle );\r<br />\nTo the Setter of the property, this could be simplified?\r<br />\nWhere we could be using:\r<br />\n<br />\n[RaisePropertyChanged]\r<br />\npublic string WelcomeTitle {get;set;}\r<br />\n<br />\nOr\r<br />\n<br />\n[RaisePropertyChanged]\r<br />\npublic class MainViewModel : ViewModelBase\r<br />\n** Allowing ALL the propertied to have the INotifyPropertyChanged implemented...\r<br />\n<br />\nIs this possible, and how hard is this to implement?\r<br />\n-Don<br />\n",
+    "PostedDate": "2014-12-11T09:18:10.97-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1344973",
+    "ThreadId": "574692",
+    "Html": "It's here: <a href=\"https://github.com/Fody/PropertyChanged\" rel=\"nofollow\">https://github.com/Fody/PropertyChanged</a><br />\n",
+    "PostedDate": "2015-01-21T17:58:33.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "648124",
+    "ThreadId": "266677",
+    "Html": "<p>Hello all,</p>\n<p>I am very new to the MVVM Light Toolkit (and also to WPF).&nbsp;</p>\n<p>I have the following problem, and don't see how to solve it:</p>\n<p>In my MainView I place a MediaElement, and also some buttons, which control the behavior of the application. I wired the button with RelayCommands to the ViewModel, so thats already working fine.&nbsp;I figured out, that it is easy to start and stop the MediaElement  via a CodeBehind file of the MainView, but I like to control the MediaElement from within the ViewModel via the RelayCommands. So I thought to inject a reference to the MedieElement in to the ViewModel. As I find out the ViewModelLocator is contructed first,  and this will contruct the ViewModel and at last the MainView is constructed, so an injection won't work in this case.</p>\n<p>So, what would be the best solution to let the ViewModel receive a reference to the MediaElement? Messages?</p>\n<p>best regards</p>\n<p>&nbsp; Bernhard</p>\n<p>ps: I also asks this on stackflow</p>",
+    "PostedDate": "2011-07-27T01:06:56.85-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "659006",
+    "ThreadId": "266677",
+    "Html": "<p>Try using a Content Control in the view. Bind the content to the MediaElement in the ViewModel.</p>",
+    "PostedDate": "2011-08-16T12:03:33.56-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

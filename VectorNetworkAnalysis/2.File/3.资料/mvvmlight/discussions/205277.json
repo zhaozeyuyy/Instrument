@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "419326",
+    "ThreadId": "205277",
+    "Html": "What is the recommended step when you have multiple instances of a view and need a separate DataContext for each?  \r\n\r\nOne option I see is to declare multiple instances of the view model in ViewModelLocator though it seems like this can get messy with many instances (I'll have 12).  The other option is to set the DataContexts in code but I feel like this could quickly lead to high coupling.\r\n\r\nHow have you handled this in your applications?",
+    "PostedDate": "2010-03-17T10:25:03.077-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "422311",
+    "ThreadId": "205277",
+    "Html": "<p>Hi,</p>\r\n<p>Sorry for the delay, last eek was a bit crazy at MIX ;)</p>\r\n<p>The way I handle this is by making the ViewModel property in the ViewModelLocator (for example the Main property for the MainViewModel) return a different instance of the MainViewModel each time it is called. This way each view will have a separate instance of the MainViewModel.</p>\r\n<p>However, this means that resolving the DataContext of a given window is a bit more complex (since the ViewModel is not kept static anymore). If you need to resolve, you can build a lookup table in the ViewModelLocator based on&nbsp;a unique&nbsp;ID stored in the View&nbsp;for example, or use an IOC container to instantiate and resolve the ViewModel instances according to a key.</p>\r\n<p>Hopefully this helps,</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-03-22T15:24:10.383-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "425529",
+    "ThreadId": "205277",
+    "Html": "<p>Thanks for the response. &nbsp;Thats a good approach which I didn't think of. &nbsp;In my case I know exactly how many instances of each View I'll need so I create multiple static ViewModels in the locator.</p>\r\n<p>If we run into this again and don't know how many instances we'll need, I'll definitely use your approach. &nbsp;Thanks!</p>",
+    "PostedDate": "2010-03-30T08:25:59.2-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "845480",
+    "ThreadId": "205277",
+    "Html": "<p>Hi Laurent,</p>\r\n<p>I'm currently facing the same issue. Do you have a piece of code showing how to do that ? I&nbsp;know to generate an ID, I know&nbsp;how to inject it in the view, but I don't know how to send this unique ID to the locator. I don't see how to pass an unique ID from the view to the viewmodel locator in order to return the right instance of the view model. Thanks a lot for your help and your great Framework !</p>\r\n<p>Regards,<br />Ronald</p>",
+    "PostedDate": "2012-06-06T04:41:48.687-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "845481",
+    "ThreadId": "205277",
+    "Html": "<p>Sorry for asking a technical question here, I'll post it on Stackoverflow ;)</p>",
+    "PostedDate": "2012-06-06T04:43:33.14-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

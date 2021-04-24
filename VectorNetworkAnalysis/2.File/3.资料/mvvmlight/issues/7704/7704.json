@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "How did you manage to include Behaviour SDK in Visual studio 2015.\r\n protected INavigationService InitNavigationService()\r\n        {\r\n            var service = new NavigationService();\r\n            service._Configure_(typeof(SecondPageViewModel).FullName, typeof(SecondPage));\r\n            return service;\r\n        }\r\n'NavigationService' does not contain a definition for 'Configure' and no extension method 'Configure' accepting a first argument of type 'NavigationService' could be found (are you missing a using directive or an assembly reference?)\t\r\n\r\nI tried \r\nhttps://www.suchan.cz/2015/03/how-to-fix-missing-extension-sdks-to-windows-10-universal-apps/\r\nbut did not resolve my issue",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-09-02T05:07:38.35-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "NavigationService",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7704
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nI will need more details.\n\n* You mention the Behavior SDK. How is it relevant to this issue?\n* What framework are you on?\n\nGenerally speaking: The Configure method is part of the Platform DLL. Make sure you have the proper Platform DLL installed.\n\nThanks\nLaurent",
+      "PostedDate": "2016-02-10T12:38:49.703-08:00",
+      "Id": 196439
+    }
+  ]
+}

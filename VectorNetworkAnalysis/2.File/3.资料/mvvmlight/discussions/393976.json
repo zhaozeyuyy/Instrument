@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "907024",
+    "ThreadId": "393976",
+    "Html": "\r\n<p>Is there any sample application present in mvvmlight toolkit, that demonstrates the implementation of NavigationService, SimpleIOC and state handling (including handling of navigation cycle). if you can provide the documentation of these things that would\r\n be a great deal. &nbsp;</p>\r\n",
+    "PostedDate": "2012-08-31T11:33:55.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "907026",
+    "ThreadId": "393976",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Check my MIX11 video at <a href=\"http://channel9.msdn.com/events/MIX/MIX11/OPN03\">\r\nhttp://channel9.msdn.com/events/MIX/MIX11/OPN03</a> and the associated sample code at&nbsp;<a href=\"http://blog.galasoft.ch/archive/2011/04/13/deep-dive-mvvm-samples-mix11-deepdivemvvm.aspx\">http://blog.galasoft.ch/archive/2011/04/13/deep-dive-mvvm-samples-mix11-deepdivemvvm.aspx</a></p>\r\n<p>Also, I am working on a new documentation concept.</p>\r\n<p>Cheers,<br>\r\nLaurent&nbsp;</p>\r\n",
+    "PostedDate": "2012-08-31T11:39:00.127-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "907053",
+    "ThreadId": "393976",
+    "Html": "<p>Hi&nbsp;<a class=\"UserProfileLink\" href=\"http://www.codeplex.com/site/users/view/lbugnion\">lbugnion</a>,</p>\r\n<p>&nbsp; &nbsp; I found one image uploading sample in the site. But the major areas i struggle are</p>\r\n<p>&nbsp; &nbsp;1. Creation of Navigation Service like windows phone</p>\r\n<p>&nbsp; &nbsp;2.&nbsp;Implementation&nbsp;of state handling (ie persisting view after terminate state ) just like tombstone functionality in windows phone.</p>\r\n<p>&nbsp; &nbsp; &nbsp; I found a SuspensionManager class in the Project template of WinRT application. I need to know , how i can&nbsp;incorporate that class to our mvvmlight project structure.&nbsp;&nbsp;&nbsp;</p>",
+    "PostedDate": "2012-08-31T12:21:20.023-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "907061",
+    "ThreadId": "393976",
+    "Html": "<p>Hi,</p>\r\n<p>Sorry I misunderstood that you were looking for WinRT samples. I don't have such samples out yet.</p>\r\n<p>For state preservation, please check the Obelisk framework (http://obelisk.codeplex.com) which seems interesting and has a sample working with MVVM Light.</p>\r\n<p>I am using my own framework for this which is very similar to Obelisk in the way that it works, but which is not ready for publication.</p>\r\n<p>Cheers,<br />Laurent&nbsp;</p>",
+    "PostedDate": "2012-08-31T12:39:29.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "907436",
+    "ThreadId": "393976",
+    "Html": "\r\n<p>I updated Obelisk this morning to have nav state persistence as well. The source has a full mvvm light example for how to implement this and a bonus example of a navigation service and also a technique for passing parameters to instantiated and uninstantiated\r\n view models using message sender and receiver. The example wont win any UI/UX awards but that's not it's purpose!</p>\r\n<p><span><a title=\"Obelisk\" href=\"http://obelisk.codeplex.com\" target=\"_blank\">http://obelisk.codeplex.com</a></span></p>\r\n",
+    "PostedDate": "2012-09-02T03:04:36.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1026030",
+    "ThreadId": "393976",
+    "Html": "It would be great if we have any sample app developed with MVVM Light, which demonstrates all the aspect of ideal Windows Store App. I have seen <a href=\"https://github.com/stevenh77/ItineraryHunter-Win8\" rel=\"nofollow\">Itinerary Hunter</a> sample app which is developed with <a href=\"konaguidance.codeplex.com\" rel=\"nofollow\">Kona</a>, Windows 8 equivalent of PRISM.<br />\n",
+    "PostedDate": "2013-04-05T05:21:53.193-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

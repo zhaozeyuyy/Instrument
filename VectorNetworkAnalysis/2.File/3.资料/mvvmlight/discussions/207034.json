@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "422611",
+    "ThreadId": "207034",
+    "Html": "<p>Hello all,</p>\r\n<p>&nbsp;</p>\r\n<p>I'm a neebie in .Net and MVVM pattern.</p>\r\n<p>I have some difficulties to debug my application in visual studio 2008. Each time I get an exception in my model classes at runtime, this exception is hidden by a global exception from the ViewModelLocator.</p>\r\n<p>Does anybody have a solution to solve this problem and get the original exception throw by the application ? Or maybe it is an error due to a mistake in my &quot;cut and paste&quot; ....</p>\r\n<p>&nbsp;</p>\r\n<p>I'm waiting for your answers ^^</p>\r\n<p>&nbsp;</p>\r\n<p>Guillaume.</p>",
+    "PostedDate": "2010-03-23T08:59:27.577-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "422616",
+    "ThreadId": "207034",
+    "Html": "<p>Hi,</p>\r\n<p>sounds like you are not breaking on all exceptions.</p>\r\n<p>Maybe try to enable them as described here:<br><a title=\"http://msdn.microsoft.com/en-us/library/d14azbfh%28VS.80%29.aspx\" href=\"http://msdn.microsoft.com/en-us/library/d14azbfh(VS.80).aspx\">http://msdn.microsoft.com/en-us/library/d14azbfh%28VS.80%29.aspx</a></p>\r\n<p>Cheers,<br>Hinnerk</p>",
+    "PostedDate": "2010-03-23T09:07:15.31-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "422637",
+    "ThreadId": "207034",
+    "Html": "<p>Yeah !!!!</p>\r\n<p>Thanks for your help, exceptions are breaking my debugger correctly now...</p>\r\n<p>But I don't understand why I need this extra configuration for an MVVM application ...</p>\r\n<p>Thanks for your help ;)</p>",
+    "PostedDate": "2010-03-23T09:45:37.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "422663",
+    "ThreadId": "207034",
+    "Html": "<p>Hi,</p>\r\n<p>This is not a MVVM issue, but rather a WPF or Silverlight issue. Exceptions thrown when parsing the XAML code are not thrown explicitly unless you enable this setting. This is actually to prevent what is called first chance exceptions, exception that are handled internally, to be thrown and to worsen your development experience.</p>\r\n<p>WHen you have an exception caused by the XAML parser, you can use the Exception Details link to dig into the internal exceptions that actually caused the error in the first place.</p>\r\n<p>Hopefully this makes sense,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-03-23T10:33:34.793-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "423454",
+    "ThreadId": "207034",
+    "Html": "<p>Thanks for your explanations Laurent.<br><br>It's pleasant to really understand what happens in some cases like this one ...</p>",
+    "PostedDate": "2010-03-25T02:34:42.04-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T03:19:16.99-07:00",
+    "CommentCount": 5,
+    "Custom": null,
+    "Description": "I hit a problem where my bindings broke using a relayCommand<int>.  I found a solution on stakoverflow (use <int?>).  Howevere I think the reconmendation of one of the responses should be considered for inclusion in the MVVMLite source:\r\n\r\nhttp://stackoverflow.com/questions/2306063/canexecute-on-relaycommandt-not-working/5095494#5095494\r\n\r\nKeep up the good work, and thanks, Matt  ",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V5",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-06-02T04:31:45.46-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Generic RelayCommand and Value Types",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 7529
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Great suggestion, thanks",
+      "PostedDate": "2011-06-02T05:16:05.573-07:00",
+      "Id": 36840
+    },
+    {
+      "Message": "It's been over a year since this was reported and hasn't yet been fixed?",
+      "PostedDate": "2012-07-23T10:04:40.387-07:00",
+      "Id": 70718
+    },
+    {
+      "Message": "like i am looking to upgrade from v3, I see that nothing changed since I started using MVVM Light end 2010, also had a big problem with a bug (variables containing action pointers were non persistent), no sulution, corrected it myself, send the solution, still only promise to correct it in v4. now, of course, I had to used my mvvm light v3 +, making updating now to v4 lots more difficult. that's a risk of course using something from Codeplex but hey, a framework is the basic thing of all your apps. I think it is more rewarding for Mr Bugnion to have betas around for all new MS releases than offering a solid solution.",
+      "PostedDate": "2012-07-24T02:54:35.103-07:00",
+      "Id": 70759
+    },
+    {
+      "Message": "Hi,\n\nI hear you. Prioritizing which issues to fix first is not easy. In that particular case, the issue is not mission critical and had to be prioritized lower than others I fixed in V4. I decided to draw a line at some point and release V4 even though some of the issues were not fixed, because I had already waited too long.\n\nOne mistake I made was to have the beta moniker for too long on V4 (a bit more than a year). I will increase the turnaround on future releases and make it faster to get V5, V6 etc. However, having a version out does not mean that I stop working on open issues. Fixing them remains important to me, but with my main job and my family (and days having still only 24 hours), things can take longer than some would prefer. \n\nGeert, I am not convinced that the comment about having betas around for all new MS releases is fair. Yes I am interested in having MVVM Light on multiple platforms, which I think is an advantage for the community as a whole. For instance, many are happy to have MVVM Light on WinRT currently, and develop new applications with it. I do strive, however, to offer the same quality on each platform. It is as rewarding to me to fix old issues (like the one mentioned here, which is not closed, and which I want to fix) as to offer MVVM Light on a new platform. As always, it is a delicate task making everyone satisfied.\n\nI do however feel your frustration, and I am sensitive to it.\n\nThanks,\nLaurent",
+      "PostedDate": "2012-07-24T03:51:24.947-07:00",
+      "Id": 70763
+    },
+    {
+      "Message": "Geert, I tracked back our email discussion. Please note the following:\n\n- I never promised to fix the issue in V4. I said \"in a future version\".\n- No one else ever reported that particular error.\n\nI am not saying it is not an issue (obviously it is an issue for you, so it is an issue for me too). I am just saying that when I prioritize which bugs to fix, this all plays a role. Even though you did send me code which, in your case, fixes the issue, I need first to make sure that adding that code is not going to break something else. That process is time consuming, and explains why this has not been done yet.\n\nStill, I agree that in that case, it took too long, and I am absolutely looking at that now.\n\nSorry for the delay, and I hope we can resolve that issue soon.\nLaurent",
+      "PostedDate": "2012-07-24T04:11:41.573-07:00",
+      "Id": 70764
+    }
+  ]
+}

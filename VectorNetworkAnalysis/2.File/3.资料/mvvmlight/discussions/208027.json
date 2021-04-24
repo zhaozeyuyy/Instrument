@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "426342",
+    "ThreadId": "208027",
+    "Html": "<p>Is there any way to pass parameters to ViewModel constructors? I've heard there's something using the Locator, but I've not seen any way described to actually implement it.</p>",
+    "PostedDate": "2010-04-01T01:29:43.277-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "426655",
+    "ThreadId": "208027",
+    "Html": "<p>Hi,</p>\r\n<p>Yes, please check my MIX10 session at <a href=\"http://live.visitmix.com/MIX10/Sessions/EX14\">http://live.visitmix.com/MIX10/Sessions/EX14</a>&nbsp;and the source code at <a href=\"http://blog.galasoft.ch/archive/2010/03/16/sample-code-for-my-mix10-talk-online.aspx\">http://blog.galasoft.ch/archive/2010/03/16/sample-code-for-my-mix10-talk-online.aspx</a>&nbsp;(check the one named <span style=\"text-transform:none;text-indent:0px;border-collapse:separate;font:medium 'Times New Roman';white-space:normal;letter-spacing:normal;color:#000000;word-spacing:0px\"><span style=\"line-height:18px;font-family:Verdana, Arial, sans-serif;color:#3a3a3a;font-size:11px\">MVVM Demo 2 (final))</span></span></p>\r\n<p><span style=\"text-transform:none;text-indent:0px;border-collapse:separate;font:medium 'Times New Roman';white-space:normal;letter-spacing:normal;color:#000000;word-spacing:0px\"><span style=\"line-height:18px;font-family:Verdana, Arial, sans-serif;color:#3a3a3a;font-size:11px\">This sample is injecting a DataService into the MainViewModel constructor.</span></span></p>\r\n<p><span style=\"text-transform:none;text-indent:0px;border-collapse:separate;font:medium 'Times New Roman';white-space:normal;letter-spacing:normal;color:#000000;word-spacing:0px\"><span style=\"line-height:18px;font-family:Verdana, Arial, sans-serif;color:#3a3a3a;font-size:11px\">Happy coding,</span></span></p>\r\n<p><span style=\"text-transform:none;text-indent:0px;border-collapse:separate;font:medium 'Times New Roman';white-space:normal;letter-spacing:normal;color:#000000;word-spacing:0px\"><span style=\"line-height:18px;font-family:Verdana, Arial, sans-serif;color:#3a3a3a;font-size:11px\">Laurent</span></span></p>",
+    "PostedDate": "2010-04-01T14:41:07.117-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "427055",
+    "ThreadId": "208027",
+    "Html": "<p>Thanks Laurent.</p>\r\n<p>That worked perfectly, had to hack at the sample a bit to make it play with EF, but it seems fairly happy, just need to find a way to inform the ViewModels that are consuming the DataService that the data has changed and they need to refresh.</p>\r\n<p>Regards</p>\r\n<p>Richard</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-03T07:27:22.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "453849",
+    "ThreadId": "208027",
+    "Html": "<p>Hi laurent,</p>\r\n<p>how do i pass a parameter to viewmodel constructor in viewmodellocator if i am using Entity Framework (ria service) .. this is the error i m getting</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>        <span style=\"color:blue\">public</span> <span style=\"color:blue\">static</span> IUnityContainer Container { <span style=\"color:blue\">get</span>; <span style=\"color:blue\">private</span> <span style=\"color:blue\">set</span>; }\r\n\r\n        <span style=\"color:blue\">private</span> <span style=\"color:blue\">static</span> MainViewModel _main;\r\n\r\n        <span style=\"color:blue\">public</span> ViewModelLocator()\r\n        {\r\n            Container = <span style=\"color:blue\">new</span> UnityContainer();\r\n\r\n            <span style=\"color:blue\">if</span> (ViewModelBase.IsInDesignModeStatic)\r\n            {\r\n                <span style=\"color:green\">// Create design time view models</span>\r\n            }\r\n            <span style=\"color:blue\">else</span>\r\n            {\r\n                <span style=\"color:green\">// Create run time view models</span>\r\n                Container.RegisterType&lt;IFilesCategory, FilesCategory&gt;();\r\n<span style=\"color:green\">//This line is giving me error:</span>\r\n\r\n<span style=\"color:green\">//Error 1 The type 'ScannedFiles.Web.Model.FilesCategory' cannot be used as type parameter</span>\r\n<span style=\"color:green\">// 'TTo' in the generic type or method 'Microsoft.Practices.Unity.IUnityContainer.RegisterType&lt;TFrom,TTo&gt;</span>\r\n<span style=\"color:green\">//(params Microsoft.Practices.Unity.InjectionMember[])'. There is no implicit reference conversion </span>\r\n<span style=\"color:green\">//from 'ScannedFiles.Web.Model.FilesCategory' to 'ScannedFiles.Model.IFilesCategory'.\t</span>\r\n<span style=\"color:green\">//C:\\Users\\BabAs\\Documents\\Visual Studio 2010\\Projects\\Silverlight\\BusinessApp\\New folder\\startAfresh\\ScannedFiles\\</span>\r\n<span style=\"color:green\">//ScannedFiles\\ViewModel\\ViewModelLocator.cs</span>\r\n\r\n            }\r\n\r\n            CreateMain();\r\n        }\r\n\r\n</pre>\r\n</div>\r\n<p>&nbsp;Files Category contains the following fields:</p>\r\n<p>1: Id, 2: Name, 3: Description, 4: Remarks</p>\r\n<p>plus the partial class contains:</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">namespace</span> ScannedFiles.Web.Model\r\n{\r\n    <span style=\"color:blue\">public</span> <span style=\"color:blue\">partial</span> <span style=\"color:blue\">class</span> FilesCategory\r\n    {\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">bool</span> IsModified\r\n        {\r\n            <span style=\"color:blue\">get</span>\r\n            {\r\n                <span style=\"color:blue\">return</span> EntityState == EntityState.Modified;\r\n            }\r\n        }\r\n\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">bool</span> IsNew\r\n        {\r\n            <span style=\"color:blue\">get</span>\r\n            {\r\n                <span style=\"color:blue\">return</span> (EntityState == EntityState.New) ||\r\n                       (EntityState == EntityState.Detached);\r\n            }\r\n        }\r\n\r\n        <span style=\"color:blue\">protected</span> <span style=\"color:blue\">override</span> <span style=\"color:blue\">void</span> OnPropertyChanged(PropertyChangedEventArgs e)\r\n        {\r\n            <span style=\"color:blue\">base</span>.OnPropertyChanged(e);\r\n\r\n            <span style=\"color:blue\">if</span> (String.CompareOrdinal(e.PropertyName, <span style=\"color:#a31515\">&quot;EntityState&quot;</span>) == 0)\r\n            {\r\n                RaisePropertyChanged(<span style=\"color:#a31515\">&quot;IsNew&quot;</span>);\r\n                RaisePropertyChanged(<span style=\"color:#a31515\">&quot;IsModified&quot;</span>);\r\n            }\r\n        }\r\n\r\n    }\r\n}\r\n</pre>\r\n</div>\r\n<p>My interface for FilesCategory is like this:</p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre><span style=\"color:blue\">using</span> System.ComponentModel;\r\n\r\n<span style=\"color:blue\">namespace</span> ScannedFiles.Model\r\n{\r\n    <span style=\"color:blue\">public</span> <span style=\"color:blue\">interface</span> IFilesCategory\r\n    {\r\n        <span style=\"color:blue\">protected</span> <span style=\"color:blue\">override</span> <span style=\"color:blue\">void</span> OnPropertyChanged(PropertyChangedEventArgs e);\r\n    }\r\n}\r\n</pre>\r\n</div>\r\n<p>Where am i doing something wrong. Pls help me...</p>\r\n<p>regards</p>\r\n<p>ashutosh (just started programming :)&nbsp; )</p>\r\n<div id=\"_mcePaste\" style=\"width:1px;height:1px;overflow:hidden;top:0px;left:-10000px\">﻿</div>",
+    "PostedDate": "2010-06-10T00:45:51.537-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "453977",
+    "ThreadId": "208027",
+    "Html": "<p>Hi,</p>\r\n<p><span style=\"font-family:Consolas, 'Courier New', Courier, monospace;white-space:pre\">FilesCategory</span>&nbsp;does not implement IFilesCategory in your sample, so Unity cannot create the desired instance.</p>\r\n<p>Since this question is really not related to MVVM Light, I would recommend you to post it on StackOverflow.com. There, people with more time on their hand will hopefully be able to guide you. Maybe find a Unity tutorial too, to understand how this works.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-06-10T06:58:55.53-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "529568",
+    "ThreadId": "208027",
+    "Html": "\r\n<p>And how do you guys are passing parameters like ids?</p>\r\n<p>Ex:</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">public</span> <span style=\"color:blue\">class</span> UserViewModel {\r\n  <span style=\"color:blue\">public</span> UserViewModel(IFooService fooSerivce, <span style=\"color:blue\">int</span> userId) {\r\n    ...\r\n  }\r\n}</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-12-01T10:14:07.147-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "539581",
+    "ThreadId": "208027",
+    "Html": "\r\n<p>There is a thought around using MvvmLight and view models overall in the question though.&nbsp; I use spring.net. If there are any data daos that need to be passed in, they are all configured in the container as described above.</p>\r\n<p>For parameters that may be dependent on what's active in the UI at the time, I may have the fooService already injected in the container but have the userId a property.</p>\r\n<p>If you have to have it in the constructor, you may also want to consider arranging your view models hierarchically and setup a parent link between them. The parent view model could keep the user id (or the selection or whatever) and child objects can access\r\n it. Think of the resource dictionary in WPF controls. You can do the same thing with hierarchical DI containers that you get your view model from a DI container and just stick a placeholder for the id in the container at the parent level and pick it up at\r\n the child container level.</p>\r\n<p>There are a number of ways. I use the hierarchy of view models alot when I have a view composed of dependent views that are complex so that the selection and other info (like my domain object session state) can propagate downward without effort. Think of\r\n it as adding a little of the dependency object &#43; resource dictionary capabilities to view models. The entire eclipse stack in the java world has moved to this model in the new e4 platform.</p>\r\n<p>The Locator pattern is a really, really simple version of the container but more statically configured. XAML can have constructor args so you can play with combinations of locator and direct instantiation but a DI container may be more useful in the long\r\n run.</p>\r\n",
+    "PostedDate": "2010-12-22T13:57:24.163-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

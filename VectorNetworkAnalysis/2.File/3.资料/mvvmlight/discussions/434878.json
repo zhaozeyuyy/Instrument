@@ -1,0 +1,98 @@
+[
+  {
+    "Id": "1008258",
+    "ThreadId": "434878",
+    "Html": "Hello,<br />\n<br />\nI'm just about to get started with a Windows Store App, which is intended to use a Portable Class Library for it's ViewModels + Models.<br />\nAfter reading through a few tutorials I'm pretty sure I want to use MVVM Light as glue between my Windows Store App UI and my business logic.<br />\n<br />\nUnfortunately I ran into a problem which is bothering me for days now - I'll try to explain it as good as possible:<br />\n<br />\nI've got, as already stated, 2 projects:<br />\n<br />\n1) The Windows Store App<br />\n2) The Portable Class Library<br />\n<br />\nI've installed 'MvvmLight' (+ 'MvvmLightLibs') using NuGet in my Windows Store App project and 'Portable.MvvmLightLights' to my PCL project.<br />\n<br />\nAfter doing that I moved the ViewModelLocator to a different folder (and namespace) in my Windows Store App. The MainViewModel also has been moved to my PCL, therefore I added a reference to the ViewModel's-Namespace in the ViewModelLocator.<br />\n<br />\nHowever, now comes the real problem: When I try to compile the whole solution Visual Studio complains about the following:<br />\n<br />\nError\t3\tThe type 'GalaSoft.MvvmLight.ViewModelBase' is defined in an assembly that is not referenced. You must add a reference to assembly 'GalaSoft.MvvmLight, Version=4.1.26.28028, Culture=neutral, PublicKeyToken=null'.\t&lt;Path to Windows Store App&gt;\\Common\\ViewModelLocator.cs\t49<br />\n<br />\nAdding a reference to the Portable.MvvmLight lib in the Store App causes ambiguous references, therefore more conflicts.<br />\n<br />\nAm I right that the normal MVVM Light library is too new, which confuses VS when trying to find the ViewModelBase in the older Lib where the PCL-Version is based off?<br />\n<br />\n[EDIT]<br />\nStore App Version: 4.1.27.22661<br />\nvs<br />\nPCL Version: 4.1.26.28028<br />\n<br />\n<br />\nLooking forward to your help.<br />\nThanks for your awesome work you've done so far :)<br />\n<br />\nBest regards,<br />\nKai Eichinger<br />\n",
+    "PostedDate": "2013-02-28T07:54:57.883-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1011367",
+    "ThreadId": "434878",
+    "Html": "Hi,\r<br />\n<br />\nI have the same problem here as i would to share  ViewModel inside a Portable Class Library and use it from a Win8 Store App and Windows Phone 8 application.\r<br />\n<br />\nDid you get a solution for that ?\r<br />\n<br />\nBy the way, i have the same versions (4.1.27 for win8 &amp; 4.1.26 for the portable)\r<br />\n<br />\nDominic<br />\n",
+    "PostedDate": "2013-03-06T11:43:04.257-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1011368",
+    "ThreadId": "434878",
+    "Html": "Hi,\r<br />\n<br />\nI have the same problem here as i would to share  ViewModel inside a Portable Class Library and use it from a Win8 Store App and Windows Phone 8 application.\r<br />\n<br />\nDid you get a solution for that ?\r<br />\n<br />\nBy the way, i have the same versions (4.1.27 for win8 &amp; 4.1.26 for the portable)\r<br />\n<br />\nDominic<br />\n",
+    "PostedDate": "2013-03-06T11:45:22.65-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1011403",
+    "ThreadId": "434878",
+    "Html": "Hey,\r<br />\n<br />\nwell, I've got a temporary workaround which seems to work for me. I removed the MVVM PCL version and added a reference to the normal MVVM Windows 8 DLLs ( GalaSoft.MvvmLight.Win8 and GalaSoft.MvvmLight.Extra.Win8). However, I'm not sure if everything's working if you use all features, though I'm kinda new to MVVM Light and didn't had the time to continue to work on my project.\r<br />\n<br />\nAnyways, I can compile the whole solution without any problems if I add the reference to the normal Win8 version.\r<br />\n<br />\nCheers~<br />\n",
+    "PostedDate": "2013-03-06T13:04:17.663-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1011526",
+    "ThreadId": "434878",
+    "Html": "I'm also attempting to use MVVM in a PCL to share between a Metro and windows phone application. \r<br />\n<br />\nI created a blank solution then added a Pcl and a Metro app. Then used Nuget to add the MVVM Light PCL libs to the PCL project and the normal MVVM light nuget libraries to the win8 project. I get this error: \r<br />\n<br />\nError\t2\tCould not load file or assembly 'Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The assembly version has a public key token that does not match that of the request. (Exception from HRESULT: 0x80132001)\tC:\\Users\\Jeff\\Documents\\Visual Studio 2012\\Projects\\RightWeight\\MvvmLightTest.Win8\\App.xaml\t14\t13\tMvvmLightTest.Win8\r<br />\n<br />\nI've tried this with blank win8 project and manually nugetting in the libraries, and mvvm light win8 project. \r<br />\n<br />\nThe runtime version of the Microsoft.Practices.ServiceLocation is v4.0.30319 in the PCL. <br />\n",
+    "PostedDate": "2013-03-06T19:35:37.597-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1013048",
+    "ThreadId": "434878",
+    "Html": "Same issue here, the pcl version says it's 4.1.27.1 when you select in nugget, but the binaries are version 4.1.26 that are actually installed.\r<br />\n<br />\nAny help anyone?<br />\n",
+    "PostedDate": "2013-03-10T18:47:17.923-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1013854",
+    "ThreadId": "434878",
+    "Html": "Hi,\r<br />\n<br />\nFinally I can access the discussions again!\r<br />\n<br />\nIn order to use MVVM Light PCL, you need to use them across the board, or else the references don't match. So if you add a PCL with MVVM Light, you must then, in your app, unreferenced the MVVM Light assemblies and instead reference the PCL ones.\r<br />\n<br />\nHope it makes sense!\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2013-03-12T06:09:49.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1013963",
+    "ThreadId": "434878",
+    "Html": "Thanks for the reply !\r<br />\n<br />\nI'm trying to move back the ViewModels into the PCL after removing the MVVM Light assemblies... do we need to move also the Vier\r<br />\n<br />\nDo we have to also move the ViewModelLocator into the PCL or we have to keep in the app ?\r<br />\n<br />\nDominic<br />\n",
+    "PostedDate": "2013-03-12T07:56:33.263-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1014042",
+    "ThreadId": "434878",
+    "Html": "Hi,\r<br />\n<br />\nTypically I put some of the ViewModels in the PCL, some others in the app. I put the ViewModelLocator in the PCL. \r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2013-03-12T09:37:53.89-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1054778",
+    "ThreadId": "434878",
+    "Html": "Hello Laurent,<br />\ni am developing win8 store app using mvvm light, i give references to GalaSoft assemblies in both View  ( ProjectType- win8 app)and ViewModel (PCL) projects. When i build my app it give me 3136 errors regarding winmd. so i remove GalaSoft.MvvmLight.Win8 from app and left it only in PCL, now i am getting this error in View project.<br />\n<br />\nThe type 'GalaSoft.MvvmLight.ViewModelBase' is defined in an assembly that is not referenced. You must add a reference to assembly 'GalaSoft.MvvmLight.Win8, Version=4.1.24.17494, Culture=neutral, PublicKeyToken=7f0ea4153a3589fc'<br />\n<br />\nWhat should i do to get work done now ? <br />\nThanks in Advance.<br />\n",
+    "PostedDate": "2013-06-10T03:36:11.9-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1054818",
+    "ThreadId": "434878",
+    "Html": "Hi,\r<br />\n<br />\nYou need to add a reference to the PCL MVVM Light assembly within your app too.\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2013-06-10T05:20:52.72-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1055205",
+    "ThreadId": "434878",
+    "Html": "Hi,\r<br />\n<br />\nThanks for a quick reply, i did what you say but now i am getting \r<br />\n<br />\nError2\tCannot resolve Assembly or Windows Metadata file 'GalaSoft.MvvmLight.Win8.dll'\t\r<br />\nError\t3\tType universe cannot resolve assembly: GalaSoft.MvvmLight.Win8, Version=4.0.23.35608, Culture=neutral, PublicKeyToken=7f0ea4153a3589fc.\r<br />\n<br />\n<br />\ni believe this is due to use of win8nl.dll for EventToCommandBehavior in app, i check your source code you also refer <br />\n<pre><code>&lt;Reference Include=&quot;GalaSoft.MvvmLight.Win8&quot;&gt;\n  &lt;HintPath&gt;..\\packages\\MvvmLightLibs.4.1.27.0\\lib\\netcore45\\GalaSoft.MvvmLight.Win8.dll&lt;/HintPath&gt;\n&lt;/Reference&gt;\n</code></pre>\n\nSo please guide what should i do ? Do i need GalaSoft.MvvmLight.Win8.dll in app or MVVM libraries will do all the work, as when ever i refer GalaSoft.MvvmLight.Win8.dll it gives me 3136 errors regarding winmd?<br />\n",
+    "PostedDate": "2013-06-10T23:02:40.317-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

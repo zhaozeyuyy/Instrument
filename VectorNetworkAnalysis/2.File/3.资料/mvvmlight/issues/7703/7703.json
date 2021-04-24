@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Recently in a project of mine I noticed that when something was triggered by a `BackgroundTask`, and itself sent a message to another project in the same solution that had registered for that type of messages, it did not receive it. My solution structure is:\r\n\r\n- __BackgroundTask__\r\n- __CustomPCL__ (where the `Messenger` sends the message)\r\n- __MessengerTestApp__ (My main project and where the `Messenger` is registered)\r\n\r\nYou can test send the message in two ways.\r\n1 - In the __MessengerTestApp__ there is a button that calls a method in the __CustomPCL__ that sends the message\r\n2 - In VS you can trigger the __BackgroundTask__ that calls the same method in the __CustomPCL__ that sends the message\r\n\r\nIn the first case everything happens correctly, but in the second everything goes fine until the sending, but the message is never received. I'm testing this with the app opened, so there is in fact an instance of the main project, opposed to the code being run in the background.\r\n\r\nAny thoughts on this? Is there a workaround?\r\n\r\nPS: attached you can find a test project.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-08-26T10:45:14.153-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Messenger not receiving with Background Tasks",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7703
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1480734,
+      "FileName": "MessengerTestApp.7z",
+      "DownloadUrl": ".\\1480734"
+    }
+  ],
+  "Comments": []
+}

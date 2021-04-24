@@ -1,0 +1,66 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 4,
+    "Custom": null,
+    "Description": "I couldn't see an easy way to allow a listview in android to be rendered with different views based on the view model type. I created another adapter where a mapping between views and viewmodels can be passed in and the adapter will render then the viewmodels based on this mapping. View recyclcing is taking care of and it is very easy to setup binding for each viewmodel in this list. Hopefully you find this useful and something that can be added to the next version\r\n\r\nHere is an example on how to us this adapter\r\nListView listView = multiPopup.FindViewById<ListView>(Resource.Id.choiceList);\r\nlistView.Adapter = _vm.AvailableChoices.GetAdapterEx(new MultiChoiceTemplateSelector(Context),Activity)Context);\r\n\r\nCode for the template selector\r\npublic class MultiChoiceTemplateSelector : ITemplateSelector\r\n    {\r\n        private List<TemplateRegistration> _mapping;\r\n\r\n        public MultiChoiceTemplateSelector(Context context)\r\n        {\r\n            _mapping = new List<TemplateRegistration>();\r\n            _mapping.Add(new TemplateRegistration\r\n            {\r\n                ViewType = typeof(AView),\r\n                ViewModelType = typeof(AViewModel),\r\n                CreateView = ()=>new AView(context),\r\n                InitializeView = (v,vm) => ((AView)v).Init(vm as AViewModel)\r\n            });\r\n            _mapping.Add(new TemplateRegistration\r\n            {\r\n                ViewType = typeof(BView),\r\n                ViewModelType = typeof(BViewModel),\r\n                CreateView = ()=>new BView(context),\r\n                InitializeView = (v,vm) => ((BView)v).Init(vm as BViewModel)\r\n            });\r\n        }\r\n\r\nExample of the Init method of a view\r\n public void Init(AViewModel viewModel)\r\n        {\r\n            _checkBinding.SafeDetach();\r\n            _labelBinding.SafeDetach();\r\n\r\n            _vm = viewModel;\r\n\r\n            _checkBinding = _vm.SetBinding(() => _vm.IsChecked, _checkBox, () => _checkBox.Checked, BindingMode.TwoWay);\r\n            _labelBinding = _vm.SetBinding(() => _vm.Label, _checkBox, () => _checkBox.Text, BindingMode.OneWay);\r\n\r\n        }\r\n\r\n\r\n        public List<TemplateRegistration> GetMapping()\r\n        {\r\n            return _mapping;\r\n        }\r\n    }\r\n\r\n\r\nHere is the code of the adapter\r\n\r\npublic interface ITemplateSelector\r\n    {\r\n        List<TemplateRegistration> GetMapping();\r\n    }\r\n\r\n    public class TemplateRegistration\r\n    {\r\n        public Type ViewModelType { get; set; }\r\n        public Type ViewType { get; set; }\r\n        public Func<View> CreateView { get; set; }\r\n        public Action<object,object> InitializeView { get; set; }\r\n    }\r\n\r\npublic class ObservableAdapterEx<T> : BaseAdapter<T>\r\n    {\r\n        private readonly ITemplateSelector _templateSelector;\r\n        private readonly Activity _activity;\r\n        private readonly List<TemplateRegistration> _viewToViewModelMapping;\r\n        private IList<T> _list;\r\n        private INotifyCollectionChanged _notifier;\r\n\r\n        public ObservableAdapterEx(ITemplateSelector templateSelector, Activity activity)\r\n        {\r\n            _templateSelector = templateSelector;\r\n            _activity = activity;\r\n            _viewToViewModelMapping = templateSelector.GetMapping();\r\n        }\r\n\r\n        /// <summary>\r\n        /// Gets the number of items in the DataSource.\r\n        /// </summary>\r\n        public override int Count\r\n        {\r\n            get\r\n            {\r\n                return _list == null ? 0 : _list.Count;\r\n            }\r\n        }\r\n\r\n        /// <summary>\r\n        /// Gets or sets the list containing the items to be represented in the list control.\r\n        /// </summary>\r\n        public IList<T> DataSource\r\n        {\r\n            get\r\n            {\r\n                return _list;\r\n            }\r\n            set\r\n            {\r\n                if (Equals(_list, value))\r\n                {\r\n                    return;\r\n                }\r\n\r\n                if (_notifier != null)\r\n                {\r\n                    _notifier.CollectionChanged -= NotifierCollectionChanged;\r\n                }\r\n\r\n                _list = value;\r\n                _notifier = _list as INotifyCollectionChanged;\r\n\r\n                if (_notifier != null)\r\n                {\r\n                    _notifier.CollectionChanged += NotifierCollectionChanged;\r\n                }\r\n            }\r\n        }\r\n\r\n        /// <summary>\r\n        /// Gets the item corresponding to the index in the DataSource.\r\n        /// </summary>\r\n        /// <param name=\"index\">The index of the item that needs to be returned.</param>\r\n        /// <returns>The item corresponding to the index in the DataSource</returns>\r\n        public override T this[int index]\r\n        {\r\n            get\r\n            {\r\n                return _list == null ? default(T) : _list[index];\r\n            }\r\n        }\r\n\r\n        /// <summary>\r\n        /// Returns a unique ID for the item corresponding to the position parameter.\r\n        /// In this implementation, the method always returns the position itself.\r\n        /// </summary>\r\n        /// <param name=\"position\">The position of the item for which the ID needs to be returned.</param>\r\n        /// <returns>A unique ID for the item corresponding to the position parameter.</returns>\r\n        public override long GetItemId(int position)\r\n        {\r\n            return position;\r\n        }\r\n\r\n        /// <summary>\r\n        /// Prepares the view (template) for the item corresponding to the position\r\n        /// in the DataSource. This method calls the <see cref=\"GetTemplateDelegate\"/> method so that the caller\r\n        /// can create (if necessary) and adapt the template for the corresponding item.\r\n        /// </summary>\r\n        /// <param name=\"position\">The position of the item in the DataSource.</param>\r\n        /// <param name=\"convertView\">A recycled view. If this parameter is null,\r\n        /// a new view must be inflated.</param>\r\n        /// <param name=\"parent\">The view's parent.</param>\r\n        /// <returns>A view adapted for the item at the corresponding position.</returns>\r\n        public override View GetView(int position, View convertView, ViewGroup parent)\r\n        {\r\n            if (_templateSelector == null)\r\n            {\r\n                return convertView;\r\n            }\r\n\r\n            var item = _list[position];\r\n\r\n            Type viewModelType = item.GetType();\r\n            var mapping= _viewToViewModelMapping.Find(p => p.ViewModelType == viewModelType);\r\n\r\n            if (mapping == null)\r\n                throw new Exception(string.Format(\"Unknown ViewModel Type of {0}\", viewModelType));\r\n\r\n            if (convertView == null)\r\n            {\r\n                convertView = mapping.CreateView();\r\n            }\r\n\r\n            mapping.InitializeView(convertView, item);\r\n\r\n            return convertView;\r\n        }\r\n\r\n        private void NotifierCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)\r\n        {\r\n            NotifyDataSetChanged();\r\n        }\r\n\r\n        public override int GetItemViewType(int position)\r\n        {\r\n            object viewModel =  _list[position];\r\n            Type vmType = viewModel.GetType();\r\n            var mapping = _viewToViewModelMapping.Find(m => m.ViewModelType == vmType);\r\n            int viewTypeId = _viewToViewModelMapping.IndexOf(mapping);\r\n            return viewTypeId;\r\n        }\r\n\r\n        public override int ViewTypeCount\r\n        {\r\n            get { return _viewToViewModelMapping.Count; }\r\n        }\r\n    }\r\n\r\n    public static class AdapterExtensions\r\n    {\r\n        /// <summary>\r\n        /// Creates a new <see cref=\"ObservableAdapterEx{T}\"/> for a given <see cref=\"ObservableCollection{T}\"/>.\r\n        /// </summary>\r\n        /// <typeparam name=\"T\">The type of the items contained in the <see cref=\"ObservableCollection{T}\"/>.</typeparam>\r\n        /// <param name=\"collection\">The collection that the adapter will be created for.</param>\r\n        /// <param name=\"getTemplateDelegate\">A method taking an item's position in the list, the item itself,\r\n        ///     and a recycled Android View, and returning an adapted View for this item. Note that the recycled\r\n        ///     view might be null, in which case a new View must be inflated by this method.</param>\r\n        /// <param name=\"mapping\"></param>\r\n        /// <returns>A View adapted for the item passed as parameter.</returns>\r\n        public static ObservableAdapterEx<T> GetAdapterEx<T>(this ObservableCollection<T> collection, ITemplateSelector templateSelector, Activity activity)\r\n        {\r\n            return new ObservableAdapterEx<T>(templateSelector,activity)\r\n            {\r\n                DataSource = collection\r\n            };\r\n        }\r\n\r\n        /// <summary>\r\n        /// Creates a new <see cref=\"ObservableAdapterEx{T}\"/> for a given <see cref=\"IList{T}\"/>.\r\n        /// </summary>\r\n        /// <typeparam name=\"T\">The type of the items contained in the <see cref=\"IList{T}\"/>.</typeparam>\r\n        /// <param name=\"list\">The list that the adapter will be created for.</param>\r\n        /// <param name=\"getTemplateDelegate\">A method taking an item's position in the list, the item itself,\r\n        /// and a recycled Android <see cref=\"View\"/>, and returning an adapted View for this item. Note that the recycled\r\n        /// View might be null, in which case a new View must be inflated by this method.</param>\r\n        /// <returns>An adapter adapted to the collection passed in parameter..</returns>\r\n        public static ObservableAdapterEx<T> GetAdapterEx<T>(\r\n            this IList<T> list, ITemplateSelector templateSelector, Activity activity)\r\n        {\r\n            return new ObservableAdapterEx<T>(templateSelector, activity)\r\n            {\r\n                DataSource = list,\r\n            };\r\n        }\r\n    }",
+    "LastUpdatedDate": "2016-02-12T15:06:14.88-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-01-18T06:02:23.363-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Binding to an observable collection with different layouts",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7718
+  },
+  "FileAttachments": [
+    {
+      "FileId": 1547510,
+      "FileName": "TemplateSeletorDemo.zip",
+      "DownloadUrl": ".\\1547510"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Interesting idea. I will consider it. Do you have a working sample I could check out?\n\nThanks\nLaurent",
+      "PostedDate": "2016-02-10T12:59:33.477-08:00",
+      "Id": 196443
+    },
+    {
+      "Message": "Sure, what's the best way to get the sample to you?\n-Steffen",
+      "PostedDate": "2016-02-11T19:14:07.403-08:00",
+      "Id": 196505
+    },
+    {
+      "Message": "You can attach it as a file here below :)\n\nThanks!\nLaurent",
+      "PostedDate": "2016-02-12T09:57:47.907-08:00",
+      "Id": 196524
+    },
+    {
+      "Message": "Laurent,\r\nHere is a simple demo. Didn't think that it would be below 4Mb, but here it is. It creates a random list containing ViewModels for ViewA and ViewB. For simplicity, I did not use databinding in the viewmodels of ViewA and ViewB but that can easily be done by adding bindings in the Init methods. Enjoy!\r\n\r\nregards\r\nSteffen",
+      "PostedDate": "2016-02-12T15:06:14.88-08:00",
+      "Id": 196529
+    }
+  ]
+}

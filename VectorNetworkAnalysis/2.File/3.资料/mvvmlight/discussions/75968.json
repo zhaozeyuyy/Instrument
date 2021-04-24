@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "259844",
+    "ThreadId": "75968",
+    "Html": "<p>Is there any specific gain you get by implementing your Messenger&nbsp;architecture with a key of Type?&nbsp;&nbsp;I find it some what chaotic for the need of creating individual message classes (and Types) just to keep messages unique. Having a Messenger Implementation with a key based on string is a lot less code overhead and management.</p>\r\n<p>With keeping things organized with what Messages are available to the system it may be easier to find or see&nbsp;visually&nbsp;with your&nbsp;architecture. However, the same could be done with an Enum of&nbsp;Messages&nbsp;and converting them to a strings.</p>\r\n<p>Basically your method seems to help show what messages are available&nbsp;before&nbsp;runtime , but this organization and structure should be left more to the developer. I do really like the idea of GenericMessage where it has sender and target&nbsp;information. The Sender object can be very useful in trying to avoid infinte recursion on two ViewModels that are listening and updating the same information. IE if the model that sends the message does not need to hear back from&nbsp;itself. So the invocation list you would ignore all targets that have the same sender.</p>\r\n<p>&nbsp;</p>\r\n<p>Is it possible to merge with Josh Smith's implementation of messenger? I hope I am not offending, I am just trying to understand your reasoning.&nbsp;</p>",
+    "PostedDate": "2009-11-23T08:13:01.517-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "259939",
+    "ThreadId": "75968",
+    "Html": "<p>Hi,</p>\r\n<p>You don't need to create individual message types if you don't want to. You can very well do Messenger.Default.Send(&quot;hello world&quot;) (in which case the recipient must register with Messenger.Default.Register&lt;string&gt;(this, m =&gt; ...)</p>\r\n<p>In addition, now that I added a possibility to send using a token, you can direct a message to a unique group of receivers. this should cover your needs by providing a functionality which is equivalent to Josh's one.&nbsp;</p>\r\n<p>Josh, Marlon Grech (who is at the origin of Josh's mediator implementation) and I had numerous discussions about it. Personally I dislike an attribute based messaging system. I find it more difficult to unit test and to mock. It does appeal to some, however. My implementation, on the other hand, appeals more to other people, and i received a lot of good comments about my messenger. I think that we gain from this choice (and Josh thinks so too, by the way).</p>\r\n<p>Marlon Grech took a shot at trying to merge my implementation and Josh's mediator, but it didn't work that well, and he eventually gave up. Personally i think there is room for both solutions.</p>\r\n<p>Note that thanks to the very permissive licenses Josh and I use, you are free to take his messenger and the rest of my toolkit if you like. The MIT license allows you to modify the source code at will, so don't hesitate to take what you like and leave what you don't ;)</p>\r\n<p>No offenses at all by the way, loving the discussions!</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2009-11-23T12:35:34.2-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "259961",
+    "ThreadId": "75968",
+    "Html": "<p>So if I were Sending a string like Messenger.Default.Send(&quot;hello world&quot;) how do I tell what that string is relevant too? If I register for a string I will just get forwarded any string out of the messenger with out knowing what it means. &nbsp;So basically I really like your Messenger, I just wish there were another way at keeping the messages unique without creating new types.</p>\r\n<p>Does your messenger check against the sender or class that invoked the Send function? IE not to send the data back to the sender. It is possible for the Sender of the message to be listening and changing the same data.</p>\r\n<p>Thanks for your response, I just really like thinking about the Messenger stuff because I feel it is very important, and I am trying to pick which solution to use or what I should merge.&nbsp;</p>",
+    "PostedDate": "2009-11-23T13:14:20.173-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "259980",
+    "ThreadId": "75968",
+    "Html": "<p>You should be able to take care of this infinite loop situation easily if you force the usage of GenericMessage&lt;T&gt; since it already keeps track of the sender and target information.</p>",
+    "PostedDate": "2009-11-23T13:45:24.817-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "259997",
+    "ThreadId": "75968",
+    "Html": "<p>Hey,</p>\r\n<p>If you want to send a message only to a certain number of recipients, use the overload of Register and of Send that uses a token. The token is like opening a personal communication channel (this is only available in V3 alpha for the moment though). Alternatively, the sender can send only to a certain type of recipient using Send&lt;TMessage, TTarget&gt;, for example a ViewModel can choose to send a message only to another ViewModel.</p>\r\n<p>There are more built in types than GenericMessage. You also have MessageBase, NotificationMessage and NotificationMessage&lt;T&gt;, DialogMessage and more. Check the GalaSoft.MvvmLight.Messaging namespace. These message types should cover a large portion of your needs, and can also be used as basis class for more specific message types if needed. They all have a Sender and a Target property (though I must note that the Target property is not checked by the Messenger, and is merely an indication for the recipient to check if the message was for him or not).</p>\r\n<p>I chose to not force any condition on the message, sender or recipient type in V2, on the advice of some very experienced members of the community (in V1, all messages had to derive from MessageBase). i think it was the right decision to remove this constraint, as the usage of the Messenger is much easier and &quot;freeer&quot; now.&nbsp;</p>\r\n<p>Hopefully this helps.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2009-11-23T14:13:12.98-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "432456",
+    "ThreadId": "75968",
+    "Html": "<p>Hi,</p>\r\n<p>As you are a previous user of the discussion tab on the MVVM Light Codeplex site, I would like to inform you that I decided to encourage the usage of StackOverflow for questions regarding the MVVM Light toolkit. Please tag your questions with the mvvm-light tag.</p>\r\n<p>StackOverflow is an awesome site where tons of developers help others with their technical question.</p>\r\n<p><a href=\"http://stackoverflow.com/questions/tagged/mvvm-light\">http://stackoverflow.com/questions/tagged/mvvm-light</a></p>\r\n<p>I will monitor this tag on the StackOverflow website and do my best to answer questions. The advantage of StackOverflow over the Codeplex discussion is the sheer number of qualified developers able to help you with your questions, the visibility of the question itself, and the whole StackOverflow infrastructure (reputation, up- or down-vote, comments, etc)</p>\r\n<p>Thanks!</p>\r\n<p>Laurent</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-18T11:55:06.32-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

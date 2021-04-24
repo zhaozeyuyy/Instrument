@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1144642",
+    "ThreadId": "479302",
+    "Html": "I've installed various versions of MVVM Light over the past 3 years and I'm trying to install the latest to get the latest DLLs.  I think I've uninstalled all the previous versions, but I probably have little bits and pieces left around.\r<br />\n<br />\nAnyhow, I'm trying to install the latest 2012 version (MvvmLight.VS2012.vsix), and it installs the templates, but the DLLs are no where to be found. When I create a project using one of the templates, the compiler can't find the referenced DLLs either.\r<br />\n<br />\nI just want the DLLs.  I don't care about the templates<br />\n",
+    "PostedDate": "2014-01-02T07:50:51.49-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1144653",
+    "ThreadId": "479302",
+    "Html": "Hi,\r<br />\n<br />\nThe templates should find the DLLs, they get installed with the VSIX.\r<br />\n<br />\nNonetheless, if you only want the DLLs, the best solution is to use Nuget and use the &quot;mvvmlight&quot; search word and then &quot;Libraries only&quot;.\r<br />\n<br />\ncheers\r<br />\nLaurent <br />\n",
+    "PostedDate": "2014-01-02T08:11:54.017-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

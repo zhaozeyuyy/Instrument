@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "426486",
+    "ThreadId": "208063",
+    "Html": "<p>Hi Laurent,</p>\r\n<p>can you give me a reason to use EventToCommand over Blend's new&nbsp;InvokeCommandAction?<br>Is there any difference?<br>If not: have they asked, if they can use your source code? ;) Just kidding...</p>\r\n<p>Tobias</p>",
+    "PostedDate": "2010-04-01T07:47:16.987-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "426644",
+    "ThreadId": "208063",
+    "Html": "<p>Hi,</p>\r\n<p>Actually InvokeDataCommand was made before I did EventToCommand, and I &quot;inspired&quot; (aka stole) a lot of their code (with their permission).</p>\r\n<p>I made EventToCommand because</p>\r\n<p>- The WPF version was buggy and I wanted it to work the same in WPF and SL<br>- The CommandParameter was not bindable.<br>- I added the PassEventArgsToCommand property</p>\r\n<p>I need to make a feature-to-feature comparison of InvokeDataCommand vs EventToCommand in SL4/WPF4 and see if maybe we can get rid ot EventToCommand. I will do that after SL4 is released.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-01T14:06:17.47-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

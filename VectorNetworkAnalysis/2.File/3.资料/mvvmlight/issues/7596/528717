@@ -1,0 +1,17 @@
+System.InvalidCastException was unhandled by user code
+  HResult=-2147467262
+  Message=Das Objekt des Typs "MS.Internal.NamedObject" kann nicht in Typ "Logima.MeasurementFramework.Profiles.ViewingProfile" umgewandelt werden.
+  Source=GalaSoft.MvvmLight.WPF4
+  StackTrace:
+       bei GalaSoft.MvvmLight.Command.RelayCommand`1.CanExecute(Object parameter) in C:\Users\Daniel\Downloads\mvvmlight-bl16\mvvmlight_BL16\GalaSoft.MvvmLight\GalaSoft.MvvmLight (NET35)\Command\RelayCommandGeneric.cs:Zeile 96.
+       bei MS.Internal.Commands.CommandHelpers.CanExecuteCommandSource(ICommandSource commandSource)
+       bei System.Windows.Controls.Primitives.ButtonBase.UpdateCanExecute()
+       bei System.Windows.Controls.Primitives.ButtonBase.OnCanExecuteChanged(Object sender, EventArgs e)
+       bei System.Windows.WeakEventManager.ListenerList`1.DeliverEvent(Object sender, EventArgs e, Type managerType)
+       bei System.Windows.WeakEventManager.DeliverEvent(Object sender, EventArgs args)
+       bei System.Windows.Input.CanExecuteChangedEventManager.OnCanExecuteChanged(Object sender, EventArgs args)
+       bei GalaSoft.MvvmLight.Command.RelayCommand`1.RaiseCanExecuteChanged() in C:\Users\Daniel\Downloads\mvvmlight-bl16\mvvmlight_BL16\GalaSoft.MvvmLight\GalaSoft.MvvmLight (NET35)\Command\RelayCommandGeneric.cs:Zeile 84.
+       bei Radcal.AccuGold.ViewModel.ViewingProfileCollectionViewModel.UpdateCanCommands() in C:\Users\Stefan\Documents\Visual Studio 2010\Projects\_Produktiv\AccuGold\Accu-Gold\dev\UserInterface\UI\ViewModel\MeasurementTab\ViewingProfileCollectionViewModel.vb:Zeile 181.
+       bei System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+       bei MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)
+  InnerException: 

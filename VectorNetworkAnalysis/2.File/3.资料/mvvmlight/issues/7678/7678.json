@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-01-13T10:02:52.107-08:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "Hi,\r\n\r\nI am getting the error\r\nThe name \"ViewModelLocator\" does not exist in the namespace \"using:MyApp.ViewModel\"\r\nin the app.xaml file of a universal application. I am using v5.020 of mvvm light.\r\n\r\nBrowsing the web I have read solutions such as:\r\n-Cleaning and rebuilding the project\r\n-Placing the \r\n<vm:ViewModelLocator x:Key=\"Locator\" xmlns:vm=\"using:MyApp.ViewModel\"/>\r\nline inside a resource dictionary\r\n-Leaving only the above line in the Application.resources\r\n-Uninstalling and re-installing mvvm\r\n \r\nI have tried the above with no success.\r\n\r\nI would also like to note that the error is not encountered in the WindowsPhone8.1(winrt) project and the app runs fine. Only in the Windows 8.1 project does the error show up. \r\n\r\nIf this error is not resolved I won't be able to reference any of my ViewModels which is obviously a huge problem.\r\n\r\nBelow are my App.xaml file and an abbreviated version of my ViewModelLocator\r\n\r\nThanks for any help concerning this matter. And thanks again for a great framework :)\r\n\r\nApp.xaml\r\n```\r\n<Application x:Class=\"MyApp.App\" \r\n             xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\" \r\n             xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\"              \r\n             xmlns:local=\"using:MyApp\">\r\n    <Application.Resources>\r\n        <ResourceDictionary>\r\n            <ResourceDictionary.MergedDictionaries>\r\n                <ResourceDictionary Source=\"/Resources/Colors.xaml\" />\r\n                <ResourceDictionary Source=\"/Resources/Styles.xaml\" />\r\n            </ResourceDictionary.MergedDictionaries>\r\n            <vm:ViewModelLocator x:Key=\"Locator\" xmlns:vm=\"using:MyApp.ViewModel\"/>\r\n        </ResourceDictionary>\r\n    </Application.Resources>\r\n</Application>\r\n```\r\n\r\nViewModelLocator.cs\r\n```\r\nnamespace MyApp.ViewModel\r\n{\r\n    /// <summary>\r\n    /// This class contains static references to all the view models in the\r\n    /// application and provides an entry point for the bindings.\r\n    /// </summary>\r\n    public class ViewModelLocator\r\n    {\r\n        /// <summary>\r\n        /// Initializes a new instance of the ViewModelLocator class.\r\n        /// </summary>\r\n        public ViewModelLocator()\r\n        {\r\n            ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);\r\n\r\n            ////if (ViewModelBase.IsInDesignModeStatic)\r\n            ////{\r\n            ////    // Create design time view services and models\r\n            ////    SimpleIoc.Default.Register<IDataService, DesignDataService>();\r\n            ////}\r\n            ////else\r\n            ////{\r\n            ////    // Create run time view services and models\r\n            ////    SimpleIoc.Default.Register<IDataService, DataService>();\r\n            ////}\r\n            var navigationService = this.CreateNavigationService();\r\n\r\n\r\n            SimpleIoc.Default.Register<LoginPageViewModel>();\r\n            SimpleIoc.Default.Register<LoginRegisterPageViewModel>();\r\n          ........\r\n          ........\r\n            SimpleIoc.Default.Register<StoresPageViewModel>();\r\n            SimpleIoc.Default.Register<INavigationService>(() => navigationService);\r\n            SimpleIoc.Default.Register<IEncryptService, EncryptService>();\r\n            SimpleIoc.Default.Register<ISettingsService, SettingsService>();\r\n            \r\n        }\r\n\r\n        public MainViewModel Main\r\n        {\r\n            get\r\n            {\r\n                return ServiceLocator.Current.GetInstance<MainViewModel>();\r\n            }\r\n        }\r\n\r\n        public ConnectionsPageViewModel Connections\r\n        {\r\n            get\r\n            {\r\n                return ServiceLocator.Current.GetInstance<ConnectionsPageViewModel>();\r\n            }\r\n        }\r\n\r\n        public ConnectionDetailPageViewModel ConnectionDetails\r\n        {\r\n            get\r\n            {\r\n                return ServiceLocator.Current.GetInstance<ConnectionDetailPageViewModel>();\r\n            }\r\n        }\r\n\r\n       ........\r\n       ........\r\n\r\n        public StoresPageViewModel Stores\r\n        {\r\n            get\r\n            {\r\n                return ServiceLocator.Current.GetInstance<StoresPageViewModel>();\r\n            }\r\n        }\r\n        \r\n\r\n        private INavigationService CreateNavigationService()\r\n        {\r\n            var navigationService = new NavigationService();\r\n            navigationService.Configure(\"ConnectionsPage\", typeof(ConnectionsPage));\r\n            navigationService.Configure(\"ConnectionDetailsPage\", typeof(ConnectionDetailsPage));\r\n            navigationService.Configure(\"BlockSimPage\", typeof(BlockSimPage));\r\n            navigationService.Configure(\"MainPage\", typeof(MainPage));\r\n#if WINDOWS_PHONE_APP\r\n            navigationService.Configure(\"LoginRegisterPage\", typeof(LoginRegisterPage));\r\n            navigationService.Configure(\"LoginPage\", typeof(LoginPage));\r\n            navigationService.Configure(\"RegisterPage\", typeof(RegisterPage));\r\n            navigationService.Configure(\"RegisterPage2\", typeof(RegisterPage2));\r\n            navigationService.Configure(\"RegisterPage3\", typeof(RegisterPage3));\r\n            navigationService.Configure(\"InvoiceLabelDetailsPage\", typeof(InvoiceLabelDetailsPage));\r\n            navigationService.Configure(\"InvoiceChartPage\", typeof(InvoicesChartPage));\r\n            navigationService.Configure(\"InvoiceDetails\", typeof(InvoiceDetailsPage));\r\n#endif\r\n            \r\n\r\n            return navigationService;\r\n        }\r\n\r\n        public static void Cleanup()\r\n        {\r\n            // TODO Clear the ViewModels\r\n        }\r\n    }\r\n}\r\n```\r\n\r\nEDIT1: After reading [this](https://mvvmlight.codeplex.com/discussions/547269) and changing the target platform the error goes away for x86 architecture. However I need to develop and test for ARM devices and the error still exists there.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-01-13T01:01:48.93-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Not an issue"
+    },
+    "Summary": "The name \"ViewModelLocator\" does not exist in the namespace \"using:XXX.ViewModel\"",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7678
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nThis error is a symptom of something that is going wrong inside your project. The VML is created early in the application lifetime. In turns, it will create other objects that may throw an exception. If this happens, the error shown is the one you describe above.\n\nPlace a breakpoint in the VML constructor and debug from there. Also make sure to turn on first chance exceptions as that might give you a better idea of what is happening. I am ready to bet that you have something \"throwing up\" when your application starts up.\n\nIf I don't hear back I'll close this issue as it is most probably not MVVM Light related ;)\n\nCheers\nLaurent",
+      "PostedDate": "2015-01-13T01:43:12.797-08:00",
+      "Id": 169975
+    },
+    {
+      "Message": "Thanks for the quick answer and the pointers. I'll try that now and get back to you here.\n",
+      "PostedDate": "2015-01-13T02:00:53.983-08:00",
+      "Id": 169977
+    },
+    {
+      "Message": "Hi again,\n\nYes there was something \"throwing up\" as you said. I removed it and the project works. \nThe error is still showing in the Error List though, only now it magically doesn't affect the project.\nThanks for the pointers. I'll have them in mind in case I run into this again. Thanks again.  ",
+      "PostedDate": "2015-01-13T03:08:41.54-08:00",
+      "Id": 169983
+    }
+  ]
+}

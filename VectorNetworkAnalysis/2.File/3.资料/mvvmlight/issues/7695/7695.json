@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2016-01-16T13:46:18.4-08:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "This may be a failure of my understanding rather than an issue, so I've asked on SO too: http://stackoverflow.com/q/30729999/575530\r\n\r\nHere's my understanding ...\r\n\r\nFor a page to be Blendable it must load sample data in the view model or the locator's parameterless constructor.\r\n\r\nIn WinRT both StorageFile.GetFileFromApplicationUriAsync and FileIO.ReadTextAsync are asynchronous and methods that call them must either use async or ContinueWith.\r\n\r\nThe parameterless constructor on a view model, like any constructor, cannot be marked async and so cannot use await.\r\n\r\nData loaded in a ContinueWith, even when marshalled using DispatcherHelper.CheckBeginInvokeOnUI, does not show up in Blend\r\n\r\nDoes MVVM Light still provide a principled route to loading sample data from file for Blendability in WinRT projects?",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-06-09T07:39:43.597-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Not an issue"
+    },
+    "Summary": "Asynchronously load Blendable view model data",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7695
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nTypically I use an InitializeAsync method in the ViewModel, and I fire the PropertyChanged event when the values are updated.\n\nThis is more of a discussion than an issue so if you don't mind I will close this and feel free to open a Discussion in the corresponding tab.\n\nThanks\nLaurent",
+      "PostedDate": "2016-01-16T13:45:56.903-08:00",
+      "Id": 195503
+    }
+  ]
+}

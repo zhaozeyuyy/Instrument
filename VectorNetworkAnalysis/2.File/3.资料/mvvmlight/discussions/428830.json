@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "983930",
+    "ThreadId": "428830",
+    "Html": "\r\n<p>Is it worth changing ViewModelBase.RaisePropertyChanged to use the CallerMemberName attribute?</p>\r\n<p><a href=\"http://msdn.microsoft.com/en-us/library/system.runtime.compilerservices.callermembernameattribute.aspx\">http://msdn.microsoft.com/en-us/library/system.runtime.compilerservices.callermembernameattribute.aspx</a></p>\r\n",
+    "PostedDate": "2013-01-07T18:49:21.003-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "987903",
+    "ThreadId": "428830",
+    "Html": "\r\n<p>If you look at the Portable.MvvvmLightLibs fork (matches the 4.1.26 official version), it currently does use the CallerMemberName attribute.</p>\r\n<p>That version supports portable class libraries, windows phone 7.5 & 8, SL4+, and&nbsp;.net 4.5 and store apps.</p>\r\n",
+    "PostedDate": "2013-01-16T20:11:00.273-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

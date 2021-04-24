@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "I have interfaces that may be implemented by classes that also implement IDisposable. Since I don't know which services actually implement it, I have to go manually over all registered instances, try to cast them and invoke the method. Since SimpleIoc doesn't expose the list of all created/registered instances, it would be very convenient if at least it exposed a method that invokes Dispose() on all created instances that need it. That way I can call that method in my Cleanup() routine.",
+    "LastUpdatedDate": "2017-02-28T03:30:59.817-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2017-02-28T03:30:59.817-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "[SimpleIoc] Add a way to invoke Dispose() on all created instances that dispose IDisposable",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7746
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

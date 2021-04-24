@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1325244",
+    "ThreadId": "572910",
+    "Html": "Hi,\r<br />\n<br />\nI use MVVM Light Toolkit and I would like to also use dependency injection inside the background task (Windows Runtime Component). Is there any option how to achieve that?\r<br />\n<br />\nThank you,\r<br />\nJakub<br />\n",
+    "PostedDate": "2014-11-23T06:58:27.95-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

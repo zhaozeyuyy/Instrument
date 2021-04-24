@@ -1,0 +1,50 @@
+[
+  {
+    "Id": "434898",
+    "ThreadId": "210402",
+    "Html": "<p>I've just finished a code generator (VB and C#) utiizing T4 templates and the awesome T4Toolbox&nbsp;for generating view models and views for MVVMLight <a href=\"http://twitter.com/LBugnion\">@LBugnion</a></p>\r\n<p>Download here: <a href=\"http://bit.ly/9I7Ex3\">http://bit.ly/9I7Ex3</a></p>\r\n<p>It will generate views, viewmodels, and the &quot;snippet&quot; needed for the ViewModelLocator in the VB.NET and C# languages.</p>\r\n<p>Generation can be a UserControl, Window, or a Page.</p>\r\n<p>I've included a sample app&nbsp;too, showing the following patterns/methods:</p>\r\n<ul>\r\n<li>Using NavigationMessage to enable/disable items, for navigation, and to close the main window.</li>\r\n<li>Using MEF to get our list of pages in the sample app.</li>\r\n</ul>\r\n<p>Enjoy!</p>\r\n<p>Rick</p>",
+    "PostedDate": "2010-04-24T02:13:05.5-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "435139",
+    "ThreadId": "210402",
+    "Html": "<p>Interesting, thanks for sharing!</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-25T04:08:29.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "437724",
+    "ThreadId": "210402",
+    "Html": "<p>I've updated the download above. Here's the changes:</p>\r\n<ul>\r\n<li>Added C# generation</li>\r\n<li>Cut the templates I used in half!</li>\r\n<li>Converted the events to use the messenger class, for navigation and window closing.</li>\r\n</ul>\r\n<p>Enjoy!</p>\r\n<p>Rick</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-04-30T16:31:37.51-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "447350",
+    "ThreadId": "210402",
+    "Html": "<p>The templates were upgraded again, with bug fixes. The link in the top post is the download.</p>",
+    "PostedDate": "2010-05-25T16:21:07.51-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "465341",
+    "ThreadId": "210402",
+    "Html": "<p>How does one &quot;install&quot; these, maybe incldue a readme.txt :)</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-07-09T05:02:58.637-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "466027",
+    "ThreadId": "210402",
+    "Html": "<p>In your project, create a &quot;CodeTemplates&quot; folder and stick the &quot;MVVMGen&quot; folder in there. Then open the MVVMScript.tt file, edit it and click save. Watch the magic happen!</p>\r\n<p>UPDATE: I have updated the link above. It includes a sample app with usage.</p>",
+    "PostedDate": "2010-07-11T12:36:26.36-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

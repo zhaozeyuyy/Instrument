@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1498158",
+    "ThreadId": "663828",
+    "Html": "In my project I need to have an Activity that inherits from ExpandableListActivity. In MVVMLight activities that will use the navigation service need to inherit from ActivityBase. Since C# does not allow multiple class inheritance I thought that I could solve this issue by doing the following:\r<br />\n<br />\nSince MMVM Light is open source I have access to the its source code, I can create a new Activity class that inherits from ExpandableListActivity and copy/paste the content of ActivityBase into it. That way I overcome the multi-class inheritance and now have an activity base class that gives me what I need.\r<br />\n<br />\nBut by doing this, I am not sure if will be violating copy-rights.  Can you please confirm to me?\r<br />\n<br />\nIf I am violating copy rights, what other option do I have? Would it be including this new class as part of MVVM Light? \r<br />\n<br />\nPlease let me know<br />\n",
+    "PostedDate": "2017-09-28T16:15:20.103-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

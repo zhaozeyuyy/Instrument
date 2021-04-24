@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Easiest way to reproduce. Put a timer in your viewmodel subscribe to the elapsed event and from that change a property that will trigger INP. Bind a Label.Text to that property. In the BindingGenerics.cs ForceUpdateValueFromSourceToTarget it throws an exception on line 289 because the target is on the UI thread. My simple fix was to just wrap the setting code in a DispatcherHelper.CheckBeginInvokeOnUI at line 289:\r\n\r\n```\r\n     try\r\n                {\r\n                    DispatcherHelper.CheckBeginInvokeOnUI(() =>\r\n                    {\r\n                        var targetValue = _targetProperty.GetValue(_propertyTarget.Target);\r\n\r\n                        if (!Equals(value, targetValue))\r\n                        {\r\n                            _settingSourceToTarget = true;\r\n                            SetTargetValue(value);\r\n                            _settingSourceToTarget = false;\r\n                        }\r\n                    });\r\n                    \r\n                }\r\n```",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-04-09T14:57:03.207-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Binding Doesn't Update and fails silently if not triggered from UI thread",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7724
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nI need to think about that. There are a few issues with consistently settings bindings on the UI thread.\n\nThe main one is that if you want to bind two objects running on a background thread, systematically bringing the value back on the UI thread may case issues. \n\nAlso, so far I have avoided dispatching in the internals of MVVM Light components. I usually recommend dispatching explicitly in the View or VM code. \n\nI wanted to treat this in V5.3 before Evolve, but I want to consult a few people first. Moving this to V5.4.\n\nThanks for the report!\nLaurent",
+      "PostedDate": "2016-04-13T12:50:56.007-07:00",
+      "Id": 198579
+    }
+  ]
+}

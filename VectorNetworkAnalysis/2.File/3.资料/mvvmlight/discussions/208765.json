@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "429014",
+    "ThreadId": "208765",
+    "Html": "<p>I asked my question on stackoverflow and didn't get a response so i am trying here. Here is what is happening. http://stackoverflow.com/questions/2588797/mvvm-light-loaded-evented-executing-twice</p>",
+    "PostedDate": "2010-04-08T15:02:49.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "429176",
+    "ThreadId": "208765",
+    "Html": "<p>Hi,</p>\r\n<p>I am aware of the issue, but I didn't have time to look into it. I will check.</p>\r\n<p>Thanks for the report!</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-09T02:33:44.847-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

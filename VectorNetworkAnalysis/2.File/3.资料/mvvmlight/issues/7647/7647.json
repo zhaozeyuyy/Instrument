@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T06:32:07-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Why do i get an error message during certification of the windows phone app saying that galasoft was built in debug mode. I installed from NuGet. ",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.0.0.1",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "High",
+      "Severity": 150,
+      "Id": 3
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-07-02T14:30:19.973-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Galasoft mvvm light certification issues",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7647
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I have a windows phone 8.1 app that is ready for certification but i get an error saying that galasoft mvvm light was built using the debug mode so we cannot accept this.\n\nAny solutions to this ?",
+      "PostedDate": "2014-07-02T14:30:44.95-07:00",
+      "Id": 151410
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1098003",
+    "ThreadId": "458791",
+    "Html": "I am using the Messaging portion of MVVM Light in a WinForm application.   I am wondering what is the best method to distinguish between messages broadcasted to object instances of the same type.  For example, the user is viewing several purchase orders for one customer.  Each purchase order is a window of a particular type.  If a message is sent that should apply to a only one of the open purchase order windows, what method do you use to have that message handled by that particular window.\r<br />\n<br />\nI was thinking about different tokens, but that was kind of messy.  Then I thought I could use Guid for the token passed in when the object was created.  Also, I could create a type that included an instance guid.  How do you handle this situation?\r<br />\n<br />\nTHanks.\r<br />\nMike<br />\n",
+    "PostedDate": "2013-09-23T06:20:14.147-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1107540",
+    "ThreadId": "458791",
+    "Html": "Your idea of the guid on object creation and a type that holds that guid and data you want to pass if probably your best bet, I use a different approach but it's the same idea. Since it's winforms you could consider using the window handle for unique identification.<br />\n<pre><code>public class ModuleHistory\n    {\n        public string ModuleName { get; set; }\n        public string ModuleViewName { get; set; }\n        public string EntityID { get; set; }\n        public string EntityKindDesc { get; set; }\n        public string EntityIndicator { get; set; }\n        public DateTime? LoadTimestamp { get; set; }                                                                  \n    }\n\n this.commandSelectEntity = new RelayCommand(() =&gt;\n            {\n                _tempCount++;\n                ModuleHistory mod = new ModuleHistory();\n                mod.EntityID = MyModelEntity.ID.ToString();\n                mod.EntityIndicator = ModuleInit.moduleIndicator; ;\n                mod.ModuleName = ModuleInit.moduleName;\n                mod.ModuleViewName = ModuleInit.moduleDefaultView;\n                mod.EntityKindDesc = &quot;Entity Description: &quot; + MyModelEntity.ID.ToString();\n\n                Messenger.Default.Send(new FrameworkMessage(new AppMessage\n                {\n                    MsgType = FrameworkMessageType.EntitySelected,\n                    MsgValue = mod\n                }));\n            });\n\nListening module\n\nMessenger.Default.Register&lt;FrameworkMessage&gt;(this, action =&gt; FrameworkCommand(action.Content));\n\n public void FrameworkCommand(AppMessage msg)\n        {\n\n            try\n            {\n                switch (msg.MsgType)\n                {\n\n                    case FrameworkMessageType.ModuleSearch:\n                        {\n</code></pre>\n\nMy app is a Prism\\WPF\\MVVM app but you can use a similar approach perhaps. This approach works wells across modules too.<br />\n",
+    "PostedDate": "2013-10-15T02:10:38.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1107971",
+    "ThreadId": "458791",
+    "Html": "<strong>mjhillman wrote:</strong><br />\n<blockquote>\nI am using the Messaging portion of MVVM Light in a WinForm application.   I am wondering what is the best method to distinguish between messages broadcasted to object instances of the same type.  For example, the user is viewing several purchase orders for one customer.  Each purchase order is a window of a particular type.  If a message is sent that should apply to a only one of the open purchase order windows, what method do you use to have that message handled by that particular window.<br />\n<br />\nI was thinking about different tokens, but that was kind of messy.  Then I thought I could use Guid for the token passed in when the object was created.  Also, I could create a type that included an instance guid.  How do you handle this situation?<br />\n<br />\nTHanks.<br />\nMike<br />\n</blockquote>\nI do the &quot;GUID&quot; token strategy when I have controls who have a view model that needs to send messages to another control with its specific view model. I do the &quot;association&quot; during the page/user control's OnLoad method. For example: <br />\n<pre><code> private void OnLoaded(object sender, RoutedEventArgs e)\n{\n    var cumvm = (ComputerUserMasterViewModel)cuMaster.DataContext;\n    var cudvm = (ComputerUserDetailsViewModel)cuDetails.DataContext;\n    cumvm.Token = cudvm.GetHashCode();\n}</code></pre>\n\nSo this way, I can have multiple instances of my Master control, and have it interact with a specific Details control, all by sending messages using the Token object as my messenger token.<br />\n",
+    "PostedDate": "2013-10-15T13:36:39.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

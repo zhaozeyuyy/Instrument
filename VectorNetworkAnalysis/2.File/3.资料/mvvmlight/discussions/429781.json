@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "987579",
+    "ThreadId": "429781",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I found&nbsp;<a href=\"http://www.jeff.wilcox.name/2010/04/propertychangedbase-crossthread/\" target=\"_blank\">this very interesting article</a> which explains how to avoid cross thread checks by creating a singleton Dispatcher to replace the normal .Net Dispatcher.\r\n A great use for it would be when using INotifyPropertyChanged (call this Dispatcher in the background instead of the normal one).</p>\r\n<p>I've implemented this already in a project constructed using MVVM and it works great.</p>\r\n<p>I know MVVM Light has its own implementation of PropertyChanged - my question is: could this dispatcher be integrated into MVVM Light and deployed in the release DLLs to replace all normal .Net Dispatcher calls?</p>\r\n<p>I'm planning on grabbing the source code for MVVM Light and doing this myself, rebuild and use the modified DLLs, but there's a high probability I might just break something and I won't be able to benefit from normal updates...</p>\r\n<p>Please consider adding support for a unified Dispatcher :)</p>\r\n<p>Thanks,</p>\r\n<p>Dragos</p>\r\n",
+    "PostedDate": "2013-01-16T06:20:24.687-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "987901",
+    "ThreadId": "429781",
+    "Html": "\r\n<p>Hi Dragos,</p>\r\n<p>Aside from the Dispatcher, there's another platform-agnostic way of doing something similar- SynchronizationContext. Assuming you create your object on the UI thread, simply store a reference to SychronizationContext.Current in your constructor.</p>\r\n<p>I'm not sure it's always a good idea for the ViewModelBase to invoke propertychanged events on a UI thread as it's not always necessary and could lead to race conditions or other side-effects.</p>\r\n<p>Generally, it's better for the class that is interacting with a background thread to do its own thread marshaling and locking to ensure it remains in control.<br>\r\n<br>\r\nRegards,<br>\r\nOren</p>\r\n",
+    "PostedDate": "2013-01-16T20:06:33.037-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1480180",
+    "ThreadId": "656835",
+    "Html": "I am using mvvmlight to build my app. And I need to change the Window.Current.Content to other type. So I try to override the NavigateTo method which in NavigationService type. But I found I can not access the page key dictionary.<br />\n",
+    "PostedDate": "2016-08-01T03:50:04.46-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

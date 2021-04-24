@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:52:38.987-07:00",
+    "CommentCount": 0,
+    "Custom": "",
+    "Description": "In Windows Phone, it is useful to be able to save viewmodels to the state object when an app gets tombstoned.  WP7 apps run in partial trust, so classes that inherit from BaseViewModel cannot be deserialized.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 beta 1",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2010-08-04T12:53:40.773-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "enhancement request: public no param constructor on ViewModelBase",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 2,
+    "Id": 6808
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

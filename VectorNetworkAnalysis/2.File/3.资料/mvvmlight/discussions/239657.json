@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "540815",
+    "ThreadId": "239657",
+    "Html": "\r\n<p>1. I am using MVVM Light toolkit pattern and using userControl1 , userConrol2 which have respective View models. Now on UserControl1, I have say Add button and Add click , i want userControl2 view to be displayed. Would like to know How to open a userControl2\r\n view from userControl1&nbsp;views following MVVM light Toolkit?</p>\r\n<p>2. I have a Master details kind of Grids on my view. First grid contains a list and On Selection Change, I display some of the elements of rows below in panel. There is one more grid on the view , for which data needs to be fetched again from the database\r\n and&nbsp;bind it to 2nd grid. How to achieve this?</p>\r\n<p>Will be great to have sample code as well with this.</p>\r\n<p>Thanking you in advance.</p>\r\n<p>Regards.</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2010-12-27T06:31:54.387-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "540818",
+    "ThreadId": "239657",
+    "Html": "\r\n<p><span style=\"font-size:x-small; font-family:Consolas\"><span style=\"font-size:x-small; font-family:Consolas\"><font face=\"Consolas\" size=\"2\"></p>\r\n<p>&nbsp;</p>\r\n</font></span></span>\r\n<p>&nbsp;</p>\r\n<p></p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"font-size:x-small; color:#0000ff; font-family:Consolas\"><span style=\"font-size:x-small; color:#0000ff; font-family:Consolas\"><span style=\"font-size:x-small; color:#0000ff; font-family:Consolas\">For Point 1,\r\n</span></span></span></p>\r\n<p><span style=\"font-size:x-small; color:#0000ff; font-family:Consolas\"><span style=\"font-size:x-small; color:#0000ff; font-family:Consolas\"><span style=\"font-size:x-small; color:#0000ff; font-family:Consolas\">In View1 viewmodel, in Add Handler, &nbsp;I tried\r\n var</span></span></span><span style=\"font-size:x-small; font-family:Consolas\"><span style=\"font-size:x-small; font-family:Consolas\"> view2 =\r\n</span></span><span style=\"font-size:x-small; color:#0000ff; font-family:Consolas\"><span style=\"font-size:x-small; color:#0000ff; font-family:Consolas\"><span style=\"font-size:x-small; color:#0000ff; font-family:Consolas\">new\r\n</span></span></span><span style=\"font-size:x-small; font-family:Consolas\"><span style=\"font-size:x-small; font-family:Consolas\">Presentation.View.Controls.</span></span><span style=\"font-size:x-small; color:#2b91af; font-family:Consolas\"><span style=\"font-size:x-small; color:#2b91af; font-family:Consolas\"><span style=\"font-size:x-small; color:#2b91af; font-family:Consolas\">AddSample</span></span></span><span style=\"font-size:x-small; font-family:Consolas\"><span style=\"font-size:x-small; font-family:Consolas\">();\r\n view2.Show();</span></span></p>\r\n<p><span style=\"font-size:x-small; font-family:Consolas\"><span style=\"font-size:x-small; font-family:Consolas\">Is it the correct way?</span></span></p>\r\n<p><span style=\"font-size:x-small; font-family:Consolas\"><span style=\"font-size:x-small; font-family:Consolas\">Thanks again</span></span></p>\r\n<p><span style=\"font-size:x-small; font-family:Consolas\"><span style=\"font-size:x-small; font-family:Consolas\">Sonali</span></span></p>\r\n",
+    "PostedDate": "2010-12-27T06:39:05.477-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

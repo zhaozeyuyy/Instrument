@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1017863",
+    "ThreadId": "437229",
+    "Html": "It looks like there is an implementation of System.ComponentModel.INotifyPropertyChanging in the GalaSoft PCL libraries.  The problem is, it is interfering with the WP8 (mscorlib) libraries that also have an implementation  of System.ComponentModel.INotifyPropertyChanging when I include the PCL libraries using NuGet in my WP8 project.  I can see that the libraries referenced are from the WP8 folder in the Portable.MVVM folder, but I don't think they should have this namespace implemented.  I also noticed them in the .NET 4.5 libraries as well.<br />\n<br />\nI am not sure what the right answer is here.  I understand you need the interface the MVVM Light PCL assemblies, but I wish there was a way to effectively switch them off when they exist within another environment like WP8.<br />\n",
+    "PostedDate": "2013-03-19T12:19:09.677-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1018337",
+    "ThreadId": "437229",
+    "Html": "Hi,\r<br />\n<br />\nI've just responded to the StackOverflow post:\r<br />\n<a href=\"http://stackoverflow.com/questions/15478958/system-componentmodel-inotifypropertychanging-in-two-places-with-mvvmlight-por\" rel=\"nofollow\">http://stackoverflow.com/questions/15478958/system-componentmodel-inotifypropertychanging-in-two-places-with-mvvmlight-por</a>\r<br />\n<br />\nShort version is that I've had to remove INotifyPropertyChanging from the PCL version, but there's a way to get notified if you need it.\r<br />\n<br />\nPlease update to the latest (4.1.27.3) and let me know if that solves it for you.\r<br />\n<br />\nThanks,\r<br />\nOren<br />\n",
+    "PostedDate": "2013-03-20T09:02:18.237-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

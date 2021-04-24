@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "818954",
+    "ThreadId": "350928",
+    "Html": "\r\n<p>In all the examples on the video sessions or web articles that I have found, a simple disconnected scenario is given as a example. I am struggling with how to implement refreshing of the shared data using MVVM Light, without relying on View's initialized\r\n event and code behind.</p>\r\n<p>This scenario is a very common scenario, and example would look like this:</p>\r\n<p>CategoryView -&gt; CategoryViewModel</p>\r\n<p>ProductView -&gt; (ProductViewModel, CategoryViewModel) - needs data from CategoryViewModel in order to assign a product to a category.</p>\r\n<p>We can have both CategoryView and ProductView showed on screen, and both of them needs to reference same categories collection, in order for INotifyCollectionChanged and INotifyPropertyChanged to do the synchronization task between the views. This means\r\n that CategoryViewModel must be shared (single instance), otherwise two separate collections of categories would&nbsp; exist.</p>\r\n<p>With this scenario how can we issue a request for the fresh data from the service to be loaded? CategoryViewModel is created only once, ProductViewModel also, since we will need products collection on some other screen.</p>\r\n",
+    "PostedDate": "2012-04-02T14:13:41.823-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

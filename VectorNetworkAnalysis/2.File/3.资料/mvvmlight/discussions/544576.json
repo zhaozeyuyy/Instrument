@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1242516",
+    "ThreadId": "544576",
+    "Html": "I just wanted to install the V4.1 for 2010 but as I see this Version is only supported for VS2012 and 2013. \r<br />\n<br />\nThere is following comment for the V4.1: If you use Visual Studio 2010, please stay tuned, we will publish an update in a few days with support for VS10.\r<br />\n<br />\nBut I cannot find a Version that supports VS2010. Please can you give me a short response if I can use the V4.1 with VS2010 and if yes where can I find the Installation package?<br />\n",
+    "PostedDate": "2014-05-07T04:38:44.3-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1242520",
+    "ThreadId": "544576",
+    "Html": "Hi!\r<br />\n<br />\nYes I have to admit that this item has slipped a bit. The amount of people who use VS10 seems very small and in fact you are the first one to reach out.\r<br />\n<br />\nAny reason why you cannot move to VS12? I am not saying I will stop supporting VS10, not at all. Just trying to prioritize items.\r<br />\n<br />\nThanks for the help (and understanding)\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2014-05-07T04:49:24.24-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1242525",
+    "ThreadId": "544576",
+    "Html": "thanks for the quick response. Yes we want to upgrade to .NET 4.5.1 (VS 2013) as soon as we know that VS 2013 supports the Compact Framework because at the Moment we are developing with VS2008/VS2010 in the embedded systems field with C++/CLI.\r<br />\n<br />\nDo you think that you can provide a install package for VS 2010 in the next one or two month? We are using MVVM-light V3 and there are some problems with Memory leaks (Messenger, etc.) and no support for the EventToCommand approach. That is why we want to upgrade to V4 as soon as possible.\r<br />\n<br />\nregards,\r<br />\nAndy<br />\n",
+    "PostedDate": "2014-05-07T05:04:17.137-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1242537",
+    "ThreadId": "544576",
+    "Html": "Hey!\r<br />\n<br />\nYes that should be possible.\r<br />\n<br />\nDid you also try using Nuget to add the assemblies to a VS10 project? I do understand the advantage of a full installation, but that could be a stopgap solution in the meantime.\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2014-05-07T05:24:15.57-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1242577",
+    "ThreadId": "544576",
+    "Html": "ok thank you. I will try to add the assemblies with NuGet in the next days!\r<br />\nregards,\r<br />\nAndy<br />\n",
+    "PostedDate": "2014-05-07T06:38:54.057-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1308513",
+    "ThreadId": "544576",
+    "Html": "Which version should I download for VS2010?  thanks<br />\n",
+    "PostedDate": "2014-09-26T15:55:12.093-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1308812",
+    "ThreadId": "544576",
+    "Html": "we use the Nuget package now and it works fine - thanks!<br />\n",
+    "PostedDate": "2014-09-28T23:43:24.617-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

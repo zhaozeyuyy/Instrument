@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "The title is required in MessageDialog class. Otherwise it's not displayed.\r\n\r\nNeed to update CreateDialog method in GalaSoft.MvvmLight/GalaSoft.MvvmLight.Platform (WIN81)/Views/DialogService.cs:\r\n\r\n```\r\nvar dialog = new MessageDialog(message, title ?? \"\");\r\n```",
+    "LastUpdatedDate": "2016-02-22T02:29:22.843-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-02-22T02:23:04.227-08:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "DialogService (UWP) does not set empty title",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7720
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Also methods ShowMessage and ShowError allow to skip buttonText param:\n\n> The text shown in the only button in the dialog box. If left null, the text \"OK\" will be used\n\nDefault value does not work. The dialog is not shown, if you pass null to buttonText param.",
+      "PostedDate": "2016-02-22T02:28:45.623-08:00",
+      "Id": 196849
+    },
+    {
+      "Message": "GalaSoft.MvvmLight.Platform, Version=5.2.0.37226",
+      "PostedDate": "2016-02-22T02:29:22.843-08:00",
+      "Id": 196850
+    }
+  ]
+}

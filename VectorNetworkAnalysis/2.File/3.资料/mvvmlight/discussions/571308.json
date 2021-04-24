@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1319171",
+    "ThreadId": "571308",
+    "Html": "Hi laurent,\r<br />\n<br />\nTres bien on this library. I'm new to this toolkit and i am contemplating using it for a project. \r<br />\n The question is in regards to when to use Messenger vs. NavigationService.\r<br />\n<br />\nCurrently, i have a WPF app with a basic MVVM makeup, it contains a view with a viewmodel binded to it's datacontext. In the view, there exists a listview (bounded to an observablecollection&lt;users&gt; master - holds a list of users, this is fine) and a usercontrol (details - a template that will display more info on the user based on the selecteduser from the listview). I'm stuck at the usercontrol.\r<br />\n<br />\nFYI Both listview and usercontrol are on the same view.\r<br />\n<br />\nWhen i select the user from the list, i want to be able to use the SelectedUser property to get data that will bind to my usercontrol's DataContext. I've read a lot of articles stating messenger is the way to go and some others say navigationservice.\r<br />\n<br />\n<br />\nThe reason why i think navigationservice wont work is because the view is not changing. Everything is on one screen.\r<br />\n<br />\nWhat do you think?\r<br />\n<br />\nHope this is clear enough and thanks for your input in advance.<br />\n",
+    "PostedDate": "2014-11-04T15:22:09.963-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

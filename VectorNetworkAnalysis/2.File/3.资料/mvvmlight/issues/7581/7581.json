@@ -1,0 +1,96 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:58:21.923-07:00",
+    "CommentCount": 10,
+    "Custom": null,
+    "Description": "With multi-thread application, is possible to end in a deadlock situation. Check my test application attached. When the button is clicked, check the output console, only a few lines is written, but must have hundreds of them. Then pause the application and you will see the application waiting in a lock() statement.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V4.2",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-07-18T07:24:22.363-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Deadlock with Register and Send",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 9,
+    "Id": 7581
+  },
+  "FileAttachments": [
+    {
+      "FileId": 461125,
+      "FileName": "Deadlock.zip",
+      "DownloadUrl": ".\\461125"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "Hi\nthe Laurent's implementation of Send() methods is to call every Subscriber's delegate on the same thread of the caller. You can see it by looking at the SendToList method's source of the Messenger class.\n\nSo the callbacks you provide in Register methods are executed in the same thread of the code executing the Send.\nYou have to ensure yourself that the code contained in this callbacks is thread safe, and if not to lock on shared resources access.\n\nPersonally, I have extended the Messenger class with Send overloads that accepts a boolean parameter indicating if you want to marshall all the invocations on the UI thread, as it's a common scenario in my solution. Doing so I'm sure that all the callbacks are executed on the same thread (the UI thread).\nBut in more advanced scenarios (worker to worker thread communications) I still lock myself on shared resources.\n\nPaolo",
+      "PostedDate": "2012-07-31T08:24:01.52-07:00",
+      "Id": 73106
+    },
+    {
+      "Message": "Will have a fixed version?",
+      "PostedDate": "2012-09-10T11:59:57.253-07:00",
+      "Id": 76585
+    },
+    {
+      "Message": "@nexbit \nBut the dead lock is not in our code, the lock is in Galasoft when a register is done withing a send message operation.",
+      "PostedDate": "2012-12-13T12:52:21.447-08:00",
+      "Id": 84096
+    },
+    {
+      "Message": "I have also encountered a deadlock problem with the Message Send method, but not in relation to Register/Unregister.  In my case I had one thread handling a message and blocked on my own model lock, while another thread held that lock and tried to send a message.\n\nI believe the deadlock is the result of this code in the SendToTargetOrType in Message.cs, which holds a lock WHILE it is sending messages.\n\n               lock (_recipientsStrictAction)\n               {\n                   if (_recipientsStrictAction.ContainsKey(messageType))\n                   {\n                       var list = _recipientsStrictAction[messageType]\n                           .Take(_recipientsStrictAction[messageType].Count())\n                           .ToList();\n\n                       SendToList(message, list, messageTargetType, token);\n                   }\n               }\n\nThis could be avoided, as in the code earlier in that same method, by performing the send outside the lock once the list of actions is obtained, like this:\n\n               List<WeakActionAndToken> list = null;\n               lock (_recipientsStrictAction)\n               {\n                   if (_recipientsStrictAction.ContainsKey(messageType))\n                   {\n                       list = _recipientsStrictAction[messageType]\n                           .Take(_recipientsStrictAction[messageType].Count())\n                           .ToList();\n                   }\n               }\n               SendToList(message, list, messageTargetType, token);\n",
+      "PostedDate": "2013-01-09T11:15:08.567-08:00",
+      "Id": 85641
+    },
+    {
+      "Message": "Thank you CuriousKea, this fix solved our deadlock. The changes has been made and a pull request sent to integrate the main sources.",
+      "PostedDate": "2013-03-26T08:19:34.39-07:00",
+      "Id": 94399
+    },
+    {
+      "Message": "Has a new version been cut with this fix? I think I am seeing this issue and I would like to have this fix, but I want to remain using MVVMLight via nuget, (and not build my own version and have to include it in our repo)",
+      "PostedDate": "2013-07-29T13:26:31.757-07:00",
+      "Id": 107824
+    },
+    {
+      "Message": "Sorry for the looooong delay. Fixing this in V4.2 which is going to be made public in the next few days.",
+      "PostedDate": "2013-09-22T09:13:05.007-07:00",
+      "Id": 115286
+    },
+    {
+      "Message": "Hello, \nWe are using, MvvmLight v5.3.0.19026 in a multi threaded environment, where in the message is send to another view model using \"5.3.0.19026\" in very quick succession. Upon concurrency profiling, I found out that the locks still happens on this line.\nSo is this issue resolved already in this version or I am missing something here?\nThanks for help",
+      "PostedDate": "2016-10-25T02:24:07.577-07:00",
+      "Id": 204825
+    },
+    {
+      "Message": "Hi,\n\nDo you have a repro?\n\nThanks\nLaurent",
+      "PostedDate": "2016-10-25T03:00:10.76-07:00",
+      "Id": 204826
+    },
+    {
+      "Message": "Hello Laurent, \n\nSorry I did not get you question fully, can you elaborate a bit?\n\nThanks, \nDeepak ",
+      "PostedDate": "2016-10-25T18:10:42.89-07:00",
+      "Id": 204832
+    }
+  ]
+}

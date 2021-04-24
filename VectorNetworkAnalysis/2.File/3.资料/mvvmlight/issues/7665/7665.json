@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-11-18T02:24:48.457-08:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "hi,\r\n\r\ni would like to suggest you to look a this issue linked to the usage of mvvm light\r\n\r\nhttps://fluent.codeplex.com/workitem/22520\r\n\r\nPlease that a look at it\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.0.2",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-10-29T13:01:57-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "commands not refreshing the ui",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7665
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nDid you see the release notes for the latest MVVM Light version?\n\nhttp://www.mvvmlight.net/installing/changes\n(Important note about issue 7659)\n\nThanks\nLaurent",
+      "PostedDate": "2014-10-30T11:30:49.46-07:00",
+      "Id": 163645
+    },
+    {
+      "Message": "Hi laurent,\n\ndésolé pour la boulette :-)\n\nYou can close this issue. I update all and change the namespace. It solves all my issues.\nBye",
+      "PostedDate": "2014-11-03T14:23:17.13-08:00",
+      "Id": 163893
+    }
+  ]
+}

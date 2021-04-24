@@ -1,0 +1,55 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Microsoft bug:\nhttps://connect.microsoft.com/VisualStudio/feedback/details/1617801/newly-created-universal-app-projects-dont-work",
+    "ClosedDate": "2016-07-20T00:42:23.31-07:00",
+    "CommentCount": 3,
+    "Custom": null,
+    "Description": "VS Pro 2015 14.0.25123.00 Update 2 won't create a new project using MvvmLight (Win10Univ) [also tried WPF and same result]:\r\n\r\nPackage Installation Error\r\n\r\nCould not add all required packages to the project. The following packages failed to install from\r\n'C:\\USERS\\DAVE\\APPDATA\\LOCAL\\MICROSOFT\\VISUALSTUDIO\\14.0\\EXTENSIONS\\ATHAMX0R.LYW\\Packages':\r\n\r\nCommonServiceLocator.1.3 : Solution is not opened or not saved.\r\nPlease ensure you have an open and saved solution.\r\nMvvmLightLibs.5.2.0.0 : Solution is not opened or not saved.\r\nPlease ensure you have an open and saved solution.\r\n\r\n\r\n\r\nLikewise, opening a new blank project and using Package Manager Console to run\r\nInstall-Package MvvmLight\r\n\r\nto install 5.3 results in a partial install of some parts.\r\n\r\n\r\n\r\nVS2015 isn't exhibiting this behavior with other templates.  Uninstalled Extension for MvvmLight and reinstalled.  No change in behavior.  Uninstalled Extension for MvvmLight and installed 5.3 to a blank project via Nuget Package Manager. Get the partial install of some parts.\r\n\r\nFor some reason they no-likie.  What should be investigated?",
+    "LastUpdatedDate": "2016-07-20T00:42:23.31-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-06-08T07:23:45.163-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Won't fix"
+    },
+    "Summary": "VS2015 and 5.2 no-likie, manual nuget 5.3 no-likie either",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 1,
+    "Id": 7729
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Just saw the note on the Discussions tab\n\"For support, please use the StackOverflow site with the tag mvvm-light.\"\n\nWill resurrect stackoverflow account and post there.\n",
+      "PostedDate": "2016-06-08T07:51:59.423-07:00",
+      "Id": 199996
+    },
+    {
+      "Message": "To close this out.  This is the culprit it appears.\n\nhttps://connect.microsoft.com/VisualStudio/feedback/details/1617801/newly-created-universal-app-projects-dont-work\n\n\nTools > Options > Settings > Projects and Solutions > General and checked \"Save new projects when created\"\n\nWhen unchecked the Package Installation Error occurs.  When checked it works.  It is repeatable.",
+      "PostedDate": "2016-06-08T08:37:32.847-07:00",
+      "Id": 199997
+    },
+    {
+      "Message": "Thanks for looking into this and following up. Seems to be a Microsoft bug. I will close this here. Appreciate your time!",
+      "PostedDate": "2016-07-20T00:42:00.113-07:00",
+      "Id": 200741
+    }
+  ]
+}

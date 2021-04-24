@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1140294",
+    "ThreadId": "476737",
+    "Html": "I am not sure if this is possible, I wasn't able to find a way, and maybe I am thinking about this all wrong because I'm new to MVVM, silverlight and WPF, but I was wondering if another overload could be added to the messenger send method that would accomidate a class that implements IComparer so that the token can be a complex type. \r<br />\n<br />\nLet me know if this is posted in the wrong location. I've never posted anything to CodePlex, so I'm not sure this is the correct place for this suggestion.\r<br />\n<br />\nThank you!<br />\n",
+    "PostedDate": "2013-12-20T06:47:17.84-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1140386",
+    "ThreadId": "476737",
+    "Html": "Hi,\r<br />\n<br />\nIt's an interesting idea. I added it to the backlog.\r<br />\n<br />\nYes this is definitely a good place for suggestions!\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2013-12-20T11:10:18.68-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1140435",
+    "ThreadId": "476737",
+    "Html": "Awesome! Thank you, Laurent!<br />\n",
+    "PostedDate": "2013-12-20T13:46:45.583-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

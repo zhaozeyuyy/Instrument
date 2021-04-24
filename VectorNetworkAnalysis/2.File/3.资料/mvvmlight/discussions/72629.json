@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "248027",
+    "ThreadId": "72629",
+    "Html": "<p>Could something like <a href=\"http://blog.m.jedynak.pl/2009/02/static-typed-propety-names.html\">http://blog.m.jedynak.pl/2009/02/static-typed-propety-names.html</a>&nbsp;be considered to make the handling of INotifyPropertyChanged a bit more refactor friendly compared to const strings.</p>",
+    "PostedDate": "2009-10-21T02:25:16.707-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "250315",
+    "ThreadId": "72629",
+    "Html": "<p>Hi,</p>\r\n<p>Thanks a lot for your comment. I considered many possibilities to avoid working with &quot;magic strings&quot; but my personal opinion is that using other alternatives (such as the one proposed in the link you mention) are rather complex and &quot;frightening&quot; for unexperienced programmers, who are a large target for the MVVM Light Toolkit. I will however add the following in V3:</p>\r\n<p><a href=\"http://msdn.microsoft.com/en-us/magazine/dd419663.aspx#id0090051\">http://msdn.microsoft.com/en-us/magazine/dd419663.aspx#id0090051</a></p>\r\n<p>This solution developed by Josh Smith (who is already a contributor to the MVVM Light Toolkit through the RelayCommand that he very nicely agreed to let me use) checks in DEBUG mode that a given property name actually exists on the calling object. This is, I think, a satisfying compromise. On one hand we keep the simplicity of using strings instead of harder-to-understand expressions, and on the other hand we get an error if a property name gets changed and some spots are missed where it is used.</p>\r\n<p>Note that if you use the constant consistently throughout the code, you should be fine when you change a property name. The name itself is defined as a string only once, and all other references are checked at compilation.</p>\r\n<p>Let me know if you think this is not good enough.</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2009-10-27T13:17:16.623-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "432453",
+    "ThreadId": "72629",
+    "Html": "<p>Hi,</p>\r\n<p>As you are a previous user of the discussion tab on the MVVM Light Codeplex site, I would like to inform you that I decided to promote the usage of StackOverflow for questions regarding the MVVM Light toolkit. Please tag your questions with the mvvm-light tag.</p>\r\n<p>StackOverflow is an awesome site where tons of developers help others with their technical question.</p>\r\n<p><a href=\"http://stackoverflow.com/questions/tagged/mvvm-light\">http://stackoverflow.com/questions/tagged/mvvm-light</a></p>\r\n<p>I will monitor this tag on the StackOverflow website and do my best to answer questions. The advantage of StackOverflow over the Codeplex discussion is the sheer number of qualified developers able to help you with your questions, the visibility of the question itself, and the whole StackOverflow infrastructure (reputation, up- or down-vote, comments, etc)</p>\r\n<p>Thanks!</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-18T11:51:46.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "442823",
+    "ThreadId": "72629",
+    "Html": "<p>Hi, I too also think this would be a good idea. If you feel its frightening for&nbsp;inexperienced&nbsp;programmers then why not a simple overload, best of both worlds?</p>\r\n<p>In the meantime I am using this:</p>\r\n<p>&nbsp;</p>\r\n<p>\r\n<div style=\"color:black;background-color:white\">\r\n<pre>    <span style=\"color:blue\">public</span> <span style=\"color:blue\">class</span> ViewModelBaseExt : ViewModelBase\r\n    {\r\n        <span style=\"color:blue\">public</span> <span style=\"color:blue\">void</span> RaisePropertyChanged&lt;TProperty&gt;(Expression&lt;Func&lt;TProperty&gt;&gt; propertyExpression)\r\n        {\r\n            RaisePropertyChanged(GetMemberInfoName(propertyExpression));\r\n        }\r\n\r\n        <span style=\"color:blue\">private</span> <span style=\"color:blue\">static</span> <span style=\"color:blue\">string</span> GetMemberInfoName(Expression expression)\r\n        {\r\n            <span style=\"color:blue\">var</span> lambda = (LambdaExpression)expression;\r\n\r\n            MemberExpression memberExpression;\r\n            <span style=\"color:blue\">if</span> (lambda.Body <span style=\"color:blue\">is</span> UnaryExpression)\r\n            {\r\n                <span style=\"color:blue\">var</span> unaryExpression = (UnaryExpression)lambda.Body;\r\n                memberExpression = (MemberExpression)unaryExpression.Operand;\r\n            }\r\n            <span style=\"color:blue\">else</span> memberExpression = (MemberExpression)lambda.Body;\r\n\r\n            <span style=\"color:blue\">return</span> memberExpression.Member.Name;\r\n        }\r\n    }\r\n</pre>\r\n</div>\r\n</p>",
+    "PostedDate": "2010-05-14T03:50:16.413-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

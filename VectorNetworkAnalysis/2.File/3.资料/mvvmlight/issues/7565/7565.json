@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:57:19.57-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "Mimicking the NavigationService project from Mix '11, I was unable to register a new instance of my VM with a key using the V4 beta binaries on codeplex.  Registering a new instance without a key works fine.\r\n\r\nThe below code will not register the new instance and return \"Item not found\" from NewsItemView.xaml.cs.  In order to resolve this issue, I had to copy the binaries from the Mix project.\r\n\r\nif (!SimpleIoc.Default.Contains<NewsItemViewModel>(item.Link.ToString()))\r\n            {\r\n                SimpleIoc.Default.Register(\r\n                    () => new NewsItemViewModel { Model = item }, item.Link.ToString());\r\n            }\r\n\r\nOne thing I noticed through the debugger is the _rot member was not present in the latest binaries.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-04-04T07:42:22.777-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "SimpleIoc does not register factory, key",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7565
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1299839",
+    "ThreadId": "565632",
+    "Html": "I am seeing an issue using EventTrigger with a Pivot control. I have the following XAML:\r<br />\n<br />\n&lt;i:Interaction.Triggers&gt;<br />\n<pre><code>&lt;i:EventTrigger EventName=&quot;SelectionChanged&quot;&gt;\n    &lt;command:EventToCommand\n        Command=&quot;{Binding MainViewModel.ForecastPivotChanged, Mode=OneWay, Source={StaticResource Locator}}&quot;\n        CommandParameter=&quot;{Binding SelectedItem, ElementName=userLocations}&quot; /&gt;\n&lt;/i:EventTrigger&gt;</code></pre>\n\n&lt;/i:Interaction.Triggers&gt;\r<br />\n<br />\nWhen the ForecastPivotChanged is called the selected item that is passed in is the previous pivot item -- meaning it is the pivot item that you're moving away from.\r<br />\n<br />\nIf I attach SelectionChanged event handler to the view's code behind I can see that the SelectedIndex index is correct when the event fires.\r<br />\n<br />\nIs this a bug in MVVM Lite or am I doing something wrong?<br />\n",
+    "PostedDate": "2014-09-05T12:43:00.673-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "590398",
+    "ThreadId": "252200",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>i'm stuck with seemingly basic problem, in my WP7 app, when I try to save to phone service state a viewmodel that exposes a couple of RelayCommand properties, I get an exception that says RelayCommand is not serializable. I'm not using ViewModelBase, just\r\n RelayCommand from MVVMLight. Tried fiddling with the source code by adding DataContract and DataMember attributes, seems the Action and Func&lt;bool&gt; types are not serializable&nbsp;(of course).</p>\r\n<p>So this means I can't just serialize and deserialize my vm, I need to do extra work to reinitialize the commands after it's deserialized.&nbsp;Any better suggestions ?</p>\r\n<p>Thanks!</p>\r\n<p>Yacine&nbsp;</p>\r\n",
+    "PostedDate": "2011-04-01T12:18:03.88-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "590406",
+    "ThreadId": "252200",
+    "Html": "<p>You should not serialize commands. If you mark all the other members as [DataMember] and ignore the commands they won't be serialized.</p>\n<p>Then you can use lazy initialization to instantiate them when needed:</p>\n<p>&nbsp;</p>\n<div style=\"color: black; background-color: white;\">\n<pre><span style=\"color: blue;\">public</span> RelayCommand MyCommand\n{\n    <span style=\"color: blue;\">get</span>\n    {\n        <span style=\"color: blue;\">if</span> (_myCommand = <span style=\"color: blue;\">null</span>)\n            _myCommand = <span style=\"color: blue;\">new</span> RelayCommand...;\n        <span style=\"color: blue;\">return</span> _myCommand;\n    }\n}\n</pre>\n</div>\n<p>&nbsp;</p>\n<p>There are other ways, but this one is the simplest that comes to my mind.</p>",
+    "PostedDate": "2011-04-01T12:23:58.447-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "590408",
+    "ThreadId": "252200",
+    "Html": "<p>Great suggestion, I had just done the [DataContract] and [DataMember] part, but I was reinitializing the commands in my activation code. Much better to use lazy initialization.</p>\r\n<p>Thanks!</p>",
+    "PostedDate": "2011-04-01T12:27:33.283-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

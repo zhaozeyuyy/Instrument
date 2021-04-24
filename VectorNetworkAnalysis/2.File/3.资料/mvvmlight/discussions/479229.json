@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1144387",
+    "ThreadId": "479229",
+    "Html": "I'm playing with MVVM Light and I'm also using its SimpleIoc. So far it gave me everything I needed but now I would like to use child container to better scope part of my application.  It looks like SimpleIoc doesn't support concept of child containers.\r<br />\n<br />\nI would like to see child container support in future version. Even a new constructor for SimpleIoc taking parent SimpleIoc as parameter to copy all registrations would be enough. Child container will also need to be able overwrite existing registrations and add new ones.<br />\n",
+    "PostedDate": "2014-01-01T05:52:17.753-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

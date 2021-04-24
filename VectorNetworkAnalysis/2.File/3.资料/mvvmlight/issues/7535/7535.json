@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "It would be extremely helpful to be able to unregister message recipients of a given type for scenarios in which a reference to the object(s) is not held. For example:\r\n\r\nMessenger.Default.Unregister<TRecipient>();\r\nMessenger.Default.Unregister<TRecipient,TMessage>();\r\n... and other overloads\r\n\r\nAnother way to solve the problem is to expose a collection of registered recipients, so I can obtain a reference and then unregister using the existing Unregister methods.\r\n\r\nCould you implement any of this?",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-07-18T08:05:19.547-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Unregister All Message Recipients of Type <T>",
+    "Type": {
+      "Name": "Feature",
+      "Id": 1
+    },
+    "VoteCount": 1,
+    "Id": 7535
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I agree with you. Marking this down, though not sure if it will be V4 or V5.",
+      "PostedDate": "2011-07-18T08:47:12.363-07:00",
+      "Id": 39865
+    },
+    {
+      "Message": "Great, thanks!\n\nBy the way, great work on this project, it's been a big help.",
+      "PostedDate": "2011-07-18T09:33:25.797-07:00",
+      "Id": 39869
+    }
+  ]
+}

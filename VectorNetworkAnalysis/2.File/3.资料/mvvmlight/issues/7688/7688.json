@@ -1,0 +1,70 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Fixed in V5.3.0",
+    "ClosedDate": "2016-07-20T01:03:50.06-07:00",
+    "CommentCount": 6,
+    "Custom": null,
+    "Description": "Hi,\r\n\r\nI have a very simple set of bindings in an iOS Controller, and I can't figure out why some are working and some aren't.\r\n\r\nin my viewmodel, I have the following properties:\r\n\r\n```\r\npublic BankAccountDetailsDto AccountDetails\r\n        {\r\n            get { return _accountDetails; }\r\n            set\r\n            {\r\n                if (Set(() => AccountDetails, ref _accountDetails, value))\r\n                {\r\n                    RaisePropertyChanged(() => FormattedOperation);\r\n                    UpdateCommands();\r\n                }\r\n            }\r\n        }\r\n\r\n        public Decimal Amount\r\n        {\r\n            get { return _amount; }\r\n            set\r\n            {\r\n                if (Set(() => Amount, ref _amount, value))\r\n                {\r\n                    RaisePropertyChanged(() => IsRequestOk);\r\n                    RaisePropertyChanged(() => FormattedOperation);\r\n                    UpdateCommands();\r\n                }\r\n            }\r\n        }\r\n\r\n        public string FormattedOperation\r\n        {\r\n            get\r\n            {\r\n                return AccountDetails == null\r\n                    ? String.Empty\r\n                    : String.Format(OperationFormat, AccountDetails.Balance, Amount, (AccountDetails.Balance + Amount));\r\n            }\r\n        }\r\n```\r\nIn my Controller, I have the following bindings:\r\n\r\n```\r\nprivate void CreateBindings()\r\n        {\r\n            _bindings = new List<Binding>()\r\n            {\r\n                this.SetBinding(() => VM.FormattedOperation, () => this.Operation.Text, BindingMode.OneWay),\r\n                this.SetBinding(() => VM.AccountDetails.ChildName, () => this.ChildName.Text, BindingMode.OneWay)\r\n                    .ConvertSourceToTarget(c => (c ?? String.Empty).ToUpper())\r\n            };\r\n        }\r\n```\r\n\r\nI'm aware of the problem with the iOS GC being too aggressive, so I store my bindings in a list.\r\n\r\nMy problem is that the 2nd binding is working perfectly as expected, the \"ChildName\" UILabel is always updated, but the \"Operation\" UILabel Text is set initially and never updated again.\r\n\r\nWhile debugging my viewmodel, I find that the AccountDetails property is set, which triggers the \r\n```\r\nRaisePropertyChanged(() => FormattedOperation);\r\n```\r\n\r\nbut the getter of \"FormattedOperation\" is never called afterwards, the UILabel Text never updated, etc.\r\n\r\nBy debugging through you code, I found out that in the \"PropertyChangedEventManager\", the method:\r\n\r\n```\r\nprivate void PropertyChanged(object sender, PropertyChangedEventArgs args)\r\n        {\r\n            if (!_list.ContainsKey(args.PropertyName))\r\n            {\r\n                return;\r\n            }\r\n\r\n            var list = _list[args.PropertyName];\r\n            if (list != null)\r\n            {\r\n                var recipients =\r\n                    list.Where(\r\n                        i => i.InstanceReference != null \r\n                         && i.InstanceReference.IsAlive\r\n                         && i.InstanceReference.Target == sender\r\n                         && i.Listener != null)\r\n                    .ToList();\r\n\r\n                // We have the listeners. Deal with them\r\n                foreach (var item in recipients)\r\n                {\r\n                    item.Listener.ReceiveWeakEvent(GetType(), sender, args);\r\n                }\r\n            }\r\n        }\r\n```\r\nis called with args.PropertyName = \"AccountDetails\", but never with args.PropertyName = \"FormattedOperation\", even just after the breakpoint in my vm on the line:\r\n```\r\nRaisePropertyChanged(() => FormattedOperation);\r\n```\r\n\r\nAny insight? am I doing something wrong?\r\n\r\nThe big mystery is that other bindings are working!",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.3.0",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-03-18T06:55:39.923-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Bindings not working in iOS",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7688
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "I should add that I was debugging through your code using that latest source here (commit 675e81070a0f).",
+      "PostedDate": "2015-03-18T07:19:37.823-07:00",
+      "Id": 179494
+    },
+    {
+      "Message": "Also, to give a little more details, it seems that the problem appeared since I migrated to Unified API, the same bindings were working in Classic API.",
+      "PostedDate": "2015-03-18T10:36:21.377-07:00",
+      "Id": 179517
+    },
+    {
+      "Message": "Hey,\n\nSorry for the delay as I was in Vegas for VS Live last week. Checking this now.\n\nWill report back when I find something,.\nCheers\nLaurent",
+      "PostedDate": "2015-03-23T06:14:18.607-07:00",
+      "Id": 179843
+    },
+    {
+      "Message": "OK first investigation: Your code seems fine, there is a problem with the second binding (the one to Vm.AccountDetails.ChildName). I think that this causes an inner exception to occur, which prevents the binding code to continue, and explains why other binding never gets updated.\n\nI need to dig into the binding code to see what's going on. In the mean time, you can use a workaround by subscribing \"manually\" to the Vm's PropertyChanged event and handling that.\n\nI'll report back as soon as I find out what's going on with the binding.\n\nCheers and thanks for reporting.\nLaurent",
+      "PostedDate": "2015-03-23T07:14:40.16-07:00",
+      "Id": 179849
+    },
+    {
+      "Message": "Hi, thanks for your answer.\n\nI used that workaround already, I have an IObservable<string> stream of propertyChanged events on my vm which allows me to do that, the only thing is that it's a bit unelegant to have 2 different ways of handling bindings in Controllers, the code looks a bit messy.\n\nAbout the problem, I have the feeling that the problems arises when u have bindings at different levels in the same Controller ->\n\n```\nthis.SetBinding(() => VM.FormattedOperation, () => this.Operation.Text, BindingMode.OneWay);\n\nthis.SetBinding(() => VM.AccountDetails.ChildName, () => this.ChildName.Text, BindingMode.OneWay);\n```\n\nThe first one is at the root of the vm while the 2nd one is under an object at the root of the vm.\n\nI found out that I have actually other bindings at the root of the vm not working, while the bindings to properties inside of this BankAccountDetailsDto object are working fine.\n\nThe other working bindings across my project are all in a situation where all the bindings for a given Controller are on properties on VM root, or all under a complex object held by a vm property.\n\nHope this will help,\n\nBest regards, Remi.\n",
+      "PostedDate": "2015-03-24T06:05:06.54-07:00",
+      "Id": 179920
+    },
+    {
+      "Message": "Well that was a tough one but I found the bug. There was an issue where the PropertyChanged event handler was unregistered too early in the exact scenario that you showed here. The issue is fixed now and the new source is in the repo, including unit tests. It will be part of V5.3 which is due in a few weeks, but you can already get latest and build if you need an earlier fix.\n\nThank you so much for the detailed description which allowed me to reproduce the issue and debug it.",
+      "PostedDate": "2016-01-29T11:56:13.167-08:00",
+      "Id": 196074
+    }
+  ]
+}

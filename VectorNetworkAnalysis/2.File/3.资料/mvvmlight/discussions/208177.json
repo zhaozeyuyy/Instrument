@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "426879",
+    "ThreadId": "208177",
+    "Html": "<p>I tried using the MessengerInstance property from ViewModelBase and got a null reference exception. I had assumed that it would use the default messenger if none was set with the ViewModelBase's ctor overload.</p>\r\n<p>Looking at the source code, the comments on MessengerInstance states &quot;If null, this class will attempt to broadcast using the Messenger's default instance.&quot; So it looks like my assumptions were what the code was originally intended to do, but it was never written that way.</p>\r\n<p>Also, as an aside, I can tell that lots of time and effort went into documenting the code through XML comments, but none of it comes through intellisense in the latest release because xml files weren't included in the zip files.</p>",
+    "PostedDate": "2010-04-02T10:21:26.913-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "426911",
+    "ThreadId": "208177",
+    "Html": "<p>Dude, you rock.</p>\r\n<p>1) MessengerInstance is the instance used to send messages when the method ViewModelBase.RaisePropertyChanged&lt;T&gt;(string propertyName, T oldValue, T newValue, bool broadcast);</p>\r\n<p>Calling this method causes a PropertyChangedMessage&lt;T&gt; to be sent in addition to the PropertyChanged event being raised. To send this message, if an instance of Messenger was passed to the constructor, I use that one. Otherwise, I use Messenger.Default.</p>\r\n<p>In the current implementation, MessengerInstance is null if no instance of messenger was passed to the ViewModel's constructor. Your idea makes much more sense, and I will modify the code in V4 to rather return Messenger.Default instead of null.</p>\r\n<p>2) XML files: Yeah, totally. I simply and completely forgot to include them. I am about to publish a service pack including improvement for the Windows Phone 7, it is a great occasion to correct this mistake.</p>\r\n<p>Thanks so much for the great feedback.</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-02T12:57:40.377-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "588782",
+    "ThreadId": "208177",
+    "Html": "<p>I added a custom base class below you viewmodelbase in order to match the excepted behavior ;)</p>\r\n<div style=\"color: black; background-color: white;\">\r\n<pre><span style=\"color: blue;\">public</span> <span style=\"color: blue;\">class</span> ViewModelBase : GalaSoft.MvvmLight.ViewModelBase\r\n    {\r\n\r\n        <span style=\"color: blue;\">protected</span> <span style=\"color: blue;\">new</span> IMessenger MessengerInstance\r\n        {\r\n            <span style=\"color: blue;\">get</span> { <span style=\"color: blue;\">return</span> <span style=\"color: blue;\">base</span>.MessengerInstance ?? Messenger.Default; }\r\n            <span style=\"color: blue;\">set</span> { <span style=\"color: blue;\">base</span>.MessengerInstance = value; } \r\n        }\r\n        \r\n\r\n\r\n    }\r\n</pre>\r\n</div>",
+    "PostedDate": "2011-03-30T05:49:31.43-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "588784",
+    "ThreadId": "208177",
+    "Html": "<p>This has been corrected in the new bits. They are available as source only for the moment, but you can follow [url:<a href=\"http://www.galasoft.ch/mvvm/building/\">http://www.galasoft.ch/mvvm/building/</a>] and build your own DLLs.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-03-30T05:56:06.103-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "472980",
+    "ThreadId": "221504",
+    "Html": "Hello,<br>\r\n<br>\r\nI solved my problem though, I'm curious what a better approach is. So please let me ask it.<br>\r\n<br>\r\nI've just got the latest binaries for SL4, and tried to implement the RelayCommand as your sample http://blog.galasoft.ch/archive/2009/09/26/using-relaycommands-in-silverlight-and-wpf.aspx.<br>\r\n<br>\r\nBut, no luck, I couldn't compile because of the following xaml code,<br>\r\n<br>\r\n&lt;button cmd:ButtonBaseExtensions.Command={Binding SubmitCommand} Content=&quot;Submit&quot; /&gt;<br>\r\n<br>\r\nThe error said something like &quot;ButtonBaseExtensions doens't have a Command&quot;. Of course I included the namespace 'cmd', but it's weird since I searched for the ButtonBaseExtensions in both GalaSoft.MvvmLight.Extras.SL4.dll and GalaSoft.MvvmLight.SL4.dll by using the Reflector, there is no such a class or a property.<br>\r\n<br>\r\nI've achieved what I wanted using EventToCommand, but I want to know where the ButtonBaseExtensions has gone.<br>\r\n<br>\r\nCheers.<br>\r\nyokyo<br>\r\n<br>\r\nOh, I must say before I leave, 'Thank you for such a great toolkit!!'",
+    "PostedDate": "2010-07-26T22:31:45.217-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "473151",
+    "ThreadId": "221504",
+    "Html": "<p>Hi,</p>\r\n<p>Thanks for the kind words.</p>\r\n<p>The ButtonBase class in Silverlight 4 now has a Command and CommandParameter properties, and thus ButtonBaseExtension has been removed from the SL4 version of the Toolkit. You can use:</p>\r\n<p>&lt;Button Command={Binding SubmitCommand} Content=&quot;Submit&quot; /&gt;</p>\r\n<p>Cheers, Laurent</p>",
+    "PostedDate": "2010-07-27T05:29:19.437-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "473165",
+    "ThreadId": "221504",
+    "Html": "Thank you for your reply, Laurent.<br>\r\n<br>\r\nThat's good news! Anyway, seems I need to dig into the SL4 much deeper :)<br>\r\n<br>\r\nCheers,<br>\r\nyokyo",
+    "PostedDate": "2010-07-27T05:51:11.97-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

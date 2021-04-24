@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "544793",
+    "ThreadId": "240696",
+    "Html": "\r\n<p>I was searching for some way of accessing NavigationService in my ViewModel but didn't find any default way of doing this in MVVMLight. after some search i found an article that use Messaging to support Navigation from ViewModel</p>\r\n<p>http://www.geoffhudik.com/tech/2010/10/10/another-wp7-navigation-approach-with-mvvm.html</p>\r\n<p>Is this approach is good? because this approach needs to have a base class for ViewModels and a base class for Views.</p>\r\n<p>Need help if anyone have some better way of doing this?</p>\r\n<p>Regards.</p>\r\n",
+    "PostedDate": "2011-01-06T06:26:54.32-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "545306",
+    "ThreadId": "240696",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I think that you found it already ;) but I published an article on my blog showing how to access the navigation service from a viewmodel.</p>\r\n<p><a href=\"http://blog.galasoft.ch/archive/2011/01/06/navigation-in-a-wp7-application-with-mvvm-light.aspx\">http://blog.galasoft.ch/archive/2011/01/06/navigation-in-a-wp7-application-with-mvvm-light.aspx</a></p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2011-01-07T03:07:56.553-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "545353",
+    "ThreadId": "240696",
+    "Html": "\r\n<p>yup. Many thanks for the quick support and publishing an article on Navigation.</p>\r\n<p>Your post on Navigation was really awsum.</p>\r\n<p>Regards,</p>\r\n",
+    "PostedDate": "2011-01-07T05:51:47.11-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

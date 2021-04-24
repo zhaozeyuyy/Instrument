@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1346929",
+    "ThreadId": "578852",
+    "Html": "Hello,<br />\n<br />\nI am using MVVM Light for my projects in WPF.<br />\n<br />\nI would like to develop mobile applications using MVVM Light (Android, iOs, and Windows Phone).<br />\n<br />\nI hesitate between MVVM Light and mvvm cross because MVVM Light does not offer a plugin to access contact, picture etc.<br />\n<br />\nIs what it will be possible to develop plugin for mvvm light is to share with the community.<br />\n<br />\nBest Regards<br />\nMohamed CHOUCHANE<br />\n",
+    "PostedDate": "2015-01-28T14:41:14.323-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

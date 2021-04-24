@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-12-30T09:22:01.623-08:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "We develop commercial software. \r\nWhere should I include the copyright notice so that the licence terms would not be extend to our commercial application altogether?",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-12-29T21:24:38.267-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Not an issue"
+    },
+    "Summary": "Copyright notice (in commercial software)",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7715
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nMVVM Light is distributed under the MIT license which allows using it in commercial software. Please check the license terms here: https://mvvmlight.codeplex.com/license\n\nThis is not an issue, so I am closing this.\n\nThanks\nLaurent",
+      "PostedDate": "2015-12-30T09:20:04.683-08:00",
+      "Id": 194991
+    }
+  ]
+}

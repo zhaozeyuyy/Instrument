@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1354798",
+    "ThreadId": "581582",
+    "Html": "Hi, \r<br />\nI am using Assembly GalaSoft.MvvmLight.dll, Version v5.0.2.32242\r<br />\nCreated a demo application for Mediator pattern, but WeakAction class using strong reference instead of weak reference, Which leads to memory leak. \r<br />\nIn Silverlight I am using following class to hold the Action<br />\n<pre><code>public class ActionHolder\n{\n    public WeakAction&lt;Object&gt; Callback { get; private set; }\n    public ActionHolder(WeakAction&lt;Object&gt; callback, string filter)\n    {\n        this.Callback = callback;\n    }\n}\n</code></pre>\n\nand using other class to Register and Notify actions<br />\n<pre><code>     public sealed class Mediator\n    {\n        private static readonly Mediator _instance = new Mediator();\n        private Dictionary&lt;object, ActionHolder&gt; _actions = new Dictionary&lt;object, ActionHolder&gt;();\n\n        public void Register(object message, WeakAction&lt;Object&gt; callback)\n        {\n            _actions.AddValue(message, new ActionHolder(callback, null));\n        }\n\n        private void Notify(object message, object args, string filter)\n        {\n            if (_actions.ContainsKey(message))\n            {\n                List&lt;ActionHolder&gt; actionHolders = _actions[message].ToList();\n                foreach (ActionHolder actionHolder in actionHolders)\n                {\n                    bool notifyAll = filter == null;\n\n                    if (notifyAll || !string.IsNullOrEmpty(actionHolder.Filter) &amp;&amp; actionHolder.Filter.Equals(filter))\n                    {\n                        actionHolder.Callback.Execute(args);\n                    }\n                }\n            }\n        }\n\n    }\n</code></pre>\n\nWeakAction class is creating strong reference, is WeakAction class is working in silverlight or designed only for WPF ?\r<br />\n<br />\nThanks,\r<br />\nGurpreet<br />\n",
+    "PostedDate": "2015-02-22T20:09:34.523-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1354827",
+    "ThreadId": "581582",
+    "Html": "Hi,<br />\n<br />\nSilverlight's security model is more restrictive, so in Silverlight, if your method is private or internal, the WeakAction has to fall back to a strong reference instead of a weak one. It is annoying but there is not much we can do there. You can declare your method as a public and this should solve the issue. Note that the problem is only in Silverlight. All other frameworks support private methods in weak action.<br />\n<br />\nAlso, anonymous lambdas are private, so in Silverlight you can also not use an anonymous lambda.<br />\n<br />\nCheers Laurent<br />\n",
+    "PostedDate": "2015-02-23T01:28:58.39-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1354852",
+    "ThreadId": "581582",
+    "Html": "Hi Laurent,\r<br />\n<br />\nThanks for the quick reply. It solved my problem.\r<br />\n<br />\nCheers,\r<br />\nGurpreet<br />\n",
+    "PostedDate": "2015-02-23T03:29:12.55-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

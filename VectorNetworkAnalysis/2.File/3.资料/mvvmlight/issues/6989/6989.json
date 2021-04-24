@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:53:01.327-07:00",
+    "CommentCount": 0,
+    "Custom": null,
+    "Description": "To raise all PropertyChanged Events of a ViewModel in one time I can use string.Empty for the property name in PropertyChangedEventArgs.\r\nSince I use GalaSoft.MvvmLight.ViewModelBase.RaisePropertyChanged of MVVM Light, I get the runtime error: Message=Property not found ParamName=\"\" Source=GalaSoft.MvvmLight.WPF4 This is because MVVM Light check all Property-Names.\r\n\r\nI would prefer to change VerifyPropertyName in ViewModelBase\r\nto something like this code:\r\n\r\n        /// <summary>\r\n        /// Verifies that a property name exists in this ViewModel. This method\r\n        /// can be called before the property is used, for instance before\r\n        /// calling RaisePropertyChanged. It avoids errors when a property name\r\n        /// is changed but some places are missed.\r\n        /// <para>This method is only active in DEBUG mode.</para>\r\n        /// </summary>\r\n        /// <param name=\"propertyName\"></param>\r\n        [Conditional(\"DEBUG\")]\r\n        [DebuggerStepThrough]\r\n        public void VerifyPropertyName(string propertyName)\r\n        {\r\n            var myType = this.GetType();\r\n\t\t\tif propertyName <> String.empty\r\n\t\t\t{\r\n\t\t\t\tif (myType.GetProperty(propertyName) == null)\r\n\t\t\t\t{\r\n\t\t\t\t\tthrow new ArgumentException(\"Property not found\", propertyName);\r\n\t\t\t\t}\r\n\t\t\t}\r\n        }\r\n\r\nI think this is a common issue.\r\n\r\nThanks Peter",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2010-08-25T02:21:20.323-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "RaisePropertyChanged should not raise event for string.Empty",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 6989
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

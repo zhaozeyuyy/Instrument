@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Will keep that in mind in case Codeplex decides to support SVN and Mercurial simulatnously on repositories.",
+    "ClosedDate": "2011-06-16T13:08:00.47-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Please can you set up SVN so the community does not have to set up Mecurial if they do not have it installed.",
+    "LastUpdatedDate": "2011-06-16T13:08:00.47-07:00",
+    "PlannedForRelease": "",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-06-16T11:56:44.33-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "SVN trunk needed for read only",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7531
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nUnfortunately, Codeplex does not allow a repository to support Mercurial AND SVN, you have to choose either one or the other. SVN is online only, so it's not good for me. As long as I won't be able to have both mercurial and SVN, I am afraid I cannot solve that issue.\n\nCheers,\nLaurent",
+      "PostedDate": "2011-06-16T13:07:14.57-07:00",
+      "Id": 37776
+    }
+  ]
+}

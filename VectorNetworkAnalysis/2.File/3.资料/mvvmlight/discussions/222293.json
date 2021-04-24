@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "475865",
+    "ThreadId": "222293",
+    "Html": "<p>Hi guys,</p>\r\n<p>I have a simple SIvlerlight Application which is based on the MVVM Light Toolkit. <br>I coded the following:<br><br>- User selects a row in a data grid and hits the delete button with an attached DeleteCommand (ICommand)<br>- DeleteCommand deletes the selected data</p>\r\n<p>After that, I want a storyboard to be executed which shows a status box which indicates the user wether the entry has been deleted or not.</p>\r\n<p>How can I trigger the storyboard after the DeleteCommand has finished its execution?<br><br>Cheers!<br>Daniel</p>",
+    "PostedDate": "2010-08-03T03:43:44.07-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

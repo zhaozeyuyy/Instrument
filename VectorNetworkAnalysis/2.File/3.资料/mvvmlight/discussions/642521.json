@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1437969",
+    "ThreadId": "642521",
+    "Html": "Is it possible to somehow do property injection instead of constructor injection when using MVVM Light? I need to configure class for use and there are lot of things that don't fit in constructor parameters.<br />\n",
+    "PostedDate": "2015-08-10T02:31:24.77-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

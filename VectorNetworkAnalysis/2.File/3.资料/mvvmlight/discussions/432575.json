@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "998936",
+    "ThreadId": "432575",
+    "Html": "Hi\r<br />\n<br />\nFirst I'd like to say thanks for an excellent library. I've used MvvmLight on a previous Silverlight project and now that I'm writing a WP7/8 app I thought I'd use it again.\r<br />\n<br />\nRight now I've downloaded the Portable Library version from NuGet and all is working fine, but I notice that the EventToCommand is not present. Will this be available at a later point?\r<br />\n<br />\nAlso, on installing the libraries I found it didn't compile because of a missing System.Runtime.dll. After looking at one of the project files on the &quot;onovotny/MvvmLightPortable&quot; fork I noticed that it references assemblies from the &quot;Microsoft.Bcl&quot; package which includes the System.Runtime.dll. Is the &quot;Microsoft.Bcl&quot; package required for the portable library to function correctly?\r<br />\n<br />\nThanks\r<br />\n<br />\nJames<br />\n",
+    "PostedDate": "2013-02-09T09:05:50.33-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "998961",
+    "ThreadId": "432575",
+    "Html": "It just occurred to me that EventToCommand would not make much sense in a portable library. <br />\n<br />\nAt the moment I've got a portable library with view models and service classes that call a Web API service and I was thinking that the EventToCommand would be required in this library. So if I understand this correctly, would I need to reference Mvvm Portable in the portable library project and MvvmLight (WP7, WP8, etc) in the executable projects which would give me access EventToCommand in the XAML.<br />\n",
+    "PostedDate": "2013-02-09T11:22:42.743-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

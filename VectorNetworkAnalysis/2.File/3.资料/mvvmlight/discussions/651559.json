@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1463858",
+    "ThreadId": "651559",
+    "Html": "I use the mvvmlight navigation service for an ios project.\r<br />\nNow I want to use the build in UITabBarViewController, but I can not do this, because the NavigationService needs a ControllerBase as Base Class.\r<br />\nAre there any future plans to support this and provide a Base Class for the TabBarViewController?\r<br />\nOr are they any other possibillity to do that without writing a complete own nav service?<br />\n",
+    "PostedDate": "2016-02-21T07:44:35.4-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

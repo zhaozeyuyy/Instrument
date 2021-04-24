@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "Most of our message handlers do something on the UI thread and the actual message is sent from a background thread.\r\n\r\nWe end up having 'DispatcherHelper.CheckBeginInvokeOnUI' wrap most of our message listeners. It would be super nice if when registering the listener, we could just specify that this one should be called on the UI thread.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Unassigned",
+      "Severity": 0,
+      "Id": 0
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-05-13T07:59:57.583-07:00",
+    "Status": {
+      "Name": "Proposed",
+      "Id": 1
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Request: Messenger On UI Thread",
+    "Type": {
+      "Name": "Unassigned",
+      "Id": 5
+    },
+    "VoteCount": 2,
+    "Id": 7692
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "It's been an ongoing discussion. I am not a huge fan of automatic dispatch for clarity reason (aka \"I don't like magic\" ;). I'll think about it.",
+      "PostedDate": "2016-01-16T13:52:44.67-08:00",
+      "Id": 195506
+    }
+  ]
+}

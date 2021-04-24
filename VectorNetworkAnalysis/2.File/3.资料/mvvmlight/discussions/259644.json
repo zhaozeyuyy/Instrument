@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "620764",
+    "ThreadId": "259644",
+    "Html": "\r\n<p>Hi..</p>\r\n<p>I need in my application&nbsp; using from openfiledialog or save file dialog ...I dont know how can i do it in mvvm light</p>\r\n",
+    "PostedDate": "2011-05-31T06:04:29.05-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "620807",
+    "ThreadId": "259644",
+    "Html": "<p>Hi,</p>\r\n<p>The easiest and cleanest IMHO is to use a view service, similar to what i show in my MIX11 session (http://www.galasoft.ch/mvvmvideo2).</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-05-31T07:29:11.827-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

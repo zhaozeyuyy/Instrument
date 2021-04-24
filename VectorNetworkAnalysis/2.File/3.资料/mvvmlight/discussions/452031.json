@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1075322",
+    "ThreadId": "452031",
+    "Html": "Hi\r<br />\n<br />\nI have some data that needs to be passed to multiple screens and possibly back again.<br />\n\r<br />\nI am kinda confused on how to do this. I been using the VM Locator to jsut access other Viewmodels but I am not sure if this is the way to go.\r<br />\n<br />\nI posted it on Stackoverflow but the one answer I got so far does not make sense(to me at least) if your using SimpleIoc \r<br />\n<a href=\"http://stackoverflow.com/questions/17659230/is-it-bad-to-use-viewmodellocator-to-grab-other-vms-for-use-in-another-vm\" rel=\"nofollow\">\r\nhttp://stackoverflow.com/questions/17659230/is-it-bad-to-use-viewmodellocator-to-grab-other-vms-for-use-in-another-vm</a><br />\n",
+    "PostedDate": "2013-07-31T14:58:31.087-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

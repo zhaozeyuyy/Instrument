@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "1145247",
+    "ThreadId": "479578",
+    "Html": "Hi Laurent\r<br />\n<br />\nI'm studying your MVVM framework and I'm deriving a custom viewmodel class.\r<br />\nI encountered a little problem with your implementation of RaisePropertyChanged.\r<br />\n<br />\nIn my class I want to attach a bool &quot;dirty&quot; field to the &quot;property changed&quot; event.\r<br />\nNet guidelines tell us to override a raise event method on a base class instead of attaching the event internally because it's safer and faster. \r<br />\nSo i did it like this, but... after some little test I noticed that my ovverride was not working when calling the generic method.\r<br />\nTaking a look at you source I noticed that you made two different invocations instead of creating a method chain (and I was overriding only the closed-type method).\r<br />\nNet guidelines suggest to implement override methods in a &quot;complementary&quot; way when possible.\r<br />\nWhy don't you simply make a call to the common RaisePropertyChanged(string) from the generic counterpart (after property name resolution)?\r<br />\n<br />\nThanks, Lorenzo\r<br />\n<br />\nPS Same for RaisePropertyChanging!<br />\n",
+    "PostedDate": "2014-01-03T10:58:40.317-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1145315",
+    "ThreadId": "479578",
+    "Html": "Good point. Added to backlog.\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2014-01-03T11:27:51.73-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

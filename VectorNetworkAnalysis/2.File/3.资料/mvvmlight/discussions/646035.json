@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1447918",
+    "ThreadId": "646035",
+    "Html": "Are there any examples of implementing IDialogService in a WPF application? What is the recommended best practice for this?<br />\n",
+    "PostedDate": "2015-10-09T13:31:52.223-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1447921",
+    "ThreadId": "646035",
+    "Html": "Hi,\r<br />\n<br />\nThe simplest way is to leverage MessageBox.Show in your implementation, but it's not very elegant.\r<br />\n<br />\nA more elegant way is to build a custom Windows and use this as a modal dialog box.\r<br />\n<br />\nI know that I am super late in writing samples, life gets in the way a lot this year. Sorry about that.\r<br />\n<br />\nLaurent<br />\n",
+    "PostedDate": "2015-10-09T13:41:03.803-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1449742",
+    "ThreadId": "646035",
+    "Html": "Please give a sample on how to use custom window as a modal/non modal dialog in bounds of MVVM Light.<br />\n",
+    "PostedDate": "2015-10-26T08:51:38.59-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1456317",
+    "ThreadId": "646035",
+    "Html": "I would also like to see an example of how to implement IDialogService in a WPF application. I'm currently using MessageBox.Show, but it doesn't fit very well with the IDialogService methods. For example, you cannot override the text displayed on the MessageBox buttons.<br />\n",
+    "PostedDate": "2015-12-17T11:11:03.343-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1488303",
+    "ThreadId": "646035",
+    "Html": "Hi,.\r<br />\n<br />\nPlease see the sample below. Note that this is just a proposed implementation, there are many ways one could do dialogs or navigation in WPF.\r<br />\n<br />\n<a href=\"https://1drv.ms/u/s!As15SQCXjw37p7IeUvd8zgVRn9frTA\" rel=\"nofollow\">https://1drv.ms/u/s!As15SQCXjw37p7IeUvd8zgVRn9frTA</a>\r<br />\n<br />\nHope this helps\r<br />\nLaurent<br />\n",
+    "PostedDate": "2016-11-18T04:33:11.733-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1488383",
+    "ThreadId": "646035",
+    "Html": "Sending parameters to custom dialogs can be made hugely easier if we have just one more parameter in IDialogService.ShowMessage() call. Instead of:<br />\n<pre><code>Task&lt;bool&gt; ShowMessage(string message, string title, string buttonConfirmText, string buttonCancelText, Action&lt;bool&gt; afterHideCallback);</code></pre>\n\nmake it:<br />\n<pre><code>Task&lt;bool&gt; ShowMessage(string message, string title, string buttonConfirmText, string buttonCancelText, Action&lt;bool&gt; afterHideCallback, object data = null);</code></pre>\n\nOr can you suggest another way of sending an object from ViewModel layer to my custom dialog in View layer?<br />\n",
+    "PostedDate": "2016-11-19T09:04:15.917-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1488626",
+    "ThreadId": "646035",
+    "Html": "Hi,\r<br />\n<br />\nThat's a valid suggestion. I will add this to the backlog.\r<br />\n<br />\nLaurent<br />\n",
+    "PostedDate": "2016-11-22T23:16:55.173-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

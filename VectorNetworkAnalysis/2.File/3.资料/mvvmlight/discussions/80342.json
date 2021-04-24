@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "275363",
+    "ThreadId": "80342",
+    "Html": "<p>SL4 support RightMouse button clicks, but the event handler needs to be able to set EventHandled. I am not sure if the Event2Command&nbsp; behavior does this...</p>",
+    "PostedDate": "2010-01-10T09:12:24.623-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "275564",
+    "ThreadId": "80342",
+    "Html": "<p>Hi,</p>\r\n<p>EventToCommand does not set Handled to true automatically, that would break too many routed event scenarios. However, with the latest version of EventToCommand, you can set PassEventArgsToCommand to true on the EventToCommand instance, and use a RelayCommand&lt;EventArgs&gt; as command. This will set the parameter of the command to the EventArgs where you can set Handled to true from your ViewModel directly.</p>\r\n<p>That said, I am not sure that it is correct that you need to set Handled to true explicitly. I think that SL4 will execute the command as soon as you add an event handler to MouseRightButtonDown. The Silverlight context menu is only displayed if there is no event handler for that event. At least that's what I heard and what I observe in SL4 beta.</p>\r\n<p>Thanks,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-01-11T01:34:28.217-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

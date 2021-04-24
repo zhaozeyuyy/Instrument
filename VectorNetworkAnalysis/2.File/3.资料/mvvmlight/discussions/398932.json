@@ -1,0 +1,250 @@
+[
+  {
+    "Id": "925118",
+    "ThreadId": "398932",
+    "Html": "\r\n<p><span>Are there any plans for providing support for Windows Phone 8 in the nearby future?</span></p>\r\n",
+    "PostedDate": "2012-10-11T01:42:20.503-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "925357",
+    "ThreadId": "398932",
+    "Html": "<p>Hi,</p>\r\n<p>Absolutely. In fact it is already built, but I cannot release DLLs publically before the SDK is public.</p>\r\n<p>If you do have access to the WP8 SDK, please send me an email (Laurent at galasoft dot ch)</p>\r\n<p>Thanks</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2012-10-11T09:47:37.73-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943275",
+    "ThreadId": "398932",
+    "Html": "\r\n<p>WP 8 is supported in the PCL version here:</p>\r\n<p><a href=\"https://nuget.org/packages/Portable.MvvmLightLibs\">https://nuget.org/packages/Portable.MvvmLightLibs</a></p>\r\n",
+    "PostedDate": "2012-11-17T09:17:18.847-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943277",
+    "ThreadId": "398932",
+    "Html": "\r\n<p>Note however that I am not supporting the PCL version, at least not yet. The PCL version uses some unofficial DLLs to support the System.Windows.Interactivity namespace.</p>\r\n<p>There is a Windows Phone 8 version available in V4.1 of MVVM Light, see the Download section of this site.</p>\r\n<p>Thanks</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2012-11-17T09:23:12.67-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943291",
+    "ThreadId": "398932",
+    "Html": "\r\n<p>The DLLs are the signed, official Microsoft ones, at least for platforms other than NetCore4.5/Metro.</p>\r\n<p>Regards,<br>\r\nOren</p>\r\n",
+    "PostedDate": "2012-11-17T10:47:15.83-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "943292",
+    "ThreadId": "398932",
+    "Html": "\r\n<p>OK I guess I misunderstood the &quot;unofficial&quot; moniker then. Maybe a better naming would be wise here, I know for sure that &quot;unofficial&quot; is going to frighten some people.</p>\r\n<p>Cheers<br>\r\nLaurent</p>\r\n",
+    "PostedDate": "2012-11-17T10:49:52.993-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955537",
+    "ThreadId": "398932",
+    "Html": "\r\n<p>Hi all,</p>\r\n<p>today WP8 is fully released, but each time I install Mvvm light toolkit from NuGet, I get the reference to the WP7 assembly.</p>\r\n<p>Do I miss something ? Or is WP8 support not ready ?</p>\r\n<p>regards,</p>\r\n<p>Tim</p>\r\n",
+    "PostedDate": "2012-12-13T04:11:44.773-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955538",
+    "ThreadId": "398932",
+    "Html": "\r\n<p>Hi Tim,<br>\r\n<br>\r\nThe Portable.MvvmLightLibs package on NuGet has been tested with WP8, though it does use WP7 assemblies.</p>\r\n<p>WP7 assemblies are fully supported for WP8 apps. MVVM Light doesn't currently have any WP8-specific code, so by releasing it as WP7, it works for both.<br>\r\n<br>\r\nIf you run into any issues please let me know if you run into any issues -- just make sure you have NuGet 2.1 or later installed first.</p>\r\n<p>Regards,<br>\r\nOren</p>\r\n",
+    "PostedDate": "2012-12-13T04:15:11.97-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955544",
+    "ThreadId": "398932",
+    "Html": "\r\n<p>Hi Oren,</p>\r\n<p>in fact, I encounter problem with the&nbsp;EventToCommand. No event is trigerred with this, SelectionChanged event, Loaded event ... nothing.</p>\r\n<p>Is there an&nbsp;incompatibility with WP8 ? It was working with WP7</p>\r\n<p>Best regards</p>\r\n",
+    "PostedDate": "2012-12-13T04:23:16.607-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955554",
+    "ThreadId": "398932",
+    "Html": "\r\n<p>HI Tim,<br>\r\n<br>\r\nDo you have a simple solution you can share with a repro? I can look into it later this afternoon and get a fix for it posted.<br>\r\n<br>\r\nRegards,<br>\r\nOren</p>\r\n",
+    "PostedDate": "2012-12-13T04:45:13.047-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955577",
+    "ThreadId": "398932",
+    "Html": "\r\n<p>Not here, tomorrow if needed.</p>\r\n<p>You can reproduce it with an easy sample.</p>\r\n<p>Create a new Windows Phone 8 projet, Nuget for Mvvm Light toolkit,&nbsp;</p>\r\n<p>On the view, set :</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">ListBox</span> <span style=\"color:red\">ItemsSource</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">{Binding MyList}</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">&gt;</span>\n    <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">Interactivity</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">Interaction.Triggers</span><span style=\"color:blue\">&gt;</span>\n        <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">Interactivity</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">EventTrigger</span> <span style=\"color:red\">EventName</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">SelectionChanged</span><span style=\"color:black\">&quot;</span> <span style=\"color:blue\">&gt;</span>\n            <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">Command</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">EventToCommand</span> <span style=\"color:red\">Command</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">{Binding SelectionElementCommand}</span><span style=\"color:black\">&quot;</span> <span style=\"color:red\">PassEventArgsToCommand</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">True</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">/&gt;</span>\n        <span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">Interactivity</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">EventTrigger</span><span style=\"color:blue\">&gt;</span>\n    <span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">Interactivity</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">Interaction.Triggers</span><span style=\"color:blue\">&gt;</span>\n    <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">ListBox.ItemTemplate</span><span style=\"color:blue\">&gt;</span>\n        <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">DataTemplate</span><span style=\"color:blue\">&gt;</span>\n            <span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">TextBlock</span> <span style=\"color:red\">Text</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">{Binding}</span><span style=\"color:black\">&quot;</span> <span style=\"color:red\">Margin</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">10 30 0 0</span><span style=\"color:black\">&quot;</span> <span style=\"color:blue\">/&gt;</span>\n        <span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">DataTemplate</span><span style=\"color:blue\">&gt;</span>\n    <span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">ListBox.ItemTemplate</span><span style=\"color:blue\">&gt;</span>\n<span style=\"color:blue\">&lt;/</span><span style=\"color:#a31515\">ListBox</span><span style=\"color:blue\">&gt;</span>\n</pre>\r\n</div>\r\n<p>with :</p>\r\n<p><span lang=\"EN-US\" style=\"font-size:9.5pt; color:red\">xmlns</span><span lang=\"EN-US\" style=\"font-size:9.5pt; color:blue\">:</span><span lang=\"EN-US\" style=\"font-size:9.5pt; color:red\">Interactivity</span><span lang=\"EN-US\" style=\"font-size:9.5pt; color:blue\">=&quot;clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity&quot;</span></p>\r\n<p>On the view-model, you have :</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">public</span> ICommand SelectionElementCommand { <span style=\"color:blue\">get</span>; <span style=\"color:blue\">set</span>; }\n</pre>\r\n</div>\r\n<p></p>\r\n<p>and</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre>SelectionElementCommand = <span style=\"color:blue\">new</span> RelayCommand&lt;SelectionChangedEventArgs&gt;(OnSelectionElement);\n</pre>\r\n</div>\r\n<p></p>\r\n<p>with :</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">private</span> <span style=\"color:blue\">void</span> OnSelectionElement(SelectionChangedEventArgs args)\n\n{\n    MessageBox.Show(&quot;Here&quot;);\n}\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>My list is :</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">public</span> <span style=\"color:blue\">const</span> <span style=\"color:blue\">string</span> MyListPropertyName = <span style=\"color:#a31515\">&quot;MyList&quot;</span>;\n<span style=\"color:blue\">private</span> List&lt;<span style=\"color:blue\">string</span>&gt; myList = <span style=\"color:blue\">null</span>;\n<span style=\"color:blue\">public</span> List&lt;<span style=\"color:blue\">string</span>&gt; MyList\n{\n    <span style=\"color:blue\">get</span>\n    {\n        <span style=\"color:blue\">return</span> myList;\n    }\n\n    <span style=\"color:blue\">private</span> <span style=\"color:blue\">set</span>\n    {\n        <span style=\"color:blue\">if</span> (myList == value)\n            <span style=\"color:blue\">return</span>;\n        myList = value;\n        RaisePropertyChanged(MyListPropertyName);\n    }\n}\n\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>If it's not enough for you, I can create a sample solution for tomorrow.</p>\r\n<p>Regards,</p>\r\n<p>Tim</p>\r\n",
+    "PostedDate": "2012-12-13T05:45:40.92-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955578",
+    "ThreadId": "398932",
+    "Html": "\r\n<p>Hi Tim,</p>\r\n<p>I'll take a look, but can you confirm which MVVM Light you're using? Are you using the regular one or the Portable.MvvmLightLibs package? You might need to enable searching for &quot;pre-release&quot; packages due to its dependency on Microsoft.Bcl (which is beta).</p>\r\n",
+    "PostedDate": "2012-12-13T05:47:29.143-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955591",
+    "ThreadId": "398932",
+    "Html": "\r\n<p>the regular one</p>\r\n",
+    "PostedDate": "2012-12-13T06:12:40.36-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955598",
+    "ThreadId": "398932",
+    "Html": "\r\n<p>Timor,</p>\r\n<p>If you are using the regular MVVM Light package, you need to use the WP8 DLLs to enable EventToCommand. Unfortunately these are not in Nuget yet. Please download the WP8 DLLs from&nbsp;<a href=\"https://skydrive.live.com/redir?resid=FB0D8F97004979CD!1052\">https://skydrive.live.com/redir?resid=FB0D8F97004979CD!1052</a></p>\r\n<p>Cheers<br>\r\nLaurent&nbsp;</p>\r\n",
+    "PostedDate": "2012-12-13T06:23:21.51-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955618",
+    "ThreadId": "398932",
+    "Html": "\r\n<p>Thanks Laurent,</p>\r\n<p>hope you can publish a NuGet package soon.</p>\r\n<p>Best regards and thanks for the good work :)</p>\r\n",
+    "PostedDate": "2012-12-13T06:44:36.703-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955668",
+    "ThreadId": "398932",
+    "Html": "\r\n<p>Hi Tim,</p>\r\n<p>Could you please try the portable package and let me know if it works for you? There's additional fixes there beyond what's in the main release too. That portable package supports all platforms with the same binaries.<br>\r\n<br>\r\nThanks,<br>\r\nOren</p>\r\n",
+    "PostedDate": "2012-12-13T08:36:19.807-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "958203",
+    "ThreadId": "398932",
+    "Html": "\r\n<p>The link have been updated.</p>\r\n<p>Follow</p>\r\n<p>http://sdrv.ms/UUyOfU</p>\r\n<p>to have the new zip &quot;MVVMLight_V4_1_26.zip&quot;</p>\r\n<p>Hope this helps</p>\r\n<p>Benoist LUGNIER</p>\r\n<p>WP8 developer</p>\r\n",
+    "PostedDate": "2012-12-19T01:16:42.933-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988117",
+    "ThreadId": "398932",
+    "Html": "\r\n<p>I am using the latest version from NuGet, downloaded today</p>\r\n<p>GalaSoft.MvvmLight.Extras.WP8&nbsp;Version&nbsp;4.1.26.29756,&nbsp;</p>\r\n<p><span style=\"font-size:10pt\">Visual Studio 2012,&nbsp;</span><span style=\"font-size:10pt\">Windows Phone 8 app</span></p>\r\n<p><strong><span style=\"font-size:10pt\">Error</span><span style=\"font-size:10pt\">\r\n</span><span style=\"font-size:10pt\">1</span><span style=\"font-size:10pt\"> </span>\r\n<span style=\"font-size:10pt\">The type 'EventToCommand' from assembly 'GalaSoft.MvvmLight.Extras.WP8' is built with an older version of the Blend SDK, and is not supported in a Windows Presentation Framework 8 project.</span><span style=\"font-size:10pt\">&nbsp;</span></strong></p>\r\n<p>I tried with the DLL from&nbsp;<span>http://sdrv.ms/UUyOfU (previous link given above) but it still doesn't work</span></p>\r\n<p><span style=\"font-size:10pt\">Thanks</span></p>\r\n",
+    "PostedDate": "2013-01-17T05:32:30.003-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988202",
+    "ThreadId": "398932",
+    "Html": "\r\n<p>Hi nitescua,</p>\r\n<p>If you try the Portable.MvvmLightLibs package (the PCL fork), that one includes references to the latest official Blend SDK and Common Service Locator binaries and should resolve the issue for you.<br>\r\n<br>\r\nRegards,<br>\r\nOren</p>\r\n",
+    "PostedDate": "2013-01-17T08:06:25.573-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988203",
+    "ThreadId": "398932",
+    "Html": "\r\n<p>Hi Oren,</p>\r\n<p><span style=\"font-size:10pt\">Are these available by NuGet? how to get them exactly?</span></p>\r\n<p><span style=\"font-size:10pt\">I would appreciate if Laurent can give any hints on this. I do not wish to work with a fork version.</span></p>\r\n<p><span style=\"font-size:10pt\">Thanks&nbsp;</span></p>\r\n",
+    "PostedDate": "2013-01-17T08:07:34.97-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988204",
+    "ThreadId": "398932",
+    "Html": "\r\n<p>They are on NuGet. I'd recommend uninstalling the regular ones first to prevent dll conflicts, but you can search for &quot;Portable.MvvmLightLibs&quot; in the NuGet search dialog or by using the command line: Install-Package Portable.MvvmLightLibs -Version 4.1.26.1</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2013-01-17T08:09:48.59-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988244",
+    "ThreadId": "398932",
+    "Html": "\r\n<p>Hi Andrei,</p>\r\n<p>The error you posted is weird. You talk about Windows Phone application but the error mentions &quot;Windows Presentation Framework 8&quot;.&nbsp;</p>\r\n<p>It sounds like you are using the wrong DLLs in your project. Can you make sure that you the error is correct?</p>\r\n<p>Thanks<br>\r\nLaurent&nbsp;</p>\r\n",
+    "PostedDate": "2013-01-17T09:09:51.533-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988246",
+    "ThreadId": "398932",
+    "Html": "\r\n<p>I used NuGet to get the package today in a Windows Phone 8 app.</p>\r\n<p>The error appeared as soon as I wanted to use the EventToCommand from the Extras assembly.</p>\r\n<p>&nbsp;</p>\r\n<div id=\"_mcePaste\" style=\"left:-10000px; top:0px; width:1px; height:1px; overflow:hidden\">\r\n<strong style=\"margin:0px; padding:0px; border:0px; outline:0px; vertical-align:baseline; color:#253340; font-family:'Segoe UI',Tahoma,Arial,Helvetica,sans-serif; line-height:19.484375px\"><span style=\"margin:0px; padding:0px; border:0px; outline:0px; font-size:10pt; vertical-align:baseline; background-color:transparent\">Extras&nbsp;</span></strong></div>\r\n",
+    "PostedDate": "2013-01-17T09:14:17.02-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988251",
+    "ThreadId": "398932",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Just tried creating a new Windows Phone 8 application and adding the MVVM Light Libs only package. I was able to add an element and use EventToCommand to link the element's Loaded event to a Command on my page.</p>\r\n<p>Then I created another Windows Phone 8 app and added the MVVM Light package (full). I added the same command to the ViewModel, had to fix a small issue in XAML (will check it out in the next release) and then added the EventToCommand in Blend and bound to\r\n the VM's command.</p>\r\n<p>I didn't get any compilation errors.</p>\r\n<p>Do you want to send me your project for me to take a look&gt;</p>\r\n<p>Cheers<br>\r\nLaurent&nbsp;</p>\r\n",
+    "PostedDate": "2013-01-17T09:29:51.143-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988253",
+    "ThreadId": "398932",
+    "Html": "\r\n<p>Thank you Laurent.</p>\r\n<p><span style=\"font-size:10pt\">I haven no idea what's going on.&nbsp;</span><span style=\"font-size:10pt\">I actually did try by removing and reinstalling but without no luck.</span></p>\r\n<p>I will do a new project to test in few minutes and let you know.</p>\r\n<p>Thanks again.</p>\r\n",
+    "PostedDate": "2013-01-17T09:33:35.897-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "988292",
+    "ThreadId": "398932",
+    "Html": "\r\n<p><span style=\"font-size:10pt\">I removed MVVMLight again, deleted the directory in packages folder (it couldnt delete System.Windows.Interactivity, even after VS restart), added MVVMLight by NuGet, everything works now, I'm good</span></p>\r\n<p>No idea what happened.</p>\r\n<p>Thanks and I am sorry for the trouble, Laurent.</p>\r\n<p>&nbsp;</p>\r\n<p><span style=\"font-size:10pt\">Off-topic question: Did SimpleIoc have support before for creating new instances of types something like this:</span></p>\r\n<p><span style=\"font-size:10pt\">.Register&lt;IMyInterface, MyInterface&gt;( ()=&gt; { return new MyInterface(); } )</span></p>\r\n<p>The problem I have is I do not want the view models instances to be reused. The only way I see is to replace SimpleIoC with a different IoC.</p>\r\n<p>Any idea how to do this without using a different IoC?</p>\r\n<p>Another way of asking this is, how are people generally working with view-models, isn't it simpler if view-models exist only as long as the views exists? ViewModels can pass a state (a view-model state object) to one another. Having to clean-up properties\r\n to reinitialize the view-model doesn't look right for me. Or maybe my approach is wrong?</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2013-01-17T10:18:59.793-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "998922",
+    "ThreadId": "398932",
+    "Html": "@onovotny I'm still getting a similar error with the Portable branch. Looks fine with the regular libs though. (I am on Nuget 2.2)\r<br />\n<br />\n1-Built a new WP8 App.\r<br />\n2-Installed the latest portable branch from nuget (4.1.27 from feb 8th)\r<br />\n3-Add the namespaces<br />\n<pre><code>xmlns:i=&quot;clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity&quot;\nxmlns:cmd=&quot;clr-namespace:GalaSoft.MvvmLight.Command;assembly=Galasoft.MvvmLight.Platforms.WP75&quot;   </code></pre>\n\n4-Add an event to command<br />\n<pre><code>&lt;Rectangle Fill=&quot;White&quot;\n           Stroke=&quot;Black&quot;\n           Width=&quot;200&quot;\n           Height=&quot;100&quot;&gt;\n                &lt;i:Interaction.Triggers&gt;\n                    &lt;i:EventTrigger EventName=&quot;MouseEnter&quot;&gt;\n                        &lt;cmd:EventToCommand Command=&quot;{Binding TestCommand, Mode=OneWay}&quot; /&gt;\n                    &lt;/i:EventTrigger&gt;\n                &lt;/i:Interaction.Triggers&gt;\n            &lt;/Rectangle&gt;</code></pre>\n\nImmediately get errors. I also tried it with an older version (4.1.26.1)\r<br />\nError\tThe tag 'EventToCommand' does not exist in XML namespace 'clr-namespace:GalaSoft.MvvmLight.Command;assembly=Galasoft.MvvmLight.Platforms.WP75'.\t\r<br />\nError\tThe type 'EventToCommand' from assembly 'GalaSoft.MvvmLight.Platforms.WP75' is built with an older version of the Blend SDK, and is not supported in a Windows Presentation Framework 8 project.\r<br />\n<br />\nBlend gives \r<br />\nUnable to cast object of type 'Galasoft.MvvmLight.Command.EventToCommand' to type 'System.Windows.Interactivity.TriggerAction'\r<br />\n<br />\nSome of the errors come and go but it never seems to build correctly or run.\r<br />\n<br />\nPosted sample solution here in case I'm doing something wrong.\r<br />\n<a href=\"http://www.filedropper.com/phoneapp1\" rel=\"nofollow\">http://www.filedropper.com/phoneapp1</a>\r<br />\n<br />\nAny help is appreciated.<br />\n",
+    "PostedDate": "2013-02-09T08:17:30.5-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "998937",
+    "ThreadId": "398932",
+    "Html": "Hi,\r<br />\n<br />\nI just updated the NuGet package to 4.1.27.1 which contains a fix. The problem was a mis-match between the referenced interactivity.dll in the WP75 dll and the one referenced by the project (wp8).\r<br />\n<br />\nI've now created a WP8 platform dll that references the correct interactivity.dll.\r<br />\n<br />\nWhen you update, you'll have to update the assembly name from WP75 to WP8, but I was able to see it working in your sample project with the fix. When I click down in the white rect, I saw a command called.\r<br />\n<br />\nPlease let me know if that works for you.<br />\n",
+    "PostedDate": "2013-02-09T09:08:42.36-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "999038",
+    "ThreadId": "398932",
+    "Html": "Looks like it is working in VS and Blend. Thanks. Appreciate the quick response.<br />\n",
+    "PostedDate": "2013-02-09T19:51:56.387-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1230598",
+    "ThreadId": "398932",
+    "Html": "It seems Install-Package Portable.MvvmLightLibs does not work for a visual C++ project. It just works for C#. Is that right? IF so, when will it be available for C++?\r<br />\n<br />\nThis is the error code:\r<br />\n<br />\nPM&gt; Install-Package Portable.MvvmLightLibs\r<br />\nInstalling 'Portable.MvvmLightLibs 4.3.31.1'.\r<br />\nYou are downloading Portable.MvvmLightLibs from Laurent Bugnion (GalaSoft),  onovotny, the license agreement to which is available at <a href=\"http://mvvmlight.codeplex.com/license\" rel=\"nofollow\">http://mvvmlight.codeplex.com/license</a>. Check the package for additional dependencies, which may come with their own license agreement(s). Your use of the package and dependencies constitutes your acceptance of their license agreements. If you do not accept the license agreement(s), then delete the relevant components from your device.\r<br />\nSuccessfully installed 'Portable.MvvmLightLibs 4.3.31.1'.\r<br />\nAdding 'Portable.MvvmLightLibs 4.3.31.1' to App3.\r<br />\nUninstalling 'Portable.MvvmLightLibs 4.3.31.1'.\r<br />\nSuccessfully uninstalled 'Portable.MvvmLightLibs 4.3.31.1'.\r<br />\nInstall failed. Rolling back...\r<br />\nInstall-Package : Could not install package 'Portable.MvvmLightLibs 4.3.31.1'. You are trying to \r<br />\ninstall this package into a project that targets 'Native,Version=v0.0', but the package does not \r<br />\ncontain any assembly references or content files that are compatible with that framework. For \r<br />\nmore information, contact the package author.\r<br />\nAt line:1 char:1<br />\n<ul>\n<li>Install-Package Portable.MvvmLightLibs</li>\n<li>\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br />\n<ul>\n<li>CategoryInfo          : NotSpecified: (:) [Install-Package], InvalidOperationException</li>\n<li>\nFullyQualifiedErrorId : NuGetCmdletUnhandledException,NuGet.PowerShell.Commands.InstallPack <br />\nageCommand<br />\n</li>\n</ul>\n</li>\n</ul>\n",
+    "PostedDate": "2014-04-04T17:53:50.773-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1244079",
+    "ThreadId": "398932",
+    "Html": "Hi,\r<br />\n<br />\nAt this point I have no plans to release a C++ version.\r<br />\n<br />\nSorry\r<br />\nLaurent<br />\n",
+    "PostedDate": "2014-05-11T09:30:51.6-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

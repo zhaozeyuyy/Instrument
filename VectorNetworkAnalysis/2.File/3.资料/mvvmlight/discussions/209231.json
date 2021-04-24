@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "430620",
+    "ThreadId": "209231",
+    "Html": "<p>Hello,</p>\r\n<p>I use a RIA WCF service on the server side. It's a good idea to work with this &quot;MVVM Light Toolkit&quot;?</p>\r\n<p>Some body have a sample project?</p>\r\n<p>&nbsp;</p>\r\n<p>Thanks for your help</p>",
+    "PostedDate": "2010-04-13T13:44:01.227-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "430796",
+    "ThreadId": "209231",
+    "Html": "<p>Hi,</p>\r\n<p>If you use WCF RIA services programatically on the client (invoking queries on the Domain Service), then it makes totally sense to include MVVM into your Silverlight application. You will gain all the advantages (separation between view and model, blendability, testability of your viewmodel). Of course, this does not apply if you generate the UI using the designer, since this implies a direct link between your XAML and the underlying model.</p>\r\n<p>To add MVVM Light to a WCF RIA services application, you need to proceed manually. I am currently writing a tutorial on how to do that and hope to publish sometimes soon. In essence, you need to reference the DLLs, add a ViewModelLocator to the global resources, add your viewmodels, and you are good to go.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2010-04-14T00:25:30.13-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "486659",
+    "ThreadId": "209231",
+    "Html": "<p>Laurent, do you have this tutorial yet?&nbsp; I am learning mvvm light and I need to try to get it working with WCF/Ria services.&nbsp; I'm still a little green with both of them so any help you could provide would be greatly appreciated.&nbsp; Again, nice work with the toolkit.</p>\r\n<p>&nbsp;</p>\r\n<p>mark</p>",
+    "PostedDate": "2010-08-30T14:57:23.483-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "487701",
+    "ThreadId": "209231",
+    "Html": "<p>A template would be nice for silverlight mvvm using wcf ria services or creating a mvvm template based off the silveright business application template :)</p>",
+    "PostedDate": "2010-09-01T09:42:32.207-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "535610",
+    "ThreadId": "209231",
+    "Html": "\r\n<p>Laurent you have helped to change the way developers create applications by introducing MVVM Light toolkit</p>\r\n<p>and the Kung Fu Implementation <a title=\"http://mvvmlight.codeplex.com/Thread/View.aspx?ThreadId=228783\" href=\"http://mvvmlight.codeplex.com/Thread/View.aspx?ThreadId=228783\" target=\"_blank\">\r\nhttp://mvvmlight.codeplex.com/Thread/View.aspx?ThreadId=228783</a> &nbsp; is the best i have seen, is a complete framework to build Business Applications.. it is the way to go.. super complete</p>\r\n<p>But &quot;I think&quot; it could be way to complex for someone who just need to use MVVM for the ViewModel, Commands, Mock Data, DesignerData and to connect to Ria Services, especially the Ria Switch is the one where people makes MVVM complex</p>\r\n<p>The tutorial you mention about adding Ria to a MVVM Light , coming from you means simple, fast , excellent and best practices!!&nbsp; is what we all are waiting for ...</p>\r\n<p>Thank you for this awesome MVVM Toolkit</p>\r\n<p>Regards</p>\r\n",
+    "PostedDate": "2010-12-14T08:09:10.357-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,130 @@
+[
+  {
+    "Id": "951290",
+    "ThreadId": "405556",
+    "Html": "\r\n<p>Hi</p>\r\n<p>None of my mvvm code snippets are working. This happened after the most recent VS 2012 update. I tried to uninstall and reinstall mvvm light but no luck. Also tried CleanOldFiles.exe and reinstalled. Anyone can help on how to get the snippets working again?</p>\r\n<p>Below are the details of my VS 2012</p>\r\n<p>Microsoft Visual Studio Professional 2012<br>\r\nVersion 11.0.51106.01 Update 1<br>\r\nMicrosoft .NET Framework<br>\r\nVersion 4.5.50709<br>\r\n<br>\r\nInstalled Version: Professional<br>\r\n<br>\r\nLightSwitch for Visual Studio 2012&nbsp;&nbsp; 04938-004-0033001-02881<br>\r\nMicrosoft LightSwitch for Visual Studio 2012<br>\r\n<br>\r\nOffice Developer Tools&nbsp;&nbsp; 04938-004-0033001-02881<br>\r\nMicrosoft Office Developer Tools<br>\r\n<br>\r\nTeam Explorer for Visual Studio 2012&nbsp;&nbsp; 04938-004-0033001-02881<br>\r\nMicrosoft Team Explorer for Visual Studio 2012<br>\r\n<br>\r\nVisual Basic 2012&nbsp;&nbsp; 04938-004-0033001-02881<br>\r\nMicrosoft Visual Basic 2012<br>\r\n<br>\r\nVisual C# 2012&nbsp;&nbsp; 04938-004-0033001-02881<br>\r\nMicrosoft Visual C# 2012<br>\r\n<br>\r\nVisual C&#43;&#43; 2012&nbsp;&nbsp; 04938-004-0033001-02881<br>\r\nMicrosoft Visual C&#43;&#43; 2012<br>\r\n<br>\r\nVisual F# 2012&nbsp;&nbsp; 04938-004-0033001-02881<br>\r\nMicrosoft Visual F# 2012<br>\r\n<br>\r\nVisual Studio 2012 Code Analysis Spell Checker&nbsp;&nbsp; 04938-004-0033001-02881<br>\r\nMicrosoft® Visual Studio® 2012 Code Analysis Spell Checker<br>\r\n<br>\r\nPortions of International CorrectSpell™ spelling correction system © 1993 by Lernout & Hauspie Speech Products N.V. All rights reserved.<br>\r\n<br>\r\nThe American Heritage® Dictionary of the English Language, Third Edition Copyright © 1992 Houghton Mifflin Company. Electronic version licensed from Lernout & Hauspie Speech Products N.V. All rights reserved.<br>\r\n<br>\r\nVisual Studio 2012 SharePoint Developer Tools&nbsp;&nbsp; 04938-004-0033001-02881<br>\r\nMicrosoft Visual Studio 2012 SharePoint Developer Tools<br>\r\n<br>\r\nMicrosoft Enterprise Library Configuration Console&nbsp;&nbsp; 1.0<br>\r\nLauncher for the Microsoft Enterprise Library Configuration Console.<br>\r\n<br>\r\nMVVM Light Toolkit&nbsp;&nbsp; 1.0<br>\r\nInformation about my package<br>\r\n<br>\r\nNuGet Package Manager&nbsp;&nbsp; 2.1.31002.9028<br>\r\nNuGet Package Manager in Visual Studio. For more information about NuGet, visit http://docs.nuget.org/.<br>\r\n<br>\r\nPreEmptive Analytics Visualizer&nbsp;&nbsp; 1.0<br>\r\nMicrosoft Visual Studio extension to visualize aggregated summaries from the PreEmptive Analytics product.<br>\r\n<br>\r\nRefactor! for Visual Studio&nbsp;&nbsp; 11.2<br>\r\nRefactor! for Visual Studio<br>\r\n<br>\r\nSQL Server Data Tools&nbsp;&nbsp; 11.1.20627.00<br>\r\nMicrosoft SQL Server Data Tools<br>\r\n<br>\r\nWeb Developer Tools&nbsp;&nbsp; 1.0.30710.0<br>\r\nMicrosoft Web Developer Tools contains the following components:<br>\r\nPage Inspector: Tool that offers an efficient way to decompose Web Applications and diagnose front-end issues.<br>\r\nWeb Publishing: Extensions required for Web Publishing for both hosted servers as well as on premises.<br>\r\nWeb Form Templates: Includes the default templates for Web Form Applications.<br>\r\nEditor Extensions: Includes HTML, CSS, and JS editor extensions that greatly enhance the development experience.</p>\r\n",
+    "PostedDate": "2012-12-04T09:58:05.63-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "954937",
+    "ThreadId": "405556",
+    "Html": "\r\n<p>I am not getting the MVVM Light code snippets in Visual Studio 2012 either. I'm using Microsoft Visual Studio Ultimate 2012 Version 11.0.51106.01 Update 1 and I have reinstalled MVVM Light 4.1.24.0</p>\r\n",
+    "PostedDate": "2012-12-12T00:10:17.377-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "954944",
+    "ThreadId": "405556",
+    "Html": "\r\n<p>Are you using Resharper intellisense? If yes, this is unfortunately removing the ability to use VS snippets. I would contact the Resharper team and ask them to solve that, as it is really annoying.</p>\r\n<p>If not, let me know and we can investigate.</p>\r\n<p>Thanks<br>\r\nLaurent&nbsp;</p>\r\n",
+    "PostedDate": "2012-12-12T00:22:02.017-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "954980",
+    "ThreadId": "405556",
+    "Html": "\r\n<p>Good call - I am!</p>\r\n<p>I've posted them a question:<br>\r\n&quot;The code snippets in MVVM Light (e.g. the code that VS 2012 offers for automatic insertion after Ctrl-K Ctrl-X) are disabled by ReSharper. Why? This seems like a bug as I cannot find a &quot;restore 3rd party code snippets&quot; option in the ReSharper options.&quot;</p>\r\n<p>I'll post outcome back here.</p>\r\n",
+    "PostedDate": "2012-12-12T01:24:43.393-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955012",
+    "ThreadId": "405556",
+    "Html": "\r\n<p>Thanks, I appreciate.</p>\r\n<p>In the mean time I am also looking into publishing the code snippets as resharper snippets.</p>\r\n<p>Cheers</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2012-12-12T02:22:25.577-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955163",
+    "ThreadId": "405556",
+    "Html": "\r\n<p>Here's a me Too....</p>\r\n<p>I'm using vs2012 Ultimate. And resharper.</p>\r\n<p>With resharper intellisense set to ReSharper, code snippets such as prop etc... work, however not the mvvminc etc... code snippets.</p>\r\n<p>I enabled the Visual Studio option under Resharper-&gt;IntelliSense-&gt;General then both the prop and mvvminc code snippets worked.&nbsp;</p>\r\n<p>Seems a bit odd that the default snippets work with resharper intellisense enabled while at the same time the mvvm light snippets don't.&nbsp;</p>\r\n<p>Thankfully I don't have to restart visual studio for the resharper intelisense changes to take effect allowing me to disable resharper intelisense to add mvvm light properties easily with the code snippets.&nbsp;</p>\r\n<p>c ya.... - jeffa</p>\r\n",
+    "PostedDate": "2012-12-12T08:28:51.04-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955463",
+    "ThreadId": "405556",
+    "Html": "\r\n<p>Resharper is using their own code snippet format. What you see (prop, etc) are resharper snippets, not the VS code snippets.</p>\r\n<p>Publishing MVVM Light snippets as resharper snippets is possible (someone actually translated them already), but it is extra work to add them to the installer. I wish Resharper would just show the VS code snippets, at least as an option.</p>\r\n<p>Cheers,<br>\r\nLaurent&nbsp;</p>\r\n",
+    "PostedDate": "2012-12-13T01:08:37.06-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "955999",
+    "ThreadId": "405556",
+    "Html": "\r\n<p>Laurent, Alexander, a Support Engineer from JetBrains, got back to me asking for clarification on&nbsp;where mentioned snippets are disabled. If you want me to CC you in on my reply can you ping me your email address (mine's timregan at microsoft dot com).</p>\r\n",
+    "PostedDate": "2012-12-14T02:06:31.16-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "983039",
+    "ThreadId": "405556",
+    "Html": "\r\n<p>Hi Laurent,<br>\r\nI encountered the same issue. I used VS 2010 Professional and MVVM Light 4.0, it worked great.\r\n<br>\r\nRight now I am using VS 2012&nbsp;Ultimate and MVVM Light 4.1 for VS 2012, the code snippet does not work. I am not using Resharper.<br>\r\nAny help would be appreciated. &nbsp;Thanks in advance.</p>\r\n",
+    "PostedDate": "2013-01-04T06:16:42.853-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1005327",
+    "ThreadId": "405556",
+    "Html": "Just installed MVVM Light for VS 2012, snippets do not work<br />\n",
+    "PostedDate": "2013-02-22T09:26:09.663-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1011685",
+    "ThreadId": "405556",
+    "Html": "Hi all there,\r<br />\n<br />\nI got the same problem: VS 2012 (no Resharper!!!). After Installation of MVVMlight the MVVMlight-snippets are not present. Can I install the snippets manually?\r<br />\nWhere can I get them?\r<br />\n<br />\nThanks a lot <br />\n",
+    "PostedDate": "2013-03-07T03:12:09.233-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1011694",
+    "ThreadId": "405556",
+    "Html": "Hey,\r<br />\n<br />\nyes, you can download the snippets either each manually by clicking on &quot;Source Code&quot; --&gt; &quot;Snippets&quot; --&gt; &quot;CSharp&quot; or by clicking on &quot;Source Code&quot; --&gt; &quot;Download&quot;.<br />\n",
+    "PostedDate": "2013-03-07T03:26:53.323-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1011705",
+    "ThreadId": "405556",
+    "Html": "Thanks to cH40zLord,\r<br />\n<br />\nnow I got the snippets! I Copied them to the directory where MySnippets are located and and added them with Snippet-Manager.\r<br />\n<br />\ntime to start learning MvvmLight...<br />\n",
+    "PostedDate": "2013-03-07T04:10:04.793-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1082569",
+    "ThreadId": "405556",
+    "Html": "In Resharper 8 use CTRL-J and then type mvvm and you get the code snippets.<br />\n",
+    "PostedDate": "2013-08-20T02:06:55.247-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1096720",
+    "ThreadId": "405556",
+    "Html": "Can include the snippets manually....<br />\n<br />\nIn Visual Studio 2012, go to tools&gt;code snippets manager (ctrl+k, ctrl+b)<br />\nAdd the snippets folder.<br />\n<br />\nYou may find mvvm light snippets folder at &quot;C:\\Program Files (x86)\\Laurent Bugnion (GalaSoft)\\Mvvm Light Toolkit\\Snippets&quot;<br />\n",
+    "PostedDate": "2013-09-19T19:39:20.113-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1144633",
+    "ThreadId": "405556",
+    "Html": "If you use code snippets, you will find that they don’t work any more. This is because Resharper overrides the intellisense, and jet-brains clearly doesn't have the brains to figure that code snippets are an import aspect of editing for some people (and typically those people who would buy ReSharper <em>are</em> the kind of productivity-oriented people that would use code snippets). Go figure.\r<br />\n<br />\nTo override this Resharper “feature”, you either have to type Ctrl+J, then type your snippet, or disable Resharper’s intellisense by clicking RESHARPER menu, Options, Environment, Intellisense, General, and select Visual Studio.<br />\n",
+    "PostedDate": "2014-01-02T07:22:12.347-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

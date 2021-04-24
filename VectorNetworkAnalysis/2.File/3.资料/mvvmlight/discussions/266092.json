@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "645695",
+    "ThreadId": "266092",
+    "Html": "<p>Hi</p>\n<p>The Reactive Framework is a great toolset to realize ansychronous datastreams.<br />For this I created some \"Duplex Communication Messages\" which have a Method like this<br /><strong>Reply(... Data...)</strong></p>\n<p>In my scenario Data Is a IObservable so its</p>\n<div style=\"color: black; background-color: white;\">\n<pre><span style=\"color: blue;\">void</span> Reply(IObservable&lt;T&gt; dataStream);\n</pre>\n</div>\n<p>the Message itself implements IObservable&lt;T&gt;. So the UI can subscribe to the message and update the viewcollection when data is stream.</p>\n<p>For example like this:</p>\n<div style=\"color: black; background-color: white;\">\n<pre>ReadTasksMessage msg = <span style=\"color: blue;\">new</span> ReadTasksMessage();\n\nmsg.SubscribeOn(Scheduler.ThreadPool).ObserveOnDispatcher().Subscribe(task =&gt; <span style=\"color: blue;\">this</span>.TaskCollection.Add(task));<br />this.Messenger.Send(msg); <br /></pre>\n</div>\n<p>Now some kind of adapter receives the message, reads the Data and returns it to the ui like this.</p>\n<p>\n<div style=\"color: black; background-color: white;\">\n<pre>Messenger.Register(msg =&gt;\n{\n  <span style=\"color: green;\">// ... readTasks...</span>\n  msg.Reply(myObservableResult);\n});\n</pre>\n</div>\n</p>\n<p>&nbsp;</p>\n<p>It would be really great to get some mvvm light baseclasses to this.&nbsp; <br />If there are some people interesseted i would also contribute my source .</p>",
+    "PostedDate": "2011-07-21T10:57:28.12-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "645831",
+    "ThreadId": "266092",
+    "Html": "<p>I've heard good things about Reactive Extensions, although I understand it does require a reasonable amount of banging your head against the desk until you can understand the major paradigm shift. <a href=\"http://www.reactiveui.net/\">ReactiveUI</a> seems to be ahead of the curve in bringing Rx to the MVVM world; as you say, it would be good to see what MvvmLight could bring to the table.</p>",
+    "PostedDate": "2011-07-21T16:05:09.01-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "646528",
+    "ThreadId": "266092",
+    "Html": "<p>hmm perhaps there isn't a big wish for that. but does somebody know if it is possible to create some kind of feature branches on codeplex?</p>\r\n<p>&nbsp;</p>\r\n<p>I'm thinking about creating an MVVMLight.RX Extension library</p>",
+    "PostedDate": "2011-07-23T09:09:01.927-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

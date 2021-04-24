@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "1314104",
+    "ThreadId": "569993",
+    "Html": "Hello, <br />\n<br />\nFor my mobile project, I use Xamarin and MvvmLight. <br />\n<br />\nFor Windows Phone, I used to use the converters. <br />\n<br />\nMy question is that it is the equivalent on Android and iOS <br />\n<br />\nThank you <br />\nMohamed<br />\n",
+    "PostedDate": "2014-10-16T13:10:29.94-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1314622",
+    "ThreadId": "569993",
+    "Html": "Hi,\r<br />\n<br />\nThe IValueConverter interface might cause you issues as it doesn't seem to be available on Xamarin.\r<br />\n<br />\nThat said, if you have conversion logic, you can leverage it using the Binding.ConvertSourceToTarget and Binding.ConvertTargetToSource methods. Since the SetBinding method returns a Binding instance, you can just call these methods there.\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2014-10-18T07:48:44.143-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1314808",
+    "ThreadId": "569993",
+    "Html": "Hi, \r<br />\n<br />\nThank you, I'll look at your solution. \r<br />\n<br />\nCheers, \r<br />\nMohamed<br />\n",
+    "PostedDate": "2014-10-19T13:05:06.103-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

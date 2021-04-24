@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "1166576",
+    "ThreadId": "498049",
+    "Html": "My apologies if I am doing something really wrong here.  To make as clean as test as I possibly could I created a brand new MVVM Light Win81 solution and made not changes to it.  When I compile it I get the following warnings:<br />\n<br />\n```\n1&gt;------ Rebuild All started: Project: MvvmLight1, Configuration: Debug Any CPU ------<br />\n1&gt;C:\\Users\\Robert\\Documents\\Visual Studio 2012\\Projects\\Windows Store\\MvvmLight1\\MvvmLight1\\Common\\UserControlBase.cs(60,17,60,60): warning CS4014: Because this call is not awaited, execution of the current method continues before the call is completed. Consider applying the 'await' operator to the result of the call.<br />\n1&gt;C:\\Users\\Robert\\Documents\\Visual Studio 2012\\Projects\\Windows Store\\MvvmLight1\\MvvmLight1\\Common\\OrientationStateBehavior.cs(78,13,78,63): warning CS4014: Because this call is not awaited, execution of the current method continues before the call is completed. Consider applying the 'await' operator to the result of the call.<br />\n1&gt;C:\\Users\\Robert\\Documents\\Visual Studio 2012\\Projects\\Windows Store\\MvvmLight1\\MvvmLight1\\Model\\DataService.cs(7,37,7,44): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.<br />\n1&gt;C:\\Users\\Robert\\Documents\\Visual Studio 2012\\Projects\\Windows Store\\MvvmLight1\\MvvmLight1\\ViewModel\\MainViewModel.cs(69,13,69,25): warning CS4014: Because this call is not awaited, execution of the current method continues before the call is completed. Consider applying the 'await' operator to the result of the call.<br />\n1&gt;C:\\Users\\Robert\\Documents\\Visual Studio 2012\\Projects\\Windows Store\\MvvmLight1\\MvvmLight1\\ViewModel\\MainViewModel.cs(97,30,97,32): warning CS0168: The variable 'ex' is declared but never used<br />\n1&gt;  MvvmLight1 -&gt; C:\\Users\\Robert\\Documents\\Visual Studio 2012\\Projects\\Windows Store\\MvvmLight1\\MvvmLight1\\bin\\Debug\\MvvmLight1.exe<br />\n1&gt;C:\\Program Files (x86)\\MSBuild\\Microsoft\\VisualStudio\\v12.0\\AppxPackage\\Microsoft.AppXPackage.Targets(1093,9): warning APPX0104: Certificate file 'MvvmLight.Win8_TemporaryKey.pfx' not found.<br />\n1&gt;C:\\Program Files (x86)\\MSBuild\\Microsoft\\VisualStudio\\v12.0\\AppxPackage\\Microsoft.AppXPackage.Targets(1093,9): warning APPX0107: The certificate specified is not valid for signing. For more information about valid certificates, see <a href=\"http://go.microsoft.com/fwlink/?LinkID=241478\" rel=\"nofollow\">http://go.microsoft.com/fwlink/?LinkID=241478</a>.<br />\n========== Rebuild All: 1 succeeded, 0 failed, 0 skipped ==========<br />\n<br />\nI am using VS2013 Ultimate X86 version.  These warnings persist after a clean and rebuild.  The build is being done using the Debug configuration, Any CPU.  Note, I know a few of the warnings are because the code is stub code that your project template creates and because the app has not been registered yet.  I'm not worried about those.  But are the async related warnings important?<br />\n",
+    "PostedDate": "2014-01-14T15:06:33.587-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1226698",
+    "ThreadId": "498049",
+    "Html": "I am having the same issue, to be honest It's kinda making me want to avoid using it because my experience with warnings is that they're there for a reason. I am going to make an issue report as if the warnings are false positives shouldn't they be disable to avoid any confusion.<br />\n",
+    "PostedDate": "2014-03-25T15:33:48.19-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1226705",
+    "ThreadId": "498049",
+    "Html": "Hi,\r<br />\n<br />\nNo the async related warning are not important. In a future version of the templates, I will try to suppress them. Until then you can safely ignore them.\r<br />\n<br />\nQuick background info: When an async method is declared, you can either await the result, or you can &quot;shoot and forget&quot;, which means that you call the method without an await and then you go on with your life.\r<br />\n<br />\nWhen a method is called from within a constructor, you cannot use await, the compiler doesn't allow this. So the only way is shoot and forget. For the project template, I wanted to have a &quot;true async&quot; method in the service, because I wanted to show how to code such a method. But on the other hand I wanted to call it from the MainViewModel constructor, because I want the user to see something as soon as the app starts (including in design mode). This is why I am calling the service method from within the constructor, and I don't await.\r<br />\n<br />\nAs I said, I will try to suppress the warnings. It is definitely a good policy to observe warnings and try to understand why they are appearing, so kudos to you guys. But in that case, the warning is more of a hint to the developer than an actual warning.\r<br />\n<br />\nHopefully that make sense.\r<br />\n<br />\nCheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2014-03-25T15:51:50.787-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1226706",
+    "ThreadId": "498049",
+    "Html": "Yeah It makes sense, I assumed that this would be the case given this project has been pretty on the ball. I just in general have the principle, don't leave a warning and hope for the best, I assumed it was doing as much (shoot and forget), I just didn't want to get 3/4 way through implementing a project to have the warning come back to bite me as I don't know how your code functions, which is how it should be so I code according to the specifications not the implementation.<br />\n<br />\nThanks for the expedient response.<br />\n<br />\nIf you want to close the issue thread I made you can find it here:<br />\n<a href=\"https://mvvmlight.codeplex.com/workitem/7630\" rel=\"nofollow\">https://mvvmlight.codeplex.com/workitem/7630</a><br />\n<br />\nOh final edit: What about the weird certificate erros? I'm getting them in a Windows Store 8.1 app template, please forgive me if it's somthing silly as I am new to Windows Store and all my previous projects havn't had this issue<br />\n",
+    "PostedDate": "2014-03-25T15:57:59.407-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

@@ -1,0 +1,56 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:58:41.237-07:00",
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "In V3 it was possible to call a RelayCommand<bool?> like this:\r\n- command.Execute(null)\r\n- command.Execute(true)\r\n- command.Execute(false)\r\n\r\nIn V4 you will get an InvalidCastException complaining that it is not possible to convert from \"System.Boolean\" to \"System.Nullable`1[[System.Boolean, mscorlib, Version=5.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]\".\r\n\r\nThe attached solution contains two equivalent Silverlight projects that demonstrate the issue. I did not check whether WPF/WP7 are also affected, but I'd expect so.\r\n\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light V5.0.0.1",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-08-29T04:27:01.79-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Silverlight RelayCommand<T> does not work with nullable valuetypes",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 4,
+    "Id": 7588
+  },
+  "FileAttachments": [
+    {
+      "FileId": 478389,
+      "FileName": "MvvmLightRegression.zip",
+      "DownloadUrl": ".\\478389"
+    }
+  ],
+  "Comments": [
+    {
+      "Message": "The issue also exists in WPF",
+      "PostedDate": "2012-09-08T04:06:06.503-07:00",
+      "Id": 76515
+    },
+    {
+      "Message": "This has been fixed in the portable version here:\nhttps://nuget.org/packages/Portable.MvvmLightLibs\n",
+      "PostedDate": "2012-11-17T09:12:06.107-08:00",
+      "Id": 82646
+    }
+  ]
+}

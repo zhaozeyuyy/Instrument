@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "Cannot repro",
+    "ClosedDate": "2017-11-26T13:40:19.867-08:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "See this question (http://stackoverflow.com/questions/13284526/in-winrt-static-field-not-initialized-at-all/13285323#13285323) on Stackoverflow.\r\n\r\nThe problem is the method GetConstructorInfo in the SimpleIoc class which throws an exception \"Multiple constructors found but none marked with PreferredConstructor\", cause the class has a default ctor and a static ctor.",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2012-11-08T00:46:20.603-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Cannot repro"
+    },
+    "Summary": "Register throws exception when class without ctor and static field is registered",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 7595
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Same here, I got these two constructors in MainViewModel, but I am getting exception that none has PreferredConstructor attribute:\n\n        public MainViewModel()\n        {\n        }\n\n        [PreferredConstructor]\n        public MainViewModel(INavigationService navigationService)\n        {\n            _navigationService = navigationService;\n            InitializeCommands();\n        }",
+      "PostedDate": "2013-05-19T02:51:39.93-07:00",
+      "Id": 100555
+    }
+  ]
+}

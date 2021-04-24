@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "1424708",
+    "ThreadId": "637738",
+    "Html": "Hi Laurent,\r<br />\n<br />\nIs there a specific requirement a property has to have in order for binding to work?\r<br />\nI ask this because I've been using the bindings for a while and they work with EditText and TextView and ListView controls but I'm now trying to use a custom control and the binding is failing.<br />\n<pre><code>this.SetBinding(\n() =&gt; ViewModel.Theme.Coloring.Foreground,\n() =&gt; ThemeForegroundColorPanel.Color,\nBindingMode.TwoWay)\n.ConvertSourceToTarget(Converters.StringToColorConverter)\n.ConvertTargetToSource(Converters.ColorToStringConverter);</code></pre>\n\nThe ColorPanel is a simple rectangle and has a public property named Color with a setter and getter and that raises a propertychanged event when the value is set.\r<br />\n<br />\nThe interesting part is that when the page loads, the ColorPanel gets set with the Foreground color from the ViewModel corrently, but uppon changing the Color property on the ColorPanel the source property never gets updated and stepping through the propertychanged event handler:<br />\n<pre><code>PropertyChangedEventHandler eventHandler = this.PropertyChanged;\nif (eventHandler != null)\n{\n    eventHandler(this, new PropertyChangedEventArgs(propertyName));\n}</code></pre>\n\neventHandler is null.\r<br />\n<br />\nAny help with this situation would be welcome since I have like 30 of these ColorPanels on my application.<br />\n",
+    "PostedDate": "2015-05-11T04:31:14.833-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1424720",
+    "ThreadId": "637738",
+    "Html": "Hi,<br />\n<br />\nYou need to use the UpdateTargetTrigger method to set the name of the Event that the panel is raising (in this case PropertyChanged).<br />\n<br />\nIn Windows XAML, all UI properties are DependencyProperties, so they are observable. For Android however, there is no such mechanism. I am helping by assuming that the default event is TextChanged for EditText elements, but I don't make other assumptions. As far as I can tell, no default controls use PropertyChanged to notify that one of their properties changed, so I didn't observe this event in particular.<br />\n<br />\nCheck the inline doc for information about how UpdateTargetTrigger works.<br />\n<br />\nHopefully that helps<br />\nLaurent<br />\n",
+    "PostedDate": "2015-05-11T06:11:17.027-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1424747",
+    "ThreadId": "637738",
+    "Html": "Hi Laurent,\r<br />\n<br />\nThanks for the quick reply. After adding .UpdateTargetTrigger(&quot;PropertyChanged&quot;) I'm now getting an Invalid Cast somewhere inside the binding expression although both my converters behave as expected and are not being called when the error happens. I'll have to digg deeper into your code.\r<br />\n<br />\nAlso, while looking through the comments in the source code I found the following in the Android Platform folder (BindingGeneric.cs):<br />\n<pre><code>public Binding&lt;TSource, TTarget&gt; UpdateTargetTrigger()\n{\n    return UpdateSourceTrigger(UpdateTriggerMode.PropertyChanged);\n}</code></pre>\n\nShouldn't it return <strong>UpdateTargetTrigger(...)</strong> ? (Hope I'm not making a fool of myself).\r<br />\n<br />\nThanks again,\r<br />\n<br />\nDiogo Mendonça<br />\n",
+    "PostedDate": "2015-05-11T08:13:08.733-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1424784",
+    "ThreadId": "637738",
+    "Html": "Well, removed the ColorPanel and created my own (just extended a View and added an overwriting property called BackgroundColor and raised its PropertyChanged event) and it worked flawlessly. There must be a problem with the event bubbling because I could see the PropertyChanged event being raised in the previous custom control but the Binding was never updating.<br />\n<br />\nNow it works, although I would like to know why the previous control didn't. Since this was such a simple control I was able to create one of my own but if it was more complex this would be a problem.<br />\n<br />\nThank you very much Laurent.<br />\n",
+    "PostedDate": "2015-05-11T11:37:20.66-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1424814",
+    "ThreadId": "637738",
+    "Html": "Happy to take a look at the one that fails if you send me a repro.\r<br />\n<br />\nThanks\r<br />\nLaurent<br />\n",
+    "PostedDate": "2015-05-11T14:57:48.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1425391",
+    "ThreadId": "637738",
+    "Html": "Ok, I'll create a simple project this weekend and paste a link for you here.<br />\n",
+    "PostedDate": "2015-05-14T04:09:26.463-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1425396",
+    "ThreadId": "637738",
+    "Html": "That's very helpful, thanks!!\r<br />\n<br />\nLaurent<br />\n",
+    "PostedDate": "2015-05-14T04:23:08.203-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

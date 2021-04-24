@@ -1,0 +1,65 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-02-15T10:14:02.97-08:00",
+    "CommentCount": 5,
+    "Custom": null,
+    "Description": "When I call CanExecute on a RelayCommand<T> with the parameter null, the behavior has changed going from 4.4.32 to 5.0.2. \r\nI have decompiled the assemblies and write the results below. It is clear that the 4.4.32 code accepted null as an argument, whereas the 5.0.2 code does not. \r\n\r\nThis has broken our code in various places.\r\n\r\n```\r\n// Type: GalaSoft.MvvmLight.Command.RelayCommand`1\r\n// Assembly: GalaSoft.MvvmLight, Version=4.4.32.16316, Culture=neutral, PublicKeyToken=6bdae7d54059775e\r\n// MVID: 594A8629-B383-43DD-A41F-7AABF57F1F20\r\n// Assembly location: D:\\source\\RhinoPlugins\\obj\\win64\\packages\\MvvmLightLibs.4.4.32.7\\lib\\net40\\GalaSoft.MvvmLight.dll\r\n\r\n    public bool CanExecute(object parameter)\r\n    {\r\n      if (this._canExecute == null)\r\n        return true;\r\n      if (!this._canExecute.IsStatic && !this._canExecute.IsAlive)\r\n        return false;\r\n      if (parameter == null && typeof (T).IsValueType)\r\n        return this._canExecute.Execute(default (T));\r\n      else\r\n        return this._canExecute.Execute((T) parameter);\r\n    }\r\n\r\n// Type: GalaSoft.MvvmLight.Command.RelayCommand`1\r\n// Assembly: GalaSoft.MvvmLight, Version=5.0.2.32240, Culture=neutral, PublicKeyToken=0e453835af4ee6ce\r\n// MVID: 589788DB-9532-473D-82DB-8D64C2AA450B\r\n// Assembly location: D:\\source\\RhinoPlugins\\obj\\win64\\packages\\MvvmLightLibs.5.0.2.0\\lib\\net40\\GalaSoft.MvvmLight.dll\r\n    \r\n    public bool CanExecute(object parameter)\r\n    {\r\n      if (this._canExecute == null)\r\n        return true;\r\n      if (this._canExecute.IsStatic || this._canExecute.IsAlive)\r\n      {\r\n        if (parameter == null && typeof (T).IsValueType)\r\n          return this._canExecute.Execute(default (T));\r\n        if (parameter is T)\r\n          return this._canExecute.Execute((T) parameter);\r\n      }\r\n      return false;\r\n    }\r\n```",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "null",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Medium",
+      "Severity": 100,
+      "Id": 2
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2014-11-10T05:21:15.277-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "RelayCommand<T>.CanExecute with null parameter returns false always (since 5.0)",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 7,
+    "Id": 7668
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Same situation here.\n\nCanExecute doesn't raise :\n```\n<Button Content=\"Se déconnecter\" Command=\"{Binding LogoutCommand}\" />\n```\n\nCanExecute raise :\n```\n<Button Content=\"Se déconnecter\" Command=\"{Binding LogoutCommand}\" CommandParameter=\"{Binding ElementName=elt}\" />\n```",
+      "PostedDate": "2014-11-18T00:14:35.663-08:00",
+      "Id": 165977
+    },
+    {
+      "Message": "It would be :\n```\npublic bool CanExecute(object parameter)\n    {\n      if (this._canExecute == null)\n        return true;\n      if (this._canExecute.IsStatic || this._canExecute.IsAlive)\n      {\n        if (parameter == null && typeof (T).IsValueType)\n          return this._canExecute.Execute(default (T));\n        if (parameter is T || parameter == null)\n          return this._canExecute.Execute((T) parameter);\n      }\n      return false;\n    }\n```",
+      "PostedDate": "2014-11-18T01:57:07.303-08:00",
+      "Id": 165989
+    },
+    {
+      "Message": "This bug has been reported by multiple users, apologies for the regression that came in from the PCL branch. Will fix in the next minor release.",
+      "PostedDate": "2014-11-18T02:21:25.173-08:00",
+      "Id": 165991
+    },
+    {
+      "Message": "Fixed in V5.1 (upcoming)",
+      "PostedDate": "2015-02-06T07:32:24.657-08:00",
+      "Id": 173633
+    },
+    {
+      "Message": "DLLs are available here:\nhttp://1drv.ms/1ylP1TS\n\nNuget will be updated ASAP.",
+      "PostedDate": "2015-02-06T09:12:50.18-08:00",
+      "Id": 173651
+    }
+  ]
+}

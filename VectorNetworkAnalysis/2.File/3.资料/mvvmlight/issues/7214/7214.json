@@ -1,0 +1,39 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T03:10:20.3-07:00",
+    "CommentCount": 0,
+    "Custom": "",
+    "Description": "I can't seem to reliably get the RelayCommand to recompute the value of CanExecute in order to disable it's attached element (a button). \n\nI've asked this on Stack Overflow, but I'm not sure if they'll be able to help. Perhaps you've fixed this in a new version? Here's the SO question: http://stackoverflow.com/questions/3755143/relaycommand-canexecute-behavior-not-working\n\nThank you for your time!",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2010-09-21T08:13:38.95-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Cannot repro"
+    },
+    "Summary": "Problem with RelayCommand, CanExecute, and CanExecuteChanged",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 7214
+  },
+  "FileAttachments": [],
+  "Comments": []
+}

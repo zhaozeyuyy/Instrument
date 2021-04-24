@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "709764",
+    "ThreadId": "282367",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>I watched your Deep Dive MVVM MIX 11 session and then I looked at the NavigationService sample&nbsp;for Silverlight 4.<br>\r\nIn your sample you create an instance of the target ViewModel and then register it in the IOC container. Then, in the target view you override OnNavigatedTo method, get the instance of the viewmodel from the IOC container and set it to the datacontext of view.</p>\r\n<p>I'm trying MVVM Light Toolkit for Windows 8 and I am wondering which is the best way to pass a parameter when navigating from a view to another since the Frame control allows me&nbsp;to pass a parameter when navigating.<br>\r\n<br>\r\nMy idea is to add a Navigate method to INavigationService interface&nbsp;that accepts also a parameter of type object.<br>\r\nThen I call this new&nbsp;method to navigate to my target view&nbsp;without registering the target viewmodel in the IOC.<br>\r\nThen I override OnNavigatedTo in&nbsp;target view, create an instance of the viewmodel and set it as datacontext of the view.</p>\r\n<p>What do you think?</p>\r\n",
+    "PostedDate": "2011-12-09T01:30:26.01-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "710445",
+    "ThreadId": "282367",
+    "Html": "<p>Hi,</p>\n<p>I created a simple navigation application to&nbsp;explain&nbsp;which is my idea.<br /><br />You can download the sample here: <br /><br /><a href=\"https://skydrive.live.com/redir.aspx?cid=9254ccafce7ee400&amp;resid=9254CCAFCE7EE400!291&amp;parid=9254CCAFCE7EE400!288\">https://skydrive.live.com/redir.aspx?cid=9254ccafce7ee400&amp;resid=9254CCAFCE7EE400!291&amp;parid=9254CCAFCE7EE400!288</a><br /><br />A problem I see in my solution is that in each view I have to override OnNavigatedTo and OnNavigatedFrom methods and call ViewModel methods.</p>",
+    "PostedDate": "2011-12-11T00:34:08.357-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "895990",
+    "ThreadId": "282367",
+    "Html": "<p>Do you know how to implement state handling in windows 8 using mvvmlight. ie i navigated from A -&gt; B . then&nbsp;terminated. Activate the app and navigate to B and go back similar thing in windows 8&nbsp;</p>",
+    "PostedDate": "2012-08-06T05:27:15.483-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

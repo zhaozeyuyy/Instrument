@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "892163",
+    "ThreadId": "389280",
+    "Html": "\r\n<p><span>Hi all, </span></p>\r\n<p><span>I'm using MVVM Light a couple of weeks and I find it really useful, so I want to thank you. I'll take you a question: is it possible to share&nbsp;a ViewModelLocator&nbsp;created in the main&nbsp;wpf application so that it is accessible as datacontext\r\n also from views I've created in external assemblies?</span></p>\r\n<p><span>Thank you</span></p>\r\n",
+    "PostedDate": "2012-07-27T02:17:01.15-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "892178",
+    "ThreadId": "389280",
+    "Html": "<p>Hi</p>\r\n<p>in my opinion the simpler approach here is to scompose your app in multiple unit testable assemblies.</p>\r\n<p>Your VMs should be defined in a class library along with their Locator. Then you can reference this assembly in projects containing your views.</p>\r\n<p>Also your Model entities and other business stuff should be defined in a separate assembly or multiple ones, and you should call into them using service interfaces defined in another separate assembly or directly inside your VMs assembly. Doing so you will be able to unit test VMs mocking your model services.</p>\r\n<p>This is a simplified scenario... if project grows in complexity you should consider an IOC pattern, or maybe implement a simple factory pattern to instantiate your VMs from views without using a concrete ViewModelLocator.</p>\r\n<p>In a recent simple project I've used a ViewModelLocatorFactory that returns a concrete Locator instance based on current application mode. The application displays specialized views capable of doing several tasks in different ways, based on current mode selected by the user. I've defined various Locator specialized classes that returns VMs based on the task to perform, and the Factory class returns the correct one based on user selected mode.</p>\r\n<p>I've also implemented this pattern on the Views side, but this is another story... Anyway I've coded all this stuff in a day, so it's a viable solution even for the simplest projects.</p>\r\n<p>Hope this helps,</p>\r\n<p>Paolo</p>",
+    "PostedDate": "2012-07-27T03:07:24.873-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

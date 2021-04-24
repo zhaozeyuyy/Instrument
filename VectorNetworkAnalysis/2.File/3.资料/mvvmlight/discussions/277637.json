@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "691156",
+    "ThreadId": "277637",
+    "Html": "\r\n<p>I've tried to use Mvvm Light in order to show confirmation message box and realized that GalaSoft.MvvmLight assembly references PresentationFramework.</p>\r\n<p>Do you think that reference to the pure UI assembly from the assembly with ViewModels is not evil?</p>\r\n<p>Why did not you split the library on interface part and implementation part,&nbsp;<span>especially since</span>&nbsp;there already&nbsp;is&nbsp;GalaSoft.MvvmLight.Extras.</p>\r\n<p>I really want to know your reasons :)</p>\r\n<p>Ed.ward</p>\r\n",
+    "PostedDate": "2011-10-29T10:32:34.703-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "691502",
+    "ThreadId": "277637",
+    "Html": "<p>Hi,</p>\r\n<p>There is still one class (DialogMessage) which uses the PresentationFramework. This is something that I want to change in V4, by replacing the MessageBox-related enums with \"UI-agnostic\" values.</p>\r\n<p>\"Evil\" is a big word for something like that, but I agree that it is not as clean as it could be ;)</p>\r\n<p>Cheers,<br />Laurent&nbsp;</p>",
+    "PostedDate": "2011-10-31T02:17:08.297-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

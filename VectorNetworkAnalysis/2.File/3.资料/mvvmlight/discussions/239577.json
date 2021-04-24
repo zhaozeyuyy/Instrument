@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "540536",
+    "ThreadId": "239577",
+    "Html": "\r\n<p>Hi all,</p>\r\n<p>&nbsp;</p>\r\n<p>I'm using Silverlight 4 with the&nbsp;GalaSoft.MvvmLight Framework.</p>\r\n<p>I'm having a datagrid where the currentitem is bind to a selectedCustomer (CustomerViewModel). When the selectedCustomer change I send it to a selectedCustomer in a ucCustomerContactViewModel. The usercontrol is in a dataform that show the details of the\r\n selectedCustomer.</p>\r\n<p>When the app starts and i select a customer the usercontrol doesnt show the selectedCustomer but when I select a second Customer, it show it... So I think that my message with the selectedCustomer is comming too late. Does anyone know a workaround for this\r\n problem?</p>\r\n<p>&nbsp;</p>\r\n<p>Thank you!</p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">&lt;</span><span style=\"color:#a31515\">view</span><span style=\"color:blue\">:</span><span style=\"color:#a31515\">ucCustomerContacts</span> <span style=\"color:red\">Width</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">400</span><span style=\"color:black\">&quot;</span>\r\n                                                         <span style=\"color:red\">Height</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">300</span><span style=\"color:black\">&quot;</span>\r\n                                                         <span style=\"color:red\">DataContext</span><span style=\"color:blue\">=</span><span style=\"color:black\">&quot;</span><span style=\"color:blue\">{Binding UcCustomerContactsViewModel, Source={StaticResource Locator}}</span><span style=\"color:black\">&quot;</span> <span style=\"color:blue\">/&gt;</span>\r\n</pre>\r\n</div>\r\n<p></p>\r\n<p></p>\r\n<div style=\"color:black; background-color:white\">\r\n<pre><span style=\"color:blue\">public</span> ucCustomerContactsViewModel()\r\n        {\r\n            <span style=\"color:blue\">if</span> (IsInDesignMode)\r\n            {\r\n                <span style=\"color:green\">// Code runs in Blend --&gt; create design time data.</span>\r\n            }\r\n            <span style=\"color:blue\">else</span>\r\n            {\r\n                Messenger.Default.Register(<span style=\"color:blue\">this</span>, <span style=\"color:blue\">new</span> Action&lt;PropertyChangedMessage&lt;Customer&gt;&gt;(UpdateCustomer));\r\n\r\n            }\r\n        }\r\n    <span style=\"color:blue\">public</span> <span style=\"color:blue\">void</span> UpdateCustomer(PropertyChangedMessage&lt;Customer&gt; e)\r\n    {\r\n        SelectedCustomer = e.NewValue <span style=\"color:blue\">as</span> Customer;\r\n    }\r\n\r\n</pre>\r\n</div>\r\n<p></p>\r\n",
+    "PostedDate": "2010-12-26T06:52:12.4-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "548822",
+    "ThreadId": "239577",
+    "Html": "\r\n<p>Hi,</p>\r\n<p>Sorry for the delay.</p>\r\n<p>This scenario should work, if you make sure that the ucCustomerContactsViewModel is instantiated before the message is sent. I find that creating the critical VMs in advance in the ViewModelLocator is the best way to resolve this kind of issues.</p>\r\n<p>Alternatively, you need to implement a &quot;fetch&quot; mechanism when ucCustomerContactsViewModel is created, in order to get the correct values on startup.</p>\r\n<p>Makes sense?</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>\r\n",
+    "PostedDate": "2011-01-13T09:41:45.277-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

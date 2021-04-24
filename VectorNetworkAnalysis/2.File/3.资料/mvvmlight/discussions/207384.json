@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "423955",
+    "ThreadId": "207384",
+    "Html": "<p>Hello everyone,</p>\r\n<p>&nbsp;</p>\r\n<p>I have 2 questions for you today :</p>\r\n<p style=\"padding-left:30px\">1. I have a synchronization problem between the creation of my ViewModel and the binding of my View.</p>\r\n<p style=\"padding-left:30px\">I use the ViewModelLocator to set the DataContext of my ItemsView (UserControl) on my ItemsViewModel. The ItemsView is placed in my MainView wich has its own MainViewModel.</p>\r\n<p style=\"padding-left:30px\">My problem is that my ItemsViewModel is instantiate and initialised when the datacontext of my ItemsView is set. After, this one register its binding on ItemsViewModel Properties and listen OnPropertyChanged on an ObservableCollection of ItemsViewModel. On any OnPropertyChanged (add or remove element from the&nbsp;ObservableCollection) my ItemsView has to be updated.</p>\r\n<p style=\"padding-left:30px\">But this collection &nbsp;is initialised at the ItemsViewModel initialisation and never updated.</p>\r\n<p style=\"padding-left:30px\">&nbsp;Anybody has a solution to force my view to update/refresh its content ?</p>\r\n<p style=\"padding-left:30px\">2. Is it possible to acces ViewModel properties from the code-behind of my View ? Is it possible to set binding between my View and my ViewModel from the code-behind ?</p>\r\n<p>These questions are very basing and oriented for my project but I think there are based on the MVVM pattern.</p>",
+    "PostedDate": "2010-03-26T00:44:28.603-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "424845",
+    "ThreadId": "207384",
+    "Html": "<p>Does the property of type ObservableCollection also raises the PropertyChanged event in the setter?</p>",
+    "PostedDate": "2010-03-29T02:30:04.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "424892",
+    "ThreadId": "207384",
+    "Html": "<p>ObservableCollection property raises the CollectionChanged event when the collection is updated.</p>",
+    "PostedDate": "2010-03-29T05:39:31.893-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "424927",
+    "ThreadId": "207384",
+    "Html": "<p>The property itself should raise the&nbsp;PropertyChanged event.<br>&nbsp;See below for a VB example.</p>\r\n<p>&nbsp;</p>\r\n<div style=\"color:Black;background-color:White\">\r\n<pre><span style=\"color:Blue\">Private</span> _ListOfItems <span style=\"color:Blue\">As</span> ObservableCollection(Of Items)\r\n<span style=\"color:Blue\">Property</span> ListOfItems <span style=\"color:Blue\">As</span> ObservableCollection(Of Items)\r\n\t<span style=\"color:Blue\">Get</span>\r\n\t\t<span style=\"color:Blue\">Return</span> _ListOfItems\r\n\t<span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Get</span>\r\n\t<span style=\"color:Blue\">Set</span>(<span style=\"color:Blue\">ByVal</span> value <span style=\"color:Blue\">As</span> ObservableCollection(Of Items))\r\n\t\t_ListOfItems = value\r\n\t\t<span style=\"color:Blue\"><strong><em><span style=\"text-decoration:underline\">RaiseEvent</span></em></strong></span><strong><em><span style=\"text-decoration:underline\"> PropertyChanged(</span></em></strong><span style=\"color:Blue\"><strong><em><span style=\"text-decoration:underline\">Me</span></em></strong></span><strong><em><span style=\"text-decoration:underline\">, </span></em></strong><span style=\"color:Blue\"><strong><em><span style=\"text-decoration:underline\">New</span></em></strong></span><strong><em><span style=\"text-decoration:underline\"> PropertyChangedEventArgs(</span></em></strong><span style=\"color:#A31515\"><strong><em><span style=\"text-decoration:underline\">&quot;ListOfItems&quot;</span></em></strong></span><strong><em><span style=\"text-decoration:underline\">))</span></em></strong>\r\n\t\t<span style=\"color:Green\">'' Or by using the BaseViewModel method</span>\r\n\t\t<span style=\"color:Green\">' RaisePropertyChanged(&quot;ListOfItems&quot;)</span>\r\n\t<span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Set</span>\r\n<span style=\"color:Blue\">End</span> <span style=\"color:Blue\">Property</span>\r\n\r\n\r\n</pre>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>",
+    "PostedDate": "2010-03-29T07:00:59.843-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

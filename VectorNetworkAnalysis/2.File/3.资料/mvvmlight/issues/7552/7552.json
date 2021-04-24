@@ -1,0 +1,45 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2014-10-13T05:56:22.723-07:00",
+    "CommentCount": 1,
+    "Custom": null,
+    "Description": "This code\r\n\r\n                var body = propertyExpression.Body as MemberExpression;\r\n\r\n                if (handler != null)\r\n                {\r\n                    handler(this, new PropertyChangedEventArgs(body.Member.Name));\r\n                }\r\n\r\n                if (broadcast)\r\n                {\r\n                    Broadcast(oldValue, newValue, body.Member.Name);\r\n                }\r\n\r\ndoesn't test for body being null.\r\n\r\nPrism does a more robust extraction of the property name, along the lines of\r\n\r\n        public static string ExtractPropertyName(LambdaExpression propertyExpression)\r\n        {\r\n            if (propertyExpression == null)\r\n            {\r\n                throw new ArgumentNullException(\"propertyExpression\");\r\n            }\r\n\r\n            var memberExpression = propertyExpression.Body as MemberExpression;\r\n            if (memberExpression == null)\r\n            {\r\n                throw new ArgumentException(@\"Not a member expression\", \"propertyExpression\");\r\n            }\r\n\r\n            var property = memberExpression.Member as PropertyInfo;\r\n            if (property == null)\r\n            {\r\n                throw new ArgumentException(@\"Not a property\", \"propertyExpression\");\r\n            }\r\n\r\n            var getMethod = property.GetGetMethod(true);\r\n            if (getMethod.IsStatic)\r\n            {\r\n                throw new ArgumentException(@\"Can't be static\", \"propertyExpression\");\r\n            }\r\n\r\n            return memberExpression.Member.Name;\r\n        }",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "MVVM Light Toolkit V4 RTM",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2011-10-22T16:03:21.837-07:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "Possible NullReferenceException in RaisePropertyChanged",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7552
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\nYep good one. I will handle that in V4 beta 2.\nCheers,\nLaurent",
+      "PostedDate": "2011-10-23T07:54:57.753-07:00",
+      "Id": 47572
+    }
+  ]
+}

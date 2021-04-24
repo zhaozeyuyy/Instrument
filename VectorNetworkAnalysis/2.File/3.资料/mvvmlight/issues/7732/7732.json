@@ -1,0 +1,50 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": null,
+    "CommentCount": 2,
+    "Custom": null,
+    "Description": "Hi,\r\n\r\nI've got a simple MVVMLight WPF application.\r\nThe application main view displays file contents.\r\nI've got two menu options - Open File, Close File.\r\n\r\nI start the application and take a memory snapshot\r\nOpen a file (it displays in the view)\r\nClose the file and take another memory snap shot\r\n\r\nComparing the two memory snapshots reveals a memory leak. The leak seems to involve weak references.\r\n\r\nI'm wondering if I should use INavigationService to switch between the different states, instead of just modifying properties of the view model.\r\n\r\nIs there an implementation of INavigationService for WPF now?\r\n\r\nThanks\r\nMartin\r\n\r\n\r\n",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "Triage",
+    "ReleaseVisibleToPublic": true,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2016-07-04T13:27:57.47-07:00",
+    "Status": {
+      "Name": "Active",
+      "Id": 2
+    },
+    "ReasonClosed": {
+      "Name": "Unassigned"
+    },
+    "Summary": "Memory leak",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 1,
+    "Id": 7732
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nAre you sure it's a memory leak? There are multiple reasons that can possibly explain the different in the memory snapshot. It can be that you are holding some state in your ViewModel. Or maybe the garbage collector didn't kick in yet. Did you call GC.Collect() before taking the \"after\" snapshot? The weak references don't guarantee immediate garbage collection, they only guarantee that the object *can* be collected.\n\nI am not sure what you mean with states. I didn't provide implementations of INavigationService in WPF because it is not really possible to settle on a proper definition of navigation in WPF. For example, some people want to open new windows, while others want more of a page-based navigation. In all other frameworks, the concept of navigation is quite clearly defined.\n\nI hope it makes sense.\nLaurent",
+      "PostedDate": "2016-07-05T01:48:13.9-07:00",
+      "Id": 200419
+    },
+    {
+      "Message": "Hi Laurent,\n\nThanks for your reply.\nI've attached a small demo program that illustrates the problem (had to upload to onedrive instead) [link](https://1drv.ms/u/s!AuHLKfHr7wNekKovuZpsx8MRqtTxOg)\nReplace the path to the picture in MainWindowViewModel.cs\n\nHopefully it's something that can be explained easily :-)\nMartin",
+      "PostedDate": "2016-07-05T02:45:42.903-07:00",
+      "Id": 200420
+    }
+  ]
+}

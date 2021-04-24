@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "596995",
+    "ThreadId": "253822",
+    "Html": "\r\n<p>Hi</p>\r\n<p>I think it would be gread to have a XmlnsDefinitionAttribute on the MVVM Light Assemblies. So we can reference it in a more &quot;natural&quot; WPF like way.</p>\r\n<p>Are there any technical or architectural concerns about this ?&nbsp; Or does someone else think this could be nice ?</p>\r\n<p>&nbsp;</p>\r\n",
+    "PostedDate": "2011-04-13T23:07:50.057-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "610305",
+    "ThreadId": "253822",
+    "Html": "<p>Hi,</p>\r\n<p>Sounds like a good idea. Let me check it out.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-05-10T09:21:26.817-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "666982",
+    "ThreadId": "253822",
+    "Html": "<p>For info, this will be in V4 beta 1 coming out in the next few days.</p>\r\n<p>Cheers,</p>\r\n<p>Laurent</p>",
+    "PostedDate": "2011-09-02T12:54:52.18-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

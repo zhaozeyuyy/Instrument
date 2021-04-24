@@ -1,0 +1,95 @@
+{
+  "WorkItem": {
+    "AffectedComponent": {
+      "Name": "",
+      "DisplayName": ""
+    },
+    "ClosedComment": "",
+    "ClosedDate": "2015-02-15T10:14:25.87-08:00",
+    "CommentCount": 11,
+    "Custom": null,
+    "Description": "We are attempting to use MVVM Light in a Xamarin.iOS project, and when installing the toolkit through NuGet the \"GalaSoft.MvvmLight.Platform\" DLL only downloads in Xamarin.iOS projects targeting the older MonoTouch10 runtime, but not the newer 64-bit compatible Xamarinios10 runtime. Can the package be updated to support and target the newer runtime? Thanks!",
+    "LastUpdatedDate": "2017-12-08T09:36:31.49-08:00",
+    "PlannedForRelease": "null",
+    "ReleaseVisibleToPublic": false,
+    "Priority": {
+      "Name": "Low",
+      "Severity": 50,
+      "Id": 1
+    },
+    "ProjectName": "mvvmlight",
+    "ReportedDate": "2015-01-14T14:14:09.07-08:00",
+    "Status": {
+      "Name": "Closed",
+      "Id": 4
+    },
+    "ReasonClosed": {
+      "Name": "Fixed"
+    },
+    "Summary": "MonoTouch10 vs. Xamarinios10 ",
+    "Type": {
+      "Name": "Issue",
+      "Id": 3
+    },
+    "VoteCount": 3,
+    "Id": 7679
+  },
+  "FileAttachments": [],
+  "Comments": [
+    {
+      "Message": "Hi,\n\nI was just in the process of porting. I copied the DLLs at this location:\nhttp://1drv.ms/1ylP1TS\n\nI also ported my Xamarin Evolve sample (Flowers) to the new Unified API. The sample can be found here:\nhttp://1drv.ms/1xt11xu\n\nI will update the Nuget package ASAP. I have a few other things I want to take care in this release. In the mean time, the DLLs here should help you to port your app.\n\nCheers\nLaurent",
+      "PostedDate": "2015-01-15T07:24:59.72-08:00",
+      "Id": 170126
+    },
+    {
+      "Message": "Blog announcement: http://blog.galasoft.ch/posts/2015/01/porting-mvvmlight-to-the-xamarin-ios-unified-api-64-bits/",
+      "PostedDate": "2015-01-15T07:36:19.313-08:00",
+      "Id": 170129
+    },
+    {
+      "Message": "Thanks Laurent, this will work perfectly for us. As you recommended on your blog, we will switch back to the nuget package when you have that up.",
+      "PostedDate": "2015-01-15T08:04:36.767-08:00",
+      "Id": 170134
+    },
+    {
+      "Message": "Hi,\n\nI've downloaded the Xamarin Evolve Flowers example from the link above, but I have a compiler error (Xamarin Studio):\n\n/Flowers/Flowers.Forms/Flowers.Forms/Flowers.Forms/Helpers/DialogService.cs(18,18): Error CS0738: `Flowers.Forms.Helpers.DialogService' does not implement interface member `GalaSoft.MvvmLight.Views.IDialogService.ShowMessage(string, string, string, string, System.Action<bool>)' and the best implementing candidate `Flowers.Forms.Helpers.DialogService.ShowMessage(string, string, string, string, System.Action<bool>)' return type `System.Threading.Tasks.Task' does not match interface member return type `System.Threading.Tasks.Task<bool>' (CS0738) (Flowers.Forms)\n\nThanks,\nClaudiu",
+      "PostedDate": "2015-01-26T06:46:35.933-08:00",
+      "Id": 170795
+    },
+    {
+      "Message": "Hi Claudiu,\n\nWeird, I though I updated that already. I will check it out.\n\nThanks for the report,\nLaurent",
+      "PostedDate": "2015-01-26T13:57:08.31-08:00",
+      "Id": 170829
+    },
+    {
+      "Message": "Hi Laurent,\n\nAny update on the Flowers project?\n\nThanks,\nClaudiu",
+      "PostedDate": "2015-02-03T09:23:36.297-08:00",
+      "Id": 173422
+    },
+    {
+      "Message": "Hey Claudiu,\n\nI just checked and the Xamarin.Forms project builds fine for me. It seems that you are referencing an outdated version of MVVM Light. \n\nTo be clear, the DLLs you must reference are included in the References folder which is in the zip file. I am about to update the Nuget package too but I am not completely ready yet.\n\nSorry for the confusion\nThanks\nLaurent",
+      "PostedDate": "2015-02-03T10:21:28.767-08:00",
+      "Id": 173425
+    },
+    {
+      "Message": "OK I talked too fast. The link that is referenced above is (for some reason) an old version of the sample. Let me sort things out and I will comment back here.",
+      "PostedDate": "2015-02-03T10:22:55.143-08:00",
+      "Id": 173426
+    },
+    {
+      "Message": "Please use the following link for the Xamarin Evolve sample:\nhttp://1drv.ms/1yNA7qU\n\nTo avoid confusion between the versions, I deleted the previous one.\n\nAgain, sorry about the confusion. \nCheers\nLaurent",
+      "PostedDate": "2015-02-03T10:27:43.79-08:00",
+      "Id": 173427
+    },
+    {
+      "Message": "Solved in V5.1 (upcoming)",
+      "PostedDate": "2015-02-06T07:37:45.36-08:00",
+      "Id": 173636
+    },
+    {
+      "Message": "DLLs are available here:\nhttp://1drv.ms/1ylP1TS\n\nNuget will be updated ASAP.",
+      "PostedDate": "2015-02-06T09:12:04.68-08:00",
+      "Id": 173649
+    }
+  ]
+}

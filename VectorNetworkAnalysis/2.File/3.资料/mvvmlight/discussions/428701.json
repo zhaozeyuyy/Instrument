@@ -1,0 +1,58 @@
+[
+  {
+    "Id": "983591",
+    "ThreadId": "428701",
+    "Html": "\r\n<p>Just want to let developer know that the latest version (4.1.26)&nbsp;of MVVM Light Toolkit won't work on WP 7.1 project in VS 2012. Tried to install toolkit from NuGet, and did some control command bindings, everything worked fine when using WP8 emulator.\r\n But when deployed on my WP7 device, none of command binding worked.</p>\r\n",
+    "PostedDate": "2013-01-06T18:26:49.96-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "984100",
+    "ThreadId": "428701",
+    "Html": "\r\n<p>Me too, I just updated from 4.0.23 to 4.1.26 and my WP71 app just blown up together with blend and visual studio design preview window.\r\n<br>\r\nI have plenty of errors of any kind, selling them on 50% sale if anyone is interested :)<br>\r\n<br>\r\nI am in a dead end because I updated to fix the &quot;System.ComponentModel.INotifyPropertyChanging&quot; bug in blend but I found myself with other things like the design preview in VS12 not working and crashing as soon as I breathe.<br>\r\n<br>\r\nSometimes I get</p>\r\n<p style=\"margin:0in; font-family:Calibri; font-size:11.0pt\">System.Runtime.Remoting.RemotingException</p>\r\n<p style=\"margin:0in; font-family:Calibri; font-size:11.0pt\">[3484] Designer process terminated unexpectedly!</p>\r\n<p style=\"margin:0in; font-family:Calibri; font-size:11.0pt\">&nbsp;</p>\r\n<p style=\"margin:0in; font-family:Calibri; font-size:11.0pt\">other times</p>\r\n<p style=\"margin:0in; font-family:Calibri; font-size:11.0pt\">Microsoft.Expression.DesignHost.Isolation.Remoting.RemoteExceptionCould not load file or assembly 'LocationService.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e' or one\r\n of its dependencies. The system cannot find the file specified.at System.Device.Location.GeoCoordinateWatcher.Dispose(Boolean disposing)at System.Device.Location.GeoCoordinateWatcher.Finalize()</p>\r\n<p style=\"margin:0in; font-family:Calibri; font-size:11.0pt\">&nbsp;</p>\r\n<p style=\"margin:0in; font-family:Calibri; font-size:11.0pt\">or StackTrace as</p>\r\n<p style=\"margin:0in; font-family:Calibri; font-size:11.0pt\"></p>\r\n<pre>at [projectname].Views.LogoToMaskColor.Convert(Object value, Type targetType, Object parameter, CultureInfo culture)at System.Windows.Data.BindingExpression.ConvertToTarget(Object value)at System.Windows.Data.BindingExpression.GetValue(DependencyObject d, DependencyProperty dp)at System.Windows.DependencyObject.EvaluateExpression(DependencyProperty property, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry)at System.Windows.DependencyObject.EvaluateBaseValue(DependencyProperty property, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, ValueOperation operation)at System.Windows.DependencyObject.EvaluateEffectiveValue(DependencyProperty property, EffectiveValueEntry oldEntry, EffectiveValueEntry newEntry, ValueOperation operation)at System.Windows.DependencyObject.UpdateEffectiveValue(DependencyProperty property, EffectiveValueEntry oldEntry, EffectiveValueEntry& newEntry, ValueOperation operation)at System.Windows.DependencyObject.RefreshExpression(DependencyProperty dp)at System.Windows.Data.BindingExpression.SendDataToTarget()at System.Windows.Data.BindingExpression.SourceAcquired()at System.Windows.Data.BindingExpression.System.Windows.IDataContextChangedListener.OnDataContextChanged(Object sender, DataContextChangedEventArgs e)at System.Windows.Data.BindingExpression.DataContextChanged(Object sender, DataContextChangedEventArgs e)at System.Windows.FrameworkElement.OnDataContextChanged(DataContextChangedEventArgs e)at System.Windows.FrameworkElement.OnAncestorDataContextChanged(DataContextChangedEventArgs e)at System.Windows.FrameworkElement.NotifyDataContextChanged(DataContextChangedEventArgs e)at System.Windows.FrameworkElement.OnAncestorDataContextChanged(DataContextChangedEventArgs e)at System.Windows.FrameworkElement.NotifyDataContextChanged(DataContextChangedEventArgs e)at System.Windows.FrameworkElement.OnTreeParentUpdated(DependencyObject newParent, Boolean bIsNewParentAlive)at System.Windows.DependencyObject.UpdateTreeParent(IManagedPeer oldParent, IManagedPeer newParent, Boolean bIsNewParentAlive, Boolean keepReferenceToParent)at MS.Internal.FrameworkCallbacks.ManagedPeerTreeUpdate(IntPtr oldParentElement, IntPtr parentElement, IntPtr childElement, Byte bIsParentAlive, Byte bKeepReferenceToParent, Byte bCanCreateParent)</pre>\r\n<p></p>\r\n<p style=\"margin:0in; font-family:Calibri; font-size:11.0pt\">&nbsp;</p>\r\n<p style=\"margin:0in; font-family:Calibri; font-size:11.0pt\">&nbsp;</p>\r\n<p style=\"margin:0in; font-family:Calibri; font-size:11.0pt\">now the &quot;XXXviewModel&quot; does not exist in the &quot;ViewModelNamespace&quot; that was in 4.1.26 propagated from blend to VS12 too and in 4.0.23. yeah.</p>\r\n",
+    "PostedDate": "2013-01-08T07:29:27.34-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "984108",
+    "ThreadId": "428701",
+    "Html": "\r\n<p>and with 4.0.23 I can't create a new SampleData from class because I get:</p>\r\n<p style=\"margin:0in; font-family:Calibri; font-size:11.0pt; color:#686868\">Could not load the assembly [appanme] because the following errors occurred:</p>\r\n<p style=\"margin:0in; font-family:Calibri; font-size:11.0pt; color:#686868\">Could not load type System.ComponentModel.lNotifyPropertyChanging from assembly</p>\r\n<p style=\"margin:0in; font-family:Calibri; font-size:11.0pt; color:#686868\">. mscorlib.extensions, Version=2,O,5,O, Culture=neutral, PublicKeyToken=7cec85d7bea7798</p>\r\n<p style=\"margin:0in; font-family:Calibri; font-size:11.0pt; color:#686868\">Could not load type System.ComponentModel.lNotifyPropertyChanging from assembly</p>\r\n<p style=\"margin:0in; font-family:Calibri; font-size:11.0pt; color:#686868\">. mscorlib.extensions, Version=2,O,5,O, Culture=neutral, PublicKeyToken=7cec85d7bea7798</p>\r\n<p style=\"margin:0in; font-family:Calibri; font-size:11.0pt; color:#686868\">Could not load type System.ComponentModel.lNotifyPropertyChanging from assembly</p>\r\n<p style=\"margin:0in; font-family:Calibri; font-size:11.0pt; color:#686868\">. mscorlib.extensions, Version=2,O,5,O, Culture=neutral, PublicKeyToken=7cec85d7bea7798</p>\r\n<p style=\"margin:0in; font-family:Calibri; font-size:11.0pt; color:#686868\">Could not load type System.ComponentModel.lNotifyPropertyChanging from assembly</p>\r\n<p style=\"margin:0in; font-family:Calibri; font-size:11.0pt; color:#686868\">. mscorlib.extensions, Version=2,O,5,O, Culture=neutral, PublicKeyToken=7cec85d7bea7798</p>\r\n<p style=\"margin:0in; font-family:Calibri; font-size:11.0pt; color:#686868\">Could not load type System.ComponentModel.lNotifyPropertyChanging from assembly</p>\r\n<p style=\"margin:0in; font-family:Calibri; font-size:11.0pt; color:#686868\">. mscorlib.extensions, Version=2,O,5,O, Culture=neutral, PublicKeyToken=7cec85d7bea7798</p>\r\n<p>(as is, repeated 5 times)</p>\r\n",
+    "PostedDate": "2013-01-08T07:55:42.267-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1036573",
+    "ThreadId": "428701",
+    "Html": "Hi again,<br />\nI solved the Blend crashing and Design Preview window in VS12 not showing prview with the trick described here:<br />\n<a href=\"http://stackoverflow.com/questions/15326131/visual-studio-expression-remoteexception\" rel=\"nofollow\">http://stackoverflow.com/questions/15326131/visual-studio-expression-remoteexception</a><br />\n<pre><code>if (!ViewModelBase.IsInDesignModeStatic)\n {\n     _watcher = new GeoCoordinateWatcher(GeoPositionAccuracy.High) { MovementThreshold = 5 };\n }</code></pre>\n\nI hope it could help and I am curious to know why this happened and why this fixes the problem, I will really appreciate that.<br />\n<br />\nThanks for MVVM Light!<br />\n",
+    "PostedDate": "2013-04-27T10:47:50.727-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1036890",
+    "ThreadId": "428701",
+    "Html": "There are some things in Windows Phone and WPF apps that require hardware to work correctly. In a designer like Blend, this hardware may not be present. As such, when trying to instantiate those components that communicate directly with the hardware will generally throw errors indicating since the hardware is not available.<br />\n",
+    "PostedDate": "2013-04-28T21:25:06.047-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1036895",
+    "ThreadId": "428701",
+    "Html": "That is correct. In addition to hardware issue, Blend can have issues with asynchronous code (for example when attempting to access web services), thread switching, database access, etc. \r<br />\n<br />\nIn some of my presentations, I show how to attach a Visual Studio debugger to able Blend while it is running your code, and how to execute the code until you find what line is causing the issue. You can then work around the issue with a variety of tricks including avoiding to execute some parts of the code in design mode, and using mocked services to create Blend-safe services.\r<br />\n<br />\ncheers\r<br />\nLaurent<br />\n",
+    "PostedDate": "2013-04-28T21:37:54.41-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "1037014",
+    "ThreadId": "428701",
+    "Html": "Thank you both so much for the explanation.\r<br />\n<br />\nThe thing that keeps bothering me is that I worked with that line of code in designMode for months and it worked flawlessly. Misteries of VS and Blend...<br />\n",
+    "PostedDate": "2013-04-29T02:50:56.893-07:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

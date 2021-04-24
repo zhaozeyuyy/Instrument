@@ -1,0 +1,51 @@
+﻿using System;
+
+namespace GalaSoft.MvvmLight.Messaging
+{
+	public class GenericMessageAction<TContent> : GenericMessage<TContent>
+	{
+		public GenericMessageAction(TContent content, Action action)
+			: base(content) {
+
+		}
+
+		public GenericMessageAction(object sender, TContent content, Action action)
+			: base(sender, content) {
+
+		}
+
+		public GenericMessageAction(object sender, object target, TContent content, Action action)
+			: base(sender, target, content) {
+
+		}
+
+		public Action Callback { get; set; }
+
+		public void ProcessCallback() {
+			if (this.Callback != null)
+				this.Callback();
+		}
+	}
+
+	public class GenericMessageAction<TContent, TResult> : GenericMessage<TContent>
+	{
+		public GenericMessageAction(TContent content, Action<TResult> action) : base(content) {
+
+		}
+
+		public GenericMessageAction(object sender, TContent content, Action<TResult> action) : base(sender, content) {
+
+		}
+
+		public GenericMessageAction(object sender, object target, TContent content, Action<TResult> action) : base(sender, target, content) {
+
+		}
+
+		public Action<TResult> Callback { get; set; }
+
+		public void ProcessCallback(TResult result) {
+			if (this.Callback != null)
+				this.Callback(result);
+		}
+	}
+}

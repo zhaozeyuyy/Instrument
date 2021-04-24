@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "523231",
+    "ThreadId": "235025",
+    "Html": "I am using devexpress. Their tab control, and it appears any tab control an run using the VM. But, to run correctly it requires the control be added not the VM. If you assign VM it reload info every time. I do no want to ruin the pattern but may have to.\r\n Any suggestion on the best way to handle this?",
+    "PostedDate": "2010-11-17T06:22:21.657-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  },
+  {
+    "Id": "523431",
+    "ThreadId": "235025",
+    "Html": "\r\n<p>I was previously assigning the Tab controls ItemsSource to the list of WorkspaceViewModel objects. But by doing so it becomes data aware and the loading of data is basically refreshed everytime you change tabs. This causes huge delays and you lose your current\r\n Selected Items.</p>\r\n<p>So I set up a listener to add to the Tab manually. But I can't add the workspace I have to add the associated control. For now I am adding a reference to the control, but I hate it.</p>\r\n<p>What would be a better way.</p>\r\n",
+    "PostedDate": "2010-11-17T12:29:08.153-08:00",
+    "UserRole": null,
+    "MarkedAsAnswerDate": null
+  }
+]

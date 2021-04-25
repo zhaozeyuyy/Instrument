@@ -1,11 +1,11 @@
-﻿//********************************************************
+﻿///////////////////////////////////////////////////////////////
 //***@File Name:ITraceManagerMode.cs
 //***@Discription:曲线管理总类接口
 //***@Creator: zhaozeyu
 //***@Create Data:2021.04.24
 //***@Revision History:
 //***
-//********************************************************/
+///////////////////////////////////////////////////////////////
 
 using System;
 using System.Collections.Generic;
@@ -22,6 +22,11 @@ namespace VNA.CommonElement
         /// 默认迹线的索引 可以没有，为-1
         /// </summary>
         int CurrActiveTrcIndex { get; set; }
+
+        /// <summary>
+        /// 曲线的数组
+        /// </summary>
+        ITraceMode[] TraceTable { get; set; }
 
         #endregion
 
@@ -65,6 +70,12 @@ namespace VNA.CommonElement
         /// <param name="trcIndex"></param>
         /// <returns></returns>
         bool DeleteTraceByIndex(int trcIndex);
+
+        /// <summary>
+        /// 激活指定曲线
+        /// </summary>
+        /// <param name="trcIndex"></param>
+        void ActiveTraceByIndex(int trcIndex);
 
         #endregion
     }

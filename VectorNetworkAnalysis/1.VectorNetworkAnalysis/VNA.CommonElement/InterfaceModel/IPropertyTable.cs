@@ -1,8 +1,8 @@
 ﻿///////////////////////////////////////////////////////////////
-//***@File Name:IChannelModel.cs
-//***@Discription:通道接口
+//***@File Name:IPropertyTable.cs
+//***@Discription:通道属性页 根据不同的通道测量类型生产属性页，也根据软件的整体类型生产属性页
 //***@Creator: zhaozeyu
-//***@Create Data:2021.04.24
+//***@Create Data:2021.04.25
 //***@Revision History:
 //***
 ///////////////////////////////////////////////////////////////
@@ -15,34 +15,13 @@ using System.Threading.Tasks;
 
 namespace VNA.CommonElement
 {
-    public interface IChannelModel
+    public interface IPropertyTable
     {
         #region 参数
-
         /// <summary>
-        /// 通道索引
-        /// </summary>
-        int ChanIndex { get; set; }
-
-        /// <summary>
-        /// 通道是否启用
-        /// </summary>
-        bool IsEnable { get; set; }
-
-        /// <summary>
-        /// 当前通道的测量模式
+        /// 属性页配属的通道的测量模式
         /// </summary>
         Mode MeasureMode { get; set; }
-
-        /// <summary>
-        /// 通道的激活曲线
-        /// </summary>
-        int DefaultTrcIndex { get; set; }
-
-        /// <summary>
-        /// 属性页，可以用于切换通道测量模式的进行替换
-        /// </summary>
-        IPropertyTable PropertyTable { get; set; }
         #endregion
 
         #region 方法
@@ -65,7 +44,6 @@ namespace VNA.CommonElement
         /// 通道根据测量模式生成属性
         /// </summary>
         void InitGenerateProperty();
-
         #endregion
     }
 }

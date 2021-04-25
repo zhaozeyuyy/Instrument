@@ -1,11 +1,11 @@
-﻿//********************************************************
+﻿///////////////////////////////////////////////////////////////
 //***@File Name:IChannelManagerMode.cs
 //***@Discription:通道管理总类接口
 //***@Creator: zhaozeyu
 //***@Create Data:2021.04.24
 //***@Revision History:
 //***
-//********************************************************/
+///////////////////////////////////////////////////////////////
 
 using System;
 using System.Collections.Generic;
@@ -24,6 +24,10 @@ namespace VNA.CommonElement
         /// </summary>
         int CurrActiveChanIndex { get; set; }
 
+        /// <summary>
+        /// 所有通道的通道数组
+        /// </summary>
+        IChannelModel[] ChannelTable { get; set; }
         #endregion
 
         #region 方法
@@ -66,6 +70,12 @@ namespace VNA.CommonElement
         /// <param name="chanIndex">通道索引</param>
         /// <returns></returns>
         bool DeleteChannelByIndex(int chanIndex);
+
+        /// <summary>
+        /// 根据索引激活通道
+        /// </summary>
+        /// <param name="chanIndex"></param>
+        void ActiveChannelByIndex(int chanIndex);
         #endregion
     }
 }
